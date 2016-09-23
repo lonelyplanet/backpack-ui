@@ -1,9 +1,11 @@
+/* @flow */
 import React from "react";
 import radium from "radium";
 import assign from "object-assign";
 import settings from "rizzo-next/sass/settings.json";
 import { lighten } from "../../utils/color";
 import outline from "../../utils/mixins";
+import type { ButtonProps } from "../../../types";
 
 const hoverStyles = {
   base: {
@@ -135,7 +137,7 @@ function Button({
   full,
   useBorder,
   disabled,
-}) {
+}: ButtonProps) {
   const Element = href ? "a" : "button";
   const role = Element === "a" ? "button" : "";
 
@@ -148,7 +150,7 @@ function Button({
     full && styles.type.full,
     disabled && styles.disabled,
     useBorder && {
-      borderColor: (color === "white") ? color.blue : color.white,
+      borderColor: (color === "white") ? styles.color.blue : styles.color.white,
       borderStyle: "solid",
       borderWidth: "1px",
     },

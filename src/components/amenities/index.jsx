@@ -1,7 +1,20 @@
+/* @flow */
 import React from "react";
 import radium from "radium";
 import { color } from "rizzo-next/sass/settings.json";
 import { span } from "../../utils/grid";
+
+export type Group = {
+  title: string,
+  items: Array<Object>,
+  capitalize: boolean
+};
+
+export type AmenitiesProps = {
+  columns: number,
+  items: Array<Group>,
+  listType: string,
+};
 
 const styles = {
   container: {
@@ -61,7 +74,8 @@ function markup(htmlContent) {
     __html: htmlContent,
   };
 }
-const getListItems = (items, capitalize) => {
+
+const getListItems = (items: Array<Group>, capitalize: boolean = false) => {
   const ListItems = items.map((item, index) => (
     <li
       key={index}
@@ -73,7 +87,7 @@ const getListItems = (items, capitalize) => {
   return ListItems;
 };
 
-const getGroupedItems = (items) => {
+const getGroupedItems = (items: Array<Group>) => {
   const GroupedItems = items.map((group, index) => {
     const groupedItemStyle = [styles.item.grouped.base];
 
@@ -103,7 +117,7 @@ const getGroupedItems = (items) => {
 /**
  * Amenities list component
  */
-function Amenities({ columns, items = [], listType }) {
+function Amenities({ columns, items = [], listType }: AmenitiesProps) {
   const columnWidth = span(`${(6 / columns)} of 6`, "static");
 
   const style = {
