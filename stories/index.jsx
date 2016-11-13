@@ -53,6 +53,7 @@ import ProviderLogo from "../src/components/providerLogo";
 import Rating from "../src/components/rating";
 import RelatedTour from "../src/components/relatedTour";
 import ReviewedBadge from "../src/components/reviewedBadge";
+import SightsListItem from "../src/components/sightsListItem";
 import Select from "../src/components/form/select";
 import ShareMenu from "../src/components/shareMenu";
 // SidebarSection
@@ -542,6 +543,24 @@ storiesOf("Reviewed badge", module)
 storiesOf("Select", module)
   .add("Default", () => (
     <Select options={["USA", "France", "Spain"]} />
+  ));
+
+storiesOf("Sights List Item", module)
+  .add("Default", () => (
+    <SightsListItem
+      slug="/path/to/item"
+      title="Zimbabwe"
+      subtitle="SOUTHERN AFRICA"
+      markerNumber={1}
+    />
+  )).add("With Image", () => (
+    <SightsListItem
+      slug="/path/to/item"
+      title="Zimbabwe"
+      subtitle="SOUTHERN AFRICA"
+      imgPath="https://s3.amazonaws.com/static-asset/backpack-ui/south-pole.80x60.jpg"
+      markerNumber={1}
+    />
   ));
 
 storiesOf("Share menu", module)
