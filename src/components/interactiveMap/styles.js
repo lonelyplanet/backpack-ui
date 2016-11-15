@@ -8,8 +8,6 @@ const styles = {
   container: {
     base: {
       position: "relative",
-      width: 628,
-      height: 400,
       zIndex: zIndex.default,
     },
 

@@ -26,7 +26,7 @@ class InteractiveMap extends Component {
     this.setMarkerStyles();
     this.initTiles();
     this.initMarkers();
-    this.setBounds();
+    this.setMapBounds();
   }
 
   initMap() {
@@ -47,26 +47,30 @@ class InteractiveMap extends Component {
   }
 
   initMarkers() {
-    const { places } = this.props;
+    const { places, markerSize } = this.props;
     places.map((place, index) => {
       const marker = leaflet.marker([place.lat, place.long], {
         opacity: 1,
         icon: leaflet.divIcon({
           className: "leaflet-div-icon-see",
-          iconSize: [20, 20],
+          iconSize: markerSize,
           html: icons.see,
         }),
         id: `marker-${index}`,
         riseOnHover: true,
       }).addTo(this.leafletMap);
 
-      marker.bindPopup(place.title);
-      marker.on("mouseover", () => {
-        marker.openPopup();
-      });
-      marker.on("mouseout", () => {
-        marker.closePopup();
-      });
+      this.addPopupToMarker(marker, place.title);
+    });
+  }
+
+  addPopupToMarker(marker, title) {
+    marker.bindPopup(title);
+    marker.on("mouseover", () => {
+      marker.openPopup();
+    });
+    marker.on("mouseout", () => {
+      marker.closePopup();
     });
   }
 
@@ -95,7 +99,7 @@ class InteractiveMap extends Component {
     });
   }
 
-  setBounds() {
+  setMapBounds() {
     const { places } = this.props;
     const placesCoords = places.map(place => [place.lat, place.long]);
     this.leafletMap.fitBounds(placesCoords, {
@@ -104,8 +108,9 @@ class InteractiveMap extends Component {
   }
 
   render() {
+    const { width, height } = this.props;
     return (
-      <div className="InteractiveMap-container" style={styles.container.base}>
+      <div className="InteractiveMap-container" style={[styles.container.base, { width, height }]}>
         <Style
           scopeSelector=".InteractiveMap-container"
           rules={Object.assign(scopedStyles, markerStyles)}
@@ -122,7 +127,14 @@ InteractiveMap.propTypes = {
     lat: PropTypes.number,
     long: PropTypes.number,
   })).isRequired,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  markerSize: PropTypes.arrayOf(PropTypes.number),
 };
 
-
+InteractiveMap.defaultProps = {
+  width: 628,
+  height: 400,
+  markerSize: [20, 20],
+};
 export default radium(InteractiveMap);
