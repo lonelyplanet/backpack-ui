@@ -1,4 +1,5 @@
 import React from "react";
+import "leaflet/dist/leaflet.css";
 import { storiesOf, action } from "@kadira/storybook";
 import data from "./data.json";
 import Colors from "./Colors";
@@ -26,6 +27,8 @@ import IconButton from "../src/components/iconButton";
 import ImageCarousel from "../src/components/imageCarousel";
 // ImageGallery
 import ImageHero from "../src/components/imageHero";
+import InteractiveMap from "../src/components/interactiveMap";
+
 // LastUpdated
 import Lede from "../src/components/lede";
 // ListItem
@@ -288,6 +291,30 @@ storiesOf("Image hero", module)
     <ImageHero
       image="https://s3.amazonaws.com/static-asset/backpack-ui/ImageHero.770x430.jpg"
       imageSize={[770, 430]}
+    />
+  ));
+
+storiesOf("Interactive Map", module)
+  .add("Default", () => (
+    <InteractiveMap
+      places={[
+        {
+          title: "Zimbabwe",
+          lat: -19.015438,
+          long: 29.154857,
+        },
+        {
+          title: "Rio De Janeiro",
+          lat: -22.906847,
+          long: -43.172896,
+        },
+        {
+          title: "Wahiki Island",
+          lat: -36.801924,
+          long: 175.108015,
+        },
+      ]
+      }
     />
   ));
 
