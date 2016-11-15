@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import radium, { Style } from "radium";
 import leaflet from "leaflet";
-import { styles, scopedStyles, markerStyles, markerStylesMixin } from "./styles";
-import { color } from "../../../settings.json";
+import { styles, scopedStyles, markerStyles, markerColors, markerStylesMixin } from "./styles";
 import icons from "./icons";
 
 const mapSettings = {
@@ -23,26 +22,55 @@ const mapSettings = {
 
 class InteractiveMap extends Component {
   componentDidMount() {
-    const { places } = this.props;
-    const placesCoords = places.map(place => [place.lat, place.long]);
+    this.initMap();
+    this.setMarkerStyles();
+    this.initTiles();
+    this.initMarkers();
+    this.setBounds();
+  }
+
+  initMap() {
     this.leafletMap = leaflet.map("map", {
       scrollWheelZoom: false,
       zoomControl: false,
       attributionControl: false,
     });
+  }
 
-    const markerColors = {
-      eat: color.poiEat,
-      drink: color.poiDrink,
-      play: color.poiPlay,
-      see: color.poiSee,
-      shop: color.poiShop,
-      sleep: color.poiSleep,
-      transport: color.poiTransport,
-      default: color.poiDefault,
-      center: color.blue,
-    };
+  initTiles() {
+    leaflet.tileLayer(mapSettings.url, {
+      accessToken: mapSettings.accessToken,
+      attribution: mapSettings.attribution,
+      id: mapSettings.projectId,
+      maxZoom: mapSettings.maxZoom,
+    }).addTo(this.leafletMap);
+  }
 
+  initMarkers() {
+    const { places } = this.props;
+    places.map((place, index) => {
+      const marker = leaflet.marker([place.lat, place.long], {
+        opacity: 1,
+        icon: leaflet.divIcon({
+          className: "leaflet-div-icon-see",
+          iconSize: [20, 20],
+          html: icons.see,
+        }),
+        id: `marker-${index}`,
+        riseOnHover: true,
+      }).addTo(this.leafletMap);
+
+      marker.bindPopup(place.title);
+      marker.on("mouseover", () => {
+        marker.openPopup();
+      });
+      marker.on("mouseout", () => {
+        marker.closePopup();
+      });
+    });
+  }
+
+  setMarkerStyles() {
     Object.keys(markerColors).forEach((type) => {
       if (type === "center") {
         Object.assign(markerStyles, {
@@ -65,34 +93,11 @@ class InteractiveMap extends Component {
         });
       }
     });
+  }
 
-    leaflet.tileLayer(mapSettings.url, {
-      accessToken: mapSettings.accessToken,
-      attribution: mapSettings.attribution,
-      id: mapSettings.projectId,
-      maxZoom: mapSettings.maxZoom,
-    }).addTo(this.leafletMap);
-    places.map((place, index) => {
-      const marker = leaflet.marker([place.lat, place.long], {
-        opacity: 1,
-        icon: leaflet.divIcon({
-          className: "leaflet-div-icon-see",
-          iconSize: [20, 20],
-          html: icons.see,
-        }),
-        id: `marker-${index}`,
-        riseOnHover: true,
-      }).addTo(this.leafletMap);
-
-      marker.bindPopup(place.title);
-      marker.on("mouseover", () => {
-        marker.openPopup();
-      });
-      marker.on("mouseout", () => {
-        marker.closePopup();
-      });
-    });
-
+  setBounds() {
+    const { places } = this.props;
+    const placesCoords = places.map(place => [place.lat, place.long]);
     this.leafletMap.fitBounds(placesCoords, {
       padding: [30, 30],
     });
@@ -118,5 +123,6 @@ InteractiveMap.propTypes = {
     long: PropTypes.number,
   })).isRequired,
 };
+
 
 export default radium(InteractiveMap);

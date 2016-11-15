@@ -192,4 +192,16 @@ function markerStylesMixin(markerColor, mode, state) {
   };
 }
 
-export { styles, scopedStyles, markerStyles, markerStylesMixin };
+const markerColors = {
+  eat: color.poiEat,
+  drink: color.poiDrink,
+  play: color.poiPlay,
+  see: color.poiSee,
+  shop: color.poiShop,
+  sleep: color.poiSleep,
+  transport: color.poiTransport,
+  default: color.poiDefault,
+  center: color.blue,
+};
+
+export { styles, scopedStyles, markerStyles, markerColors, markerStylesMixin };
