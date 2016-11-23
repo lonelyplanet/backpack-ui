@@ -40,6 +40,7 @@
     "react-router": "^2.8.1",
     "react-slick": "^0.14.4",
     "react-tether": "^0.5.2",
+    "styled-components": "^1.1.1",
     "truncate": "^2.0.0"
   },
   "peerDependencies": {
