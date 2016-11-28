@@ -10,6 +10,7 @@ const maxWidth = (containerWidth + (gutterWidth * 4));
 const mediaQuery = `${(maxWidth * 0.625)}em`;
 
 const Container = styled.div`
+  box-sizing: border-box;
   max-width: ${containerWidth}px;
   margin-left: auto;
   margin-right: auto;
