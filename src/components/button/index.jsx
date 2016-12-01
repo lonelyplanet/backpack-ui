@@ -100,10 +100,12 @@ const styles = {
 
   type: {
     rounded: {
-      borderRadius: "100px", // a value large enough to scale
-      paddingLeft: `${19 / 9}em`,
-      paddingRight: `${19 / 9}em`,
-      paddingTop: `${12 / 9}em`,
+      base: {
+        borderRadius: "100px", // a value large enough to scale
+        paddingLeft: `${19 / 9}em`,
+        paddingRight: `${19 / 9}em`,
+        paddingTop: `${12 / 9}em`,
+      },
 
       tiny: {
         paddingBottom: `${9 / 9}em`,
@@ -162,7 +164,7 @@ function Button({
     styles.base,
     color && styles.color[color],
     size && styles.size[size],
-    rounded && styles.type.rounded,
+    rounded && styles.type.rounded.base,
     rounded && styles.type.rounded[size],
     full && styles.type.full,
     customStyles,
@@ -242,6 +244,7 @@ Button.propTypes = {
   customStyles: React.PropTypes.objectOf(
     React.PropTypes.string,
     React.PropTypes.number,
+    React.PropTypes.object,
   ),
 
   /**

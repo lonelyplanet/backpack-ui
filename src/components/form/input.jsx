@@ -116,6 +116,7 @@ Input.propTypes = {
   customStyles: React.PropTypes.objectOf(
     React.PropTypes.string,
     React.PropTypes.number,
+    React.PropTypes.object,
   ),
 
   onChange: React.PropTypes.func,
