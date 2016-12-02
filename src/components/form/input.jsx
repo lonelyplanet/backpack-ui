@@ -114,9 +114,11 @@ Input.propTypes = {
   fill: React.PropTypes.bool,
 
   customStyles: React.PropTypes.objectOf(
-    React.PropTypes.string,
-    React.PropTypes.number,
-    React.PropTypes.object,
+    React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number,
+      React.PropTypes.object,
+    ]),
   ),
 
   onChange: React.PropTypes.func,

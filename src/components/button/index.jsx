@@ -242,9 +242,11 @@ Button.propTypes = {
    * Special styles passed in props
    */
   customStyles: React.PropTypes.objectOf(
-    React.PropTypes.string,
-    React.PropTypes.number,
-    React.PropTypes.object,
+    React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number,
+      React.PropTypes.object,
+    ]),
   ),
 
   /**

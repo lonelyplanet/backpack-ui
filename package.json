@@ -25,7 +25,7 @@
     "moment": "^2.15.1",
     "no-scroll": "^2.0.0",
     "object-assign": "^4.1.0",
-    "radium": "^0.17.2",
+    "radium": "^0.18.1",
     "rc-slider": "^5.1.1",
     "react": "^15.3.2",
     "react-addons-shallow-compare": "^15.3.2",
