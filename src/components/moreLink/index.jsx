@@ -1,15 +1,19 @@
 import React from "react";
 import radium from "radium";
 import assign from "object-assign";
+import upperFirst from "lodash/upperFirst";
 import Icon from "../icon";
 import { blueLink } from "../../utils/mixins";
 import font from "../../utils/font";
+
+const _ = { upperFirst };
 
 const styles = {
   container: {
     base: assign({}, blueLink(), {
       backgroundColor: "transparent",
       border: 0,
+      display: "inline-block",
       fontFamily: font("benton"),
       fontSize: "13px",
       fontWeight: 400,
@@ -31,7 +35,6 @@ const styles = {
 
   icon: {
     base: {
-      marginLeft: ".5em",
       position: "relative",
       top: `${-2 / 13}em`,
       verticalAlign: "baseline",
@@ -51,7 +54,17 @@ const styles = {
  * @usage
  * <MoreLink href="/foo">View all tours</MoreLink>
  */
-function MoreLink({ href, size, children, onClick, caps, hideIcon, isNested, style }) {
+function MoreLink({
+  href,
+  size,
+  children,
+  onClick,
+  caps,
+  hideIcon,
+  isNested,
+  style,
+  arrowDirection,
+}) {
   let Element = "";
 
   if (isNested) {
@@ -62,7 +75,18 @@ function MoreLink({ href, size, children, onClick, caps, hideIcon, isNested, sty
     Element = "button";
   }
 
-  const iconStyle = assign({}, styles.icon.base, size && styles.icon.size[size]);
+  const iconStyle = assign({},
+    styles.icon.base,
+    size && styles.icon.size[size],
+    arrowDirection !== "left" && { marginLeft: ".5em" },
+    arrowDirection === "left" && { marginRight: ".5em" }
+  );
+
+  const IconElement = React.createElement(Icon[`Chevron${_.upperFirst(arrowDirection)}`], {
+    height: "6px",
+    width: "6px",
+    style: iconStyle,
+  });
 
   return (
     <Element
@@ -76,13 +100,14 @@ function MoreLink({ href, size, children, onClick, caps, hideIcon, isNested, sty
       href={href}
       onClick={onClick}
     >
+      {!hideIcon && arrowDirection === "left" &&
+        IconElement
+      }
+
       {children}
-      {!hideIcon &&
-        <Icon.ChevronRight
-          height="6px"
-          width="6px"
-          style={iconStyle}
-        />
+
+      {!hideIcon && arrowDirection !== "left" &&
+        IconElement
       }
     </Element>
   );
@@ -134,6 +159,16 @@ MoreLink.propTypes = {
     React.PropTypes.string,
     React.PropTypes.number,
   ),
+
+  /**
+   * Direction of the arrow
+   */
+  arrowDirection: React.PropTypes.oneOf([
+    "up",
+    "down",
+    "left",
+    "right",
+  ]),
 };
 
 MoreLink.defaultProps = {
@@ -150,6 +185,8 @@ MoreLink.defaultProps = {
   isNested: false,
 
   style: {},
+
+  arrowDirection: "right",
 };
 
 MoreLink.styles = styles;
