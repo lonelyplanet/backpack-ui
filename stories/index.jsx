@@ -449,6 +449,27 @@ storiesOf("More link", module)
       children="View all tours"
       hideIcon
     />
+  ))
+  .add("Arrow up", () => (
+    <MoreLink
+      href="/"
+      children="View all tours"
+      arrowDirection="up"
+    />
+  ))
+  .add("Arrow down", () => (
+    <MoreLink
+      href="/"
+      children="View all tours"
+      arrowDirection="down"
+    />
+  ))
+  .add("Arrow left", () => (
+    <MoreLink
+      href="/"
+      children="View all tours"
+      arrowDirection="left"
+    />
   ));
 
 storiesOf("Narrative", module)
