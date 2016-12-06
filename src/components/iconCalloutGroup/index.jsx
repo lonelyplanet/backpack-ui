@@ -28,6 +28,7 @@ const scopedStyles = {
   mediaQueries: {
     [`(max-width: ${media.max["480"]})`]: {
       ".IconCallout-icon": {
+        color: `${color.titleGray} !important`,
         fontSize: "48px !important",
       },
 
@@ -37,11 +38,11 @@ const scopedStyles = {
       },
 
       ".IconCallout-copy": {
-        display: "none",
+        display: "none !important",
       },
 
       ".MoreLink": {
-        display: "none",
+        display: "none !important",
       },
     },
 
@@ -53,7 +54,7 @@ const scopedStyles = {
 
     [`(min-width: ${media.min["480"]}) and (max-width: ${media.max["960"]})`]: {
       ".IconCallout a": {
-        width: "80%",
+        width: "80% !important",
       },
     },
 
@@ -64,18 +65,18 @@ const scopedStyles = {
       },
 
       ".IconCallout:last-child": {
-        marginTop: "82px",
+        marginTop: "82px !important",
       },
 
       ".IconCallout:nth-last-child(2)": {
-        marginTop: "82px",
+        marginTop: "82px !important",
       },
     },
 
     [`(min-width: ${media.min["960"]})`]: {
       ".IconCallout": {
-        marginLeft: `calc(${gutter("static")} / 2)`,
-        marginRight: `calc(${gutter("static")} / 2)`,
+        marginLeft: `calc(${gutter("static")} / 2) !important`,
+        marginRight: `calc(${gutter("static")} / 2) !important`,
       },
     },
   },
