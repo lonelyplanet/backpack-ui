@@ -70,7 +70,7 @@ const styles = {
     },
 
     transparent: {
-      background: "transparent",
+      backgroundColor: "transparent",
       border: `1px solid ${color.white}`,
       opacity: "0.5",
     },
