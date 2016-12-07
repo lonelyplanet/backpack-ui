@@ -19,6 +19,7 @@ const styles = {
       fontWeight: 400,
       lineHeight: 1,
       padding: 0,
+      letterSpacing: "0.6px",
     }),
 
     caps: {

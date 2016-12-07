@@ -36,6 +36,7 @@ const styles = {
     paddingRight: `${30 / 13}em`,
     textAlign: "center",
     textDecoration: "none",
+    letterSpacing: "0.6px",
     textTransform: "uppercase",
     transition: `color ${settings.timing.default} ease-in-out,
       background-color ${settings.timing.default} ease-in-out,
