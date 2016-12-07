@@ -36,6 +36,10 @@ const styles = {
       top: "50%",
       transform: "translateY(-50%)",
     },
+    transparent: {
+      color: color.white,
+    },
+
   },
 
   diamond: {
@@ -64,10 +68,16 @@ const styles = {
     outlined: {
       boxShadow: "0 0 0 1px #e1eaf0", // this color does not exist in settings
     },
+
+    transparent: {
+      background: "transparent",
+      border: `1px solid ${color.white}`,
+      opacity: "0.5",
+    },
   },
 };
 
-function NumberMarker({ number, size, outlined, place }) {
+function NumberMarker({ number, size, outlined, place, transparent }) {
   const style = {
     container: [styles.container.base],
     diamond: [styles.diamond.base],
@@ -84,6 +94,11 @@ function NumberMarker({ number, size, outlined, place }) {
 
   if (place) {
     style.container.push(styles.container.place);
+  }
+
+  if (transparent) {
+    style.diamond.push(styles.diamond.transparent);
+    style.container.push(styles.container.transparent);
   }
 
   return (
@@ -129,6 +144,12 @@ NumberMarker.propTypes = {
    * positions the marker over an 80px wide photo
    */
   place: React.PropTypes.bool,
+
+  /**
+   * Show a transparent version of the marker;
+   *
+   */
+  transparent: React.PropTypes.bool,
 };
 
 NumberMarker.defaultProps = {
@@ -139,6 +160,8 @@ NumberMarker.defaultProps = {
   outlined: false,
 
   place: false,
+
+  transparent: false,
 };
 
 NumberMarker.styles = styles;
