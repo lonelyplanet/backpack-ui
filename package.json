@@ -1,6 +1,6 @@
 {
   "name": "backpack-ui",
-  "version": "1.0.0-alpha-10",
+  "version": "1.0.0",
   "description": "Lonely Planet's Components",
   "main": "dist/index.js",
   "scripts": {
@@ -10,7 +10,16 @@
     "test:ci": "NODE_ENV=test mocha --reporter spec --compilers js:babel-register --watch --recursive spec/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "gh-pages": "npm run build-storybook -- -o _gh-pages && gh-pages -d _gh-pages && rm -rf _gh-pages"
+    "gh-pages": "npm run build-storybook -- -o _gh-pages && gh-pages -d _gh-pages && rm -rf _gh-pages",
+    "tag": "git tag v$npm_package_version",
+    "version:patch": "npm --no-git-tag-version version patch",
+    "version:minor": "npm --no-git-tag-version version minor",
+    "version:major": "npm --no-git-tag-version version major",
+    "preversion": "npm run test && npm run check-changelog && npm run check-only-changelog-changed",
+    "postversion": "git commit package.json CHANGELOG.md -m \"Version $npm_package_version\" && npm run tag && git push && git push --tags && npm publish",
+    "postpublish": "npm run gh-pages",
+    "check-changelog": "expr $(git status --porcelain 2>/dev/null| grep \"^\\s*M.*CHANGELOG.md\" | wc -l) >/dev/null || (echo 'Please edit CHANGELOG.md' && exit 1)",
+    "check-only-changelog-changed": "(expr $(git status --porcelain 2>/dev/null| grep -v \"CHANGELOG.md\" | wc -l) >/dev/null && echo 'Only CHANGELOG.md may have uncommitted changes' && exit 1) || exit 0"
   },
   "author": "Lonely Planet",
   "license": "ISC",

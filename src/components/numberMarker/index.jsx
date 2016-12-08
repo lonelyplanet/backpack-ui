@@ -22,9 +22,9 @@ const styles = {
 
     size: {
       xSmall: {
-        height: "2.4rem",
-        width: "2.4rem",
-        lineHeight: "2.4rem",
+        height: "24px",
+        width: "24px",
+        lineHeight: "24px",
         fontSize: "12px",
       },
 
@@ -65,7 +65,7 @@ const styles = {
 
     size: {
       xSmall: {
-        marginTop: "-1.9em",
+        marginTop: `-${36 / 20}em`,
         borderRadius: "5px",
       },
       small: {
