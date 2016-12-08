@@ -21,6 +21,13 @@ const styles = {
     },
 
     size: {
+      xSmall: {
+        height: "2.4rem",
+        width: "2.4rem",
+        lineHeight: "2.4rem",
+        fontSize: "12px",
+      },
+
       small: {
         fontSize: "14px",
       },
@@ -57,6 +64,10 @@ const styles = {
     },
 
     size: {
+      xSmall: {
+        marginTop: "-1.9em",
+        borderRadius: "5px",
+      },
       small: {
         borderRadius: `${4 / 14}em`,
       },
@@ -129,6 +140,7 @@ NumberMarker.propTypes = {
    */
   size: React.PropTypes.oneOf([
     "",
+    "xSmall",
     "small",
     "large",
   ]),
