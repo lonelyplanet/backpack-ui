@@ -20,7 +20,6 @@ const styles = {
 
   anchor: {
     alignItems: "center",
-    display: "flex",
     flexDirection: "column",
     textDecoration: "none",
   },
