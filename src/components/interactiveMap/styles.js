@@ -7,6 +7,7 @@ const flyoutPopupStyles = Flyout.styles.type.mapPopup;
 const styles = {
   container: {
     base: {
+      maxWidth: "100%",
       position: "relative",
       zIndex: zIndex.default,
     },
@@ -67,7 +68,7 @@ const styles = {
 
     subtype: {
       base: {
-        color: "#c2ced4",
+        color: color.subtitleGray,
         fontSize: `${12 / 16}em`,
         fontWeight: 600,
         marginTop: `${4 / 16}em`,
@@ -98,7 +99,7 @@ const styles = {
 
     content: {
       base: {
-        backgroundColor: "rgba(255, 255, 255, .8)",
+        backgroundColor: `rgba(${rgb(color.white)}, .8)`,
         bottom: `${20 / 9}em`,
         fontSize: `${9 / 10}em`,
         padding: `${5 / 9}em ${5 / 9}em ${3 / 9}em`,
@@ -202,4 +203,10 @@ const markerColors = {
   center: color.blue,
 };
 
-export { styles, scopedStyles, markerStyles, markerColors, markerStylesMixin };
+export {
+  styles,
+  scopedStyles,
+  markerStyles,
+  markerColors,
+  markerStylesMixin,
+};

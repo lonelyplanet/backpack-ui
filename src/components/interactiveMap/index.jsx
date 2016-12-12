@@ -21,50 +21,7 @@ const mapSettings = {
 };
 
 class InteractiveMap extends Component {
-  componentDidMount() {
-    this.initMap();
-    this.setMarkerStyles();
-    this.initTiles();
-    this.initMarkers();
-    this.setMapBounds();
-  }
-
-  initMap() {
-    this.leafletMap = leaflet.map("map", {
-      scrollWheelZoom: false,
-      zoomControl: false,
-      attributionControl: false,
-    });
-  }
-
-  initTiles() {
-    leaflet.tileLayer(mapSettings.url, {
-      accessToken: mapSettings.accessToken,
-      attribution: mapSettings.attribution,
-      id: mapSettings.projectId,
-      maxZoom: mapSettings.maxZoom,
-    }).addTo(this.leafletMap);
-  }
-
-  initMarkers() {
-    const { places, markerSize } = this.props;
-    places.map((place, index) => {
-      const marker = leaflet.marker([place.lat, place.long], {
-        opacity: 1,
-        icon: leaflet.divIcon({
-          className: "leaflet-div-icon-see",
-          iconSize: markerSize,
-          html: icons.see,
-        }),
-        id: `marker-${index}`,
-        riseOnHover: true,
-      }).addTo(this.leafletMap);
-
-      this.addPopupToMarker(marker, place.title);
-    });
-  }
-
-  addPopupToMarker(marker, title) {
+  static addPopupToMarker(marker, title) {
     marker.bindPopup(title);
     marker.on("mouseover", () => {
       marker.openPopup();
@@ -74,7 +31,7 @@ class InteractiveMap extends Component {
     });
   }
 
-  setMarkerStyles() {
+  static setMarkerStyles() {
     Object.keys(markerColors).forEach((type) => {
       if (type === "center") {
         Object.assign(markerStyles, {
@@ -99,6 +56,14 @@ class InteractiveMap extends Component {
     });
   }
 
+  componentDidMount() {
+    this.initMap();
+    InteractiveMap.setMarkerStyles();
+    this.initTiles();
+    this.initMarkers();
+    this.setMapBounds();
+  }
+
   setMapBounds() {
     const { places } = this.props;
     const placesCoords = places.map(place => [place.lat, place.long]);
@@ -107,14 +72,58 @@ class InteractiveMap extends Component {
     });
   }
 
+  initMarkers() {
+    const { places, markerSize } = this.props;
+    places.map((place, index) => {
+      const marker = leaflet.marker([place.lat, place.long], {
+        opacity: 1,
+        icon: leaflet.divIcon({
+          className: "leaflet-div-icon-see",
+          iconSize: markerSize,
+          html: icons.see,
+        }),
+        id: `marker-${index}`,
+        riseOnHover: true,
+      }).addTo(this.leafletMap);
+
+      return InteractiveMap.addPopupToMarker(marker, place.title);
+    });
+  }
+
+  initTiles() {
+    leaflet.tileLayer(mapSettings.url, {
+      accessToken: mapSettings.accessToken,
+      attribution: mapSettings.attribution,
+      id: mapSettings.projectId,
+      maxZoom: mapSettings.maxZoom,
+    }).addTo(this.leafletMap);
+  }
+
+  initMap() {
+    this.leafletMap = leaflet.map("map", {
+      scrollWheelZoom: false,
+      zoomControl: false,
+      attributionControl: false,
+    });
+  }
+
   render() {
-    const { width, height } = this.props;
+    const { width, height, style } = this.props;
+
     return (
-      <div className="InteractiveMap-container" style={[styles.container.base, { width, height }]}>
+      <div
+        className="InteractiveMap-container"
+        style={[
+          styles.container.base,
+          { width, height },
+          style,
+        ]}
+      >
         <Style
           scopeSelector=".InteractiveMap-container"
           rules={Object.assign(scopedStyles, markerStyles)}
         />
+
         <div id="map" style={styles.map.base} />
       </div>
     );
@@ -130,11 +139,14 @@ InteractiveMap.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   markerSize: PropTypes.arrayOf(PropTypes.number),
+  style: PropTypes.objectOf(PropTypes.object),
 };
 
 InteractiveMap.defaultProps = {
   width: 628,
   height: 400,
   markerSize: [20, 20],
+  style: null,
 };
+
 export default radium(InteractiveMap);
