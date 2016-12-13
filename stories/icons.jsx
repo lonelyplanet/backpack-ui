@@ -8,8 +8,12 @@ function Icons() {
   Object.keys(Icon).forEach((iconName) => {
     rows.push(
       <tr>
-        <td>{React.createElement(Icon[iconName])}</td>
-        <td>{iconName}</td>
+        <td style={{ textAlign: "center" }}>
+          <div style={{ fontSize: "128px" }}>
+            {React.createElement(Icon[iconName])}
+          </div>
+          <div>{iconName}</div>
+        </td>
       </tr>
     );
   });
