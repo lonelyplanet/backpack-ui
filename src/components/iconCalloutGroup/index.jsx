@@ -1,25 +1,18 @@
 import React from "react";
 import radium, { Style } from "radium";
 import { color, grid, media } from "../../../settings.json";
-import { add, span, gutter } from "../../utils/grid";
+import { gutter } from "../../utils/grid";
 import IconCallout from "../iconCallout";
-
-const containerPadding = add([gutter(), span(1)]);
 
 const styles = {
   container: {
     boxSizing: "border-box",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "space-between",
     maxWidth: grid.container,
 
     [`@media (max-width: ${media.max["960"]})`]: {
       flexWrap: "wrap",
-    },
-
-    [`@media (min-width: ${media.min["1200"]})`]: {
-      paddingLeft: containerPadding,
-      paddingRight: containerPadding,
     },
   },
 };
@@ -28,12 +21,11 @@ const scopedStyles = {
   mediaQueries: {
     [`(max-width: ${media.max["480"]})`]: {
       ".IconCallout-icon": {
-        color: `${color.titleGray} !important`,
-        fontSize: "48px !important",
+        fontSize: "71px !important",
       },
 
       ".Heading": {
-        fontSize: "12px !important",
+        fontSize: "14px !important",
         marginTop: "13px !important",
       },
 
