@@ -71,7 +71,7 @@ function SightsListItem({
   markerNumber,
 }) {
   return (
-    <a style={styles.linkContainer} href={`/${slug}`}>
+    <a style={styles.linkContainer} href={slug}>
       <div style={styles.imageContainer}>
         {imgPath && <div style={[styles.image, { backgroundImage: `url(${imgPath})` }]} />}
         <div style={styles.markerContianer}>
