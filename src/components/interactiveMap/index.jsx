@@ -21,6 +21,9 @@ const mapSettings = {
 };
 
 class InteractiveMap extends Component {
+
+  static markers = []
+
   static addPopupToMarker(marker, title) {
     marker.bindPopup(title);
     marker.on("mouseover", () => {
@@ -72,6 +75,18 @@ class InteractiveMap extends Component {
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.activeMarker !== this.props.activeMarker) {
+      if (this.props.activeMarker !== null) {
+        InteractiveMap.markers[this.props.activeMarker].closePopup();
+      }
+      if (nextProps.activeMarker !== null) {
+        InteractiveMap.markers[nextProps.activeMarker].openPopup();
+      }
+    }
+  }
+
+
   initMarkers() {
     const { places, markerSize } = this.props;
     places.map((place, index) => {
@@ -85,7 +100,7 @@ class InteractiveMap extends Component {
         id: `marker-${index}`,
         riseOnHover: true,
       }).addTo(this.leafletMap);
-
+      InteractiveMap.markers.push(marker);
       return InteractiveMap.addPopupToMarker(marker, place.title);
     });
   }
@@ -138,12 +153,14 @@ InteractiveMap.propTypes = {
   })).isRequired,
   width: PropTypes.number,
   height: PropTypes.number,
+  activeMarker: PropTypes.number,
   markerSize: PropTypes.arrayOf(PropTypes.number),
   style: PropTypes.objectOf(PropTypes.object),
 };
 
 InteractiveMap.defaultProps = {
   width: 628,
+  activeMarker: null,
   height: 400,
   markerSize: [20, 20],
   style: null,

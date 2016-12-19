@@ -69,9 +69,16 @@ function SightsListItem({
   title,
   subtitle,
   markerNumber,
+  onMouseEnter,
+  onMouseLeave,
 }) {
   return (
-    <a style={styles.linkContainer} href={slug}>
+    <a
+      style={styles.linkContainer}
+      href={slug}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       <div style={styles.imageContainer}>
         {imgPath && <div style={[styles.image, { backgroundImage: `url(${imgPath})` }]} />}
         <div style={styles.markerContianer}>
@@ -121,6 +128,14 @@ SightsListItem.propTypes = {
    * Number to be displayed in the NumberMarker Component
    */
   markerNumber: React.PropTypes.number,
+  /**
+   * Function to fire on mouse enter
+   */
+  onMouseEnter: React.PropTypes.func,
+  /**
+   * Function to fire on mouse leave
+   */
+  onMouseLeave: React.PropTypes.func,
 };
 
 SightsListItem.defaultProps = {
