@@ -1,4 +1,5 @@
 import React from "react";
+import { StyleRoot } from "radium";
 import "leaflet/dist/leaflet.css";
 import { storiesOf, action } from "@kadira/storybook";
 import data from "./data.json";
@@ -20,6 +21,7 @@ import DotLoader from "../src/components/dotLoader";
 import Dropdown from "../src/components/dropdown";
 import EditLink from "../src/components/editLink";
 import ExpandButton from "../src/components/expandButton";
+import FeaturedArticle from "../src/components/featuredArticle";
 import Flyout from "../src/components/flyout";
 import Heading from "../src/components/heading";
 import Icons from "./icons";
@@ -36,6 +38,7 @@ import Lede from "../src/components/lede";
 // ListItem
 // ListItemBookable
 // ListItemImage
+import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
 // Loading
 // Location
@@ -54,14 +57,16 @@ import Placeholder from "../src/components/placeholder";
 import PoiPaginator from "../src/components/poiPaginator";
 // Price
 import Profile from "../src/components/profile";
+import PromotedGuidebook from "../src/components/promotedGuidebook";
 import ProviderLogo from "../src/components/providerLogo";
 import Rating from "../src/components/rating";
 import RelatedTour from "../src/components/relatedTour";
 import ReviewedBadge from "../src/components/reviewedBadge";
-import SightsListItem from "../src/components/sightsListItem";
+import SectionalNav from "../src/components/sectionalNav";
 import Select from "../src/components/form/select";
 import ShareMenu from "../src/components/shareMenu";
 // SidebarSection
+import SightsListItem from "../src/components/sightsListItem";
 import StaticMap from "../src/components/staticMap";
 import Strapline from "../src/components/strapline";
 import Tag from "../src/components/tag";
@@ -153,33 +158,37 @@ storiesOf("Calendar", module)
 
 storiesOf("Callout", module)
   .add("Book", () => (
-    <Callout
-      type="book"
-      align="center"
-      heading="Lonely Planet’s Best in Travel 2016"
-      slug="/"
-      price={{
-        currency: "USD",
-        amount: 21.99,
-      }}
-      description={`Be an in-the-know traveler this year with Lonely
-        Planet’s collection of the hottest trends, destinations,
-        journeys.`}
-      image="http://dummyimage.com/132x168/4d494d/686a82.gif"
-    />
+    <StyleRoot>
+      <Callout
+        type="book"
+        align="center"
+        heading="Lonely Planet’s Best in Travel 2016"
+        slug="/"
+        price={{
+          currency: "USD",
+          amount: 21.99,
+        }}
+        description={`Be an in-the-know traveler this year with Lonely
+          Planet’s collection of the hottest trends, destinations,
+          journeys.`}
+        image="http://dummyimage.com/132x168/4d494d/686a82.gif"
+      />
+    </StyleRoot>
   ))
   .add("Activity", () => (
-    <Callout
-      type="activity"
-      heading="Cycle Linz to Vienna"
-      slug="/"
-      price={{
-        currency: "USD",
-        amount: 50,
-      }}
-      image="http://dummyimage.com/300x158/4d494d/686a82.gif"
-      category="Food and drink"
-    />
+    <StyleRoot>
+      <Callout
+        type="activity"
+        heading="Cycle Linz to Vienna"
+        slug="/"
+        price={{
+          currency: "USD",
+          amount: 50,
+        }}
+        image="http://dummyimage.com/300x158/4d494d/686a82.gif"
+        category="Food and drink"
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Checkbox", module)
@@ -193,7 +202,9 @@ storiesOf("Checkbox", module)
 
 storiesOf("Dot loader", module)
   .add("Default", () => (
-    <DotLoader inline={false} />
+    <StyleRoot>
+      <DotLoader inline={false} />
+    </StyleRoot>
   ));
 
 storiesOf("Dropdown", module)
@@ -213,6 +224,24 @@ storiesOf("Edit link", module)
 storiesOf("Expand button", module)
   .add("Default", () => (
     <ExpandButton label="Open" />
+  ));
+
+storiesOf("Featured article", module)
+  .add("Default", () => (
+    <StyleRoot>
+      <FeaturedArticle
+        article={{
+          sectionHeading: "Tips and articles",
+          category: "Featured story",
+          image: "https://lonelyplanetimages.imgix.net/mastheads/48119366.jpg?sharp=10&vib=20&w=2000",
+          title: "Station to station: The best train journeys you’ve never heard of",
+          link: {
+            text: "Read article",
+            href: "/link/to/article",
+          },
+        }}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Flyout", module)
@@ -290,47 +319,49 @@ storiesOf("Icon callout", module)
 
 storiesOf("Icon callout group", module)
   .add("Default", () => (
-    <IconCalloutGroup>
-      <IconCallout
-        iconName="SurvivalVisa"
-        title="Visas"
-        copy="Dull but essential passport paperwork and entry info"
-        link={{
-          label: "Go see this thing",
-          href: "/",
-        }}
-      />
+    <StyleRoot>
+      <IconCalloutGroup>
+        <IconCallout
+          iconName="SurvivalVisa"
+          title="Visas"
+          copy="Dull but essential passport paperwork and entry info"
+          link={{
+            label: "Go see this thing",
+            href: "/",
+          }}
+        />
 
-      <IconCallout
-        iconName="SurvivalUmbrella"
-        title="Best time to go"
-        copy="Hit the ground at the right time"
-        link={{
-          label: "Go see this thing",
-          href: "/",
-        }}
-      />
+        <IconCallout
+          iconName="SurvivalUmbrella"
+          title="Best time to go"
+          copy="Hit the ground at the right time"
+          link={{
+            label: "Go see this thing",
+            href: "/",
+          }}
+        />
 
-      <IconCallout
-        iconName="SurvivalMoney"
-        title="Money and costs"
-        copy="Budgets, currency rates and on-the-ground costs"
-        link={{
-          label: "Go see this thing",
-          href: "/",
-        }}
-      />
+        <IconCallout
+          iconName="SurvivalMoney"
+          title="Money and costs"
+          copy="Budgets, currency rates and on-the-ground costs"
+          link={{
+            label: "Go see this thing",
+            href: "/",
+          }}
+        />
 
-      <IconCallout
-        iconName="SurvivalHealth"
-        title="Health"
-        copy="Keep safe and well on the open road"
-        link={{
-          label: "Go see this thing",
-          href: "/",
-        }}
-      />
-    </IconCalloutGroup>
+        <IconCallout
+          iconName="SurvivalHealth"
+          title="Health"
+          copy="Keep safe and well on the open road"
+          link={{
+            label: "Go see this thing",
+            href: "/",
+          }}
+        />
+      </IconCalloutGroup>
+    </StyleRoot>
   ));
 
 storiesOf("Image carousel", module)
@@ -392,6 +423,31 @@ storiesOf("Lede", module)
         sunt in culpa qui officia deserunt mollit anim id
         est laborum`}
     />
+  ));
+
+storiesOf("List item (news)", module)
+  .add("Default", () => (
+    <StyleRoot>
+      <ListItemNews
+        title="Ireland is set to have the world’s largest redwood forest outside of California"
+        category="Europe"
+        categoryLink="/"
+        link="/"
+        thumbnail="http://placehold.it/110x110"
+      />
+    </StyleRoot>
+  ))
+  .add("Sponsored", () => (
+    <StyleRoot>
+      <ListItemNews
+        title="Ireland is set to have the world’s largest redwood forest outside of California"
+        category="Europe"
+        categoryLink="/"
+        link="/"
+        thumbnail="http://placehold.it/110x110"
+        isSponsored
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Map marker", module)
@@ -474,22 +530,24 @@ storiesOf("More link", module)
 
 storiesOf("Narrative", module)
   .add("Default", () => (
-    <Narrative
-      heading="Walking into the Sacher is like turning back the clocks 100 years."
-      htmlContent={`<p>The reception, with its dark-wood panelling, deep red shades
-        and heavy gold chandelier, is reminiscent of an expensive fin de siècle
-        bordello. The smallest rooms are surprisingly large and suites are truly
-        palatial. Junior suites/doubles cost from €480 to €1350.</p>
-        <p>As well as extras like original oil paintings throughout and a tiny
-        cube of the hotel’s famous Sacher Torte on arrival, there's a hi-tech
-        spa complex, with herbal sauna, ice fountain and fitness room.</p>`}
-      author={{
-        name: "Tim Plaum",
-        title: "Lonely Planet Editor",
-        avatar: "",
-        url: "",
-      }}
-    />
+    <StyleRoot>
+      <Narrative
+        heading="Walking into the Sacher is like turning back the clocks 100 years."
+        htmlContent={`<p>The reception, with its dark-wood panelling, deep red shades
+          and heavy gold chandelier, is reminiscent of an expensive fin de siècle
+          bordello. The smallest rooms are surprisingly large and suites are truly
+          palatial. Junior suites/doubles cost from €480 to €1350.</p>
+          <p>As well as extras like original oil paintings throughout and a tiny
+          cube of the hotel’s famous Sacher Torte on arrival, there's a hi-tech
+          spa complex, with herbal sauna, ice fountain and fitness room.</p>`}
+        author={{
+          name: "Tim Plaum",
+          title: "Lonely Planet Editor",
+          avatar: "",
+          url: "",
+        }}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("No results", module)
@@ -525,24 +583,45 @@ storiesOf("POI Paginator", module)
 
 storiesOf("Profile", module)
   .add("Large, vertical", () => (
-    <Profile
-      name="Jane Doe"
-      title="Lonely Planet Writer"
-      avatar="//assets.staticlp.com/profiles/users/placeholders/large.png"
-      profileUrl=""
-      size="large"
-      orientation="vertical"
-    />
+    <StyleRoot>
+      <Profile
+        name="Jane Doe"
+        title="Lonely Planet Writer"
+        avatar="//assets.staticlp.com/profiles/users/placeholders/large.png"
+        profileUrl=""
+        size="large"
+        orientation="vertical"
+      />
+    </StyleRoot>
   ))
   .add("Small, horizontal", () => (
-    <Profile
-      name="Jane Doe"
-      title="Lonely Planet Writer"
-      avatar="//assets.staticlp.com/profiles/users/placeholders/large.png"
-      profileUrl=""
-      size="small"
-      orientation="horizontal"
-    />
+    <StyleRoot>
+      <Profile
+        name="Jane Doe"
+        title="Lonely Planet Writer"
+        avatar="//assets.staticlp.com/profiles/users/placeholders/large.png"
+        profileUrl=""
+        size="small"
+        orientation="horizontal"
+      />
+    </StyleRoot>
+  ));
+
+storiesOf("Promoted guidebook", module)
+  .add("default", () => (
+    <StyleRoot>
+      <PromotedGuidebook
+        title="Egypt travel guide"
+        url="http://shop.lonelyplanet.com/egypt/egypt-travel-guide-12/"
+        imageUrl="http://media.lonelyplanet.com/shop/images/9919-Egypt_travel_guide_-_12th_edition_Large.jpg"
+        price={{
+          usd: "27.99",
+        }}
+        description={`In spite of political, financial and social
+          turmoil, Egyptians remain  proud and defiant and are as
+          welcoming as ever to visitors to their land.`}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Provider logo", module)
@@ -581,15 +660,17 @@ storiesOf("Rating", module)
 
 storiesOf("Page header", module)
   .add("Default", () => (
-    <PageHeader
-      heading="Ryman Auditorium"
-      title="Nashville sights"
-      titleHref="/"
-      topChoice
-      type="Historic building"
-      place="Nashville"
-      alignment="center"
-    />
+    <StyleRoot>
+      <PageHeader
+        heading="Ryman Auditorium"
+        title="Nashville sights"
+        titleHref="/"
+        topChoice
+        type="Historic building"
+        place="Nashville"
+        alignment="center"
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Paginator button", module)
@@ -679,6 +760,27 @@ storiesOf("Related tour", module)
 storiesOf("Reviewed badge", module)
   .add("Default", () => (
     <ReviewedBadge />
+  ));
+
+storiesOf("Sectional nav", module)
+  .add("Default", () => (
+    <StyleRoot>
+      <SectionalNav
+        items={[
+          "Experiences",
+          "Articles",
+          "Products",
+          "Destinations",
+          "Tours",
+          "Inspiration",
+          "Books",
+          "Adventures",
+          "Interests",
+        ]}
+        active="Articles"
+        linkToOffset={0}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Select", module)
@@ -781,17 +883,19 @@ storiesOf("Tour itinerary", module)
 
 storiesOf("Type selector", module)
   .add("Default", () => (
-    <TypeSelector
-      title="Activities"
-      menuItems={[
-        { item: "Hotels", slug: "#" },
-        { item: "Restaurants", slug: "#" },
-        { item: "Sights", slug: "#" },
-        { item: "Entertainment", slug: "#" },
-        { item: "Acitivities", slug: "#" },
-        { item: "Tours", slug: "#" },
-        { item: "Articles", slug: "#" },
-        { item: "News", slug: "#" },
-      ]}
-    />
+    <StyleRoot>
+      <TypeSelector
+        title="Activities"
+        menuItems={[
+          { item: "Hotels", slug: "#" },
+          { item: "Restaurants", slug: "#" },
+          { item: "Sights", slug: "#" },
+          { item: "Entertainment", slug: "#" },
+          { item: "Acitivities", slug: "#" },
+          { item: "Tours", slug: "#" },
+          { item: "Articles", slug: "#" },
+          { item: "News", slug: "#" },
+        ]}
+      />
+    </StyleRoot>
   ));
