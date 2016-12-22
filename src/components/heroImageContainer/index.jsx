@@ -1,0 +1,42 @@
+import React, { PropTypes } from "react";
+import assign from "object-assign";
+import { color } from "../../../settings.json";
+
+const styles = {
+  image: {
+    backgroundColor: color.titleGray,
+    backgroundPosition: "50%",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    bottom: 0,
+    left: 0,
+    overflow: "hidden",
+    position: "absolute",
+    right: 0,
+    top: 0,
+  },
+};
+
+const HeroImageContainer = ({ children, imagePath, style }) => (
+  <div
+    className="HeroImageContainer"
+    style={assign({},
+      styles.image,
+      { backgroundImage: `url(${imagePath})` },
+      style,
+    )}
+  >
+    {children}
+  </div>
+);
+
+HeroImageContainer.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]).isRequired,
+  imagePath: PropTypes.string.isRequired,
+  style: PropTypes.objectOf(PropTypes.object),
+};
+
+export default HeroImageContainer;
