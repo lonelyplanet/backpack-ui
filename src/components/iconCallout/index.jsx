@@ -45,7 +45,7 @@ const styles = {
   },
 };
 
-function IconCallout({ iconName, title, copy, link }) {
+function IconCallout({ iconName, title, copy, url }) {
   const IconElement = React.createElement(Icon[iconName], {
     style: styles.icon,
     ariaHidden: true,
@@ -54,7 +54,7 @@ function IconCallout({ iconName, title, copy, link }) {
 
   return (
     <div className="IconCallout" style={styles.container}>
-      <a href={link.href} style={styles.anchor}>
+      <a href={url} style={styles.anchor}>
         {IconElement}
 
         <Heading
@@ -80,9 +80,7 @@ IconCallout.propTypes = {
   iconName: PropTypes.oneOf(Object.keys(Icon)).isRequired,
   title: PropTypes.string.isRequired,
   copy: PropTypes.string.isRequired,
-  link: PropTypes.shape({
-    href: PropTypes.string,
-  }).isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 export default IconCallout;
