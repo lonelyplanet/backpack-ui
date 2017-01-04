@@ -47,6 +47,7 @@ import MapMarker from "../src/components/mapMarker";
 // Modal
 import MoreLink from "../src/components/moreLink";
 import Narrative from "../src/components/narrative";
+import Newsletter from "../src/components/newsletter";
 import NoResults from "../src/components/noResults";
 import NumberList from "../src/components/numberList";
 import NumberMarker from "../src/components/numberMarker";
@@ -547,6 +548,13 @@ storiesOf("Narrative", module)
           url: "",
         }}
       />
+    </StyleRoot>
+  ));
+
+storiesOf("Newsletter", module)
+  .add("Default", () => (
+    <StyleRoot>
+      <Newsletter />
     </StyleRoot>
   ));
 
