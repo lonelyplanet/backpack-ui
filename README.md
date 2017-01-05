@@ -13,7 +13,7 @@ npm install backpack-ui --save
 #### Usage
 
 ```js
-import { Button } from "backpack-ui";
+import Button from "backpack-ui/dist/components/button";
 ```
 
 #### Develop components with Storybook
