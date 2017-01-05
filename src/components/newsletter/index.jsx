@@ -101,13 +101,26 @@ class Newsletter extends Component {
   static formatFormData(data) {
     const str = [];
 
-    for (const key in data) {
-      if (data.hasOwnProperty(key)) {
-        str.push(`${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`);
+    for (const item in data) {
+      if (data.hasOwnProperty(item)) {
+        str.push(`${encodeURIComponent(item)}=${encodeURIComponent(data[item])}`);
       }
     }
 
     return str.join("&");
+  }
+
+  static getErrorMessage() {
+    const error = this.state.error;
+    const errorMessage = {
+      409: "You are already subscribed.",
+    };
+
+    if (error.response && errorMessage.hasOwnProperty(error.response.status)) {
+      return errorMessage[error.response.status];
+    }
+
+    return "There was an error processing your request. Please try again later.";
   }
 
   constructor(props) {
@@ -252,10 +265,7 @@ class Newsletter extends Component {
           {!this.state.success && !this.state.showCaptcha &&
             <div>
               {Object.keys(this.state.error).length > 0 ?
-                <p style={styles.error}>
-                  There was an error processing your request.
-                  Please try again later.
-                </p> :
+                <p style={styles.error}>{this.getErrorMessage()}</p> :
                 <p style={styles.copy}>
                   {!this.state.success && subtitle}
 
