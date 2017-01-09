@@ -1,22 +1,22 @@
 ![](https://travis-ci.org/lonelyplanet/backpack-ui.svg?branch=master)
 
-### backpack-ui
+# backpack-ui
 Every adventurer needs a set of tools to take along the way! Backpack is the Lonely Planet toolset that we use to build front end
 apps.
 
-#### Installation
+### Installation
 
 ```shell
 npm install backpack-ui --save
 ```
 
-#### Usage
+### Usage
 
 ```js
 import Button from "backpack-ui/dist/components/button";
 ```
 
-#### Develop components with Storybook
+### Develop components with Storybook
 
 ```shell
 npm run storybook
