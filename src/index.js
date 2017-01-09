@@ -31,7 +31,7 @@ export { default as IconCalloutGroup } from "./components/iconCalloutGroup";
 export { default as ImageCarousel } from "./components/imageCarousel";
 export { default as ImageGallery } from "./components/imageGallery";
 export { default as ImageHero } from "./components/imageHero";
-export { default as InteractiveMap } from "./components/interactiveMap";
+// export { default as InteractiveMap } from "./components/interactiveMap";
 export { default as LastUpdated } from "./components/lastUpdated";
 export { default as Lede } from "./components/lede";
 // export { default as ListItem } from "./components/listItem";
