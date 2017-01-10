@@ -11,6 +11,8 @@ import Breadcrumbs from "../src/components/breadcrumbs";
 import Button from "../src/components/button";
 import Calendar from "../src/components/calendar";
 import Callout from "../src/components/callout";
+import CategoryLabel from "../src/components/categoryLabel";
+import CategoryLabelLink from "../src/components/categoryLabelLink";
 import Checkbox from "../src/components/form/checkbox";
 // ContactBar
 // ContentBlock
@@ -69,6 +71,7 @@ import Select from "../src/components/form/select";
 import ShareMenu from "../src/components/shareMenu";
 // SidebarSection
 import SightsListItem from "../src/components/sightsListItem";
+import SponsorLabel from "../src/components/sponsorLabel";
 import StaticMap from "../src/components/staticMap";
 import Strapline from "../src/components/strapline";
 import Tag from "../src/components/tag";
@@ -191,6 +194,16 @@ storiesOf("Callout", module)
         category="Food and drink"
       />
     </StyleRoot>
+  ));
+
+storiesOf("Category label", module)
+  .add("Default", () => (
+    <CategoryLabel>Art and culture</CategoryLabel>
+  ));
+
+storiesOf("Category label link", module)
+  .add("Default", () => (
+    <CategoryLabelLink href="/">Art and culture</CategoryLabelLink>
   ));
 
 storiesOf("Checkbox", module)
@@ -850,6 +863,11 @@ storiesOf("Share menu", module)
       url="http://www.lonelyplanet.com/"
       mobile={false}
     />
+  ));
+
+storiesOf("Sponsor label", module)
+  .add("Default", () => (
+    <SponsorLabel>Sponsored</SponsorLabel>
   ));
 
 storiesOf("Static map", module)
