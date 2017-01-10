@@ -47,6 +47,7 @@ import MapMarker from "../src/components/mapMarker";
 // Modal
 import MoreLink from "../src/components/moreLink";
 import Narrative from "../src/components/narrative";
+import NewsList from "../src/components/newsList";
 import Newsletter from "../src/components/newsletter";
 import NoResults from "../src/components/noResults";
 import NumberList from "../src/components/numberList";
@@ -550,6 +551,34 @@ storiesOf("Narrative", module)
       />
     </StyleRoot>
   ));
+
+storiesOf("News list", module)
+.add("Default", () => (
+  <StyleRoot>
+    <NewsList
+      newsItems={[{
+        title: "Whales migration patterns passed down from mother to child",
+        category: "The World",
+        categoryLink: "/path/to/category",
+        description: `Life has a languid quality in the stunning landscapes of
+          the Upper Peninsula (called the UP by visitors, and its residents are
+          known as Yoopers). Americans`,
+        link: "/path/to/full/article",
+        thumbnail: "https://lonelyplanetwp.imgix.net/2016/08/Hubud-657aa84af2b1.jpg?w=110&h=110&fit=crop&q=50&auto=enhance&crop=entropy",
+      }, {
+        title: `Watch this adorable Kangaroo invade a family's campervan and
+          then return with her friends`,
+        category: "Asia & the pacific",
+        categoryLink: "/path/to/category",
+        description: `Life has a languid quality in the stunning landscapes of
+          the Upper Peninsula (called the UP by visitors, and its residents are
+          known as Yoopers). Americans`,
+        link: "/path/to/full/article",
+        thumbnail: "https://lonelyplanetwp.imgix.net/2016/08/Hubud-657aa84af2b1.jpg?w=110&h=110&fit=crop&q=50&auto=enhance&crop=entropy",
+      }]}
+    />
+  </StyleRoot>
+));
 
 storiesOf("Newsletter", module)
   .add("Default", () => (
