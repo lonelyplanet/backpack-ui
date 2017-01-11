@@ -109,7 +109,7 @@ const FeaturedCallout = ({
     ]}
   >
     {category &&
-      <CategoryLabel>{category}</CategoryLabel>
+      <CategoryLabel style={{ color: color.white }}>{category}</CategoryLabel>
     }
 
     <Heading
@@ -128,11 +128,11 @@ const FeaturedCallout = ({
 
     {showLink && (hideLinkBreakpoint ?
       <HideAtBreakpoint breakpoint={hideLinkBreakpoint}>
-        <CalloutLink href={link.href}>
+        <CalloutLink href={link.href} overlay>
           {link.text}
         </CalloutLink>
       </HideAtBreakpoint> :
-      <CalloutLink href={link.href}>
+      <CalloutLink href={link.href} overlay>
         {link.text}
       </CalloutLink>
     )}
