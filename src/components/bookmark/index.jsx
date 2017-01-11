@@ -1,129 +1,58 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 import { color } from "../../../settings.json";
 import Icon from "../icon";
 
 const styles = {
-  base: {
-    color: color.detailHeaderSmall,
-    backgroundColor: "transparent",
-    display: "block",
-  },
+  backgroundColor: "transparent",
+  border: 0,
+  color: color.detailHeaderSmall,
+  cursor: "pointer",
+  display: "inline-block",
+  fontSize: "17px",
+  height: "1em",
+  lineHeight: 1,
+  padding: 0,
+  width: "1em",
 
-  size: {
-    small: {
-      fontSize: "17px",
-      height: "1em",
-    },
-
-    large: {
-      fontSize: "24px",
-      height: "1em",
-    },
-  },
-
-  center: {
-    horizontal: {
-      left: 0,
-      marginLeft: "auto",
-      marginRight: "auto",
-      position: "absolute",
-      right: 0,
-    },
-    vertical: {
-      bottom: 0,
-      marginBottom: "auto",
-      marginTop: "auto",
-      position: "absolute",
-      top: 0,
-    },
-  },
-
-  align: {
-    bottom: {
-      bottom: 0,
-    },
-    left: {
-      left: 0,
-    },
-    right: {
-      right: 0,
-    },
-    top: {
-      top: 0,
-    },
+  ":focus": {
+    outline: "1px lightgray dotted",
+    outlineOffset: "2px",
   },
 };
 
-function Bookmark({ onClick, size, center, align, marked }) {
-  const style = [styles.base];
+const iconProps = {
+  label: "Bookmark",
+  style: { display: "block" },
+};
 
-  if (size) {
-    style.push(styles.size[size]);
-  }
-
-  if (center) {
-    style.push(styles.center[center]);
-  }
-
-  if (align) {
-    style.push(styles.align[align]);
-  }
-
-  const BookmarkIcon = marked ? (
-    <Icon.Bookmark label="Bookmark" />
-  ) : (
-    <Icon.BookmarkOutline label="Bookmark" />
-  );
-
-  return (
-    <button
-      className="Bookmark"
-      style={style}
-      onClick={onClick}
-    >
-      {BookmarkIcon}
-    </button>
-  );
-}
+const Bookmark = ({ onClick, size, marked, style }) => (
+  <button
+    className="Bookmark"
+    style={[
+      styles,
+      size === "large" && { fontSize: "24px" },
+      style,
+    ]}
+    onClick={onClick}
+  >
+    {marked ? (
+      <Icon.Bookmark {...iconProps} />
+    ) : (
+      <Icon.BookmarkOutline {...iconProps} />
+    )}
+  </button>
+);
 
 Bookmark.propTypes = {
-  onClick: React.PropTypes.func,
-
-  size: React.PropTypes.oneOf([
-    "small",
-    "large",
-  ]),
-
-  center: React.PropTypes.oneOf([
-    "",
-    "horizontal",
-    "vertical",
-  ]),
-
-  align: React.PropTypes.oneOf([
-    "",
-    "bottom",
-    "left",
-    "right",
-    "top",
-  ]),
-
-  marked: React.PropTypes.bool,
+  onClick: PropTypes.func.isRequireed,
+  size: PropTypes.oneOf(["", "large"]),
+  marked: PropTypes.bool,
+  style: PropTypes.objectOf(PropTypes.object),
 };
 
 Bookmark.defaultProps = {
-  onClick: null,
-
-  size: "small",
-
-  center: "",
-
-  align: "",
-
   marked: false,
 };
-
-Bookmark.styles = styles;
 
 export default radium(Bookmark);
