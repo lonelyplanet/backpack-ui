@@ -16,6 +16,7 @@ import CalloutLink from "../src/components/calloutLink";
 import CategoryLabel from "../src/components/categoryLabel";
 import CategoryLabelLink from "../src/components/categoryLabelLink";
 import Checkbox from "../src/components/form/checkbox";
+import Container from "../src/components/container";
 // ContactBar
 // ContentBlock
 // ContentHeader
@@ -27,6 +28,8 @@ import EditLink from "../src/components/editLink";
 import ExpandButton from "../src/components/expandButton";
 import FeaturedArticle from "../src/components/featuredArticle";
 import Flyout from "../src/components/flyout";
+import GridColumn from "../src/components/gridColumn";
+import GridRow from "../src/components/gridRow";
 import Heading from "../src/components/heading";
 import Icons from "./icons";
 import IconButton from "../src/components/iconButton";
@@ -299,6 +302,89 @@ storiesOf("Flyout", module)
   ))
   .add("Fill", () => (
     <Flyout children="I believe I can fly…" fill />
+  ));
+
+storiesOf("Grid", module)
+  .add("12 column", () => (
+    <StyleRoot>
+      <Container>
+        <GridRow>
+          <GridColumn sm={1} style={{ backgroundColor: "#eee" }}>sm=1</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={2} style={{ backgroundColor: "#eee" }}>sm=2</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={3} style={{ backgroundColor: "#eee" }}>sm=3</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={4} style={{ backgroundColor: "#eee" }}>sm=4</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={5} style={{ backgroundColor: "#eee" }}>sm=5</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={6} style={{ backgroundColor: "#eee" }}>sm=6</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={7} style={{ backgroundColor: "#eee" }}>sm=7</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={8} style={{ backgroundColor: "#eee" }}>sm=8</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={9} style={{ backgroundColor: "#eee" }}>sm=9</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={10} style={{ backgroundColor: "#eee" }}>sm=10</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={11} style={{ backgroundColor: "#eee" }}>sm=11</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={12} style={{ backgroundColor: "#eee" }}>sm=12</GridColumn>
+        </GridRow>
+      </Container>
+      <br /><br />
+      <Container style={{ textAlign: "right" }}>
+        <GridRow>
+          <GridColumn sm={1} smShift={11} style={{ backgroundColor: "#eee" }}>sm=1, smShift=11</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={2} smShift={10} style={{ backgroundColor: "#eee" }}>sm=2, smShift=10</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={3} smShift={9} style={{ backgroundColor: "#eee" }}>sm=3, smShift=9</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={4} smShift={8} style={{ backgroundColor: "#eee" }}>sm=4, smShift=8</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={5} smShift={7} style={{ backgroundColor: "#eee" }}>sm=5, smShift=7</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={6} smShift={6} style={{ backgroundColor: "#eee" }}>sm=6, smShift=6</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={7} smShift={5} style={{ backgroundColor: "#eee" }}>sm=7, smShift=5</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={8} smShift={4} style={{ backgroundColor: "#eee" }}>sm=8, smShift=4</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={9} smShift={3} style={{ backgroundColor: "#eee" }}>sm=9, smShift=3</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={10} smShift={2} style={{ backgroundColor: "#eee" }}>sm=10, smShift=2</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={11} smShift={1} style={{ backgroundColor: "#eee" }}>sm=11, smShift=1</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={12} style={{ backgroundColor: "#eee" }}>sm=12</GridColumn>
+        </GridRow>
+      </Container>
+    </StyleRoot>
   ));
 
 storiesOf("Heading", module)
