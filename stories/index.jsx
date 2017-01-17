@@ -6,6 +6,8 @@ import data from "./data.json";
 import Colors from "./Colors";
 import Amenities from "../src/components/amenities";
 import ArticlePreview from "../src/components/articlePreview";
+import Author from "../src/components/author";
+import AuthorName from "../src/components/authorName";
 // Availability
 import Bookmark from "../src/components/bookmark";
 import Breadcrumbs from "../src/components/breadcrumbs";
@@ -36,7 +38,7 @@ import ImageCarousel from "../src/components/imageCarousel";
 // ImageGallery
 import ImageHero from "../src/components/imageHero";
 import InteractiveMap from "../src/components/interactiveMap";
-
+import ItalicText from "../src/components/italicText";
 // LastUpdated
 import Lede from "../src/components/lede";
 // ListItem
@@ -51,6 +53,7 @@ import MapMarker from "../src/components/mapMarker";
 // Modal
 import MoreLink from "../src/components/moreLink";
 import Narrative from "../src/components/narrative";
+import NewsArticleAuthor from "../src/components/newsArticleAuthor";
 import NewsList from "../src/components/newsList";
 import Newsletter from "../src/components/newsletter";
 import NoResults from "../src/components/noResults";
@@ -80,6 +83,7 @@ import Strapline from "../src/components/strapline";
 import Tag from "../src/components/tag";
 import TagList from "../src/components/tagList";
 // Takeover
+import Timestamp from "../src/components/timestamp";
 import Tooltip from "../src/components/tooltip";
 import TourItinerary from "../src/components/tourItinerary";
 import TypeSelector from "../src/components/typeSelector";
@@ -122,6 +126,33 @@ storiesOf("Article preview", module)
       category="Art and culture"
       categoryHref="/"
     />
+  ));
+
+storiesOf("Author", module)
+  .add("Left aligned (default)", () => (
+    <Author
+      name="Alex Butler"
+      title="Global news reporter"
+    />
+  ))
+  .add("Center aligned", () => (
+    <Author
+      name="Alex Butler"
+      title="Global news reporter"
+      alignment="center"
+    />
+  ))
+  .add("Right aligned", () => (
+    <Author
+      name="Alex Butler"
+      title="Global news reporter"
+      alignment="right"
+    />
+  ));
+
+storiesOf("Author name", module)
+  .add("Default", () => (
+    <AuthorName>Alex Butler</AuthorName>
   ));
 
 storiesOf("Bookmark", module)
@@ -455,6 +486,11 @@ storiesOf("Interactive Map", module)
     />
   ));
 
+storiesOf("Italic text", module)
+  .add("Default", () => (
+    <ItalicText>Global news reporter</ItalicText>
+  ));
+
 storiesOf("Lede", module)
   .add("Default", () => (
     <Lede
@@ -594,6 +630,16 @@ storiesOf("Narrative", module)
         }}
       />
     </StyleRoot>
+  ));
+
+storiesOf("News article author", module)
+  .add("Default", () => (
+    <NewsArticleAuthor
+      name="Alex Butler"
+      title="Global news reporter"
+      absoluteTime="2017-01-17"
+      relativeTime="3 days ago"
+    />
   ));
 
 storiesOf("News list", module)
@@ -967,6 +1013,10 @@ storiesOf("Tag list", module)
     />
   ));
 
+storiesOf("Timestamp", module)
+  .add("Default", () => (
+    <Timestamp dateTime="2017-01-17">3 days ago</Timestamp>
+  ));
 
 storiesOf("Tooltip", module)
   .add("Default", () => (
