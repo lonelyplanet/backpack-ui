@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
-import { default as base, color, media, zIndex } from "../../../settings.json";
+import settings from "../../../settings.json";
 import { rgb } from "../../utils/color";
 import { add, gutter, span } from "../../utils/grid";
 import font from "../../utils/font";
@@ -12,36 +12,48 @@ import FeaturedSectionHeading from "../featuredSectionHeading";
 
 const styles = {
   container: {
-    fontFamily: font("benton"),
-    height: "100vh",
-    marginLeft: "auto",
-    marginRight: "auto",
-    maxWidth: base.maxWidth,
-    position: "relative",
+    default: {
+      fontFamily: font("benton"),
+      height: "100vh",
+      marginLeft: "auto",
+      marginRight: "auto",
+      position: "relative",
 
-    [`@media (max-width: ${media.max["720"]})`]: {
-      maxHeight: "592px",
+      [`@media (max-width: ${settings.media.max["720"]})`]: {
+        maxHeight: "592px",
+      },
+    },
+
+    constrained: {
+      height: "80vh",
+      maxHeight: "720px",
+      maxWidth: settings.default.maxWidth,
+      minHeight: "592px",
+
+      [`@media (max-width: ${settings.media.max["720"]})`]: {
+        maxHeight: "none",
+      },
     },
   },
 
   sectionHeading: {
     marginTop: "56px",
-    textShadow: `0 0 130px rgba(${rgb(color.black)}, .5)`,
+    textShadow: `0 0 130px rgba(${rgb(settings.color.black)}, .5)`,
   },
 
   callout: {
-    bottom: "64px",
+    bottom: "76px",
     left: 0,
     position: "absolute",
     right: 0,
     width: "100%",
 
-    [`@media (max-width: ${media.max["480"]})`]: {
-      paddingLeft: base.spacing,
-      paddingRight: base.spacing,
+    [`@media (max-width: ${settings.media.max["480"]})`]: {
+      paddingLeft: settings.default.spacing,
+      paddingRight: settings.default.spacing,
     },
 
-    [`@media (min-width: ${media.min["1024"]})`]: {
+    [`@media (min-width: ${settings.media.min["1024"]})`]: {
       marginLeft: add([span(1), gutter()]),
       marginRight: add([span(1), gutter()]),
       width: span(10),
@@ -57,7 +69,7 @@ const styles = {
     },
 
     mediaQueries: {
-      [`(min-width: ${media.min["720"]})`]: {
+      [`(min-width: ${settings.media.min["720"]})`]: {
         ".FeaturedSectionHeading": {
           top: "56px",
         },
@@ -66,10 +78,13 @@ const styles = {
   },
 };
 
-const FeaturedArticle = ({ article }) => (
+const FeaturedArticle = ({ article, constrained }) => (
   <div
     className="FeaturedArticle"
-    style={styles.container}
+    style={[
+      styles.container.default,
+      constrained && styles.container.constrained,
+    ]}
   >
     <Style
       scopeSelector=".FeaturedArticle"
@@ -81,7 +96,7 @@ const FeaturedArticle = ({ article }) => (
         style={{
           height: "100%",
           position: "relative",
-          zIndex: (zIndex.default + 1),
+          zIndex: (settings.zIndex.default + 1),
         }}
       >
         {article.sectionHeading &&
@@ -89,16 +104,13 @@ const FeaturedArticle = ({ article }) => (
             {article.sectionHeading}
           </FeaturedSectionHeading>
         }
+
         <div
           className="FeaturedArticle-callout"
           style={styles.callout}
         >
           <FeaturedCallout
             {...article}
-            width="70%"
-            style={{
-              position: "relative",
-            }}
             hideLinkBreakpoint={720}
           />
         </div>
@@ -120,6 +132,11 @@ FeaturedArticle.propTypes = {
       href: PropTypes.string,
     }),
   }).isRequired,
+  constrained: PropTypes.bool,
+};
+
+FeaturedArticle.defaultProps = {
+  constrained: false,
 };
 
 export default radium(FeaturedArticle);
