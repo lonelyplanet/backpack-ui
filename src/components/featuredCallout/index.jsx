@@ -12,6 +12,7 @@ const styles = {
   container: {
     color: color.white,
     fontFamily: font("benton"),
+    position: "relative",
     width: "70%",
     zIndex: zIndex.slideshowSlide,
 
@@ -40,17 +41,19 @@ const styles = {
     color: color.white,
     fontSize: "28px",
     fontWeight: 600,
-    letterSpacing: "-0.56px",
+    letterSpacing: "-0.75px",
     lineHeight: (34 / 28),
+    marginTop: "5px",
     textShadow: `0 0 130px rgba(${rgb(color.black)}, 0.5)`,
 
     [`@media (min-width: ${media.min["720"]})`]: {
       fontSize: "calc(11px + 3vw)",
-      paddingBottom: "32px",
+      marginBottom: "42px",
     },
 
     [`@media (min-width: ${media.min["1200"]})`]: {
       fontSize: "56px",
+      lineHeight: (64 / 56),
     },
   },
 
@@ -96,7 +99,6 @@ const FeaturedCallout = ({
   link,
   smallFormat,
   hideLinkBreakpoint,
-  width,
   style,
 }) => (
   <div
@@ -104,7 +106,6 @@ const FeaturedCallout = ({
     style={[
       styles.container,
       smallFormat && styles.smallFormat.base,
-      width && { width },
       style,
     ]}
   >
@@ -149,7 +150,6 @@ FeaturedCallout.propTypes = {
     href: PropTypes.string,
   }),
   smallFormat: PropTypes.bool,
-  width: PropTypes.string,
   hideLinkBreakpoint: PropTypes.number,
   style: PropTypes.oneOfType([PropTypes.object]),
 };
