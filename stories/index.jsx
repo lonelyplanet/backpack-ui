@@ -288,6 +288,22 @@ storiesOf("Featured article", module)
         }}
       />
     </StyleRoot>
+  ))
+  .add("Constrained", () => (
+    <StyleRoot>
+      <FeaturedArticle
+        constrained
+        article={{
+          category: "Featured story",
+          image: "https://lonelyplanetimages.imgix.net/mastheads/48119366.jpg?sharp=10&vib=20&w=2000",
+          title: "Station to station: The best train journeys you’ve never heard of",
+          link: {
+            text: "Read article",
+            href: "/link/to/article",
+          },
+        }}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Flyout", module)
