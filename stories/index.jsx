@@ -51,6 +51,7 @@ import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
 // Loading
 // Location
+import Logo from "../src/components/logo";
 import MapMarker from "../src/components/mapMarker";
 // MobileToolbar
 // Modal
@@ -89,6 +90,7 @@ import TagList from "../src/components/tagList";
 import Timestamp from "../src/components/timestamp";
 import Tooltip from "../src/components/tooltip";
 import TourItinerary from "../src/components/tourItinerary";
+import TravelAlert from "../src/components/travelAlert";
 import TypeSelector from "../src/components/typeSelector";
 
 storiesOf("Styles", module)
@@ -634,6 +636,23 @@ storiesOf("List item (news)", module)
     </StyleRoot>
   ));
 
+storiesOf("Logo", module)
+  .add("Blue (default)", () => (
+    <div style={{ display: "inline-block", padding: "20px" }}>
+      <Logo />
+    </div>
+  ))
+  .add("Gray", () => (
+    <div style={{ display: "inline-block", padding: "20px" }}>
+      <Logo color="gray" />
+    </div>
+  ))
+  .add("White", () => (
+    <div style={{ backgroundColor: "#000", display: "inline-block", padding: "20px" }}>
+      <Logo color="white" />
+    </div>
+  ));
+
 storiesOf("Map marker", module)
   .add("Sights", () => (
     <MapMarker
@@ -1146,6 +1165,13 @@ storiesOf("Tour itinerary", module)
       itinerary={data.tour.itinerary}
       link="/"
     />
+  ));
+
+storiesOf("Travel alert", module)
+  .add("Default", () => (
+    <TravelAlert>
+      The US Center for Disease Control <a href="http://www.cdc.gov/zika/geo/active-countries.html">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.
+    </TravelAlert>
   ));
 
 storiesOf("Type selector", module)
