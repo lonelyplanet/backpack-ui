@@ -14,7 +14,7 @@ import Container from "../container";
 
 const styles = {
   wrap: {
-    boxShadow: `0 0 34px 0 rgba(${rgb(color.black)}, 0.11)`,
+    backgroundColor: color.lightGrayBlue,
     display: "flex",
     justifyContent: "center",
     minHeight: "320px",
@@ -85,7 +85,8 @@ const styles = {
   },
 
   input: {
-    border: `1px solid ${color.subduedGray}`,
+    border: 0,
+    WebkitAppearance: "none",
   },
 
   reset: {
