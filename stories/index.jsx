@@ -80,6 +80,8 @@ import ReviewedBadge from "../src/components/reviewedBadge";
 import SectionalNav from "../src/components/sectionalNav";
 import Select from "../src/components/form/select";
 import ShareMenu from "../src/components/shareMenu";
+import SocialLinks from "../src/components/socialLinks";
+
 // SidebarSection
 import SightsListItem from "../src/components/sightsListItem";
 import SponsorLabel from "../src/components/sponsorLabel";
@@ -1044,6 +1046,16 @@ storiesOf("Share menu", module)
       mobile={false}
     />
   ));
+
+storiesOf("Social links", module)
+  .add("Default", () => (
+    <SocialLinks
+      text="Amsterdam is the new culinairy capital"
+      url="http://www.lonelyplanet.com/"
+      mobile={false}
+    />
+  ));
+
 
 storiesOf("Sponsor label", module)
   .addDecorator(withKnobs)
