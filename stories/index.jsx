@@ -80,7 +80,9 @@ import ReviewedBadge from "../src/components/reviewedBadge";
 import SectionalNav from "../src/components/sectionalNav";
 import Select from "../src/components/form/select";
 import ShareMenu from "../src/components/shareMenu";
-import SocialLinks from "../src/components/socialLinks";
+import SocialIconButton from "../src/components/socialIconButton";
+import SocialShare from "../src/components/socialShare";
+import SocialShareContainer from "../src/components/socialShareContainer";
 
 // SidebarSection
 import SightsListItem from "../src/components/sightsListItem";
@@ -470,25 +472,25 @@ storiesOf("Icon callout", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <IconCallout
-      iconName={select("Icon name", [
-        "SurvivalAirplane",
-        "SurvivalBear",
-        "SurvivalBed",
-        "SurvivalBookPencil",
-        "SurvivalCar",
-        "SurvivalHealth",
-        "SurvivalLamp",
-        "SurvivalLgbt",
-        "SurvivalMoney",
-        "SurvivalPassport",
-        "SurvivalSafety",
-        "SurvivalSpeechBubbles",
-        "SurvivalSuitcase",
-        "SurvivalUmbrella",
-        "SurvivalVespa",
-        "SurvivalVisa",
-        "SurvivalWheelchair",
-      ], "SurvivalMoney")}
+      iconName={select("Icon name", {
+        SurvivalAirplane: "Airplane",
+        SurvivalBear: "Bear",
+        SurvivalBed: "Bed",
+        SurvivalBookPencil: "Book / pencil",
+        SurvivalCar: "Car",
+        SurvivalHealth: "Health",
+        SurvivalLamp: "Lamp",
+        SurvivalLgbt: "LGBT",
+        SurvivalMoney: "Money",
+        SurvivalPassport: "Passport",
+        SurvivalSafety: "Safety",
+        SurvivalSpeechBubbles: "Speech bubbles",
+        SurvivalSuitcase: "Suitcase",
+        SurvivalUmbrella: "Umbrella",
+        SurvivalVespa: "Vespa",
+        SurvivalVisa: "Visa",
+        SurvivalWheelchair: "Wheelchair",
+      }, "SurvivalMoney")}
       title={text("Title", "Money and costs")}
       copy={text("Copy", "Budgets, currency rates and on-the-ground costs")}
     />
@@ -625,23 +627,23 @@ storiesOf("Logo", module)
 
 storiesOf("Map marker", module)
   .addDecorator(withKnobs)
-  .add("Sights", () => (
+  .add("Default", () => (
     <MapMarker
-      poiType={select("Type", [
-        // "center",
-        "activities",
-        "drinking_nightlife",
-        "eating",
-        "entertainment",
-        "festivals_events",
-        "info",
-        "restaurants",
-        "shopping",
-        "sights",
-        "sleeping",
-        "tours",
-        "transport",
-      ],
+      poiType={select("Type", {
+        // center: "Center",
+        activities: "Activities",
+        drinking_nightlife: "Drinking and nightlife",
+        eating: "Eating",
+        entertainment: "Entertainment",
+        festivals_events: "Festivals and events",
+        info: "Information",
+        restaurants: "Restaurants",
+        shopping: "Shopping",
+        sights: "Sights",
+        sleeping: "Sleeping",
+        tours: "Tours",
+        transport: "Transportation",
+      },
       "sights")}
       size={number("Size", 128)}
       hideShadow={boolean("Hide shadow", false)}
@@ -869,13 +871,13 @@ storiesOf("Provider logo", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <ProviderLogo
-      provider={select("Provider", [
-        "bdc",
-        "hostelworld",
-        "opentable",
-        "gadventures",
-        "viator",
-      ], "bdc")}
+      provider={select("Provider", {
+        bdc: "booking.com",
+        hostelworld: "Hostelworld",
+        opentable: "OpenTable",
+        gadventures: "G Adventures",
+        viator: "Viator",
+      }, "bdc")}
     />
   ));
 
@@ -892,13 +894,13 @@ storiesOf("Rating", module)
   ))
   .add("Text", () => (
     <Rating
-      provider={select("Provider", [
-        "bdc",
-        "hostelworld",
-        "opentable",
-        "gadventures",
-        "viator",
-      ], "bdc")}
+      provider={select("Provider", {
+        bdc: "booking.com",
+        hostelworld: "Hostelworld",
+        opentable: "OpenTable",
+        gadventures: "G Adventures",
+        viator: "Viator",
+      }, "bdc")}
       amount={number("Amount", 8)}
       max={number("Maximum amount", 10)}
       description={text("Description", "Great")}
@@ -1024,14 +1026,14 @@ storiesOf("Sights List Item", module)
     <SightsListItem
       slug="/path/to/item"
       title="Zimbabwe"
-      subtitle="SOUTHERN AFRICA"
+      subtitle="Southern Africa"
       markerNumber={1}
     />
   )).add("With Image", () => (
     <SightsListItem
       slug="/path/to/item"
       title="Zimbabwe"
-      subtitle="SOUTHERN AFRICA"
+      subtitle="Southern Africa"
       imgPath="https://s3.amazonaws.com/static-asset/backpack-ui/south-pole.80x60.jpg"
       markerNumber={1}
     />
@@ -1040,22 +1042,67 @@ storiesOf("Sights List Item", module)
 storiesOf("Share menu", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <ShareMenu
-      text="Text"
-      url="http://www.lonelyplanet.com/"
-      mobile={false}
+    <div style={{ padding: "100px 300px" }}>
+      <SocialShareContainer
+        text={text("Text", "Animal islands: seven places where creatures rule")}
+        url={text("URL", "https://www.lonelyplanet.com/asia/travel-tips-and-articles/animal-islands-seven-places-where-creatures-rule")}
+        menuPosition={select("Menu position", ["bottom", "left"], "bottom")}
+        hide={["facebookMessenger", "reddit"]}
+      >
+        {ShareMenu}
+      </SocialShareContainer>
+    </div>
+  ));
+
+storiesOf("Social icon button", module)
+  .addDecorator(withKnobs)
+  .add("Email", () => (
+    <SocialIconButton
+      href="mailto:?subject=&body="
+      onClick={action("Email clicked")}
+      network="email"
+    />
+  ))
+  .add("Facebook", () => (
+    <SocialIconButton
+      href="https://www.facebook.com/sharer/sharer.php?u="
+      onClick={action("Facebook clicked")}
+      network="facebook"
+    />
+  ))
+  .add("Facebook Messenger", () => (
+    <SocialIconButton
+      href="fb-messenger://share/?link="
+      onClick={action("Facebook Messenger clicked")}
+      network="facebookMessenger"
+    />
+  ))
+  .add("Reddit", () => (
+    <SocialIconButton
+      href="http://www.reddit.com/submit/?url="
+      onClick={action("Reddit clicked")}
+      network="reddit"
+    />
+  ))
+  .add("Twitter", () => (
+    <SocialIconButton
+      href="https://twitter.com/intent/tweet?text=&url=&via="
+      onClick={action("Twitter clicked")}
+      network="twitter"
     />
   ));
 
-storiesOf("Social links", module)
+storiesOf("Social share", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
-    <SocialLinks
-      text="Amsterdam is the new culinairy capital"
-      url="http://www.lonelyplanet.com/"
-      mobile={false}
-    />
+    <SocialShareContainer
+      text={text("Text", "Animal islands: seven places where creatures rule")}
+      url={text("URL", "https://www.lonelyplanet.com/asia/travel-tips-and-articles/animal-islands-seven-places-where-creatures-rule")}
+      headingText={text("Heading text", "Share this article:")}
+    >
+      {SocialShare}
+    </SocialShareContainer>
   ));
-
 
 storiesOf("Sponsor label", module)
   .addDecorator(withKnobs)
