@@ -2,6 +2,7 @@ import React from "react";
 import { StyleRoot } from "radium";
 import "leaflet/dist/leaflet.css";
 import { storiesOf, action } from "@kadira/storybook";
+import { withKnobs, text, boolean, number, array, object, select } from "@kadira/storybook-addon-knobs";
 import data from "./data.json";
 import Colors from "./Colors";
 import Amenities from "../src/components/amenities";
@@ -94,127 +95,114 @@ import TravelAlert from "../src/components/travelAlert";
 import TypeSelector from "../src/components/typeSelector";
 
 storiesOf("Styles", module)
+  .addDecorator(withKnobs)
   .add("Colors", () => (
     <Colors />
   ));
 
 storiesOf("Iconography", module)
+  .addDecorator(withKnobs)
   .add("Icons", () => (
     <Icons />
   ));
 
 storiesOf("Amenities", module)
+  .addDecorator(withKnobs)
   .add("2-column, single list", () => (
     <Amenities
-      columns={2}
+      columns={number("Columns", 2)}
       listType="single"
       items={data.amenities.singleList}
     />
   ))
   .add("3-column, grouped list", () => (
     <Amenities
-      columns={3}
+      columns={number("Columns", 3)}
       listType="grouped"
       items={data.amenities.groupedList}
     />
   ));
 
 storiesOf("Article preview", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <ArticlePreview
-      title="New York’s most iconic buildings reimagined on deserted streets"
-      paragraph={`A new exhibition in New York of the city’s most iconic
-        buildings shows them in a new light, with the bustle of modern life
-        stripped out. Photographer`}
-      image="http://placehold.it/410x230"
-      href="/"
-      category="Art and culture"
-      categoryHref="/"
+      title={text("Title", "New York’s most iconic buildings reimagined on deserted streets")}
+      paragraph={text("Paragraph", "A new exhibition in New York of the city’s most iconic buildings shows them in a new light, with the bustle of modern life stripped out. Photographer")}
+      image={text("Image URL", "http://placehold.it/410x230")}
+      href={text("URL", "/")}
+      category={text("Category name", "Art and culture")}
+      categoryHref={text("Category URL", "/")}
     />
   ));
 
 storiesOf("Author", module)
-  .add("Left aligned (default)", () => (
+  .addDecorator(withKnobs)
+  .add("Default", () => (
     <Author
-      name="Alex Butler"
-      title="Global news reporter"
-    />
-  ))
-  .add("Center aligned", () => (
-    <Author
-      name="Alex Butler"
-      title="Global news reporter"
-      alignment="center"
-    />
-  ))
-  .add("Right aligned", () => (
-    <Author
-      name="Alex Butler"
-      title="Global news reporter"
-      alignment="right"
+      name={text("Name", "Alex Butler")}
+      title={text("Title", "Global news reporter")}
+      alignment={select("Alignment", ["left", "center", "right"], "left")}
     />
   ));
 
 storiesOf("Author name", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
-    <AuthorName>Alex Butler</AuthorName>
+    <AuthorName>
+      {text("Name", "Alex Butler")}
+    </AuthorName>
   ));
 
 storiesOf("Bookmark", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <Bookmark />
   ));
 
 storiesOf("Breadcrumbs", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <Breadcrumbs
       links={data.breadcrumbs.links}
-      listType="single"
-      items={data.amenities.singleList}
     />
   ));
 
 storiesOf("Button", module)
+  .addDecorator(withKnobs)
   .add("Primary", () => (
-    <Button onClick={action("clicked")}>Hello Button</Button>
-  ))
-  .add("Primary, rounded", () => (
-    <Button rounded onClick={action("clicked")}>Hello Button</Button>
-  ))
-  .add("Primary, tiny", () => (
-    <Button size="tiny" onClick={action("clicked")}>Hello Button</Button>
-  ))
-  .add("Primary, small", () => (
-    <Button size="small" onClick={action("clicked")}>Hello Button</Button>
-  ))
-  .add("Primary, large", () => (
-    <Button size="large" onClick={action("clicked")}>Hello Button</Button>
-  ))
-  .add("Primary, huge", () => (
-    <Button size="huge" onClick={action("clicked")}>Hello Button</Button>
-  ))
-  .add("Primary, disabled", () => (
-    <Button disabled onClick={action("clicked")}>Hello Button</Button>
-  ))
-  .add("Primary, full width", () => (
-    <Button full onClick={action("clicked")}>Hello Button</Button>
+    <Button
+      size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
+      disabled={boolean("Disabled", false)}
+      full={boolean("Full width", false)}
+      rounded={boolean("Rounded", false)}
+      onClick={action("clicked")}
+    >
+      {text("Text", "Hello Button")}
+    </Button>
   ))
   .add("Secondary", () => (
-    <Button color="white" onClick={action("clicked")}>Hello Button</Button>
-  ))
-  .add("Secondary, border", () => (
-    <Button color="white" border onClick={action("clicked")}>Hello Button</Button>
-  ))
-  .add("Secondary, rounded border", () => (
-    <Button color="white" rounded border onClick={action("clicked")}>Hello Button</Button>
+    <Button
+      color="white"
+      size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
+      border={boolean("Border", true)}
+      disabled={boolean("Disabled", false)}
+      full={boolean("Full width", false)}
+      rounded={boolean("Rounded", false)}
+      onClick={action("clicked")}
+    >
+      {text("Text", "Hello Button")}
+    </Button>
   ));
 
 storiesOf("Calendar", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <Calendar />
   ));
 
 storiesOf("Callout", module)
+  .addDecorator(withKnobs)
   .add("Book", () => (
     <StyleRoot>
       <Callout
@@ -250,30 +238,38 @@ storiesOf("Callout", module)
   ));
 
 storiesOf("Callout link", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <CalloutLink href="/">
-      More recommendations
+      {text("Text", "More recommendations")}
     </CalloutLink>
   ))
   .add("Overlay", () => (
     <div style={{ backgroundColor: "#000", padding: "20px" }}>
       <CalloutLink href="/" overlay>
-        More recommendations
+        {text("Text", "More recommendations")}
       </CalloutLink>
     </div>
   ));
 
 storiesOf("Category label", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
-    <CategoryLabel>Art and culture</CategoryLabel>
+    <CategoryLabel>
+      {text("Text", "Art and culture")}
+    </CategoryLabel>
   ));
 
 storiesOf("Category label link", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
-    <CategoryLabelLink href="/">Art and culture</CategoryLabelLink>
+    <CategoryLabelLink href={text("URL", "/")}>
+      {text("Text", "Art and culture")}
+    </CategoryLabelLink>
   ));
 
 storiesOf("Checkbox", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <Checkbox
       value="5 star hotel"
@@ -283,32 +279,37 @@ storiesOf("Checkbox", module)
   ));
 
 storiesOf("Dot loader", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
-      <DotLoader inline={false} />
+      <DotLoader inline={boolean("Inline", false)} />
     </StyleRoot>
   ));
 
 storiesOf("Dropdown", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <Dropdown
-      options={["AUD", "EUR", "GBP", "USD"]}
-      defaultValue="USD"
+      options={array("Options", ["AUD", "EUR", "GBP", "USD"])}
+      defaultValue={text("Default value", "USD")}
       onChange={action(event)}
     />
   ));
 
 storiesOf("Edit link", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
-    <EditLink url="/" />
+    <EditLink url={text("URL", "/")} />
   ));
 
 storiesOf("Expand button", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
-    <ExpandButton label="Open" />
+    <ExpandButton label={text("Label", "Open")} />
   ));
 
 storiesOf("Featured article", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
       <FeaturedArticle
@@ -343,17 +344,20 @@ storiesOf("Featured article", module)
   ));
 
 storiesOf("Flyout", module)
+  .addDecorator(withKnobs)
   .add("Small", () => (
-    <Flyout children="I believe I can fly…" />
-  ))
-  .add("Medium", () => (
-    <Flyout children="I believe I can fly…" size="medium" arrow="right" />
-  ))
-  .add("Fill", () => (
-    <Flyout children="I believe I can fly…" fill />
+    <Flyout
+      children={text("Text", "I believe I can fly…")}
+      size={select("Size", ["small", "medium"], "small")}
+      shadow={select("Shadow", ["small", "large"], "small")}
+      arrow={select("Arrow direction", ["up", "down", "left", "right"], "down")}
+      removePadding={boolean("Remove padding", false)}
+      fill={boolean("Fill", false)}
+    />
   ));
 
 storiesOf("Grid", module)
+  .addDecorator(withKnobs)
   .add("12 column", () => (
     <StyleRoot>
       <Container>
@@ -437,47 +441,22 @@ storiesOf("Grid", module)
   ));
 
 storiesOf("Heading", module)
-  .add("Tiny", () => (
-    <Heading size="tiny">Tiny heading</Heading>
-  ))
-  .add("Small", () => (
-    <Heading size="small">Small heading</Heading>
-  ))
-  .add("Medium (default)", () => (
-    <Heading>Medium heading</Heading>
-  ))
-  .add("Large", () => (
-    <Heading size="large">Large heading</Heading>
-  ))
-  .add("Huge", () => (
-    <Heading size="huge">Huge heading</Heading>
-  ))
-  .add("Thick", () => (
-    <Heading weight="thick">Thick heading</Heading>
-  ))
-  .add("Thin", () => (
-    <Heading weight="thin">Thin heading</Heading>
-  ))
-  .add("Alert importance", () => (
-    <Heading importance="alert">Alert importance heading</Heading>
-  ))
-  .add("High importance", () => (
-    <Heading importance="high">High importance heading</Heading>
-  ))
-  .add("Low importance", () => (
-    <Heading importance="low">Low importance heading</Heading>
-  ))
-  .add("Tight tracking", () => (
-    <Heading tracking="tight">Tight tracking heading</Heading>
-  ))
-  .add("Loose tracking", () => (
-    <Heading tracking="loose">Loose tracking heading</Heading>
-  ))
-  .add("Capitalized", () => (
-    <Heading caps>Capitalized heading</Heading>
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Heading
+      level={select("Level", [1, 2, 3, 4, 5, 6], 2)}
+      size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
+      weight={select("Weight", ["thin", "normal", "thick"], "normal")}
+      importance={select("Importance", ["low", "normal", "high", "alert"], "normal")}
+      tracking={select("Tracking", ["loose", "normal", "tight"], "normal")}
+      caps={boolean("Capitalized", false)}
+    >
+      {text("Text", "Heading text")}
+    </Heading>
   ));
 
 storiesOf("Icon button", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <IconButton
       icon="share"
@@ -486,19 +465,35 @@ storiesOf("Icon button", module)
   ));
 
 storiesOf("Icon callout", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <IconCallout
-      iconName="SurvivalMoney"
-      title="Money and costs"
-      copy="Budgets, currency rates and on-the-ground costs"
-      link={{
-        label: "Go see this thing",
-        href: "/",
-      }}
+      iconName={select("Icon name", [
+        "SurvivalAirplane",
+        "SurvivalBear",
+        "SurvivalBed",
+        "SurvivalBookPencil",
+        "SurvivalCar",
+        "SurvivalHealth",
+        "SurvivalLamp",
+        "SurvivalLgbt",
+        "SurvivalMoney",
+        "SurvivalPassport",
+        "SurvivalSafety",
+        "SurvivalSpeechBubbles",
+        "SurvivalSuitcase",
+        "SurvivalUmbrella",
+        "SurvivalVespa",
+        "SurvivalVisa",
+        "SurvivalWheelchair",
+      ], "SurvivalMoney")}
+      title={text("Title", "Money and costs")}
+      copy={text("Copy", "Budgets, currency rates and on-the-ground costs")}
     />
   ));
 
 storiesOf("Icon callout group", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
       <IconCalloutGroup>
@@ -506,46 +501,31 @@ storiesOf("Icon callout group", module)
           iconName="SurvivalVisa"
           title="Visas"
           copy="Dull but essential passport paperwork and entry info"
-          link={{
-            label: "Go see this thing",
-            href: "/",
-          }}
         />
 
         <IconCallout
           iconName="SurvivalUmbrella"
           title="Best time to go"
           copy="Hit the ground at the right time"
-          link={{
-            label: "Go see this thing",
-            href: "/",
-          }}
         />
 
         <IconCallout
           iconName="SurvivalMoney"
           title="Money and costs"
           copy="Budgets, currency rates and on-the-ground costs"
-          link={{
-            label: "Go see this thing",
-            href: "/",
-          }}
         />
 
         <IconCallout
           iconName="SurvivalHealth"
           title="Health"
           copy="Keep safe and well on the open road"
-          link={{
-            label: "Go see this thing",
-            href: "/",
-          }}
         />
       </IconCalloutGroup>
     </StyleRoot>
   ));
 
 storiesOf("Image carousel", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <ImageCarousel
       images={[
@@ -559,14 +539,16 @@ storiesOf("Image carousel", module)
   ));
 
 storiesOf("Image hero", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <ImageHero
-      image="https://s3.amazonaws.com/static-asset/backpack-ui/ImageHero.770x430.jpg"
-      imageSize={[770, 430]}
+      image={text("Image URL", "https://s3.amazonaws.com/static-asset/backpack-ui/ImageHero.770x430.jpg")}
+      imageSize={array("Size", [770, 430])}
     />
   ));
 
 storiesOf("Interactive Map", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <InteractiveMap
       places={[
@@ -591,14 +573,16 @@ storiesOf("Interactive Map", module)
   ));
 
 storiesOf("Italic text", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
-    <ItalicText>Global news reporter</ItalicText>
+    <ItalicText>{text("Text", "Global news reporter")}</ItalicText>
   ));
 
 storiesOf("Lede", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <Lede
-      content={`Lorem ipsum dolor sit amet, consectetur
+      content={text("Text", `Lorem ipsum dolor sit amet, consectetur
         adipiscing elit, sed do eiusmod tempor incididunt
         ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris
@@ -607,175 +591,134 @@ storiesOf("Lede", module)
         esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident,
         sunt in culpa qui officia deserunt mollit anim id
-        est laborum`}
+        est laborum`)}
     />
   ));
 
 storiesOf("List item (news)", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
       <ListItemNews
-        title="Ireland is set to have the world’s largest redwood forest outside of California"
-        category="Europe"
-        categoryLink="/"
-        link="/"
-        thumbnail="http://placehold.it/110x110"
-      />
-    </StyleRoot>
-  ))
-  .add("Small", () => (
-    <StyleRoot>
-      <ListItemNews
-        title="Ireland is set to have the world’s largest redwood forest outside of California"
-        category="Europe"
-        categoryLink="/"
-        link="/"
-        thumbnail="http://placehold.it/110x110"
-        size="small"
-      />
-    </StyleRoot>
-  ))
-  .add("Sponsored", () => (
-    <StyleRoot>
-      <ListItemNews
-        title="Ireland is set to have the world’s largest redwood forest outside of California"
-        category="Europe"
-        categoryLink="/"
-        link="/"
-        thumbnail="http://placehold.it/110x110"
-        isSponsored
+        title={text("Title", "Ireland is set to have the world’s largest redwood forest outside of California")}
+        category={text("Category", "Europe")}
+        categoryLink={text("Category URL", "/")}
+        link={text("URL", "/")}
+        thumbnail={text("Image URL", "http://placehold.it/110x110")}
+        size={select("Size", ["small", "medium"], "medium")}
+        isSponsored={boolean("Sponsored", false)}
       />
     </StyleRoot>
   ));
 
 storiesOf("Logo", module)
-  .add("Blue (default)", () => (
+  .addDecorator(withKnobs)
+  .add("Default", () => (
     <div style={{ display: "inline-block", padding: "20px" }}>
-      <Logo />
-    </div>
-  ))
-  .add("Gray", () => (
-    <div style={{ display: "inline-block", padding: "20px" }}>
-      <Logo color="gray" />
-    </div>
-  ))
-  .add("White", () => (
-    <div style={{ backgroundColor: "#000", display: "inline-block", padding: "20px" }}>
-      <Logo color="white" />
+      <Logo
+        color={select("Color", ["blue", "gray", "white"], "blue")}
+      />
     </div>
   ));
 
 storiesOf("Map marker", module)
+  .addDecorator(withKnobs)
   .add("Sights", () => (
     <MapMarker
-      poiType="sights"
-      size={128}
-      hideShadow
-    />
-  ))
-  .add("Sights inverse", () => (
-    <MapMarker
-      poiType="sights"
-      size={128}
-      inverse
+      poiType={select("Type", [
+        // "center",
+        "activities",
+        "drinking_nightlife",
+        "eating",
+        "entertainment",
+        "festivals_events",
+        "info",
+        "restaurants",
+        "shopping",
+        "sights",
+        "sleeping",
+        "tours",
+        "transport",
+      ],
+      "sights")}
+      size={number("Size", 128)}
+      hideShadow={boolean("Hide shadow", false)}
+      inverse={boolean("Inverse", false)}
     />
   ));
 
 storiesOf("More link", module)
+  .addDecorator(withKnobs)
   .add("Anchor", () => (
     <MoreLink
-      href="/"
-      children="View all tours"
-    />
+      href={text("URL", "/")}
+      size={select("Size", ["", "small"], "")}
+      caps={boolean("Capitalized", false)}
+      hideIcon={boolean("Hide icon", false)}
+      arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
+    >
+      {text("Text", "View all tours")}
+    </MoreLink>
   ))
   .add("Button", () => (
     <MoreLink
       onClick={action("MoreLink clicked")}
-      children="View all tours"
-    />
+      size={select("Size", ["", "small"], "")}
+      caps={boolean("Capitalized", false)}
+      hideIcon={boolean("Hide icon", false)}
+      arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
+    >
+      {text("Text", "View all tours")}
+    </MoreLink>
   ))
   .add("Span", () => (
     <MoreLink
       isNested
-      children="View all tours"
-    />
-  ))
-  .add("Small", () => (
-    <MoreLink
-      href="/"
-      children="View all tours"
-      size="small"
-    />
-  ))
-  .add("Caps", () => (
-    <MoreLink
-      href="/"
-      children="View all tours"
-      caps
-    />
-  ))
-  .add("Hide icon", () => (
-    <MoreLink
-      href="/"
-      children="View all tours"
-      hideIcon
-    />
-  ))
-  .add("Arrow up", () => (
-    <MoreLink
-      href="/"
-      children="View all tours"
-      arrowDirection="up"
-    />
-  ))
-  .add("Arrow down", () => (
-    <MoreLink
-      href="/"
-      children="View all tours"
-      arrowDirection="down"
-    />
-  ))
-  .add("Arrow left", () => (
-    <MoreLink
-      href="/"
-      children="View all tours"
-      arrowDirection="left"
-    />
+      size={select("Size", ["", "small"], "")}
+      caps={boolean("Capitalized", false)}
+      hideIcon={boolean("Hide icon", false)}
+      arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
+    >
+      {text("Text", "View all tours")}
+    </MoreLink>
   ));
 
 storiesOf("Narrative", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
       <Narrative
-        heading="Walking into the Sacher is like turning back the clocks 100 years."
-        htmlContent={`<p>The reception, with its dark-wood panelling, deep red shades
+        heading={text("Heading", "Walking into the Sacher is like turning back the clocks 100 years.")}
+        htmlContent={text("HTML content", `<p>The reception, with its dark-wood panelling, deep red shades
           and heavy gold chandelier, is reminiscent of an expensive fin de siècle
           bordello. The smallest rooms are surprisingly large and suites are truly
           palatial. Junior suites/doubles cost from €480 to €1350.</p>
           <p>As well as extras like original oil paintings throughout and a tiny
           cube of the hotel’s famous Sacher Torte on arrival, there's a hi-tech
-          spa complex, with herbal sauna, ice fountain and fitness room.</p>`}
-        author={{
+          spa complex, with herbal sauna, ice fountain and fitness room.</p>`)}
+        author={object("Author", {
           name: "Tim Plaum",
           title: "Lonely Planet Editor",
           avatar: "",
           url: "",
-        }}
+        })}
       />
     </StyleRoot>
   ));
 
 storiesOf("News article author", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <NewsArticleAuthor
-      name="Alex Butler"
-      title="Global news reporter"
-      absoluteTime="2017-01-17"
-      relativeTime="3 days ago"
+      name={text("Name", "Alex Butler")}
+      title={text("Title", "Global news reporter")}
+      absoluteTime={text("Absolute time", "2017-01-17")}
+      relativeTime={text("Relative time", "3 days ago")}
     />
   ));
 
 storiesOf("News list", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
       <NewsList
@@ -832,6 +775,7 @@ storiesOf("News list", module)
   ));
 
 storiesOf("Newsletter", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
       <Newsletter />
@@ -839,37 +783,43 @@ storiesOf("Newsletter", module)
   ));
 
 storiesOf("No results", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <NoResults onReset={action(event)} />
   ));
 
 storiesOf("Number list", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <NumberList list={data.numberList} />
   ));
 
 storiesOf("Number marker", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
-    <NumberMarker number={4} />
+    <NumberMarker number={number("Number", 4)} />
   ));
 
 storiesOf("Placeholder", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
-    <Placeholder title="The best place in the world" />
+    <Placeholder title={text("Title", "The best place in the world")} />
   ));
 
 storiesOf("POI Paginator", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <PoiPaginator
-      title="Bademiya"
-      type="Fusion restaurant"
-      neighborhood="Hofburg"
-      place="Vienna"
-      topChoice
+      title={text("Title", "Bademiya")}
+      type={text("Type", "Fusion restaurant")}
+      neighborhood={text("Neighborhood", "Hofburg")}
+      place={text("Place", "Vienna")}
+      topChoice={boolean("Top choice", false)}
     />
   ));
 
 storiesOf("Profile", module)
+  .addDecorator(withKnobs)
   .add("Large, vertical", () => (
     <StyleRoot>
       <Profile
@@ -896,140 +846,97 @@ storiesOf("Profile", module)
   ));
 
 storiesOf("Promoted guidebook", module)
+  .addDecorator(withKnobs)
   .add("default", () => (
     <StyleRoot>
       <PromotedGuidebook
-        title="Egypt travel guide"
-        url="http://shop.lonelyplanet.com/egypt/egypt-travel-guide-12/"
-        imageUrl="http://media.lonelyplanet.com/shop/images/9919-Egypt_travel_guide_-_12th_edition_Large.jpg"
-        price={{
+        title={text("Title", "Egypt travel guide")}
+        url={text("URL", "http://shop.lonelyplanet.com/egypt/egypt-travel-guide-12/")}
+        imageUrl={text("Image URL", "http://media.lonelyplanet.com/shop/images/9919-Egypt_travel_guide_-_12th_edition_Large.jpg")}
+        price={object("Price", {
           usd: "27.99",
-        }}
-        description={`In spite of political, financial and social
+        })}
+        description={text("Description", `In spite of political, financial and social
           turmoil, Egyptians remain  proud and defiant and are as
-          welcoming as ever to visitors to their land.`}
+          welcoming as ever to visitors to their land.`)}
       />
     </StyleRoot>
   ));
 
 storiesOf("Provider logo", module)
-  .add("booking.com", () => (
-    <ProviderLogo provider="bdc" />
-  ))
-  .add("Hostelworld", () => (
-    <ProviderLogo provider="hostelworld" />
-  ))
-  .add("OpenTable", () => (
-    <ProviderLogo provider="opentable" />
-  ))
-  .add("G Adventures", () => (
-    <ProviderLogo provider="gadventures" />
-  ))
-  .add("Viator", () => (
-    <ProviderLogo provider="viator" />
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <ProviderLogo
+      provider={select("Provider", [
+        "bdc",
+        "hostelworld",
+        "opentable",
+        "gadventures",
+        "viator",
+      ], "bdc")}
+    />
   ));
 
 storiesOf("Rating", module)
+  .addDecorator(withKnobs)
   .add("Icon", () => (
     <Rating
-      amount={3.5}
+      amount={select("Amount", [
+        0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5,
+      ], 3.5)}
       max={5}
       icon
     />
   ))
   .add("Text", () => (
     <Rating
-      provider="bdc"
-      amount={8}
-      max={10}
-      description="Great"
+      provider={select("Provider", [
+        "bdc",
+        "hostelworld",
+        "opentable",
+        "gadventures",
+        "viator",
+      ], "bdc")}
+      amount={number("Amount", 8)}
+      max={number("Maximum amount", 10)}
+      description={text("Description", "Great")}
     />
   ));
 
 storiesOf("Page header", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
       <PageHeader
-        heading="Ryman Auditorium"
-        title="Nashville sights"
-        titleHref="/"
-        topChoice
-        type="Historic building"
-        place="Nashville"
-        alignment="center"
+        heading={text("Title", "Ryman Auditorium")}
+        title={text("Category", "Nashville sights")}
+        titleHref={text("Category URL", "/")}
+        type={text("Type", "Historic building")}
+        place={text("Place", "Nashville")}
+        alignment={select("Alignment", ["", "center"], "center")}
+        topChoice={boolean("Top choice", false)}
+        contained={boolean("Contained", false)}
+        bookmark={boolean("Bookmark", false)}
+        stars={number("Stars", 0)}
       />
     </StyleRoot>
   ));
 
 storiesOf("Paginator button", module)
-  .add("Up (default)", () => (
+  .addDecorator(withKnobs)
+  .add("Default", () => (
     <PaginatorButton
-      direction="up"
-      onClick={action("PaginatorButton clicked")}
-    />
-  ))
-  .add("Down", () => (
-    <PaginatorButton
-      direction="down"
-      onClick={action("PaginatorButton clicked")}
-    />
-  ))
-  .add("Left", () => (
-    <PaginatorButton
-      direction="left"
-      onClick={action("PaginatorButton clicked")}
-    />
-  ))
-  .add("Right", () => (
-    <PaginatorButton
-      direction="right"
-      onClick={action("PaginatorButton clicked")}
-    />
-  ))
-  .add("Medium (default)", () => (
-    <PaginatorButton
-      size="medium"
-      onClick={action("PaginatorButton clicked")}
-    />
-  ))
-  .add("Small", () => (
-    <PaginatorButton
-      size="small"
-      onClick={action("PaginatorButton clicked")}
-    />
-  ))
-  .add("Loose shadow (default)", () => (
-    <PaginatorButton
-      shadow="loose"
-      onClick={action("PaginatorButton clicked")}
-    />
-  ))
-  .add("Tight shadow", () => (
-    <PaginatorButton
-      shadow="tight"
-      onClick={action("PaginatorButton clicked")}
-    />
-  ))
-  .add("Chevron arrow (default)", () => (
-    <PaginatorButton
-      arrow="chevron"
-      onClick={action("PaginatorButton clicked")}
-    />
-  ))
-  .add("Triangle arrow", () => (
-    <PaginatorButton
-      arrow="triangle"
-      onClick={action("PaginatorButton clicked")}
-    />
-  ))
-  .add("Blue arrow", () => (
-    <PaginatorButton
-      color="blue"
+      direction={select("Arrow direction", ["up", "down", "left", "right"], "up")}
+      arrow={select("Arrow style", ["chevron", "triangle"], "chevron")}
+      size={select("Size", ["medium", "small"], "medium")}
+      shadow={select("Shadow", ["loose", "tight"], "loose")}
+      color={select("Color", ["", "blue"], "")}
       onClick={action("PaginatorButton clicked")}
     />
   ));
 
 storiesOf("Recommended articles", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
       <RecommendedArticles>
@@ -1059,6 +966,7 @@ storiesOf("Recommended articles", module)
   ));
 
 storiesOf("Related tour", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <RelatedTour
       title="Vienna City by Bike and Boat"
@@ -1075,11 +983,13 @@ storiesOf("Related tour", module)
   ));
 
 storiesOf("Reviewed badge", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <ReviewedBadge />
   ));
 
 storiesOf("Sectional nav", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
       <SectionalNav
@@ -1101,11 +1011,13 @@ storiesOf("Sectional nav", module)
   ));
 
 storiesOf("Select", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
-    <Select options={["USA", "France", "Spain"]} />
+    <Select options={array("Options", ["USA", "France", "Spain"])} />
   ));
 
 storiesOf("Sights List Item", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <SightsListItem
       slug="/path/to/item"
@@ -1124,6 +1036,7 @@ storiesOf("Sights List Item", module)
   ));
 
 storiesOf("Share menu", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <ShareMenu
       text="Text"
@@ -1133,11 +1046,15 @@ storiesOf("Share menu", module)
   ));
 
 storiesOf("Sponsor label", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
-    <SponsorLabel>Sponsored</SponsorLabel>
+    <SponsorLabel>
+      {text("Text", "Sponsored")}
+    </SponsorLabel>
   ));
 
 storiesOf("Static map", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <StaticMap
       location="-86.8595257,35.93225029999999"
@@ -1146,21 +1063,24 @@ storiesOf("Static map", module)
   ));
 
 storiesOf("Strapline", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <Strapline>
-      Strapline text
+      {text("Text", "Strapline text")}
     </Strapline>
   ));
 
 storiesOf("Tag", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <Tag
-      label="The Americas"
-      slug="/americas"
+      label={text("Text", "The Americas")}
+      slug={text("URL slug", "/americas")}
     />
   ));
 
 storiesOf("Tag list", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <TagList
       tags={[
@@ -1175,11 +1095,17 @@ storiesOf("Tag list", module)
   ));
 
 storiesOf("Timestamp", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
-    <Timestamp dateTime="2017-01-17">3 days ago</Timestamp>
+    <Timestamp
+      dateTime={text("Absolute time", "2017-01-17")}
+    >
+      {text("Relative time", "3 days ago")}
+    </Timestamp>
   ));
 
 storiesOf("Tooltip", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <Tooltip
       label="Mouseover me"
@@ -1200,6 +1126,7 @@ storiesOf("Tooltip", module)
   ));
 
 storiesOf("Tour itinerary", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <TourItinerary
       itinerary={data.tour.itinerary}
@@ -1208,13 +1135,15 @@ storiesOf("Tour itinerary", module)
   ));
 
 storiesOf("Travel alert", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <TravelAlert>
-      The US Center for Disease Control <a href="http://www.cdc.gov/zika/geo/active-countries.html">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.
+      {text("Text", `The US Center for Disease Control <a href="http://www.cdc.gov/zika/geo/active-countries.html">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.`)}
     </TravelAlert>
   ));
 
 storiesOf("Type selector", module)
+  .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
       <TypeSelector
