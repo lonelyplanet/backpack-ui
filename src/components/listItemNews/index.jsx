@@ -35,30 +35,53 @@ const styles = {
   },
 
   heading: {
-    fontSize: "16px",
-    lineHeight: (24 / 16),
-    paddingRight: "24px",
+    default: {
+      paddingRight: "24px",
+    },
 
-    [`@media (min-width: ${media.min["560"]})`]: {
-      fontSize: "20px",
-      lineHeight: 1.6,
+    size: {
+      small: {
+        fontSize: "16px",
+        lineHeight: (24 / 16),
+      },
+      medium: {
+        fontSize: "16px",
+        lineHeight: (24 / 16),
+
+        [`@media (min-width: ${media.min["560"]})`]: {
+          fontSize: "20px",
+          lineHeight: 1.6,
+        },
+      },
     },
   },
 
   imageContainer: {
-    display: "flex",
-    flex: "1.5",
-    justifyContent: "flex-end",
+    default: {
+      display: "flex",
+      flex: "1.5",
+      justifyContent: "flex-end",
+    },
+
+    size: {
+      small: {
+        maxWidth: "80px",
+      },
+      medium: {
+        maxWidth: "110px",
+      },
+    },
   },
 };
 
 const ListItemNews = ({
   title,
-  link,
-  thumbnail,
   category,
   categoryLink,
+  link,
+  thumbnail,
   isSponsored,
+  size,
 }) => (
   <div
     className="ListItemNews"
@@ -80,7 +103,7 @@ const ListItemNews = ({
         level={3}
         weight="thin"
         tracking="tight"
-        override={styles.heading}
+        override={[styles.heading.default, size && styles.heading.size[size]]}
       >
         <a
           style={[styles.anchor, { color: "inherit" }]}
@@ -91,7 +114,7 @@ const ListItemNews = ({
       </Heading>
     </div>
 
-    <div style={styles.imageContainer}>
+    <div style={[styles.imageContainer.default, size && styles.imageContainer.size[size]]}>
       <a href={link} style={styles.imageAnchor}>
         <ListItemThumbnail
           src={thumbnail}
@@ -109,6 +132,10 @@ ListItemNews.propTypes = {
   link: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,
   isSponsored: PropTypes.bool,
+  size: React.PropTypes.oneOf([
+    "small",
+    "medium",
+  ]),
 };
 
 ListItemNews.defaultProps = {
@@ -118,6 +145,7 @@ ListItemNews.defaultProps = {
   link: null,
   thumbnail: null,
   isSponsored: false,
+  size: "medium",
 };
 
 export default radium(ListItemNews);
