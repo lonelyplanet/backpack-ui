@@ -204,8 +204,8 @@ Heading.propTypes = {
    * Controls the letter spacing
    */
   tracking: React.PropTypes.oneOf([
-    "",
     "tight",
+    "normal",
     "loose",
   ]),
 
@@ -236,7 +236,7 @@ Heading.defaultProps = {
 
   importance: "normal",
 
-  tracking: "",
+  tracking: "normal",
 
   truncate: false,
 
