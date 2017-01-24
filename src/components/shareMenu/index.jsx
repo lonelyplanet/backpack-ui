@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 import ReactDOM from "react-dom";
 import styles from "./styles";
@@ -7,59 +7,6 @@ import Flyout from "../flyout";
 import ShareMenuItem from "./item";
 
 class ShareMenu extends React.Component {
-  static calculateWindowPosition(windowDimension, popUpDimension) {
-    return Math.round((windowDimension / 2) - (popUpDimension / 2));
-  }
-
-  static windowSettings() {
-    const windowSettings = {
-      popUpWidth: 840,
-      popUpHeight: 420,
-      popUpLeft: 0,
-      popUpTop: 0,
-      height: window.innerHeight,
-      width: window.innerWidth,
-    };
-
-    windowSettings.popUpLeft = ShareMenu.calculateWindowPosition(
-      windowSettings.width,
-      windowSettings.popUpWidth
-    );
-
-    windowSettings.popUpTop = windowSettings.height > windowSettings.popUpHeight
-      ? ShareMenu.calculateWindowPosition(
-        windowSettings.height,
-        windowSettings.popUpHeight
-      ) : 0;
-
-    windowSettings.windowOptions = "toolbar=no,"
-      + "menubar=no,"
-      + "location=yes,"
-      + "resizable=no,"
-      + "scrollbars=yes";
-
-    windowSettings.windowSize = `width=${windowSettings.popUpWidth},`
-      + `height=${windowSettings.popUpHeight},`
-      + `top=${windowSettings.popUpTop},`
-      + `left=${windowSettings.popUpLeft}`;
-
-    return windowSettings;
-  }
-
-  static openWindow(event) {
-    const { windowOptions, windowSize } = ShareMenu.windowSettings();
-
-    if (event.currentTarget.dataset.network !== "email") {
-      window.open(
-        event.currentTarget.href,
-        "share",
-        `${windowOptions},${windowSize}`
-      );
-    }
-
-    event.preventDefault();
-  }
-
   constructor() {
     super();
 
@@ -70,8 +17,6 @@ class ShareMenu extends React.Component {
     this.toggleOptions = this.toggleOptions.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
     this.handleKeydown = this.handleKeydown.bind(this);
-    this.shareContent = this.shareContent.bind(this);
-    this.shareUrl = this.shareUrl.bind(this);
   }
 
   componentDidMount() {
@@ -109,28 +54,8 @@ class ShareMenu extends React.Component {
     }
   }
 
-  shareContent() {
-    const { url, text } = this.props;
-
-    return {
-      text: encodeURIComponent(text),
-      url: encodeURIComponent(url),
-      via: "lonelyplanet",
-    };
-  }
-
-  shareUrl() {
-    const { url, text, via } = this.shareContent();
-
-    return {
-      twitter: `https://twitter.com/intent/tweet?text=${text}&url=${url}&via=${via}`,
-      facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-      email: `mailto:?subject=${text}&body=${url}`,
-    };
-  }
-
   render() {
-    const { twitter, facebook, email } = this.shareUrl();
+    const { networks, onClick, menuPosition } = this.props;
 
     const style = {
       container: [styles.container.base],
@@ -149,7 +74,7 @@ class ShareMenu extends React.Component {
       false: "visible",
     };
 
-    const flyoutArrow = this.props.mobile ? "right" : "up";
+    const flyoutArrow = (menuPosition === "bottom") ? "up" : "right";
 
     style.options.push(styles.options.position[position[flyoutArrow]]);
 
@@ -184,25 +109,15 @@ class ShareMenu extends React.Component {
           ref={(node) => { this._menu = node; }}
         >
           <Flyout arrow={flyoutArrow} fill>
-            <ShareMenuItem
-              network="twitter"
-              href={twitter}
-              label="Share on Twitter"
-              onClick={ShareMenu.openWindow}
-            />
-
-            <ShareMenuItem
-              network="facebook"
-              href={facebook}
-              label="Share on Facebook"
-              onClick={ShareMenu.openWindow}
-            />
-
-            <ShareMenuItem
-              network="email"
-              href={email}
-              label="Share by email"
-            />
+            {Object.keys(networks).map((network, index) => (
+              <ShareMenuItem
+                network={networks[network].name}
+                href={networks[network].href}
+                label={networks[network].label}
+                onClick={onClick}
+                key={index}
+              />
+            ))}
           </Flyout>
         </div>
       </div>
@@ -211,30 +126,19 @@ class ShareMenu extends React.Component {
 }
 
 ShareMenu.propTypes = {
-  /**
-   * URL of page to share
-   */
-  url: React.PropTypes.string.isRequired,
-
-  /**
-   * Text to share
-   */
-  text: React.PropTypes.string,
-
-  /**
-   * Whether or not the layout should be formatted for mobile screen sizes
-   */
-  mobile: React.PropTypes.bool,
+  networks: PropTypes.objectOf(PropTypes.object),
+  onClick: PropTypes.func,
+  menuPosition: PropTypes.oneOf([
+    "",
+    "bottom",
+    "left",
+  ]),
 };
 
 ShareMenu.defaultProps = {
-  url: "",
-
-  text: "",
-
-  alignment: "",
-
-  mobile: true,
+  networks: null,
+  onClick: null,
+  menuPosition: "bottom",
 };
 
 ShareMenu.styles = styles;
