@@ -6,7 +6,7 @@ import Heading from "../heading";
 import CalloutLink from "../calloutLink";
 import ArticlePreview from "../articlePreview";
 
-function RecommendedArticles({ children }) {
+function RecommendedArticles({ title, calloutLink, calloutTitle, children }) {
   const styles = {
     container: {
     },
@@ -51,30 +51,37 @@ function RecommendedArticles({ children }) {
         }}
       />
 
+      {title &&
       <header>
         <Heading
           level={2}
           weight="thin"
           override={styles.heading}
         >
-          Recommended
+          {title}
         </Heading>
       </header>
+      }
 
       <div style={styles.childrenContainer}>
         {children}
       </div>
 
+      {calloutTitle && calloutLink &&
       <footer style={styles.footer}>
-        <CalloutLink href="/">
-          More recommendations
+        <CalloutLink href={calloutLink}>
+          {calloutTitle}
         </CalloutLink>
       </footer>
+      }
     </section>
   );
 }
 
 RecommendedArticles.propTypes = {
+  title: React.PropTypes.string,
+  calloutLink: React.PropTypes.string,
+  calloutTitle: React.PropTypes.string,
   children: (props, propName, componentName) => {
     const prop = props[propName];
     let error = null;
@@ -92,6 +99,10 @@ RecommendedArticles.propTypes = {
     return error;
   },
 };
-
+RecommendedArticles.defaultProps = {
+  title: "",
+  calloutLink: "",
+  calloutTitle: "",
+};
 
 export default radium(RecommendedArticles);

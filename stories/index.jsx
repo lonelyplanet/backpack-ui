@@ -1057,7 +1057,7 @@ storiesOf("Recommended articles", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
-      <RecommendedArticles>
+      <RecommendedArticles title="Recommended Articles" calloutTitle="More recommendations" calloutLink="/category/recommended">
         <ArticlePreview
           title="New York’s most iconic buildings reimagined on deserted streets"
           paragraph={`A new exhibition in New York of the city’s most iconic
