@@ -16,6 +16,7 @@ import Button from "../src/components/button";
 import Calendar from "../src/components/calendar";
 import Callout from "../src/components/callout";
 import CalloutLink from "../src/components/calloutLink";
+import Card from "../src/components/card";
 import CategoryLabel from "../src/components/categoryLabel";
 import CategoryLabelLink from "../src/components/categoryLabelLink";
 import Checkbox from "../src/components/form/checkbox";
@@ -254,6 +255,21 @@ storiesOf("Callout link", module)
         {text("Text", "More recommendations")}
       </CalloutLink>
     </div>
+  ));
+
+storiesOf("Card", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Card
+      title="I'm a card"
+      description={["Card things", "More Card Things"]}
+      image="http://placehold.it/110x110"
+      link="/"
+      price={{
+        regular: 100,
+        sale: 50,
+      }}
+    />
   ));
 
 storiesOf("Category label", module)
