@@ -782,7 +782,16 @@ storiesOf("Newsletter", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
-      <Newsletter />
+      <Newsletter
+        title={text("Title", "Sign up for our weekly newsletter")}
+        subtitle={text("Subtitle", "Get more travel inspiration, tips and exclusive offers sent straight to your inbox")}
+        placeholder={text("Input placeholder text", "Enter email")}
+        cta={text("Button text", "Sign up")}
+        confirmation={object("Confirmation data", {
+          title: "Thank you for signing up!",
+          text: "We’ll send a confirmation email to",
+        })}
+      />
     </StyleRoot>
   ));
 
