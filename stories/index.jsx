@@ -17,6 +17,10 @@ import Calendar from "../src/components/calendar";
 import Callout from "../src/components/callout";
 import CalloutLink from "../src/components/calloutLink";
 import Card from "../src/components/card";
+import CardBase from "../src/components/cardBase";
+import VideoCard from "../src/components/cardBase/videoCard";
+import TourCard from "../src/components/cardBase/tourCard";
+import CardNew from "../src/components/cardNew";
 import CategoryLabel from "../src/components/categoryLabel";
 import CategoryLabelLink from "../src/components/categoryLabelLink";
 import Checkbox from "../src/components/form/checkbox";
@@ -257,7 +261,47 @@ storiesOf("Callout link", module)
     </div>
   ));
 
-storiesOf("Card", module)
+storiesOf("Cards", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <CardBase
+      title="I'm a card"
+      description={["Card things", "More Card Things"]}
+      image="//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg"
+      link="/"
+    />
+  ))
+  .add("Video Card", () => (
+    <VideoCard
+      title="High Sierra routes with Ken Walker Smith"
+      description={["On The Road", "E.01"]}
+      image="//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg"
+      link="/"
+    />
+  ))
+  .add("Video Card (No Shadow)", () => (
+    <VideoCard
+      title="High Sierra routes with Ken Walker Smith"
+      description={["On The Road", "E.01"]}
+      shadow={false}
+      image="//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg"
+      link="/"
+    />
+  ))
+  .add("Tour Card", () => (
+    <TourCard
+      title="High Sierra routes with Ken Walker Smith"
+      description={["15 Days", "Buenos Aires to Buenos Aires"]}
+      image="//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg"
+      link="/"
+      price={{
+        regular: 100,
+        sale: 50,
+      }}
+    />
+  ));
+
+storiesOf("Card Tour ", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <Card
