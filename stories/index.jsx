@@ -17,8 +17,8 @@ import Calendar from "../src/components/calendar";
 import Callout from "../src/components/callout";
 import CalloutLink from "../src/components/calloutLink";
 import Card from "../src/components/card";
-import VideoCard from "../src/components/card/videoCard";
-import PriceCard from "../src/components/card/priceCard";
+import VideoCard from "../src/components/cardVideo";
+import PriceCard from "../src/components/cardPrice";
 import LegacyCard from "../src/components/card_interest_page_legacy";
 import CategoryLabel from "../src/components/categoryLabel";
 import CategoryLabelLink from "../src/components/categoryLabelLink";
@@ -272,26 +272,19 @@ storiesOf("Cards", module)
   ))
   .add("Video Card", () => (
     <VideoCard
-      title="High Sierra routes with Ken Walker Smith"
-      description={["On The Road", "E.01"]}
-      image="//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg"
+      title={text("Title", "High Sierra routes with Ken Walker Smith")}
+      description={array("Description", ["On The Road", "E.01"])}
+      shadow={boolean("Shadow", false)}
+      length={text("Video Length", "32 min")}
+      image={text("Image Path", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
       link="/"
     />
   ))
-  .add("Video Card (No Shadow)", () => (
-    <VideoCard
-      title="High Sierra routes with Ken Walker Smith"
-      description={["On The Road", "E.01"]}
-      shadow={false}
-      image="//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg"
-      link="/"
-    />
-  ))
-  .add("Tour Card", () => (
+  .add("Price Card", () => (
     <PriceCard
-      title="High Sierra routes with Ken Walker Smith"
-      description={["15 Days", "Buenos Aires to Buenos Aires"]}
-      image="//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg"
+      title={text("Title", "High Sierra routes with Ken Walker Smith")}
+      description={array("Description", ["15 Days", "Buenos Aires to Buenos Aires"])}
+      image={text("Image Path", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
       link="/"
       price={{
         regular: 100,

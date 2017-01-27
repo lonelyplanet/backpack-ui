@@ -1,8 +1,8 @@
 import React, { PropTypes } from "react";
 import { ThemeProvider } from "styled-components";
-import Card from "..";
+import Card from "../card";
 
-const VideoCard = (props) => (
+const CardVideo = (props) => (
   <ThemeProvider
     theme={{
       fullBleed: !props.shadow,
@@ -17,18 +17,18 @@ const VideoCard = (props) => (
   </ThemeProvider>
 );
 
-VideoCard.propTypes = {
+CardVideo.propTypes = {
   length: PropTypes.string.isRequired,
   shadow: PropTypes.bool,
   showPlayButton: PropTypes.bool,
   showDescriptionIcon: PropTypes.bool,
 };
 
-VideoCard.defaultProps = {
+CardVideo.defaultProps = {
   length: "--",
   shadow: true,
   showPlayButton: true,
   showDescriptionIcon: true,
 };
 
-export default VideoCard;
+export default CardVideo;

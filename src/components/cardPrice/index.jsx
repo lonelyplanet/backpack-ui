@@ -1,8 +1,8 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import Card from "..";
+import Card from "../card";
 
-const PriceCard = (props) => (
+const CardPrice = (props) => (
   <ThemeProvider
     theme={{
       minHeight: "53.5rem",
@@ -15,4 +15,4 @@ const PriceCard = (props) => (
 );
 
 
-export default PriceCard;
+export default CardPrice;

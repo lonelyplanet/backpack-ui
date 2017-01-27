@@ -11,9 +11,33 @@ import { Play, Clock } from "../icon";
 const colorAlpha = (opacity) => `rgba(${rgb(color.black)}, ${opacity})`;
 const formatBulletList = (description) => [].concat(description).join(String.fromCharCode("8226"));
 
+const OuterLink = ({ href, children, className }) => {
+  const handleOuterClick = () => {
+    window.location.href = href;
+  };
 
-const CardBase = styled.a`
-  display: block;
+  return (
+    <div className={className} onClick={handleOuterClick}>
+      {children}
+    </div>
+  );
+};
+
+const InnerLink = ({ onClick, children, className }) => {
+  const handleInnerClick = (e) => {
+    e.stopPropagation();
+    onClick();
+  };
+
+  return (
+    <div className={className} onClick={handleInnerClick}>
+      {children}
+    </div>
+  );
+};
+
+const CardBase = styled(OuterLink)`
+  cursor: pointer;
   max-width: 40.9rem;
   min-height: ${({ theme }) => theme.minHeight};
   box-shadow: ${({ theme }) => (theme.fullBleed ? "0" : `0 12px 34px 0 ${colorAlpha(0.11)}`)};
@@ -114,10 +138,12 @@ const Card = ({
        <CardBullets>
          {formatBulletList(description)}
          {descriptionIcon &&
-           <Clock
-             width="25px"
-             height="25px"
-           />
+           <InnerLink onClick={() => console.log("from the outside")}>
+             <Clock
+               width="25px"
+               height="25px"
+             />
+           </InnerLink>
          }
        </CardBullets>
        <Heading
