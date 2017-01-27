@@ -2,10 +2,10 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 import Card from "..";
 
-const TourCard = (props) => (
+const PriceCard = (props) => (
   <ThemeProvider
     theme={{
-      fullBleed: false,
+      minHeight: "53.5rem",
     }}
   >
     <Card
@@ -15,4 +15,4 @@ const TourCard = (props) => (
 );
 
 
-export default TourCard;
+export default PriceCard;

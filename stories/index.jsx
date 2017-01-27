@@ -17,10 +17,9 @@ import Calendar from "../src/components/calendar";
 import Callout from "../src/components/callout";
 import CalloutLink from "../src/components/calloutLink";
 import Card from "../src/components/card";
-import CardBase from "../src/components/cardBase";
-import VideoCard from "../src/components/cardBase/videoCard";
-import TourCard from "../src/components/cardBase/tourCard";
-import CardNew from "../src/components/cardNew";
+import VideoCard from "../src/components/card/videoCard";
+import PriceCard from "../src/components/card/priceCard";
+import LegacyCard from "../src/components/card_interest_page_legacy";
 import CategoryLabel from "../src/components/categoryLabel";
 import CategoryLabelLink from "../src/components/categoryLabelLink";
 import Checkbox from "../src/components/form/checkbox";
@@ -263,8 +262,8 @@ storiesOf("Callout link", module)
 
 storiesOf("Cards", module)
   .addDecorator(withKnobs)
-  .add("Default", () => (
-    <CardBase
+  .add("Default Card", () => (
+    <Card
       title="I'm a card"
       description={["Card things", "More Card Things"]}
       image="//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg"
@@ -289,7 +288,7 @@ storiesOf("Cards", module)
     />
   ))
   .add("Tour Card", () => (
-    <TourCard
+    <PriceCard
       title="High Sierra routes with Ken Walker Smith"
       description={["15 Days", "Buenos Aires to Buenos Aires"]}
       image="//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg"
@@ -301,10 +300,10 @@ storiesOf("Cards", module)
     />
   ));
 
-storiesOf("Card Tour ", module)
+storiesOf("Card Tour / Legacy on Interest", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <Card
+    <LegacyCard
       title="I'm a card"
       description={["Card things", "More Card Things"]}
       image="http://placehold.it/110x110"

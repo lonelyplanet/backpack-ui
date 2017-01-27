@@ -3,7 +3,6 @@ import radium, { Style } from "radium";
 import Heading from "../heading";
 import Price from "../price";
 import styles from "./styles";
-import { Play, Clock } from "../icon";
 
 const Card = ({
   title,
@@ -22,28 +21,13 @@ const Card = ({
       <div
         className="Card--image"
         style={[styles.cardImageBackground, { backgroundImage: `url(${image})` }]}
-      >
-        <div style={styles.imageGradient} />
-        <div style={styles.centerIcon}>
-            <Play
-              width="30px"
-              height="30px"
-            />
-        </div>
-        <div style={styles.bubble}>
-          <p>32 min</p>
-        </div>
-      </div>
+      />
       <div className="Card--description" style={styles.description}>
         <span
           className="Card--tour-description"
           style={styles.tourDescription}
         >
           {[].concat(description).join(` ${String.fromCharCode("8226")} `)}
-          <Clock
-            width="25px"
-            height="25px"
-          />
         </span>
         <Heading
           level={2}
