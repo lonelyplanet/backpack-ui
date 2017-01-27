@@ -6,6 +6,8 @@ import { withKnobs, text, boolean, number, array, object, select } from "@kadira
 import data from "./data.json";
 import Colors from "./Colors";
 import Amenities from "../src/components/amenities";
+import ArticlePaginationItem from "../src/components/articlePaginationItem";
+import ArticlePaginationNav from "../src/components/articlePaginationNav";
 import ArticlePreview from "../src/components/articlePreview";
 import Author from "../src/components/author";
 import AuthorName from "../src/components/authorName";
@@ -124,6 +126,44 @@ storiesOf("Amenities", module)
       columns={number("Columns", 3)}
       listType="grouped"
       items={data.amenities.groupedList}
+    />
+  ));
+
+storiesOf("Article pagination item", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <ArticlePaginationItem
+      headline={text("Title", "Ireland is set to have the world’s largest redwood forest outside of California")}
+      image={text("Image URL", "https://s3.amazonaws.com/static-asset/backpack-ui/article-image.jpg")}
+      imageAlt={text("Image alternate text", "Redwood forest in Ireland")}
+      href={text("URL", "/")}
+      category={text("Category name", "Wildlife and nature")}
+      page={select("Page", {
+        previous: "Previous",
+        next: "Next",
+      }, "previous")}
+      style={{ maxWidth: "50%" }}
+    />
+  ));
+
+storiesOf("Article pagination nav", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <ArticlePaginationNav
+      previousArticle={object("Previous article", {
+        headline: "Ireland is set to have the world’s largest redwood forest outside of California",
+        image: "https://s3.amazonaws.com/static-asset/backpack-ui/article-image.jpg",
+        imageAlt: "Redwood forest in Ireland",
+        href: "/",
+        category: "Wildlife and nature",
+      })}
+      nextArticle={object("Next article", {
+        headline: "See the gorgeous street art along Glasgow’s city centre mural center",
+        image: "https://s3.amazonaws.com/static-asset/backpack-ui/article-image-alt.jpg",
+        imageAlt: "Street art on the side of a building",
+        href: "/",
+        category: "Art and culture",
+      })}
     />
   ));
 
