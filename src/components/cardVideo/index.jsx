@@ -11,8 +11,9 @@ const CardVideo = (props) => (
     <Card
       {...props}
       imageBubbleText={props.length}
-      imageIcon={props.showPlayButton}
-      descriptionIcon={props.showDescriptionIcon}
+      imageIcon="Play"
+      descriptionIcon="Clock"
+      onDescriptionIconClick={props.onWatchLater}
     />
   </ThemeProvider>
 );
@@ -20,15 +21,12 @@ const CardVideo = (props) => (
 CardVideo.propTypes = {
   length: PropTypes.string.isRequired,
   shadow: PropTypes.bool,
-  showPlayButton: PropTypes.bool,
-  showDescriptionIcon: PropTypes.bool,
+  onWatchLater: PropTypes.func,
 };
 
 CardVideo.defaultProps = {
   length: "--",
   shadow: true,
-  showPlayButton: true,
-  showDescriptionIcon: true,
 };
 
 export default CardVideo;

@@ -264,10 +264,10 @@ storiesOf("Cards", module)
   .addDecorator(withKnobs)
   .add("Default Card", () => (
     <Card
-      title="I'm a card"
-      description={["Card things", "More Card Things"]}
-      image="//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg"
-      link="/"
+      title={text("Title", "High Sierra routes with Ken Walker Smith")}
+      description={array("Description", ["Card things", "More Card Things"])}
+      image={text("Image Path", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+      link={text("Video Link", "/path/to/video")}
     />
   ))
   .add("Video Card", () => (
@@ -276,8 +276,9 @@ storiesOf("Cards", module)
       description={array("Description", ["On The Road", "E.01"])}
       shadow={boolean("Shadow", false)}
       length={text("Video Length", "32 min")}
+      onWatchLater={action("watch this video later")}
       image={text("Image Path", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-      link="/"
+      link={text("Video Link", "/path/to/video")}
     />
   ))
   .add("Price Card", () => (
@@ -285,7 +286,7 @@ storiesOf("Cards", module)
       title={text("Title", "High Sierra routes with Ken Walker Smith")}
       description={array("Description", ["15 Days", "Buenos Aires to Buenos Aires"])}
       image={text("Image Path", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-      link="/"
+      link={text("Link", "/path/to/whatever")}
       price={{
         regular: 100,
         sale: 50,
