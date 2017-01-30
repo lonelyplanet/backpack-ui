@@ -1,24 +1,21 @@
 import React, { PropTypes } from "react";
-import { color } from "../../../settings.json";
+import styled from "styled-components";
 import CategoryLabel from "../categoryLabel";
+import DefaultLink from "../defaultLink";
 
-const CategoryLabelLink = ({ href, children }) => (
+const Link = styled(DefaultLink)`
+  display: block;
+`;
+
+const CategoryLabelLink = ({ children, ...props }) => (
   <CategoryLabel>
-    <a
-      style={{
-        color: color.blue,
-        display: "inline-block",
-        textDecoration: "none",
-      }}
-      href={href}
-    >
+    <Link {...props}>
       {children}
-    </a>
+    </Link>
   </CategoryLabel>
 );
 
 CategoryLabelLink.propTypes = {
-  href: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 

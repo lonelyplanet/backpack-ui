@@ -1,16 +1,15 @@
-import React, { PropTypes } from "react";
-import assign from "object-assign";
+import React from "react"; // eslint-disable-line no-unused-vars
+import styled from "styled-components";
 import { color } from "../../../settings.json";
 import CategoryLabel from "../categoryLabel";
 
-const SponsorLabel = ({ style }) => (
-  <CategoryLabel style={assign({}, style, { color: color.crusta })}>
-    Sponsored
-  </CategoryLabel>
-);
+const SponsorLabel = styled(CategoryLabel)`
+  color: ${color.crusta};
+`;
 
-SponsorLabel.propTypes = {
-  style: PropTypes.objectOf(PropTypes.object),
+SponsorLabel.defaultProps = {
+  children: "Sponsored",
+  className: "SponsorLabel",
 };
 
 export default SponsorLabel;
