@@ -1,28 +1,29 @@
 import React, { PropTypes } from "react";
-import styled from "styled-components";
+import radium from "radium";
 import AuthorName from "../authorName";
 import ItalicText from "../italicText";
 
-const AuthorContainer = styled.div`
-  display: inline-block;
-  text-align: ${(props) => props.alignment};
+const styles = {
+  container: {
+    display: "inline-block",
+  },
+  italicText: {
+    marginTop: "8px",
+  },
+};
 
-  .ItalicText {
-    margin-top: 8px;
-  }
-`;
-
-const Author = ({ alignment, name, title, ...props }) => (
-  <AuthorContainer alignment={alignment} {...props}>
+const Author = ({ name, title, alignment, style }) => (
+  <div className="Author" style={[styles.container, { textAlign: alignment }, style]}>
     <AuthorName>{name}</AuthorName>
-    <ItalicText>{title}</ItalicText>
-  </AuthorContainer>
+    <ItalicText style={styles.italicText}>{title}</ItalicText>
+  </div>
 );
 
 Author.propTypes = {
+  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   alignment: PropTypes.oneOf(["left", "center", "right"]),
-  name: PropTypes.string,
-  title: PropTypes.string,
+  style: PropTypes.objectOf(PropTypes.object),
 };
 
 Author.defaultProps = {
@@ -30,4 +31,4 @@ Author.defaultProps = {
   alignment: "left",
 };
 
-export default Author;
+export default radium(Author);
