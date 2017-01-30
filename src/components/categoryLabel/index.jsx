@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-import assign from "object-assign";
+import radium from "radium";
 import { color } from "../../../settings.json";
 import font from "../../utils/font";
 
@@ -8,14 +8,15 @@ const styles = {
   display: "inline-block",
   fontFamily: font("benton"),
   fontSize: "11px",
-  fontWeight: 600,
+  fontWeight: 500,
   letterSpacing: "0.06px",
   lineHeight: 1,
+  overflow: "hidden",
   textTransform: "uppercase",
 };
 
 const CategoryLabel = ({ children, style }) => (
-  <span className="CategoryLabel" style={assign({}, styles, style)}>
+  <span className="CategoryLabel" style={[styles, style]}>
     {children}
   </span>
 );
@@ -25,4 +26,4 @@ CategoryLabel.propTypes = {
   style: PropTypes.objectOf(PropTypes.object),
 };
 
-export default CategoryLabel;
+export default radium(CategoryLabel);
