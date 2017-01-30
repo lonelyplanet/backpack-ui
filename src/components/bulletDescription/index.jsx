@@ -9,7 +9,7 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     letterSpacing: "0.4px",
-    color: color.subtitleGray,
+    color: color.detailHeaderSmall,
     textTransform: "uppercase",
   },
 };

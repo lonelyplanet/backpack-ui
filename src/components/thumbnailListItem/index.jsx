@@ -1,58 +1,122 @@
 import React from "react";
 import radium from "radium";
-import BulletDescription from "../bulletDescription/";
+import { color, timing, typography } from "../../../settings.json";
+import BulletDescription from "../bulletDescription";
+import TextBubble from "../textBubble";
+import Icon from "../icon";
+import Heading from "../heading";
+
+const iconFromString = (iconName, props) => React.createElement(Icon[iconName], {
+  ariaHidden: true,
+  className: "Icon",
+  ...props,
+});
 
 const styles = {
   container: {
     display: "flex",
-    border: "1px solid red",
-    paddingTop: 10,
-    paddingBottom: 10,
-  },
-  imageContainer: {
-    border: "1px solid blue",
-    flex: 1,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    paddingTop: 16,
+    paddingBottom: 16,
+    paddingLeft: 12,
+    paddingRight: 20,
   },
   image: {
-    backgroundColor: "#3b444f",
+    flex: 1.2,
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+    marginRight: 13,
     backgroundPosition: "50%",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    backgroundImage: "url('https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FYXJ0YW5kY3VsdHVyZS5qcGdTYXQgRGVjIDE3IDIwMTYgMjE6MDA6MDUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=60&sharp=10&fit=crop&w=110')",
+  },
+  imageText: {
+    marginRight: 3,
+    marginBottom: 3,
+    fontSize: 11,
+    fontWeight: typography.fontWeightMedium,
   },
   content: {
-    border: "1px solid green",
-    flex: 2,
+    paddingTop: 15,
+    paddingBottom: 15,
+    flex: 3,
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
   },
+  title: {
+    fontSize: 15,
+    marginTop: 5,
+  },
+  descriptionIcon: {
+    cursor: "pointer",
+    transition: `transfrom ${timing.default} ease`,
+    ":hover": {
+      transform: "scale(1.3)",
+    },
+  },
+
+  // themes
+  dark: {
+    container: {
+      background: color.black,
+    },
+    title: {
+      color: color.white,
+    },
+    descriptionIcon: {
+      color: color.white,
+    },
+  },
 };
-const ThumbnailListItem = ({ description, title }) => (
-  <div style={styles.container}>
-    <div style={styles.imageContainer} className="ThumbnailImage" >
-      <div style={styles.image}>
-        <div className="TextBubble">42 min</div>
-      </div>
+
+
+const ThumbnailListItem = ({
+  title,
+  imagePath,
+  description,
+  descriptionIcon,
+  onDescriptionIconClick,
+  textBubble,
+  theme,
+}) => (
+  <div style={[styles.container, theme && styles[theme].container]}>
+    <div style={[styles.image, { backgroundImage: `url(${imagePath})` }]}>
+      <TextBubble style={styles.imageText}>
+        {textBubble}
+      </TextBubble>
     </div>
     <div className="ContentBody" style={styles.content}>
       <div className="Text">
         <BulletDescription description={description} />
-        <p>{title}</p>
+        <Heading
+          level={5}
+          weight="thin"
+          override={[styles.title, theme && styles[theme].title]}
+        >
+          {title}
+        </Heading>
       </div>
-      <div className="DescriptionIcon">
-        <span>Icon goes here</span>
-      </div>
+      {descriptionIcon &&
+        <div
+          style={[styles.descriptionIcon, theme && styles[theme].descriptionIcon]}
+          onClick={onDescriptionIconClick}
+        >
+          {iconFromString(descriptionIcon)}
+        </div>
+      }
     </div>
   </div>
 );
 
 ThumbnailListItem.propTypes = {
   title: React.PropTypes.string,
+  imagePath: React.PropTypes.string,
+  textBubble: React.PropTypes.string,
   description: React.PropTypes.arrayOf(React.PropTypes.string),
+  descriptionIcon: React.PropTypes.string,
+  onDescriptionIconClick: React.PropTypes.func,
+  theme: React.PropTypes.string,
 };
 
 export default radium(ThumbnailListItem);

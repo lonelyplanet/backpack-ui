@@ -94,6 +94,7 @@ import StaticMap from "../src/components/staticMap";
 import Strapline from "../src/components/strapline";
 import Tag from "../src/components/tag";
 import TagList from "../src/components/tagList";
+import TextBubble from "../src/components/textBubble";
 // Takeover
 import ThumbnailListItem from "../src/components/thumbnailListItem";
 import Timestamp from "../src/components/timestamp";
@@ -1220,12 +1221,23 @@ storiesOf("Tag list", module)
     />
   ));
 
+storiesOf("Text Bubble", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <TextBubble>{text("Text", "44 mins")}</TextBubble>
+  ));
+
 storiesOf("Thumbnail List Item", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <ThumbnailListItem
-      title="The shop"
-      description={["Item 1", "Item 2"]}
+      title={text("Title", "The shop")}
+      textBubble={text("Image Text", "45 min")}
+      imagePath={text("Image Path", "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FYXJ0YW5kY3VsdHVyZS5qcGdTYXQgRGVjIDE3IDIwMTYgMjE6MDA6MDUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=60&sharp=10&fit=crop&w=180")}
+      description={array("Description", ["Item 1", "Item 2"])}
+      descriptionIcon={text("Icon Name", "Clock")}
+      onDescriptionIconClick={action("Action for icon")}
+      theme={select("Theme", ["", "dark"], "")}
     />
   ));
 
