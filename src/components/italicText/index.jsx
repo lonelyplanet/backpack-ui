@@ -1,18 +1,25 @@
-import React from "react"; // eslint-disable-line no-unused-vars
-import styled from "styled-components";
+import React, { PropTypes } from "react";
+import radium from "radium";
 import font from "../../utils/font";
 import { color } from "../../../settings.json";
 
-const ItalicText = styled.div`
-  color: ${color.subtitleGray};
-  font-family: ${font("miller")};
-  font-size: 14px;
-  font-style: italic;
-  line-height: 1;
-`;
-
-ItalicText.defaultProps = {
-  className: "ItalicText",
+const styles = {
+  color: color.subtitleGray,
+  fontFamily: font("miller"),
+  fontSize: "14px",
+  fontStyle: "italic",
+  lineHeight: 1,
 };
 
-export default ItalicText;
+const ItalicText = ({ children, style }) => (
+  <div className="ItalicText" style={[styles, style]}>
+    {children}
+  </div>
+);
+
+ItalicText.propTypes = {
+  children: PropTypes.node.isRequired,
+  style: PropTypes.objectOf(PropTypes.object),
+};
+
+export default radium(ItalicText);
