@@ -161,7 +161,11 @@ storiesOf("Author name", module)
 storiesOf("Bookmark", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <Bookmark />
+    <Bookmark
+      onClick={action("Bookmark clicked")}
+      size={select("Size", ["", "large"], "")}
+      marked={boolean("Marked", false)}
+    />
   ));
 
 storiesOf("Breadcrumbs", module)
