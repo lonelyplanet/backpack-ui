@@ -1,10 +1,10 @@
 import React, { PropTypes } from "react";
-import assign from "object-assign";
+import radium from "radium";
 import { color } from "../../../settings.json";
 import CategoryLabel from "../categoryLabel";
 
 const SponsorLabel = ({ style }) => (
-  <CategoryLabel style={assign({}, style, { color: color.crusta })}>
+  <CategoryLabel style={[style, { color: color.crusta }]}>
     Sponsored
   </CategoryLabel>
 );
@@ -13,4 +13,4 @@ SponsorLabel.propTypes = {
   style: PropTypes.objectOf(PropTypes.object),
 };
 
-export default SponsorLabel;
+export default radium(SponsorLabel);
