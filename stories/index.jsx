@@ -307,7 +307,9 @@ storiesOf("Callout link", module)
 storiesOf("Category label", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <CategoryLabel>
+    <CategoryLabel
+      light={boolean("Light", false)}
+    >
       {text("Text", "Art and culture")}
     </CategoryLabel>
   ));
