@@ -103,6 +103,18 @@ exports.ArrowUp = props => (
   </Icon>
 );
 
+exports.ArrowLeftAlternate = props => (
+  <Icon {...props}>
+    <path d="M32 14.7h-27.2l5.4-5.4-1.8-1.7-8.4 8.4 8.4 8.4 1.8-1.7-5.4-5.4h27.2z" />
+  </Icon>
+);
+
+exports.ArrowRightAlternate = props => (
+  <Icon {...props}>
+    <path d="M32 14.7h-27.2l5.4-5.4-1.8-1.7-8.4 8.4 8.4 8.4 1.8-1.7-5.4-5.4h27.2z" transform="rotate(180 16 16)" />
+  </Icon>
+);
+
 exports.Bookmark = props => (
   <Icon {...props}>
     <path d="M5.6 0h20.9v32l-10.5-8.9-10.4 8.9v-32z" />
