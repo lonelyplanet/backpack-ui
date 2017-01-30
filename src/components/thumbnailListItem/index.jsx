@@ -3,14 +3,8 @@ import radium from "radium";
 import { color, timing, typography } from "../../../settings.json";
 import BulletDescription from "../bulletDescription";
 import TextBubble from "../textBubble";
-import Icon from "../icon";
+import { iconFromString } from "../../utils/icon";
 import Heading from "../heading";
-
-const iconFromString = (iconName, props) => React.createElement(Icon[iconName], {
-  ariaHidden: true,
-  className: "Icon",
-  ...props,
-});
 
 const styles = {
   container: {
@@ -21,7 +15,8 @@ const styles = {
     paddingRight: 20,
   },
   image: {
-    flex: 1.2,
+    flex: 1,
+    maxWidth: 130,
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "flex-end",
@@ -39,7 +34,7 @@ const styles = {
   content: {
     paddingTop: 15,
     paddingBottom: 15,
-    flex: 3,
+    flex: 2,
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -50,6 +45,7 @@ const styles = {
   },
   descriptionIcon: {
     cursor: "pointer",
+    color: color.detailHeaderSmall,
     transition: `transfrom ${timing.default} ease`,
     ":hover": {
       transform: "scale(1.3)",
