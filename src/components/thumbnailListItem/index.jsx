@@ -1,5 +1,6 @@
 import React from "react";
 import radium from "radium";
+import BulletDescription from "../bulletDescription/";
 
 const styles = {
   container: {
@@ -30,7 +31,7 @@ const styles = {
     alignItems: "center",
   },
 };
-const ThumbnailListItem = () => (
+const ThumbnailListItem = ({ description, title }) => (
   <div style={styles.container}>
     <div style={styles.imageContainer} className="ThumbnailImage" >
       <div style={styles.image}>
@@ -39,8 +40,8 @@ const ThumbnailListItem = () => (
     </div>
     <div className="ContentBody" style={styles.content}>
       <div className="Text">
-        <div className="Description">S.02  •  E.01</div>
-        <div>The shop</div>
+        <BulletDescription description={description} />
+        <p>{title}</p>
       </div>
       <div className="DescriptionIcon">
         <span>Icon goes here</span>
@@ -48,5 +49,10 @@ const ThumbnailListItem = () => (
     </div>
   </div>
 );
+
+ThumbnailListItem.propTypes = {
+  title: React.PropTypes.string,
+  description: React.PropTypes.arrayOf(React.PropTypes.string),
+};
 
 export default radium(ThumbnailListItem);

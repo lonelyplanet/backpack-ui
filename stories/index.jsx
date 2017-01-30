@@ -14,6 +14,7 @@ import AuthorName from "../src/components/authorName";
 // Availability
 import Bookmark from "../src/components/bookmark";
 import Breadcrumbs from "../src/components/breadcrumbs";
+import BulletDescription from "../src/components/bulletDescription";
 import Button from "../src/components/button";
 import Calendar from "../src/components/calendar";
 import Callout from "../src/components/callout";
@@ -218,6 +219,14 @@ storiesOf("Breadcrumbs", module)
   .add("Default", () => (
     <Breadcrumbs
       links={data.breadcrumbs.links}
+    />
+  ));
+
+storiesOf("Bullet Description", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <BulletDescription
+      description={["Item 1", "Item 2"]}
     />
   ));
 
@@ -1214,7 +1223,10 @@ storiesOf("Tag list", module)
 storiesOf("Thumbnail List Item", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <ThumbnailListItem />
+    <ThumbnailListItem
+      title="The shop"
+      description={["Item 1", "Item 2"]}
+    />
   ));
 
 storiesOf("Timestamp", module)
