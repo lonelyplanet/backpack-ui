@@ -1,39 +1,39 @@
-/* eslint-disable no-unused-vars */
 import React, { PropTypes } from "react";
-import styled from "styled-components";
-import font from "../../utils/font";
+import radium from "radium";
 import { color } from "../../../settings.json";
 import Author from "../author";
 import Timestamp from "../timestamp";
 
-const AuthorContainer = styled.div`
-  &::before {
-    background-color: ${color.red}
-    content: "";
-    display: block;
-    height: 2px;
-    margin-bottom: 27px;
-    width: 48px;
-  }
+const styles = {
+  line: {
+    backgroundColor: color.red,
+    content: "``",
+    display: "block",
+    height: "2px",
+    marginBottom: "27px",
+    width: "48px",
+  },
 
-  .Author {
-    display: block;
-  }
+  author: {
+    display: "block",
+  },
 
-  .Timestamp {
-    display: block;
-    margin-top: 25px;
-  }
-`;
+  timestamp: {
+    display: "block",
+    marginTop: "25px",
+  },
+};
 
-const NewsArticleAuthor = ({ name, title, absoluteTime, relativeTime, ...props }) => (
-  <AuthorContainer {...props}>
-    <Author name={name} title={title} />
+const NewsArticleAuthor = ({ name, title, absoluteTime, relativeTime, style }) => (
+  <div className="NewsArticleAuthor" style={style}>
+    <div style={styles.line} />
 
-    <Timestamp dateTime={absoluteTime}>
+    <Author name={name} title={title} style={styles.author} />
+
+    <Timestamp dateTime={absoluteTime} style={styles.timestamp}>
       {relativeTime}
     </Timestamp>
-  </AuthorContainer>
+  </div>
 );
 
 NewsArticleAuthor.propTypes = {
@@ -41,10 +41,7 @@ NewsArticleAuthor.propTypes = {
   title: PropTypes.string,
   absoluteTime: PropTypes.string,
   relativeTime: PropTypes.string,
+  style: PropTypes.objectOf(PropTypes.object),
 };
 
-NewsArticleAuthor.defaultProps = {
-  className: "NewsArticleAuthor",
-};
-
-export default NewsArticleAuthor;
+export default radium(NewsArticleAuthor);
