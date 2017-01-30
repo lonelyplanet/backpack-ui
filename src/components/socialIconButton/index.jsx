@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React, { PropTypes } from "react";
+import radium from "radium";
 import upperFirst from "lodash/upperFirst";
 import { color, timing } from "../../../settings.json";
 import Icon from "../icon";
@@ -16,59 +16,68 @@ const colors = {
 
 const sizeMultiplier = 2.5;
 
-const Link = styled.a`
-  background-color: ${(props) => colors[props.network]};
-  border-radius: ${(props) => ((props.iconSize * sizeMultiplier) * 2)}px;
-  color: ${color.white};
-  cursor: pointer;
-  display: inline-block;
-  font-size: ${(props) => props.iconSize}px;
-  height: ${(props) => (props.iconSize * sizeMultiplier)}px;
-  line-height: ${(props) => (props.iconSize * sizeMultiplier)}px;
-  text-align: center;
-  text-decoration: none;
-  transition: opacity ${timing.fast} ease-in-out;
-  width: ${(props) => (props.iconSize * sizeMultiplier)}px;
+function SocialIconButton({ network, href, onClick, iconSize, style }) {
+  const styles = {
+    backgroundColor: colors[network],
+    borderRadius: `${((iconSize * sizeMultiplier) * 2)}px`,
+    color: color.white,
+    cursor: "pointer",
+    display: "inline-block",
+    fontSize: `${iconSize}px`,
+    height: `${(iconSize * sizeMultiplier)}px`,
+    lineHeight: `${(iconSize * sizeMultiplier)}px`,
+    textAlign: "center",
+    textDecoration: "none",
+    transition: `opacity ${timing.fast} ease-in-out`,
+    width: `${(iconSize * sizeMultiplier)}px`,
 
-  &:hover,
-  &:active,
-  &:focus {
-    opacity: .7;
-  }
+    ":hover": {
+      opacity: 0.7,
+    },
 
-  &:focus {
-    outline: 1px lightgray dotted;
-    outline-offset: 2px;
-  }
-`;
+    ":active": {
+      opacity: 0.7,
+    },
 
-const SocialIconButton = ({ ...props }) => (
-  <Link
-    {...props}
-    data-network={props.network}
-  >
-    {React.createElement(Icon[_.upperFirst(props.network)])}
-  </Link>
-);
+    ":focus": {
+      opacity: 0.7,
+      outline: "1px lightgray dotted",
+      outlineOffset: "2px",
+    },
+  };
+
+  return (
+    <a
+      className="SocialIconButton"
+      href={href}
+      onClick={onClick}
+      style={[styles, style]}
+      data-network={network}
+    >
+      {React.createElement(Icon[_.upperFirst(network)])}
+    </a>
+  );
+}
 
 SocialIconButton.propTypes = {
-  network: React.PropTypes.oneOf([
+  network: PropTypes.oneOf([
     "email",
     "facebook",
     "facebookMessenger",
     "reddit",
     "twitter",
   ]).isRequired,
-  href: React.PropTypes.string.isRequired, // eslint-disable-line react/no-unused-prop-types
-  iconSize: React.PropTypes.number, // eslint-disable-line react/no-unused-prop-types
+  href: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  iconSize: PropTypes.number,
+  style: PropTypes.objectOf(PropTypes.object),
 };
 
 SocialIconButton.defaultProps = {
-  className: "SocialIconButton",
   network: "email",
   href: null,
   onClick: null,
   iconSize: 16,
 };
 
-export default SocialIconButton;
+export default radium(SocialIconButton);
