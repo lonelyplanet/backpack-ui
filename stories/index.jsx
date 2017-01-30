@@ -94,6 +94,7 @@ import Strapline from "../src/components/strapline";
 import Tag from "../src/components/tag";
 import TagList from "../src/components/tagList";
 // Takeover
+import ThumbnailListItem from "../src/components/thumbnailListItem";
 import Timestamp from "../src/components/timestamp";
 import Tooltip from "../src/components/tooltip";
 import TourItinerary from "../src/components/tourItinerary";
@@ -1208,6 +1209,12 @@ storiesOf("Tag list", module)
         { label: "Editor's pick", slug: "/editors-pick" },
       ]}
     />
+  ));
+
+storiesOf("Thumbnail List Item", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <ThumbnailListItem />
   ));
 
 storiesOf("Timestamp", module)
