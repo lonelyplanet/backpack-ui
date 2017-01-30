@@ -1,42 +1,50 @@
 import React, { PropTypes } from "react";
-import styled from "styled-components";
+import radium, { Style } from "radium";
 import { color } from "../../../settings.json";
 import font from "../../utils/font";
 import { rgb } from "../../utils/color";
 import Container from "../container";
 
-const OuterContainer = styled.div`
-  background-color: ${color.orange};
-  box-sizing: border-box;
-  color: ${color.titleGray};
-  font-family: ${font("benton")};
-  font-size: 14px;
-  padding: 20px;
-  text-align: center;
+const styles = {
+  backgroundColor: color.orange,
+  boxSizing: "border-box",
+  color: color.titleGray,
+  fontFamily: font("benton"),
+  fontSize: "14px",
+  padding: "20px",
+  textAlign: "center",
+};
 
-  a {
-    color: inherit;
-    text-decoration: underline;
-  }
+function markup(htmlContent) {
+  return {
+    __html: htmlContent,
+  };
+}
 
-  a:focus {
-    outline: 1px rgba(${rgb(color.black)}, .3) dotted;
-    outline-offset: 2px;
-  }
-`;
+const TravelAlert = ({ children, style }) => (
+  <div className="TravelAlert" style={[styles, style]}>
+    <Style
+      scopeSelector=".TravelAlert"
+      rules={{
+        a: {
+          color: "inherit",
+          textDecoration: "underline",
+        },
 
-const TravelAlert = ({ children, ...props }) => (
-  <OuterContainer {...props}>
-    <Container>{children}</Container>
-  </OuterContainer>
+        "a:focus": {
+          outline: `1px rgba(${rgb(color.black)}, .3) dotted`,
+          outlineOffset: "2px",
+        },
+      }}
+    />
+
+    <Container dangerouslySetInnerHTML={markup(children)} />
+  </div>
 );
 
 TravelAlert.propTypes = {
   children: PropTypes.node.isRequired,
+  style: PropTypes.objectOf(PropTypes.object),
 };
 
-TravelAlert.defaultProps = {
-  className: "TravelAlert",
-};
-
-export default TravelAlert;
+export default radium(TravelAlert);
