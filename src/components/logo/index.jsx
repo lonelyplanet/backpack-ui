@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-import styled from "styled-components";
+import radium from "radium";
 import settings from "../../../settings.json";
 import { darken } from "../../utils/color";
 import { Logo as Icon } from "../icon";
@@ -11,37 +11,43 @@ const colors = {
   white: settings.color.white,
 };
 
-const iconStyle = {
-  display: "block",
-  height: "100%",
-  width: "100%",
+const styles = {
+  anchor: {
+    display: "block",
+    width: "72px",
+
+    ":focus": {
+      outline: "1px lightgray dotted",
+      outlineOffset: "2px",
+    },
+  },
+
+  icon: {
+    display: "block",
+    height: "100%",
+    width: "100%",
+  },
 };
 
-const Link = styled.a`
-  color: ${(props) => colors[props.fillColor]};
-  display: block;
-  width: 72px;
-
-  &:focus {
-    outline: 1px lightgray dotted;
-    outline-offset: 2px;
-  }
-`;
-
-const Logo = ({ color, ...props }) => (
-  <Link {...props} fillColor={color}>
-    <Icon style={iconStyle} />
-  </Link>
+const Logo = ({ href, color, style }) => (
+  <a
+    className="Logo"
+    style={[styles.anchor, { color: colors[color] }, style]}
+    href={href}
+  >
+    <Icon style={styles.icon} />
+  </a>
 );
 
 Logo.propTypes = {
+  href: PropTypes.string,
   color: PropTypes.oneOf(["blue", "gray", "grey", "white"]),
+  style: PropTypes.objectOf(PropTypes.object),
 };
 
 Logo.defaultProps = {
-  className: "Logo",
   href: "/",
   color: "blue",
 };
 
-export default Logo;
+export default radium(Logo);
