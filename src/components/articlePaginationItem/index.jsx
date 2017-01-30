@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react";
 import styled from "styled-components";
-import { color, timing, zIndex } from "../../../settings.json";
+import { color, media, timing, zIndex } from "../../../settings.json";
 import font from "../../utils/font";
 import { rgb } from "../../utils/color";
 import CategoryLabel from "../categoryLabel";
@@ -38,7 +38,16 @@ const LinkedContainer = styled.a`
 
 const Container = styled.div`
   position: relative;
+  max-width: 520px;
   z-index: ${zIndex.default + 1};
+
+  .Heading {
+    @media (min-width: ${media.min["480"]}) {
+      font-size: 40px !important;
+      line-height: ${(46 / 40)} !important;
+      margin-top: 7px !important;
+    },
+  }
 `;
 
 const FauxButton = styled.div`
@@ -49,9 +58,13 @@ const FauxButton = styled.div`
   font-size: 11px;
   font-weight: 500;
   line-height: 1;
-  margin-top: 23px;
+  margin-top: 17px;
   padding: 10px 16px 9px;
   text-transform: uppercase;
+
+  @media (min-width: ${media.min["480"]}) {
+    margin-top: 23px;
+  }
 `;
 
 const Image = styled.img`
@@ -82,9 +95,9 @@ const ArticlePaginationItem = ({ ...props }) => (
         weight="thick"
         override={{
           color: color.white,
-          fontSize: "40px",
-          lineHeight: (46 / 40),
-          marginTop: "7px",
+          fontSize: "20px",
+          lineHeight: (28 / 20),
+          marginTop: "2px",
         }}
       >
         {props.headline}
