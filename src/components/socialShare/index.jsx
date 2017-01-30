@@ -12,8 +12,8 @@ const styles = {
   },
 };
 
-const SocialShare = ({ networks, onClick, headingText }) => (
-  <div className="SocialShare" role="complementary">
+const SocialShare = ({ networks, onClick, headingText, style }) => (
+  <div className="SocialShare" role="complementary" style={style}>
     {headingText &&
       <Heading size="tiny" weight="thick" level={5} caps>
         {headingText}
@@ -39,6 +39,7 @@ SocialShare.propTypes = {
   networks: PropTypes.objectOf(PropTypes.object),
   onClick: PropTypes.func,
   headingText: PropTypes.string,
+  style: PropTypes.objectOf(PropTypes.object),
 };
 
 SocialShare.defaultProps = {
