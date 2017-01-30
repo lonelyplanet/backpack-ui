@@ -8,7 +8,7 @@ const styles = {
   display: "inline-block",
   fontFamily: font("benton"),
   fontSize: "11px",
-  fontWeight: 600,
+  fontWeight: 500,
   letterSpacing: "0.06px",
   lineHeight: 1,
   textTransform: "uppercase",
