@@ -2,9 +2,9 @@ import React from "react";
 import radium from "radium";
 import assign from "object-assign";
 import upperFirst from "lodash/upperFirst";
-import Icon from "../icon";
 import { blueLink } from "../../utils/mixins";
 import font from "../../utils/font";
+import iconFromString from "../../utils/icon";
 
 const _ = { upperFirst };
 
@@ -83,7 +83,7 @@ function MoreLink({
     arrowDirection === "left" && { marginRight: ".5em" }
   );
 
-  const IconElement = React.createElement(Icon[`Chevron${_.upperFirst(arrowDirection)}`], {
+  const IconElement = iconFromString(`Chevron${_.upperFirst(arrowDirection)}`, {
     height: "6px",
     width: "6px",
     style: iconStyle,

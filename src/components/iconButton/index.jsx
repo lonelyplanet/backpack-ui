@@ -6,6 +6,7 @@ import settings from "../../../settings.json";
 import Icon from "../icon";
 import { darken } from "../../utils/color";
 import { outline } from "../../utils/mixins";
+import iconFromString from "../../utils/icon";
 
 const _ = { upperFirst };
 
@@ -64,10 +65,6 @@ function IconButton({ iconName, label, className, href, onClick, size, owns }) {
     style.push(styles.size[size]);
   }
 
-  const ButtonIcon = React.createElement(Icon[_.upperFirst(iconName)], {
-    label,
-  });
-
   return (
     <Element
       className={`${className ? `${className} ` : ""}IconButton`}
@@ -79,7 +76,7 @@ function IconButton({ iconName, label, className, href, onClick, size, owns }) {
       aria-label={label}
       aria-owns={owns}
     >
-      {ButtonIcon}
+      {iconFromString(_.upperFirst(iconName), { label })}
     </Element>
   );
 }
@@ -88,7 +85,7 @@ IconButton.propTypes = {
   /**
    * Name of the icon to display inside of the button
    */
-  iconName: React.PropTypes.string.isRequired,
+  iconName: React.PropTypes.oneOf(Object.keys(Icon)).isRequired,
 
   /**
    * A descriptive label of the button's purpose

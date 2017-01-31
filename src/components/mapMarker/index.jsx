@@ -2,6 +2,7 @@ import React from "react";
 import radium from "radium";
 import { color } from "../../../settings.json";
 import { rgb } from "../../utils/color";
+import iconFromString from "../../utils/icon";
 import Icon from "../icon";
 
 function mapMarker({ poiType, size, hideShadow, inverse }) {
@@ -128,7 +129,7 @@ function mapMarker({ poiType, size, hideShadow, inverse }) {
     },
   };
 
-  const MarkerIcon = React.createElement(Icon[`Map${types[poiType].icon}`], {
+  const MarkerIcon = iconFromString(`Map${types[poiType].icon}`, {
     style: styles.icon.base,
     fill: inverse ? types[poiType].color : color.white,
   });

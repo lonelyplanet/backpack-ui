@@ -2,7 +2,7 @@ import React, { PropTypes } from "react";
 import radium from "radium";
 import upperFirst from "lodash/upperFirst";
 import { color, timing } from "../../../settings.json";
-import Icon from "../icon";
+import iconFromString from "../../utils/icon";
 
 const _ = { upperFirst };
 
@@ -54,7 +54,7 @@ function SocialIconButton({ network, href, onClick, iconSize, style }) {
       style={[styles, style]}
       data-network={network}
     >
-      {React.createElement(Icon[_.upperFirst(network)])}
+      {iconFromString(_.upperFirst(network))}
     </a>
   );
 }

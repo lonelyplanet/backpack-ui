@@ -1,9 +1,9 @@
 import React from "react";
 import radium from "radium";
-import Icon from "../icon";
 import ProviderLogo from "../providerLogo";
 import schema from "../../utils/schema";
 import font from "../../utils/font";
+import iconFromString from "../../utils/icon";
 
 function Rating({ amount, max, description, provider, icon }) {
   const styles = {
@@ -37,7 +37,7 @@ function Rating({ amount, max, description, provider, icon }) {
     itemType: "AggregateRating",
   });
 
-  const RatingIcon = React.createElement(Icon[ratingMap[amount]], {
+  const RatingIcon = iconFromString(ratingMap[amount], {
     height: "12px",
     label,
     width: "100px",
