@@ -3,9 +3,9 @@ import radium from "radium";
 import assign from "object-assign";
 import upperFirst from "lodash/upperFirst";
 import settings from "../../../settings.json";
-import Icon from "../icon";
 import { rgb } from "../../utils/color";
 import { outline } from "../../utils/mixins";
+import iconFromString from "../../utils/icon";
 
 const _ = { upperFirst };
 
@@ -192,10 +192,6 @@ function PaginatorButton({
       "Next";
   }
 
-  const PaginatorIcon = React.createElement(Icon[iconName], {
-    label,
-  });
-
   return (
     <button
       className="PaginatorButton"
@@ -205,7 +201,7 @@ function PaginatorButton({
       aria-label={label}
       aria-owns={owns}
     >
-      {PaginatorIcon}
+      {iconFromString(iconName, { label })}
     </button>
   );
 }
