@@ -2,7 +2,7 @@ import React from "react";
 import { StyleRoot } from "radium";
 import "leaflet/dist/leaflet.css";
 import { storiesOf, action } from "@kadira/storybook";
-import { withKnobs, text, boolean, number, array, object, select } from "@kadira/storybook-addon-knobs";
+import { withKnobs, text, boolean, number, array, object, select, color } from "@kadira/storybook-addon-knobs";
 import data from "./data.json";
 import Colors from "./Colors";
 import Amenities from "../src/components/amenities";
@@ -79,6 +79,7 @@ import Rating from "../src/components/rating";
 import RecommendedArticles from "../src/components/recommendedArticles";
 import RelatedTour from "../src/components/relatedTour";
 import ReviewedBadge from "../src/components/reviewedBadge";
+import ScrollIndicator from "../src/components/scrollIndicator";
 import SectionalNav from "../src/components/sectionalNav";
 import Select from "../src/components/form/select";
 import ShareMenu from "../src/components/shareMenu";
@@ -1047,6 +1048,14 @@ storiesOf("Reviewed badge", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <ReviewedBadge />
+  ));
+
+storiesOf("Scroll Indicator", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <ScrollIndicator
+      color={color("Color", "#000")}
+    />
   ));
 
 storiesOf("Sectional nav", module)
