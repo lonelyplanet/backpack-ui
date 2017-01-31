@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 
 import { color, timing, typography } from "../../../settings.json";
@@ -7,6 +7,7 @@ import iconFromString from "../../utils/icon";
 import BulletDescription from "../bulletDescription";
 import TextBubble from "../textBubble";
 import Heading from "../heading";
+import Icon from "../icon";
 
 const styles = {
   container: {
@@ -83,6 +84,7 @@ const ThumbnailListItem = ({
   imagePath,
   description,
   descriptionIcon,
+  descriptionIconLabel,
   onDescriptionIconClick,
   textBubble,
   theme,
@@ -106,12 +108,12 @@ const ThumbnailListItem = ({
           {title}
         </Heading>
       </div>
-      {descriptionIcon &&
+      {descriptionIcon && onDescriptionIconClick &&
         <button
           style={[styles.descriptionIcon, theme && styles[theme].descriptionIcon]}
           onClick={onDescriptionIconClick}
         >
-          {iconFromString(descriptionIcon, { label: "Watch later" })}
+          {iconFromString(descriptionIcon, { label: descriptionIconLabel })}
         </button>
       }
     </div>
@@ -119,13 +121,14 @@ const ThumbnailListItem = ({
 );
 
 ThumbnailListItem.propTypes = {
-  title: React.PropTypes.string,
-  imagePath: React.PropTypes.string,
-  textBubble: React.PropTypes.string,
-  description: React.PropTypes.arrayOf(React.PropTypes.string),
-  descriptionIcon: React.PropTypes.string,
-  onDescriptionIconClick: React.PropTypes.func,
-  theme: React.PropTypes.string,
+  title: PropTypes.string,
+  imagePath: PropTypes.string,
+  textBubble: PropTypes.string,
+  description: PropTypes.arrayOf(PropTypes.string),
+  descriptionIcon: PropTypes.oneOf(Object.keys(Icon)),
+  descriptionIconLabel: PropTypes.string,
+  onDescriptionIconClick: PropTypes.func,
+  theme: PropTypes.string,
 };
 
 export default radium(ThumbnailListItem);
