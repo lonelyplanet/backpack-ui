@@ -1,6 +1,6 @@
 import React from "react";
 import radium from "radium";
-import { color, timing, typography } from "../../../settings.json";
+import { color, typography } from "../../../settings.json";
 import BulletDescription from "../bulletDescription";
 import TextBubble from "../textBubble";
 import { iconFromString } from "../../utils/icon";
@@ -32,8 +32,8 @@ const styles = {
     fontWeight: typography.fontWeightMedium,
   },
   content: {
-    paddingTop: 15,
-    paddingBottom: 15,
+    paddingTop: 16,
+    paddingBottom: 16,
     flex: 2,
     display: "flex",
     justifyContent: "space-between",
@@ -46,9 +46,8 @@ const styles = {
   descriptionIcon: {
     cursor: "pointer",
     color: color.detailHeaderSmall,
-    transition: `transfrom ${timing.default} ease`,
     ":hover": {
-      transform: "scale(1.3)",
+      color: color.blue,
     },
   },
 
