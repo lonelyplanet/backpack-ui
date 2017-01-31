@@ -2,6 +2,7 @@ import React, { PropTypes } from "react";
 import { color, timing } from "../../../settings.json";
 import font from "../../utils/font";
 import { add, span, gutter } from "../../utils/grid";
+import iconFromString from "../../utils/icon";
 import Icon from "../icon";
 import Heading from "../heading";
 
@@ -46,16 +47,14 @@ const styles = {
 };
 
 function IconCallout({ iconName, title, copy, url }) {
-  const IconElement = React.createElement(Icon[iconName], {
-    style: styles.icon,
-    ariaHidden: true,
-    className: "IconCallout-icon",
-  });
-
   return (
     <div className="IconCallout" style={styles.container}>
       <a href={url} style={styles.anchor}>
-        {IconElement}
+        {iconFromString(iconName, {
+          style: styles.icon,
+          ariaHidden: true,
+          className: "IconCallout-icon",
+        })}
 
         <Heading
           level={3}
