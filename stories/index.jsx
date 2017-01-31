@@ -1247,6 +1247,7 @@ storiesOf("Thumbnail List Item", module)
       imagePath={text("Image Path", "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FYXJ0YW5kY3VsdHVyZS5qcGdTYXQgRGVjIDE3IDIwMTYgMjE6MDA6MDUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=60&sharp=10&fit=crop&w=180")}
       description={array("Description", ["Item 1", "Item 2"])}
       descriptionIcon={text("Icon Name", "Clock")}
+      descriptionIconLabel={text("Icon Name", "Watch later")}
       onDescriptionIconClick={action("Action for icon")}
       theme={select("Theme", ["", "dark"], "")}
     />
