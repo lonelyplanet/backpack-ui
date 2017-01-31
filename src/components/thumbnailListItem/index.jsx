@@ -1,9 +1,11 @@
 import React from "react";
 import radium from "radium";
+
 import { color, typography } from "../../../settings.json";
+import { iconFromString } from "../../utils/icon";
+
 import BulletDescription from "../bulletDescription";
 import TextBubble from "../textBubble";
-import { iconFromString } from "../../utils/icon";
 import Heading from "../heading";
 
 const styles = {
@@ -17,6 +19,7 @@ const styles = {
   image: {
     flex: 1,
     maxWidth: 130,
+    height: 70,
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "flex-end",
@@ -42,6 +45,10 @@ const styles = {
   title: {
     fontSize: 15,
     marginTop: 5,
+    lineHeight: 1.2,
+  },
+  textContainer: {
+    marginRight: 5,
   },
   descriptionIcon: {
     cursor: "pointer",
@@ -77,12 +84,14 @@ const ThumbnailListItem = ({
 }) => (
   <div style={[styles.container, theme && styles[theme].container]}>
     <div style={[styles.image, { backgroundImage: `url(${imagePath})` }]}>
-      <TextBubble style={styles.imageText}>
-        {textBubble}
-      </TextBubble>
+      {textBubble &&
+        <TextBubble style={styles.imageText}>
+          {textBubble}
+        </TextBubble>
+      }
     </div>
-    <div className="ContentBody" style={styles.content}>
-      <div className="Text">
+    <div style={styles.content}>
+      <div style={styles.textContainer}>
         <BulletDescription description={description} />
         <Heading
           level={5}
