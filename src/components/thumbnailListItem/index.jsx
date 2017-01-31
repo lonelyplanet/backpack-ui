@@ -1,8 +1,8 @@
 import React from "react";
 import radium from "radium";
 
-import { color, typography } from "../../../settings.json";
-import { iconFromString } from "../../utils/icon";
+import { color, timing, typography } from "../../../settings.json";
+import iconFromString from "../../utils/icon";
 
 import BulletDescription from "../bulletDescription";
 import TextBubble from "../textBubble";
@@ -51,8 +51,13 @@ const styles = {
     marginRight: 5,
   },
   descriptionIcon: {
-    cursor: "pointer",
+    backgroundColor: "transparent",
+    border: 0,
     color: color.detailHeaderSmall,
+    cursor: "pointer",
+    fontSize: "16px",
+    padding: 0,
+    transition: `color ${timing.default} ease-in-out`,
     ":hover": {
       color: color.blue,
     },
@@ -102,12 +107,12 @@ const ThumbnailListItem = ({
         </Heading>
       </div>
       {descriptionIcon &&
-        <div
+        <button
           style={[styles.descriptionIcon, theme && styles[theme].descriptionIcon]}
           onClick={onDescriptionIconClick}
         >
-          {iconFromString(descriptionIcon)}
-        </div>
+          {iconFromString(descriptionIcon, { label: "Watch later" })}
+        </button>
       }
     </div>
   </div>
