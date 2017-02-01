@@ -39,6 +39,7 @@ import GridColumn from "../src/components/gridColumn";
 import GridRow from "../src/components/gridRow";
 import Heading from "../src/components/heading";
 import Icons from "./icons";
+import Icon from "../src/components/icon";
 import IconButton from "../src/components/iconButton";
 import IconCallout from "../src/components/iconCallout";
 import IconCalloutGroup from "../src/components/iconCalloutGroup";
@@ -1179,9 +1180,9 @@ storiesOf("Social Login Button", module)
   .add("Default", () => (
     <SocialLoginButton
       text={text("Text", "Continue with Facebook")}
-      iconName={text("Icon Name", "FacebookBlock")}
-      iconProps={{ style: { color: text("Icon Color", bpColor.facebook) } }}
-      action={action("Handle Login")}
+      iconName={select("Icon Name", Object.keys(Icon), "FacebookBlock")}
+      iconColor={color("Icon Color", bpColor.facebook)}
+      onClick={action("Handle Login")}
     />
   ));
 

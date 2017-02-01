@@ -1,8 +1,16 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
+import Icon from "../icon";
 import { color, typography } from "../../../settings.json";
 import { rgb } from "../../utils/color";
 import iconFromString from "../../utils/icon";
+import { outline } from "../../utils/mixins";
+
+const hoverStyles = {
+  base: {
+    backgroundColor: `rgba(${rgb(color.activeBackgroundColor)}, 0.4)`,
+  },
+};
 
 const styles = {
   base: {
@@ -10,7 +18,7 @@ const styles = {
     maxWidth: "295px",
     borderRadius: "100px",
     border: `1px solid ${color.detailHeaderSmall}`,
-    background: "transparent",
+    backgroundColor: "transparent",
     paddingTop: "10px",
     paddingBottom: "10px",
     paddingLeft: "24px",
@@ -20,10 +28,9 @@ const styles = {
     justifyContent: "flex-start",
     alignItems: "center",
     cursor: "pointer",
-    transition: "color .5s ease",
-    ":hover": {
-      background: `rgba(${rgb(color.activeBackgroundColor)}, 0.4)`,
-    },
+    ":hover": hoverStyles.base,
+    ":active": hoverStyles.base,
+    ":focus": Object.assign({}, hoverStyles.base, outline()),
   },
   text: {
     flex: 1,
@@ -41,17 +48,35 @@ const iconSettings = {
   style: styles.icon,
 };
 
-const SocialLoginButton = ({ action, iconName, iconProps, text, style }) => (
-  <button style={[styles.base, style && style]} onClick={action}>
-    {iconFromString(iconName, Object.assign({}, iconSettings, iconProps))}
-    <span style={styles.text}>{text}</span>
-  </button>
-);
+const SocialLoginButton = ({
+  onClick,
+  iconName,
+  iconProps,
+  iconColor,
+  text,
+  style,
+}) => {
+  const iconStyles = {
+    style: {
+      color: iconColor,
+      ...styles.icon,
+    },
+  };
+
+  const iconParameters = Object.assign({}, iconSettings, iconProps, iconStyles);
+  return (
+    <button style={[styles.base, style && style]} onClick={onClick}>
+      {iconFromString(iconName, iconParameters)}
+      <span style={styles.text}>{text}</span>
+    </button>
+  );
+};
 
 SocialLoginButton.propTypes = {
   text: PropTypes.string.isRequired,
-  iconName: PropTypes.string.isRequired,
-  action: PropTypes.func,
+  iconName: PropTypes.oneOf(Object.keys(Icon)).isRequired,
+  onClick: PropTypes.func,
+  iconColor: PropTypes.string,
   iconProps: PropTypes.objectOf(PropTypes.object),
   style: PropTypes.objectOf(PropTypes.object),
 };
