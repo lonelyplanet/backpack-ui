@@ -93,6 +93,7 @@ import SightsListItem from "../src/components/sightsListItem";
 import SponsorLabel from "../src/components/sponsorLabel";
 import StaticMap from "../src/components/staticMap";
 import Strapline from "../src/components/strapline";
+import TabbedNav from "../src/components/tabbedNav";
 import Tag from "../src/components/tag";
 import TagList from "../src/components/tagList";
 import TextBubble from "../src/components/textBubble";
@@ -1206,6 +1207,27 @@ storiesOf("Strapline", module)
     <Strapline>
       {text("Text", "Strapline text")}
     </Strapline>
+  ));
+
+storiesOf("Tabbed nav", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <TabbedNav
+        items={[
+          "Latest",
+          "Europe",
+          "Asia",
+          "Australia & the Pacific",
+          "North America",
+          "Central & South America",
+          "Middle East & Africa",
+          "World",
+        ]}
+        active="Latest"
+        onClick={action("Tab clicked")}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Tag", module)
