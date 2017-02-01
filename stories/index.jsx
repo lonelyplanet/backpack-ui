@@ -12,6 +12,7 @@ import ArticlePaginationNav from "../src/components/articlePaginationNav";
 import ArticlePreview from "../src/components/articlePreview";
 import Author from "../src/components/author";
 import AuthorName from "../src/components/authorName";
+import Avatar from "../src/components/avatar";
 // Availability
 import Bookmark from "../src/components/bookmark";
 import Breadcrumbs from "../src/components/breadcrumbs";
@@ -208,6 +209,17 @@ storiesOf("Author name", module)
     <AuthorName>
       {text("Name", "Alex Butler")}
     </AuthorName>
+  ));
+
+storiesOf("Avatar", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Avatar
+      src={text("Image source", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+      alt={text("Alternate text", "Rizzo")}
+      size={select("Size", [25, 40, 70], 70)}
+      href={text("URL", "")}
+    />
   ));
 
 storiesOf("Bookmark", module)
