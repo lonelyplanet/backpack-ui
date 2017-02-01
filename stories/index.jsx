@@ -57,6 +57,8 @@ import ListItemNews from "../src/components/listItemNews";
 // Location
 import Logo from "../src/components/logo";
 import MapMarker from "../src/components/mapMarker";
+import Masthead from "../src/components/masthead";
+import Slide from "../src/components/masthead/slides";
 // MobileToolbar
 // Modal
 import MoreLink from "../src/components/moreLink";
@@ -687,6 +689,54 @@ storiesOf("Logo", module)
       />
     </div>
   ));
+
+
+storiesOf("Masthead", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => {
+    const items = [{
+      adPosition: "",
+      tabTitle: "Honeymoon survival: the ultimate guide for newly-weds abroad",
+      image: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtNjA3Njk2MTAzX2Z1bGwuanBnV2VkIEZlYiAwMSAyMDE3IDA5OjAxOjU1IEdNVCswMDAwIChVVEMp.jpg?q=40&sharp=10&w=2500",
+      gradientColor: "#000000",
+      type: "Featured article",
+      headline: "Honeymoon hacks: a guide for newly-weds abroad",
+      description: "",
+      callToAction: {
+        text: "HAPPILY EVER AFTER",
+        link: "https://www.lonelyplanet.com/travel-tips-and-articles/honeymoon-survival-the-ultimate-guide-for-newlyweds-abroad"
+      },
+      id: 3,
+    }, {
+      adPosition: "",
+      tabTitle: "Sicily’s best coastal hikes",
+      image: "https://lonelyplanetstatic.imgix.net/copilot/images/R2V0dHlJbWFnZXMtNDY3NTY3MjI4X3N1cGVyLTc1YzEyMjJjOGNhOC5qcGdUdWUgSmFuIDMxIDIwMTcgMTA6NDA6MzUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=40&sharp=10&w=2500",
+      gradientColor: "#000000",
+      type: "FEATURED ARTICLE",
+      headline: "Sicily’s best coastal hikes",
+      description: "",
+      callToAction: {
+        text: "ISLES FOR MILES",
+        link: "https://www.lonelyplanet.com/italy/sicily/aeolian-islands/travel-tips-and-articles/sicilys-best-coastal-hikes"
+      },
+      id: 1,
+    }, {
+      adPosition: "",
+      tabTitle: "Architecture for travellers: a novice's guide",
+      image: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtNTM0NzUzNjQ1X3N1cGVyLmpwZ01vbiBKYW4gMzAgMjAxNyAwOTo0MToyOSBHTVQrMDAwMCAoVVRDKQ%3D%3D.jpg?q=40&sharp=10&w=2500",
+      gradientColor: "#000000",
+      type: "FEATURED ARTICLE",
+      headline: "Architecture for travellers: a novice's guide",
+      description: "",
+      callToAction: {
+        text: "PLINTH OR PILASTER?",
+        link: "https://www.lonelyplanet.com/travel-tips-and-articles/architecture-for-travellers-a-novices-guide"
+      },
+      id: 4,
+    }];
+    const slides = items.map((item, index) => <Slide key={index} slide={item} />);
+    return (<StyleRoot><Masthead slides={slides} /></StyleRoot>);
+  });
 
 storiesOf("Map marker", module)
   .addDecorator(withKnobs)
