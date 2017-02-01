@@ -3,6 +3,7 @@ import { StyleRoot } from "radium";
 import "leaflet/dist/leaflet.css";
 import { storiesOf, action } from "@kadira/storybook";
 import { withKnobs, text, boolean, number, array, object, select, color } from "@kadira/storybook-addon-knobs";
+import { color as bpColor } from "../settings.json";
 import data from "./data.json";
 import Colors from "./Colors";
 import Amenities from "../src/components/amenities";
@@ -85,6 +86,7 @@ import SectionalNav from "../src/components/sectionalNav";
 import Select from "../src/components/form/select";
 import ShareMenu from "../src/components/shareMenu";
 import SocialIconButton from "../src/components/socialIconButton";
+import SocialLoginButton from "../src/components/socialLoginButton";
 import SocialShare from "../src/components/socialShare";
 import SocialShareContainer from "../src/components/socialShareContainer";
 
@@ -1169,6 +1171,17 @@ storiesOf("Social icon button", module)
       href="https://twitter.com/intent/tweet?text=&url=&via="
       onClick={action("Twitter clicked")}
       network="twitter"
+    />
+  ));
+
+storiesOf("Social Login Button", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <SocialLoginButton
+      text={text("Text", "Continue with Facebook")}
+      iconName={text("Icon Name", "FacebookBlock")}
+      iconProps={{ style: { color: text("Icon Color", bpColor.facebook) } }}
+      action={action("Handle Login")}
     />
   ));
 
