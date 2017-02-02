@@ -79,18 +79,20 @@ class Checkbox extends Component {
     });
   }
 
-  onClick(event, value, name) {
+  onClick(event) {
     this.setState({
       checked: !this.state.checked,
     });
 
     if (this.props.onClick) {
       this.props.onClick({
-        value,
-        name,
+        value: event.currentTarget.value,
+        name: event.currentTarget.name,
         checked: !this.state.checked,
       });
     }
+
+    event.preventDefault();
   }
 
   render() {
@@ -178,7 +180,7 @@ class Checkbox extends Component {
             ]}
             value={value}
             name={_.kebabCase(name)}
-            onClick={(event) => this.onClick(event, value, _.kebabCase(name))}
+            onClick={this.onClick}
           />
         </label>
       </span>
