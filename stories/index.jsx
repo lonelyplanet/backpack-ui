@@ -30,6 +30,7 @@ import Container from "../src/components/container";
 // ContentHeader
 // ContentSectionList
 // Decoration
+import DisclaimerText from "../src/components/disclaimerText";
 import DotLoader from "../src/components/dotLoader";
 import Dropdown from "../src/components/dropdown";
 import EditLink from "../src/components/editLink";
@@ -58,6 +59,7 @@ import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
 // Loading
 // Location
+import LocationLabel from "../src/components/locationLabel";
 import Logo from "../src/components/logo";
 import MapMarker from "../src/components/mapMarker";
 // MobileToolbar
@@ -108,6 +110,7 @@ import Tooltip from "../src/components/tooltip";
 import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
 import TypeSelector from "../src/components/typeSelector";
+import UserProfileHeader from "../src/components/userProfileHeader";
 
 storiesOf("Styles", module)
   .addDecorator(withKnobs)
@@ -363,6 +366,19 @@ storiesOf("Checkbox", module)
       size={select("Size", [16, 24, 32], 16)}
       onClick={action(event)}
     />
+  ));
+
+storiesOf("Disclaimer text", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <DisclaimerText>
+      {text("Text", `To use Lonely Planet you must have cookies enabled. If you
+        sign up with Twitter or Facebook, we’ll start you off with a network by
+        automatically importing profile imformation. Also, we’ll never post to
+        Twitter or Facebook without your permission. For more info, please see
+        <a href="/">FAQ</a>.`
+      )}
+    </DisclaimerText>
   ));
 
 storiesOf("Dot loader", module)
@@ -696,6 +712,12 @@ storiesOf("List item (news)", module)
         isSponsored={boolean("Sponsored", false)}
       />
     </StyleRoot>
+  ));
+
+storiesOf("Location label", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <LocationLabel>Ottawa, ON</LocationLabel>
   ));
 
 storiesOf("Logo", module)
@@ -1352,6 +1374,17 @@ storiesOf("Travel alert", module)
     <TravelAlert>
       {text("Text", `The US Center for Disease Control <a href="http://www.cdc.gov/zika/geo/active-countries.html">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.`)}
     </TravelAlert>
+  ));
+
+storiesOf("User profile header", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <UserProfileHeader
+      avatarSrc="http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png"
+      name="Rizzo the Rat"
+      subtitle="By air, land and sea"
+      location="Ottawa, ON"
+    />
   ));
 
 storiesOf("Type selector", module)
