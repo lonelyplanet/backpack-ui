@@ -22,56 +22,43 @@ const styles = {
     fontSize: "13px",
     lineHeight: 1,
     position: "relative",
-    height: "16px",
   },
 
   text: {
-    display: "block", // display: "inline-block",
-    // fontSize: "13px", // fontSize: "1em",
+    display: "block",
     lineHeight: 1,
-    paddingLeft: "28px",
-    paddingTop: "2px",
-    paddingBottom: "1px",
   },
 
   checkmark: {
-    default: {
-      borderColor: color.gray,
-      borderStyle: "solid",
-      borderWidth: "1px",
-      color: color.white,
-      display: "block",
-      fontSize: "8px",
-      height: "16px",
-      left: 0,
-      padding: "2px",
-      position: "absolute",
-      textAlign: "center",
-      top: 0,
-      transition: `background-color ${timing.fast},
-        border-color ${timing.fast}`,
-      userSelect: "none",
-      width: "16px",
-      zIndex: zIndex.default,
-    },
+    borderColor: color.gray,
+    borderStyle: "solid",
+    borderWidth: "1px",
+    color: color.white,
+    display: "block",
+    left: 0,
+    position: "absolute",
+    textAlign: "center",
+    top: 0,
+    transition: `background-color ${timing.fast},
+      border-color ${timing.fast}`,
+    userSelect: "none",
+    zIndex: zIndex.default,
+  },
 
-    checked: {
-      backgroundColor: color.blue,
-      borderColor: color.blue,
-    },
+  checkmarkChecked: {
+    backgroundColor: color.blue,
+    borderColor: color.blue,
   },
 
   input: {
     backgroundColor: color.white,
     border: 0,
-    height: "16px",
     left: 0,
     margin: 0,
     outlineColor: darken(color.gray, 7),
     position: "absolute",
     top: 0,
     WebkitAppearance: "none",
-    width: "16px",
   },
 };
 
@@ -113,8 +100,33 @@ class Checkbox extends Component {
       size,
       name,
       label,
+      rounded,
       style,
     } = this.props;
+
+    const textPadding = {
+      16: {
+        paddingBottom: "1px",
+        paddingLeft: "28px",
+        paddingTop: "2px",
+      },
+      24: {
+        paddingBottom: "5px",
+        paddingLeft: "36px",
+        paddingTop: "6px",
+      },
+      32: {
+        paddingBottom: "9px",
+        paddingLeft: "44px",
+        paddingTop: "10px",
+      },
+    };
+
+    const checkmarkPadding = {
+      16: { padding: "2px" },
+      24: { padding: "4px" },
+      32: { padding: "6px" },
+    };
 
     return (
       <span
@@ -128,12 +140,23 @@ class Checkbox extends Component {
       >
         <label
           htmlFor={`${_.kebabCase(id)}-input`}
-          style={[styles.label, label ? { width: "auto" } : { width: "16px" }]}
+          style={[
+            styles.label,
+            { height: `${size}px` },
+            label ? { width: "auto" } : { width: `${size}px` },
+          ]}
         >
           <span
             style={[
-              styles.checkmark.default,
-              this.state.checked && styles.checkmark.checked,
+              styles.checkmark,
+              {
+                fontSize: `${(size / 2)}px`,
+                height: `${size}px`,
+                width: `${size}px`,
+              },
+              checkmarkPadding[size],
+              rounded && { borderRadius: "100%" },
+              this.state.checked && styles.checkmarkChecked,
             ]}
           >
             <Icon.Checkmark
@@ -141,12 +164,18 @@ class Checkbox extends Component {
             />
           </span>
 
-          {label && <span style={styles.text}>{label}</span>}
+          {label && <span style={[styles.text, textPadding[size]]}>{label}</span>}
 
           <input
             id={`${_.kebabCase(id)}-input`}
             type="checkbox"
-            style={styles.input}
+            style={[
+              styles.input,
+              {
+                height: `${size}px`,
+                width: `${size}px`,
+              },
+            ]}
             value={value}
             name={_.kebabCase(name)}
             onClick={(event) => this.onClick(event, value, _.kebabCase(name))}
@@ -164,18 +193,16 @@ Checkbox.propTypes = {
   label: PropTypes.string,
   checked: PropTypes.bool,
   onClick: PropTypes.func,
-  size: PropTypes.oneOf([
-    "",
-    "full",
-    "half",
-    "third",
-  ]),
+  size: PropTypes.oneOf([16, 24, 32]),
+  rounded: PropTypes.bool,
   style: PropTypes.objectOf(PropTypes.object),
 };
 
 Checkbox.defaultProps = {
   checked: false,
   onClick: null,
+  size: 16,
+  rounded: false,
 };
 
 export default radium(Checkbox);
