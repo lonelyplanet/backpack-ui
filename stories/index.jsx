@@ -39,6 +39,7 @@ import FeaturedArticle from "../src/components/featuredArticle";
 import Flyout from "../src/components/flyout";
 import GridColumn from "../src/components/gridColumn";
 import GridRow from "../src/components/gridRow";
+import GhostInput from "../src/components/form/ghostInput";
 import Heading from "../src/components/heading";
 import Icons from "./icons";
 import Icon from "../src/components/icon";
@@ -48,6 +49,7 @@ import IconCalloutGroup from "../src/components/iconCalloutGroup";
 import ImageCarousel from "../src/components/imageCarousel";
 // ImageGallery
 import ImageHero from "../src/components/imageHero";
+import Input from "../src/components/form/input";
 import InteractiveMap from "../src/components/interactiveMap";
 import ItalicText from "../src/components/italicText";
 // LastUpdated
@@ -459,6 +461,15 @@ storiesOf("Flyout", module)
     />
   ));
 
+storiesOf("Ghost Input", module)
+  .addDecorator(withKnobs)
+  .add("Small", () => (
+    <GhostInput
+      type="email"
+      placeholder="gordon@gmail.com"
+    />
+  ));
+
 storiesOf("Grid", module)
   .addDecorator(withKnobs)
   .add("12 column", () => (
@@ -556,6 +567,12 @@ storiesOf("Heading", module)
     >
       {text("Text", "Heading text")}
     </Heading>
+  ));
+
+storiesOf("Input", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Input />
   ));
 
 storiesOf("Icon button", module)
