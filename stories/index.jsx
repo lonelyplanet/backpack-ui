@@ -354,9 +354,14 @@ storiesOf("Checkbox", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <Checkbox
-      value="5 star hotel"
-      id="check"
-      checked
+      value={text("Value", "Some value")}
+      id={text("ID", "check")}
+      name={text("Name", "check")}
+      label={text("Label", "Checkbox")}
+      checked={boolean("Checked", true)}
+      rounded={boolean("Rounded", false)}
+      size={select("Size", [16, 24, 32], 16)}
+      onClick={action(event)}
     />
   ));
 
