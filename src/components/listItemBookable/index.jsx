@@ -7,7 +7,7 @@ import { color, media } from "../../../settings.json";
 import Button from "../button";
 import Price from "../price";
 import Bookmark from "../bookmark";
-import Bullet from "../decoration/bullet";
+import Bullet from "../bullet";
 import Icon from "../icon";
 import Tooltip from "../tooltip";
 import ListItemImage from "../listItemImage";

@@ -1,7 +1,7 @@
 import React from "react";
 import radium from "radium";
 import { color, media } from "../../../settings.json";
-import Bullet from "../decoration/bullet";
+import Bullet from "../bullet";
 
 const styles = {
   container: {

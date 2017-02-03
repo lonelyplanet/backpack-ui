@@ -3,7 +3,7 @@ import radium, { Style } from "radium";
 import { color, media } from "../../../settings.json";
 import Heading from "../heading";
 import Price from "../price";
-import Bullet from "../decoration/bullet";
+import Bullet from "../bullet";
 import { gutter, span, percentage } from "../../utils/grid";
 
 const styles = {
