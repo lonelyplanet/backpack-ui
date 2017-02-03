@@ -465,8 +465,10 @@ storiesOf("Ghost Input", module)
   .addDecorator(withKnobs)
   .add("Small", () => (
     <GhostInput
-      type="email"
-      placeholder="gordon@gmail.com"
+      type={text("Input Type", "email")}
+      error={boolean("Error", false)}
+      errorMessages={array("Error Messages", ["This field is required"])}
+      placeholder={text("Placeholder Text", "johndoe@gmail.com")}
     />
   ));
 

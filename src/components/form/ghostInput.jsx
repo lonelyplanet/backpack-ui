@@ -20,7 +20,7 @@ const styles = {
     ":focus": outline(),
   },
   inputError: {
-    borderBottomColor: color.red,
+    borderBottom: `1px solid ${color.red}`,
   },
   errorMessage: {
     color: color.red,
@@ -37,7 +37,6 @@ class GhostInput extends Component {
 
     this.state = {
       value: this.props.value || "",
-      error: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -46,12 +45,12 @@ class GhostInput extends Component {
   handleChange(e) {
     this.setState({
       value: e.target.value,
-      error: true,
     });
   }
 
   render() {
-    const { error, value } = this.state;
+    const { value } = this.state;
+    const { error, errorMessages } = this.props;
     return (
       <div>
         <input
@@ -60,7 +59,11 @@ class GhostInput extends Component {
           value={value}
           onChange={this.handleChange}
         />
-        {error && <p style={styles.errorMessage}> This field is required </p> }
+        {error &&
+          <div style={styles.errorMessage}>
+            {errorMessages.map(errorMessage => <p>{errorMessage}</p>)}
+          </div>
+        }
       </div>
     );
   }
@@ -68,6 +71,8 @@ class GhostInput extends Component {
 
 GhostInput.propTypes = {
   value: React.PropTypes.string,
+  error: React.PropTypes.bool,
+  errorMessages: React.PropTypes.arrayOf(React.PropTypes.string),
 };
 
 export default radium(GhostInput);
