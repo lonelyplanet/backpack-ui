@@ -23,7 +23,7 @@ import Callout from "../src/components/callout";
 import CalloutLink from "../src/components/calloutLink";
 import CategoryLabel from "../src/components/categoryLabel";
 import CategoryLabelLink from "../src/components/categoryLabelLink";
-import Checkbox from "../src/components/form/checkbox";
+import Checkbox from "../src/components/checkbox";
 import Container from "../src/components/container";
 // ContactBar
 // ContentBlock
