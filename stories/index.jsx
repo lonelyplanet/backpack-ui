@@ -39,7 +39,6 @@ import FeaturedArticle from "../src/components/featuredArticle";
 import Flyout from "../src/components/flyout";
 import GridColumn from "../src/components/gridColumn";
 import GridRow from "../src/components/gridRow";
-import GhostInput from "../src/components/form/ghostInput";
 import Heading from "../src/components/heading";
 import Icons from "./icons";
 import Icon from "../src/components/icon";
@@ -461,17 +460,6 @@ storiesOf("Flyout", module)
     />
   ));
 
-storiesOf("Ghost Input", module)
-  .addDecorator(withKnobs)
-  .add("Small", () => (
-    <GhostInput
-      type={text("Input Type", "email")}
-      error={boolean("Error", false)}
-      errorMessages={array("Error Messages", ["This field is required"])}
-      placeholder={text("Placeholder Text", "johndoe@gmail.com")}
-    />
-  ));
-
 storiesOf("Grid", module)
   .addDecorator(withKnobs)
   .add("12 column", () => (
@@ -574,7 +562,11 @@ storiesOf("Heading", module)
 storiesOf("Input", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <Input />
+    <Input
+      placeholder={text("Placeholder", "johndoe@gmail.com")}
+      error={boolean("Has Error", false)}
+      theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
+    />
   ));
 
 storiesOf("Icon button", module)

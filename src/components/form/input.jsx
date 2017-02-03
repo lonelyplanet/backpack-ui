@@ -8,6 +8,7 @@ function Input({
   label,
   name,
   defaultValue,
+  error,
   min,
   max,
   placeholder,
@@ -30,6 +31,10 @@ function Input({
   if (theme) {
     style.push(styles.theme[theme]);
     style.push(styles.element.input.theme[theme]);
+
+    if (error) {
+      style.push(styles.theme[theme].error);
+    }
   }
 
   if (fill) {
@@ -85,6 +90,8 @@ Input.propTypes = {
 
   defaultValue: React.PropTypes.string,
 
+  error: React.PropTypes.bool,
+
   min: React.PropTypes.string,
 
   max: React.PropTypes.string,
@@ -105,6 +112,7 @@ Input.propTypes = {
     "base",
     "light",
     "dark",
+    "float",
     "inputGroup",
   ]),
 

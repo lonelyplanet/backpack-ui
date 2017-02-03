@@ -1,5 +1,6 @@
 import { color, media, timing } from "../../../settings.json";
 import { lighten, darken, rgb } from "../../utils/color";
+import { outline } from "../../utils/mixins";
 
 const icons = {
   triangle: {
@@ -80,6 +81,21 @@ const styles = {
 
       ":focus": {
         borderColor: color.white,
+      },
+    },
+    float: {
+      fontSize: "16px",
+      borderTop: "none",
+      borderLeft: "none",
+      borderRight: "none",
+      backgroundColor: "transparent",
+      boxShadow: "none",
+      paddingTop: "16px",
+      paddingBottom: "16px",
+      borderBottom: `1px solid rgba(${rgb(color.lightBlue)}, 0.30)`,
+      ":focus": outline(),
+      error: {
+        borderBottom: `1px solid ${color.red}`,
       },
     },
   },

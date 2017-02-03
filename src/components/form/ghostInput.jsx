@@ -3,6 +3,7 @@ import radium from "radium";
 import { color } from "../../../settings.json";
 import { rgb } from "../../utils/color";
 import { outline } from "../../utils/mixins";
+import Input from "./input";
 
 const styles = {
   input: {
@@ -53,17 +54,12 @@ class GhostInput extends Component {
     const { error, errorMessages } = this.props;
     return (
       <div>
-        <input
+        <Input
           {...this.props}
           style={[styles.input, error && styles.inputError]}
           value={value}
           onChange={this.handleChange}
         />
-        {error &&
-          <div style={styles.errorMessage}>
-            {errorMessages.map(errorMessage => <p>{errorMessage}</p>)}
-          </div>
-        }
       </div>
     );
   }
