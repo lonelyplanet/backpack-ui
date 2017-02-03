@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
-import { color } from "../../utils/color";
+import radium from "radium";
+import { color } from "../../../settings.json";
 
 const styles = {
   base: {
@@ -27,4 +28,4 @@ ErrorMessages.propTypes = {
   ),
 };
 
-export default ErrorMessages;
+export default radium(ErrorMessages);

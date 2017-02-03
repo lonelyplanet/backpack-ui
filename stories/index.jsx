@@ -34,6 +34,7 @@ import DisclaimerText from "../src/components/disclaimerText";
 import DotLoader from "../src/components/dotLoader";
 import Dropdown from "../src/components/dropdown";
 import EditLink from "../src/components/editLink";
+import ErrorMessages from "../src/components/form/errorMessages";
 import ExpandButton from "../src/components/expandButton";
 import FeaturedArticle from "../src/components/featuredArticle";
 import Flyout from "../src/components/flyout";
@@ -420,6 +421,11 @@ storiesOf("Form", module)
       placeholder={text("Placeholder", "johndoe@gmail.com")}
       error={boolean("Has Error", false)}
       theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
+    />
+  ))
+  .add("ErrorMessages", () => (
+    <ErrorMessages
+      messages={array("List of Errors", ["This field is required"])}
     />
   ));
 
