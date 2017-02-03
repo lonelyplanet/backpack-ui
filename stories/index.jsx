@@ -412,6 +412,17 @@ storiesOf("Expand button", module)
     <ExpandButton label={text("Label", "Open")} />
   ));
 
+
+storiesOf("Form", module)
+  .addDecorator(withKnobs)
+  .add("Input", () => (
+    <Input
+      placeholder={text("Placeholder", "johndoe@gmail.com")}
+      error={boolean("Has Error", false)}
+      theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
+    />
+  ));
+
 storiesOf("Featured article", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -557,16 +568,6 @@ storiesOf("Heading", module)
     >
       {text("Text", "Heading text")}
     </Heading>
-  ));
-
-storiesOf("Input", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Input
-      placeholder={text("Placeholder", "johndoe@gmail.com")}
-      error={boolean("Has Error", false)}
-      theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
-    />
   ));
 
 storiesOf("Icon button", module)

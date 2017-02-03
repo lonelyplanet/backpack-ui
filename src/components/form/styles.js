@@ -92,6 +92,7 @@ const styles = {
       boxShadow: "none",
       paddingTop: "16px",
       paddingBottom: "16px",
+      paddingLeft: 0,
       borderBottom: `1px solid rgba(${rgb(color.lightBlue)}, 0.30)`,
       ":focus": outline(),
       error: {
