@@ -21,6 +21,9 @@ import Button from "../src/components/button";
 import Calendar from "../src/components/calendar";
 import Callout from "../src/components/callout";
 import CalloutLink from "../src/components/calloutLink";
+import Card from "../src/components/card";
+import VideoCard from "../src/components/cardVideo";
+import PriceCard from "../src/components/cardPrice";
 import CategoryLabel from "../src/components/categoryLabel";
 import CategoryLabelLink from "../src/components/categoryLabelLink";
 import Checkbox from "../src/components/checkbox";
@@ -335,6 +338,40 @@ storiesOf("Callout link", module)
         {text("Text", "More recommendations")}
       </CalloutLink>
     </div>
+  ));
+
+storiesOf("Cards", module)
+  .addDecorator(withKnobs)
+  .add("Default card", () => (
+    <Card
+      title={text("Title", "High Sierra routes with Ken Walker Smith")}
+      description={array("Description", ["Card things", "More Card Things"])}
+      image={text("Image Path", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+      link={text("Video Link", "/path/to/video")}
+    />
+  ))
+  .add("Video card", () => (
+    <VideoCard
+      title={text("Title", "High Sierra routes with Ken Walker Smith")}
+      description={array("Description", ["On The Road", "E.01"])}
+      shadow={boolean("Shadow", false)}
+      length={text("Video Length", "32 min")}
+      onWatchLater={action("watch this video later")}
+      image={text("Image Path", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+      link={text("Video Link", "/path/to/video")}
+    />
+  ))
+  .add("Price card", () => (
+    <PriceCard
+      title={text("Title", "High Sierra routes with Ken Walker Smith")}
+      description={array("Description", ["15 Days", "Buenos Aires to Buenos Aires"])}
+      image={text("Image Path", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+      link={text("Link", "/path/to/whatever")}
+      price={{
+        regular: 100,
+        sale: 50,
+      }}
+    />
   ));
 
 storiesOf("Category label", module)
