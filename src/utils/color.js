@@ -12,6 +12,16 @@ function rgb(hex) {
 }
 
 /**
+ * Return an rgba string value for CSS
+ * @param  {String} hex     Hexidecimal color value
+ * @param  {Number} opacity Number value between 0 and 1
+ * @return {String}         RGBA string
+ */
+function rgba(hex, opacity) {
+  return `rgba(${rgb(hex)}, ${opacity})`;
+}
+
+/**
  * Replicate Sass's darken function
  * @param  {String} hex    Hexidecimal color value to modify
  * @param  {Number} amount Amount to lighten, between 1 and 100
@@ -33,6 +43,7 @@ function lighten(hex, amount) {
 
 export {
   rgb,
+  rgba,
   darken,
   lighten,
 };
