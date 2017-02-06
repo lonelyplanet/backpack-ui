@@ -24,12 +24,13 @@ const styles = {
  *   { label: "Europe", slug: "/europe" },
  * ]} />
  */
-const TagList = ({ tags, rows }) => (
+const TagList = ({ tags, rows, style }) => (
   <div
     className="TagList"
     style={[
       styles.container,
       { maxHeight: `${rowHeight * rows}px` },
+      style,
     ]}
   >
     {tags.map((tag, i) => (
@@ -58,6 +59,17 @@ TagList.propTypes = {
    * Maximum number of rows of tags to display
    */
   rows: PropTypes.number,
+
+  /**
+   * Style object
+   */
+  style: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+    ]),
+  ),
 };
 
 TagList.defaultProps = {
