@@ -1,6 +1,19 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 import Tag from "../tag";
+
+const rowHeight = 40;
+
+const styles = {
+  container: {
+    overflow: "hidden",
+  },
+
+  tag: {
+    marginBottom: "8px",
+    marginRight: "8px",
+  },
+};
 
 /**
  * TagList component
@@ -11,65 +24,44 @@ import Tag from "../tag";
  *   { label: "Europe", slug: "/europe" },
  * ]} />
  */
-function TagList({ tags, rows }) {
-  const rowHeight = 40;
-
-  const styles = {
-    container: {
-      base: {
-        maxHeight: `${rowHeight * rows}px`,
-        overflow: "hidden",
-      },
-    },
-    tag: {
-      base: {
-        marginBottom: "8px",
-        marginRight: "8px",
-      },
-    },
-  };
-
-  const Tags = tags.map((tag, i) => (
-    <Tag
-      label={tag.label}
-      slug={tag.slug}
-      style={styles.tag.base}
-      selected={tag.selected}
-      key={i}
-    />
-  ));
-
-  return (
-    <div
-      className="TagList"
-      style={styles.container.base}
-    >
+const TagList = ({ tags, rows }) => (
+  <div
+    className="TagList"
+    style={[
+      styles.container,
+      { maxHeight: `${rowHeight * rows}px` },
+    ]}
+  >
+    {tags.map((tag, i) => (
       <Tag
-        label="All"
-        slug="/"
-        style={styles.tag.base}
-        selected
+        label={tag.label}
+        slug={tag.slug}
+        style={styles.tag}
+        selected={tag.selected}
+        key={i}
       />
-      {Tags}
-    </div>
-  );
-}
+    ))}
+  </div>
+);
 
 TagList.propTypes = {
   /**
    * An array of tags to display
    */
-  tags: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+  tags: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string,
+    slug: PropTypes.string,
+    selected: PropTypes.bool,
+  })).isRequired,
 
   /**
    * Maximum number of rows of tags to display
    */
-  rows: React.PropTypes.number,
+  rows: PropTypes.number,
 };
 
 TagList.defaultProps = {
   tags: [],
-
   rows: 3,
 };
 
