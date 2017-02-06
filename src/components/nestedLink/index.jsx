@@ -1,4 +1,5 @@
 import React, { PropTypes } from "react";
+import cn from "classnames";
 import { Style } from "radium";
 
 // Helpers for nested links
@@ -7,7 +8,7 @@ import { Style } from "radium";
 // seperate functionality when clicked. Use These components
 // in place of <a> tags
 
-export const OuterLink = ({ href, onClick, children, className, style }) => {
+export const OuterLink = ({ href, onClick, children, className, element, style }) => {
   const handleOuterClick = () => {
     if (onClick) {
       onClick();
@@ -17,17 +18,21 @@ export const OuterLink = ({ href, onClick, children, className, style }) => {
     }
   };
 
+  const Element = element;
+
   return (
-    <div
-      className={className}
-      onClick={handleOuterClick}
+    <Element
+      className={cn("OuterLink", className)}
+      style={{ display: "block" }}
+      onClick={element === "div" && handleOuterClick}
+      href={element === "a" && href}
     >
       <Style
-        scopeSelector={`.${className}`}
+        scopeSelector=".OuterLink"
         rules={style}
       />
       {children}
-    </div>
+    </Element>
   );
 };
 
@@ -39,11 +44,11 @@ export const InnerLink = ({ onClick, children, className, style }) => {
 
   return (
     <div
-      className={className}
+      className={cn("InnerLink", className)}
       onClick={handleInnerClick}
     >
       <Style
-        scopeSelector={`.${className}`}
+        scopeSelector=".InnerLink"
         rules={style}
       />
       {children}
@@ -56,6 +61,7 @@ OuterLink.propTypes = {
   onClick: PropTypes.func,
   children: PropTypes.node,
   className: PropTypes.string,
+  element: PropTypes.oneOf(["a", "div"]),
   style: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,
@@ -76,4 +82,8 @@ InnerLink.propTypes = {
       PropTypes.object,
     ]),
   ),
+};
+
+OuterLink.defaultProps = {
+  element: "a",
 };
