@@ -1319,6 +1319,7 @@ storiesOf("Tag list", module)
   .add("Default", () => (
     <TagList
       tags={[
+        { label: "All", slug: "/", selected: true },
         { label: "The Americas", slug: "/americas" },
         { label: "World", slug: "/world" },
         { label: "Asia & the Pacific", slug: "/asia-pacific" },
