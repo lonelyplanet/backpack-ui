@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 import { color, media } from "../../../settings.json";
 import Bullet from "../bullet";
@@ -136,6 +136,20 @@ const styles = {
       paddingTop: "4px",
     },
   },
+
+  card: {
+    salePrice: {
+      color: color.subtitleGray,
+      fontSize: "11px",
+      marginBottom: "8px",
+      marginLeft: "5px",
+      textTransform: "uppercase",
+    },
+
+    crossThrough: {
+      textDecoration: "line-through",
+    },
+  },
 };
 
 /**
@@ -151,6 +165,7 @@ function Price({
   tag,
   parent,
   poiType,
+  style,
 }) {
   const currencySymbol = {
     AUD: "$",
@@ -167,6 +182,7 @@ function Price({
         emphasized && styles.container.emphasized.base,
         tag && styles.container.tag,
         parent && styles.container.emphasized.parent[parent],
+        style,
       ]}
     >
       {parent === "booking" && poiType === "partnerActivity" &&
@@ -178,6 +194,12 @@ function Price({
           ]}
         >
           From
+        </div>
+      }
+
+      {parent === "card" && discountedAmount > 0 &&
+        <div style={styles.card.salePrice}>
+          was <span style={styles.card.crossThrough}>{currencySymbol[currency]}{discountedAmount ? Math.round(amount) : ""}</span>
         </div>
       }
 
@@ -254,62 +276,74 @@ Price.propTypes = {
   /**
    * The price amount
    */
-  amount: React.PropTypes.oneOfType([
-    React.PropTypes.number,
-    React.PropTypes.string,
+  amount: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
   ]).isRequired,
 
   /**
    * Discounted price amount
    */
-  discountedAmount: React.PropTypes.oneOfType([
-    React.PropTypes.number,
-    React.PropTypes.string,
+  discountedAmount: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
   ]),
 
   /**
    * The rate for the price, i.e., "per night"
    */
-  rate: React.PropTypes.string,
+  rate: PropTypes.string,
 
   /**
    * The currency in which the price is displayed in
    */
-  currency: React.PropTypes.string,
+  currency: PropTypes.string,
 
   /**
    * Change the color to show emphasis
    */
-  emphasized: React.PropTypes.bool,
+  emphasized: PropTypes.bool,
 
   /**
    * Render the price with a thinner font weight and slightly larger size
    */
-  thin: React.PropTypes.bool,
+  thin: PropTypes.bool,
 
   /**
    * Render the price with a tag-like style
    */
-  tag: React.PropTypes.bool,
+  tag: PropTypes.bool,
 
   /**
    * Name of parent component in which Price renders in
    */
-  parent: React.PropTypes.oneOf([
+  parent: PropTypes.oneOf([
     "",
     "booking",
     "listItem",
+    "card",
   ]),
 
   /**
    * Type of POI
    */
-  poiType: React.PropTypes.oneOf([
+  poiType: PropTypes.oneOf([
     "",
     "poi",
     "hotel",
     "partnerActivity",
   ]),
+
+  /**
+   * Override styles
+   */
+  style: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+    ]),
+  ),
 };
 
 Price.defaultProps = {
