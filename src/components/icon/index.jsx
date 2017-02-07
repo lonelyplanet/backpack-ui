@@ -356,7 +356,7 @@ exports.Pin = props => (
 
 exports.Play = props => (
   <Icon {...props}>
-    <path d="M6 4l20 12-20 12z" />
+    <path d="M3.4 0v32l25.2-16z" />
   </Icon>
 );
 
