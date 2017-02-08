@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import radium, { Style } from "radium";
 import Slider from "react-slick";
-import styles from "./styles";
+import styles, { rules } from "./styles";
 
 class MastheadSlider extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class MastheadSlider extends Component {
 
   renderSlide(slide, index) {
     return (
-      <div key={index} >{slide}</div>
+      <div key={index} style={styles.slide}>{slide}</div>
     );
   }
 
@@ -26,7 +26,7 @@ class MastheadSlider extends Component {
       <div className="MastheadSlider">
         <Style
           scopeSelector=".MastheadSlider"
-          rules={styles}
+          rules={rules}
         />
         <Slider
           {...settings}
@@ -55,7 +55,7 @@ MastheadSlider.propTypes = {
 MastheadSlider.defaultProps = {
   // React Slick settings
   settings: {
-    dots: false,
+    dots: true,
     dotsClass: "slick-dots container",
     touchThreshold: 10,
     pauseOnHover: false,
@@ -69,19 +69,7 @@ MastheadSlider.defaultProps = {
     cssEase: "linear",
     arrows: false,
     swipe: false,
-    responsive: [{
-      breakpoint: 720,
-      settings: {
-        speed: 250,
-        touchThreshold: 10,
-        autoplay: false,
-        dots: true,
-        swipe: true,
-        fade: false,
-      },
-    }],
   },
-  afterChange: null,
 };
 
 export default radium(MastheadSlider);
