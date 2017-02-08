@@ -23,6 +23,9 @@
     "check-changelog": "expr $(git status --porcelain 2>/dev/null| grep \"^\\s*M.*CHANGELOG.md\" | wc -l) >/dev/null || (echo 'Please edit CHANGELOG.md' && exit 1)",
     "check-only-changelog-changed": "(expr $(git status --porcelain 2>/dev/null| grep -v \"CHANGELOG.md\" | wc -l) >/dev/null && echo 'Only CHANGELOG.md may have uncommitted changes' && exit 1) || exit 0"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "author": "Lonely Planet",
   "license": "ISC",
   "dependencies": {
@@ -79,6 +82,7 @@
     "eslint-plugin-react": "^6.3.0",
     "gh-pages": "^0.12.0",
     "mocha": "^3.0.2",
+    "pre-commit": "^1.2.2",
     "react-addons-shallow-compare": "^15.0.2",
     "sinon": "^1.17.6"
   }
