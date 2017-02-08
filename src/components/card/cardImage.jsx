@@ -1,12 +1,11 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import CoverPhoto from "../coverPhoto";
-import { timing } from "../../../settings.json";
+import { color, timing } from "../../../settings.json";
 
 const styles = {
   container: {
     position: "relative",
-    transition: `transform ${timing.default} ease`,
   },
 
   anchor: {
@@ -28,13 +27,18 @@ const imageSizes = {
 const CardImage = ({
   href,
   src,
-  aspectRatio,
+  aspectRatio
   children,
+  opacity,
   style,
 }) => (
   <div
     className="Card-image"
-    style={[styles.container, style]}
+    style={[
+      styles.container,
+      opacity && { backgroundColor: color.black },
+      style,
+    ]}
   >
     <a
       href={href}
@@ -46,7 +50,13 @@ const CardImage = ({
           src={src}
           width={imageSizes[aspectRatio].width}
           height={imageSizes[aspectRatio].height}
-          style={styles.coverPhoto}
+          style={[
+            styles.coverPhoto,
+            opacity && {
+              opacity,
+              transition: `opacity ${timing.default} ease-in-out`,
+            },
+          ]}
         />
       }
 
@@ -63,6 +73,7 @@ CardImage.propTypes = {
     "poster",
   ]).isRequired,
   children: PropTypes.node,
+  opacity: PropTypes.number,
   style: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,
