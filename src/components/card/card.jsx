@@ -22,6 +22,7 @@ const tileHoverStyles = {
 const styles = {
   base: {
     maxWidth: "412px",
+    minWidth: "216px",
     position: "relative",
   },
 
