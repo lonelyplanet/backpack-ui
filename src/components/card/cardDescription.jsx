@@ -16,7 +16,7 @@ const CardDescription = ({ heading, bullets, style }) => (
     }
 
     <Heading
-      level={2}
+      level={3}
       weight="thin"
       override={{ fontSize: "24px", lineHeight: (32 / 24) }}
     >
