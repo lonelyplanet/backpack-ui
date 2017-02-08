@@ -67,6 +67,8 @@ import ListItemNews from "../src/components/listItemNews";
 import LocationLabel from "../src/components/locationLabel";
 import Logo from "../src/components/logo";
 import MapMarker from "../src/components/mapMarker";
+import Masthead from "../src/components/masthead";
+import MastheadSlider from "../src/components/mastheadSlider";
 // MobileToolbar
 // Modal
 import MoreLink from "../src/components/moreLink";
@@ -827,6 +829,23 @@ storiesOf("Map marker", module)
       inverse={boolean("Inverse", false)}
     />
   ));
+
+
+
+storiesOf("Masthead", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <Masthead />
+    </StyleRoot>
+  ))
+  .add("With Slider", () => (
+    <StyleRoot>
+      <Masthead>
+        <MastheadSlider slides={}/>
+      </Masthead>
+    </StyleRoot>
+  ));;
 
 storiesOf("More link", module)
   .addDecorator(withKnobs)
