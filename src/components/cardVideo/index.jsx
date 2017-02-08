@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
+import cn from "classnames";
 import {
   Card,
   CardImage,
@@ -44,10 +45,11 @@ const CardVideo = ({
   bullets,
   onClick,
   layout,
+  className,
   style,
 }) => (
   <Card
-    className="CardVideo"
+    className={cn("Card--video", className)}
     layout={layout}
     style={style}
   >
@@ -55,6 +57,7 @@ const CardVideo = ({
       href={href}
       src={imageSrc}
       aspectRatio={aspectRatio}
+      opacity={0.8}
     >
       <PlayIcon style={styles.playIcon} />
 
@@ -106,6 +109,7 @@ CardVideo.propTypes = {
     "tile",
   ]),
   onClick: PropTypes.func,
+  className: PropTypes.string,
   style: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,
