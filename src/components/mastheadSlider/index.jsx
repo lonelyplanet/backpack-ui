@@ -1,7 +1,10 @@
 import React, { Component, PropTypes } from "react";
 import radium, { Style } from "radium";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import styles, { rules } from "./styles";
+import { ChevronRight, ChevronLeft } from "../icon";
 
 class MastheadSlider extends Component {
   constructor(props) {
@@ -30,6 +33,8 @@ class MastheadSlider extends Component {
         />
         <Slider
           {...settings}
+          nextArrow={<button><ChevronRight {...styles.icon} /></button>}
+          prevArrow={<button><ChevronLeft {...styles.icon} /></button>}
         >
           {slides.map(this.renderSlide)}
         </Slider>
@@ -61,14 +66,22 @@ MastheadSlider.defaultProps = {
     pauseOnHover: false,
     autoplaySpeed: 7000,
     infinite: true,
-    speed: 500,
+    speed: 250,
     slidesToShow: 1,
     slidesToScroll: 1,
-    centerMode: false,
-    fade: true,
+    centerMode: true,
+    centerPadding: "24px",
+    fade: false,
     cssEase: "linear",
-    arrows: false,
-    swipe: false,
+    arrows: true,
+    swipe: true,
+    responsive: [{
+      breakpoint: 720,
+      settings: {
+        arrows: false,
+        centerMode: false,
+      },
+    }],
   },
 };
 

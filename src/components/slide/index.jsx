@@ -11,7 +11,6 @@ import { color, media, typography, zIndex } from "../../../settings.json";
 
 const styles = {
   base: {
-    border: "2px solid white",
     width: "100%",
     height: "100%",
     transform: "translateZ(0)",
