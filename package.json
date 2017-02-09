@@ -8,6 +8,7 @@
     "build": "rm -rf dist && mkdir -p dist/components && babel -d dist src",
     "ci": "rm -rf dist && mkdir -p dist/components && babel --watch -d dist src",
     "test:ci": "NODE_ENV=test mocha --reporter spec --compilers js:babel-register --watch --recursive spec/",
+    "lint": "./node_modules/.bin/eslint src --ext .js,.jsx",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "gh-pages": "npm run build-storybook -- -o _gh-pages && gh-pages -d _gh-pages && rm -rf _gh-pages",
