@@ -86,6 +86,7 @@ import NumberMarker from "../src/components/numberMarker";
 // Overlay
 import PageHeader from "../src/components/pageHeader";
 import PaginatorButton from "../src/components/paginatorButton";
+import PhotoGallery from "../src/components/photoGallery";
 import Placeholder from "../src/components/placeholder";
 import PoiPaginator from "../src/components/poiPaginator";
 // Price
@@ -1060,6 +1061,80 @@ storiesOf("Number marker", module)
     <NumberMarker number={number("Number", 4)} />
   ));
 
+storiesOf("Page header", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <PageHeader
+        heading={text("Title", "Ryman Auditorium")}
+        title={text("Category", "Nashville sights")}
+        titleHref={text("Category URL", "/")}
+        type={text("Type", "Historic building")}
+        place={text("Place", "Nashville")}
+        alignment={select("Alignment", ["", "center"], "center")}
+        topChoice={boolean("Top choice", false)}
+        contained={boolean("Contained", false)}
+        bookmark={boolean("Bookmark", false)}
+        stars={number("Stars", 0)}
+      />
+    </StyleRoot>
+  ));
+
+storiesOf("Paginator button", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <PaginatorButton
+      direction={select("Arrow direction", ["up", "down", "left", "right"], "up")}
+      arrow={select("Arrow style", ["chevron", "triangle"], "chevron")}
+      size={select("Size", ["medium", "small"], "medium")}
+      shadow={select("Shadow", ["loose", "tight"], "loose")}
+      color={select("Color", ["", "blue"], "")}
+      onClick={action("PaginatorButton clicked")}
+    />
+  ));
+
+storiesOf("Photo gallery", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <PhotoGallery
+      photos={[
+        {
+          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Trinidad-6666420241af.jpg",
+          w: 1500,
+          h: 1000,
+          title: "A radiant blue-chinned sapphire hummingbird perched in a branch in Trinidad © ArenFrancis",
+        },
+        {
+          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Iguazu-falls-86198db70380.jpg",
+          w: 1500,
+          h: 1000,
+          title: "Get an eyeful of Brazil's Iguazu Falls © Michael Runkel / Getty Images",
+        },
+        {
+          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Panda-f1ebbbd0fe6b.jpg",
+          w: 1500,
+          h: 1691,
+          title: "A giant panda cub at the Chengdu Giant Panda Breeding Research Base in Sichuan © Feng Wei Photography / Getty Images",
+        },
+        {
+          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Shere-Khan-848929cc2677.jpg",
+          w: 1500,
+          h: 1000,
+          title: "Stalk the forests of Madhya Pradesh for a chance of spotting Shere Khan © Andrew Parkinson / Getty Images",
+        },
+      ]}
+      options={{
+        pinchToClose: false,
+        closeOnScroll: false,
+        closeOnVerticalDrag: false,
+        escKey: false,
+        arrowKeys: true,
+        history: false,
+      }}
+      isOpen
+    />
+  ));
+
 storiesOf("Placeholder", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1160,38 +1235,6 @@ storiesOf("Rating", module)
       amount={number("Amount", 8)}
       max={number("Maximum amount", 10)}
       description={text("Description", "Great")}
-    />
-  ));
-
-storiesOf("Page header", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <PageHeader
-        heading={text("Title", "Ryman Auditorium")}
-        title={text("Category", "Nashville sights")}
-        titleHref={text("Category URL", "/")}
-        type={text("Type", "Historic building")}
-        place={text("Place", "Nashville")}
-        alignment={select("Alignment", ["", "center"], "center")}
-        topChoice={boolean("Top choice", false)}
-        contained={boolean("Contained", false)}
-        bookmark={boolean("Bookmark", false)}
-        stars={number("Stars", 0)}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Paginator button", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <PaginatorButton
-      direction={select("Arrow direction", ["up", "down", "left", "right"], "up")}
-      arrow={select("Arrow style", ["chevron", "triangle"], "chevron")}
-      size={select("Size", ["medium", "small"], "medium")}
-      shadow={select("Shadow", ["loose", "tight"], "loose")}
-      color={select("Color", ["", "blue"], "")}
-      onClick={action("PaginatorButton clicked")}
     />
   ));
 
