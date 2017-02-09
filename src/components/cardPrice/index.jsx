@@ -18,7 +18,7 @@ const CardPrice = ({
   style,
 }) => (
   <Card
-    className="CardPrice"
+    className="Card--price"
     style={[style, { minHeight: "535px" }]}
   >
     <CardImage
