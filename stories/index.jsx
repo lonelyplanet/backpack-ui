@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleRoot } from "radium";
 import "leaflet/dist/leaflet.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { storiesOf, action } from "@kadira/storybook";
 import { withKnobs, text, boolean, number, array, object, select, color } from "@kadira/storybook-addon-knobs";
 import { color as bpColor } from "../settings.json";
@@ -882,9 +884,7 @@ storiesOf("Masthead", module)
     const slides = items.map((item, index) => <Slide key={index} slide={item} />);
     return (
       <StyleRoot>
-        <Masthead>
-          <MastheadSlider slides={slides} />
-        </Masthead>
+        <MastheadSlider slides={slides} />
       </StyleRoot>
     );
   });
