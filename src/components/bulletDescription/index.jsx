@@ -15,10 +15,10 @@ const BulletDescription = ({ description, style }) => (
   <div className="BulletDescription" style={[styles, style]}>
     {description.map((item, index) => {
       if (index !== 0) {
-        return <span><Bullet space="both" />{item}</span>;
+        return <span key={index}><Bullet space="both" />{item}</span>;
       }
 
-      return <span>{item}</span>;
+      return <span key={index}>{item}</span>;
     })}
   </div>
 );
