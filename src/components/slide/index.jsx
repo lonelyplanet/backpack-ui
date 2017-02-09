@@ -22,37 +22,50 @@ const styles = {
   bullets: {
     color: color.white,
     fontSize: "14px",
-    marginBottom: "32px",
+    marginBottom: "24px",
     fontWeight: typography.fontWeightBold,
+    [`@media (min-width: ${media.min["720"]})`]: {
+      marginBottom: "32px",
+    },
   },
   adContainer: {
-    marginBottom: "56px",
+    marginBottom: "36px",
+    [`@media (min-width: ${media.min["720"]})`]: {
+      marginBottom: "56px",
+    },
   },
   heading: {
     color: color.white,
     fontSize: "32px",
     letterSpacing: "0",
-    marginBottom: "40px",
+    marginBottom: "32px",
     [`@media (min-width: ${media.min["600"]})`]: {
       letterSpacing: "-0.56px",
       fontSize: "calc(11px + 3vw)",
+    },
+    [`@media (min-width: ${media.min["720"]})`]: {
+      marginBottom: "40px",
     },
     [`@media (min-width: ${media.min["1430"]})`]: {
       fontSize: "64px",
     },
   },
   button: {
-    paddingRight: "46px",
-    paddingLeft: "46px",
+    paddingRight: "30px",
+    paddingLeft: "30px",
     icon: {
       fontSize: "18px",
       marginRight: "16px",
+    },
+    [`@media (min-width: ${media.min["720"]})`]: {
+      paddingRight: "46px",
+      paddingLeft: "46px",
     },
   },
   position: {
     center: {
       display: "flex",
-      width: "50%",
+      width: "100%",
       position: "relative",
       zIndex: zIndex.slideshowSlide,
       textAlign: "center",
@@ -61,6 +74,9 @@ const styles = {
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
+      [`@media (min-width: ${media.min["720"]})`]: {
+        width: "50%",
+      },
     },
     leftBottom: {
       // position: "absolute",
