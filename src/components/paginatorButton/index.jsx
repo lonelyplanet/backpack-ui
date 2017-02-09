@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 import assign from "object-assign";
 import upperFirst from "lodash/upperFirst";
@@ -155,31 +155,8 @@ function PaginatorButton({
   onClick,
   iconLabel,
   owns,
+  style,
 }) {
-  const style = [styles.base];
-
-  if (size) {
-    style.push(styles.size[size]);
-  }
-
-  if (shadow) {
-    style.push(styles.shadow[shadow]);
-  }
-
-  if (color) {
-    style.push(styles.color[color]);
-  }
-
-  if (align) {
-    style.push(
-      styles.align.base,
-      styles.align[align],
-      offset ?
-        styles.direction[direction].offset[size] :
-        styles.direction[direction].base
-    );
-  }
-
   const iconName = `${_.upperFirst(arrow)}${_.upperFirst(direction)}`;
 
   let label;
@@ -195,7 +172,17 @@ function PaginatorButton({
   return (
     <button
       className="PaginatorButton"
-      style={style}
+      style={[
+        styles.base,
+        size && styles.size[size],
+        shadow && styles.shadow[shadow],
+        color && styles.color[color],
+        align && styles.align.base,
+        align && styles.align[align],
+        (align && !offset) && styles.direction[direction].base,
+        (align && offset) && styles.direction[direction].offset[size],
+        style,
+      ]}
       title={label}
       onClick={onClick}
       aria-label={label}
@@ -210,7 +197,7 @@ PaginatorButton.propTypes = {
   /**
    * Change the direction the arrow points
    */
-  direction: React.PropTypes.oneOf([
+  direction: PropTypes.oneOf([
     "up",
     "down",
     "left",
@@ -220,7 +207,7 @@ PaginatorButton.propTypes = {
   /**
    * Set the size of the button
    */
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "small",
     "medium",
   ]),
@@ -228,7 +215,7 @@ PaginatorButton.propTypes = {
   /**
    * Change the shadow
    */
-  shadow: React.PropTypes.oneOf([
+  shadow: PropTypes.oneOf([
     "loose",
     "tight",
   ]),
@@ -236,7 +223,7 @@ PaginatorButton.propTypes = {
   /**
    * Change the arrow icon type
    */
-  arrow: React.PropTypes.oneOf([
+  arrow: PropTypes.oneOf([
     "chevron",
     "triangle",
   ]),
@@ -244,7 +231,7 @@ PaginatorButton.propTypes = {
   /**
    * Change the color of the icon
    */
-  color: React.PropTypes.oneOf([
+  color: PropTypes.oneOf([
     "",
     "blue",
   ]),
@@ -252,7 +239,7 @@ PaginatorButton.propTypes = {
   /**
    * Position the button absolutely and align it
    */
-  align: React.PropTypes.oneOf([
+  align: PropTypes.oneOf([
     "",
     "horizontal",
     "vertical",
@@ -261,23 +248,31 @@ PaginatorButton.propTypes = {
   /**
    * Offset the button when positioned absolutely; must be used with align
    */
-  offset: React.PropTypes.bool,
+  offset: PropTypes.bool,
 
   /**
    * Function to run when the button is clicked
    */
-  onClick: React.PropTypes.func,
+  onClick: PropTypes.func,
 
   /**
    * Override the icon label
    */
-  iconLabel: React.PropTypes.string,
+  iconLabel: PropTypes.string,
 
   /**
    * The ID of the sibling element that the button owns, e.g., if the button has
    * a menu with an ID of "share-menu", then `owns="share-menu"`.
    */
-  owns: React.PropTypes.string,
+  owns: PropTypes.string,
+
+  style: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+    ]),
+  ),
 };
 
 PaginatorButton.defaultProps = {
