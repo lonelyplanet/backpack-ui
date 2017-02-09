@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import radium, { Style } from "radium";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import styles, { rules } from "./styles";
 import { ChevronRight, ChevronLeft } from "../icon";
 
