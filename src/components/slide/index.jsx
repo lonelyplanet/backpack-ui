@@ -88,7 +88,7 @@ const styles = {
     },
     rightBottom: {
       position: "absolute",
-      bottom: "2rem",
+      bottom: "20px",
       padding: 10,
       right: 0,
       zIndex: zIndex.slideshowSlide,
@@ -112,43 +112,57 @@ const styles = {
   },
 };
 
-const Slide = ({ slide }) => (
+const Slide = ({
+  image,
+  description,
+  headline,
+  adPosition,
+  gradientColor,
+  position,
+  callToAction,
+}) => (
   <div className="Slide" style={styles.base}>
-    <HeroImageContainer imagePath={slide.image} />
-    <GradientOverlay gradientType="leftCorner" color={slide.gradientColor} />
+    <HeroImageContainer imagePath={image} />
+    <GradientOverlay gradientType="leftCorner" color={gradientColor} />
     <Container
       style={{
         height: "100%",
       }}
     >
-      <div style={styles.position.center}>
-        <BulletDescription
-          description={["On the Road", "E.03"]}
-          style={styles.bullets}
-        />
+      <div style={styles.position[position]}>
+        {description &&
+          <BulletDescription
+            description={description}
+            style={styles.bullets}
+          />
+        }
         <Heading
           level={1}
           size="huge"
           weight="thick"
           override={styles.heading}
         >
-          <a href="/test" style={styles.link} >
-          Lonely Planet dives into Berlin</a>
+          <a href={callToAction.link} style={styles.link} >
+            {headline}
+          </a>
         </Heading>
 
-        {slide.adPosition &&
+        {adPosition &&
           <div
-            id={`video-home-sponsor-advert-${slide.adPosition}`}
-            sstyle={styles.adContainer}
+            id={`video-home-sponsor-advert-${adPosition}`}
+            style={styles.adContainer}
           />
         }
         <Button
           rounded
+          href={callToAction.link}
           size="large"
           customStyles={styles.button}
         >
-          {iconFromString("Play", { style: styles.button.icon })}
-          Play
+          {callToAction.icon &&
+            iconFromString(callToAction.icon, { style: styles.button.icon })
+          }
+          {callToAction.text}
         </Button>
       </div>
     </Container>
@@ -157,7 +171,25 @@ const Slide = ({ slide }) => (
 
 
 Slide.propTypes = {
-  slide: PropTypes.object,
+  image: PropTypes.string.isRequired,
+  headline: PropTypes.string.isRequired,
+  callToAction: PropTypes.shape({
+    text: PropTypes.string,
+    link: PropTypes.string,
+    icon: PropTypes.string,
+  }).isRequired,
+  description: PropTypes.arrayOf(
+    PropTypes.string,
+  ),
+  adPosition: PropTypes.string,
+  gradientColor: PropTypes.string,
+  position: PropTypes.string,
+};
+
+Slide.defaultProps = {
+  description: [],
+  gradientColor: color.black,
+  position: "center",
 };
 
 export default radium(Slide);
