@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
+import cn from "classnames";
 import { rgba } from "../../utils/color";
 import { color, timing, zIndex } from "../../../settings.json";
 
@@ -44,7 +45,7 @@ const Card = ({
   style,
 }) => (
   <div
-    className={className}
+    className={cn("Card", className)}
     style={[
       styles.base,
       layout !== "tile" && styles.card,
@@ -53,7 +54,7 @@ const Card = ({
   >
     {layout === "tile" &&
       <Style
-        scopeSelector={`.${className}:hover`}
+        scopeSelector={`.Card:hover`}
         rules={tileHoverStyles}
       />
     }
@@ -77,7 +78,6 @@ Card.propTypes = {
 
 Card.defaultProps = {
   layout: "card",
-  className: "Card",
 };
 
 export default radium(Card);
