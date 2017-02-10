@@ -14,7 +14,24 @@ const styles = {
   },
 };
 
-const CardImage = ({ href, src, children, style }) => (
+const imageSizes = {
+  video: {
+    width: 412,
+    height: 232,
+  },
+  poster: {
+    width: 290,
+    height: 378,
+  },
+};
+
+const CardImage = ({
+  href,
+  src,
+  aspectRatio,
+  children,
+  style,
+}) => (
   <div
     className="Card-image"
     style={[styles.container, style]}
@@ -27,8 +44,8 @@ const CardImage = ({ href, src, children, style }) => (
       {src &&
         <CoverPhoto
           src={src}
-          width={412}
-          height={232}
+          width={imageSizes[aspectRatio].width}
+          height={imageSizes[aspectRatio].height}
           style={styles.coverPhoto}
         />
       }
@@ -41,6 +58,10 @@ const CardImage = ({ href, src, children, style }) => (
 CardImage.propTypes = {
   href: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
+  aspectRatio: PropTypes.oneOf([
+    "video",
+    "poster",
+  ]).isRequired,
   children: PropTypes.node,
   style: PropTypes.objectOf(
     PropTypes.oneOfType([
@@ -49,6 +70,10 @@ CardImage.propTypes = {
       PropTypes.object,
     ]),
   ),
+};
+
+CardImage.defaultProps = {
+  aspectRatio: "video",
 };
 
 export default radium(CardImage);
