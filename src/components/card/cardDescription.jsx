@@ -3,6 +3,17 @@ import radium from "radium";
 import Heading from "../heading";
 import BulletDescription from "../bulletDescription";
 
+const styles = {
+  bullets: {
+    marginBottom: "9px",
+  },
+
+  heading: {
+    fontSize: "24px",
+    lineHeight: (32 / 24),
+  },
+};
+
 const CardDescription = ({ heading, bullets, style }) => (
   <div
     className="Card-description"
@@ -11,14 +22,14 @@ const CardDescription = ({ heading, bullets, style }) => (
     {bullets &&
       <BulletDescription
         description={bullets}
-        style={{ marginBottom: "9px" }}
+        style={styles.bullets}
       />
     }
 
     <Heading
       level={3}
       weight="thin"
-      override={{ fontSize: "24px", lineHeight: (32 / 24) }}
+      override={styles.heading}
     >
       {heading}
     </Heading>
