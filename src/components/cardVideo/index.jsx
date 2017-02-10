@@ -30,14 +30,15 @@ const styles = {
 
   action: {
     position: "absolute",
-    right: "16px",
-    top: "15px",
+    right: "22px",
+    top: "25px",
   },
 };
 
 const CardVideo = ({
   href,
   imageSrc,
+  aspectRatio,
   runtime,
   heading,
   bullets,
@@ -53,6 +54,7 @@ const CardVideo = ({
     <CardImage
       href={href}
       src={imageSrc}
+      aspectRatio={aspectRatio}
     >
       <PlayIcon style={styles.playIcon} />
 
@@ -78,7 +80,7 @@ const CardVideo = ({
         <CardActionIcon
           style={[
             styles.action,
-            layout === "tile" && { right: 0 },
+            layout === "tile" && { right: "3px" },
           ]}
           onClick={onClick}
         >
@@ -92,10 +94,17 @@ const CardVideo = ({
 CardVideo.propTypes = {
   href: PropTypes.string.isRequired,
   imageSrc: PropTypes.string.isRequired,
+  aspectRatio: PropTypes.oneOf([
+    "video",
+    "poster",
+  ]).isRequired,
   runtime: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
   bullets: PropTypes.arrayOf(PropTypes.string).isRequired,
-  layout: PropTypes.oneOf(["card", "tile"]),
+  layout: PropTypes.oneOf([
+    "card",
+    "tile",
+  ]),
   onClick: PropTypes.func,
   style: PropTypes.objectOf(
     PropTypes.oneOfType([
@@ -107,6 +116,7 @@ CardVideo.propTypes = {
 };
 
 CardVideo.defaultProps = {
+  aspectRatio: "video",
   layout: "card",
 };
 
