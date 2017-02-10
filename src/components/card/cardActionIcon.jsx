@@ -6,7 +6,7 @@ const styles = {
   backgroundColor: "transparent",
   color: color.detailHeaderSmall,
   cursor: "pointer",
-  fontSize: "24px",
+  fontSize: "18px",
   padding: "5px",
   transition: `color ${timing.default} ease-in-out`,
 
