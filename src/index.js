@@ -1,3 +1,5 @@
+export { default as Ad } from "./components/ad";
+export { default as AdLazyLoader } from "./components/adLazyLoader";
 export { default as Amenities } from "./components/amenities";
 export { default as ArticlePaginationItem } from "./components/articlePaginationItem";
 export { default as ArticlePaginationNav } from "./components/articlePaginationNav";
