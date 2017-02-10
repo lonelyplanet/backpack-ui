@@ -62,6 +62,8 @@ export { default as Location } from "./components/location";
 export { default as LocationLabel } from "./components/locationLabel";
 export { default as Logo } from "./components/logo";
 export { default as MapMarker } from "./components/mapMarker";
+export { default as Masthead } from "./components/masthead";
+export { default as MastheadSlider } from "./components/mastheadSlider";
 export { default as MobileToolbar } from "./components/mobileToolbar";
 export { default as Modal } from "./components/modal";
 export { default as MoreLink } from "./components/moreLink";
@@ -91,7 +93,7 @@ export { default as SectionHeader } from "./components/sectionHeader";
 export { default as ShareMenu } from "./components/shareMenu";
 export { default as SidebarSection } from "./components/sidebarSection";
 export { default as SightsListItem } from "./components/sightsListItem";
-
+export { default as Slide } from "./components/slide";
 export { default as SocialIconButton } from "./components/socialIconButton";
 export { default as SocialLoginButton } from "./components/socialLoginButton";
 export { default as SocialShare } from "./components/socialShare";

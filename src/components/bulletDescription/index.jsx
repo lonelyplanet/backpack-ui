@@ -3,6 +3,7 @@ import radium from "radium";
 import { color } from "../../../settings.json";
 import Bullet from "../bullet";
 
+
 const styles = {
   fontSize: "11px",
   letterSpacing: "0.4px",
