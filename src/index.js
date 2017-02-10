@@ -114,6 +114,7 @@ export { default as TourItinerary } from "./components/tourItinerary";
 export { default as TravelAlert } from "./components/travelAlert";
 export { default as TypeSelector } from "./components/typeSelector";
 export { default as UserProfileHeader } from "./components/userProfileHeader";
+export { default as VideoEmbed } from "./components/videoEmbed";
 
 export { default as DateInput } from "./components/form/dateInput";
 export { default as DatePicker } from "./components/form/datepicker";
