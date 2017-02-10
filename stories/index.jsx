@@ -110,6 +110,8 @@ import TagList from "../src/components/tagList";
 import TextBubble from "../src/components/textBubble";
 // Takeover
 import ThumbnailListItem from "../src/components/thumbnailListItem";
+import TileVideo from "../src/components/tileVideo";
+import TileVideoPoster from "../src/components/tileVideoPoster";
 import Timestamp from "../src/components/timestamp";
 import Tooltip from "../src/components/tooltip";
 import TourItinerary from "../src/components/tourItinerary";
@@ -361,7 +363,6 @@ storiesOf("Cards", module)
         onClick={action("Watch this video later")}
         imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
         href={text("URL", "/")}
-        layout={select("Layout", ["card", "tile"], "card")}
       />
     </div>
   ))
@@ -1392,6 +1393,31 @@ storiesOf("Thumbnail List Item", module)
       onDescriptionIconClick={action("Action for icon")}
       theme={select("Theme", ["", "dark"], "")}
     />
+  ));
+
+storiesOf("Tiles", module)
+  .addDecorator(withKnobs)
+  .add("Video tile", () => (
+    <div style={{ padding: "32px" }}>
+      <TileVideo
+        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+        bullets={array("Bullets", ["On The Road", "E.01"])}
+        runtime={text("Video runtime", "32 min")}
+        onClick={action("Watch this video later")}
+        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+        href={text("URL", "/")}
+      />
+    </div>
+  ))
+  .add("Video poster tile", () => (
+    <div style={{ padding: "32px" }}>
+      <TileVideoPoster
+        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+        href={text("URL", "/")}
+        description={text("Year", "2016")}
+      />
+    </div>
   ));
 
 storiesOf("Timestamp", module)
