@@ -22,7 +22,7 @@ const CardAnchor = ({
     tabIndex={tabIndex}
     style={[
       styles,
-      layout !== "tile" && { paddingLeft: "21px" },
+      layout !== "tile" && { paddingLeft: "22px" },
       style,
     ]}
   >
