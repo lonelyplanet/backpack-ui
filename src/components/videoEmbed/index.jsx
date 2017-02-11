@@ -10,15 +10,44 @@ import { Play } from "../icon";
 
 const styles = {
   container: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
 
   video: {
-    width: '600px',
-    height: '400px',
+    width: "100%",
+    height: "100%",
   },
 };
+
+const css = `
+  .VideoEmbed .vjs-play-progress,
+  .VideoEmbed .vjs-volume-level,
+  .VideoEmbed .vjs-big-play-button:hover,
+  .VideoEmbed .vjs-big-play-button:active {
+    background-color: ${settings.color.lpBlue};
+  }
+
+  .VideoEmbed .video-js,
+  .VideoEmbed .vjs-poster {
+    background-color: transparent;
+  }
+
+  @media (max-width: ${settings.media.max["480"]}) {
+    .VideoEmbed .vjs-big-play-button {
+      transform: scale(.7);
+      -webkit-transform: scale(.7);
+      -moz-transform: scale(.7);
+      -ms-transform: scale(.7);
+    }
+  }
+`;
+
+function markup(htmlContent) {
+  return {
+    __html: htmlContent,
+  };
+}
 
 class VideoEmbed extends React.Component {
   constructor(props) {
@@ -110,11 +139,18 @@ class VideoEmbed extends React.Component {
   }
 
   render () {
-    const { id, videoId } = this.props;
+    const { id, videoId, override } = this.props;
+
+    const videoStyle = [styles.video];
+    if (override) {
+      videoStyle.push(override)
+    }
+
     return (
       <div className="VideoEmbed" style={styles.container}>
+        <style dangerouslySetInnerHTML={markup(css)} />
         <video
-          style={styles.video}
+          style={videoStyle}
           data-video-id={videoId}
           data-account={this.accountId}
           data-player={this.playerId}
@@ -128,13 +164,28 @@ class VideoEmbed extends React.Component {
 }
 
 VideoEmbed.propTypes = {
+  /**
+   * Unique element ID (prefix) for elements within this component
+   */
   id: React.PropTypes.string.isRequired,
+
+  /**
+   * The Brightcove Video ID
+   */
   videoId: React.PropTypes.string.isRequired,
+
+  /**
+   * Override styles
+   */
+  override: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+  ]),
 };
 
 VideoEmbed.defaultProps = {
   id: "",
   videoId: "",
+  override: {}
 };
 
 VideoEmbed.styles = styles;
