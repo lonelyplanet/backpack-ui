@@ -1579,8 +1579,14 @@ storiesOf("Video embed", module)
   .add("Default", () => (
     <StyleRoot>
       <VideoEmbed
-        videoId={text("Video ID", "5303355476001")}
-        videoIs360={boolean("360?", false)}
+        videoId={select(
+          "Video ID",
+          {
+            "5303355476001": "5303355476001",
+            "5299039063001": "5299039063001"
+          },
+          "5303355476001"
+          )}
       />
     </StyleRoot>
   ));

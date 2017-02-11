@@ -10,6 +10,13 @@ import { Play } from "../icon";
 
 const styles = {
   container: {
+    width: '100%',
+    height: '100%',
+  },
+
+  video: {
+    width: '600px',
+    height: '400px',
   },
 };
 
@@ -19,58 +26,115 @@ class VideoEmbed extends React.Component {
 
     this.accountId = "5104226627001";
     this.playerId = "default";
-    this.playerId360 = "HkUmgIl6";
+    this.embedId = "default";
 
-    this.state = {
-      videoId: props.videoId,
-      videoIs360: props.videoIs360,
-    };
+    this.player = null;
+  }
+
+  componentDidMount() {
+    this.setupPlayer();
+  }
+
+  componentWillUnmount() {
+    this.tearDownPlayer();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const nextVideoId = typeof nextProps.videoId == "undefined" ? this.props.videoId : nextProps.videoId;
+    if (nextVideoId != this.props.videoId) {
+      this.loadVideo(nextVideoId);
+    }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    // Video.js restructures our video element in ways that it relies on so
+    // we bypass all re-rendering through React and put all control on video.js.
+    return false;
+  }
+
+  getPlayerScriptId() {
+    return this.props.id + "-VideoEmbed-initialize";
+  }
+
+  getPlayerVideoClassName() {
+    return this.props.id + "-VideoEmbed-video";
+  }
+
+  isReady() {
+    return this.player && this.player.isReady_;
+  }
+
+  setupPlayer() {
+
+    const scriptId = this.getPlayerScriptId();
+    const scriptSrc = "https://players.brightcove.net/" + this.accountId + "/" + this.playerId + "_default/index.min.js";
+
+    const script = document.createElement("script");
+    script.id = scriptId;
+    script.src = scriptSrc;
+    script.onload = this.onLoadSetupScript.bind(this);
+
+    document.body.appendChild(script);
+  }
+
+  tearDownPlayer() {
+    const scriptId = this.getPlayerScriptId();
+    const script = document.getElementById(scriptId);
+    if (script) {
+      script.remove();
+    }
+
+    if (this.player) {
+      this.player.dispose();
+      this.player = null;
+    }
+
+    this.ready = false;
+  }
+
+  onLoadSetupScript() {
+    const videoElement = document.getElementsByClassName(this.getPlayerVideoClassName())[0];
+    this.player = videojs(videoElement);
+  }
+
+
+  loadVideo(videoId) {
+    if (!this.isReady()) {
+      return;
+    }
+    this.player.catalog.getVideo(videoId, (error, video) => {
+      if (!error) {
+        this.player.catalog.load(video);
+      }
+    });
   }
 
   render () {
-    const { videoId, videoIs360 } = this.state;
-
-    // if (!videoIs360) {
-      return (
-        <div className="VideoEmbed" style={styles.container}>
-          <video
-            data-video-id={videoId}
-            data-account={this.accountId}
-            data-player={this.playerId}
-            data-embed="default"
-            class="video-js"
-            controls>
-          </video>
-          <script src="//players.brightcove.net/{this.accountId}/{this.playerId}_default/index.min.js"></script>
-        </div>
-      );
-    // }
-    // else {
-    //   return (
-    //     <div className="VideoEmbed" style={styles.container}>
-    //       <video
-    //         data-video-id={videoId}
-    //         data-account={this.accountId}
-    //         data-player={this.playerId360}
-    //         data-embed="default"
-    //         class="video-js"
-    //         controls>
-    //       </video>
-    //       <script src="//players.brightcove.net/{this.accountId}/{this.playerId360}_default/index.min.js"></script>
-    //     </div>
-    //   );
-    // }
+    const { id, videoId } = this.props;
+    return (
+      <div className="VideoEmbed" style={styles.container}>
+        <video
+          style={styles.video}
+          data-video-id={videoId}
+          data-account={this.accountId}
+          data-player={this.playerId}
+          data-embed={this.embedId}
+          className={`video-js ${this.getPlayerVideoClassName()}`}
+          controls>
+        </video>
+      </div>
+    );
   }
 }
 
 VideoEmbed.propTypes = {
+  id: React.PropTypes.string.isRequired,
   videoId: React.PropTypes.string.isRequired,
-  videoIs360: React.PropTypes.boolean.isRequired,
 };
 
 VideoEmbed.defaultProps = {
+  id: "",
   videoId: "",
-  videoIs360: false,
 };
 
 VideoEmbed.styles = styles;
