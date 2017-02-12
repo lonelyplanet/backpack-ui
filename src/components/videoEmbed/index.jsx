@@ -1,17 +1,20 @@
 import React from "react";
 import radium from "radium";
-import { Link } from "react-router";
+import kebabCase from "lodash/kebabCase";
 import settings from "../../../settings.json";
-import { gutter } from "../../utils/grid";
-import font from "../../utils/font";
-import { rgb, lighten } from "../../utils/color";
-import Heading from "../heading";
-import { Play } from "../icon";
+
+const _ = { kebabCase };
 
 const styles = {
   container: {
     width: "100%",
     height: "100%",
+
+    /*
+     * Any shorter thatn 228px and Brightcove's
+     * share controls won't fit
+     */
+    minHeight: "228px",
   },
 
   video: {
@@ -26,11 +29,6 @@ const css = `
   .VideoEmbed .vjs-big-play-button:hover,
   .VideoEmbed .vjs-big-play-button:active {
     background-color: ${settings.color.lpBlue};
-  }
-
-  .VideoEmbed .video-js,
-  .VideoEmbed .vjs-poster {
-    background-color: transparent;
   }
 
   @media (max-width: ${settings.media.max["480"]}) {
@@ -82,11 +80,11 @@ class VideoEmbed extends React.Component {
   }
 
   getPlayerScriptId() {
-    return this.props.id + "-VideoEmbed-initialize";
+    return _.kebabCase(this.props.id) + "-VideoEmbed-initialize";
   }
 
   getPlayerVideoClassName() {
-    return this.props.id + "-VideoEmbed-video";
+    return _.kebabCase(this.props.id) + "-VideoEmbed-video";
   }
 
   isReady() {
@@ -141,16 +139,16 @@ class VideoEmbed extends React.Component {
   render () {
     const { id, videoId, override } = this.props;
 
-    const videoStyle = [styles.video];
+    const containerStyle = [styles.container];
     if (override) {
-      videoStyle.push(override)
+      containerStyle.push(override);
     }
 
     return (
-      <div className="VideoEmbed" style={styles.container}>
+      <div className="VideoEmbed" style={containerStyle}>
         <style dangerouslySetInnerHTML={markup(css)} />
         <video
-          style={videoStyle}
+          style={styles.video}
           data-video-id={videoId}
           data-account={this.accountId}
           data-player={this.playerId}

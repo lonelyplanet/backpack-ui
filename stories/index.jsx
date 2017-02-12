@@ -1579,6 +1579,7 @@ storiesOf("Video embed", module)
   .add("Default", () => (
     <StyleRoot>
       <VideoEmbed
+        id="Video Embed ID"
         videoId={select(
           "Video ID",
           {
@@ -1587,7 +1588,7 @@ storiesOf("Video embed", module)
           },
           "5303355476001"
           )}
-        override={{minHeight:220}}
+        override={{height:220}}
       />
     </StyleRoot>
   ));
