@@ -90,6 +90,7 @@ export { default as ReviewedBadge } from "./components/reviewedBadge";
 export { default as ScrollIndicator } from "./components/scrollIndicator";
 export { default as SectionalNav } from "./components/sectionalNav";
 export { default as SectionHeader } from "./components/sectionHeader";
+export { default as Segment } from "./components/segment";
 export { default as ShareMenu } from "./components/shareMenu";
 export { default as SidebarSection } from "./components/sidebarSection";
 export { default as SightsListItem } from "./components/sightsListItem";
