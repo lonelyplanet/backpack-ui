@@ -1,8 +1,8 @@
-import React from "react";
-import radium from "radium";
+import React, { Component, PropTypes } from "react";
+import radium, { Style } from "radium";
 import get from "lodash/get";
 import kebabCase from "lodash/kebabCase";
-import settings from "../../../settings.json";
+import { color, media } from "../../../settings.json";
 
 const _ = { get, kebabCase };
 
@@ -10,6 +10,9 @@ const styles = {
   container: {
     width: "100%",
     height: "100%",
+    paddingBottom: `${(9 / 16) * 100}%`,
+    position: "relative",
+    overflow: "hidden",
 
     /*
      * Any shorter than 228px and Brightcove's
@@ -21,34 +24,39 @@ const styles = {
   video: {
     width: "100%",
     height: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
   },
 };
 
-const css = `
-  .VideoEmbed .vjs-play-progress,
-  .VideoEmbed .vjs-volume-level,
-  .VideoEmbed .vjs-big-play-button:hover,
-  .VideoEmbed .vjs-big-play-button:active {
-    background-color: ${settings.color.lpBlue};
-  }
+const scopedStyles = {
+  ".vjs-play-progress": {
+    backgroundColor: color.blue,
+  },
+  ".vjs-volume-level": {
+    backgroundColor: color.blue,
+  },
+  ".vjs-big-play-button:hover": {
+    backgroundColor: color.blue,
+  },
+  ".vjs-big-play-button:active": {
+    backgroundColor: color.blue,
+  },
+  ".vjs-big-play-button:focus": {
+    backgroundColor: color.blue,
+  },
 
-  @media (max-width: ${settings.media.max["480"]}) {
-    .VideoEmbed .vjs-big-play-button {
-      transform: scale(.7);
-      -webkit-transform: scale(.7);
-      -moz-transform: scale(.7);
-      -ms-transform: scale(.7);
-    }
-  }
-`;
+  mediaQueries: {
+    [`(max-width: ${media.max["480"]})`]: {
+      ".vjs-big-play-button": {
+        transform: "scale(.7)",
+      },
+    },
+  },
+};
 
-function markup(htmlContent) {
-  return {
-    __html: htmlContent,
-  };
-}
-
-class VideoEmbed extends React.Component {
+class VideoEmbed extends Component {
   constructor(props) {
     super(props);
 
@@ -63,13 +71,10 @@ class VideoEmbed extends React.Component {
     this.setupPlayer();
   }
 
-  componentWillUnmount() {
-    this.tearDownPlayer();
-  }
-
   componentWillReceiveProps(nextProps) {
     const nextVideoId = _.get(nextProps, "videoId", this.props.videoId);
-    if (nextVideoId != this.props.videoId) {
+
+    if (nextVideoId !== this.props.videoId) {
       this.loadVideo(nextVideoId);
     }
   }
@@ -80,23 +85,29 @@ class VideoEmbed extends React.Component {
     return false;
   }
 
-  getPlayerScriptId() {
-    return _.kebabCase(this.props.id) + "-VideoEmbed-initialize";
+  componentWillUnmount() {
+    this.tearDownPlayer();
+  }
+
+  onLoadSetupScript() {
+    const videoElement = document.getElementsByClassName(this.getPlayerVideoClassName())[0];
+
+    this.player = window.videojs(videoElement);
   }
 
   getPlayerVideoClassName() {
-    return _.kebabCase(this.props.id) + "-VideoEmbed-video";
+    return `${_.kebabCase(this.props.id)}-VideoEmbed-video`;
   }
 
-  isReady() {
-    return this.player && this.player.isReady_;
+  getPlayerScriptId() {
+    return `${_.kebabCase(this.props.id)}-VideoEmbed-initialize`;
   }
 
   setupPlayer() {
     const scriptId = this.getPlayerScriptId();
-    const scriptSrc = "https://players.brightcove.net/" + this.accountId + "/" + this.playerId + "_" + this.embedId + "/index.min.js";
-
+    const scriptSrc = `https://players.brightcove.net/${this.accountId}/${this.playerId}_${this.embedId}/index.min.js`;
     const script = document.createElement("script");
+
     script.id = scriptId;
     script.src = scriptSrc;
     script.onload = this.onLoadSetupScript.bind(this);
@@ -104,9 +115,14 @@ class VideoEmbed extends React.Component {
     document.body.appendChild(script);
   }
 
+  isReady() {
+    return this.player && this.player.isReady_;
+  }
+
   tearDownPlayer() {
     const scriptId = this.getPlayerScriptId();
     const script = document.getElementById(scriptId);
+
     if (script) {
       script.remove();
     }
@@ -117,15 +133,11 @@ class VideoEmbed extends React.Component {
     }
   }
 
-  onLoadSetupScript() {
-    const videoElement = document.getElementsByClassName(this.getPlayerVideoClassName())[0];
-    this.player = videojs(videoElement);
-  }
-
   loadVideo(videoId) {
     if (!this.isReady()) {
       return;
     }
+
     this.player.catalog.getVideo(videoId, (error, video) => {
       if (!error) {
         this.player.catalog.load(video);
@@ -133,17 +145,19 @@ class VideoEmbed extends React.Component {
     });
   }
 
-  render () {
+  render() {
     const { videoId, override } = this.props;
 
-    const containerStyle = [styles.container];
-    if (override) {
-      containerStyle.push(override);
-    }
-
     return (
-      <div className="VideoEmbed" style={containerStyle}>
-        <style dangerouslySetInnerHTML={markup(css)} />
+      <div
+        className="VideoEmbed"
+        style={[styles.container, override]}
+      >
+        <Style
+          scopeSelector=".VideoEmbed"
+          rules={scopedStyles}
+        />
+
         <video
           style={styles.video}
           data-video-id={videoId}
@@ -151,38 +165,19 @@ class VideoEmbed extends React.Component {
           data-player={this.playerId}
           data-embed={this.embedId}
           className={`video-js ${this.getPlayerVideoClassName()}`}
-          controls>
-        </video>
+          controls
+        />
       </div>
     );
   }
 }
 
 VideoEmbed.propTypes = {
-  /**
-   * Unique element ID (prefix) for elements within this component
-   */
-  id: React.PropTypes.string.isRequired,
-
-  /**
-   * The Brightcove Video ID
-   */
-  videoId: React.PropTypes.string.isRequired,
-
-  /**
-   * Override styles
-   */
-  override: React.PropTypes.oneOfType([
-    React.PropTypes.object,
+  id: PropTypes.string.isRequired,
+  videoId: PropTypes.string.isRequired,
+  override: PropTypes.oneOfType([
+    PropTypes.object,
   ]),
 };
-
-VideoEmbed.defaultProps = {
-  id: "",
-  videoId: "",
-  override: {}
-};
-
-VideoEmbed.styles = styles;
 
 export default radium(VideoEmbed);
