@@ -372,7 +372,7 @@ storiesOf("Cards", module)
       <CardVideo
         heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
         bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 1920)}
+        runtime={number("Video runtime", 129365)}
         onClick={action("Watch this video later")}
         imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
         href={text("URL", "#")}
@@ -1341,7 +1341,7 @@ storiesOf("Video card shelf", module)
           <CardVideo
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 1920)}
+            runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
             imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
             href={text("URL", "#")}
@@ -1351,7 +1351,7 @@ storiesOf("Video card shelf", module)
           <CardVideo
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 1920)}
+            runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
             imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
             href={text("URL", "#")}
@@ -1361,7 +1361,7 @@ storiesOf("Video card shelf", module)
           <CardVideo
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 1920)}
+            runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
             imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
             href={text("URL", "#")}
@@ -1377,7 +1377,7 @@ storiesOf("Video card shelf", module)
           <CardVideo
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 1920)}
+            runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
             imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
             href={text("URL", "#")}
@@ -1387,7 +1387,7 @@ storiesOf("Video card shelf", module)
           <CardVideo
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 1920)}
+            runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
             imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
             href={text("URL", "#")}
@@ -1397,7 +1397,7 @@ storiesOf("Video card shelf", module)
           <CardVideo
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 1920)}
+            runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
             imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
             href={text("URL", "#")}
@@ -1407,7 +1407,7 @@ storiesOf("Video card shelf", module)
           <CardVideo
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 1920)}
+            runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
             imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
             href={text("URL", "#")}
@@ -1417,7 +1417,7 @@ storiesOf("Video card shelf", module)
           <CardVideo
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 1920)}
+            runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
             imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
             href={text("URL", "#")}
@@ -1427,7 +1427,7 @@ storiesOf("Video card shelf", module)
           <CardVideo
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 1920)}
+            runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
             imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
             href={text("URL", "#")}
@@ -1610,24 +1610,24 @@ storiesOf("Tag list", module)
     />
   ));
 
-storiesOf("Text Bubble", module)
+storiesOf("Text bubble", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <TextBubble>{text("Text", "44 mins")}</TextBubble>
   ));
 
-storiesOf("Thumbnail List Item", module)
+storiesOf("Thumbnail list item", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <ThumbnailListItem
       title={text("Title", "The shop")}
-      textBubble={text("Image Text", "45 min")}
-      imagePath={text("Image Path", "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FYXJ0YW5kY3VsdHVyZS5qcGdTYXQgRGVjIDE3IDIwMTYgMjE6MDA6MDUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=60&sharp=10&fit=crop&w=180")}
+      runtime={number("Video runtime", 129365)}
+      imagePath={text("Image path", "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FYXJ0YW5kY3VsdHVyZS5qcGdTYXQgRGVjIDE3IDIwMTYgMjE6MDA6MDUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=60&sharp=10&fit=crop&w=180")}
       description={array("Description", ["Item 1", "Item 2"])}
-      descriptionIcon={text("Icon Name", "Clock")}
-      descriptionIconLabel={text("Icon Name", "Watch later")}
+      descriptionIcon={text("Icon name", "Clock")}
+      descriptionIconLabel={text("Icon name", "Watch later")}
       onDescriptionIconClick={action("Action for icon")}
-      theme={select("Theme", ["", "dark"], "")}
+      theme={select("Theme", ["light", "dark"], "light")}
     />
   ));
 
@@ -1638,7 +1638,7 @@ storiesOf("Tiles", module)
       <TileVideo
         heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
         bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 1920)}
+        runtime={number("Video runtime", 129365)}
         onClick={action("Watch this video later")}
         imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
         href={text("URL", "#")}
@@ -1664,7 +1664,7 @@ storiesOf("Video tile grid", module)
         className="Tile"
         heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
         bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 1920)}
+        runtime={number("Video runtime", 129365)}
         onClick={action("Watch this video later")}
         imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
         href={text("URL", "#")}
@@ -1674,7 +1674,7 @@ storiesOf("Video tile grid", module)
         className="Tile"
         heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
         bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 1920)}
+        runtime={number("Video runtime", 129365)}
         onClick={action("Watch this video later")}
         imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
         href={text("URL", "#")}
@@ -1684,7 +1684,7 @@ storiesOf("Video tile grid", module)
         className="Tile"
         heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
         bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 1920)}
+        runtime={number("Video runtime", 129365)}
         onClick={action("Watch this video later")}
         imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
         href={text("URL", "#")}
@@ -1694,7 +1694,7 @@ storiesOf("Video tile grid", module)
         className="Tile"
         heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
         bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 1920)}
+        runtime={number("Video runtime", 129365)}
         onClick={action("Watch this video later")}
         imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
         href={text("URL", "#")}
@@ -1704,7 +1704,7 @@ storiesOf("Video tile grid", module)
         className="Tile"
         heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
         bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 1920)}
+        runtime={number("Video runtime", 129365)}
         onClick={action("Watch this video later")}
         imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
         href={text("URL", "#")}
@@ -1714,7 +1714,7 @@ storiesOf("Video tile grid", module)
         className="Tile"
         heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
         bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 1920)}
+        runtime={number("Video runtime", 129365)}
         onClick={action("Watch this video later")}
         imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
         href={text("URL", "#")}
@@ -1833,17 +1833,6 @@ storiesOf("Travel alert", module)
     </TravelAlert>
   ));
 
-storiesOf("User profile header", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <UserProfileHeader
-      avatarSrc="http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png"
-      name="Rizzo the Rat"
-      subtitle="By air, land and sea"
-      location="Ottawa, ON"
-    />
-  ));
-
 storiesOf("Type selector", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1855,7 +1844,7 @@ storiesOf("Type selector", module)
           { item: "Restaurants", slug: "#" },
           { item: "Sights", slug: "#" },
           { item: "Entertainment", slug: "#" },
-          { item: "Acitivities", slug: "#" },
+          { item: "Activities", slug: "#" },
           { item: "Tours", slug: "#" },
           { item: "Articles", slug: "#" },
           { item: "News", slug: "#" },
@@ -1864,21 +1853,24 @@ storiesOf("Type selector", module)
     </StyleRoot>
   ));
 
+storiesOf("User profile header", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <UserProfileHeader
+      avatarSrc="http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png"
+      name="Rizzo the Rat"
+      subtitle="By air, land and sea"
+      location="Ottawa, ON"
+    />
+  ));
+
 storiesOf("Video embed", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
       <VideoEmbed
-        id="Video Embed ID"
-        videoId={select(
-          "Video ID",
-          {
-            "5303355476001": "5303355476001",
-            "5299039063001": "5299039063001"
-          },
-          "5303355476001"
-          )}
-        override={{height:220}}
+        id="Video-Embed-ID"
+        videoId={select("Video ID", ["5303355476001", "5299039063001"], "5303355476001")}
       />
     </StyleRoot>
   ));
