@@ -105,6 +105,7 @@ class TypeSelector extends React.Component {
       menuItems,
       onClick,
       mobile,
+      style,
     } = this.props;
 
     return (
@@ -113,6 +114,7 @@ class TypeSelector extends React.Component {
         style={[
           styles.container.base,
           mobile && { display: "block" },
+          style,
         ]}
         onClick={this.toggleMenu}
         ref={(node) => { this._container = node; }}
@@ -261,6 +263,14 @@ TypeSelector.propTypes = {
    * Whether or not to use the mobile layout
    */
   mobile: React.PropTypes.bool,
+
+  style: React.PropTypes.objectOf(
+    React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number,
+      React.PropTypes.object,
+    ]),
+  ),
 };
 
 TypeSelector.defaultProps = {
