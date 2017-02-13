@@ -9,7 +9,7 @@ const styles = {
     height: "100%",
 
     /*
-     * Any shorter thatn 228px and Brightcove's
+     * Any shorter than 228px and Brightcove's
      * share controls won't fit
      */
     minHeight: "228px",
@@ -90,7 +90,6 @@ class VideoEmbed extends React.Component {
   }
 
   setupPlayer() {
-
     const scriptId = this.getPlayerScriptId();
     const scriptSrc = "https://players.brightcove.net/" + this.accountId + "/" + this.playerId + "_default/index.min.js";
 
@@ -121,7 +120,6 @@ class VideoEmbed extends React.Component {
     const videoElement = document.getElementsByClassName(this.getPlayerVideoClassName())[0];
     this.player = videojs(videoElement);
   }
-
 
   loadVideo(videoId) {
     if (!this.isReady()) {
