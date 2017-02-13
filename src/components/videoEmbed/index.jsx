@@ -112,8 +112,6 @@ class VideoEmbed extends React.Component {
       this.player.dispose();
       this.player = null;
     }
-
-    this.ready = false;
   }
 
   onLoadSetupScript() {
