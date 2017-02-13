@@ -1,38 +1,26 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 import { Link } from "react-router";
 import settings from "../../../settings.json";
-import { gutter } from "../../utils/grid";
+import { gutter, percentage } from "../../utils/grid";
 import font from "../../utils/font";
-import { rgb, lighten } from "../../utils/color";
+import { rgba } from "../../utils/color";
 import Heading from "../heading";
 import { Play } from "../icon";
-
-const commonStyles = {
-  sideContent: {
-    paddingTop: gutter("static", 1, 1.25),
-    paddingBottom: gutter("static", 1, 1.25),
-    paddingLeft: gutter("static", 1, 0.5),
-    paddingRight: gutter("static", 1, 0.5),
-
-    [`@media (min-width: ${settings.media.min["480"]})`]: {
-      paddingLeft: gutter("static"),
-      paddingRight: gutter("static"),
-    },
-
-    [`@media (min-width: ${settings.media.min["1080"]})`]: {
-      paddingLeft: gutter("static", 1, 2),
-      paddingRight: gutter("static", 1, 2),
-    },
-  },
-}
+import Container from "../container";
 
 const styles = {
   container: {
     fontFamily: font("benton"),
     position: "relative",
     backgroundColor: settings.color.black,
-    color: lighten(settings.color.gray, 3),
+    color: settings.color.white,
+
+    [`@media (min-width: ${settings.media.min["960"]})`]: {
+      display: "flex",
+      maxHeight: "100vh",
+      minHeight: "665px",
+    },
   },
 
   background: {
@@ -42,71 +30,169 @@ const styles = {
     backgroundPosition: "center",
     width: "100%",
     height: "100%",
+    opacity: 0.4,
+    zIndex: settings.zIndex.default,
+    top: 0,
+    left: 0,
+    right: 0,
   },
 
   backgroundOverlay: {
-    backgroundColor: settings.color.black,
-    opacity: 0.2,
-    position: "absolute",
-    width: "100%",
+    backgroundColor: rgba(settings.color.black, 0.38),
+    bottom: 0,
     height: "100%",
-  },
-
-  content: {
-    position: "relative",
-    display: "flex",
+    left: 0,
+    position: "absolute",
+    top: 0,
+    width: percentage("598px", "1510px"),
     zIndex: settings.zIndex.default,
-    alignItems: "center",
 
-    [`@media (max-width: ${settings.media.max["720"]})`]: {
-      display: "block",
+    [`@media (max-width: ${settings.media.max["960"]})`]: {
+      display: "none",
     },
   },
 
-  leftContent: Object.assign({}, commonStyles.sideContent, {
-    minWidth: "36%",
-    background: `rgba(${rgb(settings.color.black)}, .38)`,
-    alignSelf: "stretch",
-  }),
+  content: {
+    zIndex: (settings.zIndex.default + 1),
 
-  rightContent: Object.assign({}, commonStyles.sideContent, {
-    flexGrow: 1,
-  }),
+    [`@media (min-width: ${settings.media.min["960"]})`]: {
+      display: "flex",
+      alignItems: "center",
+    },
+  },
+
+  leftContent: {
+    [`@media (max-width: ${settings.media.max["480"]})`]: {
+      marginLeft: `-${gutter("static", 1, 0.5)}`,
+      marginRight: `-${gutter("static", 1, 0.5)}`,
+      paddingLeft: gutter("static", 1, 0.5),
+      paddingRight: gutter("static", 1, 0.5),
+    },
+
+    [`@media (min-width: ${settings.media.min["480"]}) and (max-width: ${settings.media.max["960"]})`]: {
+      marginLeft: `-${gutter("static")}`,
+      marginRight: `-${gutter("static")}`,
+      paddingLeft: gutter("static"),
+      paddingRight: gutter("static"),
+    },
+
+    [`@media (max-width: ${settings.media.max["600"]})`]: {
+      paddingBottom: "32px",
+      paddingTop: "34px",
+    },
+
+    [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
+      paddingBottom: "82px",
+      paddingTop: "84px",
+    },
+
+    [`@media (max-width: ${settings.media.max["960"]})`]: {
+      backgroundColor: rgba(settings.color.black, 0.38),
+    },
+
+    [`@media (min-width: ${settings.media.min["960"]})`]: {
+      marginRight: "84px",
+      marginTop: "25px",
+      paddingRight: "50px",
+    },
+  },
+
+  rightContent: {
+    [`@media (max-width: ${settings.media.max["600"]})`]: {
+      paddingBottom: "38px",
+      paddingTop: "32px",
+    },
+
+    [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
+      paddingBottom: "88px",
+      paddingTop: "82px",
+    },
+
+    [`@media (min-width: ${settings.media.min["960"]})`]: {
+      flex: "0 0 auto",
+      width: percentage("718px", settings.grid.container),
+    },
+  },
 
   zone: {
-    fontSize: "18px",
+    fontSize: "16px",
     fontWeight: settings.typography.fontWeightSemibold,
-    paddingBottom: gutter("static", 1, 2),
+    lineHeight: 1,
+
+    [`@media (min-width: ${settings.media.min["600"]})`]: {
+      fontSize: "24px",
+    },
+
+    [`@media (min-width: ${settings.media.min["960"]})`]: {
+      position: "relative",
+      top: "-147px",
+    },
   },
 
   title: {
-    color: lighten(settings.color.gray, 5),
-    lineHeight: 1.3,
-    letterSpacing: "-0.6px",
+    color: settings.color.white,
+    fontSize: "20px",
+    lineHeight: (24 / 20),
+
+    [`@media (max-width: ${settings.media.max["600"]})`]: {
+      marginTop: "8px",
+    },
+
+    [`@media (min-width: ${settings.media.min["600"]})`]: {
+      fontSize: "40px",
+      lineHeight: (48 / 40),
+      marginTop: "10px",
+    },
   },
 
   category: {
-    color: lighten(settings.color.gray, 3),
-    fontSize: "12px",
-    marginTop: "4px",
-    marginBottom: "4px",
+    color: settings.color.white,
+    fontSize: "11px",
+    lineHeight: 1,
+
+    [`@media (max-width: ${settings.media.max["600"]})`]: {
+      marginTop: "76px",
+    },
+
+    [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
+      marginTop: "147px",
+    },
+
+    [`@media (min-width: ${settings.media.min["600"]})`]: {
+      fontSize: "16px",
+    },
   },
 
   paragraph: {
-    lineHeight: (28 / 16),
     fontSize: "12px",
-    marginTop: "13px",
-    marginBottom: "17px",
+    fontWeight: 300,
+    lineHeight: (20 / 12),
+    marginBottom: 0,
+    marginTop: 0,
+
+    [`@media (max-width: ${settings.media.max["600"]})`]: {
+      marginTop: "18px",
+    },
+
+    [`@media (min-width: ${settings.media.min["600"]})`]: {
+      fontSize: "16px",
+      lineHeight: (28 / 16),
+      marginTop: "25px",
+    },
   },
 
   divider: {
-    color: settings.color.subtitleGray,
+    borderColor: rgba(settings.color.subtitleGray, 0.27),
     width: "50%",
     display: "inline-block",
     borderStyle: "solid",
     borderTopWidth: 0,
-    opacity: 0.27,
-    marginBottom: "13px",
+    marginBottom: "25px",
+    marginTop: "32px",
+
+    [`@media (min-width: ${settings.media.min["600"]})`]: {
+      marginTop: "27px",
+    },
   },
 
   link: {
@@ -118,12 +204,13 @@ const styles = {
     display: "block",
     maxWidth: "100%",
     maxHeight: "100%",
-    boxShadow: `0 12px 34px 0 rgba(${rgb(settings.color.black)}, 0.12), inset 0 1px 3px 0 rgba(${rgb(settings.color.black)}, 0.5)`,
-    border: `1px solid rgba(${rgb(settings.color.white)}, 0.2)`,
+    boxShadow: `0 12px 34px 0 ${rgba(settings.color.black, 0.12)},
+      inset 0 1px 3px 0 ${rgba(settings.color.black, 0.5)}`,
+    border: `1px solid ${rgba(settings.color.white, 0.2)}`,
   },
 
   imageOverlay: {
-    backgroundColor: `rgba(${rgb(settings.color.black)}, 0.16)`,
+    backgroundColor: rgba(settings.color.black, 0.16),
     position: "absolute",
     top: 0,
     width: "100%",
@@ -139,12 +226,11 @@ const styles = {
     height: "21px",
     width: "21px",
   },
-
 };
 
 const css = `
   .SpotlightZone a:hover .SpotlightZone-imageOverlay {
-    background-color: rgba(${rgb(settings.color.black)}, 0.06) !important;
+    background-color: ${rgba(settings.color.black, 0.06)} !important;
   }
 `;
 
@@ -161,59 +247,88 @@ const SpotlightZone = ({
   paragraph,
   href,
   imageUrl,
-  backgroundImageUrl
-}) => {
-  const backgroundStyle = styles.background;
-  backgroundStyle.backgroundImage = `url("${backgroundImageUrl}")`;
+  backgroundImageUrl,
+  adSlot,
+  style,
+}) => (
+  <div
+    className="SpotlightZone"
+    style={[styles.container, style]}
+  >
+    <style dangerouslySetInnerHTML={markup(css)} />
 
-  return (
-    <div className="SpotlightZone" style={styles.container}>
-      <style dangerouslySetInnerHTML={markup(css)} />
-      <div style={backgroundStyle}/>
-      <div style={styles.backgroundOverlay}/>
-
-      <div style={styles.content}>
-
-        <div style={styles.leftContent}>
-          <div style={styles.zone}>
-            {zone}
-          </div>
-          <div style={styles.category}>
-            {category}
-          </div>
-          <Heading override={styles.title}>
-            {title}
-          </Heading>
-          <p style={styles.paragraph}>
-            {paragraph}
-          </p>
-          <hr style={styles.divider} />
-          <div id="SpotlightZone_sponsor"></div>
+    <Container style={styles.content}>
+      <div style={styles.leftContent}>
+        <div style={styles.zone}>
+          {zone}
         </div>
 
-        <div style={styles.rightContent}>
-          <Link to={href} style={styles.link}>
-            <img style={styles.image} src={imageUrl} />
-            <div className="SpotlightZone-imageOverlay" style={styles.imageOverlay}>
-              <Play style={styles.playIcon} />
-            </div>
-          </Link>
+        <div style={styles.category}>
+          {category}
         </div>
 
+        <Heading
+          level={2}
+          tracking="tight"
+          weight="thin"
+          override={styles.title}
+        >
+          {title}
+        </Heading>
+
+        <p style={styles.paragraph}>
+          {paragraph}
+        </p>
+
+        {adSlot && <hr style={styles.divider} /> }
+        {adSlot}
       </div>
 
-    </div>
-  );
-}
+      <div style={styles.rightContent}>
+        <Link to={href} style={styles.link}>
+          <img
+            style={styles.image}
+            src={imageUrl}
+            alt=""
+          />
+
+          <div
+            className="SpotlightZone-imageOverlay"
+            style={styles.imageOverlay}
+          >
+            <Play style={styles.playIcon} />
+          </div>
+        </Link>
+      </div>
+    </Container>
+
+    <div
+      style={[
+        styles.background,
+        { backgroundImage: `url("${backgroundImageUrl}")` },
+      ]}
+      aria-hidden="true"
+    />
+    <div style={styles.backgroundOverlay} />
+  </div>
+);
 
 SpotlightZone.propTypes = {
-  zone: React.PropTypes.string.isRequired,
-  category: React.PropTypes.string,
-  title: React.PropTypes.string.isRequired,
-  paragraph: React.PropTypes.string.isRequired,
-  href: React.PropTypes.string.isRequired,
-  imageUrl: React.PropTypes.string.isRequired,
-  backgroundImageUrl: React.PropTypes.string.isRequired,
+  zone: PropTypes.string.isRequired,
+  category: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  paragraph: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  backgroundImageUrl: PropTypes.string.isRequired,
+  adSlot: PropTypes.element,
+  style: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+    ]),
+  ),
 };
 
 SpotlightZone.defaultProps = {
