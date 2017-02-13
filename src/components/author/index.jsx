@@ -7,15 +7,28 @@ const styles = {
   container: {
     display: "inline-block",
   },
+
   italicText: {
     marginTop: "8px",
   },
 };
 
 const Author = ({ name, title, alignment, style }) => (
-  <div className="Author" style={[styles.container, { textAlign: alignment }, style]}>
-    <AuthorName>{name}</AuthorName>
-    <ItalicText style={styles.italicText}>{title}</ItalicText>
+  <div
+    className="Author"
+    style={[
+      styles.container,
+      { textAlign: alignment },
+      style,
+    ]}
+  >
+    <AuthorName>
+      {name}
+    </AuthorName>
+
+    <ItalicText style={styles.italicText}>
+      {title}
+    </ItalicText>
   </div>
 );
 
