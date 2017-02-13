@@ -1,56 +1,74 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-
-import { color, timing, typography } from "../../../settings.json";
+import { Link } from "react-router";
+import { color, timing, typography, zIndex } from "../../../settings.json";
+import font from "../../utils/font";
+import { rgba } from "../../utils/color";
+import { duration } from "../../utils/time";
 import iconFromString from "../../utils/icon";
-
 import BulletDescription from "../bulletDescription";
 import TextBubble from "../textBubble";
 import Heading from "../heading";
 import Icon from "../icon";
+import CoverPhoto from "../coverPhoto";
 
 const styles = {
   container: {
     display: "flex",
-    paddingTop: 16,
-    paddingBottom: 16,
-    paddingLeft: 12,
-    paddingRight: 20,
   },
+
   image: {
     flex: 1,
-    maxWidth: 130,
-    height: 70,
-    display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
-    marginRight: 13,
-    backgroundPosition: "50%",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
+    maxWidth: "116px",
   },
+
+  imageAnchor: {
+    display: "block",
+    position: "relative",
+    width: "100%",
+  },
+
   imageText: {
-    marginRight: 3,
-    marginBottom: 3,
-    fontSize: 11,
+    bottom: "3px",
+    fontSize: "11px",
     fontWeight: typography.fontWeightMedium,
+    position: "absolute",
+    right: "3px",
+    zIndex: zIndex.default,
   },
+
   content: {
-    paddingTop: 16,
-    paddingBottom: 16,
-    flex: 2,
-    display: "flex",
-    justifyContent: "space-between",
     alignItems: "center",
+    display: "flex",
+    flex: 2,
+    justifyContent: "space-between",
   },
+
   title: {
-    fontSize: 15,
-    marginTop: 5,
-    lineHeight: 1.2,
+    fontSize: "16px",
+    lineHeight: (19 / 16),
+    marginTop: "4px",
   },
+
   textContainer: {
-    marginRight: 5,
+    marginRight: "5px",
+    width: "100%",
   },
+
+  textAnchor: {
+    display: "block",
+    paddingLeft: "15px",
+    width: "100%",
+  },
+
+  status: {
+    color: color.white,
+    fontFamily: font("miller"),
+    fontSize: "12px",
+    fontStyle: "italic",
+    marginBottom: "5px",
+  },
+
   descriptionIcon: {
     backgroundColor: "transparent",
     border: 0,
@@ -59,58 +77,106 @@ const styles = {
     fontSize: "16px",
     padding: 0,
     transition: `color ${timing.default} ease-in-out`,
+
     ":hover": {
+      color: color.blue,
+    },
+
+    ":active": {
+      color: color.blue,
+    },
+
+    ":focus": {
       color: color.blue,
     },
   },
 
-  // themes
-  dark: {
-    container: {
-      background: color.black,
+  descriptionIconDark: {
+    color: color.white,
+
+    ":hover": {
+      color: rgba(color.white, 0.5),
     },
-    title: {
-      color: color.white,
+
+    ":active": {
+      color: rgba(color.white, 0.5),
     },
-    descriptionIcon: {
-      color: color.white,
+
+    ":focus": {
+      color: rgba(color.white, 0.5),
     },
   },
 };
 
-
 const ThumbnailListItem = ({
   title,
+  href,
   imagePath,
   description,
   descriptionIcon,
   descriptionIconLabel,
   onDescriptionIconClick,
-  textBubble,
+  runtime,
+  status,
   theme,
+  style,
 }) => (
-  <div style={[styles.container, theme && styles[theme].container]}>
-    <div style={[styles.image, { backgroundImage: `url(${imagePath})` }]}>
-      {textBubble &&
-        <TextBubble style={styles.imageText}>
-          {textBubble}
-        </TextBubble>
-      }
+  <div
+    className="ListItem-thumbnail"
+    style={[
+      styles.container,
+      theme === "dark" && { backgroundColor: "transparent" },
+      style,
+    ]}
+  >
+    <div style={styles.image}>
+      <Link to={href} style={styles.imageAnchor}>
+        <CoverPhoto
+          src={imagePath}
+          width={116}
+          height={64}
+        />
+
+        {runtime &&
+          <TextBubble style={styles.imageText}>
+            {duration(runtime)}
+          </TextBubble>
+        }
+      </Link>
     </div>
+
     <div style={styles.content}>
       <div style={styles.textContainer}>
-        <BulletDescription description={description} />
-        <Heading
-          level={5}
-          weight="thin"
-          override={[styles.title, theme && styles[theme].title]}
-        >
-          {title}
-        </Heading>
+        <Link to={href} style={styles.textAnchor}>
+          {status &&
+            <div style={styles.status}>
+              {status}
+            </div>
+          }
+
+          {description &&
+            <BulletDescription description={description} />
+          }
+
+          <Heading
+            level={5}
+            weight="thin"
+            override={[
+              styles.title,
+              (theme === "dark") && { color: color.white },
+            ]}
+          >
+            {title}
+          </Heading>
+        </Link>
       </div>
+
       {descriptionIcon && onDescriptionIconClick &&
         <button
-          style={[styles.descriptionIcon, theme && styles[theme].descriptionIcon]}
+          style={[
+            styles.descriptionIcon,
+            theme === "dark" && styles.descriptionIconDark,
+          ]}
           onClick={onDescriptionIconClick}
         >
           {iconFromString(descriptionIcon, { label: descriptionIconLabel })}
@@ -122,13 +188,26 @@ const ThumbnailListItem = ({
 
 ThumbnailListItem.propTypes = {
   title: PropTypes.string,
+  href: PropTypes.string,
   imagePath: PropTypes.string,
-  textBubble: PropTypes.string,
+  runtime: PropTypes.number,
   description: PropTypes.arrayOf(PropTypes.string),
   descriptionIcon: PropTypes.oneOf(Object.keys(Icon)),
   descriptionIconLabel: PropTypes.string,
   onDescriptionIconClick: PropTypes.func,
-  theme: PropTypes.string,
+  status: PropTypes.string,
+  theme: PropTypes.oneOf(["light", "dark"]),
+  style: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+    ]),
+  ),
+};
+
+ThumbnailListItem.defaultProps = {
+  theme: "light",
 };
 
 export default radium(ThumbnailListItem);
