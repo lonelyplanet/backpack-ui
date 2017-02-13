@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 import Heading from "../heading";
 import settings from "../../../settings.json";
@@ -25,31 +25,40 @@ const styles = {
     borderWidth: "1px",
     marginBottom: "31px",
   },
-
 };
 
-const SectionHeader = ({ children, heading }) => {
+const SectionHeader = ({ children, heading, style }) => {
   heading = heading || {};
   heading.size = heading.size || "large";
   heading.weight = heading.weight || "extraThin";
 
   return (
-    <div style={styles.container}>
-      <Heading {...heading} override={styles.heading}>
+    <header
+      className="SectionHeader"
+      style={[styles.container, style]}
+    >
+      <Heading
+        {...heading}
+        override={styles.heading}
+      >
         {children}
       </Heading>
-      <hr style={styles.divider} />
-    </div>
-  );
-}
 
-SectionHeader.propTypes = {
-  children: React.PropTypes.node.isRequired,
-  heading: React.PropTypes.shape(Heading.propTypes).isRequired,
+      <hr style={styles.divider} />
+    </header>
+  );
 };
 
-SectionHeader.defaultProps = {
-  heading: {},
+SectionHeader.propTypes = {
+  children: PropTypes.node.isRequired,
+  heading: PropTypes.shape(Heading.propTypes).isRequired,
+  style: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+    ]),
+  ),
 };
 
 SectionHeader.styles = styles;
