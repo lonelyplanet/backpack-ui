@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import { color } from "../../../settings.json";
+import { rgba } from "../../utils/color";
 import Author from "../author";
 import Timestamp from "../timestamp";
 
@@ -24,13 +25,28 @@ const styles = {
   },
 };
 
-const NewsArticleAuthor = ({ name, title, absoluteTime, relativeTime, style }) => (
+const NewsArticleAuthor = ({ name, title, absoluteTime, relativeTime, theme, style }) => (
   <div className="NewsArticleAuthor" style={style}>
-    <div style={styles.line} />
+    <div
+      style={[
+        styles.line,
+        (theme === "dark") && { backgroundColor: rgba(color.white, 0.5) },
+      ]}
+    />
 
-    <Author name={name} title={title} style={styles.author} />
+    <Author
+      name={name}
+      title={title}
+      style={[
+        styles.author,
+        (theme === "dark") && { color: color.white },
+      ]}
+    />
 
-    <Timestamp dateTime={absoluteTime} style={styles.timestamp}>
+    <Timestamp
+      dateTime={absoluteTime}
+      style={styles.timestamp}
+    >
       {relativeTime}
     </Timestamp>
   </div>
@@ -41,7 +57,12 @@ NewsArticleAuthor.propTypes = {
   title: PropTypes.string,
   absoluteTime: PropTypes.string,
   relativeTime: PropTypes.string,
+  theme: PropTypes.oneOf(["light", "dark"]),
   style: PropTypes.objectOf(PropTypes.object),
+};
+
+NewsArticleAuthor.defaultProps = {
+  theme: "light",
 };
 
 export default radium(NewsArticleAuthor);
