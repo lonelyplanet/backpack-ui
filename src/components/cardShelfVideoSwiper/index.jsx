@@ -96,7 +96,7 @@ function CardShelfVideoSwiper({ children, heading, href, slidesVisible, style })
 
       <div style={styles.slider}>
         <Style
-          scopeSelector=".slick-slider"
+          scopeSelector=".CardShelf--video"
           rules={assign(
             {},
             scopedStyles,
