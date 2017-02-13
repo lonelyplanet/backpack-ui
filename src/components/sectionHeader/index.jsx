@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import Heading from "../heading";
-import settings from "../../../settings.json";
+import { color, media } from "../../../settings.json";
 
 const styles = {
   container: {
@@ -9,25 +9,40 @@ const styles = {
   },
 
   heading: {
-    marginBottom: "13px",
+    marginBottom: "16px",
     lineHeight: 1.3,
     fontSize: "28px",
 
-    [`@media (min-width: ${settings.media.min["720"]})`]: {
+    [`@media (min-width: ${media.min["720"]})`]: {
       fontSize: "45px",
     },
   },
 
   divider: {
-    borderColor: settings.color.red,
     width: "30px",
     borderStyle: "solid",
     borderWidth: "1px",
-    marginBottom: "31px",
+    marginBottom: "32px",
+  },
+  theme: {
+    default: {
+      divider: {
+        borderColor: color.red,
+      },
+    },
+    light: {
+      divider: {
+        borderColor: color.white,
+      },
+      heading: {
+        color: color.white,
+      },
+    },
   },
 };
 
-const SectionHeader = ({ children, heading, style }) => {
+
+const SectionHeader = ({ children, heading, theme, style }) => {
   heading = heading || {};
   heading.size = heading.size || "large";
   heading.weight = heading.weight || "extraThin";
@@ -39,12 +54,12 @@ const SectionHeader = ({ children, heading, style }) => {
     >
       <Heading
         {...heading}
-        override={styles.heading}
+        override={[styles.heading, styles.theme[theme].heading]}
       >
         {children}
       </Heading>
 
-      <hr style={styles.divider} />
+      <hr style={[styles.divider, styles.theme[theme].divider]} />
     </header>
   );
 };
@@ -52,6 +67,10 @@ const SectionHeader = ({ children, heading, style }) => {
 SectionHeader.propTypes = {
   children: PropTypes.node.isRequired,
   heading: PropTypes.shape(Heading.propTypes).isRequired,
+  theme: React.PropTypes.oneOf([
+    "default",
+    "light",
+  ]).isRequired,
   style: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,
@@ -59,6 +78,10 @@ SectionHeader.propTypes = {
       PropTypes.object,
     ]),
   ),
+};
+
+SectionHeader.defaultProps = {
+  theme: "default",
 };
 
 SectionHeader.styles = styles;
