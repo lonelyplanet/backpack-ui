@@ -1,7 +1,10 @@
 import React from "react";
 import radium from "radium";
-import _ from "lodash";
+import get from "lodash/get";
+import kebabCase from "lodash/kebabCase";
 import settings from "../../../settings.json";
+
+const _ = { get, kebabCase };
 
 const styles = {
   container: {
@@ -131,7 +134,7 @@ class VideoEmbed extends React.Component {
   }
 
   render () {
-    const { id, videoId, override } = this.props;
+    const { videoId, override } = this.props;
 
     const containerStyle = [styles.container];
     if (override) {
