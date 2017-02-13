@@ -1,9 +1,7 @@
 import React from "react";
 import radium from "radium";
-import kebabCase from "lodash/kebabCase";
+import _ from "lodash";
 import settings from "../../../settings.json";
-
-const _ = { kebabCase };
 
 const styles = {
   container: {
@@ -67,7 +65,7 @@ class VideoEmbed extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const nextVideoId = typeof nextProps.videoId == "undefined" ? this.props.videoId : nextProps.videoId;
+    const nextVideoId = _.get(nextProps, "videoId", this.props.videoId);
     if (nextVideoId != this.props.videoId) {
       this.loadVideo(nextVideoId);
     }
