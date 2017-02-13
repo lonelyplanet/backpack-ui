@@ -3,7 +3,6 @@ import { StyleRoot } from "radium";
 import "leaflet/dist/leaflet.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "react-id-swiper/src/styles/css/swiper.css";
 import { storiesOf, action } from "@kadira/storybook";
 import { withKnobs, text, boolean, number, array, object, select, color } from "@kadira/storybook-addon-knobs";
 import { color as bpColor } from "../settings.json";
@@ -1375,7 +1374,6 @@ storiesOf("Video card shelf", module)
       <div style={{ padding: "32px" }}>
         <CardShelfVideoSwiper heading="Food and drink" href="/">
           <CardVideo
-            className="swiper-slide"
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={text("Video runtime", "32 min")}
@@ -1386,7 +1384,6 @@ storiesOf("Video card shelf", module)
           />
 
           <CardVideo
-            className="swiper-slide"
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={text("Video runtime", "32 min")}
@@ -1397,7 +1394,6 @@ storiesOf("Video card shelf", module)
           />
 
           <CardVideo
-            className="swiper-slide"
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={text("Video runtime", "32 min")}
@@ -1408,7 +1404,6 @@ storiesOf("Video card shelf", module)
           />
 
           <CardVideo
-            className="swiper-slide"
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={text("Video runtime", "32 min")}
@@ -1419,7 +1414,6 @@ storiesOf("Video card shelf", module)
           />
 
           <CardVideo
-            className="swiper-slide"
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={text("Video runtime", "32 min")}
@@ -1430,7 +1424,6 @@ storiesOf("Video card shelf", module)
           />
 
           <CardVideo
-            className="swiper-slide"
             heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={text("Video runtime", "32 min")}
@@ -1662,9 +1655,9 @@ storiesOf("Tiles", module)
     </div>
   ));
 
-storiesOf("Tile grid", module)
+storiesOf("Video tile grid", module)
   .addDecorator(withKnobs)
-  .add("Video", () => (
+  .add("Default", () => (
     <TileGrid>
       <TileVideo
         className="Tile"
@@ -1726,6 +1719,69 @@ storiesOf("Tile grid", module)
         href={text("URL", "#")}
       />
     </TileGrid>
+  ))
+  .add("Swiper", () => (
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardShelfVideoSwiper heading="Food and drink" href="/" slidesVisible={4}>
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+        </CardShelfVideoSwiper>
+      </div>
+    </StyleRoot>
   ));
 
 storiesOf("Timestamp", module)
