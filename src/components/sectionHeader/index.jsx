@@ -6,6 +6,10 @@ import { color, media } from "../../../settings.json";
 const styles = {
   container: {
     textAlign: "center",
+    marginBottom: "40px",
+    [`@media (min-width: ${media.min["720"]})`]: {
+      marginBottom: "64px",
+    },
   },
 
   heading: {
