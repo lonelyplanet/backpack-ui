@@ -4,7 +4,10 @@ import Swiper from "react-id-swiper";
 import assign from "object-assign";
 import { zIndex } from "../../../settings.json";
 import PaginatorButton from "../paginatorButton";
-import defaultStyles from "./styles";
+
+// Make sure to import
+// <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+// in the app
 
 class SwiperContainer extends Component {
   static markup(htmlContent) {
@@ -74,7 +77,7 @@ class SwiperContainer extends Component {
 
     return (
       <div className="Swiper" style={style}>
-        <style dangerouslySetInnerHTML={SwiperContainer.markup(defaultStyles + swiperStyles)} />
+        <style dangerouslySetInnerHTML={SwiperContainer.markup(swiperStyles)} />
 
         <Swiper {...assign({}, swiperOptions, options)}>
           {children}
