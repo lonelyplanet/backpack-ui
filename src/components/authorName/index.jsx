@@ -1,10 +1,9 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import font from "../../utils/font";
-import { color } from "../../../settings.json";
 
 const styles = {
-  color: color.titleGray,
+  color: "inherit",
   fontFamily: font("benton"),
   fontSize: "11px",
   fontWeight: 600,
@@ -13,7 +12,11 @@ const styles = {
 };
 
 const AuthorName = ({ children, style }) => (
-  <div className="AuthorName" itemProp="author" style={[styles, style]}>
+  <div
+    className="AuthorName"
+    itemProp="author"
+    style={[styles, style]}
+  >
     {children}
   </div>
 );
