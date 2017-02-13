@@ -1,15 +1,19 @@
 import React, { PropTypes } from "react";
-import radium from "radium";
-import { grid, timing } from "../../../settings.json";
+import radium, { Style } from "radium";
+import assign from "object-assign";
+import Slider from "react-slick";
+import { grid, timing, zIndex } from "../../../settings.json";
 import {
   CardShelf,
   CardShelfHeader,
 } from "../cardShelf";
 import CardVideo from "../cardVideo";
-import SwiperContainer from "../swiper";
+import TileVideo from "../tileVideo";
+import TileVideoPoster from "../tileVideoPoster";
+import PaginatorButton from "../paginatorButton";
 
 const styles = {
-  swiper: {
+  slider: {
     width: "calc(100% + 100px)",
     padding: "30px 50px 80px",
     marginTop: "-30px",
@@ -19,59 +23,105 @@ const styles = {
   },
 };
 
-const swiperOptions = {
-  spaceBetween: 27,
-  slidesPerView: 3,
-  width: 1290,
-  watchSlidesProgress: true,
-  watchSlidesVisibility: true,
+const scopedStyles = {
+  ".slick-list": {
+    overflow: "visible",
+    position: "relative",
+    width: "100%",
+    maxWidth: grid.container,
+  },
+
+  ".slick-track": {
+    display: "flex",
+  },
+
+  ".slick-slide": {
+    opacity: 0,
+    transition: `opacity ${timing.default} ease`,
+    float: "none !important",
+    height: "auto",
+  },
+
+  ".slick-slide:not(.slick-active)": {
+    pointerEvents: "none",
+  },
+
+  ".slick-active": {
+    opacity: 1,
+  },
+
+  ".slick-slide + .slick-slide": {
+    marginLeft: "27px",
+  },
+
+  ".PaginatorButton": {
+    position: "absolute",
+    top: "188px",
+    zIndex: zIndex.middle,
+  },
+
+  ".PaginatorButton:first-of-type": {
+    left: "-20px",
+  },
+
+  ".PaginatorButton:last-of-type": {
+    right: "-20px",
+  },
 };
 
-const swiperStyles = `
-  .swiper-slide {
-    opacity: 0;
-    transition: opacity ${timing.default} ease;
-  }
+function CardShelfVideoSwiper({ children, heading, href, slidesVisible, style }) {
+  const sliderOptions = {
+    dots: false,
+    infinite: false,
+    slidesToShow: slidesVisible,
+    slidesToScroll: 1,
+    nextArrow: (<PaginatorButton direction="right" />),
+    prevArrow: (<PaginatorButton direction="left" />),
+    variableWidth: true,
+    swipe: false,
+    speed: 400,
+  };
 
-  .swiper-slide:not(.swiper-slide-visible) {
-    pointer-events: none;
-  }
-
-  .swiper-slide-visible {
-    opacity: 1;
-  }
-
-  .swiper-container {
-    height: 100%;
-    max-width: ${grid.container};
-    overflow: visible;
-    position: relative;
-    width: 100%;
-  }
-`;
-
-const CardShelfVideoSwiper = ({ children, heading, href, style }) => (
-  <CardShelf
-    className="CardShelf--video"
-    style={style}
-  >
-    {heading &&
-      <CardShelfHeader
-        heading={heading}
-        href={href}
-      />
-    }
-
-    <SwiperContainer
-      swiperOptions={swiperOptions}
-      swiperStyles={swiperStyles}
-      style={styles.swiper}
-      hasPagination
+  return (
+    <CardShelf
+      className="CardShelf--video"
+      style={style}
     >
-      {children}
-    </SwiperContainer>
-  </CardShelf>
-);
+      {heading &&
+        <CardShelfHeader
+          heading={heading}
+          href={href}
+        />
+      }
+
+      <div style={styles.slider}>
+        <Style
+          scopeSelector=".slick-slider"
+          rules={assign(
+            {},
+            scopedStyles,
+            slidesVisible === 3 && {
+              ".slick-slide + .slick-slide": {
+                marginLeft: "27px",
+              },
+            },
+            slidesVisible === 4 && {
+              ".slick-slide + .slick-slide": {
+                marginLeft: "43px",
+              },
+            },
+          )}
+        />
+
+        <Slider {...sliderOptions}>
+          {React.Children.map(children, (child, i) => (
+            <div key={i}>{child}</div>
+          ))}
+        </Slider>
+      </div>
+    </CardShelf>
+  );
+}
 
 CardShelfVideoSwiper.propTypes = {
   children: (props, propName, componentName) => {
@@ -79,8 +129,8 @@ CardShelfVideoSwiper.propTypes = {
     let error = null;
 
     React.Children.forEach(prop, (child) => {
-      if (child.type !== CardVideo) {
-        error = new Error(`${componentName} children should be of type "CardVideo".`);
+      if (child.type !== CardVideo || child.type !== TileVideo || child.type !== TileVideoPoster) {
+        error = new Error(`${componentName} children should be of type "CardVideo", "TileVideo" or "TileVideoPoster".`);
       }
     });
 
@@ -88,6 +138,7 @@ CardShelfVideoSwiper.propTypes = {
   },
   heading: PropTypes.string,
   href: PropTypes.string,
+  slidesVisible: PropTypes.oneOf([3, 4]),
   style: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,
@@ -95,6 +146,10 @@ CardShelfVideoSwiper.propTypes = {
       PropTypes.object,
     ]),
   ),
+};
+
+CardShelfVideoSwiper.defaultProps = {
+  slidesVisible: 3,
 };
 
 export default radium(CardShelfVideoSwiper);
