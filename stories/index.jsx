@@ -113,6 +113,7 @@ import StaticMap from "../src/components/staticMap";
 import Strapline from "../src/components/strapline";
 import TabbedNav from "../src/components/tabbedNav";
 import Tag from "../src/components/tag";
+import TallCarousel from "../src/components/tallCarousel";
 import TagList from "../src/components/tagList";
 import TextBubble from "../src/components/textBubble";
 // Takeover
@@ -1455,6 +1456,30 @@ storiesOf("Tag", module)
     <Tag
       label={text("Text", "The Americas")}
       slug={text("URL slug", "/americas")}
+    />
+  ));
+
+storiesOf("Tall Carousel", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <TallCarousel
+      slides={[{
+        type: "Backpacking",
+        link: "/link/to/interests",
+        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/94232973a6a367b54ea29dbb3a708cff-europe.jpg?h=768&sharp=10&vib=20",
+      }, {
+        type: "Nature & wildlife",
+        link: "/link/to/interest",
+        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/a795bb0b47f601ea3538da736067452c-africa.jpg?h=768&sharp=10&vib=20",
+      }, {
+        type: "Romance",
+        link: "/link/to/interest",
+        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/35147e2699667519619575ba272f60e1-europe.jpg?h=768&sharp=10&vib=20",
+      }, {
+        type: "Adventure",
+        link: "/link/to/interest",
+        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/57c5143d7297c21181c522eee9e3b05e-europe.jpg?h=768&sharp=10&vib=20",
+      }]}
     />
   ));
 

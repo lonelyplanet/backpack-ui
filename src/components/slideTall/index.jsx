@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react";
-import { color, zIndex } from "../../../../../settings.json";
-import HeroImageContainer from "../../../heroImageContainer";
-import GradientOverlay from "../../../gradientOverlay";
+import { color, zIndex } from "../../../settings.json";
+import HeroImageContainer from "../heroImageContainer";
+import GradientOverlay from "../gradientOverlay";
 
 const styles = {
   title: {
@@ -10,7 +10,7 @@ const styles = {
   },
 };
 
-const TallSlide = (item, index) => (
+const SlideTall = (item, index) => (
   <a key={index} href={item.link} className="TallCarousel-slide">
     <HeroImageContainer imagePath={item.image}>
       <GradientOverlay />
@@ -19,9 +19,9 @@ const TallSlide = (item, index) => (
   </a>
 );
 
-TallSlide.propTypes = {
+SlideTall.propTypes = {
   item: PropTypes.object,
   index: PropTypes.number,
 };
 
-export default TallSlide;
+export default SlideTall;
