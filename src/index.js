@@ -106,6 +106,7 @@ export { default as StaticMap } from "./components/staticMap";
 export { default as Strapline } from "./components/strapline";
 export { default as TabbedNav } from "./components/tabbedNav";
 export { default as Tag } from "./components/tag";
+export { default as TallCarousel } from "./components/tallCarousel";
 export { default as TagList } from "./components/tagList";
 export { default as Takeover } from "./components/takeover";
 export { default as TextBubble } from "./components/textBubble";

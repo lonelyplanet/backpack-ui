@@ -12,7 +12,7 @@ const styles = {
   ".TallCarousel-slide": {
     display: "block",
     color: color.white,
-    maxHeight: 520,
+    maxHeight: "520px",
     height: "69vw",
     position: "relative",
   },
