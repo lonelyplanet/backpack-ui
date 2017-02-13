@@ -27,7 +27,7 @@ const imageSizes = {
 const CardImage = ({
   href,
   src,
-  aspectRatio
+  aspectRatio,
   children,
   opacity,
   style,
