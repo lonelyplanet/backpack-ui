@@ -91,7 +91,7 @@ class VideoEmbed extends React.Component {
 
   setupPlayer() {
     const scriptId = this.getPlayerScriptId();
-    const scriptSrc = "https://players.brightcove.net/" + this.accountId + "/" + this.playerId + "_default/index.min.js";
+    const scriptSrc = "https://players.brightcove.net/" + this.accountId + "/" + this.playerId + "_" + this.embedId + "/index.min.js";
 
     const script = document.createElement("script");
     script.id = scriptId;
