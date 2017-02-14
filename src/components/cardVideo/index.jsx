@@ -12,6 +12,7 @@ import {
 import TextBubble from "../textBubble";
 import { Play as PlayIcon, ClockOutline as ClockIcon } from "../icon";
 import { color } from "../../../settings.json";
+import { duration } from "../../utils/time";
 
 const styles = {
   playIcon: {
@@ -36,6 +37,7 @@ const styles = {
   },
 };
 
+
 const CardVideo = ({
   href,
   imageSrc,
@@ -46,6 +48,7 @@ const CardVideo = ({
   onClick,
   layout,
   className,
+  runtimeUnit,
   style,
 }) => (
   <Card
@@ -63,7 +66,7 @@ const CardVideo = ({
 
       {runtime &&
         <TextBubble style={styles.textBubble}>
-          {runtime}
+          {duration(runtime, runtimeUnit)}
         </TextBubble>
       }
     </CardImage>
@@ -101,7 +104,11 @@ CardVideo.propTypes = {
     "video",
     "poster",
   ]).isRequired,
-  runtime: PropTypes.string.isRequired,
+  runtime: PropTypes.number.isRequired,
+  runtimeUnit: PropTypes.oneOf([
+    "seconds",
+    "milliseconds",
+  ]),
   heading: PropTypes.string.isRequired,
   bullets: PropTypes.arrayOf(PropTypes.string).isRequired,
   layout: PropTypes.oneOf([

@@ -33,6 +33,7 @@
     "classnames": "^2.2.5",
     "color": "^0.11.3",
     "haversine": "^1.0.1",
+    "humanize-duration": "^3.10.0",
     "leaflet": "^1.0.1",
     "lodash": "^4.16.6",
     "moment": "^2.15.1",
