@@ -18,6 +18,7 @@ const styles = {
     padding: "30px 50px 80px",
     marginTop: "-30px",
     marginLeft: "-50px",
+    marginBottom: "-80px",
     overflow: "hidden",
     position: "relative",
   },
