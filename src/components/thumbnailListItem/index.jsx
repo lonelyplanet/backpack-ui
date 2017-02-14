@@ -40,6 +40,7 @@ const styles = {
   content: {
     alignItems: "center",
     display: "flex",
+    flexGrow: 1,
     justifyContent: "space-between",
   },
 
