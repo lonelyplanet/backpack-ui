@@ -6,6 +6,7 @@ import { color, media, zIndex } from "../../../settings.json";
 const styles = {
   base: {
     width: "100%",
+    height: "100%",
     backgroundColor: color.titleGray,
     color: color.white,
     left: 0,
@@ -13,9 +14,6 @@ const styles = {
     position: "relative",
     top: 0,
     zIndex: zIndex.slideshowSlide,
-    [`@media (min-width: ${media.min["720"]})`]: {
-      height: "100vh",
-    },
   },
 
   // REM units being used to match what is currently in rizz-next
