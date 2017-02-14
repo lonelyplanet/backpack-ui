@@ -155,6 +155,7 @@ const Slide = ({
         }
         <Button
           rounded
+          color={callToAction.theme}
           href={callToAction.link}
           size="large"
           customStyles={styles.button}
@@ -175,6 +176,7 @@ Slide.propTypes = {
   headline: PropTypes.string.isRequired,
   callToAction: PropTypes.shape({
     text: PropTypes.string,
+    theme: PropTypes.string,
     link: PropTypes.string,
     icon: PropTypes.string,
   }).isRequired,

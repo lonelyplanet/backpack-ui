@@ -274,6 +274,7 @@ storiesOf("Button", module)
   .addDecorator(withKnobs)
   .add("Primary", () => (
     <Button
+      color={select("Color", ["blue", "white", "transparent"], "blue")}
       size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
       disabled={boolean("Disabled", false)}
       full={boolean("Full width", false)}

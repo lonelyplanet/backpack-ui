@@ -1,7 +1,7 @@
 import React from "react";
 import radium from "radium";
 import assign from "object-assign";
-import settings from "../../../settings.json";
+import { color as bpColor, timing } from "../../../settings.json";
 import { lighten } from "../../utils/color";
 import { outline } from "../../utils/mixins";
 
@@ -11,13 +11,13 @@ const hoverStyles = {
   },
 
   blue: {
-    backgroundColor: lighten(settings.color.blue, 7),
-    color: settings.color.white,
+    backgroundColor: lighten(bpColor.blue, 7),
+    color: bpColor.white,
   },
 
   white: {
-    backgroundColor: settings.color.white,
-    color: lighten(settings.color.blue, 14),
+    backgroundColor: bpColor.white,
+    color: lighten(bpColor.blue, 14),
   },
 
 };
@@ -38,9 +38,9 @@ const styles = {
     textDecoration: "none",
     letterSpacing: "0.6px",
     textTransform: "uppercase",
-    transition: `color ${settings.timing.default} ease-in-out,
-      background-color ${settings.timing.default} ease-in-out,
-      opacity ${settings.timing.default} ease-in-out`,
+    transition: `color ${timing.default} ease-in-out,
+      background-color ${timing.default} ease-in-out,
+      opacity ${timing.default} ease-in-out`,
     verticalAlign: "middle",
     whiteSpace: "nowrap",
 
@@ -51,8 +51,8 @@ const styles = {
 
   color: {
     blue: {
-      backgroundColor: settings.color.blue,
-      color: settings.color.white,
+      backgroundColor: bpColor.blue,
+      color: bpColor.white,
 
       ":hover": hoverStyles.blue,
       ":focus": hoverStyles.blue,
@@ -60,8 +60,18 @@ const styles = {
     },
 
     white: {
-      backgroundColor: settings.color.white,
-      color: settings.color.blue,
+      backgroundColor: bpColor.white,
+      color: bpColor.blue,
+
+      ":hover": hoverStyles.white,
+      ":focus": hoverStyles.white,
+      ":active": hoverStyles.white,
+    },
+
+    transparent: {
+      backgroundColor: "transparent",
+      color: bpColor.white,
+      border: `1px solid ${bpColor.white}`,
 
       ":hover": hoverStyles.white,
       ":focus": hoverStyles.white,
@@ -211,6 +221,7 @@ Button.propTypes = {
   color: React.PropTypes.oneOf([
     "blue",
     "white",
+    "transparent",
   ]),
 
   /**
