@@ -1375,7 +1375,7 @@ storiesOf("Video card shelf", module)
       <div style={{ padding: "32px" }}>
         <CardShelfVideoSwiper heading="Food and drink" href="/">
           <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            heading={text("Heading", "High Sierra ")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
@@ -1395,7 +1395,7 @@ storiesOf("Video card shelf", module)
           />
 
           <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
