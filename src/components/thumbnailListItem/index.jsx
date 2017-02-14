@@ -18,8 +18,8 @@ const styles = {
   },
 
   image: {
-    flex: 1,
-    maxWidth: "116px",
+    flexShrink: 0,
+    width: "116px",
   },
 
   imageAnchor: {
@@ -40,18 +40,22 @@ const styles = {
   content: {
     alignItems: "center",
     display: "flex",
-    flex: 2,
     justifyContent: "space-between",
   },
 
   title: {
+    display: "-webkit-box",
     fontSize: "16px",
     lineHeight: (19 / 16),
     marginTop: "4px",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: 1,
   },
 
   textContainer: {
-    marginRight: "5px",
+    marginRight: "16px",
     width: "100%",
   },
 
@@ -79,31 +83,15 @@ const styles = {
     transition: `color ${timing.default} ease-in-out`,
 
     ":hover": {
-      color: color.blue,
+      color: rgba(color.detailHeaderSmall, 0.5),
     },
 
     ":active": {
-      color: color.blue,
+      color: rgba(color.detailHeaderSmall, 0.5),
     },
 
     ":focus": {
-      color: color.blue,
-    },
-  },
-
-  descriptionIconDark: {
-    color: color.white,
-
-    ":hover": {
-      color: rgba(color.white, 0.5),
-    },
-
-    ":active": {
-      color: rgba(color.white, 0.5),
-    },
-
-    ":focus": {
-      color: rgba(color.white, 0.5),
+      color: rgba(color.detailHeaderSmall, 0.5),
     },
   },
 };
@@ -173,10 +161,7 @@ const ThumbnailListItem = ({
 
       {descriptionIcon && onDescriptionIconClick &&
         <button
-          style={[
-            styles.descriptionIcon,
-            theme === "dark" && styles.descriptionIconDark,
-          ]}
+          style={styles.descriptionIcon}
           onClick={onDescriptionIconClick}
         >
           {iconFromString(descriptionIcon, { label: descriptionIconLabel })}
