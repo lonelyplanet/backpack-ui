@@ -41,13 +41,14 @@ const styles = {
     marginBottom: "32px",
     [`@media (min-width: ${media.min["600"]})`]: {
       letterSpacing: "-0.56px",
-      fontSize: "calc(11px + 3vw)",
+      fontSize: "calc(11px + 5vw)",
     },
     [`@media (min-width: ${media.min["720"]})`]: {
       marginBottom: "40px",
     },
-    [`@media (min-width: ${media.min["1430"]})`]: {
-      fontSize: "64px",
+    [`@media (min-width: ${media.min["840"]})`]: {
+      marginBottom: "40px",
+      fontSize: "68px",
     },
   },
   button: {
