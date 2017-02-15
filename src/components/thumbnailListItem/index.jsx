@@ -23,6 +23,7 @@ const styles = {
   },
 
   imageAnchor: {
+    backgroundColor: color.black,
     display: "block",
     position: "relative",
     width: "100%",
@@ -124,6 +125,7 @@ const ThumbnailListItem = ({
           src={imagePath}
           width={116}
           height={64}
+          style={{ opacity: 0.88 }}
         />
 
         {runtime &&
