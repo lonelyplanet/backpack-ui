@@ -91,8 +91,12 @@ class VideoEmbed extends Component {
 
   onLoadSetupScript() {
     const videoElement = document.getElementsByClassName(this.getPlayerVideoClassName())[0];
-
     this.player = window.videojs(videoElement);
+    this.player.ready(this.onPlayerReady.bind(this));
+  }
+
+  onPlayerReady() {
+    this.loadVideo(this.props.videoId);
   }
 
   getPlayerVideoClassName() {
@@ -115,10 +119,6 @@ class VideoEmbed extends Component {
     document.body.appendChild(script);
   }
 
-  isReady() {
-    return this.player && this.player.isReady_;
-  }
-
   tearDownPlayer() {
     const scriptId = this.getPlayerScriptId();
     const script = document.getElementById(scriptId);
@@ -133,6 +133,10 @@ class VideoEmbed extends Component {
     }
   }
 
+  isReady() {
+    return this.player && this.player.isReady_;
+  }
+
   loadVideo(videoId) {
     if (!this.isReady()) {
       return;
@@ -141,12 +145,15 @@ class VideoEmbed extends Component {
     this.player.catalog.getVideo(videoId, (error, video) => {
       if (!error) {
         this.player.catalog.load(video);
+        if (this.props.autoPlay) {
+          this.player.play();
+        }
       }
     });
   }
 
   render() {
-    const { videoId, override } = this.props;
+    const { override } = this.props;
 
     return (
       <div
@@ -160,7 +167,6 @@ class VideoEmbed extends Component {
 
         <video
           style={styles.video}
-          data-video-id={videoId}
           data-account={this.accountId}
           data-player={this.playerId}
           data-embed={this.embedId}
@@ -175,9 +181,14 @@ class VideoEmbed extends Component {
 VideoEmbed.propTypes = {
   id: PropTypes.string.isRequired,
   videoId: PropTypes.string.isRequired,
+  autoPlay: PropTypes.bool,
   override: PropTypes.oneOfType([
     PropTypes.object,
   ]),
+};
+
+VideoEmbed.defaultProps = {
+  autoPlay: true,
 };
 
 export default radium(VideoEmbed);
