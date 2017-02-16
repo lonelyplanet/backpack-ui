@@ -204,6 +204,7 @@ function ListItem({
   ad,
   date,
   id,
+  onClick,
 }) {
   const shortDescription = typeof description === "string" &&
     truncate(description.replace(/(<([^>]+)>)/ig, ""), 215);
@@ -244,7 +245,7 @@ function ListItem({
           </div>
 
           <h2 className="ListItem-title" style={styles.title.base}>
-            <Link to={`${slug}`} style={{ color: "currentColor" }}>
+            <Link to={`${slug}`} onClick={onClick} style={{ color: "currentColor" }}>
               {title}
             </Link>
           </h2>
@@ -279,7 +280,7 @@ function ListItem({
             {image.path && showLink &&
               <div className="ListItem-image" style={styles.image.base}>
                 <div style={styles.image.img}>
-                  <Link to={`${slug}`} style={{ display: "block" }}>
+                  <Link to={`${slug}`} onClick={onClick} style={{ display: "block" }}>
                     <img
                       src={image.path}
                       alt=""
@@ -293,7 +294,7 @@ function ListItem({
 
             {image.path && !showLink &&
               <div className="ListItem-image" style={styles.image.base}>
-                <Link to={`${slug}`} style={styles.image.img}>
+                <Link to={`${slug}`} onClick={onClick} style={styles.image.img}>
                   <img src={image.path} alt="" />
                 </Link>
               </div>
@@ -403,6 +404,8 @@ ListItem.propTypes = {
    * Unique ID for item
    */
   id: React.PropTypes.string,
+
+  onClick: React.PropTypes.func,
 };
 
 ListItem.defaultProps = {
