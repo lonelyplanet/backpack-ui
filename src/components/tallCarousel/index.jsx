@@ -80,7 +80,7 @@ const styles = {
 };
 
 
-const TallCarousel = ({ slides, settings }) => {
+const TallCarousel = ({ slides, settings, customSettings }) => {
   const renderPaginator = (direction) => (
     <PaginatorButton
       direction={direction}
@@ -97,6 +97,7 @@ const TallCarousel = ({ slides, settings }) => {
       />
       <Slider
         {...settings}
+        {...customSettings}
         prevArrow={renderPaginator("left")}
         nextArrow={renderPaginator("right")}
       >
@@ -109,6 +110,12 @@ const TallCarousel = ({ slides, settings }) => {
 TallCarousel.propTypes = {
   slides: PropTypes.arrayOf(PropTypes.object),
   settings: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+    PropTypes.object,
+  ])),
+  customSettings: PropTypes.objectOf(PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
     PropTypes.bool,
