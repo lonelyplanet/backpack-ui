@@ -11,14 +11,13 @@ const hoverStyles = {
 };
 
 const styles = {
-  base: {
-    minHeight: "392px",
-    width: "412px",
+  container: {
+    height: "auto",
     position: "relative",
   },
 
   card: {
-    boxShadow: `0 12px 34px 0 ${rgba(color.black, 0.11)}`,
+    boxShadow: `0 12px 34px ${rgba(color.black, 0.12)}`,
   },
 };
 
@@ -31,7 +30,7 @@ const Card = ({
   <div
     className={cn("Card", className)}
     style={[
-      styles.base,
+      styles.container,
       layout !== "tile" && styles.card,
       style,
     ]}
