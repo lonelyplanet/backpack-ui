@@ -5,22 +5,45 @@ import {
   Card,
   CardImage,
   CardText,
-  CardDescription,
   CardAnchor,
   CardActionIcon,
 } from "../card";
 import TextBubble from "../textBubble";
+import Heading from "../heading";
+import BulletDescription from "../bulletDescription";
 import { Play as PlayIcon, ClockOutline as ClockIcon } from "../icon";
-import { color } from "../../../settings.json";
+import { color, media } from "../../../settings.json";
 import { duration } from "../../utils/time";
+import { rgba } from "../../utils/color";
+
+const mq = `@media (max-width: ${media.max["768"]})`;
 
 const styles = {
+  container: {
+    maxWidth: "412px",
+    minWidth: "216px",
+
+    [mq]: {
+      boxShadow: `0 0 20px ${rgba(color.black, 0.12)}`,
+    },
+  },
+
   playIcon: {
     bottom: "17px",
     color: color.white,
     fontSize: "20px",
     left: "24px",
     position: "absolute",
+
+    [mq]: {
+      bottom: "12px",
+      fontSize: "12px",
+      left: "11px",
+    },
+  },
+
+  icon: {
+    verticalAlign: "bottom",
   },
 
   textBubble: {
@@ -28,15 +51,59 @@ const styles = {
     minWidth: "76px",
     position: "absolute",
     right: "10px",
+
+    [mq]: {
+      bottom: "6px",
+      fontSize: "9px",
+      minWidth: "53px",
+      paddingBottom: "5px",
+      paddingLeft: "15px",
+      paddingRight: "15px",
+      paddingTop: "7px",
+      right: "5px",
+    },
   },
 
   action: {
     position: "absolute",
     right: "22px",
     top: "25px",
+
+    [mq]: {
+      fontSize: "12px",
+      right: "9px",
+      top: "12px",
+    },
+  },
+
+  bullets: {
+    marginBottom: "9px",
+
+    [mq]: {
+      fontSize: "9px",
+      marginBottom: "6px",
+    },
+  },
+
+  heading: {
+    fontSize: "24px",
+    lineHeight: (32 / 24),
+
+    [mq]: {
+      fontSize: "14px",
+      lineHeight: (18 / 14),
+    },
+  },
+
+  anchor: {
+    [mq]: {
+      paddingBottom: "11px",
+      paddingLeft: "11px",
+      paddingRight: "40px",
+      paddingTop: "19px",
+    },
   },
 };
-
 
 const CardVideo = ({
   href,
@@ -54,7 +121,7 @@ const CardVideo = ({
   <Card
     className={cn("Card--video", className)}
     layout={layout}
-    style={style}
+    style={[styles.container, style]}
   >
     <CardImage
       href={href}
@@ -62,7 +129,12 @@ const CardVideo = ({
       aspectRatio={aspectRatio}
       opacity={0.8}
     >
-      <PlayIcon style={styles.playIcon} />
+      <div
+        className="PlayIcon"
+        style={styles.playIcon}
+      >
+        <PlayIcon style={styles.icon} />
+      </div>
 
       {runtime &&
         <TextBubble style={styles.textBubble}>
@@ -75,11 +147,27 @@ const CardVideo = ({
       <CardAnchor
         href={href}
         layout={layout}
+        style={styles.anchor}
       >
-        <CardDescription
-          heading={heading}
-          bullets={bullets}
+        {bullets &&
+          <BulletDescription
+            description={bullets}
+            style={styles.bullets}
+          />
+        }
+
+        <BulletDescription
+          description={["bullets", "bullets"]}
+          style={styles.bullets}
         />
+
+        <Heading
+          level={3}
+          weight="thin"
+          override={styles.heading}
+        >
+          {heading}
+        </Heading>
       </CardAnchor>
 
       {onClick &&
