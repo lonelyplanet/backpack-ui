@@ -101,6 +101,7 @@ const styles = {
 const ThumbnailListItem = ({
   title,
   href,
+  onClick,
   imagePath,
   description,
   descriptionIcon,
@@ -120,7 +121,11 @@ const ThumbnailListItem = ({
     ]}
   >
     <div style={styles.image}>
-      <Link to={href} style={styles.imageAnchor}>
+      <Link
+        to={href}
+        onClick={onClick}
+        style={styles.imageAnchor}
+      >
         <CoverPhoto
           src={imagePath}
           width={116}
@@ -138,7 +143,11 @@ const ThumbnailListItem = ({
 
     <div style={styles.content}>
       <div style={styles.textContainer}>
-        <Link to={href} style={styles.textAnchor}>
+        <Link
+          to={href}
+          onClick={onClick}
+          style={styles.textAnchor}
+        >
           {status &&
             <div style={styles.status}>
               {status}
@@ -177,6 +186,7 @@ const ThumbnailListItem = ({
 ThumbnailListItem.propTypes = {
   title: PropTypes.string,
   href: PropTypes.string,
+  onClick: PropTypes.func,
   imagePath: PropTypes.string,
   runtime: PropTypes.number,
   description: PropTypes.arrayOf(PropTypes.string),
