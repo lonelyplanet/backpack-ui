@@ -27,6 +27,7 @@ export const rules = {
   ".slick-slide": {
     zIndex: zIndex.default,
     position: "relative !important",
+    width: "100%",
   },
   ".slick-slide.slick-active": {
     zIndex: zIndex.middle,
@@ -56,14 +57,18 @@ export const rules = {
     content: "",
     display: "none",
   },
+  ".slick-slider": { display: "none" },
+  ".slick-slider.slick-initialized,.slick-slide:first-child": { display: "block" },
 };
 
 const styles = {
   slide: {
-    display: "block",
-    height: "100vh",
-    minHeight: "800px",
+    minHeight: "400px",
+    width: "100%",
     position: "absolute",
+    [`@media (min-width: ${media.min["720"]})`]: {
+      minHeight: "800px",
+    },
   },
   // REM units being used to match what is currently in rizz-next
   isUnderGlobalHeader: {
@@ -92,7 +97,13 @@ class MastheadSlider extends Component {
     const { slides, settings, customSettings, isUnderGlobalHeader } = this.props;
 
     return (
-      <div className="MastheadSlider" style={isUnderGlobalHeader && styles.isUnderGlobalHeader}>
+      <div
+        className="MastheadSlider"
+        style={[isUnderGlobalHeader && styles.isUnderGlobalHeader, {
+          height: this.props.height,
+          overflowY: "hidden",
+        }]}
+      >
         <Style
           scopeSelector=".MastheadSlider"
           rules={
