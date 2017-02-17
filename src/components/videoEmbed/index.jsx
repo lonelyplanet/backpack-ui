@@ -193,7 +193,7 @@ VideoEmbed.propTypes = {
   id: PropTypes.string.isRequired,
   videoId: PropTypes.string.isRequired,
   autoplay: PropTypes.bool,
-  onEnded: React.PropTypes.func,
+  onEnded: PropTypes.func,
   override: PropTypes.oneOfType([
     PropTypes.object,
   ]),
