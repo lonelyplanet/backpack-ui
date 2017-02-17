@@ -143,7 +143,7 @@ const Slide = ({
           weight="thick"
           override={styles.heading}
         >
-          <a href={callToAction.link} style={styles.link} >
+          <a href={callToAction.link} onClick={callToAction.onClick} style={styles.link} >
             {headline}
           </a>
         </Heading>
@@ -160,6 +160,7 @@ const Slide = ({
           href={callToAction.link}
           size="large"
           customStyles={styles.button}
+          onClick={callToAction.onClick}
         >
           {callToAction.icon &&
             iconFromString(callToAction.icon, { style: styles.button.icon })
@@ -180,6 +181,7 @@ Slide.propTypes = {
     theme: PropTypes.string,
     link: PropTypes.string,
     icon: PropTypes.string,
+    onClick: PropTypes.func,
   }).isRequired,
   description: PropTypes.arrayOf(
     PropTypes.string,
