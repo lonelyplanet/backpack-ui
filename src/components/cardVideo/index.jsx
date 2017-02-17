@@ -156,11 +156,6 @@ const CardVideo = ({
           />
         }
 
-        <BulletDescription
-          description={["bullets", "bullets"]}
-          style={styles.bullets}
-        />
-
         <Heading
           level={3}
           weight="thin"
