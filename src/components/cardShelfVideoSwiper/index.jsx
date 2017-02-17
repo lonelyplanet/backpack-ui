@@ -15,33 +15,14 @@ import PaginatorButton from "../paginatorButton";
 
 const styles = {
   slider: {
-    [`@media (max-width: ${media.max["480"]})`]: {
-      // marginLeft: "-15px",
-      // marginRight: "-15px",
-      // paddingLeft: "15px",
-      // paddingRight: "15px",
-      // width: "calc(100% + 15px + 15px)",
-    },
-
-    [`@media (min-width: ${media.min["480"]}) and (max-width: ${media.max["768"]})`]: {
-      // marginLeft: "-30px",
-      // marginRight: "-30px",
-      // paddingLeft: "30px",
-      // paddingRight: "30px",
-      // width: "calc(100% + 30px + 30px)",
-    },
-
     [`@media (max-width: ${media.max["768"]})`]: {
       marginBottom: "-30px",
       marginTop: "-15px",
-      // overflowX: "auto",
-      // overflowY: "hidden",
       paddingBottom: "30px",
       paddingTop: "15px",
-      // "-webkit-overflow-scrolling": "touch",
     },
 
-    [`@media (min-width: ${media.min["1410"]})`]: {
+    [`@media (min-width: ${media.min["768"]})`]: {
       width: "calc(100% + 100px)",
       padding: "30px 50px 80px",
       marginTop: "-30px",
@@ -113,14 +94,6 @@ const scopedStyles = {
     flex: "1 0 auto",
   },
 
-  ".slick-slide:not(.slick-active)": {
-    pointerEvents: "none",
-  },
-
-  ".slick-slide + .slick-slide": {
-    marginLeft: "27px",
-  },
-
   ".slick-arrow": {
     display: "none !important",
   },
@@ -143,34 +116,51 @@ const scopedStyles = {
     height: "100% !important",
     width: "100% !important",
   },
+};
 
-  mediaQueries: {
-    [`(max-width: ${media.max["768"]})`]: {
-      ".slick-slide + .slick-slide": {
-        marginLeft: "14px",
-      },
-
-      // ".slick-slide:last-of-type::after": {
-      //   content: "``",
-      //   display: "block",
-      //   backgroundColor: "red",
-      //   width: "30px",
-      //   // marginRight: "30px",
-      // },
-
-      ".PaginatorButton": {
-        display: "none !important",
-      },
+const mediaQueries = {
+  [`(max-width: ${media.max["768"]})`]: {
+    ".slick-slide + .slick-slide": {
+      marginLeft: "14px",
     },
 
-    [`(min-width: ${media.min["768"]})`]: {
-      ".slick-slide": {
-        opacity: 0,
-      },
+    ".PaginatorButton": {
+      display: "none !important",
+    },
+  },
 
-      ".slick-active": {
-        opacity: 1,
-      },
+  [`(min-width: ${media.min["768"]})`]: {
+    ".slick-slide:not(.slick-active)": {
+      opacity: 0,
+      pointerEvents: "none",
+    },
+  },
+};
+
+const threeSlides = {
+  [`(min-width: ${media.min["768"]}) and (max-width: ${media.max["1410"]})`]: {
+    ".slick-slide + .slick-slide": {
+      marginLeft: percentage("27px", grid.container),
+    },
+  },
+
+  [`(min-width: ${media.min["1410"]})`]: {
+    ".slick-slide + .slick-slide": {
+      marginLeft: "27px",
+    },
+  },
+};
+
+const fourSlides = {
+  [`(min-width: ${media.min["768"]}) and (max-width: ${media.max["1410"]})`]: {
+    ".slick-slide + .slick-slide": {
+      marginLeft: percentage("43px", grid.container),
+    },
+  },
+
+  [`(min-width: ${media.min["1410"]})`]: {
+    ".slick-slide + .slick-slide": {
+      marginLeft: "43px",
     },
   },
 };
@@ -247,14 +237,10 @@ class CardShelfVideoSwiper extends Component {
                 {},
                 scopedStyles,
                 slidesVisible === 3 && {
-                  ".slick-slide + .slick-slide": {
-                    marginLeft: "27px",
-                  },
+                  mediaQueries: assign({}, mediaQueries, threeSlides),
                 },
                 slidesVisible === 4 && {
-                  ".slick-slide + .slick-slide": {
-                    marginLeft: "43px",
-                  },
+                  mediaQueries: assign({}, mediaQueries, fourSlides),
                 },
               )}
             />
