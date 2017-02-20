@@ -63,12 +63,8 @@ export const rules = {
 
 const styles = {
   slide: {
-    minHeight: "400px",
     width: "100%",
     position: "absolute",
-    [`@media (min-width: ${media.min["720"]})`]: {
-      minHeight: "800px",
-    },
   },
   // REM units being used to match what is currently in rizz-next
   isUnderGlobalHeader: {
