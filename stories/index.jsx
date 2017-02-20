@@ -3,6 +3,7 @@ import { StyleRoot } from "radium";
 import "leaflet/dist/leaflet.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "react-photoswipe/lib/photoswipe.css";
 import { storiesOf, action } from "@kadira/storybook";
 import { withKnobs, text, boolean, number, array, object, select, color } from "@kadira/storybook-addon-knobs";
 import { color as bpColor } from "../settings.json";
