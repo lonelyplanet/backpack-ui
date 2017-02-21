@@ -1931,15 +1931,19 @@ storiesOf("Validate", module)
               type="text"
               name="change"
               onChange={validate}
+              required
+              min="3"
             />
             {errorMessages.change && errorMessages.change.map(val => <p>{val}</p>)}
           </div>
 
           <div>
             <input
-              type="text"
+              type="email"
               name="blur"
+              required
               onBlur={validate}
+              min="3"
             />
             {errorMessages.blur && errorMessages.blur.map(val => <p>{val}</p>)}
           </div>

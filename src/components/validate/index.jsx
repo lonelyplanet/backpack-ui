@@ -24,7 +24,39 @@ const validationRules = {
   },
 };
 
+const createValidationRules = (Element, newValidationRules = {}) => {
+  if (Element && Element.props && !Element.props.children) {
+    Object.keys(validationRules).forEach(rule => {
+      const value = Element.props[rule] || Element.props.type === rule;
+      if (value) {
+        newValidationRules[Element.props.name] = (newValidationRules[Element.props.name] || []);
+        newValidationRules[Element.props.name].push(
+          `${rule}${typeof value !== "boolean" ? `:${value}` : ""}`
+        );
+      }
+    });
+
+    return newValidationRules;
+  }
+
+  if (!Element || !Element.props) {
+    return newValidationRules;
+  }
+
+  React.Children.forEach(Element.props.children, c => createValidationRules(c, newValidationRules));
+
+  return newValidationRules;
+};
+
 class Validate extends Component {
+  static checkErrorCount(errorObject) {
+    return Object.keys(errorObject).length &&
+      Object.keys(errorObject).reduce((acc, curr) => {
+        const total = acc += Object.keys(errorObject[curr]).length;
+        return total;
+      }, 0);
+  }
+
   constructor(props) {
     super(props);
 
@@ -39,6 +71,14 @@ class Validate extends Component {
     this.testForValidation = this.testForValidation.bind(this);
   }
 
+  componentWillMount() {
+    const validations = createValidationRules(this.renderChildren());
+
+    this.setState({
+      validations,
+    });
+  }
+
   handleValidate(e) {
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
@@ -49,7 +89,7 @@ class Validate extends Component {
         { [fieldName]: fieldErrorMessages },
       );
 
-    const errorCount = this.checkErrorCount(allErrors);
+    const errorCount = Validate.checkErrorCount(allErrors);
 
     this.setState({
       errorMessages: allErrors,
@@ -58,20 +98,12 @@ class Validate extends Component {
     });
   }
 
-  checkErrorCount(errorObject) {
-    return Object.keys(errorObject).length &&
-      Object.keys(errorObject).reduce((acc, curr) => {
-        const total = acc += Object.keys(errorObject[curr]).length;
-        return total;
-      }, 0);
-  }
-
   ruleHasArgument(rule) {
     return rule.indexOf(this.state.argumentSeperator) >= 0;
   }
 
   testForValidation(field, value) {
-    const fieldRequirements = this.props.validations[field];
+    const fieldRequirements = this.state.validations[field];
 
     // combine both the built in rules and custom rules
     const combinedValidationRules = _.merge({}, validationRules, this.props.rules);
@@ -93,13 +125,17 @@ class Validate extends Component {
     }).filter(val => val);
   }
 
-  render() {
+  renderChildren() {
     return this.props.children(
       this.handleValidate,
       this.state.errorMessages,
       this.state.allValid,
       this.state.errorCount,
     );
+  }
+
+  render() {
+    return this.renderChildren();
   }
 }
 
