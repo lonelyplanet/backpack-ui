@@ -3,7 +3,6 @@ import radium from "radium";
 import axios from "axios";
 import Recaptcha from "react-recaptcha";
 import { color, media } from "../../../settings.json";
-import { rgb } from "../../utils/color";
 import font from "../../utils/font";
 import Heading from "../heading";
 import Input from "../form/input";
@@ -102,22 +101,21 @@ class Newsletter extends Component {
   static formatFormData(data) {
     const str = [];
 
-    for (const item in data) {
-      if (data.hasOwnProperty(item)) {
-        str.push(`${encodeURIComponent(item)}=${encodeURIComponent(data[item])}`);
-      }
-    }
+    Object.keys(data).forEach((item) => {
+      str.push(`${encodeURIComponent(item)}=${encodeURIComponent(data[item])}`);
+    });
 
     return str.join("&");
   }
 
   static getErrorMessage() {
+    const has = Object.prototype.hasOwnProperty;
     const error = this.state.error;
     const errorMessage = {
       409: "You are already subscribed.",
     };
 
-    if (error.response && errorMessage.hasOwnProperty(error.response.status)) {
+    if (error.response && has.call(errorMessage, error.response.status)) {
       return errorMessage[error.response.status];
     }
 
@@ -168,7 +166,7 @@ class Newsletter extends Component {
   submitRequest(reCaptchaResponse) {
     this.setState({ waiting: true });
 
-    const formattedData = this.formatFormData({
+    const formattedData = Newsletter.formatFormData({
       "sailthru[email_template]": "Welcome email",
       "sailthru[source]": "homepage",
       "sailthru[opt_in]": "on",
