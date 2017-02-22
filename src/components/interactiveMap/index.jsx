@@ -21,8 +21,7 @@ const mapSettings = {
 };
 
 class InteractiveMap extends Component {
-
-  static markers = []
+  static markers = [];
 
   static addPopupToMarker(marker, title) {
     marker.bindPopup(title);
@@ -67,14 +66,6 @@ class InteractiveMap extends Component {
     this.setMapBounds();
   }
 
-  setMapBounds() {
-    const { places } = this.props;
-    const placesCoords = places.map(place => [place.lat, place.long]);
-    this.leafletMap.fitBounds(placesCoords, {
-      padding: [30, 30],
-    });
-  }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.activeMarker !== this.props.activeMarker) {
       if (this.props.activeMarker !== null) {
@@ -86,6 +77,13 @@ class InteractiveMap extends Component {
     }
   }
 
+  setMapBounds() {
+    const { places } = this.props;
+    const placesCoords = places.map(place => [place.lat, place.long]);
+    this.leafletMap.fitBounds(placesCoords, {
+      padding: [30, 30],
+    });
+  }
 
   initMarkers() {
     const { places, markerSize } = this.props;
