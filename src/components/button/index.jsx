@@ -181,7 +181,7 @@ function Button({
     customStyles,
     disabled && styles.disabled,
     border && {
-      boxShadow: `0 0 0 1px ${(color === "white") ? settings.color.blue : settings.color.white} inset`,
+      boxShadow: `0 0 0 1px ${(color === "white") ? bpColor.blue : bpColor.white} inset`,
     },
   ];
 
