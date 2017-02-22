@@ -293,32 +293,24 @@ Calendar.propTypes = {
   /**
    * Ranges to show; range only
    */
-  ranges: PropTypes.object,
+  ranges: PropTypes.shape({
+    startDate: PropTypes.object, // Moment.js object
+    endDate: PropTypes.object, // Moment.js object
+  }),
 };
 
 Calendar.defaultProps = {
   useRange: false,
-
   startDate: moment(),
-
   endDate: moment().add(1, "week"),
-
   minDate: null,
-
   maxDate: null,
-
   format: "M/D/YYYY",
-
   firstDayOfWeek: moment.localeData().firstDayOfWeek(),
-
   onInit: null,
-
   onChange: null,
-
   linkedCalendars: false,
-
   calendars: 1,
-
   ranges: null,
 };
 
