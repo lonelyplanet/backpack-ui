@@ -1,3 +1,5 @@
+import * as backpack from ".";
+
 export { default as Ad } from "./components/ad";
 export { default as AdLazyLoader } from "./components/adLazyLoader";
 export { default as Amenities } from "./components/amenities";
@@ -131,5 +133,4 @@ export { default as Range } from "./components/form/range";
 export { default as Select } from "./components/form/select";
 export { default as Textarea } from "./components/form/textarea";
 
-import * as backpack from ".";
 export default backpack;
