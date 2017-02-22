@@ -1,5 +1,3 @@
-"use strict";
-
 const settings = {
   columns: 12,
   columnWidth: 80,
