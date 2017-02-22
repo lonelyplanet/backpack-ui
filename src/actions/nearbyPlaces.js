@@ -1,10 +1,6 @@
-function hoverPlace(id) {
+export default function hoverPlace(id) {
   return {
     type: "HOVER_PLACE",
     data: id,
   };
 }
-
-export {
-  hoverPlace,
-};
