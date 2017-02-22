@@ -89,7 +89,8 @@ const ListItemNews = ({
   >
     <div style={styles.textContainer}>
       <div style={[styles.category, isSponsored && styles.sponsored]}>
-        {isSponsored ? "Sponsored" :
+        {isSponsored ?
+          "Sponsored" :
           <a
             style={styles.anchor}
             href={categoryLink}
