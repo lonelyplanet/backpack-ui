@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import { color, timing, typography, zIndex } from "../../../settings.json";
 import font from "../../utils/font";
 import { rgba } from "../../utils/color";
-import { duration } from "../../utils/time";
+import duration from "../../utils/time";
 import iconFromString from "../../utils/icon";
 import BulletDescription from "../bulletDescription";
 import TextBubble from "../textBubble";

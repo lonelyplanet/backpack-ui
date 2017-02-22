@@ -13,7 +13,7 @@ import Heading from "../heading";
 import BulletDescription from "../bulletDescription";
 import { Play as PlayIcon, ClockOutline as ClockIcon } from "../icon";
 import { color, media } from "../../../settings.json";
-import { duration } from "../../utils/time";
+import duration from "../../utils/time";
 import { rgba } from "../../utils/color";
 
 const mq = `@media (max-width: ${media.max["768"]})`;
