@@ -44,6 +44,16 @@ function fetchPoi(id) {
   };
 }
 
+function fetchImagesDone(images, id) {
+  return {
+    type: "FETCH_IMAGES_DONE",
+    data: {
+      id,
+      images,
+    },
+  };
+}
+
 function fetchImages(id) {
   return (dispatch) => {
     $.ajax({
@@ -58,17 +68,6 @@ function fetchImages(id) {
     });
   };
 }
-
-function fetchImagesDone(images, id) {
-  return {
-    type: "FETCH_IMAGES_DONE",
-    data: {
-      id,
-      images,
-    },
-  };
-}
-
 
 export {
   fetchNext,
