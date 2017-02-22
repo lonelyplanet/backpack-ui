@@ -14,8 +14,6 @@ import ListItemImage from "../listItemImage";
 import { add, subtract, gutter, span, percentage } from "../../utils/grid";
 import font from "../../utils/font";
 import svgDataUri from "../../utils/svgDataUri";
-import partnerActivityProviders
-  from "../../../../../server/lib/open-planet/partnerActivityProviders";
 
 const _ = { upperFirst };
 
