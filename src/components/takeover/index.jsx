@@ -221,7 +221,7 @@ class Takeover extends Component {
                 styles.takeover.container.visible,
             ]}
           >
-            <header
+            <header // eslint-disable-line jsx-a11y/no-static-element-interactions
               className="Takeover-header"
               style={[
                 styles.takeover.header.base,
@@ -333,33 +333,18 @@ Takeover.propTypes = {
    * Can the content scroll?
    */
   scroll: PropTypes.bool,
-
-  /**
-   * store dispatch function
-   */
-  dispatch: PropTypes.func,
 };
 
 Takeover.defaultProps = {
   children: null,
-
   isOpened: false,
-
   hasOverlay: false,
-
   closeOnHeaderClick: false,
-
   cover: false,
-
   title: "",
-
   mobile: false,
-
   contentFill: false,
-
   scroll: false,
-
-  dispatch: null,
 };
 
 export default radium(Takeover);

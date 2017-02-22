@@ -65,7 +65,7 @@ function PoiPaginator({
   }
 
   return (
-    <div
+    <div // eslint-disable-line jsx-a11y/no-static-element-interactions
       className="PoiPaginator"
       style={[
         styles.container.base,

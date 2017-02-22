@@ -40,7 +40,7 @@ function Overlay({ animationDuration, attached, color, onClick, visible, zIndex 
       isOpened={attached || visible}
       style={styles.portal.base}
     >
-      <div
+      <div // eslint-disable-line jsx-a11y/no-static-element-interactions
         className="Overlay"
         onClick={onClick}
         style={[

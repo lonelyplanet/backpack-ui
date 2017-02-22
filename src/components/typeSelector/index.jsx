@@ -109,7 +109,7 @@ class TypeSelector extends React.Component {
     } = this.props;
 
     return (
-      <div
+      <div // eslint-disable-line jsx-a11y/no-static-element-interactions
         className="TypeSelector"
         style={[
           styles.container.base,
