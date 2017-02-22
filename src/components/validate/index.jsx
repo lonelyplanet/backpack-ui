@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from "react";
 import merge from "lodash/merge";
+import union from "lodash/union";
 
-const _ = { merge };
+const _ = { merge, union };
 
 const emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -103,7 +104,11 @@ class Validate extends Component {
   }
 
   testForValidation(field, value) {
-    const fieldRequirements = this.state.validations[field];
+    let fieldRequirements = this.state.validations[field];
+
+    if (this.props.validations[field]) {
+      fieldRequirements = _.union(fieldRequirements, this.props.validations[field]);
+    }
 
     // combine both the built in rules and custom rules
     const combinedValidationRules = _.merge({}, validationRules, this.props.rules);
