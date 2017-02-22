@@ -79,7 +79,7 @@ class VideoEmbed extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate() { // eslint-disable-line class-methods-use-this
     // Video.js restructures our video element in ways that it relies on so
     // we bypass all re-rendering through React and put all control on video.js.
     return false;
