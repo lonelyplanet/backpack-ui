@@ -11,16 +11,27 @@ const styles = {
 };
 
 const SlideTall = (item, index) => (
-  <a key={index} href={item.link} className="TallCarousel-slide">
+  <a
+    className="TallCarousel-slide"
+    href={item.link}
+    key={index}
+  >
     <HeroImageContainer imagePath={item.image}>
       <GradientOverlay />
-      <p style={styles.title}>{item.type}</p>
+
+      <p style={styles.title}>
+        {item.type}
+      </p>
     </HeroImageContainer>
   </a>
 );
 
 SlideTall.propTypes = {
-  item: PropTypes.object,
+  item: PropTypes.shape({
+    link: PropTypes.string,
+    image: PropTypes.string,
+    type: PropTypes.string,
+  }),
   index: PropTypes.number,
 };
 
