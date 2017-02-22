@@ -370,16 +370,18 @@ storiesOf("Cards", module)
     </div>
   ))
   .add("Video card", () => (
-    <div style={{ padding: "32px" }}>
-      <CardVideo
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-        href={text("URL", "#")}
-      />
-    </div>
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardVideo
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+        />
+      </div>
+    </StyleRoot>
   ))
   .add("Price card", () => (
     <div style={{ padding: "32px" }}>
