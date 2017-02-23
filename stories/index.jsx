@@ -1609,11 +1609,35 @@ storiesOf("Tabbed nav", module)
 
 storiesOf("Tag", module)
   .addDecorator(withKnobs)
-  .add("Default", () => (
+  .add("Anchor", () => (
     <Tag
-      label={text("Text", "The Americas")}
-      slug={text("URL slug", "/americas")}
-    />
+      href={text("URL", "#")}
+      selected={boolean("Selected", false)}
+    >
+      {text("Text", "The Americas")}
+    </Tag>
+  ))
+  .add("Button", () => (
+    <Tag
+      onClick={action("Tag clicked")}
+      selected={boolean("Selected", false)}
+    >
+      {text("Text", "The Americas")}
+    </Tag>
+  ));
+
+storiesOf("Tag list", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <TagList>
+      <Tag href="#" selected>All</Tag>
+      <Tag href="#">The Americas</Tag>
+      <Tag href="#">World</Tag>
+      <Tag href="#">Asia & the Pacific</Tag>
+      <Tag href="#">Europe</Tag>
+      <Tag href="#">Middle East & Africa</Tag>
+      <Tag href="#">Editor’s pick</Tag>
+    </TagList>
   ));
 
 storiesOf("Tall Carousel", module)
@@ -1637,22 +1661,6 @@ storiesOf("Tall Carousel", module)
         link: "/link/to/interest",
         image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/57c5143d7297c21181c522eee9e3b05e-europe.jpg?h=768&sharp=10&vib=20",
       }]}
-    />
-  ));
-
-storiesOf("Tag list", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <TagList
-      tags={[
-        { label: "All", slug: "/", selected: true },
-        { label: "The Americas", slug: "/americas" },
-        { label: "World", slug: "/world" },
-        { label: "Asia & the Pacific", slug: "/asia-pacific" },
-        { label: "Europe", slug: "/europe" },
-        { label: "Middle East & Africa", slug: "/middle-east-africa" },
-        { label: "Editor's pick", slug: "/editors-pick" },
-      ]}
     />
   ));
 
