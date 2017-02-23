@@ -15,16 +15,7 @@ const styles = {
   },
 };
 
-/**
- * TagList component
- * @usage
- * <TagList tags={[
- *   { label: "The Americas", slug: "/americas" },
- *   { label: "World", slug: "/world" },
- *   { label: "Europe", slug: "/europe" },
- * ]} />
- */
-const TagList = ({ tags, rows, style }) => (
+const TagList = ({ children, rows, style }) => (
   <div
     className="TagList"
     style={[
@@ -33,36 +24,29 @@ const TagList = ({ tags, rows, style }) => (
       style,
     ]}
   >
-    {tags.map((tag, i) => (
-      <Tag
-        label={tag.label}
-        slug={tag.slug}
-        style={styles.tag}
-        selected={tag.selected}
-        key={i}
-      />
+    {React.Children.map(children, (child, index) => (
+      React.cloneElement(child, {
+        key: index,
+        style: styles.tag,
+      })
     ))}
   </div>
 );
 
 TagList.propTypes = {
-  /**
-   * An array of tags to display
-   */
-  tags: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string,
-    slug: PropTypes.string,
-    selected: PropTypes.bool,
-  })).isRequired,
+  children: (props, propName, componentName) => {
+    const prop = props[propName];
+    let error = null;
 
-  /**
-   * Maximum number of rows of tags to display
-   */
+    React.Children.forEach(prop, (child) => {
+      if (child.type !== Tag) {
+        error = new Error(`${componentName} children should be of type "Tag".`);
+      }
+    });
+
+    return error;
+  },
   rows: PropTypes.number,
-
-  /**
-   * Style object
-   */
   style: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,
@@ -73,7 +57,6 @@ TagList.propTypes = {
 };
 
 TagList.defaultProps = {
-  tags: [],
   rows: 3,
 };
 
