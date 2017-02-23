@@ -1,26 +1,27 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 import { color, timing } from "../../../settings.json";
-import { rgb } from "../../utils/color";
+import { rgba } from "../../utils/color";
 import font from "../../utils/font";
 
 const baseFontSize = 12;
 
-const tagColor = "#e1eaf0";
-
 const hoverStyles = {
-  base: {
-    backgroundColor: `rgba(${rgb(tagColor)}, .3)`,
+  default: {
+    backgroundColor: rgba(color.detailHeaderSmall, 0.2),
   },
 
   selected: {
-    backgroundColor: tagColor,
+    backgroundColor: color.darkGray,
   },
 };
 
 const styles = {
-  base: {
-    border: `${1 / baseFontSize}em solid ${tagColor}`,
+  default: {
+    backgroundColor: color.white,
+    borderColor: color.detailHeaderSmall,
+    borderStyle: "solid",
+    borderWidth: `${1 / baseFontSize}em`,
     borderRadius: `${16 / baseFontSize}em`,
     color: color.darkGray,
     display: "inline-block",
@@ -30,16 +31,20 @@ const styles = {
     padding: `${10 / baseFontSize}em ${25 / baseFontSize}em ${8 / baseFontSize}em`,
     textDecoration: "none",
     textOverflow: "ellipsis",
-    transition: `background-color ${timing.default}`,
+    transition: `background-color ${timing.fast}`,
     whiteSpace: "nowrap",
+  },
 
-    ":hover": hoverStyles.base,
-    ":active": hoverStyles.base,
-    ":focus": hoverStyles.base,
+  defaultHover: {
+    ":hover": hoverStyles.default,
+    ":active": hoverStyles.default,
+    ":focus": hoverStyles.default,
   },
 
   selected: {
-    backgroundColor: tagColor,
+    backgroundColor: color.darkGray,
+    borderColor: color.darkGray,
+    color: color.white,
 
     ":hover": hoverStyles.selected,
     ":active": hoverStyles.selected,
@@ -47,62 +52,43 @@ const styles = {
   },
 };
 
-/**
- * Tag component
- * @usage
- * <Tag label="Europe" slug="/europe" />
- */
-function Tag({ label, slug, selected, style }) {
+function Tag({ children, href, onClick, selected, style }) {
+  const Element = href ? "a" : "button";
+
   return (
-    <a
+    <Element
       className="Tag"
       style={[
-        styles.base,
+        styles.default,
         selected && styles.selected,
+        (href || onClick) && styles.defaultHover,
+        (href || onClick) ? { cursor: "pointer" } : { cursor: "default" },
         style,
       ]}
-      href={slug}
+      href={href}
+      onClick={onClick}
     >
-      {label}
-    </a>
+      {children}
+    </Element>
   );
 }
 
 Tag.propTypes = {
-  /**
-   * Text label which is the tag name
-   */
-  label: React.PropTypes.string.isRequired,
-
-  /**
-   * Slug URL of the tag
-   */
-  slug: React.PropTypes.string.isRequired,
-
-  /**
-   * Should the tag appear to have been selected
-   */
-  selected: React.PropTypes.bool,
-
-  /**
-   * Style object
-   */
-  style: React.PropTypes.objectOf(
-    React.PropTypes.string,
-    React.PropTypes.number,
+  children: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  onClick: PropTypes.func,
+  selected: PropTypes.bool,
+  style: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+    ]),
   ),
 };
 
 Tag.defaultProps = {
-  label: "",
-
-  slug: "",
-
   selected: false,
-
-  style: null,
 };
-
-Tag.styles = styles;
 
 export default radium(Tag);
