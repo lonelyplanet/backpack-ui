@@ -1,12 +1,32 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
+import { media } from "../../../settings.json";
+import propTypes from "../../utils/propTypes";
+
+const mq = `@media (max-width: ${media.max["768"]})`;
 
 const styles = {
-  color: "inherit",
-  display: "block",
-  paddingBottom: "34px",
-  paddingRight: "60px",
-  paddingTop: "32px",
+  default: {
+    color: "inherit",
+    display: "block",
+    paddingBottom: "34px",
+    paddingRight: "60px",
+    paddingTop: "32px",
+
+    [mq]: {
+      paddingBottom: "11px",
+      paddingRight: "40px",
+      paddingTop: "19px",
+    },
+  },
+
+  card: {
+    paddingLeft: "22px",
+
+    [mq]: {
+      paddingLeft: "11px",
+    },
+  },
 };
 
 const CardAnchor = ({
@@ -21,8 +41,8 @@ const CardAnchor = ({
     href={href}
     tabIndex={tabIndex}
     style={[
-      styles,
-      layout !== "tile" && { paddingLeft: "22px" },
+      styles.default,
+      layout !== "tile" && styles.card,
       style,
     ]}
   >
@@ -35,13 +55,7 @@ CardAnchor.propTypes = {
   href: PropTypes.string.isRequired,
   tabIndex: PropTypes.number,
   layout: PropTypes.oneOf(["tile", "card"]),
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ])
-  ),
+  style: propTypes.style,
 };
 
 CardAnchor.propTypes = {
