@@ -116,16 +116,18 @@ const styles = {
 
   zone: {
     fontSize: "16px",
+    top: "32px",
+    position: "absolute",
     fontWeight: settings.typography.fontWeightSemibold,
     lineHeight: 1,
 
     [`@media (min-width: ${settings.media.min["600"]})`]: {
       fontSize: "24px",
+      top: "64px",
     },
 
     [`@media (min-width: ${settings.media.min["960"]})`]: {
-      position: "relative",
-      top: "-147px",
+      top: "80px",
     },
   },
 
