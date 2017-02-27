@@ -2,7 +2,10 @@ import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import cn from "classnames";
 import { rgba } from "../../utils/color";
-import { color } from "../../../settings.json";
+import { color, media } from "../../../settings.json";
+import propTypes from "../../utils/propTypes";
+
+const mq = `@media (min-width: ${media.min["768"]})`;
 
 const hoverStyles = {
   ".Heading": {
@@ -13,11 +16,17 @@ const hoverStyles = {
 const styles = {
   container: {
     height: "auto",
+    maxWidth: "410px",
+    minWidth: "216px",
     position: "relative",
   },
 
   card: {
-    boxShadow: `0 12px 34px ${rgba(color.black, 0.12)}`,
+    boxShadow: `0 0 20px ${rgba(color.black, 0.12)}`,
+
+    [mq]: {
+      boxShadow: `0 12px 34px ${rgba(color.black, 0.12)}`,
+    },
   },
 };
 
@@ -48,13 +57,7 @@ Card.propTypes = {
   children: PropTypes.node.isRequired,
   layout: PropTypes.oneOf(["tile", "card"]),
   className: PropTypes.string,
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 Card.defaultProps = {
