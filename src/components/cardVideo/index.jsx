@@ -3,31 +3,22 @@ import radium from "radium";
 import cn from "classnames";
 import {
   Card,
+  CardActionIcon,
+  CardAnchor,
+  CardBullets,
+  CardHeading,
   CardImage,
   CardText,
-  CardAnchor,
-  CardActionIcon,
 } from "../card";
 import TextBubble from "../textBubble";
-import Heading from "../heading";
-import BulletDescription from "../bulletDescription";
 import { Play as PlayIcon, ClockOutline as ClockIcon } from "../icon";
 import { color, media } from "../../../settings.json";
 import duration from "../../utils/time";
-import { rgba } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
 
 const mq = `@media (max-width: ${media.max["768"]})`;
 
 const styles = {
-  container: {
-    maxWidth: "412px",
-    minWidth: "216px",
-
-    [mq]: {
-      boxShadow: `0 0 20px ${rgba(color.black, 0.12)}`,
-    },
-  },
-
   playIcon: {
     bottom: "17px",
     color: color.white,
@@ -75,34 +66,6 @@ const styles = {
       top: "12px",
     },
   },
-
-  bullets: {
-    marginBottom: "9px",
-
-    [mq]: {
-      fontSize: "9px",
-      marginBottom: "6px",
-    },
-  },
-
-  heading: {
-    fontSize: "24px",
-    lineHeight: (32 / 24),
-
-    [mq]: {
-      fontSize: "14px",
-      lineHeight: (18 / 14),
-    },
-  },
-
-  anchor: {
-    [mq]: {
-      paddingBottom: "11px",
-      paddingLeft: "11px",
-      paddingRight: "40px",
-      paddingTop: "19px",
-    },
-  },
 };
 
 const CardVideo = ({
@@ -121,7 +84,7 @@ const CardVideo = ({
   <Card
     className={cn("Card--video", className)}
     layout={layout}
-    style={[styles.container, style]}
+    style={style}
   >
     <CardImage
       href={href}
@@ -150,19 +113,12 @@ const CardVideo = ({
         style={styles.anchor}
       >
         {bullets && bullets.length > 0 &&
-          <BulletDescription
-            description={bullets}
-            style={styles.bullets}
-          />
+          <CardBullets bullets={bullets} />
         }
 
-        <Heading
-          level={3}
-          weight="thin"
-          override={styles.heading}
-        >
+        <CardHeading>
           {heading}
-        </Heading>
+        </CardHeading>
       </CardAnchor>
 
       {onClick &&
@@ -200,13 +156,7 @@ CardVideo.propTypes = {
   ]),
   onClick: PropTypes.func,
   className: PropTypes.string,
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 CardVideo.defaultProps = {
