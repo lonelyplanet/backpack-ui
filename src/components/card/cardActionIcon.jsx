@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import { color, timing } from "../../../settings.json";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   backgroundColor: "transparent",
@@ -27,13 +28,7 @@ const CardActionIcon = ({ children, onClick, style }) => (
 CardActionIcon.propTypes = {
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired,
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 export default radium(CardActionIcon);

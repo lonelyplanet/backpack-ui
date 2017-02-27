@@ -2,6 +2,7 @@ import React, { PropTypes } from "react";
 import radium from "radium";
 import Heading from "../heading";
 import MoreLink from "../moreLink";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   container: {
@@ -54,13 +55,7 @@ CardShelfHeader.propTypes = {
   heading: PropTypes.string.isRequired,
   href: PropTypes.string,
   adSlot: PropTypes.element,
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 export default radium(CardShelfHeader);

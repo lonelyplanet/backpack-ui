@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   display: "flex",
@@ -18,13 +19,7 @@ const CardShelfContent = ({ children, style }) => (
 
 CardShelfContent.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 export default radium(CardShelfContent);
