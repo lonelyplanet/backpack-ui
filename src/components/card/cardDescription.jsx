@@ -1,51 +1,34 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import Heading from "../heading";
-import BulletDescription from "../bulletDescription";
+import { color, media } from "../../../settings.json";
+import propTypes from "../../utils/propTypes";
+
+const mq = `@media (max-width: ${media.max["768"]})`;
 
 const styles = {
-  bullets: {
-    marginBottom: "9px",
-  },
+  color: color.featureCopy,
+  fontSize: "16px",
+  lineHeight: 1,
+  marginBottom: 0,
+  marginTop: "12px",
 
-  heading: {
-    fontSize: "24px",
-    lineHeight: (32 / 24),
+  [mq]: {
+    fontSize: "12px",
   },
 };
 
-const CardDescription = ({ heading, bullets, style }) => (
-  <div
+const CardDescription = ({ children, style }) => (
+  <p
     className="Card-description"
-    style={style}
+    style={[styles, style]}
   >
-    {bullets &&
-      <BulletDescription
-        description={bullets}
-        style={styles.bullets}
-      />
-    }
-
-    <Heading
-      level={3}
-      weight="thin"
-      override={styles.heading}
-    >
-      {heading}
-    </Heading>
-  </div>
+    {children}
+  </p>
 );
 
 CardDescription.propTypes = {
-  heading: PropTypes.string.isRequired,
-  bullets: PropTypes.arrayOf(PropTypes.string),
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  children: PropTypes.string.isRequired,
+  style: propTypes.style,
 };
 
 export default radium(CardDescription);
