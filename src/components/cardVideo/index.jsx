@@ -149,7 +149,7 @@ const CardVideo = ({
         layout={layout}
         style={styles.anchor}
       >
-        {bullets &&
+        {bullets.length > 0 &&
           <BulletDescription
             description={bullets}
             style={styles.bullets}
