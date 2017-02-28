@@ -1,21 +1,17 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import { color } from "../../../settings.json";
-import font from "../../utils/font";
+import colors from "../../styles/colors";
+import { textUppercase } from "../../utils/typography";
 import iconFromString from "../../utils/icon";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
-  container: {
-    color: color.detailHeaderSmall,
-    fontFamily: font("benton"),
-    fontSize: "11px",
-    fontWeight: 500,
-    letterSpacing: ".2px",
-    lineHeight: 1,
-    textTransform: "uppercase",
-  },
+  container: Object.assign({}, {
+    color: colors.textPrimary,
+  }, textUppercase()),
 
   icon: {
+    color: colors.textSecondary,
     fontSize: "10px",
     marginRight: "7px",
     verticalAlign: "top",
@@ -34,7 +30,7 @@ const LocationLabel = ({ children, style }) => (
 
 LocationLabel.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.objectOf(PropTypes.object),
+  style: propTypes.style,
 };
 
 export default radium(LocationLabel);
