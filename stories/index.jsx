@@ -79,7 +79,8 @@ import MapMarker from "../src/components/mapMarker";
 import Masthead from "../src/components/masthead";
 import MastheadSlider from "../src/components/mastheadSlider";
 // MobileToolbar
-// Modal
+import Modal from "../src/components/modal";
+// import Modal from "react-modal";
 import MoreLink from "../src/components/moreLink";
 import Narrative from "../src/components/narrative";
 import NewsArticleAuthor from "../src/components/newsArticleAuthor";
@@ -1004,6 +1005,100 @@ storiesOf("Masthead", module)
       </StyleRoot>
     );
   });
+
+storiesOf("Modal", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <Modal
+        isOpen={boolean("open", true)}
+        selectNone={boolean("select none present", false)}
+        closeModal={() => {}}
+        closeLocation={select("Close Button Position", ["left", "right"], "right")}
+        title={text("Header Text", "Watch Later")}
+      >
+        <TileGrid>
+          <TileVideo
+            className="Tile"
+            heading={"Test Heading"}
+            bullets={[]}
+            runtime={30000}
+            actionIcon="Ellipsis"
+            onClick={() => {}}
+            imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
+"
+            layout="tile"
+            href="/test"
+          />
+
+          <TileVideo
+            className="Tile"
+            heading={"Test Heading"}
+            bullets={[]}
+            runtime={30000}
+            actionIcon="Ellipsis"
+            onClick={() => {}}
+            imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
+"
+            layout="tile"
+            href="/test"
+          />
+
+          <TileVideo
+            className="Tile"
+            heading={"Test Heading"}
+            bullets={[]}
+            runtime={30000}
+            actionIcon="Ellipsis"
+            onClick={() => {}}
+            imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
+"
+            layout="tile"
+            href="/test"
+          />
+
+          <TileVideo
+            className="Tile"
+            heading={"Test Heading"}
+            bullets={[]}
+            runtime={30000}
+            actionIcon="Ellipsis"
+            onClick={() => {}}
+            imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
+"
+            layout="tile"
+            href="/test"
+          />
+
+          <TileVideo
+            className="Tile"
+            heading={"Test Heading"}
+            bullets={[]}
+            runtime={30000}
+            actionIcon="Ellipsis"
+            onClick={() => {}}
+            imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
+"
+            layout="tile"
+            href="/test"
+          />
+
+          <TileVideo
+            className="Tile"
+            heading={"Test Heading"}
+            bullets={[]}
+            runtime={30000}
+            actionIcon="Ellipsis"
+            onClick={() => {}}
+            imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
+"
+            layout="tile"
+            href="/test"
+          />
+        </TileGrid>
+      </Modal>
+    </StyleRoot>
+  ));
 
 storiesOf("More link", module)
   .addDecorator(withKnobs)

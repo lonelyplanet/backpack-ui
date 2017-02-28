@@ -11,8 +11,9 @@ import {
   CardText,
 } from "../card";
 import TextBubble from "../textBubble";
-import { Play as PlayIcon, ClockOutline as ClockIcon } from "../icon";
+import { Play as PlayIcon } from "../icon";
 import { color, media } from "../../../settings.json";
+import iconFromString from "../../utils/icon";
 import duration from "../../utils/time";
 import propTypes from "../../utils/propTypes";
 
@@ -72,6 +73,7 @@ const CardVideo = ({
   href,
   imageSrc,
   aspectRatio,
+  actionIcon,
   runtime,
   heading,
   bullets,
@@ -129,7 +131,7 @@ const CardVideo = ({
           ]}
           onClick={onClick}
         >
-          <ClockIcon label="Watch later" />
+          {iconFromString(actionIcon)}
         </CardActionIcon>
       }
     </CardText>
@@ -154,6 +156,7 @@ CardVideo.propTypes = {
     "card",
     "tile",
   ]),
+  actionIcon: PropTypes.string,
   onClick: PropTypes.func,
   className: PropTypes.string,
   style: propTypes.style,
@@ -161,6 +164,7 @@ CardVideo.propTypes = {
 
 CardVideo.defaultProps = {
   aspectRatio: "video",
+  actionIcon: "ClockOutline",
   layout: "card",
 };
 

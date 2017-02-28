@@ -51,7 +51,7 @@
     "react-dates": "^4.0.2",
     "react-dom": "^15.3.2",
     "react-imageloader": "^2.1.0",
-    "react-modal": "^1.5.2",
+    "react-modal": "^1.6.5",
     "react-motion": "^0.4.4",
     "react-motion-ui-pack": "^0.9.0",
     "react-photoswipe": "^1.2.0",

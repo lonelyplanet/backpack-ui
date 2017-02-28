@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
+import radium from "radium";
 import { color, zIndex } from "../../../settings.json";
-import Icon from "../icon";
 import Heading from "../heading";
 import { rgb } from "../../utils/color";
 import { gutter } from "../../utils/grid";
@@ -44,7 +44,6 @@ const styles = {
     color: color.lightText,
     fontSize: "16px",
     position: "absolute",
-    right: 0,
     top: "-5px",
   },
   selectNone: {
@@ -52,19 +51,27 @@ const styles = {
     color: color.blue,
     fontSize: "11px",
     fontWeight: 600,
-    left: 0,
     position: "absolute",
     textTransform: "uppercase",
     top: "-1px",
   },
 };
 
-function ModalComponent({ isOpen, selectNone, onSelectNone, title, closeModal, children }) {
+function ModalComponent({
+  isOpen,
+  selectNone,
+  onSelectNone,
+  title,
+  closeModal,
+  closeLocation,
+  children,
+}) {
   return (
     <Modal
       isOpen={isOpen}
       style={styles}
       onRequestClose={closeModal}
+      contentLabel="Modal"
     >
       <header
         className="Modal-header"
@@ -72,7 +79,7 @@ function ModalComponent({ isOpen, selectNone, onSelectNone, title, closeModal, c
       >
         {selectNone &&
           <button
-            style={styles.selectNone}
+            style={[styles.selectNone, { [closeLocation === "right" ? "left" : "right"]: 0 }]}
             onClick={onSelectNone}
           >
             Select None
@@ -89,13 +96,10 @@ function ModalComponent({ isOpen, selectNone, onSelectNone, title, closeModal, c
         </Heading>
 
         <button
-          style={styles.close}
+          style={[styles.close, { [closeLocation]: 0 }]}
           onClick={closeModal}
         >
-          <Icon
-            name="cross"
-            label="Close"
-          />
+          &times;
         </button>
       </header>
 
@@ -136,6 +140,11 @@ ModalComponent.propTypes = {
   closeModal: React.PropTypes.func.isRequired,
 
   /**
+   * Function to close modal
+   */
+  closeLocation: React.PropTypes.oneOf(["left", "right"]),
+
+  /**
    * Contents of modal
    */
   children: React.PropTypes.oneOfType([
@@ -151,6 +160,8 @@ ModalComponent.defaultProps = {
 
   onSelectNone: null,
 
+  closeLocation: "right",
+
   title: "Modal",
 
   closeModal: null,
@@ -160,4 +171,4 @@ ModalComponent.defaultProps = {
 
 ModalComponent.styles = styles;
 
-export default ModalComponent;
+export default radium(ModalComponent);
