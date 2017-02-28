@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import { outline } from "../../utils/mixins";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   default: {
@@ -71,13 +72,13 @@ function Avatar({ src, alt, size, href, style }) {
 Avatar.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string,
-  size: PropTypes.oneOf([25, 40, 70]),
+  size: PropTypes.oneOf([40, 48, 80, 104]),
   href: PropTypes.string,
-  style: PropTypes.objectOf(PropTypes.object),
+  style: propTypes.style,
 };
 
 Avatar.defaultProps = {
-  size: 70,
+  size: 80,
 };
 
 export default radium(Avatar);
