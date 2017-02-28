@@ -2,6 +2,7 @@ import React, { PropTypes } from "react";
 import radium from "radium";
 import CoverPhoto from "../coverPhoto";
 import { color, timing } from "../../../settings.json";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   container: {
@@ -15,11 +16,11 @@ const styles = {
 
 const imageSizes = {
   video: {
-    width: 412,
+    width: 410,
     height: 232,
   },
   poster: {
-    width: 290,
+    width: 300,
     height: 378,
   },
 };
@@ -74,13 +75,7 @@ CardImage.propTypes = {
   ]).isRequired,
   children: PropTypes.node,
   opacity: PropTypes.number,
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 CardImage.defaultProps = {
