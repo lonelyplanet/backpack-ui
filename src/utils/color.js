@@ -16,7 +16,7 @@ function rgb(hex) {
  * @return {String}         RGBA string
  */
 function rgba(hex, opacity) {
-  return `rgba(${rgb(hex)}, ${opacity})`;
+  return color(hex).alpha(opacity).rgbString();
 }
 
 /**
