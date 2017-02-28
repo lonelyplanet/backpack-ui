@@ -11,6 +11,10 @@ const hoverStyles = {
   ".Heading": {
     color: `${color.blue} !important`,
   },
+
+  ".CoverPhoto": {
+    transform: "scale(1.03) !important",
+  },
 };
 
 const styles = {

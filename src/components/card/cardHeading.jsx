@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import Heading from "../heading";
-import { media } from "../../../settings.json";
+import { media, timing } from "../../../settings.json";
 import propTypes from "../../utils/propTypes";
 
 const mq = `@media (max-width: ${media.max["768"]})`;
@@ -13,6 +13,7 @@ const styles = {
   maxHeight: "60px",
   overflow: "hidden",
   textOverflow: "ellipsis",
+  transition: `color ${timing.fast} ease-in-out`,
   WebkitBoxOrient: "vertical",
   WebkitLineClamp: 2,
 

@@ -6,11 +6,16 @@ import propTypes from "../../utils/propTypes";
 
 const styles = {
   container: {
+    overflow: "hidden",
     position: "relative",
   },
 
   anchor: {
     display: "block",
+  },
+
+  coverPhoto: {
+    transition: `transform ${timing.slow} ease-in-out`,
   },
 };
 
@@ -53,10 +58,7 @@ const CardImage = ({
           height={imageSizes[aspectRatio].height}
           style={[
             styles.coverPhoto,
-            opacity && {
-              opacity,
-              transition: `opacity ${timing.default} ease-in-out`,
-            },
+            { opacity },
           ]}
         />
       }

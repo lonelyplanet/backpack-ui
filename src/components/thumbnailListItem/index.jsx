@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-import radium from "radium";
+import radium, { Style } from "radium";
 import { Link } from "react-router";
 import { color, timing, typography, zIndex } from "../../../settings.json";
 import font from "../../utils/font";
@@ -11,6 +11,12 @@ import TextBubble from "../textBubble";
 import Heading from "../heading";
 import Icon from "../icon";
 import CoverPhoto from "../coverPhoto";
+
+const hoverStyles = {
+  ".CoverPhoto": {
+    transform: "scale(1.03) !important",
+  },
+};
 
 const styles = {
   container: {
@@ -25,8 +31,14 @@ const styles = {
   imageAnchor: {
     backgroundColor: color.black,
     display: "block",
+    overflow: "hidden",
     position: "relative",
     width: "100%",
+  },
+
+  coverPhoto: {
+    opacity: 0.88,
+    transition: `transform ${timing.slow} ease-in-out`,
   },
 
   imageText: {
@@ -120,6 +132,11 @@ const ThumbnailListItem = ({
       style,
     ]}
   >
+    <Style
+      scopeSelector=".ListItem-thumbnail:hover"
+      rules={hoverStyles}
+    />
+
     <div style={styles.image}>
       <Link
         to={href}
@@ -130,7 +147,7 @@ const ThumbnailListItem = ({
           src={imagePath}
           width={116}
           height={64}
-          style={{ opacity: 0.88 }}
+          style={styles.coverPhoto}
         />
 
         {runtime &&
