@@ -1,17 +1,12 @@
-import camelCase from "lodash/camelCase";
-import settings from "../../settings.json";
-
-const _ = { camelCase };
+import { fonts } from "../styles";
 
 /**
  * Return a font stack
- * @param  {String} family The name of the fony family stored in the settings
+ * @param  {String} family The name of the font family; one of "benton", "miller"
  * @return {String}        Font stack
  */
-function font(family) {
-  const fontFamily = settings.font.family[_.camelCase(family)];
+export default function font(family) {
+  const fontFamily = fonts[family];
   if (!fontFamily) return "";
   return fontFamily.join(", ");
 }
-
-export default font;
