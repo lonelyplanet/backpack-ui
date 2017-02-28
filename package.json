@@ -27,7 +27,8 @@
     "postpublish": "npm run gh-pages"
   },
   "pre-commit": [
-    "lint"
+    "lint",
+    "test"
   ],
   "author": "Lonely Planet",
   "license": "MIT",
