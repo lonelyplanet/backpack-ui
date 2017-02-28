@@ -2,6 +2,7 @@ import mocha from "mocha";
 import { expect } from "chai";
 import {
   Amenities,
+  ArticleAuthor,
   Availability,
   Bookmark,
   Breadcrumbs,
@@ -48,7 +49,6 @@ import {
   Placeholder,
   PoiPaginator,
   Price,
-  Profile,
   ProviderLogo,
   Rating,
   RelatedTour,
@@ -67,6 +67,7 @@ import {
 describe("backpack-ui", () => {
   it("should have all the exports", () => {
     expect(Amenities).to.be.ok;
+    expect(ArticleAuthor).to.be.ok;
     expect(Availability).to.be.ok;
     expect(Bookmark).to.be.ok;
     expect(Breadcrumbs).to.be.ok;
@@ -113,7 +114,6 @@ describe("backpack-ui", () => {
     expect(Placeholder).to.be.ok;
     expect(PoiPaginator).to.be.ok;
     expect(Price).to.be.ok;
-    expect(Profile).to.be.ok;
     expect(ProviderLogo).to.be.ok;
     expect(Rating).to.be.ok;
     expect(RelatedTour).to.be.ok;
