@@ -6,6 +6,7 @@ import {
   CardShelfHeader,
 } from "../cardShelf";
 import CardVideo from "../cardVideo";
+import propTypes from "../../utils/propTypes";
 
 const scopedStyles = {
   ".Card": {
@@ -14,7 +15,7 @@ const scopedStyles = {
   },
 
   ".Card + .Card": {
-    marginLeft: "27px",
+    marginLeft: "30px",
   },
 };
 
@@ -56,13 +57,7 @@ CardShelfVideo.propTypes = {
   },
   heading: PropTypes.string,
   href: PropTypes.string,
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 export default radium(CardShelfVideo);
