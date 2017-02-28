@@ -3,7 +3,7 @@ import { Style } from "radium";
 import { color, media } from "../../../settings.json";
 import ContentBlock from "../contentBlock";
 import Icon from "../icon";
-import Profile from "../profile";
+import ArticleAuthor from "../articleAuthor";
 import { rgb } from "../../utils/color";
 import { gutter, span, add, percentage } from "../../utils/grid";
 
@@ -97,13 +97,12 @@ function Narrative({ heading, htmlContent, author }) {
         />
         {author &&
           <div className="Narrative-profile">
-            <Profile
+            <ArticleAuthor
               name={author.name}
               title={author.title}
-              avatar={author.avatar}
-              profileUrl={author.url}
+              avatarSrc={author.avatar}
+              href={author.url}
               orientation="horizontal"
-              size="small"
             />
           </div>
         }
