@@ -1,15 +1,11 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import font from "../../utils/font";
+import { textUppercase } from "../../utils/typography";
+import propTypes from "../../utils/propTypes";
 
-const styles = {
+const styles = Object.assign({}, {
   color: "inherit",
-  fontFamily: font("benton"),
-  fontSize: "11px",
-  fontWeight: 600,
-  lineHeight: 1,
-  textTransform: "uppercase",
-};
+}, textUppercase());
 
 const AuthorName = ({ children, style }) => (
   <div
@@ -23,7 +19,7 @@ const AuthorName = ({ children, style }) => (
 
 AuthorName.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.objectOf(PropTypes.object),
+  style: propTypes.style,
 };
 
 export default radium(AuthorName);
