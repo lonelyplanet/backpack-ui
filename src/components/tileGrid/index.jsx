@@ -3,6 +3,7 @@ import radium, { Style } from "radium";
 import cn from "classnames";
 import { grid, media } from "../../../settings.json";
 import { percentage } from "../../utils/grid";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   boxSizing: "border-box",
@@ -28,7 +29,7 @@ const scopedStyles = {
 
     [`(min-width: ${media.min["840"]})`]: {
       ".Tile": {
-        width: percentage("412px", grid.container),
+        width: percentage("410px", grid.container),
       },
     },
   },
@@ -53,13 +54,7 @@ function TileGrid({ children, className, style }) {
 TileGrid.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 export default radium(TileGrid);
