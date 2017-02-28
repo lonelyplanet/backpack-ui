@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from "react";
 import radium, { Style } from "radium";
-import assign from "object-assign";
 import Slider from "react-slick";
 import { grid, media, timing, zIndex } from "../../../settings.json";
 import { percentage } from "../../utils/grid";
@@ -12,6 +11,7 @@ import CardVideo from "../cardVideo";
 import TileVideo from "../tileVideo";
 import TileVideoPoster from "../tileVideoPoster";
 import PaginatorButton from "../paginatorButton";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   slider: {
@@ -34,21 +34,32 @@ const styles = {
   },
 
   sliderOuter: {
-    [`@media (max-width: ${media.max["480"]})`]: {
-      marginLeft: "-15px",
-      marginRight: "-15px",
-      width: "calc(100% + 15px + 15px)",
+    default: {
+      [`@media (max-width: ${media.max["480"]})`]: {
+        marginLeft: "-15px",
+        marginRight: "-15px",
+        width: "calc(100% + 15px + 15px)",
+      },
+
+      [`@media (min-width: ${media.min["480"]}) and (max-width: ${media.max["768"]})`]: {
+        marginLeft: "-30px",
+        marginRight: "-30px",
+        width: "calc(100% + 30px + 30px)",
+      },
     },
 
-    [`@media (min-width: ${media.min["480"]}) and (max-width: ${media.max["768"]})`]: {
-      marginLeft: "-30px",
-      marginRight: "-30px",
-      width: "calc(100% + 30px + 30px)",
+    threeSlides: {
+      [`@media (max-width: ${media.max["768"]})`]: {
+        height: "252px",
+        overflow: "hidden",
+      },
     },
 
-    [`@media (max-width: ${media.max["768"]})`]: {
-      height: "252px",
-      overflow: "hidden",
+    fourSlides: {
+      [`@media (max-width: ${media.max["768"]})`]: {
+        height: "400px",
+        overflow: "hidden",
+      },
     },
   },
 
@@ -88,8 +99,8 @@ const scopedStyles = {
     transition: `opacity ${timing.default} ease`,
     float: "none !important",
     height: "auto",
-    width: `${percentage("412px", grid.container)} !important`,
-    maxWidth: "412px",
+    width: `${percentage("410px", grid.container)} !important`,
+    maxWidth: "410px",
     minWidth: "216px",
     flex: "1 0 auto",
   },
@@ -116,52 +127,58 @@ const scopedStyles = {
     height: "100% !important",
     width: "100% !important",
   },
-};
 
-const mediaQueries = {
-  [`(max-width: ${media.max["768"]})`]: {
-    ".slick-slide + .slick-slide": {
-      marginLeft: "14px",
+  mediaQueries: {
+    [`(max-width: ${media.max["768"]})`]: {
+      ".slick-slide + .slick-slide": {
+        marginLeft: "15px",
+      },
+
+      ".PaginatorButton": {
+        display: "none !important",
+      },
     },
 
-    ".PaginatorButton": {
-      display: "none !important",
+    [`(min-width: ${media.min["768"]})`]: {
+      ".slick-slide:not(.slick-active)": {
+        opacity: 0,
+        pointerEvents: "none",
+      },
     },
-  },
 
-  [`(min-width: ${media.min["768"]})`]: {
-    ".slick-slide:not(.slick-active)": {
-      opacity: 0,
-      pointerEvents: "none",
+    [`(min-width: ${media.min["768"]}) and (max-width: ${media.max["1410"]})`]: {
+      ".slick-slide + .slick-slide": {
+        marginLeft: percentage("30px", grid.container),
+      },
+    },
+
+    [`(min-width: ${media.min["1410"]})`]: {
+      ".slick-slide + .slick-slide": {
+        marginLeft: "30px",
+      },
     },
   },
 };
 
 const threeSlides = {
-  [`(min-width: ${media.min["768"]}) and (max-width: ${media.max["1410"]})`]: {
-    ".slick-slide + .slick-slide": {
-      marginLeft: percentage("27px", grid.container),
-    },
+  ".slick-slide": {
+    width: `${percentage("410px", grid.container)} !important`,
+    maxWidth: "410px",
   },
 
-  [`(min-width: ${media.min["1410"]})`]: {
-    ".slick-slide + .slick-slide": {
-      marginLeft: "27px",
-    },
+  ".PaginatorButton": {
+    top: percentage("188px", "362px"),
   },
 };
 
 const fourSlides = {
-  [`(min-width: ${media.min["768"]}) and (max-width: ${media.max["1410"]})`]: {
-    ".slick-slide + .slick-slide": {
-      marginLeft: percentage("43px", grid.container),
-    },
+  ".slick-slide": {
+    width: `${percentage("300px", grid.container)} !important`,
+    maxWidth: "300px",
   },
 
-  [`(min-width: ${media.min["1410"]})`]: {
-    ".slick-slide + .slick-slide": {
-      marginLeft: "43px",
-    },
+  ".PaginatorButton": {
+    top: percentage("169px", "493px"),
   },
 };
 
@@ -229,21 +246,31 @@ class CardShelfVideoSwiper extends Component {
           />
         }
 
-        <div style={[styles.slider, styles.sliderOuter]}>
+        <div
+          style={[
+            styles.slider,
+            styles.sliderOuter.default,
+            slidesVisible === 3 && styles.sliderOuter.threeSlides,
+            slidesVisible === 4 && styles.sliderOuter.fourSlides,
+          ]}
+        >
           <div style={[styles.slider, styles.sliderInner]}>
             <Style
               scopeSelector=".CardShelf--video"
-              rules={assign(
-                {},
-                scopedStyles,
-                slidesVisible === 3 && {
-                  mediaQueries: assign({}, mediaQueries, threeSlides),
-                },
-                slidesVisible === 4 && {
-                  mediaQueries: assign({}, mediaQueries, fourSlides),
-                },
-              )}
+              rules={scopedStyles}
             />
+            {slidesVisible === 3 &&
+              <Style
+                scopeSelector=".CardShelf--video"
+                rules={threeSlides}
+              />
+            }
+            {slidesVisible === 4 &&
+              <Style
+                scopeSelector=".CardShelf--video"
+                rules={fourSlides}
+              />
+            }
 
             <Slider
               {...sliderOptions}
@@ -293,13 +320,7 @@ CardShelfVideoSwiper.propTypes = {
       PropTypes.object,
     ]),
   ),
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 CardShelfVideoSwiper.defaultProps = {
