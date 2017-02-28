@@ -10,6 +10,7 @@ import { color as bpColor } from "../settings.json";
 import data from "./data.json";
 import Colors from "./Colors";
 import Amenities from "../src/components/amenities";
+import ArticleAuthor from "../src/components/articleAuthor";
 import ArticlePaginationItem from "../src/components/articlePaginationItem";
 import ArticlePaginationNav from "../src/components/articlePaginationNav";
 import ArticlePreview from "../src/components/articlePreview";
@@ -91,7 +92,6 @@ import PhotoGallery from "../src/components/photoGallery";
 import Placeholder from "../src/components/placeholder";
 import PoiPaginator from "../src/components/poiPaginator";
 // Price
-import Profile from "../src/components/profile";
 import PromotedGuidebook from "../src/components/promotedGuidebook";
 import ProviderLogo from "../src/components/providerLogo";
 import Rating from "../src/components/rating";
@@ -159,6 +159,20 @@ storiesOf("Amenities", module)
       columns={number("Columns", 3)}
       listType="grouped"
       items={data.amenities.groupedList}
+    />
+  ));
+
+storiesOf("Article author", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <ArticleAuthor
+      name={text("Name", "Alex Butler")}
+      title={text("Title", "Global news reporter")}
+      avatarSrc={text("Avatar image URL", "//assets.staticlp.com/profiles/users/placeholders/large.png")}
+      orientation={select("Orientation", {
+        vertical: "Vertical",
+        horizontal: "Horizontal",
+      }, "vertical")}
     />
   ));
 
@@ -958,8 +972,8 @@ storiesOf("Narrative", module)
         author={object("Author", {
           name: "Tim Plaum",
           title: "Lonely Planet Editor",
-          avatar: "",
-          url: "",
+          avatarSrc: "",
+          href: "",
         })}
       />
     </StyleRoot>
@@ -1158,33 +1172,6 @@ storiesOf("POI Paginator", module)
       place={text("Place", "Vienna")}
       topChoice={boolean("Top choice", false)}
     />
-  ));
-
-storiesOf("Profile", module)
-  .addDecorator(withKnobs)
-  .add("Large, vertical", () => (
-    <StyleRoot>
-      <Profile
-        name="Jane Doe"
-        title="Lonely Planet Writer"
-        avatar="//assets.staticlp.com/profiles/users/placeholders/large.png"
-        profileUrl=""
-        size="large"
-        orientation="vertical"
-      />
-    </StyleRoot>
-  ))
-  .add("Small, horizontal", () => (
-    <StyleRoot>
-      <Profile
-        name="Jane Doe"
-        title="Lonely Planet Writer"
-        avatar="//assets.staticlp.com/profiles/users/placeholders/large.png"
-        profileUrl=""
-        size="small"
-        orientation="horizontal"
-      />
-    </StyleRoot>
   ));
 
 storiesOf("Promoted guidebook", module)
