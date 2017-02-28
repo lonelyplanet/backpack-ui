@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import font from "../../utils/font";
+import propTypes from "../../utils/propTypes";
 import { color } from "../../../settings.json";
 
 const styles = {
@@ -18,8 +19,8 @@ const ItalicText = ({ children, style }) => (
 );
 
 ItalicText.propTypes = {
-  children: PropTypes.node.isRequired,
-  style: PropTypes.objectOf(PropTypes.object),
+  children: PropTypes.string.isRequired,
+  style: propTypes.style,
 };
 
 export default radium(ItalicText);
