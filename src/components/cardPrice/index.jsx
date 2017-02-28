@@ -2,12 +2,14 @@ import React, { PropTypes } from "react";
 import radium from "radium";
 import {
   Card,
+  CardAnchor,
+  CardBullets,
+  CardHeading,
   CardImage,
   CardText,
-  CardDescription,
-  CardAnchor,
 } from "../card";
 import Price from "../price";
+import propTypes from "../../utils/propTypes";
 
 const CardPrice = ({
   href,
@@ -31,10 +33,13 @@ const CardPrice = ({
         href={href}
         style={{ minHeight: "303px" }}
       >
-        <CardDescription
-          heading={heading}
-          bullets={bullets}
-        />
+        {bullets && bullets.length > 0 &&
+          <CardBullets bullets={bullets} />
+        }
+
+        <CardHeading>
+          {heading}
+        </CardHeading>
 
         {price &&
           <Price
@@ -59,13 +64,7 @@ CardPrice.propTypes = {
     sale: PropTypes.number,
     regular: PropTypes.number,
   }).isRequired,
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 export default radium(CardPrice);

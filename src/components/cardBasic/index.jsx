@@ -2,11 +2,13 @@ import React, { PropTypes } from "react";
 import radium from "radium";
 import {
   Card,
+  CardAnchor,
+  CardBullets,
+  CardHeading,
   CardImage,
   CardText,
-  CardDescription,
-  CardAnchor,
 } from "../card";
+import propTypes from "../../utils/propTypes";
 
 const CardBasic = ({
   href,
@@ -23,10 +25,13 @@ const CardBasic = ({
 
     <CardText>
       <CardAnchor href={href}>
-        <CardDescription
-          heading={heading}
-          bullets={bullets}
-        />
+        {bullets && bullets.length > 0 &&
+          <CardBullets bullets={bullets} />
+        }
+
+        <CardHeading>
+          {heading}
+        </CardHeading>
       </CardAnchor>
     </CardText>
   </Card>
@@ -37,13 +42,7 @@ CardBasic.propTypes = {
   imageSrc: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
   bullets: PropTypes.arrayOf(PropTypes.string).isRequired,
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 export default radium(CardBasic);
