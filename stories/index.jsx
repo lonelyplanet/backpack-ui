@@ -360,14 +360,16 @@ storiesOf("Callout link", module)
 storiesOf("Cards", module)
   .addDecorator(withKnobs)
   .add("Basic card", () => (
-    <div style={{ padding: "32px" }}>
-      <CardBasic
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["Card things", "More Card Things"])}
-        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-        href={text("URL", "#")}
-      />
-    </div>
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardBasic
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["Card things", "More Card Things"])}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+        />
+      </div>
+    </StyleRoot>
   ))
   .add("Video card", () => (
     <StyleRoot>
@@ -384,18 +386,20 @@ storiesOf("Cards", module)
     </StyleRoot>
   ))
   .add("Price card", () => (
-    <div style={{ padding: "32px" }}>
-      <CardPrice
-        heading={text("Heading", "End of the Earth")}
-        bullets={array("Bullets", ["15 Days", "Buenos Aires to Buenos Aires"])}
-        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-        href={text("URL", "#")}
-        price={{
-          regular: 3999,
-          sale: 3399,
-        }}
-      />
-    </div>
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardPrice
+          heading={text("Heading", "End of the Earth")}
+          bullets={array("Bullets", ["15 Days", "Buenos Aires to Buenos Aires"])}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+          price={{
+            regular: 3999,
+            sale: 3399,
+          }}
+        />
+      </div>
+    </StyleRoot>
   ));
 
 storiesOf("Category label", module)
@@ -1680,92 +1684,98 @@ storiesOf("Thumbnail list item", module)
 storiesOf("Tiles", module)
   .addDecorator(withKnobs)
   .add("Video tile", () => (
-    <div style={{ padding: "32px" }}>
-      <TileVideo
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-        href={text("URL", "#")}
-      />
-    </div>
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <TileVideo
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+        />
+      </div>
+    </StyleRoot>
   ))
   .add("Video poster tile", () => (
-    <div style={{ padding: "32px" }}>
-      <TileVideoPoster
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-        href={text("URL", "#")}
-        description={text("Year", "2016")}
-      />
-    </div>
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <TileVideoPoster
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+          description={text("Year", "2016")}
+        />
+      </div>
+    </StyleRoot>
   ));
 
 storiesOf("Video tile grid", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <TileGrid>
-      <TileVideo
-        className="Tile"
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-        href={text("URL", "#")}
-      />
+    <StyleRoot>
+      <TileGrid>
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+        />
 
-      <TileVideo
-        className="Tile"
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-        href={text("URL", "#")}
-      />
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
 
-      <TileVideo
-        className="Tile"
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-        href={text("URL", "#")}
-      />
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
 
-      <TileVideo
-        className="Tile"
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-        href={text("URL", "#")}
-      />
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
 
-      <TileVideo
-        className="Tile"
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-        href={text("URL", "#")}
-      />
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
 
-      <TileVideo
-        className="Tile"
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-        href={text("URL", "#")}
-      />
-    </TileGrid>
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
+      </TileGrid>
+    </StyleRoot>
   ))
   .add("Swiper", () => (
     <StyleRoot>
