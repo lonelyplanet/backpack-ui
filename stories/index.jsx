@@ -9,6 +9,7 @@ import { withKnobs, text, boolean, number, array, object, select, color } from "
 import { color as bpColor } from "../settings.json";
 import data from "./data.json";
 import Colors from "./Colors";
+import { Accordion, AccordionItem } from "../src/components/accordion";
 import Amenities from "../src/components/amenities";
 import ArticleAuthor from "../src/components/articleAuthor";
 import ArticlePaginationItem from "../src/components/articlePaginationItem";
@@ -143,6 +144,82 @@ storiesOf("Iconography", module)
   .addDecorator(withKnobs)
   .add("Icons", () => (
     <Icons />
+  ));
+
+storiesOf("Accordion", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <Accordion id="storyAccordion">
+        <AccordionItem
+          heading="Things to do in Asia"
+          content={
+            <TileGrid>
+              <TileVideo
+                className="Tile"
+                heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+                bullets={array("Bullets", ["On The Road", "E.01"])}
+                runtime={number("Video runtime", 129365)}
+                onClick={action("Watch this video later")}
+                imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+                href={text("URL", "#")}
+              />
+
+              <TileVideo
+                className="Tile"
+                heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+                bullets={array("Bullets", ["On The Road", "E.01"])}
+                runtime={number("Video runtime", 129365)}
+                onClick={action("Watch this video later")}
+                imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+                href={text("URL", "#")}
+              />
+
+              <TileVideo
+                className="Tile"
+                heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+                bullets={array("Bullets", ["On The Road", "E.01"])}
+                runtime={number("Video runtime", 129365)}
+                onClick={action("Watch this video later")}
+                imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+                href={text("URL", "#")}
+              />
+            </TileGrid>
+          }
+          expanded
+        />
+
+        <AccordionItem
+          heading="Places to eat in Tokyo"
+          content={
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+          }
+        />
+
+        <AccordionItem
+          heading="Adventures in Bombay"
+          content={
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+          }
+        />
+      </Accordion>
+    </StyleRoot>
   ));
 
 storiesOf("Amenities", module)
