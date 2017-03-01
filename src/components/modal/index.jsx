@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import radium, { Style } from "radium";
 import { Close as CloseIcon } from "../icon";
-import { color, media, zIndex } from "../../../settings.json";
+import { color, media, timing, zIndex } from "../../../settings.json";
 import Heading from "../heading";
 import { rgb } from "../../utils/color";
 
@@ -18,29 +18,38 @@ const styles = {
   header: {
     borderBottom: `1px solid ${color.gray}`,
     paddingBottom: "16px",
+    paddingTop: "48px",
     position: "relative",
     textAlign: "center",
     textTransform: "uppercase",
     [`@media ${largeMQ}`]: {
+      paddingLeft: "48px",
+      paddingRight: "48px",
       paddingBottom: 0,
       borderBottom: 0,
+      textAlign: "left",
     },
   },
   contentContainer: {
     paddingTop: "32px",
+    paddingBottom: "32px",
+    paddingLeft: "48px",
+    paddingRight: "48px",
     [`@media ${largeMQ}`]: {
       paddingTop: "96px",
+      paddingBottom: "96px",
     },
   },
   close: {
     backgroundColor: color.white,
     border: 0,
+    left: "16px",
     color: color.titleGray,
     fontSize: `${closeIconSize}px`,
     position: "absolute",
-    top: `-${closeIconSize / 2}px`,
+    bottom: `${closeIconSize / 2}px`,
     [`@media ${largeMQ}`]: {
-      top: 0,
+      position: "relative",
     },
   },
   selectNone: {
@@ -69,30 +78,55 @@ const styles = {
 };
 
 const rules = {
-  background: color.white,
-  position: "absolute",
-  overflow: "auto",
-  WebkitOverflowScrolling: "touch",
-  border: 0,
-  borderRadius: 0,
-  boxShadow: `0 27px 50px rgba(${rgb(color.black)}, .36)`,
-  top: 0,
-  left: 0,
-  right: 0,
-  zIndex: zIndex.modal,
-  marginLeft: "auto",
-  marginRight: "auto",
-  bottom: "auto",
-  padding: "48px",
-  maxHeight: "100vh",
-  width: "100%",
+  ".ReactModal__Content--after-open.ReactModal__Content--before-close": {
+    opacity: 0,
+    transform: "translateY(55%)",
+    transition: `opacity ${timing.default},
+      transform ${timing.default}`,
+  },
+  ".ReactModal__Content--after-open": {
+    opacity: "1 !important",
+    transform: "tranlateY(0) !important",
+    transition: `opacity ${timing.default},
+      transform ${timing.default}`,
+  },
+  ".ReactModal__Overlay--after-open.ReactModal__Overlay--before-close": {
+    opacity: 0,
+    transition: `opacity ${timing.default},
+      transform ${timing.default}`,
+  },
+  ".ReactModal__Overlay--after-open": {
+    opacity: 1,
+    transition: `opacity ${timing.default},
+      transform ${timing.default}`,
+  },
+  ".ModalContent": {
+    background: color.white,
+    position: "absolute",
+    overflow: "auto",
+    WebkitOverflowScrolling: "touch",
+    border: 0,
+    borderRadius: 0,
+    boxShadow: `0 27px 50px rgba(${rgb(color.black)}, .36)`,
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: zIndex.modal,
+    marginLeft: "auto",
+    marginRight: "auto",
+    bottom: "auto",
+    maxHeight: "100vh",
+    width: "100%",
+  },
   mediaQueries: {
     [largeMQ]: {
-      maxHeight: "85vh",
-      top: "50%",
-      width: "85%",
-      maxWidth: "1290px",
-      transform: "translateY(-50%)",
+      ".ModalContent": {
+        maxHeight: "85vh",
+        top: "50%",
+        width: "85%",
+        maxWidth: "1290px",
+        transform: "translateY(-50%)",
+      },
     },
   },
 };
@@ -103,7 +137,6 @@ function ModalComponent({
   onSelectNone,
   title,
   closeModal,
-  closeLocation,
   children,
 }) {
   return (
@@ -111,11 +144,12 @@ function ModalComponent({
       isOpen={isOpen}
       style={styles}
       onRequestClose={closeModal}
+      closeTimeoutMS={500}
       contentLabel="Modal"
       className="ModalContent"
     >
       <Style
-        scopeSelector=".ModalContent"
+        scopeSelector=".ReactModalPortal"
         rules={rules}
       />
       <header
@@ -124,7 +158,7 @@ function ModalComponent({
       >
         {selectNone &&
           <button
-            style={[styles.selectNone, { [closeLocation === "right" ? "left" : "right"]: 0 }]}
+            style={styles.selectNone}
             onClick={onSelectNone}
           >
             Select None
@@ -141,7 +175,7 @@ function ModalComponent({
         </Heading>
 
         <button
-          style={[styles.close, { [closeLocation]: 0 }]}
+          style={styles.close}
           onClick={closeModal}
         >
           <CloseIcon />
@@ -152,14 +186,16 @@ function ModalComponent({
         className="Modal-content"
         style={styles.contentContainer}
       >
-        <Heading
-          level={2}
-          size="huge"
-          weight="thick"
-          override={styles.desktopTitle}
-        >
-          {title}
-        </Heading>
+        {title &&
+          <Heading
+            level={2}
+            size="huge"
+            weight="thick"
+            override={styles.desktopTitle}
+          >
+            {title}
+          </Heading>
+        }
         {children}
       </div>
     </Modal>
@@ -193,11 +229,6 @@ ModalComponent.propTypes = {
   closeModal: React.PropTypes.func.isRequired,
 
   /**
-   * Function to close modal
-   */
-  closeLocation: React.PropTypes.oneOf(["left", "right"]),
-
-  /**
    * Contents of modal
    */
   children: React.PropTypes.oneOfType([
@@ -212,8 +243,6 @@ ModalComponent.defaultProps = {
   selectNone: false,
 
   onSelectNone: null,
-
-  closeLocation: "right",
 
   title: "Modal",
 

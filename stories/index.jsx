@@ -1006,43 +1006,73 @@ storiesOf("Masthead", module)
     );
   });
 
+
+class ModalWrapper extends React.Component {
+  propTypes = {
+    children: React.PropTypes.function,
+  }
+
+  state = {
+    open: true,
+  }
+
+
+  toggleOpen() {
+    this.setState({ open: !this.state.open });
+  }
+
+  render() {
+    return this.props.children(this.state.open, this.toggleOpen.bind(this));
+  }
+}
+
+
 storiesOf("Modal", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
-      <Modal
-        isOpen={boolean("open", true)}
-        selectNone={boolean("select none present", false)}
-        closeModal={() => {}}
-        closeLocation={select("Close Button Position", ["left", "right"], "right")}
-        title={text("Header Text", "Watch Later")}
-      >
-        <TileGrid>
-          {[1, 2, 3, 4, 5, 6].map(() => (
-            <TileVideo
-              className="Tile"
-              heading={"Test Heading"}
-              bullets={["On the Road", "Ep1"]}
-              runtime={30000}
-              actionIcon="Close"
-              onClick={() => {}}
-              style={{
-                marginBottom: "64px",
-              }}
-              imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
-  "
-              layout="tile"
-              href="/test"
-            />
-          ))}
-        </TileGrid>
-        <div style={{
-          color: "red",
-          textAlign: "center",
-        }}>
-          <a href="/nothing">Clear All</a>
-        </div>
-      </Modal>
+      <ModalWrapper>
+        {(isOpen, toggle) => (
+          <div>
+            <button onClick={toggle}>Toggle Modal</button>
+            <Modal
+              isOpen={isOpen}
+              selectNone={boolean("select none present", false)}
+              closeModal={toggle}
+              closeLocation={select("Close Button Position", ["left", "right"], "right")}
+              title={text("Header Text", "Watch Later")}
+            >
+              <TileGrid>
+                {[1, 2, 3, 4, 5, 6].map(() => (
+                  <TileVideo
+                    className="Tile"
+                    heading={"Test Heading"}
+                    bullets={["On the Road", "Ep1"]}
+                    runtime={30000}
+                    actionIcon="Close"
+                    onClick={() => {}}
+                    style={{
+                      marginBottom: "64px",
+                    }}
+                    imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
+        "
+                    layout="tile"
+                    href="/test"
+                  />
+                ))}
+              </TileGrid>
+              <div
+                style={{
+                  color: "red",
+                  textAlign: "center",
+                }}
+              >
+                <a href="/nothing">Clear All</a>
+              </div>
+            </Modal>
+          </div>
+        )}
+      </ModalWrapper>
     </StyleRoot>
   ));
 
