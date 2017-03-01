@@ -4,5 +4,12 @@
     "lineHeight": 1.4,
     "maxWidth": 600,
     "margin": 15
+  },
+  "smallText": {
+    "color": "rgba(0, 0, 0, .3)",
+    "fontSize": "12px",
+    "lineHeight": 1,
+    "marginBottom": "1em",
+    "textTransform": "uppercase"
   }
 }
