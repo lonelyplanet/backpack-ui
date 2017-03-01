@@ -388,6 +388,12 @@ exports.Plus = props => (
   </Icon>
 );
 
+exports.Close = props => (
+  <Icon {...props}>
+    <path d="M32 14.7h-14.7v-14.7h-2.6v14.7h-14.7v2.6h14.7v14.7h2.6v-14.7h14.7z" transform="rotate(-45 16 16)" />
+  </Icon>
+);
+
 exports.PopOut = props => (
   <Icon {...props}>
     <path d="M20.9 0v3h6l-9.6 9.6 2.1 2.1 9.6-9.6v6h3v-11.1z" />

@@ -1,28 +1,15 @@
 import React from "react";
 import Modal from "react-modal";
-import radium from "radium";
-import { color, zIndex } from "../../../settings.json";
+import radium, { Style } from "radium";
+import { Close as CloseIcon } from "../icon";
+import { color, media, zIndex } from "../../../settings.json";
 import Heading from "../heading";
 import { rgb } from "../../utils/color";
-import { gutter } from "../../utils/grid";
+
+const largeMQ = `(min-width: ${media.min["768"]})`;
+const closeIconSize = 24;
 
 const styles = {
-  content: {
-    border: 0,
-    borderRadius: 0,
-    bottom: "auto",
-    boxShadow: `0 27px 50px rgba(${rgb(color.black)}, .36)`,
-    left: 0,
-    marginLeft: "auto",
-    marginRight: "auto",
-    maxHeight: "75vh",
-    padding: gutter("static"),
-    right: 0,
-    top: "50%",
-    transform: "translateY(-50%)",
-    width: "50%",
-    zIndex: zIndex.modal,
-  },
   overlay: {
     backgroundColor: `rgba(${rgb(color.black)}, .4)`,
     overflow: "hidden",
@@ -34,17 +21,27 @@ const styles = {
     position: "relative",
     textAlign: "center",
     textTransform: "uppercase",
+    [`@media ${largeMQ}`]: {
+      paddingBottom: 0,
+      borderBottom: 0,
+    },
   },
   contentContainer: {
-    paddingTop: "10px",
+    paddingTop: "32px",
+    [`@media ${largeMQ}`]: {
+      paddingTop: "96px",
+    },
   },
   close: {
     backgroundColor: color.white,
     border: 0,
-    color: color.lightText,
-    fontSize: "16px",
+    color: color.titleGray,
+    fontSize: `${closeIconSize}px`,
     position: "absolute",
-    top: "-5px",
+    top: `-${closeIconSize / 2}px`,
+    [`@media ${largeMQ}`]: {
+      top: 0,
+    },
   },
   selectNone: {
     backgroundColor: "transparent",
@@ -54,6 +51,49 @@ const styles = {
     position: "absolute",
     textTransform: "uppercase",
     top: "-1px",
+  },
+  desktopTitle: {
+    display: "none",
+    [`@media ${largeMQ}`]: {
+      display: "block",
+      textAlign: "center",
+      paddingBottom: "104px",
+    },
+  },
+  mobileTitle: {
+    display: "block",
+    [`@media ${largeMQ}`]: {
+      display: "none",
+    },
+  },
+};
+
+const rules = {
+  background: color.white,
+  position: "absolute",
+  overflow: "auto",
+  WebkitOverflowScrolling: "touch",
+  border: 0,
+  borderRadius: 0,
+  boxShadow: `0 27px 50px rgba(${rgb(color.black)}, .36)`,
+  top: 0,
+  left: 0,
+  right: 0,
+  zIndex: zIndex.modal,
+  marginLeft: "auto",
+  marginRight: "auto",
+  bottom: "auto",
+  padding: "48px",
+  maxHeight: "100vh",
+  width: "100%",
+  mediaQueries: {
+    [largeMQ]: {
+      maxHeight: "85vh",
+      top: "50%",
+      width: "85%",
+      maxWidth: "1290px",
+      transform: "translateY(-50%)",
+    },
   },
 };
 
@@ -72,7 +112,12 @@ function ModalComponent({
       style={styles}
       onRequestClose={closeModal}
       contentLabel="Modal"
+      className="ModalContent"
     >
+      <Style
+        scopeSelector=".ModalContent"
+        rules={rules}
+      />
       <header
         className="Modal-header"
         style={styles.header}
@@ -85,11 +130,11 @@ function ModalComponent({
             Select None
           </button>
         }
-
         <Heading
           level={4}
           size="small"
           weight="thick"
+          override={styles.mobileTitle}
           caps
         >
           {title}
@@ -99,7 +144,7 @@ function ModalComponent({
           style={[styles.close, { [closeLocation]: 0 }]}
           onClick={closeModal}
         >
-          &times;
+          <CloseIcon />
         </button>
       </header>
 
@@ -107,6 +152,14 @@ function ModalComponent({
         className="Modal-content"
         style={styles.contentContainer}
       >
+        <Heading
+          level={2}
+          size="huge"
+          weight="thick"
+          override={styles.desktopTitle}
+        >
+          {title}
+        </Heading>
         {children}
       </div>
     </Modal>

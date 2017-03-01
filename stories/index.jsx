@@ -1018,84 +1018,30 @@ storiesOf("Modal", module)
         title={text("Header Text", "Watch Later")}
       >
         <TileGrid>
-          <TileVideo
-            className="Tile"
-            heading={"Test Heading"}
-            bullets={[]}
-            runtime={30000}
-            actionIcon="Ellipsis"
-            onClick={() => {}}
-            imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
-"
-            layout="tile"
-            href="/test"
-          />
-
-          <TileVideo
-            className="Tile"
-            heading={"Test Heading"}
-            bullets={[]}
-            runtime={30000}
-            actionIcon="Ellipsis"
-            onClick={() => {}}
-            imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
-"
-            layout="tile"
-            href="/test"
-          />
-
-          <TileVideo
-            className="Tile"
-            heading={"Test Heading"}
-            bullets={[]}
-            runtime={30000}
-            actionIcon="Ellipsis"
-            onClick={() => {}}
-            imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
-"
-            layout="tile"
-            href="/test"
-          />
-
-          <TileVideo
-            className="Tile"
-            heading={"Test Heading"}
-            bullets={[]}
-            runtime={30000}
-            actionIcon="Ellipsis"
-            onClick={() => {}}
-            imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
-"
-            layout="tile"
-            href="/test"
-          />
-
-          <TileVideo
-            className="Tile"
-            heading={"Test Heading"}
-            bullets={[]}
-            runtime={30000}
-            actionIcon="Ellipsis"
-            onClick={() => {}}
-            imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
-"
-            layout="tile"
-            href="/test"
-          />
-
-          <TileVideo
-            className="Tile"
-            heading={"Test Heading"}
-            bullets={[]}
-            runtime={30000}
-            actionIcon="Ellipsis"
-            onClick={() => {}}
-            imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
-"
-            layout="tile"
-            href="/test"
-          />
+          {[1, 2, 3, 4, 5, 6].map(() => (
+            <TileVideo
+              className="Tile"
+              heading={"Test Heading"}
+              bullets={["On the Road", "Ep1"]}
+              runtime={30000}
+              actionIcon="Close"
+              onClick={() => {}}
+              style={{
+                marginBottom: "64px",
+              }}
+              imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
+  "
+              layout="tile"
+              href="/test"
+            />
+          ))}
         </TileGrid>
+        <div style={{
+          color: "red",
+          textAlign: "center",
+        }}>
+          <a href="/nothing">Clear All</a>
+        </div>
       </Modal>
     </StyleRoot>
   ));
