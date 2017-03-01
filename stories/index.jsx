@@ -80,7 +80,6 @@ import Masthead from "../src/components/masthead";
 import MastheadSlider from "../src/components/mastheadSlider";
 // MobileToolbar
 import Modal from "../src/components/modal";
-// import Modal from "react-modal";
 import MoreLink from "../src/components/moreLink";
 import Narrative from "../src/components/narrative";
 import NewsArticleAuthor from "../src/components/newsArticleAuthor";
@@ -1037,9 +1036,11 @@ storiesOf("Modal", module)
             <button onClick={toggle}>Toggle Modal</button>
             <Modal
               isOpen={isOpen}
-              selectNone={boolean("select none present", false)}
+              leftAction={() => console.log("clicked the left")}
+              leftActionContent={<p>Test</p>}
+              rightAction={() => console.log("clicked the right")}
+              rightActionContent={<Icon.Close />}
               closeModal={toggle}
-              closeLocation={select("Close Button Position", ["left", "right"], "right")}
               title={text("Header Text", "Watch Later")}
             >
               <TileGrid>

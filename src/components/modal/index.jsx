@@ -1,7 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
 import radium, { Style } from "radium";
-import { Close as CloseIcon } from "../icon";
 import { color, media, timing, zIndex } from "../../../settings.json";
 import Heading from "../heading";
 import { rgb } from "../../utils/color";
@@ -52,14 +51,14 @@ const styles = {
       position: "relative",
     },
   },
-  selectNone: {
-    backgroundColor: "transparent",
-    color: color.blue,
-    fontSize: "11px",
-    fontWeight: 600,
+  actionItems: {
     position: "absolute",
-    textTransform: "uppercase",
-    top: "-1px",
+  },
+  rightAction: {
+    right: "5px",
+  },
+  leftAction: {
+    left: "5px",
   },
   desktopTitle: {
     display: "none",
@@ -133,8 +132,10 @@ const rules = {
 
 function ModalComponent({
   isOpen,
-  selectNone,
-  onSelectNone,
+  leftAction,
+  leftActionContent,
+  rightAction,
+  rightActionContent,
   title,
   closeModal,
   children,
@@ -156,12 +157,12 @@ function ModalComponent({
         className="Modal-header"
         style={styles.header}
       >
-        {selectNone &&
+        {leftAction &&
           <button
-            style={styles.selectNone}
-            onClick={onSelectNone}
+            style={[styles.actionItems, styles.leftAction]}
+            onClick={leftAction}
           >
-            Select None
+            {leftActionContent}
           </button>
         }
         <Heading
@@ -174,12 +175,14 @@ function ModalComponent({
           {title}
         </Heading>
 
-        <button
-          style={styles.close}
-          onClick={closeModal}
-        >
-          <CloseIcon />
-        </button>
+        {rightAction &&
+          <button
+            style={[styles.actionItems, styles.rightAction]}
+            onClick={rightAction}
+          >
+            {rightActionContent}
+          </button>
+        }
       </header>
 
       <div
@@ -208,15 +211,10 @@ ModalComponent.propTypes = {
    */
   isOpen: React.PropTypes.bool.isRequired,
 
-  /**
-   * Set selectNone visibility
-   */
-  selectNone: React.PropTypes.bool,
-
-  /**
-   * Clear all selected filters
-   */
-  onSelectNone: React.PropTypes.func,
+  leftAction: React.PropTypes.func,
+  leftActionContent: React.PropTypes.node,
+  rightAction: React.PropTypes.func,
+  rightActionContent: React.PropTypes.node,
 
   /**
    * Modal title
