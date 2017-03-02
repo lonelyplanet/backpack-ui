@@ -6,7 +6,7 @@ import Heading from "../heading";
 import { rgb } from "../../utils/color";
 
 const largeMQ = `(min-width: ${media.min["768"]})`;
-const closeIconSize = 24;
+const sidePadding = "48px";
 
 const styles = {
   overlay: {
@@ -17,13 +17,14 @@ const styles = {
   header: {
     borderBottom: `1px solid ${color.gray}`,
     paddingBottom: "16px",
-    paddingTop: "48px",
+    paddingTop: "16px",
     position: "relative",
     textAlign: "center",
     textTransform: "uppercase",
     [`@media ${largeMQ}`]: {
-      paddingLeft: "48px",
-      paddingRight: "48px",
+      paddingLeft: sidePadding,
+      paddingRight: sidePadding,
+      paddingTop: "48px",
       paddingBottom: 0,
       borderBottom: 0,
       textAlign: "left",
@@ -32,33 +33,31 @@ const styles = {
   contentContainer: {
     paddingTop: "32px",
     paddingBottom: "32px",
-    paddingLeft: "48px",
-    paddingRight: "48px",
+    paddingLeft: sidePadding,
+    paddingRight: sidePadding,
     [`@media ${largeMQ}`]: {
       paddingTop: "96px",
       paddingBottom: "96px",
     },
   },
-  close: {
-    backgroundColor: color.white,
-    border: 0,
-    left: "16px",
-    color: color.titleGray,
-    fontSize: `${closeIconSize}px`,
+  actionItem: {
     position: "absolute",
-    bottom: `${closeIconSize / 2}px`,
+    top: "8px",
     [`@media ${largeMQ}`]: {
-      position: "relative",
+      top: sidePadding,
     },
   },
-  actionItems: {
-    position: "absolute",
-  },
   rightAction: {
-    right: "5px",
+    right: "16px",
+    [`@media ${largeMQ}`]: {
+      right: sidePadding,
+    },
   },
   leftAction: {
-    left: "5px",
+    left: "16px",
+    [`@media ${largeMQ}`]: {
+      left: sidePadding,
+    },
   },
   desktopTitle: {
     display: "none",
@@ -154,12 +153,12 @@ function ModalComponent({
         rules={rules}
       />
       <header
-        className="Modal-header"
+        className="Modal-header clearfix"
         style={styles.header}
       >
         {leftAction &&
           <button
-            style={[styles.actionItems, styles.leftAction]}
+            style={[styles.actionItem, styles.leftAction]}
             onClick={leftAction}
           >
             {leftActionContent}
@@ -177,7 +176,7 @@ function ModalComponent({
 
         {rightAction &&
           <button
-            style={[styles.actionItems, styles.rightAction]}
+            style={[styles.actionItem, styles.rightAction]}
             onClick={rightAction}
           >
             {rightActionContent}

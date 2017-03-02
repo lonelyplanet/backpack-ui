@@ -1007,7 +1007,7 @@ storiesOf("Masthead", module)
 
 
 class ModalWrapper extends React.Component {
-  propTypes = {
+  static propTypes = {
     children: React.PropTypes.function,
   }
 
@@ -1039,7 +1039,8 @@ storiesOf("Modal", module)
               leftAction={() => console.log("clicked the left")}
               leftActionContent={<p>Test</p>}
               rightAction={() => console.log("clicked the right")}
-              rightActionContent={<Icon.Close />}
+              rightActionContent={<p>Test</p>}
+              // rightActionContent={<Icon.Close />}
               closeModal={toggle}
               title={text("Header Text", "Watch Later")}
             >
