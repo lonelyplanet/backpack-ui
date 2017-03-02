@@ -42,7 +42,8 @@ const styles = {
   },
   actionItem: {
     position: "absolute",
-    top: "8px",
+    backgroundColor: "transparent",
+    top: "12px",
     [`@media ${largeMQ}`]: {
       top: sidePadding,
     },
@@ -98,7 +99,7 @@ const rules = {
     transition: `opacity ${timing.default},
       transform ${timing.default}`,
   },
-  ".ModalContent": {
+  ".ModalBase": {
     background: color.white,
     position: "absolute",
     overflow: "auto",
@@ -118,7 +119,7 @@ const rules = {
   },
   mediaQueries: {
     [largeMQ]: {
-      ".ModalContent": {
+      ".ModalBase": {
         maxHeight: "85vh",
         top: "50%",
         width: "85%",
@@ -131,12 +132,14 @@ const rules = {
 
 function ModalComponent({
   isOpen,
+  closeModal,
+  closeTimeoutMS,
+  contentLabel,
   leftAction,
   leftActionContent,
   rightAction,
   rightActionContent,
   title,
-  closeModal,
   children,
 }) {
   return (
@@ -144,9 +147,9 @@ function ModalComponent({
       isOpen={isOpen}
       style={styles}
       onRequestClose={closeModal}
-      closeTimeoutMS={500}
-      contentLabel="Modal"
-      className="ModalContent"
+      closeTimeoutMS={closeTimeoutMS}
+      contentLabel={contentLabel}
+      className="ModalBase"
     >
       <Style
         scopeSelector=".ReactModalPortal"
@@ -205,29 +208,15 @@ function ModalComponent({
 }
 
 ModalComponent.propTypes = {
-  /**
-   * Set modal to open or closed
-   */
   isOpen: React.PropTypes.bool.isRequired,
-
+  closeModal: React.PropTypes.func,
   leftAction: React.PropTypes.func,
   leftActionContent: React.PropTypes.node,
   rightAction: React.PropTypes.func,
   rightActionContent: React.PropTypes.node,
-
-  /**
-   * Modal title
-   */
+  closeTimeoutMS: React.PropTypes.number,
+  contentLabel: React.PropTypes.string,
   title: React.PropTypes.string.isRequired,
-
-  /**
-   * Function to close modal
-   */
-  closeModal: React.PropTypes.func.isRequired,
-
-  /**
-   * Contents of modal
-   */
   children: React.PropTypes.oneOfType([
     React.PropTypes.node,
     React.PropTypes.string,
@@ -236,15 +225,9 @@ ModalComponent.propTypes = {
 
 ModalComponent.defaultProps = {
   isOpen: false,
-
-  selectNone: false,
-
-  onSelectNone: null,
-
   title: "Modal",
-
-  closeModal: null,
-
+  contentLabel: "Modal",
+  closeTimeoutMS: 500,
   children: null,
 };
 

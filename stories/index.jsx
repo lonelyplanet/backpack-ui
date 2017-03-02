@@ -1036,11 +1036,10 @@ storiesOf("Modal", module)
             <button onClick={toggle}>Toggle Modal</button>
             <Modal
               isOpen={isOpen}
-              leftAction={() => console.log("clicked the left")}
-              leftActionContent={<p>Test</p>}
-              rightAction={() => console.log("clicked the right")}
+              rightAction={() => console.log("clicked the left")}
               rightActionContent={<p>Test</p>}
-              // rightActionContent={<Icon.Close />}
+              leftAction={toggle}
+              leftActionContent={<Icon.Close width={24} height={24} />}
               closeModal={toggle}
               title={text("Header Text", "Watch Later")}
             >
