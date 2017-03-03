@@ -84,6 +84,7 @@ export { default as PaginatorButton } from "./components/paginatorButton";
 export { default as Placeholder } from "./components/placeholder";
 export { default as PoiPaginator } from "./components/poiPaginator";
 export { default as Price } from "./components/price";
+export { default as ProfileHeader } from "./components/profileHeader";
 export { default as PromotedGuidebook } from "./components/promotedGuidebook";
 export { default as ProviderLogo } from "./components/providerLogo";
 export { default as Rating } from "./components/rating";
@@ -121,7 +122,6 @@ export { default as Tooltip } from "./components/tooltip";
 export { default as TourItinerary } from "./components/tourItinerary";
 export { default as TravelAlert } from "./components/travelAlert";
 export { default as TypeSelector } from "./components/typeSelector";
-export { default as UserProfileHeader } from "./components/userProfileHeader";
 export { default as VideoEmbed } from "./components/videoEmbed";
 
 export { default as DateInput } from "./components/form/dateInput";
