@@ -9,6 +9,8 @@ import { withKnobs, text, boolean, number, array, object, select, color } from "
 import { color as bpColor } from "../settings.json";
 import data from "./data.json";
 import Colors from "./Colors";
+import Fonts from "./fonts";
+import Typography from "./typography";
 import { Accordion, AccordionItem } from "../src/components/accordion";
 import Amenities from "../src/components/amenities";
 import ArticleAuthor from "../src/components/articleAuthor";
@@ -138,6 +140,12 @@ storiesOf("Styles", module)
   .addDecorator(withKnobs)
   .add("Colors", () => (
     <Colors />
+  ))
+  .add("Fonts", () => (
+    <Fonts />
+  ))
+  .add("Typography", () => (
+    <Typography />
   ));
 
 storiesOf("Iconography", module)
