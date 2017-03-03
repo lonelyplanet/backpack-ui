@@ -1,22 +1,22 @@
 import React from "react";
 import styles from "./styles.json";
-import { color } from "../settings.json";
+import { rgba } from "../src/utils/color";
+import colors from "../src/styles/colors";
 
 function Colors() {
-  const colors = [];
+  const colorsArray = [];
+  const borderColor = rgba(colors.textSecondary, 0.2);
 
-  Object.keys(color).forEach((name) => {
-    if (color[name]) {
-      const light = color[name].startsWith("d", 1) ||
-        color[name].startsWith("e", 1) ||
-        color[name].startsWith("f", 1);
-
-      colors.push(
+  Object.keys(colors).forEach((name) => {
+    if (colors[name]) {
+      colorsArray.push(
         <div style={{ marginBottom: "5px", marginTop: "5px" }}>
           <div
             style={{
-              backgroundColor: color[name],
-              color: !light && "#fff",
+              backgroundColor: colors[name],
+              borderColor: (colors[name] === "#fff") ? borderColor : "transparent",
+              borderStyle: "solid",
+              borderWidth: "1px",
               display: "inline-block",
               height: "30px",
               marginRight: "10px",
@@ -36,7 +36,7 @@ function Colors() {
                 width: "90px",
               }}
             >
-              <span style={{ userSelect: "none" }}>{color[name]}</span>
+              <span style={{ userSelect: "none" }}>{colors[name]}</span>
             </span><span>{name}</span>
           </pre>
         </div>
@@ -57,8 +57,8 @@ function Colors() {
           textAlign: "left",
         }}
       >
-        {colors.map((el, i) => (
-          <li key={i} style={{ borderTop: `1px solid ${color.gray}` }}>{el}</li>
+        {colorsArray.map((el, i) => (
+          <li key={i} style={{ borderTop: `1px solid ${borderColor}` }}>{el}</li>
         ))}
       </ul>
     </div>
