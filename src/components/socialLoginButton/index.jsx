@@ -38,6 +38,7 @@ const styles = {
     textAlign: "left",
     paddingLeft: "16px",
     lineHeight: 1,
+    fontWeight: typography.fontWeightBold,
   },
   icon: {
     fontSize: "18px",

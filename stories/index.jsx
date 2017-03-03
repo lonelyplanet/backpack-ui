@@ -134,6 +134,7 @@ import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
 import TypeSelector from "../src/components/typeSelector";
 import UserProfileHeader from "../src/components/userProfileHeader";
+import WatchLaterModal from "../src/components/watchLaterModal";
 import VideoEmbed from "../src/components/videoEmbed";
 
 storiesOf("Styles", module)
@@ -1074,6 +1075,15 @@ storiesOf("Modal", module)
           </div>
         )}
       </ModalWrapper>
+    </StyleRoot>
+  )).add("Watch Later", () => (
+    <StyleRoot>
+      <WatchLaterModal
+        loggedIn={boolean("Logged in", false)}
+        isOpen={boolean("Modal Open", false)}
+        videos={[{ test: 1 }, { test: 2 }]}
+        authMessage={text("Auth Message", "Organize your research & unlock tools like bookmarking.")}
+      />
     </StyleRoot>
   ));
 
