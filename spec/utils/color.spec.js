@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import {
   rgb,
+  rgba,
   darken,
   lighten,
 } from "../../src/utils/color";
@@ -8,6 +9,12 @@ import {
 describe("rgb", () => {
   it("should convert a hex value to rgb", () => {
     expect(rgb("#406274")).to.equal("64,98,116");
+  });
+});
+
+describe("rgba", () => {
+  it("should convert a hex value to rgba", () => {
+    expect(rgba("#406274", 0.2)).to.equal("rgba(64, 98, 116, 0.2)");
   });
 });
 

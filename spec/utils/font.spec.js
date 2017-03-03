@@ -6,14 +6,6 @@ describe("font", () => {
     expect(font("helvetica")).to.equal("");
   });
 
-  it("should return a sans-serif font stack", () => {
-    expect(font("sansSerif")).to.equal("'Helvetica Neue', 'Helvetica', 'Arial', sans-serif");
-  });
-
-  it("should return a serif font stack", () => {
-    expect(font("serif")).to.equal("'Georgia', 'Times', 'Times New Roman', serif");
-  });
-
   it("should return a `Benton` font stack", () => {
     expect(font("benton")).to.equal("'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif");
   });
