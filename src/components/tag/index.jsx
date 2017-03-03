@@ -1,39 +1,41 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import { color, timing } from "../../../settings.json";
+import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import { rgba } from "../../utils/color";
-import font from "../../utils/font";
+import { fontSizeBodySmall, fontWeightMedium } from "../../styles/typography";
+import { textBodySmall } from "../../utils/typography";
+import propTypes from "../../utils/propTypes";
 
-const baseFontSize = 12;
+const fontSize = fontSizeBodySmall;
 
 const hoverStyles = {
   default: {
-    backgroundColor: rgba(color.detailHeaderSmall, 0.2),
+    backgroundColor: rgba(colors.textSecondary, 0.1),
   },
 
   selected: {
-    backgroundColor: color.darkGray,
+    backgroundColor: colors.textPrimary,
   },
 };
 
 const styles = {
-  default: {
-    backgroundColor: color.white,
-    borderColor: color.detailHeaderSmall,
+  default: Object.assign({}, textBodySmall(), {
+    backgroundColor: colors.bgPrimary,
+    borderColor: rgba(colors.textSecondary, 0.3),
     borderStyle: "solid",
-    borderWidth: `${1 / baseFontSize}em`,
-    borderRadius: `${16 / baseFontSize}em`,
-    color: color.darkGray,
+    borderWidth: `${1 / fontSize}em`,
+    borderRadius: `${32 / fontSize}em`,
+    color: colors.textPrimary,
     display: "inline-block",
-    fontFamily: font("benton"),
-    fontSize: `${baseFontSize}px`,
+    fontWeight: fontWeightMedium,
     lineHeight: 1,
-    padding: `${10 / baseFontSize}em ${25 / baseFontSize}em ${8 / baseFontSize}em`,
+    padding: `${9 / fontSize}em ${25 / fontSize}em ${7 / fontSize}em`,
     textDecoration: "none",
     textOverflow: "ellipsis",
     transition: `background-color ${timing.fast}`,
     whiteSpace: "nowrap",
-  },
+  }),
 
   defaultHover: {
     ":hover": hoverStyles.default,
@@ -42,9 +44,9 @@ const styles = {
   },
 
   selected: {
-    backgroundColor: color.darkGray,
-    borderColor: color.darkGray,
-    color: color.white,
+    backgroundColor: colors.textPrimary,
+    borderColor: colors.textPrimary,
+    color: colors.bgPrimary,
 
     ":hover": hoverStyles.selected,
     ":active": hoverStyles.selected,
@@ -53,16 +55,18 @@ const styles = {
 };
 
 function Tag({ children, href, onClick, selected, style }) {
-  const Element = href ? "a" : "button";
+  let Element = "span";
+  if (href) Element = "a";
+  if (onClick) Element = "button";
 
   return (
     <Element
       className="Tag"
       style={[
         styles.default,
-        selected && styles.selected,
         (href || onClick) && styles.defaultHover,
         (href || onClick) ? { cursor: "pointer" } : { cursor: "default" },
+        selected && styles.selected,
         style,
       ]}
       href={href}
@@ -78,13 +82,7 @@ Tag.propTypes = {
   href: PropTypes.string,
   onClick: PropTypes.func,
   selected: PropTypes.bool,
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 Tag.defaultProps = {
