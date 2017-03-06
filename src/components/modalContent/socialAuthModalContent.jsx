@@ -2,7 +2,7 @@ import React from "react";
 
 import { Logo } from "../icon";
 
-import { color } from "../../../settings.json";
+import { color, typography } from "../../../settings.json";
 import SocialLoginButton from "../socialLoginButton";
 import MoreLink from "../moreLink";
 
@@ -39,6 +39,8 @@ const styles = {
   },
   more: {
     textTransform: "uppercase",
+    letterSpacing: 0,
+    fontWeight: typography.fontWeightBold,
   },
   disclaimer: {
     fontSize: "10px",
@@ -60,6 +62,8 @@ const SocialAuthModalContent = ({ message }) => (
 
     </div>
 
+    {/* eslint-disable */}
+    <p style={styles.disclaimer}>If you sign up with Twitter, Facebook or Google, we'll automatically import your profile information. We'll never post without your permission. Alternatively sign in with a username and password. To sign into Lonely Planet you must have cookies enabled and agree to the Terms of Service and read the Privacy Policy and Cookie Policy. For additional account enquiries see Account help.</p>
   </div>
 );
 

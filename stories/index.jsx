@@ -1026,6 +1026,32 @@ class ModalWrapper extends React.Component {
   }
 }
 
+const watchLaterVideos = [
+  {
+    id: 1,
+    heading: "Test Heading",
+    bullets: ["On the Road", "Ep1"],
+    runtime: 30000,
+    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
+    href: "/test",
+  },
+  {
+    id: 2,
+    heading: "Test Heading",
+    bullets: ["On the Road", "Ep2"],
+    runtime: 30000,
+    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
+    href: "/test",
+  },
+  {
+    id: 3,
+    heading: "Test Heading",
+    bullets: ["On the Road", "Ep3"],
+    runtime: 30000,
+    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
+    href: "/test",
+  },
+];
 
 storiesOf("Modal", module)
   .addDecorator(withKnobs)
@@ -1042,34 +1068,11 @@ storiesOf("Modal", module)
               leftAction={toggle}
               leftActionContent={<Icon.Close width={24} height={24} />}
               closeModal={toggle}
-              title={text("Header Text", "Watch Later")}
+              title={text("Header Text", "Header Text")}
             >
-              <TileGrid>
-                {[1, 2, 3, 4, 5, 6].map(() => (
-                  <TileVideo
-                    className="Tile"
-                    heading={"Test Heading"}
-                    bullets={["On the Road", "Ep1"]}
-                    runtime={30000}
-                    actionIcon="Close"
-                    onClick={() => {}}
-                    style={{
-                      marginBottom: "64px",
-                    }}
-                    imageSrc="https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697
-        "
-                    layout="tile"
-                    href="/test"
-                  />
-                ))}
-              </TileGrid>
-              <div
-                style={{
-                  color: "red",
-                  textAlign: "center",
-                }}
-              >
-                <a href="/nothing">Clear All</a>
+              <div>
+                <h2>Some Content</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequuntur alias amet repellat quis veritatis dignissimos. Veniam adipisci qui facere culpa accusamus ducimus eum rem, amet, fugit, quasi, optio aut?</p>
               </div>
             </Modal>
           </div>
@@ -1080,8 +1083,9 @@ storiesOf("Modal", module)
     <StyleRoot>
       <WatchLaterModal
         loggedIn={boolean("Logged in", false)}
-        isOpen={boolean("Modal Open", false)}
-        videos={[{ test: 1 }, { test: 2 }]}
+        isOpen={boolean("Modal Open", true)}
+        videos={watchLaterVideos}
+        removeVideo={action("Remove Video")}
         authMessage={text("Auth Message", "Organize your research & unlock tools like bookmarking.")}
       />
     </StyleRoot>
