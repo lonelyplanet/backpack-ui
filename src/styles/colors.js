@@ -11,6 +11,7 @@ export default {
   textSecondary: "#99a9b3",
 
   // Accent colors
+  accentGreen: "#16c98d",
   accentOrange: "#ff882e",
   accentRed: "#da0909",
   accentYellow: "#ffc83f",
