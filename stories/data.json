@@ -103,6 +103,11 @@
     ]
   },
 
+  "avatar": {
+    "default": "//assets.staticlp.com/profiles/users/placeholders/large.png",
+    "rizzo": "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png"
+  },
+
   "breadcrumbs": {
     "links": [
       { "title": "USA", "href": "/usa" },
