@@ -21,6 +21,7 @@ import ArticlePreview from "../src/components/articlePreview";
 import Author from "../src/components/author";
 import AuthorName from "../src/components/authorName";
 import Avatar from "../src/components/avatar";
+import AvatarUpload from "../src/components/avatarUpload";
 // Availability
 import Bookmark from "../src/components/bookmark";
 import Breadcrumbs from "../src/components/breadcrumbs";
@@ -257,7 +258,7 @@ storiesOf("Article author", module)
     <ArticleAuthor
       name={text("Name", "Alex Butler")}
       title={text("Title", "Global news reporter")}
-      avatarSrc={text("Avatar image URL", "//assets.staticlp.com/profiles/users/placeholders/large.png")}
+      avatarSrc={text("Avatar image URL", data.avatar.default)}
       orientation={select("Orientation", {
         vertical: "Vertical",
         horizontal: "Horizontal",
@@ -342,10 +343,18 @@ storiesOf("Avatar", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <Avatar
-      src={text("Image source", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+      src={text("Image source", data.avatar.rizzo)}
       alt={text("Alternate text", "Rizzo")}
       size={select("Size", [25, 40, 70], 70)}
       href={text("URL", "")}
+    />
+  ));
+
+storiesOf("Avatar upload", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <AvatarUpload
+      src={text("Image source", data.avatar.rizzo)}
     />
   ));
 
@@ -2163,7 +2172,7 @@ storiesOf("User profile header", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <UserProfileHeader
-      avatarSrc="http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png"
+      avatarSrc={data.avatar.rizzo}
       name="Rizzo the Rat"
       subtitle="By air, land and sea"
       location="Ottawa, ON"
