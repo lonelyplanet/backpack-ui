@@ -1,11 +1,11 @@
-import React from "react";
-
+import React, { PropTypes } from "react";
+import radium from "radium";
 import Modal from "../modal";
 import { Close } from "../icon";
-
-
-import WatchLaterListModalContent from "../modalContent/watchLaterListModalContent";
-import SocialAuthModalContent from "../modalContent/socialAuthModalContent";
+import CardVideo from "../cardVideo";
+import ModalContentWatchLaterList from "../modalContent/modalContentWatchLaterList";
+import ModalContentSocialAuth from "../modalContent/modalContentSocialAuth";
+import propTypes from "../../utils/propTypes";
 
 class WatchLaterModal extends React.Component {
   constructor(props) {
@@ -42,6 +42,7 @@ class WatchLaterModal extends React.Component {
       authMessage,
       videos,
       removeVideo,
+      style,
     } = this.props;
     return (
       <Modal
@@ -51,11 +52,12 @@ class WatchLaterModal extends React.Component {
         closeModal={this.toggleOpen}
         desktopWidth={loggedIn ? "85%" : "650px"}
         title={loggedIn && "Watch Later"}
+        style={style}
       >
         { loggedIn ? (
-          <WatchLaterListModalContent videos={videos} removeVideo={removeVideo} />
+          <ModalContentWatchLaterList videos={videos} removeVideo={removeVideo} />
         ) : (
-          <SocialAuthModalContent message={authMessage} />
+          <ModalContentSocialAuth message={authMessage} />
         )}
       </Modal>
     );
@@ -64,11 +66,12 @@ class WatchLaterModal extends React.Component {
 
 
 WatchLaterModal.propTypes = {
-  loggedIn: React.PropTypes.bool,
-  isOpen: React.PropTypes.bool,
-  videos: React.PropTypes.arrayOf(React.PropTypes.object),
-  removeVideo: React.PropTypes.func,
-  authMessage: React.PropTypes.string,
+  loggedIn: PropTypes.bool,
+  isOpen: PropTypes.bool,
+  videos: PropTypes.arrayOf(PropTypes.shape(CardVideo.propTypes)),
+  removeVideo: PropTypes.func,
+  authMessage: PropTypes.string,
+  style: propTypes.style,
 };
 
-export default WatchLaterModal;
+export default radium(WatchLaterModal);

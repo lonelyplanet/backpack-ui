@@ -205,6 +205,12 @@ exports.ClockOutline = props => (
   </Icon>
 );
 
+exports.Close = props => (
+  <Icon {...props}>
+    <path d="M32 14.7h-14.7v-14.7h-2.6v14.7h-14.7v2.6h14.7v14.7h2.6v-14.7h14.7z" transform="rotate(-45 16 16)" />
+  </Icon>
+);
+
 exports.Compass = props => (
   <Icon {...props}>
     <path d="M16 32c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zM16 2.5c-7.5 0-13.5 6-13.5 13.5s6.1 13.5 13.5 13.5c7.5 0 13.5-6.1 13.5-13.5 0-7.5-6-13.5-13.5-13.5z" />
@@ -385,12 +391,6 @@ exports.Play = props => (
 exports.Plus = props => (
   <Icon {...props}>
     <path d="M32 14.7h-14.7v-14.7h-2.6v14.7h-14.7v2.6h14.7v14.7h2.6v-14.7h14.7z" />
-  </Icon>
-);
-
-exports.Close = props => (
-  <Icon {...props}>
-    <path d="M32 14.7h-14.7v-14.7h-2.6v14.7h-14.7v2.6h14.7v14.7h2.6v-14.7h14.7z" transform="rotate(-45 16 16)" />
   </Icon>
 );
 

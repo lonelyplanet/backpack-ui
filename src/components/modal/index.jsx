@@ -1,12 +1,13 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import Modal from "react-modal";
 import radium, { Style } from "radium";
 import { color, media, timing, zIndex } from "../../../settings.json";
 import Heading from "../heading";
 import { rgb } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
 
 const largeMQ = `(min-width: ${media.min["768"]})`;
-const sidePadding = "48px";
+const modalPadding = 56;
 
 const styles = {
   overlay: {
@@ -22,42 +23,38 @@ const styles = {
     textAlign: "center",
     textTransform: "uppercase",
     [`@media ${largeMQ}`]: {
-      paddingLeft: sidePadding,
-      paddingRight: sidePadding,
-      paddingTop: "48px",
+      paddingLeft: `${modalPadding}px`,
+      paddingRight: `${modalPadding}px`,
+      paddingTop: `${modalPadding}px`,
       paddingBottom: 0,
       borderBottom: 0,
       textAlign: "left",
     },
   },
   contentContainer: {
+    paddingLeft: `${modalPadding}px`,
+    paddingRight: `${modalPadding}px`,
     paddingTop: "32px",
-    paddingBottom: "32px",
-    paddingLeft: sidePadding,
-    paddingRight: sidePadding,
-    [`@media ${largeMQ}`]: {
-      paddingTop: "96px",
-      paddingBottom: "96px",
-    },
+    paddingBottom: `${modalPadding * 2}px`,
   },
   actionItem: {
     position: "absolute",
     backgroundColor: "transparent",
     top: "12px",
     [`@media ${largeMQ}`]: {
-      top: sidePadding,
+      top: `${modalPadding}px`,
     },
   },
   rightAction: {
     right: "16px",
     [`@media ${largeMQ}`]: {
-      right: sidePadding,
+      right: `${modalPadding}px`,
     },
   },
   leftAction: {
     left: "16px",
     [`@media ${largeMQ}`]: {
-      left: sidePadding,
+      left: `${modalPadding}px`,
     },
   },
   desktopTitle: {
@@ -65,11 +62,13 @@ const styles = {
     [`@media ${largeMQ}`]: {
       display: "block",
       textAlign: "center",
+      paddingTop: "90px",
       paddingBottom: "104px",
     },
   },
   mobileTitle: {
     display: "block",
+    minHeight: "10px",
     [`@media ${largeMQ}`]: {
       display: "none",
     },
@@ -88,6 +87,7 @@ function ModalComponent({
   rightActionContent,
   title,
   children,
+  style,
 }) {
   const rules = {
     ".ReactModal__Content--after-open.ReactModal__Content--before-close": {
@@ -145,7 +145,7 @@ function ModalComponent({
   return (
     <Modal
       isOpen={isOpen}
-      style={styles}
+      style={Object.assign({}, styles, style)}
       onRequestClose={closeModal}
       closeTimeoutMS={closeTimeoutMS}
       contentLabel={contentLabel}
@@ -208,19 +208,20 @@ function ModalComponent({
 }
 
 ModalComponent.propTypes = {
-  isOpen: React.PropTypes.bool.isRequired,
-  closeModal: React.PropTypes.func,
-  leftAction: React.PropTypes.func,
-  leftActionContent: React.PropTypes.node,
-  rightAction: React.PropTypes.func,
-  rightActionContent: React.PropTypes.node,
-  closeTimeoutMS: React.PropTypes.number,
-  contentLabel: React.PropTypes.string,
-  desktopWidth: React.PropTypes.string,
-  title: React.PropTypes.string.isRequired,
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.node,
-    React.PropTypes.string,
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func,
+  leftAction: PropTypes.func,
+  leftActionContent: PropTypes.node,
+  rightAction: PropTypes.func,
+  rightActionContent: PropTypes.node,
+  closeTimeoutMS: PropTypes.number,
+  contentLabel: PropTypes.string,
+  desktopWidth: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  style: propTypes.style,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.string,
   ]).isRequired,
 };
 

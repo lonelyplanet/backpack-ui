@@ -1,8 +1,11 @@
-import React from "react";
+import React, { PropTypes } from "react";
+import radium from "radium";
 import Button from "../button";
 import TileGrid from "../tileGrid";
 import TileVideo from "../tileVideo";
+import CardVideo from "../cardVideo";
 import { color } from "../../../settings.json";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   buttonWrapper: {
@@ -14,8 +17,8 @@ const styles = {
   },
 };
 
-const WatchLaterList = ({ videos, removeVideo }) => (
-  <div>
+const WatchLaterList = ({ videos, removeVideo, style }) => (
+  <div className="WatchLaterList" style={style}>
     <TileGrid>
       {videos.map(video => (
         <TileVideo
@@ -48,8 +51,9 @@ const WatchLaterList = ({ videos, removeVideo }) => (
 );
 
 WatchLaterList.propTypes = {
-  videos: React.PropTypes.arrayOf(React.PropTypes.object),
-  removeVideo: React.PropTypes.func,
+  videos: PropTypes.arrayOf(PropTypes.shape(CardVideo.propTypes)),
+  removeVideo: PropTypes.func,
+  style: propTypes.style,
 };
 
-export default WatchLaterList;
+export default radium(WatchLaterList);

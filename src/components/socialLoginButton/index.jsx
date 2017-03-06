@@ -5,6 +5,7 @@ import { color, typography } from "../../../settings.json";
 import { rgb } from "../../utils/color";
 import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
+import propTypes from "../../utils/propTypes";
 
 const hoverStyles = {
   base: {
@@ -54,7 +55,7 @@ const SocialLoginButton = ({
   iconName,
   iconProps,
   iconColor,
-  text,
+  children,
   style,
 }) => {
   const iconStyles = {
@@ -68,18 +69,18 @@ const SocialLoginButton = ({
   return (
     <button style={[styles.base, style && style]} onClick={onClick}>
       {iconFromString(iconName, iconParameters)}
-      <span style={styles.text}>{text}</span>
+      <span style={styles.text}>{children}</span>
     </button>
   );
 };
 
 SocialLoginButton.propTypes = {
-  text: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
   iconName: PropTypes.oneOf(Object.keys(Icon)).isRequired,
   onClick: PropTypes.func,
   iconColor: PropTypes.string,
   iconProps: PropTypes.objectOf(PropTypes.object),
-  style: PropTypes.objectOf(PropTypes.object),
+  style: propTypes.style,
 };
 
 export default radium(SocialLoginButton);

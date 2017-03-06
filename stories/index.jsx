@@ -134,7 +134,7 @@ import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
 import TypeSelector from "../src/components/typeSelector";
 import UserProfileHeader from "../src/components/userProfileHeader";
-import WatchLaterModal from "../src/components/watchLaterModal";
+import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 import VideoEmbed from "../src/components/videoEmbed";
 
 storiesOf("Styles", module)
@@ -1084,7 +1084,8 @@ storiesOf("Modal", module)
       <WatchLaterModal
         loggedIn={boolean("Logged in", false)}
         isOpen={boolean("Modal Open", true)}
-        videos={watchLaterVideos}
+        // videos={watchLaterVideos}
+        videos={[]}
         removeVideo={action("Remove Video")}
         authMessage={text("Auth Message", "Organize your research & unlock tools like bookmarking.")}
       />
@@ -1688,11 +1689,10 @@ storiesOf("Social Login Button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <SocialLoginButton
-      text={text("Text", "Continue with Facebook")}
       iconName={select("Icon Name", Object.keys(Icon), "FacebookBlock")}
       iconColor={color("Icon Color", bpColor.facebook)}
       onClick={action("Handle Login")}
-    />
+    >{text("Text", "Continue with Facebook")}</SocialLoginButton>
   ));
 
 storiesOf("Social share", module)

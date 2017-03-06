@@ -1,8 +1,12 @@
 import React from "react";
+import radium from "radium";
 import Heading from "../heading";
 import Button from "../button";
 import { ClockOutline } from "../icon";
-import { color } from "../../../settings.json";
+import { color, media } from "../../../settings.json";
+import propTypes from "../../utils/propTypes";
+
+const largeMQ = `(min-width: ${media.min["768"]})`;
 
 const styles = {
   container: {
@@ -10,6 +14,15 @@ const styles = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: "50%",
+    transform: "translateY(-50%)",
+    [`@media ${largeMQ}`]: {
+      position: "relative",
+      transform: "translateY(0)",
+    },
   },
   icon: {
     color: color.detailHeaderSmall,
@@ -31,11 +44,9 @@ const styles = {
 };
 
 
-const EmptyVideoList = () => (
-  <div style={styles.container}>
-    <div style={styles.icon}>
-      <ClockOutline />
-    </div>
+const WatchLaterEmptyList = ({ style }) => (
+  <div style={[styles.container, style]} className="WatchLaterEmptyList">
+    <ClockOutline style={styles.icon} />
     <div style={styles.content}>
       <Heading
         level={3}
@@ -51,4 +62,8 @@ const EmptyVideoList = () => (
   </div>
 );
 
-export default EmptyVideoList;
+WatchLaterEmptyList.propTypes = {
+  style: propTypes.style,
+};
+
+export default radium(WatchLaterEmptyList);
