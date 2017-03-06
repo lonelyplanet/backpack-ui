@@ -136,6 +136,7 @@ import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
 import TypeSelector from "../src/components/typeSelector";
 import UserProfileHeader from "../src/components/userProfileHeader";
+import Validate from "../src/components/validate";
 import VideoEmbed from "../src/components/videoEmbed";
 
 storiesOf("Styles", module)
@@ -2021,6 +2022,51 @@ storiesOf("User profile header", module)
       subtitle="By air, land and sea"
       location="Ottawa, ON"
     />
+  ));
+
+storiesOf("Validate", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Validate
+      validations={{
+        change: ["required", "min:3"],
+        blur: ["required", "email", "min:3"],
+      }}
+
+      rules={{
+        required: {
+          message: (field) => `${field} is dawg the bounty hunter`,
+        },
+      }}
+    >
+      {(validate, errorMessages, allValid, errorCount) => (
+        <form onSubmit={validate} >
+          <div>
+            <input
+              type="text"
+              name="change"
+              onChange={validate}
+              required
+              min="3"
+            />
+            {errorMessages.change && errorMessages.change.map(val => <p>{val}</p>)}
+          </div>
+
+          <div>
+            <input
+              type="email"
+              name="blur"
+              required
+              onBlur={validate}
+              min="3"
+            />
+            {errorMessages.blur && errorMessages.blur.map(val => <p>{val}</p>)}
+          </div>
+          <input type="submit" disabled={!allValid} />
+          <p>Error Count: {errorCount}</p>
+        </form>
+      )}
+    </Validate>
   ));
 
 storiesOf("Video embed", module)
