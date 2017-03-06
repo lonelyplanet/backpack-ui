@@ -1700,6 +1700,11 @@ storiesOf("Tag", module)
     >
       {text("Text", "The Americas")}
     </Tag>
+  ))
+  .add("No click", () => (
+    <Tag selected={boolean("Selected", false)}>
+      {text("Text", "The Americas")}
+    </Tag>
   ));
 
 storiesOf("Tag list", module)
