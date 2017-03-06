@@ -98,6 +98,7 @@ import PhotoGallery from "../src/components/photoGallery";
 import Placeholder from "../src/components/placeholder";
 import PoiPaginator from "../src/components/poiPaginator";
 // Price
+import ProfileHeader from "../src/components/profileHeader";
 import PromotedGuidebook from "../src/components/promotedGuidebook";
 import ProviderLogo from "../src/components/providerLogo";
 import Rating from "../src/components/rating";
@@ -147,9 +148,8 @@ import Tooltip from "../src/components/tooltip";
 import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
 import TypeSelector from "../src/components/typeSelector";
-import UserProfileHeader from "../src/components/userProfileHeader";
-import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 import VideoEmbed from "../src/components/videoEmbed";
+import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 
 storiesOf("Styles", module)
   .addDecorator(withKnobs)
@@ -355,7 +355,7 @@ storiesOf("Avatar", module)
     <Avatar
       src={text("Image source", data.avatar.rizzo)}
       alt={text("Alternate text", "Rizzo")}
-      size={select("Size", [25, 40, 70], 70)}
+      size={select("Size", [40, 48, 80, 104], 80)}
       href={text("URL", "")}
     />
   ));
@@ -1379,6 +1379,31 @@ storiesOf("POI Paginator", module)
     />
   ));
 
+storiesOf("Profile header", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <ProfileHeader
+      avatarSrc={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+      name={text("Name", "Rizzo the Rat")}
+      location={text("Location", "Ottawa, Ontario")}
+      intro={text("Introduction", `The very basic core of a woman’s living spirit is
+        her passion for adventure. The joy of life comes from our encounters with new
+        experiences, and hence there is no greater joy than to have an endlessly changing
+        horizon.`)}
+      interests={array("Interests", [
+        "Family",
+        "Shopping",
+        "Adventure",
+        "Art and architecture",
+        "Food",
+      ])}
+      alignment={select("Alignment", {
+        left: "Left",
+        center: "Center",
+      }, "center")}
+    />
+  ));
+
 storiesOf("Promoted guidebook", module)
   .addDecorator(withKnobs)
   .add("default", () => (
@@ -2382,17 +2407,6 @@ storiesOf("Type selector", module)
         ]}
       />
     </StyleRoot>
-  ));
-
-storiesOf("User profile header", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <UserProfileHeader
-      avatarSrc={data.avatar.rizzo}
-      name="Rizzo the Rat"
-      subtitle="By air, land and sea"
-      location="Ottawa, ON"
-    />
   ));
 
 storiesOf("Video embed", module)
