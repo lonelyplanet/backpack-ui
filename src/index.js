@@ -114,6 +114,7 @@ export { default as Takeover } from "./components/takeover";
 export { default as TextBubble } from "./components/textBubble";
 export { default as ThumbnailListItem } from "./components/thumbnailListItem";
 export { default as Timestamp } from "./components/timestamp";
+export { default as Toast } from "./components/toast";
 export { default as Toolbar } from "./components/toolbar";
 export { default as Tooltip } from "./components/tooltip";
 export { default as TourItinerary } from "./components/tourItinerary";

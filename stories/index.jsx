@@ -7,6 +7,7 @@ import "react-photoswipe/lib/photoswipe.css";
 import { storiesOf, action } from "@kadira/storybook";
 import { withKnobs, text, boolean, number, array, object, select, color } from "@kadira/storybook-addon-knobs";
 import { color as bpColor } from "../settings.json";
+import colors from "../src/styles/colors";
 import data from "./data.json";
 import Colors from "./Colors";
 import Fonts from "./fonts";
@@ -129,6 +130,7 @@ import TileGrid from "../src/components/tileGrid";
 import TileVideo from "../src/components/tileVideo";
 import TileVideoPoster from "../src/components/tileVideoPoster";
 import Timestamp from "../src/components/timestamp";
+import Toast from "../src/components/toast";
 import Tooltip from "../src/components/tooltip";
 import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
@@ -1934,6 +1936,22 @@ storiesOf("Timestamp", module)
     >
       {text("Relative time", "3 days ago")}
     </Timestamp>
+  ));
+
+storiesOf("Toast", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Toast
+      color={select("Color", Object.keys(colors), "accentGreen")}
+      icon={select("Icon", Object.keys(Icon), "Checkmark")}
+      visible={boolean("Visible", true)}
+      direction={select("Direction", {
+        top: "Top",
+        bottom: "Bottom",
+      }, "bottom")}
+    >
+      {text("Text", "Added to Watch Later")}
+    </Toast>
   ));
 
 storiesOf("Tooltip", module)
