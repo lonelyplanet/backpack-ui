@@ -54,9 +54,9 @@ const WatchLaterEmptyList = ({ style }) => (
         weight="thick"
         override={styles.headline}
       >
-        Add Some Videos
+        Add some videos
       </Heading>
-      <p style={styles.text}>Find interesting videos and save them to your Watch List.</p>
+      <p style={styles.text}>Find interesting videos and save them for later.</p>
       <Button rounded>Browse Channels</Button>
     </div>
   </div>
