@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
-import { Link } from "react-router";
+import Link from "../link";
 import { color, timing, typography, zIndex } from "../../../settings.json";
 import font from "../../utils/font";
 import { rgba } from "../../utils/color";

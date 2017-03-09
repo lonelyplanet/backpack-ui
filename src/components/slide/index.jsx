@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
+import Link from "../link";
 import Container from "../container";
 import Heading from "../heading";
 import HeroImageContainer from "../heroImageContainer";
@@ -143,9 +144,9 @@ const Slide = ({
           weight="thick"
           override={styles.heading}
         >
-          <a href={callToAction.link} onClick={callToAction.onClick} style={styles.link} >
+          <Link to={callToAction.link} onClick={callToAction.onClick} style={styles.link} >
             {headline}
-          </a>
+          </Link>
         </Heading>
 
         {adPosition &&
@@ -154,19 +155,20 @@ const Slide = ({
             style={styles.adContainer}
           />
         }
-        <Button
-          rounded
-          color={callToAction.theme}
-          href={callToAction.link}
-          size="large"
-          customStyles={styles.button}
-          onClick={callToAction.onClick}
-        >
-          {callToAction.icon &&
-            iconFromString(callToAction.icon, { style: styles.button.icon })
-          }
-          {callToAction.text}
-        </Button>
+        <Link to={callToAction.link}>
+          <Button
+            rounded
+            color={callToAction.theme}
+            size="large"
+            customStyles={styles.button}
+            onClick={callToAction.onClick}
+          >
+            {callToAction.icon &&
+              iconFromString(callToAction.icon, { style: styles.button.icon })
+            }
+            {callToAction.text}
+          </Button>
+        </Link>
       </div>
     </Container>
   </div>

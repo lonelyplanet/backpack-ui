@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
+import Link from "../link";
 import Heading from "../heading";
 import MoreLink from "../moreLink";
 import propTypes from "../../utils/propTypes";
@@ -39,14 +40,15 @@ const CardShelfHeader = ({ heading, href, adSlot, style }) => (
     {adSlot}
 
     {href &&
-      <MoreLink
-        href={href}
-        style={styles.moreLink}
-        size="small"
-        caps
-      >
-        View more
-      </MoreLink>
+      <Link to={href}>
+        <MoreLink
+          style={styles.moreLink}
+          size="small"
+          caps
+        >
+          View more
+        </MoreLink>
+      </Link>
     }
   </header>
 );

@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
+import Link from "../link";
 import { media } from "../../../settings.json";
 import propTypes from "../../utils/propTypes";
 
@@ -36,18 +37,21 @@ const CardAnchor = ({
   layout,
   style,
 }) => (
-  <a
+  <Link
+    to={href}
     className="Card-anchor"
-    href={href}
     tabIndex={tabIndex}
-    style={[
-      styles.default,
-      layout !== "tile" && styles.card,
-      style,
-    ]}
   >
-    {children}
-  </a>
+    <span
+      style={[
+        styles.default,
+        layout !== "tile" && styles.card,
+        style,
+      ]}
+    >
+      {children}
+    </span>
+  </Link>
 );
 
 CardAnchor.propTypes = {

@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
+import Link from "../link";
 import CoverPhoto from "../coverPhoto";
 import { color, timing } from "../../../settings.json";
 import propTypes from "../../utils/propTypes";
@@ -46,8 +47,8 @@ const CardImage = ({
       style,
     ]}
   >
-    <a
-      href={href}
+    <Link
+      to={href}
       tabIndex={-1}
       style={styles.anchor}
     >
@@ -64,7 +65,7 @@ const CardImage = ({
       }
 
       {children}
-    </a>
+    </Link>
   </div>
 );
 

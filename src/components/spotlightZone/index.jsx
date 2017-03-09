@@ -1,8 +1,8 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import { Link } from "react-router";
 import settings from "../../../settings.json";
 import { gutter, percentage } from "../../utils/grid";
+import Link from "../link";
 import font from "../../utils/font";
 import { rgba } from "../../utils/color";
 import Heading from "../heading";
