@@ -34,7 +34,7 @@ HeroImageContainer.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
-  ]).isRequired,
+  ]),
   imagePath: PropTypes.string.isRequired,
   style: PropTypes.objectOf(PropTypes.object),
 };

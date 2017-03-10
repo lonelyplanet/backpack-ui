@@ -62,7 +62,7 @@ CardAnchor.propTypes = {
   style: propTypes.style,
 };
 
-CardAnchor.propTypes = {
+CardAnchor.defaultProps = {
   layout: "card",
 };
 

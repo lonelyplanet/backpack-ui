@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react";
 import { Link as RouterLink } from "react-router";
-import isExternal from "is-url-external";
+
+const isExternal = (url) => /^(http|https):\/\//.test(url);
 
 const Link = (props) => (
   isExternal(props.to) ?

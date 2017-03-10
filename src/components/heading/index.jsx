@@ -3,6 +3,7 @@ import radium from "radium";
 import settings from "../../../settings.json";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   base: {
@@ -226,9 +227,7 @@ Heading.propTypes = {
   /**
    * Override styles
    */
-  override: React.PropTypes.oneOfType([
-    React.PropTypes.object,
-  ]),
+  override: propTypes.style,
 };
 
 Heading.defaultProps = {

@@ -130,6 +130,7 @@ MastheadSlider.propTypes = {
     PropTypes.number,
     PropTypes.bool,
     PropTypes.object,
+    PropTypes.array,
   ])),
   customSettings: PropTypes.objectOf(PropTypes.oneOfType([
     PropTypes.string,

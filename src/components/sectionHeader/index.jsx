@@ -70,7 +70,7 @@ const SectionHeader = ({ children, heading, theme, style }) => {
 
 SectionHeader.propTypes = {
   children: PropTypes.node.isRequired,
-  heading: PropTypes.shape(Heading.propTypes).isRequired,
+  heading: PropTypes.shape(Heading.propTypes),
   theme: React.PropTypes.oneOf([
     "default",
     "light",

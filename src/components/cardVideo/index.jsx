@@ -151,7 +151,7 @@ CardVideo.propTypes = {
     "milliseconds",
   ]),
   heading: PropTypes.string.isRequired,
-  bullets: PropTypes.arrayOf(PropTypes.string).isRequired,
+  bullets: PropTypes.arrayOf(PropTypes.string),
   layout: PropTypes.oneOf([
     "card",
     "tile",

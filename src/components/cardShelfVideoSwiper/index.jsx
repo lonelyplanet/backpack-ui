@@ -7,9 +7,6 @@ import {
   CardShelf,
   CardShelfHeader,
 } from "../cardShelf";
-import CardVideo from "../cardVideo";
-import TileVideo from "../tileVideo";
-import TileVideoPoster from "../tileVideoPoster";
 import PaginatorButton from "../paginatorButton";
 import propTypes from "../../utils/propTypes";
 
@@ -296,18 +293,7 @@ class CardShelfVideoSwiper extends Component {
 }
 
 CardShelfVideoSwiper.propTypes = {
-  children: (props, propName, componentName) => {
-    const prop = props[propName];
-    let error = null;
-
-    React.Children.forEach(prop, (child) => {
-      if (child.type !== CardVideo || child.type !== TileVideo || child.type !== TileVideoPoster) {
-        error = new Error(`${componentName} children should be of type "CardVideo", "TileVideo" or "TileVideoPoster".`);
-      }
-    });
-
-    return error;
-  },
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
   heading: PropTypes.string,
   href: PropTypes.string,
   slidesVisible: PropTypes.oneOf([3, 4]),
@@ -318,6 +304,7 @@ CardShelfVideoSwiper.propTypes = {
       PropTypes.bool,
       PropTypes.element,
       PropTypes.object,
+      PropTypes.array,
     ]),
   ),
   style: propTypes.style,

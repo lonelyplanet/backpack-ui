@@ -50,7 +50,7 @@ const GradientOverlay = ({ children, gradientType, color, style }) => {
 
 GradientOverlay.propTypes = {
   color: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.element,
   gradientType: PropTypes.oneOf([
     "",
     "linear",

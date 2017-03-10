@@ -42,13 +42,14 @@ const NewsArticleAuthor = ({ name, title, absoluteTime, relativeTime, theme, sty
         (theme === "dark") && { color: color.white },
       ]}
     />
-
-    <Timestamp
-      dateTime={absoluteTime}
-      style={styles.timestamp}
-    >
-      {relativeTime}
-    </Timestamp>
+    {relativeTime &&
+      <Timestamp
+        dateTime={absoluteTime}
+        style={styles.timestamp}
+      >
+        {relativeTime}
+      </Timestamp>
+    }
   </div>
 );
 

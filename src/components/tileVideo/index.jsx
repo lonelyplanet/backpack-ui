@@ -5,11 +5,14 @@ import CardVideo from "../cardVideo";
 const TileVideo = (props) => (
   <CardVideo
     {...props}
-    aspectRatio="video"
-    layout="tile"
   />
 );
 
 TileVideo.propTypes = CardVideo.propTypes;
+
+TileVideo.defaultProps = {
+  aspectRatio: "video",
+  layout: "tile",
+};
 
 export default radium(TileVideo);
