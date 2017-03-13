@@ -2,6 +2,7 @@ import React from "react";
 import radium from "radium";
 import Heading from "../heading";
 import Button from "../button";
+import Link from "../link";
 import { ClockOutline } from "../icon";
 import { color, media } from "../../../settings.json";
 import propTypes from "../../utils/propTypes";
@@ -57,7 +58,7 @@ const WatchLaterEmptyList = ({ style }) => (
         Add some videos
       </Heading>
       <p style={styles.text}>Find interesting videos and save them for later.</p>
-      <Button rounded>Browse Channels</Button>
+      <Link to={'/video/v'}><Button rounded>Browse Channels</Button></Link>
     </div>
   </div>
 );

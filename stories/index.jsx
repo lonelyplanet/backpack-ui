@@ -1083,14 +1083,19 @@ storiesOf("Modal", module)
     </StyleRoot>
   )).add("Watch Later", () => (
     <StyleRoot>
-      <WatchLaterModal
-        loggedIn={boolean("Logged in", false)}
-        isOpen={boolean("Modal Open", true)}
-        // videos={watchLaterVideos}
-        videos={[]}
-        removeVideo={action("Remove Video")}
-        authMessage={text("Auth Message", "Organize your research & unlock tools like bookmarking.")}
-      />
+      <ModalWrapper>
+        {(isOpen, toggle) => (
+          <WatchLaterModal
+            loggedIn={boolean("Logged in", false)}
+            isOpen={isOpen}
+            onClose={toggle}
+            // videos={watchLaterVideos}
+            videos={[]}
+            removeVideo={action("Remove Video")}
+            authMessage={text("Auth Message", "Organize your research & unlock tools like bookmarking.")}
+          />
+        )}
+      </ModalWrapper>
     </StyleRoot>
   ));
 
