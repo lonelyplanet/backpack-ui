@@ -58,7 +58,7 @@ const WatchLaterEmptyList = ({ style }) => (
         Add some videos
       </Heading>
       <p style={styles.text}>Find interesting videos and save them for later.</p>
-      <Link to={'/video/v'}><Button rounded>Browse Channels</Button></Link>
+      <Link to={"/video/v"}><Button rounded>Browse Channels</Button></Link>
     </div>
   </div>
 );

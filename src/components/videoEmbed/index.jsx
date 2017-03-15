@@ -60,6 +60,10 @@ class VideoEmbed extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      id: props.id,
+    };
+
     this.accountId = "5104226627001";
     this.playerId = "default";
     this.embedId = "default";
@@ -112,11 +116,11 @@ class VideoEmbed extends Component {
   }
 
   getPlayerVideoClassName() {
-    return `${_.kebabCase(this.props.id)}-VideoEmbed-video`;
+    return `${_.kebabCase(this.state.id)}-VideoEmbed-video`;
   }
 
   getPlayerScriptId() {
-    return `${_.kebabCase(this.props.id)}-VideoEmbed-initialize`;
+    return `${_.kebabCase(this.state.id)}-VideoEmbed-initialize`;
   }
 
   setupPlayer() {
