@@ -53,6 +53,11 @@ const styles = {
   },
 
   content: {
+    overflow: "hidden",
+    maxHeight: 0,
+  },
+
+  contentPadding: {
     paddingBottom: "32px",
 
     [mq]: {
@@ -90,9 +95,14 @@ const AccordionItem = ({ heading, content, id, expanded, onClick, style }) => (
       aria-labelledby={`${id}-heading`}
       aria-hidden={!expanded}
       role="tabpanel"
-      style={[styles.content, !expanded && { display: "none" }]}
+      style={[styles.content, expanded && {
+        transition: `max-height ${timing.slow} ease-in-out`,
+        maxHeight: "500vh",
+      }]}
     >
-      {content}
+      <div style={styles.contentPadding}>
+        {content}
+      </div>
     </div>
   </div>
 );
