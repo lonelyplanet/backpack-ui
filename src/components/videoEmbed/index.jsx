@@ -1,11 +1,10 @@
 import React, { Component, PropTypes } from "react";
 import radium, { Style } from "radium";
 import get from "lodash/get";
-import kebabCase from "lodash/kebabCase";
 import uniqueId from "lodash/uniqueId";
 import { color, media } from "../../../settings.json";
 
-const _ = { get, kebabCase, uniqueId };
+const _ = { get, uniqueId };
 
 const styles = {
   container: {
@@ -114,11 +113,11 @@ class VideoEmbed extends Component {
   }
 
   getPlayerVideoClassName() {
-    return `${_.kebabCase(this.id)}-VideoEmbed-video`;
+    return `VideoEmbed-video-${this.id}`;
   }
 
   getPlayerScriptId() {
-    return `${_.kebabCase(this.id)}-VideoEmbed-initialize`;
+    return `VideoEmbed-initialize-${this.id}`;
   }
 
   setupPlayer() {
