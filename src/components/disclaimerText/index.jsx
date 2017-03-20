@@ -19,8 +19,18 @@ function markup(htmlContent) {
 }
 
 const DisclaimerText = ({ children, style }) => (
-  <div className="DisclaimerText" style={[styles, style]}>
-    <Style rules={{ ".DisclaimerText a": { color: "inherit" } }} />;
+  <div
+    className="DisclaimerText"
+    style={[styles, style]}
+  >
+    <Style
+      rules={{
+        ".DisclaimerText a": {
+          color: "inherit",
+        },
+      }}
+    />
+
     <div dangerouslySetInnerHTML={markup(children)} />
   </div>
 );
