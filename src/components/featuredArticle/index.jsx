@@ -4,6 +4,7 @@ import settings from "../../../settings.json";
 import { rgb } from "../../utils/color";
 import { add, gutter, span } from "../../utils/grid";
 import font from "../../utils/font";
+import propTypes from "../../utils/propTypes";
 import Container from "../container";
 import HeroImageContainer from "../heroImageContainer";
 import GradientOverlay from "../gradientOverlay";
@@ -78,12 +79,13 @@ const styles = {
   },
 };
 
-const FeaturedArticle = ({ article, constrained }) => (
+const FeaturedArticle = ({ article, constrained, style }) => (
   <div
     className="FeaturedArticle"
     style={[
       styles.container.default,
       constrained && styles.container.constrained,
+      style,
     ]}
   >
     <Style
@@ -133,6 +135,7 @@ FeaturedArticle.propTypes = {
     }),
   }).isRequired,
   constrained: PropTypes.bool,
+  style: propTypes.style,
 };
 
 FeaturedArticle.defaultProps = {
