@@ -41,7 +41,7 @@ const styles = {
     animation: `fly-in ${settings.timing.default}`,
     height: (navigationSubHeightMobile + 2), // to push horizontal scrollbar out of view
     margin: 0,
-    "-webkit-overflow-scrolling": "touch",
+    WebkitOverflowScrolling: "touch",
     overflowX: "auto",
     overflowY: "hidden",
     padding: 0,
