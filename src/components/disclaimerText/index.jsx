@@ -2,6 +2,7 @@ import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import { color } from "../../../settings.json";
 import font from "../../utils/font";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   color: color.detailHeaderSmall,
@@ -25,7 +26,7 @@ const DisclaimerText = ({ children, style }) => (
 
 DisclaimerText.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.objectOf(PropTypes.object),
+  style: propTypes.style,
 };
 
 export default radium(DisclaimerText);
