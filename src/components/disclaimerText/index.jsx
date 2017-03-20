@@ -1,11 +1,11 @@
 import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
-import { color } from "../../../settings.json";
+import colors from "../../styles/colors";
 import font from "../../utils/font";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
-  color: color.detailHeaderSmall,
+  color: colors.textSecondary,
   fontFamily: font("benton"),
   fontSize: "11px",
   lineHeight: (17 / 11),
