@@ -84,7 +84,7 @@ const styles = {
   },
 
   input: {
-    border: 0,
+    borderWidth: 0,
     WebkitAppearance: "none",
   },
 
