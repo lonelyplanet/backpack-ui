@@ -2,12 +2,13 @@ import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import colors from "../../styles/colors";
 import font from "../../utils/font";
+import { fontSizeUppercase } from "../../styles/typography";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
   color: colors.textSecondary,
   fontFamily: font("benton"),
-  fontSize: "11px",
+  fontSize: `${fontSizeUppercase}px`,
   lineHeight: (17 / 11),
 };
 
