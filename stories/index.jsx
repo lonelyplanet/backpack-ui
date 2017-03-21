@@ -121,10 +121,11 @@ import StaticMap from "../src/components/staticMap";
 import Strapline from "../src/components/strapline";
 import TabbedNav from "../src/components/tabbedNav";
 import Tag from "../src/components/tag";
-import TallCarousel from "../src/components/tallCarousel";
 import TagList from "../src/components/tagList";
-import TextBubble from "../src/components/textBubble";
 // Takeover
+import TallCarousel from "../src/components/tallCarousel";
+import { TextAccent, TextBodyArticle, TextBodySmall, TextHeading, TextUppercase } from "../src/components/text";
+import TextBubble from "../src/components/textBubble";
 import ThumbnailListItem from "../src/components/thumbnailListItem";
 import TileGrid from "../src/components/tileGrid";
 import TileVideo from "../src/components/tileVideo";
@@ -1841,6 +1842,50 @@ storiesOf("Tall Carousel", module)
         image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/57c5143d7297c21181c522eee9e3b05e-europe.jpg?h=768&sharp=10&vib=20",
       }]}
     />
+  ));
+
+storiesOf("Text", module)
+  .addDecorator(withKnobs)
+  .add("Accent", () => (
+    <TextAccent>
+      {text("Text", "Lorem ipsum dolor sit amet")}
+    </TextAccent>
+  ))
+  .add("Body article", () => (
+    <TextBodyArticle>
+      {text("Text", `Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Aenean sed
+        mauris sit amet massa interdum bibendum.
+        Ut ac ex leo. Cras blandit enim ut metus
+        feugiat, vitae pharetra massa aliquet.`)}
+    </TextBodyArticle>
+  ))
+  .add("Body small", () => (
+    <TextBodySmall>
+      {text("Text", `Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Aenean sed
+        mauris sit amet massa interdum bibendum.
+        Ut ac ex leo. Cras blandit enim ut metus
+        feugiat, vitae pharetra massa aliquet.`)}
+    </TextBodySmall>
+  ))
+  .add("Heading", () => (
+    <TextHeading
+      level={select("Level", [1, 2, 3, 4, 5, 6], 2)}
+      size={select("Size", [1, 2, 3, 4, 5, 6], 2)}
+      weight={select("Weight", {
+        light: "Light",
+        book: "Book",
+        medium: "Medium",
+      }, "book")}
+    >
+      {text("Text", "Lorem ipsum")}
+    </TextHeading>
+  ))
+  .add("Uppercase", () => (
+    <TextUppercase>
+      {text("Text", "Lorem ipsum")}
+    </TextUppercase>
   ));
 
 storiesOf("Text bubble", module)
