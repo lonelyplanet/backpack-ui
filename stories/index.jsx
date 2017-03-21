@@ -1239,11 +1239,6 @@ storiesOf("Newsletter", module)
           title: "Thank you for signing up!",
           text: "We’ll send a confirmation email to",
         })}
-        signup={object("Signup data", {
-          vars: "sailthru[vars][sf_LP_Editorial_Newsletter]",
-          email_template: "Welcome email",
-          source: "homepage",
-        })}
       />
     </StyleRoot>
   ));

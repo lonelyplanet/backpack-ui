@@ -108,6 +108,19 @@ class Newsletter extends Component {
     return str.join("&");
   }
 
+  static getErrorMessage() {
+    const has = Object.prototype.hasOwnProperty;
+    const error = this.state.error;
+    const errorMessage = {
+      409: "You are already subscribed.",
+    };
+
+    if (error.response && has.call(errorMessage, error.response.status)) {
+      return errorMessage[error.response.status];
+    }
+
+    return "There was an error processing your request. Please try again later.";
+  }
 
   constructor(props) {
     super(props);
@@ -129,20 +142,6 @@ class Newsletter extends Component {
     this.resetForm = this.resetForm.bind(this);
     this.submitRequest = this.submitRequest.bind(this);
     this.recaptchCallback = this.recaptchCallback.bind(this);
-  }
-
-  getErrorMessage() {
-    const has = Object.prototype.hasOwnProperty;
-    const error = this.state.error;
-    const errorMessage = {
-      409: "You are already subscribed.",
-    };
-
-    if (error.response && has.call(errorMessage, error.response.status)) {
-      return errorMessage[error.response.status];
-    }
-
-    return "There was an error processing your request. Please try again later.";
   }
 
   recaptchCallback() {
@@ -168,10 +167,8 @@ class Newsletter extends Component {
     this.setState({ waiting: true });
 
     const formattedData = Newsletter.formatFormData({
-      [this.props.signup.vars]: "true",
-      "sailthru[editable]": "1",
-      "sailthru[email_template]": this.props.signup.email_template,
-      "sailthru[source]": this.props.signup.source,
+      "sailthru[email_template]": "Welcome email",
+      "sailthru[source]": "homepage",
       "sailthru[opt_in]": "on",
       "sailthru[email]": this.state.email,
       "g-recaptcha-response": reCaptchaResponse,
@@ -331,11 +328,6 @@ Newsletter.propTypes = {
     title: PropTypes.string,
     text: PropTypes.string,
   }),
-  signup: PropTypes.shape({
-    vars: PropTypes.string,
-    email_template: PropTypes.string,
-    source: PropTypes.string,
-  }),
   style: PropTypes.objectOf(PropTypes.object),
 };
 
@@ -348,11 +340,6 @@ Newsletter.defaultProps = {
   confirmation: {
     title: "Thank you for signing up!",
     text: "We’ll send a confirmation email to",
-  },
-  signup: {
-    vars: "sailthru[vars][sf_LP_Editorial_Newsletter]",
-    email_template: "Welcome email",
-    source: "homepage",
   },
 };
 
