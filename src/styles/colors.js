@@ -1,5 +1,6 @@
 export default {
   // Background colors
+  bgOverlay: "#000",
   bgPrimary: "#fff",
   bgSecondary: "#f4fbfe",
 
