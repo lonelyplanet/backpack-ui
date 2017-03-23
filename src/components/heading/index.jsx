@@ -1,6 +1,5 @@
 import React from "react";
 import radium from "radium";
-import settings from "../../../settings.json";
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
 import {
