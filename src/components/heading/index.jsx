@@ -1,7 +1,7 @@
 import React from "react";
 import radium from "radium";
 import settings from "../../../settings.json";
-import { rgb } from "../../utils/color";
+import { rgba } from "../../utils/color";
 import font from "../../utils/font";
 import propTypes from "../../utils/propTypes";
 
@@ -66,7 +66,7 @@ const styles = {
 
   importance: {
     low: {
-      color: `rgba(${rgb(settings.color.text)}, .4)`,
+      color: rgba(settings.color.text, 0.4),
     },
     normal: {
       color: settings.color.titleGray,
