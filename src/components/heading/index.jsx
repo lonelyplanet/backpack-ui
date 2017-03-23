@@ -3,6 +3,11 @@ import radium from "radium";
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
 import {
+  fontSizeHeading1,
+  fontSizeHeading2,
+  fontSizeHeading3,
+  fontSizeHeading4,
+  fontSizeUppercase,
   fontWeightLight,
   fontWeightBook,
   fontWeightMedium,
@@ -23,33 +28,33 @@ const styles = {
 
   size: {
     tiny: {
-      fontSize: "11px",
+      fontSize: `${fontSizeUppercase}px`,
     },
     small: {
-      fontSize: "11px",
+      fontSize: `${fontSizeUppercase}px`,
 
       [`@media (min-width: ${mq.min["600"]})`]: {
-        fontSize: "13px",
+        fontSize: `${(fontSizeUppercase + 2)}px`,
       },
     },
     medium: {
-      fontSize: "26px",
+      fontSize: `${(fontSizeHeading4 + 2)}px`,
       lineHeight: (40 / 26),
     },
     large: {
-      fontSize: "40px",
+      fontSize: `${(fontSizeHeading2 - 8)}px`,
 
       [`@media (min-width: ${mq.min["600"]})`]: {
-        fontSize: "45px",
+        fontSize: `${(fontSizeHeading2 - 3)}px`,
       },
     },
     huge: {
-      fontSize: "30px",
+      fontSize: `${(fontSizeHeading3 + 2)}px`,
       letterSpacing: "-1px",
       lineHeight: (36 / 30),
 
       [`@media (min-width: ${mq.min["600"]})`]: {
-        fontSize: "64px",
+        fontSize: `${fontSizeHeading1}px`,
         lineHeight: (70 / 64),
       },
     },
