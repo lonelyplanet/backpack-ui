@@ -1,6 +1,11 @@
 import React from "react";
 import radium from "radium";
 import settings from "../../../settings.json";
+import {
+  fontWeightLight,
+  fontWeightBook,
+  fontWeightMedium,
+} from "../../styles/typography";
 import { rgba } from "../../utils/color";
 import font from "../../utils/font";
 import propTypes from "../../utils/propTypes";
@@ -51,16 +56,16 @@ const styles = {
 
   weight: {
     extraThin: {
-      fontWeight: 100,
+      fontWeight: fontWeightLight,
     },
     thin: {
-      fontWeight: 300,
+      fontWeight: fontWeightLight,
     },
     normal: {
-      fontWeight: 400,
+      fontWeight: fontWeightBook,
     },
     thick: {
-      fontWeight: 600,
+      fontWeight: fontWeightMedium,
     },
   },
 
