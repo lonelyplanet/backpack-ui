@@ -127,40 +127,20 @@ function Heading({
   override,
 }) {
   const Component = `h${level}`;
-  const style = [styles.base];
-
-  if (size) {
-    style.push(styles.size[size]);
-  }
-
-  if (weight) {
-    style.push(styles.weight[weight]);
-  }
-
-  if (importance) {
-    style.push(styles.importance[importance]);
-  }
-
-  if (tracking) {
-    style.push(styles.tracking[tracking]);
-  }
-
-  if (truncate) {
-    style.push(styles.variant.truncate);
-  }
-
-  if (caps) {
-    style.push(styles.variant.caps);
-  }
-
-  if (override) {
-    style.push(override);
-  }
 
   return (
     <Component
       className="Heading"
-      style={style}
+      style={[
+        styles.base,
+        size && styles.size[size],
+        weight && styles.weight[weight],
+        importance && styles.importance[importance],
+        tracking && styles.tracking[tracking],
+        truncate && styles.variant.truncate,
+        caps && styles.variant.caps,
+        override,
+      ]}
     >
       {children}
     </Component>
