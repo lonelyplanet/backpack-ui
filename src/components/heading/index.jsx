@@ -1,6 +1,7 @@
 import React from "react";
 import radium from "radium";
 import settings from "../../../settings.json";
+import colors from "../../styles/colors";
 import {
   fontWeightLight,
   fontWeightBook,
@@ -71,16 +72,16 @@ const styles = {
 
   importance: {
     low: {
-      color: rgba(settings.color.text, 0.4),
+      color: rgba(colors.textPrimary, 0.35),
     },
     normal: {
-      color: settings.color.titleGray,
+      color: colors.textPrimary,
     },
     high: {
-      color: settings.color.darkGray,
+      color: colors.textPrimary,
     },
     alert: {
-      color: settings.color.red,
+      color: colors.accentRed,
     },
   },
 
