@@ -232,19 +232,12 @@ Heading.propTypes = {
 
 Heading.defaultProps = {
   level: 2,
-
   size: "medium",
-
   weight: "normal",
-
   importance: "normal",
-
   tracking: "normal",
-
   truncate: false,
-
   caps: false,
-
   override: {},
 };
 
