@@ -2,6 +2,7 @@ import React from "react";
 import radium from "radium";
 import settings from "../../../settings.json";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import {
   fontWeightLight,
   fontWeightBook,
@@ -28,7 +29,7 @@ const styles = {
     small: {
       fontSize: "11px",
 
-      [`@media (min-width: ${settings.media.min["600"]})`]: {
+      [`@media (min-width: ${mq.min["600"]})`]: {
         fontSize: "13px",
       },
     },
@@ -39,7 +40,7 @@ const styles = {
     large: {
       fontSize: "40px",
 
-      [`@media (min-width: ${settings.media.min["600"]})`]: {
+      [`@media (min-width: ${mq.min["600"]})`]: {
         fontSize: "45px",
       },
     },
@@ -48,7 +49,7 @@ const styles = {
       letterSpacing: "-1px",
       lineHeight: (36 / 30),
 
-      [`@media (min-width: ${settings.media.min["600"]})`]: {
+      [`@media (min-width: ${mq.min["600"]})`]: {
         fontSize: "64px",
         lineHeight: (70 / 64),
       },
