@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
@@ -171,12 +171,12 @@ Heading.propTypes = {
   /**
    * Text for the heading
    */
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 
   /**
    * Creates the heading element
    */
-  level: React.PropTypes.oneOf([
+  level: PropTypes.oneOf([
     1,
     2,
     3,
@@ -188,7 +188,7 @@ Heading.propTypes = {
   /**
    * Declares the font size of the heading
    */
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "huge",
     "large",
     "medium",
@@ -199,7 +199,7 @@ Heading.propTypes = {
   /**
    * Adjusts the font weight of the heading
    */
-  weight: React.PropTypes.oneOf([
+  weight: PropTypes.oneOf([
     "thick",
     "normal",
     "thin",
@@ -209,7 +209,7 @@ Heading.propTypes = {
   /**
    * The heading color changes based on importance
    */
-  importance: React.PropTypes.oneOf([
+  importance: PropTypes.oneOf([
     "alert",
     "high",
     "normal",
@@ -219,7 +219,7 @@ Heading.propTypes = {
   /**
    * Controls the letter spacing
    */
-  tracking: React.PropTypes.oneOf([
+  tracking: PropTypes.oneOf([
     "tight",
     "normal",
     "loose",
@@ -228,12 +228,12 @@ Heading.propTypes = {
   /**
    * Whether or not to hide the text overflow with an ellipsis
    */
-  truncate: React.PropTypes.bool,
+  truncate: PropTypes.bool,
 
   /**
    * Whether or not to set the heading in all caps
    */
-  caps: React.PropTypes.bool,
+  caps: PropTypes.bool,
 
   /**
    * Override styles
