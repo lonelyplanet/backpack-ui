@@ -5,10 +5,10 @@ import WatchLaterEmptyList from "../watchLater/watchLaterEmptyList";
 const ModalContentWatchLaterList = ({ videos, removeVideo, removeAll }) => (
   <div className="ModalContentWatchLaterList">
     {videos && videos.length ? (
-      <WatchLaterList 
-        videos={videos} 
-        removeVideo={removeVideo} 
-        removeAll={removeAll} 
+      <WatchLaterList
+        videos={videos}
+        removeVideo={removeVideo}
+        removeAll={removeAll}
       />
     ) : (
       <WatchLaterEmptyList />

@@ -7,7 +7,6 @@ import ModalContentWatchLaterList from "../modalContent/modalContentWatchLaterLi
 import ModalContentSocialAuth from "../modalContent/modalContentSocialAuth";
 import propTypes from "../../utils/propTypes";
 
-
 const WatchLaterModal = ({
   loggedIn,
   isOpen,
@@ -28,10 +27,10 @@ const WatchLaterModal = ({
     style={style}
   >
     { loggedIn ? (
-      <ModalContentWatchLaterList 
-        videos={videos} 
-        removeVideo={removeVideo} 
-        removeAll={removeAll} 
+      <ModalContentWatchLaterList
+        videos={videos}
+        removeVideo={removeVideo}
+        removeAll={removeAll}
       />
     ) : (
       <ModalContentSocialAuth message={authMessage} />
