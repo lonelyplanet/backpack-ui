@@ -11,6 +11,11 @@ const styles = {
     lineHeight: (40 / 26),
     marginBottom: 0,
   },
+
+  paragraph: {
+    marginBottom: 0,
+    marginTop: 0,
+  },
 };
 
 function Lede({ content, style }) {
@@ -19,7 +24,7 @@ function Lede({ content, style }) {
       className="Lede"
       style={[styles.container, style]}
     >
-      <p>
+      <p style={styles.paragraph}>
         {content}
       </p>
     </div>
