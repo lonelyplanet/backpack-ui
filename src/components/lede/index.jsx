@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 import settings from "../../../settings.json";
 
@@ -32,7 +32,7 @@ Lede.propTypes = {
   /**
    * String of content
    */
-  content: React.PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
 };
 
 Lede.defaultProps = {
