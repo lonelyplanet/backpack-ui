@@ -4,7 +4,7 @@ import settings from "../../../settings.json";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
-  base: {
+  container: {
     color: settings.color.darkGray,
     fontSize: "2.6rem",
     fontWeight: 300,
@@ -17,7 +17,7 @@ function Lede({ content, style }) {
   return (
     <div
       className="Lede"
-      style={[styles.base, style]}
+      style={[styles.container, style]}
     >
       <p>
         {content}
