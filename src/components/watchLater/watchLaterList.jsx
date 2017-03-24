@@ -17,7 +17,7 @@ const styles = {
   },
 };
 
-const WatchLaterList = ({ videos, removeVideo, style }) => (
+const WatchLaterList = ({ videos, removeVideo, removeAll, style }) => (
   <div className="WatchLaterList" style={style}>
     <TileGrid>
       {videos.map(video => (
@@ -42,7 +42,7 @@ const WatchLaterList = ({ videos, removeVideo, style }) => (
         color="transparent"
         border={false}
         customStyles={styles.button}
-        onClick={() => removeVideo(videos.map(video => video.id))}
+        onClick={removeAll}
       >
         Clear All
       </Button>
@@ -53,6 +53,7 @@ const WatchLaterList = ({ videos, removeVideo, style }) => (
 WatchLaterList.propTypes = {
   videos: PropTypes.arrayOf(PropTypes.shape(CardVideo.propTypes)),
   removeVideo: PropTypes.func,
+  removeAll: PropTypes.func,
   style: propTypes.style,
 };
 

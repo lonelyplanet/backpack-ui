@@ -1,4 +1,5 @@
 import React, { PropTypes } from "react";
+import Link from "../link";
 import { color, zIndex } from "../../../settings.json";
 import HeroImageContainer from "../heroImageContainer";
 import GradientOverlay from "../gradientOverlay";
@@ -11,9 +12,9 @@ const styles = {
 };
 
 const SlideTall = (item, index) => (
-  <a
+  <Link
     className="TallCarousel-slide"
-    href={item.link}
+    to={item.link}
     key={index}
   >
     <HeroImageContainer imagePath={item.image}>
@@ -23,7 +24,7 @@ const SlideTall = (item, index) => (
         {item.type}
       </p>
     </HeroImageContainer>
-  </a>
+  </Link>
 );
 
 SlideTall.propTypes = {

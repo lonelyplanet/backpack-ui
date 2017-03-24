@@ -2,10 +2,14 @@ import React, { PropTypes } from "react";
 import WatchLaterList from "../watchLater/watchLaterList";
 import WatchLaterEmptyList from "../watchLater/watchLaterEmptyList";
 
-const ModalContentWatchLaterList = ({ videos, removeVideo }) => (
+const ModalContentWatchLaterList = ({ videos, removeVideo, removeAll }) => (
   <div className="ModalContentWatchLaterList">
-    {videos && videos.length > 0 ? (
-      <WatchLaterList videos={videos} removeVideo={removeVideo} />
+    {videos && videos.length ? (
+      <WatchLaterList 
+        videos={videos} 
+        removeVideo={removeVideo} 
+        removeAll={removeAll} 
+      />
     ) : (
       <WatchLaterEmptyList />
     )}
@@ -15,6 +19,7 @@ const ModalContentWatchLaterList = ({ videos, removeVideo }) => (
 ModalContentWatchLaterList.propTypes = {
   videos: PropTypes.arrayOf(PropTypes.object),
   removeVideo: PropTypes.func,
+  removeAll: PropTypes.func,
 };
 
 export default ModalContentWatchLaterList;

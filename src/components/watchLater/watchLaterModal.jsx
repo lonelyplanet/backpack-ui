@@ -15,6 +15,7 @@ const WatchLaterModal = ({
   authMessage,
   videos,
   removeVideo,
+  removeAll,
   style,
 }) => (
   <Modal
@@ -27,7 +28,11 @@ const WatchLaterModal = ({
     style={style}
   >
     { loggedIn ? (
-      <ModalContentWatchLaterList videos={videos} removeVideo={removeVideo} />
+      <ModalContentWatchLaterList 
+        videos={videos} 
+        removeVideo={removeVideo} 
+        removeAll={removeAll} 
+      />
     ) : (
       <ModalContentSocialAuth message={authMessage} />
     )}
@@ -41,6 +46,7 @@ WatchLaterModal.propTypes = {
   onClose: PropTypes.func,
   videos: PropTypes.arrayOf(PropTypes.shape(CardVideo.propTypes)),
   removeVideo: PropTypes.func,
+  removeAll: PropTypes.func,
   authMessage: PropTypes.string,
   style: propTypes.style,
 };
