@@ -144,7 +144,7 @@ CardVideo.propTypes = {
   aspectRatio: PropTypes.oneOf([
     "video",
     "poster",
-  ]).isRequired,
+  ]),
   runtime: PropTypes.number.isRequired,
   runtimeUnit: PropTypes.oneOf([
     "seconds",
