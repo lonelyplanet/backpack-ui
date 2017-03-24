@@ -13,9 +13,6 @@ const styles = {
   },
 };
 
-/**
- * Lede component
- */
 function Lede({ content, style }) {
   return (
     <div
@@ -30,9 +27,6 @@ function Lede({ content, style }) {
 }
 
 Lede.propTypes = {
-  /**
-   * String of content
-   */
   content: PropTypes.string.isRequired,
   style: propTypes.style,
 };
