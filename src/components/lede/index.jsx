@@ -18,21 +18,22 @@ const styles = {
   },
 };
 
-function Lede({ content, style }) {
+function Lede({ children, content, style }) {
   return (
     <div
       className="Lede"
       style={[styles.container, style]}
     >
       <p style={styles.paragraph}>
-        {content}
+        {children || content}
       </p>
     </div>
   );
 }
 
 Lede.propTypes = {
-  content: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
+  content: PropTypes.string,
   style: propTypes.style,
 };
 
