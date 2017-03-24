@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import settings from "../../../settings.json";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   base: {
@@ -15,11 +16,11 @@ const styles = {
 /**
  * Lede component
  */
-function Lede({ content }) {
+function Lede({ content, style }) {
   return (
     <div
       className="Lede"
-      style={styles.base}
+      style={[styles.base, style]}
     >
       <p>
         {content}
@@ -33,6 +34,7 @@ Lede.propTypes = {
    * String of content
    */
   content: PropTypes.string.isRequired,
+  style: propTypes.style,
 };
 
 export default radium(Lede);
