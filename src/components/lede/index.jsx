@@ -35,8 +35,4 @@ Lede.propTypes = {
   content: PropTypes.string.isRequired,
 };
 
-Lede.defaultProps = {
-  content: "",
-};
-
 export default radium(Lede);
