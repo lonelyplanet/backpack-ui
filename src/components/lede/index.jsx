@@ -1,11 +1,11 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import settings from "../../../settings.json";
+import colors from "../../styles/colors";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
   container: {
-    color: settings.color.darkGray,
+    color: colors.textPrimary,
     fontSize: "2.6rem",
     fontWeight: 300,
     lineHeight: (40 / 26),
