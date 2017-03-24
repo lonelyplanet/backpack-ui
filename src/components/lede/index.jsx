@@ -1,16 +1,18 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import colors from "../../styles/colors";
+import { fontSizeHeading3 } from "../../styles/typography";
+import { textHeading3 } from "../../utils/typography";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
-  container: {
-    color: colors.textPrimary,
-    fontSize: "2.6rem",
-    fontWeight: 300,
-    lineHeight: (40 / 26),
-    marginBottom: 0,
-  },
+  container: Object.assign({},
+    textHeading3("light"),
+    {
+      color: colors.textPrimary,
+      lineHeight: (42 / fontSizeHeading3),
+    },
+  ),
 
   paragraph: {
     marginBottom: 0,
