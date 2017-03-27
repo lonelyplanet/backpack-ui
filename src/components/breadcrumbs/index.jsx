@@ -64,7 +64,7 @@ function Breadcrumbs({ links, style }) {
     <span
       className="Breadcrumbs-item"
       style={[index !== links.length - 1 && styles.item.padded]}
-      key={index}
+      key={link.href}
       {...itemMicroData}
     >
       <a
@@ -73,7 +73,7 @@ function Breadcrumbs({ links, style }) {
           index < links.length - 1 && styles.anchor.padded,
         ]}
         href={`//www.lonelyplanet.com${link.href}`}
-        key={index}
+        key={link.href}
         {...linkMicroData(link)}
       >
         <span itemProp="name">{link.title}</span>
