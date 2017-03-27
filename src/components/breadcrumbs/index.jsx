@@ -112,6 +112,4 @@ Breadcrumbs.propTypes = {
   style: propTypes.style,
 };
 
-Breadcrumbs.styles = styles;
-
 export default radium(Breadcrumbs);
