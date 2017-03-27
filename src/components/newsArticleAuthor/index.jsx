@@ -2,6 +2,7 @@ import React, { PropTypes } from "react";
 import radium from "radium";
 import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
 import Author from "../author";
 import Timestamp from "../timestamp";
 
@@ -74,7 +75,7 @@ NewsArticleAuthor.propTypes = {
   absoluteTime: PropTypes.string,
   relativeTime: PropTypes.string,
   theme: PropTypes.oneOf(["light", "dark"]),
-  style: PropTypes.objectOf(PropTypes.object),
+  style: propTypes.style,
 };
 
 NewsArticleAuthor.defaultProps = {
