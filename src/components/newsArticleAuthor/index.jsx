@@ -25,7 +25,14 @@ const styles = {
   },
 };
 
-const NewsArticleAuthor = ({ name, title, absoluteTime, relativeTime, theme, style }) => (
+const NewsArticleAuthor = ({
+  name,
+  title,
+  absoluteTime,
+  relativeTime,
+  theme,
+  style,
+}) => (
   <div
     className="NewsArticleAuthor"
     style={style}
