@@ -2,6 +2,7 @@ import React from "react";
 import radium from "radium";
 import capitalize from "lodash/capitalize";
 import colors from "../../styles/colors";
+import { fontSizeBodySmall } from "../../styles/typography";
 import Icon from "../icon";
 import { blueLink } from "../../utils/mixins";
 import schema from "../../utils/schema";
@@ -15,7 +16,7 @@ const styles = {
     base: {
       color: rgba(colors.textPrimary, 0.56),
       fontFamily: font("benton"),
-      fontSize: "14px",
+      fontSize: `${fontSizeBodySmall}px`,
       fontWeight: 400,
       lineHeight: 1,
     },
@@ -23,7 +24,7 @@ const styles = {
 
   item: {
     padded: {
-      marginRight: `${10 / 14}em`,
+      marginRight: `${10 / fontSizeBodySmall}em`,
     },
   },
 
@@ -31,7 +32,7 @@ const styles = {
     base: blueLink(),
 
     padded: {
-      marginRight: `${10 / 14}em`,
+      marginRight: `${10 / fontSizeBodySmall}em`,
     },
   },
 };
@@ -84,8 +85,8 @@ function Breadcrumbs({ links }) {
 
       {index < links.length - 1 &&
         <Icon.ChevronRight
-          width={`${6 / 14}em`}
-          height={`${6 / 14}em`}
+          width={`${6 / fontSizeBodySmall}em`}
+          height={`${6 / fontSizeBodySmall}em`}
         />
       }
 
