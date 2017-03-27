@@ -60,9 +60,6 @@ function linkMicroData(link) {
   });
 }
 
-/**
- * Breadcrumb navigation component
- */
 function Breadcrumbs({ links }) {
   const items = links.map((link, index) => (
     <span
@@ -106,9 +103,6 @@ function Breadcrumbs({ links }) {
 }
 
 Breadcrumbs.propTypes = {
-  /**
-   * An array of links for the navigation
-   */
   links: React.PropTypes.arrayOf(
     React.PropTypes.shape({
       title: React.PropTypes.string,
