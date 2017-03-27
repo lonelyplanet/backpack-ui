@@ -49,6 +49,7 @@ const NewsArticleAuthor = ({ name, title, absoluteTime, relativeTime, theme, sty
         },
       ]}
     />
+
     {relativeTime &&
       <Timestamp
         dateTime={absoluteTime}
