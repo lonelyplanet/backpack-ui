@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 import capitalize from "lodash/capitalize";
 import colors from "../../styles/colors";
@@ -102,11 +102,11 @@ function Breadcrumbs({ links, style }) {
 }
 
 Breadcrumbs.propTypes = {
-  links: React.PropTypes.arrayOf(
-    React.PropTypes.shape({
-      title: React.PropTypes.string,
-      href: React.PropTypes.string,
-      type: React.PropTypes.string,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      href: PropTypes.string,
+      type: PropTypes.string,
     }),
   ).isRequired,
   style: propTypes.style,
