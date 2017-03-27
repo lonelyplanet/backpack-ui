@@ -1,6 +1,6 @@
 import assign from "object-assign";
 import colors from "../styles/colors";
-import settings from "../../settings.json";
+import timing from "../styles/timing";
 import { rgba } from "./color";
 
 /**
@@ -25,7 +25,7 @@ function blueLink() {
   return {
     color: colors.linkPrimary,
     textDecoration: "none",
-    transition: `color ${settings.timing.fast} ease-in-out`,
+    transition: `color ${timing.fast} ease-in-out`,
 
     ":hover": { color: hoverColor },
     ":active": { color: hoverColor },
@@ -48,7 +48,7 @@ function underlinedLink(linkColor = colors.textPrimary) {
     color: linkColor,
     position: "relative",
     textDecoration: "none",
-    transition: `color ${settings.timing.fast} ease`,
+    transition: `color ${timing.fast} ease`,
 
     // Draw the underline with a background gradient
     backgroundImage: `linear-gradient(
