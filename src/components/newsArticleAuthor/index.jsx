@@ -1,13 +1,13 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import { color } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
 import Author from "../author";
 import Timestamp from "../timestamp";
 
 const styles = {
   line: {
-    backgroundColor: color.red,
+    backgroundColor: colors.accentRed,
     content: "``",
     display: "block",
     height: "2px",
@@ -30,7 +30,7 @@ const NewsArticleAuthor = ({ name, title, absoluteTime, relativeTime, theme, sty
     <div
       style={[
         styles.line,
-        (theme === "dark") && { backgroundColor: rgba(color.white, 0.5) },
+        (theme === "dark") && { backgroundColor: rgba(colors.bgPrimary, 0.5) },
       ]}
     />
 
@@ -39,7 +39,7 @@ const NewsArticleAuthor = ({ name, title, absoluteTime, relativeTime, theme, sty
       title={title}
       style={[
         styles.author,
-        (theme === "dark") && { color: color.white },
+        (theme === "dark") && { color: colors.bgPrimary },
       ]}
     />
     {relativeTime &&
