@@ -118,10 +118,6 @@ Breadcrumbs.propTypes = {
   ).isRequired,
 };
 
-Breadcrumbs.defaultProps = {
-  links: [],
-};
-
 Breadcrumbs.styles = styles;
 
 export default radium(Breadcrumbs);
