@@ -20,7 +20,7 @@ function outline(offset = 2) {
  * @return {Object} CSS styles
  */
 function blueLink() {
-  const hoverColor = "#4699d9";
+  const hoverColor = rgba(colors.linkPrimary, 0.8);
 
   return {
     color: colors.linkPrimary,
