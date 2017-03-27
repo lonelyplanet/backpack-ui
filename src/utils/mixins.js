@@ -1,4 +1,5 @@
 import assign from "object-assign";
+import colors from "../styles/colors";
 import settings from "../../settings.json";
 import { rgba } from "./color";
 
@@ -22,7 +23,7 @@ function blueLink() {
   const hoverColor = "#4699d9";
 
   return {
-    color: settings.color.blue,
+    color: colors.linkPrimary,
     textDecoration: "none",
     transition: `color ${settings.timing.fast} ease-in-out`,
 
@@ -37,10 +38,10 @@ function blueLink() {
  * @param  {String} linkColor Link color
  * @return {Object}           CSS styles object
  */
-function underlinedLink(linkColor = settings.color.titleGray) {
+function underlinedLink(linkColor = colors.textPrimary) {
   const underlineOffset = 2;
   const underlineWeight = 1;
-  const backgroundColor = settings.color.white;
+  const backgroundColor = colors.bgPrimary;
   const underlineColor = rgba(linkColor, 0.4);
 
   return {
