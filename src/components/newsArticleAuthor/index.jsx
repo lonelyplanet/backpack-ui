@@ -30,7 +30,9 @@ const NewsArticleAuthor = ({ name, title, absoluteTime, relativeTime, theme, sty
     <div
       style={[
         styles.line,
-        (theme === "dark") && { backgroundColor: rgba(colors.bgPrimary, 0.5) },
+        (theme === "dark") && {
+          backgroundColor: rgba(colors.bgPrimary, 0.5),
+        },
       ]}
     />
 
@@ -39,7 +41,9 @@ const NewsArticleAuthor = ({ name, title, absoluteTime, relativeTime, theme, sty
       title={title}
       style={[
         styles.author,
-        (theme === "dark") && { color: colors.bgPrimary },
+        (theme === "dark") && {
+          color: colors.bgPrimary,
+        },
       ]}
     />
     {relativeTime &&
