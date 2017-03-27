@@ -26,7 +26,10 @@ const styles = {
 };
 
 const NewsArticleAuthor = ({ name, title, absoluteTime, relativeTime, theme, style }) => (
-  <div className="NewsArticleAuthor" style={style}>
+  <div
+    className="NewsArticleAuthor"
+    style={style}
+  >
     <div
       style={[
         styles.line,
