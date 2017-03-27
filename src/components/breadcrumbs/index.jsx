@@ -1,18 +1,19 @@
 import React from "react";
 import radium from "radium";
 import capitalize from "lodash/capitalize";
-import { color } from "../../../settings.json";
+import colors from "../../styles/colors";
 import Icon from "../icon";
 import { blueLink } from "../../utils/mixins";
 import schema from "../../utils/schema";
 import font from "../../utils/font";
+import { rgba } from "../../utils/color";
 
 const _ = { capitalize };
 
 const styles = {
   container: {
     base: {
-      color: color.lightText,
+      color: rgba(colors.textPrimary, 0.56),
       fontFamily: font("benton"),
       fontSize: "14px",
       fontWeight: 400,
