@@ -8,6 +8,7 @@ import { blueLink } from "../../utils/mixins";
 import schema from "../../utils/schema";
 import font from "../../utils/font";
 import { rgba } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
 
 const _ = { capitalize };
 
@@ -60,7 +61,7 @@ function linkMicroData(link) {
   });
 }
 
-function Breadcrumbs({ links }) {
+function Breadcrumbs({ links, style }) {
   const items = links.map((link, index) => (
     <span
       className="Breadcrumbs-item"
@@ -94,7 +95,7 @@ function Breadcrumbs({ links }) {
   return (
     <nav
       className="Breadcrumbs"
-      style={styles.container.base}
+      style={[styles.container.base, style]}
       {...listMicroData}
     >
       {items}
@@ -110,6 +111,7 @@ Breadcrumbs.propTypes = {
       type: React.PropTypes.string,
     }),
   ).isRequired,
+  style: propTypes.style,
 };
 
 Breadcrumbs.styles = styles;
