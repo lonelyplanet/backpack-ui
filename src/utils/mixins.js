@@ -1,6 +1,6 @@
 import assign from "object-assign";
 import settings from "../../settings.json";
-import { rgb } from "./color";
+import { rgba } from "./color";
 
 /**
  * Adds outline styles
@@ -41,7 +41,7 @@ function underlinedLink(linkColor = settings.color.titleGray) {
   const underlineOffset = 2;
   const underlineWeight = 1;
   const backgroundColor = settings.color.white;
-  const underlineColor = `rgba(${rgb(linkColor)}, .4)`;
+  const underlineColor = rgba(linkColor, 0.4);
 
   return {
     color: linkColor,
