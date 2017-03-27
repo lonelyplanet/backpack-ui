@@ -14,13 +14,11 @@ const _ = { capitalize };
 
 const styles = {
   container: {
-    base: {
-      color: rgba(colors.textPrimary, 0.56),
-      fontFamily: font("benton"),
-      fontSize: `${fontSizeBodySmall}px`,
-      fontWeight: fontWeightBook,
-      lineHeight: 1,
-    },
+    color: rgba(colors.textPrimary, 0.56),
+    fontFamily: font("benton"),
+    fontSize: `${fontSizeBodySmall}px`,
+    fontWeight: fontWeightBook,
+    lineHeight: 1,
   },
 
   item: {
@@ -95,7 +93,7 @@ function Breadcrumbs({ links, style }) {
   return (
     <nav
       className="Breadcrumbs"
-      style={[styles.container.base, style]}
+      style={[styles.container, style]}
       {...listMicroData}
     >
       {items}
