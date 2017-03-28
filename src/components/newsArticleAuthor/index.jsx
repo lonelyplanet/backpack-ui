@@ -3,7 +3,8 @@ import radium from "radium";
 import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
-import Author from "../author";
+import AuthorName from "../authorName";
+import ItalicText from "../italicText";
 import Timestamp from "../timestamp";
 
 const styles = {
@@ -12,12 +13,34 @@ const styles = {
     content: "``",
     display: "block",
     height: "2px",
-    marginBottom: "27px",
     width: "48px",
   },
 
+  container: {
+    alignItems: "baseline",
+    display: "flex",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+
   author: {
-    display: "block",
+    alignItems: "baseline",
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "flex-start",
+    marginTop: "17px",
+  },
+
+  authorName: {
+    marginRight: "8px",
+    marginTop: "10px",
+  },
+
+  italicText: {
+    marginRight: "8px",
+    marginTop: "8px",
   },
 
   timestamp: {
@@ -47,25 +70,33 @@ const NewsArticleAuthor = ({
       ]}
     />
 
-    <Author
-      name={name}
-      title={title}
-      style={[
-        styles.author,
-        (theme === "dark") && {
-          color: colors.bgPrimary,
-        },
-      ]}
-    />
-
-    {relativeTime &&
-      <Timestamp
-        dateTime={absoluteTime}
-        style={styles.timestamp}
+    <div style={styles.container}>
+      <div
+        style={[
+          styles.author,
+          (theme === "dark") && {
+            color: colors.bgPrimary,
+          },
+        ]}
       >
-        {relativeTime}
-      </Timestamp>
-    }
+        <AuthorName style={styles.authorName}>
+          {name}
+        </AuthorName>
+
+        <ItalicText style={styles.italicText}>
+          {title}
+        </ItalicText>
+      </div>
+
+      {relativeTime &&
+        <Timestamp
+          dateTime={absoluteTime}
+          style={styles.timestamp}
+        >
+          {relativeTime}
+        </Timestamp>
+      }
+    </div>
   </div>
 );
 
