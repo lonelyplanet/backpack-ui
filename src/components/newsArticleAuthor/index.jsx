@@ -30,7 +30,7 @@ const styles = {
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "flex-start",
-    marginTop: "17px",
+    marginTop: "16px",
   },
 
   authorName: {
