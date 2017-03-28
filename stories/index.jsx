@@ -1167,6 +1167,7 @@ storiesOf("News article author", module)
       title={text("Title", "Global news reporter")}
       absoluteTime={text("Absolute time", "2017-01-17")}
       relativeTime={text("Relative time", "3 days ago")}
+      theme={select("Theme", ["light", "dark"], "light")}
     />
   ));
 
