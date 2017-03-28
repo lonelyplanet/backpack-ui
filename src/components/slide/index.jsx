@@ -8,6 +8,8 @@ import GradientOverlay from "../gradientOverlay";
 import BulletDescription from "../bulletDescription";
 import Button from "../button";
 import iconFromString from "../../utils/icon";
+import { rgb } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
 import { color, media, typography, zIndex } from "../../../settings.json";
 
 const styles = {
@@ -64,6 +66,14 @@ const styles = {
       paddingLeft: "46px",
     },
   },
+  fullOverlay: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundColor: `rgba(${rgb(color.black)}, 0.3)`,
+  },
   position: {
     center: {
       display: "flex",
@@ -117,6 +127,8 @@ const styles = {
 const Slide = ({
   image,
   description,
+  fullOverlay,
+  fullOverlayStyles,
   headline,
   adPosition,
   gradientColor,
@@ -126,6 +138,12 @@ const Slide = ({
   <div className="Slide" style={styles.base}>
     <HeroImageContainer imagePath={image} />
     <GradientOverlay gradientType="leftCorner" color={gradientColor} />
+    {fullOverlay &&
+      <div
+        className="FullOverlay"
+        style={[styles.fullOverlay, fullOverlayStyles && fullOverlayStyles]}
+      />
+    }
     <Container
       style={{
         height: "100%",
@@ -188,6 +206,8 @@ Slide.propTypes = {
   description: PropTypes.arrayOf(
     PropTypes.string,
   ),
+  fullOverlay: PropTypes.bool,
+  fullOverlayStyles: propTypes.style,
   adPosition: PropTypes.string,
   gradientColor: PropTypes.string,
   position: PropTypes.string,
