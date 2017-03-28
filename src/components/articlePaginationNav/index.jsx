@@ -2,9 +2,13 @@ import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import { media } from "../../../settings.json";
 import ArticlePaginationItem from "../articlePaginationItem";
+import propTypes from "../../utils/propTypes";
 
-const ArticlePaginationNav = ({ previousArticle, nextArticle }) => (
-  <div className="ArticlePaginationNav" style={{ overflow: "hidden" }}>
+const ArticlePaginationNav = ({ previousArticle, nextArticle, style }) => (
+  <div
+    className="ArticlePaginationNav"
+    style={[{ overflow: "hidden" }, style]}
+  >
     <Style
       scopeSelector=".ArticlePaginationNav"
       rules={{
@@ -42,6 +46,7 @@ const ArticlePaginationNav = ({ previousArticle, nextArticle }) => (
 ArticlePaginationNav.propTypes = {
   previousArticle: PropTypes.shape(ArticlePaginationItem.propTypes).isRequired,
   nextArticle: PropTypes.shape(ArticlePaginationItem.propTypes).isRequired,
+  style: propTypes.style,
 };
 
 export default radium(ArticlePaginationNav);
