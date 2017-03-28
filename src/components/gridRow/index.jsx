@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-import assign from "object-assign";
+import radium from "radium";
 import cn from "classnames";
 
 const styles = {
@@ -12,7 +12,7 @@ const GridRow = ({ children, className, id, alignItems, style }) => (
   <div
     className={`${cn(className, "GridRow")}`}
     id={id}
-    style={assign({}, styles, { alignItems }, style)}
+    style={[styles, { alignItems }, style]}
   >
     {children}
   </div>
@@ -43,4 +43,4 @@ GridRow.defaultProps = {
   alignItems: null,
 };
 
-export default GridRow;
+export default radium(GridRow);
