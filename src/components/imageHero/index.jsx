@@ -4,11 +4,9 @@ import { color } from "../../../settings.json";
 
 const styles = {
   container: {
-    base: {
-      backgroundColor: color.gray,
-      backgroundSize: "cover",
-      position: "relative",
-    },
+    backgroundColor: color.gray,
+    backgroundSize: "cover",
+    position: "relative",
   },
 };
 
@@ -17,7 +15,7 @@ function ImageHero({ image, imageSize }) {
     <div
       className="ImageHero"
       style={[
-        styles.container.base,
+        styles.container,
         {
           backgroundImage: `url(${image})`,
           paddingBottom: `${(imageSize[1] / imageSize[0]) * 100}%`,
