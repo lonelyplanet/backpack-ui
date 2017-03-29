@@ -14,12 +14,6 @@ const propTypes = {
   imageSize: PropTypes.arrayOf(React.PropTypes.number).isRequired,
 };
 
-const defaultProps = {
-  images: "",
-
-  imageSize: [],
-};
-
 const styles = {
   container: {
     base: {
@@ -46,6 +40,5 @@ function ImageHero({ image, imageSize }) {
 }
 
 ImageHero.propTypes = propTypes;
-ImageHero.defaultProps = defaultProps;
 
 export default radium(ImageHero);
