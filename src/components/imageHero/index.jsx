@@ -2,18 +2,6 @@ import React, { PropTypes } from "react";
 import radium from "radium";
 import { color } from "../../../settings.json";
 
-const propTypes = {
-  /**
-   * Image path
-   */
-  image: PropTypes.string.isRequired,
-
-  /**
-   * Width and height of the image
-   */
-  imageSize: PropTypes.arrayOf(React.PropTypes.number).isRequired,
-};
-
 const styles = {
   container: {
     base: {
@@ -39,6 +27,9 @@ function ImageHero({ image, imageSize }) {
   );
 }
 
-ImageHero.propTypes = propTypes;
+ImageHero.propTypes = {
+  image: PropTypes.string.isRequired,
+  imageSize: PropTypes.arrayOf(React.PropTypes.number).isRequired,
+};
 
 export default radium(ImageHero);
