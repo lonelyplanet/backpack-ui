@@ -47,6 +47,7 @@ const styles = {
       fontSize: "calc(11px + 5vw)",
     },
     [`@media (min-width: ${media.min["720"]})`]: {
+      fontSize: "60px",
       marginBottom: "40px",
     },
     [`@media (min-width: ${media.min["840"]})`]: {
@@ -87,6 +88,9 @@ const styles = {
       justifyContent: "center",
       alignItems: "center",
       [`@media (min-width: ${media.min["720"]})`]: {
+        width: "68%",
+      },
+      [`@media (min-width: ${media.min["1290"]})`]: {
         width: "50%",
       },
     },

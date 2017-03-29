@@ -62,9 +62,20 @@ export const rules = {
 };
 
 const styles = {
+  slideContainer: {
+    overflowY: "hidden",
+    minHeight: "370px",
+    [`@media (min-width: ${media.min["720"]})`]: {
+      minHeight: "650px",
+    },
+  },
   slide: {
     width: "100%",
     position: "absolute",
+    minHeight: "370px",
+    [`@media (min-width: ${media.min["720"]})`]: {
+      minHeight: "650px",
+    },
   },
   // REM units being used to match what is currently in rizz-next
   isUnderGlobalHeader: {
@@ -95,10 +106,13 @@ class MastheadSlider extends Component {
     return (
       <div
         className="MastheadSlider"
-        style={[isUnderGlobalHeader && styles.isUnderGlobalHeader, {
-          height: this.props.height,
-          overflowY: "hidden",
-        }]}
+        style={[
+          styles.slideContainer,
+          isUnderGlobalHeader && styles.isUnderGlobalHeader,
+          {
+            height: this.props.height,
+          },
+        ]}
       >
         <Style
           scopeSelector=".MastheadSlider"
