@@ -32,6 +32,8 @@ const styles = {
     },
   },
   adContainer: {
+    // ad container will get display: block inline if present through GTM
+    display: "none",
     marginBottom: "36px",
     [`@media (min-width: ${media.min["720"]})`]: {
       marginBottom: "56px",
@@ -173,7 +175,7 @@ const Slide = ({
 
         {adPosition &&
           <div
-            id={`video-home-sponsor-advert-${adPosition}`}
+            id={adPosition}
             style={styles.adContainer}
           />
         }
