@@ -2,6 +2,7 @@ export const fontWeightLight = 300;
 export const fontWeightBook = 400;
 export const fontWeightMedium = 600;
 
+export const fontSizeSuper = 88;
 export const fontSizeHeading1 = 64;
 export const fontSizeHeading2 = 48;
 export const fontSizeHeading3 = 28;
@@ -13,6 +14,7 @@ export const fontSizeBodySmall = 14;
 export const fontSizeAccent = 16;
 export const fontSizeUppercase = 11;
 
+export const lineHeightSuper = (96 / fontSizeSuper);
 export const lineHeightHeading1 = (76 / fontSizeHeading1);
 export const lineHeightHeading2 = (56 / fontSizeHeading2);
 export const lineHeightHeading3 = (32 / fontSizeHeading3);
