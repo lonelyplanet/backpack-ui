@@ -34,6 +34,8 @@ function GridColumn({
   mdShift,
   lg,
   lgShift,
+  includeGutter,
+  gutterPosition,
 }) {
   const styles = {
     base: {
@@ -55,6 +57,12 @@ function GridColumn({
         (sm || smShift) && styles.sm,
         (md || mdShift) && styles.md,
         (lg || lgShift) && styles.lg,
+        (includeGutter && gutterPosition === "before") && {
+          marginLeft: fluid ? gutter() : gutter("static"),
+        },
+        (includeGutter && gutterPosition === "after") && {
+          marginRight: fluid ? gutter() : gutter("static"),
+        },
         style,
       ]}
     >
@@ -78,6 +86,8 @@ GridColumn.propTypes = {
   mdShift: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]),
   lg: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   lgShift: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]),
+  includeGutter: PropTypes.bool,
+  gutterPosition: PropTypes.oneOf(["before, after"]),
 };
 
 GridColumn.defaultProps = {
@@ -92,6 +102,8 @@ GridColumn.defaultProps = {
   mdShift: null,
   lg: null,
   lgShift: null,
+  includeGutter: false,
+  gutterPosition: "before",
 };
 
 export default radium(GridColumn);
