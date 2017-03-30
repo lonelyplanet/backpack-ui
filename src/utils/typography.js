@@ -3,6 +3,7 @@ import {
   fontWeightLight,
   fontWeightBook,
   fontWeightMedium,
+  fontSizeSuper,
   fontSizeHeading1,
   fontSizeHeading2,
   fontSizeHeading3,
@@ -13,6 +14,7 @@ import {
   fontSizeBodySmall,
   fontSizeAccent,
   fontSizeUppercase,
+  lineHeightSuper,
   lineHeightHeading1,
   lineHeightHeading2,
   lineHeightHeading3,
@@ -30,6 +32,15 @@ const weights = {
   book: fontWeightBook,
   medium: fontWeightMedium,
 };
+
+export function textSuper() {
+  return {
+    fontFamily: font("benton"),
+    fontSize: `${fontSizeSuper}px`,
+    fontWeight: fontWeightMedium,
+    lineHeight: lineHeightSuper,
+  };
+}
 
 export function textHeading1(weight = "book") {
   return {
