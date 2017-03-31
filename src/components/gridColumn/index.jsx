@@ -4,15 +4,39 @@ import cn from "classnames";
 import { media } from "../../../settings.json";
 import { add, gutter, span } from "../../utils/grid";
 
-function outputStyles({ columns, shift, fluid, mq }) {
+function outputStyles({
+  columns,
+  shift,
+  fluid,
+  includeGutter,
+  gutterPosition,
+  mq,
+}) {
   const math = fluid ? "fluid" : "static";
   const query = `@media (min-width: ${media.min[mq]})`;
+  const valuesToAdd = shift ? [span(shift, math), gutter(math)] : [];
+  const shouldIncludeGutter = columns !== 12;
+  const includeGutterBefore = shouldIncludeGutter && (includeGutter && gutterPosition === "before");
+  const includeGutterAfter = shouldIncludeGutter && (includeGutter && gutterPosition === "after");
   const styles = {
     [query]: {},
   };
 
-  if (shift) {
-    styles[query].marginLeft = add([span(shift, math), gutter(math)], math);
+  if (shift && includeGutterBefore) {
+    valuesToAdd.push(gutter(math));
+    styles[query].marginLeft = add(valuesToAdd, math);
+  }
+
+  if (!shift && includeGutterBefore) {
+    styles[query].marginLeft = gutter(math);
+  }
+
+  if (shift && !includeGutter) {
+    styles[query].marginLeft = add(valuesToAdd, math);
+  }
+
+  if (includeGutterAfter) {
+    styles[query].marginRight = gutter(math);
   }
 
   if (columns) {
@@ -43,9 +67,32 @@ function GridColumn({
       width: "100%",
     },
 
-    sm: outputStyles({ columns: sm, shift: smShift, fluid, mq: "480" }),
-    md: outputStyles({ columns: md, shift: mdShift, fluid, mq: "768" }),
-    lg: outputStyles({ columns: lg, shift: lgShift, fluid, mq: "1024" }),
+    sm: outputStyles({
+      columns: sm,
+      shift: smShift,
+      fluid,
+      includeGutter,
+      gutterPosition,
+      mq: "480",
+    }),
+
+    md: outputStyles({
+      columns: md,
+      shift: mdShift,
+      fluid,
+      includeGutter,
+      gutterPosition,
+      mq: "768",
+    }),
+
+    lg: outputStyles({
+      columns: lg,
+      shift: lgShift,
+      fluid,
+      includeGutter,
+      gutterPosition,
+      mq: "1024",
+    }),
   };
 
   return (
@@ -57,12 +104,6 @@ function GridColumn({
         (sm || smShift) && styles.sm,
         (md || mdShift) && styles.md,
         (lg || lgShift) && styles.lg,
-        (includeGutter && gutterPosition === "before") && {
-          marginLeft: fluid ? gutter() : gutter("static"),
-        },
-        (includeGutter && gutterPosition === "after") && {
-          marginRight: fluid ? gutter() : gutter("static"),
-        },
         style,
       ]}
     >
