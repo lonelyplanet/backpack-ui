@@ -8,6 +8,7 @@ import {
   textHeading4,
   textHeading5,
   textHeading6,
+  textHeading7,
 } from "../../utils/typography";
 import propTypes from "../../utils/propTypes";
 
@@ -27,6 +28,7 @@ function Heading({
     4: textHeading4(weight),
     5: textHeading5(weight),
     6: textHeading6(weight),
+    7: textHeading7(weight),
   };
 
   return (
@@ -49,7 +51,7 @@ function Heading({
 Heading.propTypes = {
   children: PropTypes.node.isRequired,
   level: propTypes.heading,
-  size: propTypes.heading,
+  size: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7]),
   weight: propTypes.fontWeight,
   style: propTypes.style,
 };
