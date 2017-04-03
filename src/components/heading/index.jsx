@@ -5,8 +5,8 @@ import mq from "../../styles/mq";
 import {
   fontSizeHeading1,
   fontSizeHeading2,
-  fontSizeHeading3,
   fontSizeHeading4,
+  fontSizeHeading5,
   fontSizeUppercase,
   fontWeightLight,
   fontWeightBook,
@@ -38,7 +38,7 @@ const styles = {
       },
     },
     medium: {
-      fontSize: `${(fontSizeHeading4 + 2)}px`,
+      fontSize: `${(fontSizeHeading5 + 2)}px`,
       lineHeight: (40 / 26),
     },
     large: {
@@ -49,7 +49,7 @@ const styles = {
       },
     },
     huge: {
-      fontSize: `${(fontSizeHeading3 + 2)}px`,
+      fontSize: `${(fontSizeHeading4 + 2)}px`,
       letterSpacing: "-1px",
       lineHeight: (36 / 30),
 
