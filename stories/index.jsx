@@ -124,7 +124,7 @@ import Tag from "../src/components/tag";
 import TagList from "../src/components/tagList";
 // Takeover
 import TallCarousel from "../src/components/tallCarousel";
-import { TextAccent, TextBodyArticle, TextBodySmall, TextHeading, TextUppercase } from "../src/components/text";
+import { TextAccent, TextBodyArticle, TextBodySmall, TextHeading, TextSuper, TextUppercase } from "../src/components/text";
 import TextBubble from "../src/components/textBubble";
 import ThumbnailListItem from "../src/components/thumbnailListItem";
 import TileGrid from "../src/components/tileGrid";
@@ -1873,7 +1873,7 @@ storiesOf("Text", module)
   .add("Heading", () => (
     <TextHeading
       level={select("Level", [1, 2, 3, 4, 5, 6], 2)}
-      size={select("Size", [1, 2, 3, 4, 5, 6], 2)}
+      size={select("Size", [1, 2, 3, 4, 5, 6, 7], 2)}
       weight={select("Weight", {
         light: "Light",
         book: "Book",
@@ -1882,6 +1882,11 @@ storiesOf("Text", module)
     >
       {text("Text", "Lorem ipsum")}
     </TextHeading>
+  ))
+  .add("Super", () => (
+    <TextSuper>
+      {text("Text", "Lorem ipsum")}
+    </TextSuper>
   ))
   .add("Uppercase", () => (
     <TextUppercase>
