@@ -45,7 +45,7 @@ const styles = {
 };
 
 const socialNavigate = (path) => {
-  window.location = `https://auth.lonelyplanet.com/${path}`;
+  window.location = `https://auth.lonelyplanet.com/users/auth/${path}`;
 };
 
 const ModalContentSocialAuth = ({ message, style }) => (
@@ -75,7 +75,13 @@ const ModalContentSocialAuth = ({ message, style }) => (
         Continue with Google
       </SocialLoginButton>
 
-      <MoreLink caps style={styles.more}>Sign in or sign up with email</MoreLink>
+      <MoreLink
+        caps
+        style={styles.more}
+        href="https://auth.lonelyplanet.com/users/sign_in"
+      >
+        Sign in or sign up with email
+      </MoreLink>
 
     </div>
 
