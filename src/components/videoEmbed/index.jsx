@@ -75,7 +75,7 @@ class VideoEmbed extends Component {
   componentWillReceiveProps(nextProps) {
     const nextVideoId = _.get(nextProps, "videoId", this.props.videoId);
 
-    if (nextVideoId !== this.props.videoId) {
+    if (nextVideoId !== this.props.videoId && !this.isAdRunning()) {
       this.loadVideo(nextVideoId);
     }
   }
@@ -100,6 +100,7 @@ class VideoEmbed extends Component {
 
     this.player.ready(this.onPlayerReady.bind(this));
     this.player.on("ended", this.onPlayerEnded.bind(this));
+    this.player.on("ads-ad-ended", this.onAdEnded.bind(this));
   }
 
   onPlayerReady() {
@@ -110,6 +111,10 @@ class VideoEmbed extends Component {
     if (this.props.onEnded) {
       this.props.onEnded();
     }
+  }
+
+  onAdEnded() {
+    this.loadVideo(this.props.videoId);
   }
 
   getPlayerVideoClassName() {
@@ -146,8 +151,16 @@ class VideoEmbed extends Component {
     }
   }
 
+  isAdRunning() {
+    return this.player && this.player.ads.state === "ad-playback";
+  }
+
   isReady() {
     return this.player && this.player.isReady_;
+  }
+
+  isVideoLoaded(videoId) {
+    return this.player && this.player.mediainfo && this.player.mediainfo.id === videoId;
   }
 
   loadVideo(videoId) {
@@ -155,14 +168,22 @@ class VideoEmbed extends Component {
       return;
     }
 
-    this.player.catalog.getVideo(videoId, (error, video) => {
-      if (!error) {
-        this.player.catalog.load(video);
-        if (this.props.autoplay) {
-          this.player.play();
-        }
+    const { autoplay } = this.props;
+
+    if (this.isVideoLoaded(videoId)) {
+      if (autoplay) {
+        this.player.play();
       }
-    });
+    } else {
+      this.player.catalog.getVideo(videoId, (error, video) => {
+        if (!error) {
+          this.player.catalog.load(video);
+          if (this.props.autoplay) {
+            this.player.play();
+          }
+        }
+      });
+    }
   }
 
   render() {

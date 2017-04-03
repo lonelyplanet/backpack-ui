@@ -2170,7 +2170,8 @@ storiesOf("Video embed", module)
   .add("Default", () => (
     <StyleRoot>
       <VideoEmbed
-        videoId={select("Video ID", ["5303355476001", "5299039063001"], "5303355476001")}
+        videoId={select("Video ID", ["5363317250001", "5299039063001"], "5363317250001")}
+        autoplay={boolean("Autoplay", false)}
       />
     </StyleRoot>
   ));
