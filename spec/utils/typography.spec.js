@@ -6,6 +6,7 @@ import {
   textHeading4,
   textHeading5,
   textHeading6,
+  textHeading7,
   textBodyArticle,
   textBodySmall,
   textAccent,
@@ -99,9 +100,9 @@ describe("Text heading 3", () => {
     expect(styles).to.deep.equal({
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-      fontSize: "28px",
+      fontSize: "40px",
       fontWeight: 400,
-      lineHeight: 1.1428571428571428,
+      lineHeight: 1.2,
     });
   });
 
@@ -111,9 +112,9 @@ describe("Text heading 3", () => {
     expect(styles).to.deep.equal({
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-      fontSize: "28px",
+      fontSize: "40px",
       fontWeight: 300,
-      lineHeight: 1.1428571428571428,
+      lineHeight: 1.2,
     });
   });
 
@@ -123,9 +124,9 @@ describe("Text heading 3", () => {
     expect(styles).to.deep.equal({
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-      fontSize: "28px",
+      fontSize: "40px",
       fontWeight: 600,
-      lineHeight: 1.1428571428571428,
+      lineHeight: 1.2,
     });
   });
 });
@@ -137,9 +138,9 @@ describe("Text heading 4", () => {
     expect(styles).to.deep.equal({
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-      fontSize: "24px",
+      fontSize: "28px",
       fontWeight: 400,
-      lineHeight: 1.1666666666666667,
+      lineHeight: 1.1428571428571428,
     });
   });
 
@@ -149,9 +150,9 @@ describe("Text heading 4", () => {
     expect(styles).to.deep.equal({
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-      fontSize: "24px",
+      fontSize: "28px",
       fontWeight: 300,
-      lineHeight: 1.1666666666666667,
+      lineHeight: 1.1428571428571428,
     });
   });
 
@@ -161,9 +162,9 @@ describe("Text heading 4", () => {
     expect(styles).to.deep.equal({
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-      fontSize: "24px",
+      fontSize: "28px",
       fontWeight: 600,
-      lineHeight: 1.1666666666666667,
+      lineHeight: 1.1428571428571428,
     });
   });
 });
@@ -175,9 +176,9 @@ describe("Text heading 5", () => {
     expect(styles).to.deep.equal({
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-      fontSize: "20px",
+      fontSize: "24px",
       fontWeight: 400,
-      lineHeight: 1.2,
+      lineHeight: 1.1666666666666667,
     });
   });
 
@@ -187,9 +188,9 @@ describe("Text heading 5", () => {
     expect(styles).to.deep.equal({
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-      fontSize: "20px",
+      fontSize: "24px",
       fontWeight: 300,
-      lineHeight: 1.2,
+      lineHeight: 1.1666666666666667,
     });
   });
 
@@ -199,9 +200,9 @@ describe("Text heading 5", () => {
     expect(styles).to.deep.equal({
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-      fontSize: "20px",
+      fontSize: "24px",
       fontWeight: 600,
-      lineHeight: 1.2,
+      lineHeight: 1.1666666666666667,
     });
   });
 });
@@ -213,14 +214,52 @@ describe("Text heading 6", () => {
     expect(styles).to.deep.equal({
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+      fontSize: "20px",
+      fontWeight: 400,
+      lineHeight: 1.2,
+    });
+  });
+
+  it("should add text heading 6 styles with weight light", () => {
+    const styles = Object.assign({}, baseStyles, textHeading6("light"));
+
+    expect(styles).to.deep.equal({
+      color: "black",
+      fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+      fontSize: "20px",
+      fontWeight: 300,
+      lineHeight: 1.2,
+    });
+  });
+
+  it("should add text heading 6 styles with weight medium", () => {
+    const styles = Object.assign({}, baseStyles, textHeading6("medium"));
+
+    expect(styles).to.deep.equal({
+      color: "black",
+      fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+      fontSize: "20px",
+      fontWeight: 600,
+      lineHeight: 1.2,
+    });
+  });
+});
+
+describe("Text heading 7", () => {
+  it("should add text heading 7 styles with default weight book", () => {
+    const styles = Object.assign({}, baseStyles, textHeading7());
+
+    expect(styles).to.deep.equal({
+      color: "black",
+      fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "16px",
       fontWeight: 400,
       lineHeight: 1.25,
     });
   });
 
-  it("should add text heading 6 styles with weight light", () => {
-    const styles = Object.assign({}, baseStyles, textHeading6("light"));
+  it("should add text heading 7 styles with weight light", () => {
+    const styles = Object.assign({}, baseStyles, textHeading7("light"));
 
     expect(styles).to.deep.equal({
       color: "black",
@@ -231,8 +270,8 @@ describe("Text heading 6", () => {
     });
   });
 
-  it("should add text heading 6 styles with weight medium", () => {
-    const styles = Object.assign({}, baseStyles, textHeading6("medium"));
+  it("should add text heading 7 styles with weight medium", () => {
+    const styles = Object.assign({}, baseStyles, textHeading7("medium"));
 
     expect(styles).to.deep.equal({
       color: "black",
