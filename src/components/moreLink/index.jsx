@@ -65,6 +65,7 @@ function MoreLink({
   isNested,
   style,
   arrowDirection,
+  openNewTab,
 }) {
   let Element = "";
 
@@ -99,6 +100,7 @@ function MoreLink({
         style,
       ]}
       href={href}
+      {...(openNewTab && { target: "_blank" })}
       onClick={onClick}
     >
       {!hideIcon && arrowDirection === "left" &&
@@ -170,6 +172,11 @@ MoreLink.propTypes = {
     "left",
     "right",
   ]),
+
+  /**
+   * Should open new tab
+   */
+  openNewTab: React.PropTypes.bool,
 };
 
 MoreLink.defaultProps = {
@@ -188,6 +195,8 @@ MoreLink.defaultProps = {
   style: {},
 
   arrowDirection: "right",
+
+  openNewTab: false,
 };
 
 MoreLink.styles = styles;
