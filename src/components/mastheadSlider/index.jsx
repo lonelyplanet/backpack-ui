@@ -59,6 +59,9 @@ export const rules = {
   },
   ".slick-slider": { display: "none" },
   ".slick-slider.slick-initialized,.slick-slide:first-child": { display: "block" },
+  ".slick-cloned:first-of-type": {
+    display: "none !important",
+  },
 };
 
 const styles = {
