@@ -60,6 +60,7 @@ const styles = {
     display: "block",
     height: "100%",
     left: 0,
+    objectFit: "cover",
     opacity: 0.4,
     position: "absolute",
     top: 0,
