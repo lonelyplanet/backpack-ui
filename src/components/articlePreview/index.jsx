@@ -66,7 +66,7 @@ function ArticlePreview({ title, paragraph, image, href, category, categoryHref 
           </Heading>
 
           <p style={styles.paragraph}>
-            {paragraph}…
+            {paragraph}
           </p>
         </a>
       </div>
