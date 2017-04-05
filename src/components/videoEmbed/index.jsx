@@ -46,7 +46,16 @@ const scopedStyles = {
   ".vjs-big-play-button:focus": {
     backgroundColor: color.blue,
   },
-
+  ".video-js .vjs-overlay-bottom": {
+    left: "0px",
+    width: "100%",
+    marginLeft: "0px",
+    maxWidth: "100% !important",
+  },
+  ".video-js .vjs-overlay-top-left": {
+    top: "0px",
+    left: "0px",
+  },
   mediaQueries: {
     [`(max-width: ${media.max["480"]})`]: {
       ".vjs-big-play-button": {
@@ -99,11 +108,17 @@ class VideoEmbed extends Component {
     this.player.controls(true);
 
     this.player.ready(this.onPlayerReady.bind(this));
+    this.player.on("playing", this.onPlayerPlaying.bind(this));
     this.player.on("ended", this.onPlayerEnded.bind(this));
-    this.player.on("ads-ad-ended", this.onAdEnded.bind(this));
+    this.player.on("ads-ad-started", this.onAdStarted.bind(this));
   }
 
   onPlayerReady() {
+    this.loadVideo(this.props.videoId);
+  }
+
+  onPlayerPlaying() {
+    this.enableVideoOverlays();
     this.loadVideo(this.props.videoId);
   }
 
@@ -113,8 +128,18 @@ class VideoEmbed extends Component {
     }
   }
 
-  onAdEnded() {
-    this.loadVideo(this.props.videoId);
+  onCueChange() {
+    const tt = this.player.textTracks()[0];
+    const activeCue = tt.activeCues[0];
+    if (!activeCue || activeCue.text !== "CODE") {
+      return;
+    }
+
+    console.log("HIT CUE! =>", document.getElementsByClassName("vjs-overlay")[0].innerHTML);
+  }
+
+  onAdStarted() {
+    this.disableVideoOverlays();
   }
 
   getPlayerVideoClassName() {
@@ -178,12 +203,77 @@ class VideoEmbed extends Component {
       this.player.catalog.getVideo(videoId, (error, video) => {
         if (!error) {
           this.player.catalog.load(video);
-          if (this.props.autoplay) {
+
+          const tt = this.player.textTracks()[0];
+          tt.off("cuechange");
+          tt.on("cuechange", this.onCueChange.bind(this));
+
+          this.configureOverlays();
+
+          if (autoplay) {
             this.player.play();
           }
         }
       });
     }
+  }
+
+  configureOverlays() {
+    const tt = this.player.textTracks()[0];
+
+    const overlays = tt.cues_.filter(c => c.text === "CODE").map((c) => {
+      const cue = c.originalCuePoint;
+
+      let overlayHTML = `<div style=\"background-color:red;color:black;\">`;
+      overlayHTML += "<div>name: " + cue.name + "</div>";
+      overlayHTML += "<div>metadata: " + cue.metadata + "</div>";
+      overlayHTML += "</div>";
+
+      const defaultEnd = cue.startTime + 15;
+      const end = defaultEnd < cue.endTime ? defaultEnd : cue.endTime;
+
+      return {
+        content: overlayHTML,
+        align: "bottom",
+        start: cue.startTime,
+        end,
+      };
+    });
+
+    overlays.push({
+      content: `<div style=\"margin-top:10px;line-height:21px;font-weight:normal;vertical-align:middle;background-color:rgba(0,0,0,0.8);color:#e6e6e6;font-size:11px;font-family:arial,sans-serif;padding:6px 24px;\">Advertisement</div>`,
+      align: "top-left",
+      start: "ads-ad-started",
+      end: "playing",
+    });
+
+    overlays.push({
+      content: `<img class=\"${this.getPlayerVideoClassName()}-overlay\" src=\"https://s3.amazonaws.com/static-asset/backpack-ui/videoembed.lp-logo.png\" />`,
+      align: "top-right",
+      start: 0,
+      end: "ended",
+    });
+
+    this.player.overlay({
+        content: "",
+        overlays: overlays,
+        showBackground: false,
+        attachToControlBar: false,
+        debug: false,
+    });
+  }
+
+  _setDisplayByClassName(className, displayValue) {
+    const elements = document.getElementsByClassName(className);
+    [].forEach.call(elements, el => el.style.display = displayValue);
+  }
+
+  disableVideoOverlays() {
+    this._setDisplayByClassName(`${this.getPlayerVideoClassName()}-overlay`, "none");
+  }
+
+  enableVideoOverlays() {
+    this._setDisplayByClassName(`${this.getPlayerVideoClassName()}-overlay`, "block");
   }
 
   render() {
