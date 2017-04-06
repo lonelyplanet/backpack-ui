@@ -208,7 +208,10 @@ const styles = {
       },
     },
     textarea: {
-      base: {},
+      base: {
+        resize: "none",
+        verticalAlign: "bottom",
+      },
       size: {
         tiny: {},
         small: {},

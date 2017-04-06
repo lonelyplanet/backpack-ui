@@ -1,6 +1,8 @@
 import React, { PropTypes } from "react";
-import radium from "radium";
+import radium, { Style } from "radium";
 import CategoryLabel from "../categoryLabel";
+import Checkbox from "../checkbox";
+
 import { color, timing, typography } from "../../../settings.json";
 import { rgb } from "../../utils/color";
 import iconFromString from "../../utils/icon";
@@ -8,7 +10,23 @@ import iconFromString from "../../utils/icon";
 const styles = {
   wrapper: {
     borderBottom: "1px solid",
-    borderColor: `rgba(${rgb(color.lightBlue)}, 0.30)`,
+    // @discuss MATCH COMP
+    borderBottomColor: "#D6DBDD",
+  },
+  wrapperError: {
+    borderBottomColor: color.red,
+  },
+  // @discuss MATCH COMP
+  inputPlaceholderRules: {
+    "::-webkit-input-placeholder": {
+      color: `rgba(${rgb(color.darkGray, 0.3)})`,
+    },
+    "::-moz-placeholder": {
+      color: `rgba(${rgb(color.darkGray, 0.3)})`,
+    },
+    ":-ms-input-placeholder": {
+      color: `rgba(${rgb(color.darkGray, 0.3)})`,
+    },
   },
   linkWrapper: {
     cursor: "pointer",
@@ -26,11 +44,16 @@ const styles = {
   },
   sectionHeading: {
     paddingBottom: "16px",
-    fontWeight: 500,
+    fontWeight: typography.fontWeightBold,
+    // @discuss MATCH COMP
+    color: "#99A9B3",
     verticalAlign: "bottom",
   },
   subtitle: {
-    color: color.subtitleGray,
+    // color: color.subtitleGray,
+    // @discuss MATCH COMP
+    color: "#99A9B3",
+    fontWeight: typography.fontWeightLight,
     marginTop: "4px",
     fontSize: "11px",
     lineHeight: 1,
@@ -48,8 +71,9 @@ const styles = {
     paddingBottom: "16px",
   },
   icon: {
-    width: "24px",
-    height: "24px",
+    width: "16px",
+    height: "16px",
+    fill: color.darkGray,
   },
   accordionClosed: {
     padding: 0,
@@ -65,13 +89,6 @@ const styles = {
     overflow: "auto",
     transition: `max-height ${timing.slow} ease-in-out`,
   },
-  mockCheckbox: {
-    minWidth: "24px",
-    height: "24px",
-    border: "1px solid",
-    borderColor: `rgba(${rgb(color.lightBlue)}, 0.30)`,
-    borderRadius: "50%",
-  },
 };
 
 const SettingBlockHeader = ({ children, subtitle }) => (
@@ -82,7 +99,10 @@ const SettingBlockHeader = ({ children, subtitle }) => (
 );
 
 let SettingBlockWrapper = ({ children, error }) => (
-  <div style={[styles.wrapper, error && { borderColor: color.red }]}>
+  <div
+    className="SettingBlockWrapper"
+    style={[styles.wrapper, error && styles.wrapperError]}
+  >
     {children}
   </div>
 );
@@ -90,7 +110,14 @@ let SettingBlockWrapper = ({ children, error }) => (
 SettingBlockWrapper = radium(SettingBlockWrapper);
 
 export const SettingSection = ({ children, heading }) => (
-  <div style={styles.section}>
+  <div
+    className="SettingSection"
+    style={styles.section}
+  >
+    <Style
+      scopeSelector=".SettingSection"
+      rules={styles.inputPlaceholderRules}
+    />
     <CategoryLabel light style={styles.sectionHeading}>{heading}</CategoryLabel>
     {children}
   </div>
@@ -130,7 +157,7 @@ export const SettingBlockButton = ({
           </SettingBlockHeader>
           {description && <p style={styles.description}>{description}</p>}
         </div>
-        { checked ? iconFromString("ConfirmedCheckmark", { style: styles.icon }) : <div style={styles.mockCheckbox} /> }
+        <Checkbox id={`setting_${title}`} checked={checked} size={24} rounded />
       </div>
     </SettingBlockWrapper>
   </a>
@@ -161,9 +188,10 @@ export class ToggleController extends React.Component {
 
 
 export const SettingBlockAccordion = ({ children, description, expanded, error, title, subtitle, onClick }) => (
-  <a style={styles.linkWrapper} onClick={onClick}>
+  <div style={styles.linkWrapper}>
     <SettingBlockWrapper error={error}>
       <div
+        onClick={onClick}
         style={{
           display: "flex",
           alignItems: "center",
@@ -176,13 +204,13 @@ export const SettingBlockAccordion = ({ children, description, expanded, error, 
           </SettingBlockHeader>
           {description && <p style={styles.description}>{description}</p>}
         </div>
-        {expanded ? iconFromString("ChevronUp") : iconFromString("ChevronDown")}
+        {expanded ? iconFromString("ChevronUp", styles.icon) : iconFromString("ChevronDown", styles.icon)}
       </div>
       <div className="AccordionContent" style={expanded ? styles.accordionOpen : styles.accordionClosed}>
         {children}
       </div>
     </SettingBlockWrapper>
-  </a>
+  </div>
 );
 
 SettingBlock.propTypes = {

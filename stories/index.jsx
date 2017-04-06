@@ -1545,7 +1545,7 @@ storiesOf("Select", module)
 const SettingBlockListItemWrapper = (props) => (
   <div
     style={{
-      marginBottom: "16px",
+      marginBottom: "8px",
     }}
   >
     {props.children}
@@ -1585,7 +1585,7 @@ storiesOf("Setting Block", module)
       >
         <TextArea
           theme="float"
-          rows={3}
+          rows={2}
         />
       </SettingBlock>
     </div>
@@ -1669,7 +1669,7 @@ storiesOf("Setting Block", module)
           >
             <TextArea
               theme="float"
-              rows={3}
+              rows={2}
             />
           </SettingBlock>
         </SettingBlockListItemWrapper>
@@ -1679,10 +1679,10 @@ storiesOf("Setting Block", module)
               <SettingBlockAccordion
                 error={boolean("Error", false)}
                 title={text("Accordion Title", "Travel interests")}
-                subtitle={text("Accordion Subtitle", "")}
+                subtitle={text("Accordion Subtitle", "Choose 3 or more")}
                 expanded={expanded}
                 onClick={toggle}
-                description={text("Accordion Description", "Manage your tags")}
+                description={text("Accordion Description", "")}
               >
                 <TagList>
                   <Tag href="#" selected>All</Tag>
@@ -1702,7 +1702,7 @@ storiesOf("Setting Block", module)
             {(active, toggle) => (
               <SettingBlockButton
                 error={boolean("Error", false)}
-                title={text("Button Title", "Lonely Planet Kids newsletter")}
+                title={text("Button Title", "Travel news daily")}
                 subtitle={text("Button Subtitle", "")}
                 checked={active}
                 onClick={toggle}
@@ -1733,7 +1733,7 @@ storiesOf("Setting Block", module)
           >
             <TextArea
               theme="float"
-              rows={3}
+              rows={2}
             />
           </SettingBlock>
         </SettingBlockListItemWrapper>
@@ -1743,10 +1743,10 @@ storiesOf("Setting Block", module)
               <SettingBlockAccordion
                 error={boolean("Error", false)}
                 title={text("Accordion Title", "Travel interests")}
-                subtitle={text("Accordion Subtitle", "")}
+                subtitle={text("Accordion Subtitle", "Choose 3 or more")}
                 expanded={expanded}
                 onClick={toggle}
-                description={text("Accordion Description", "Manage your tags")}
+                description={text("Accordion Description", "")}
               >
                 <TagList>
                   <Tag href="#" selected>All</Tag>
@@ -1766,11 +1766,11 @@ storiesOf("Setting Block", module)
             {(active, toggle) => (
               <SettingBlockButton
                 error={boolean("Error", false)}
-                title={text("Button Title", "Lonely Planet Kids newsletter")}
+                title={text("Button Title", "Twitter")}
                 subtitle={text("Button Subtitle", "")}
                 checked={active}
                 onClick={toggle}
-                description={text("Button Description", "hand-picked selection of family travel articles, fun activity sheets and competitions")}
+                description={text("Button Description", "Find interesting people you follow")}
               />
             )}
           </ToggleController>

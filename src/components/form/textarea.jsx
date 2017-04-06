@@ -1,6 +1,7 @@
 import React from "react";
 import radium from "radium";
 import styles from "./styles";
+import propTypes from "../../utils/propTypes";
 
 function TextArea({
   id,
@@ -14,6 +15,7 @@ function TextArea({
   size,
   theme,
   onChange,
+  customStyles,
 }) {
   const style = [styles.base];
 
@@ -27,6 +29,10 @@ function TextArea({
   if (theme) {
     style.push(styles.theme[theme]);
     style.push(styles.element.textarea.theme[theme]);
+  }
+
+  if (customStyles) {
+    style.push(customStyles);
   }
 
   return (
@@ -75,9 +81,12 @@ TextArea.propTypes = {
     "base",
     "light",
     "dark",
+    "float",
   ]),
 
   onChange: React.PropTypes.func,
+
+  customStyles: propTypes.style,
 };
 
 TextArea.defaultProps = {
