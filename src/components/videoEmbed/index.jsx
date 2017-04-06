@@ -31,30 +31,36 @@ const styles = {
 };
 
 const scopedStyles = {
-  ".vjs-play-progress": {
-    backgroundColor: color.blue,
-  },
-  ".vjs-volume-level": {
-    backgroundColor: color.blue,
-  },
-  ".vjs-big-play-button:hover": {
-    backgroundColor: color.blue,
-  },
-  ".vjs-big-play-button:active": {
-    backgroundColor: color.blue,
-  },
-  ".vjs-big-play-button:focus": {
-    backgroundColor: color.blue,
-  },
-  ".video-js .vjs-overlay-bottom": {
+  ".vjs-overlay-bottom": {
     left: "0px",
     width: "100%",
     marginLeft: "0px",
     maxWidth: "100% !important",
   },
-  ".video-js .vjs-overlay-top-left": {
+  ".vjs-overlay-top-left": {
     top: "0px",
     left: "0px",
+  },
+  ".vjs-overlay-top-right": {
+    maxWidth: "100% !important",
+    width: "100%",
+    textAlign: "right",
+  },
+  ".VideoEmbed-logo-overlay": {
+    width: "20%",
+    maxWidth: "100px",
+    minWidth: "76px",
+  },
+  ".VideoEmbed-ad-overlay": {
+    marginTop: "8px",
+    lineHeight: "21px",
+    fontWeight: "normal",
+    verticalAlign: "middle",
+    backgroundColor: "rgba(0,0,0,0.8)",
+    color: "#e6e6e6",
+    fontSize: "11px",
+    fontFamily: "arial,sans-serif",
+    padding: "6px 24px",
   },
   mediaQueries: {
     [`(max-width: ${media.max["480"]})`]: {
@@ -118,7 +124,7 @@ class VideoEmbed extends Component {
   }
 
   onPlayerPlaying() {
-    this.enableVideoOverlays();
+    this.enableLogoOverlay();
     this.loadVideo(this.props.videoId);
   }
 
@@ -128,7 +134,7 @@ class VideoEmbed extends Component {
     }
   }
 
-  onCueChange() {
+  onPlayerCueChange() {
     const tt = this.player.textTracks()[0];
     const activeCue = tt.activeCues[0];
     if (!activeCue || activeCue.text !== "CODE") {
@@ -137,11 +143,13 @@ class VideoEmbed extends Component {
 
     const cue = activeCue.originalCuePoint;
 
-    console.log("HIT CUE! =>", activeCue, document.getElementsByClassName("vjs-overlay")[0].innerHTML);
+    if (this.props.onCueChange) {
+      this.props.onCueChange(cue);
+    }
   }
 
   onAdStarted() {
-    this.disableVideoOverlays();
+    this.disableLogoOverlay();
   }
 
   getPlayerVideoClassName() {
@@ -150,6 +158,10 @@ class VideoEmbed extends Component {
 
   getPlayerScriptId() {
     return `VideoEmbed-initialize-${this.id}`;
+  }
+
+  getLogoOverlayId() {
+    return `VideoEmbed-logo-overlay-${this.id}`;
   }
 
   setupPlayer() {
@@ -208,7 +220,7 @@ class VideoEmbed extends Component {
 
           const tt = this.player.textTracks()[0];
           tt.off("cuechange");
-          tt.on("cuechange", this.onCueChange.bind(this));
+          tt.on("cuechange", this.onPlayerCueChange.bind(this));
 
           this.configureOverlays();
 
@@ -243,14 +255,14 @@ class VideoEmbed extends Component {
     });
 
     overlays.push({
-      content: `<div style=\"margin-top:10px;line-height:21px;font-weight:normal;vertical-align:middle;background-color:rgba(0,0,0,0.8);color:#e6e6e6;font-size:11px;font-family:arial,sans-serif;padding:6px 24px;\">Advertisement</div>`,
+      content: "<div class=\"VideoEmbed-ad-overlay\">Advertisement</div>",
       align: "top-left",
       start: "ads-ad-started",
       end: "playing",
     });
 
     overlays.push({
-      content: `<img class=\"${this.getPlayerVideoClassName()}-overlay\" src=\"https://s3.amazonaws.com/static-asset/backpack-ui/videoembed.lp-logo.png\" />`,
+      content: `<img id=\"${this.getLogoOverlayId()}\" class=\"VideoEmbed-logo-overlay\" src=\"https://s3.amazonaws.com/static-asset/backpack-ui/videoembed.lp-logo.png\" />`,
       align: "top-right",
       start: 0,
       end: "ended",
@@ -265,17 +277,18 @@ class VideoEmbed extends Component {
     });
   }
 
-  _setDisplayByClassName(className, displayValue) {
-    const elements = document.getElementsByClassName(className);
-    [].forEach.call(elements, el => el.style.display = displayValue);
+  disableLogoOverlay() {
+    const logo = document.getElementById(this.getLogoOverlayId());
+    if (logo) {
+      logo.style.display = "none";
+    }
   }
 
-  disableVideoOverlays() {
-    this._setDisplayByClassName(`${this.getPlayerVideoClassName()}-overlay`, "none");
-  }
-
-  enableVideoOverlays() {
-    this._setDisplayByClassName(`${this.getPlayerVideoClassName()}-overlay`, "block");
+  enableLogoOverlay() {
+    const logo = document.getElementById(this.getLogoOverlayId());
+    if (logo) {
+      logo.style.display = "inline-block";
+    }
   }
 
   render() {
@@ -307,6 +320,7 @@ VideoEmbed.propTypes = {
   videoId: PropTypes.string.isRequired,
   autoplay: PropTypes.bool,
   onEnded: PropTypes.func,
+  onCueChange: PropTypes.func,
   override: PropTypes.oneOfType([
     PropTypes.object,
   ]),
