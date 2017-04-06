@@ -1580,17 +1580,17 @@ storiesOf("Setting Block", module)
     >
       <SettingBlock
         error={boolean("Error", false)}
-        title={text("Title", "Name")}
+        title={text("Title", "Intro")}
         subtitle={text("Subtitle", "")}
       >
         <TextArea
           theme="float"
-          rows={2}
+          rows={5}
         />
       </SettingBlock>
     </div>
   ))
-  .add("Check Button Setting", () => (
+  .add("Checkbox Button Setting", () => (
     <div
       style={{
         padding: "16px 24px",
@@ -1610,7 +1610,7 @@ storiesOf("Setting Block", module)
       </ToggleController>
     </div>
   ))
-  .add("Tag List Setting", () => (
+  .add("Accordion Setting", () => (
     <div
       style={{
         padding: "16px 24px",
@@ -1669,6 +1669,7 @@ storiesOf("Setting Block", module)
           >
             <TextArea
               theme="float"
+              placeholder={text("Placeholder", "Enter intro")}
               rows={2}
             />
           </SettingBlock>
@@ -1733,7 +1734,8 @@ storiesOf("Setting Block", module)
           >
             <TextArea
               theme="float"
-              rows={2}
+              placeholder={text("Placeholder", "Enter intro")}
+              rows={null}
             />
           </SettingBlock>
         </SettingBlockListItemWrapper>

@@ -1,7 +1,8 @@
 import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import CategoryLabel from "../categoryLabel";
-import Checkbox from "../checkbox";
+import CheckboxComponent from "../checkbox/checkboxComponent";
+// import Checkbox from "../checkbox";
 
 import { color, timing, typography } from "../../../settings.json";
 import { rgb } from "../../utils/color";
@@ -11,7 +12,7 @@ const styles = {
   wrapper: {
     borderBottom: "1px solid",
     // @discuss MATCH COMP
-    borderBottomColor: "#D6DBDD",
+    borderBottomColor: color.gray,
   },
   wrapperError: {
     borderBottomColor: color.red,
@@ -142,7 +143,7 @@ export const SettingBlockButton = ({
   subtitle,
   onClick,
 }) => (
-  <a style={styles.linkWrapper} onClick={onClick}>
+  <div style={styles.linkWrapper} onClick={onClick}>
     <SettingBlockWrapper error={error}>
       <div
         style={{
@@ -157,10 +158,10 @@ export const SettingBlockButton = ({
           </SettingBlockHeader>
           {description && <p style={styles.description}>{description}</p>}
         </div>
-        <Checkbox id={`setting_${title}`} checked={checked} size={24} rounded />
+        <CheckboxComponent onClick={(e) => e.stopPropagation()} id={`setting_${title}`} checked={checked} size={24} rounded />
       </div>
     </SettingBlockWrapper>
-  </a>
+  </div>
 );
 
 
