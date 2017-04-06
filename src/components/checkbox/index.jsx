@@ -30,7 +30,8 @@ const styles = {
   },
 
   checkmark: {
-    borderColor: color.gray,
+    // borderColor: color.gray,
+    borderColor: "#99A9B3",
     borderStyle: "solid",
     borderWidth: "1px",
     color: color.white,
