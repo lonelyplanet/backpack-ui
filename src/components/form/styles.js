@@ -1,4 +1,4 @@
-import { color, media, timing } from "../../../settings.json";
+import { color, typography, media, timing } from "../../../settings.json";
 import { lighten, darken, rgb } from "../../utils/color";
 import { outline } from "../../utils/mixins";
 
@@ -12,6 +12,7 @@ const icons = {
 const styles = {
   base: {
     appearance: "none",
+    fontWeight: typography.fontWeightLight,
     borderRadius: 0,
     borderStyle: "solid",
     borderWidth: ".1rem",

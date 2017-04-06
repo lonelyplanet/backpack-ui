@@ -37,6 +37,7 @@ const styles = {
   },
   description: {
     fontSize: "16px",
+    fontWeight: typography.fontWeightLight,
     marginTop: "8px",
   },
   inputElement: {
