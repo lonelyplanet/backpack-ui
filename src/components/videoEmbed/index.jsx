@@ -135,7 +135,9 @@ class VideoEmbed extends Component {
       return;
     }
 
-    console.log("HIT CUE! =>", document.getElementsByClassName("vjs-overlay")[0].innerHTML);
+    const cue = activeCue.originalCuePoint;
+
+    console.log("HIT CUE! =>", activeCue, document.getElementsByClassName("vjs-overlay")[0].innerHTML);
   }
 
   onAdStarted() {
