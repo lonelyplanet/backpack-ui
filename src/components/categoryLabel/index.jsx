@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import { color } from "../../../settings.json";
+import propTypes from "../../utils/propTypes";
 import font from "../../utils/font";
 
 const styles = {
@@ -38,7 +39,7 @@ const CategoryLabel = ({ children, light, style }) => (
 CategoryLabel.propTypes = {
   children: PropTypes.node.isRequired,
   light: PropTypes.bool,
-  style: PropTypes.objectOf(PropTypes.object),
+  style: propTypes.style,
 };
 
 CategoryLabel.defaultProps = {

@@ -93,11 +93,11 @@ const styles = {
       paddingTop: "16px",
       paddingBottom: "16px",
       paddingLeft: 0,
-      borderBottom: `1px solid rgba(${rgb(color.lightBlue)}, 0.30)`,
-      ":focus": outline(),
-      error: {
-        borderBottom: `1px solid ${color.red}`,
-      },
+      borderBottom: 0,
+      // ":focus": outline(),
+      // error: {
+      //   borderBottom: `1px solid ${color.red}`,
+      // },
     },
   },
 
