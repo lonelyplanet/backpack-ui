@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from "react";
 import radium, { Style } from "radium";
 import get from "lodash/get";
 import uniqueId from "lodash/uniqueId";
-import { color, media } from "../../../settings.json";
+import { media } from "../../../settings.json";
 
 const _ = { get, uniqueId };
 
@@ -143,8 +143,27 @@ class VideoEmbed extends Component {
 
     const cue = activeCue.originalCuePoint;
 
+    const overlayElementId = `ad-lowerthird-${this.id}-${cue.id}`;
+    const element = document.getElementById(overlayElementId);
+
+    if (!element) {
+      return;
+    }
+
+    let cueIndex = null;
+
+    tt.cues_.filter(c => c.text === "CODE").forEach((c, i) => {
+      if (c.originalCuePoint.id === cue.id) {
+        cueIndex = i;
+      }
+    });
+
+    if (cueIndex === null) {
+      return;
+    }
+
     if (this.props.onCueChange) {
-      this.props.onCueChange(cue);
+      this.props.onCueChange(cue, cueIndex, overlayElementId);
     }
   }
 
@@ -238,16 +257,11 @@ class VideoEmbed extends Component {
     const overlays = tt.cues_.filter(c => c.text === "CODE").map((c) => {
       const cue = c.originalCuePoint;
 
-      let overlayHTML = `<div style=\"background-color:red;color:black;\">`;
-      overlayHTML += "<div>name: " + cue.name + "</div>";
-      overlayHTML += "<div>metadata: " + cue.metadata + "</div>";
-      overlayHTML += "</div>";
-
       const defaultEnd = cue.startTime + 15;
       const end = defaultEnd < cue.endTime ? defaultEnd : cue.endTime;
 
       return {
-        content: overlayHTML,
+        content: `<div id="ad-lowerthird-${this.id}-${cue.id}" />`,
         align: "bottom",
         start: cue.startTime,
         end,
@@ -262,18 +276,18 @@ class VideoEmbed extends Component {
     });
 
     overlays.push({
-      content: `<img id=\"${this.getLogoOverlayId()}\" class=\"VideoEmbed-logo-overlay\" src=\"https://s3.amazonaws.com/static-asset/backpack-ui/videoembed.lp-logo.png\" />`,
+      content: `<img id="${this.getLogoOverlayId()}" class="VideoEmbed-logo-overlay" src="https://s3.amazonaws.com/static-asset/backpack-ui/videoembed.lp-logo.png" />`,
       align: "top-right",
       start: 0,
       end: "ended",
     });
 
     this.player.overlay({
-        content: "",
-        overlays: overlays,
-        showBackground: false,
-        attachToControlBar: false,
-        debug: false,
+      content: "",
+      overlays,
+      showBackground: false,
+      attachToControlBar: false,
+      debug: false,
     });
   }
 
