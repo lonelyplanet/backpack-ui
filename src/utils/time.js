@@ -1,26 +1,17 @@
-import humanizeDuration from "humanize-duration";
+export default function duration(ms) {
+  ms = ms || 0;
 
-export default function duration(amount, unit = "milliseconds") {
-  const unitMultipler = {
-    milliseconds: 1,
-    seconds: 1000,
-  };
+  let remainingSeconds = ms / 1000;
+  const h = Math.floor(remainingSeconds / (60 * 60));
+  remainingSeconds -= h * 60 * 60;
+  const m = Math.floor(remainingSeconds / 60);
+  remainingSeconds -= m * 60;
+  const s = Math.floor(remainingSeconds % 60);
 
-  const options = {
-    round: true,
-    units: ["h", "m"],
-    delimiter: " ",
-    language: "shortEn",
-    languages: {
-      shortEn: {
-        h: "hr",
-        m: "min",
-      },
-    },
-  };
+  let formatted = "";
+  formatted += h ? `${h}:` : "";
+  formatted += m < 10 && h ? `0${m}` : m;
+  formatted += s < 10 ? `:0${s}` : `:${s}`;
 
-  // Library takes time unit as milliseconds so we must convert
-  const convertedTime = amount * unitMultipler[unit];
-
-  return humanizeDuration(convertedTime, options);
+  return formatted;
 }

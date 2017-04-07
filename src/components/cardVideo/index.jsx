@@ -80,7 +80,6 @@ const CardVideo = ({
   onClick,
   layout,
   className,
-  runtimeUnit,
   style,
 }) => (
   <Card
@@ -101,9 +100,9 @@ const CardVideo = ({
         <PlayIcon style={styles.icon} />
       </div>
 
-      {runtime &&
+      {typeof runtime === "number" &&
         <TextBubble style={styles.textBubble}>
-          {duration(runtime, runtimeUnit)}
+          {duration(runtime)}
         </TextBubble>
       }
     </CardImage>
@@ -145,11 +144,7 @@ CardVideo.propTypes = {
     "video",
     "poster",
   ]),
-  runtime: PropTypes.number.isRequired,
-  runtimeUnit: PropTypes.oneOf([
-    "seconds",
-    "milliseconds",
-  ]),
+  runtime: PropTypes.number,
   heading: PropTypes.string.isRequired,
   bullets: PropTypes.arrayOf(PropTypes.string),
   layout: PropTypes.oneOf([

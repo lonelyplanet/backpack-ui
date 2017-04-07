@@ -46,11 +46,6 @@ const scopedStyles = {
     width: "100%",
     textAlign: "right",
   },
-  ".VideoEmbed-logo-overlay": {
-    width: "20%",
-    maxWidth: "100px",
-    minWidth: "76px",
-  },
   ".VideoEmbed-ad-overlay": {
     marginTop: "8px",
     lineHeight: "21px",
@@ -61,6 +56,9 @@ const scopedStyles = {
     fontSize: "11px",
     fontFamily: "arial,sans-serif",
     padding: "6px 24px",
+  },
+  ".VideoEmbed-lowerthird-overlay iframe": {
+    maxWidth: "100%",
   },
   mediaQueries: {
     [`(max-width: ${media.max["480"]})`]: {
@@ -116,7 +114,7 @@ class VideoEmbed extends Component {
     this.player.ready(this.onPlayerReady.bind(this));
     this.player.on("playing", this.onPlayerPlaying.bind(this));
     this.player.on("ended", this.onPlayerEnded.bind(this));
-    this.player.on("ads-ad-started", this.onAdStarted.bind(this));
+    this.player.on("ads-ad-ended", this.onAdEnded.bind(this));
   }
 
   onPlayerReady() {
@@ -124,7 +122,10 @@ class VideoEmbed extends Component {
   }
 
   onPlayerPlaying() {
-    this.enableLogoOverlay();
+    this.loadVideo(this.props.videoId);
+  }
+
+  onAdEnded() {
     this.loadVideo(this.props.videoId);
   }
 
@@ -167,20 +168,12 @@ class VideoEmbed extends Component {
     }
   }
 
-  onAdStarted() {
-    this.disableLogoOverlay();
-  }
-
   getPlayerVideoClassName() {
     return `VideoEmbed-video-${this.id}`;
   }
 
   getPlayerScriptId() {
     return `VideoEmbed-initialize-${this.id}`;
-  }
-
-  getLogoOverlayId() {
-    return `VideoEmbed-logo-overlay-${this.id}`;
   }
 
   setupPlayer() {
@@ -261,7 +254,7 @@ class VideoEmbed extends Component {
       const end = defaultEnd < cue.endTime ? defaultEnd : cue.endTime;
 
       return {
-        content: `<div id="ad-lowerthird-${this.id}-${cue.id}" />`,
+        content: `<div id="ad-lowerthird-${this.id}-${cue.id}" class="VideoEmbed-lowerthird-overlay" />`,
         align: "bottom",
         start: cue.startTime,
         end,
@@ -275,34 +268,13 @@ class VideoEmbed extends Component {
       end: "playing",
     });
 
-    overlays.push({
-      content: `<img id="${this.getLogoOverlayId()}" class="VideoEmbed-logo-overlay" src="https://s3.amazonaws.com/static-asset/backpack-ui/videoembed.lp-logo.png" />`,
-      align: "top-right",
-      start: 0,
-      end: "ended",
-    });
-
     this.player.overlay({
       content: "",
       overlays,
       showBackground: false,
-      attachToControlBar: false,
+      attachToControlBar: true,
       debug: false,
     });
-  }
-
-  disableLogoOverlay() {
-    const logo = document.getElementById(this.getLogoOverlayId());
-    if (logo) {
-      logo.style.display = "none";
-    }
-  }
-
-  enableLogoOverlay() {
-    const logo = document.getElementById(this.getLogoOverlayId());
-    if (logo) {
-      logo.style.display = "inline-block";
-    }
   }
 
   render() {

@@ -150,7 +150,7 @@ const ThumbnailListItem = ({
           style={styles.coverPhoto}
         />
 
-        {runtime &&
+        {typeof runtime === "number" &&
           <TextBubble style={styles.imageText}>
             {duration(runtime)}
           </TextBubble>
