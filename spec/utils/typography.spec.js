@@ -138,9 +138,9 @@ describe("Text heading 4", () => {
     expect(styles).to.deep.equal({
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-      fontSize: "28px",
+      fontSize: "32px",
       fontWeight: 400,
-      lineHeight: 1.1428571428571428,
+      lineHeight: 1.125,
     });
   });
 
@@ -150,9 +150,9 @@ describe("Text heading 4", () => {
     expect(styles).to.deep.equal({
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-      fontSize: "28px",
+      fontSize: "32px",
       fontWeight: 300,
-      lineHeight: 1.1428571428571428,
+      lineHeight: 1.125,
     });
   });
 
@@ -162,9 +162,9 @@ describe("Text heading 4", () => {
     expect(styles).to.deep.equal({
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-      fontSize: "28px",
+      fontSize: "32px",
       fontWeight: 600,
-      lineHeight: 1.1428571428571428,
+      lineHeight: 1.125,
     });
   });
 });
