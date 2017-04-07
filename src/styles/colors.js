@@ -1,35 +1,69 @@
+import { rgba } from "../utils/color";
+
+// Background colors
+const bgOverlay = "#000";
+const bgPrimary = "#fff";
+const bgSecondary = "#f4fbfe";
+
+// Link colors
+const linkPrimary = "#297cbb";
+const linkPrimaryHover = rgba(linkPrimary, 0.8);
+
+// Text colors
+const textPrimary = "#2c3643";
+const textPrimaryBody = rgba(textPrimary, 0.93);
+const textSecondary = "#99a9b3";
+
+// Accent colors
+const accentGreen = "#16c98d";
+const accentOrange = "#ff882e";
+const accentRed = "#da0909";
+const accentYellow = "#ffc83f";
+
+// POI colors
+const poiGreen = "#00ca8b";
+const poiBlue = "#88bde7";
+const poiYellow = "#ffc92a";
+const poiRed = "#f8324d";
+const poiPink = "#ff6e8d";
+const poiPurple = "#9d69c9";
+const poiGray = "#b6c3ca";
+const poiDefault = "#a8a9ae";
+
+// Social colors
+const socialFacebook = "#3a5999";
+const socialFacebookMessenger = "#1472fb";
+const socialPinterest = "#cb2027";
+const socialReddit = "#fc4220";
+
 export default {
-  // Background colors
-  bgOverlay: "#000",
-  bgPrimary: "#fff",
-  bgSecondary: "#f4fbfe",
+  bgOverlay,
+  bgPrimary,
+  bgSecondary,
 
-  // Link colors
-  linkPrimary: "#297cbb",
+  linkPrimary,
+  linkPrimaryHover,
 
-  // Text colors
-  textPrimary: "#2c3643",
-  textSecondary: "#99a9b3",
+  textPrimary,
+  textPrimaryBody,
+  textSecondary,
 
-  // Accent colors
-  accentGreen: "#16c98d",
-  accentOrange: "#ff882e",
-  accentRed: "#da0909",
-  accentYellow: "#ffc83f",
+  accentGreen,
+  accentOrange,
+  accentRed,
+  accentYellow,
 
-  // POI colors
-  poiGreen: "#00ca8b",
-  poiBlue: "#88bde7",
-  poiYellow: "#ffc92a",
-  poiRed: "#f8324d",
-  poiPink: "#ff6e8d",
-  poiPurple: "#9d69c9",
-  poiGray: "#b6c3ca",
-  poiDefault: "#a8a9ae",
+  poiGreen,
+  poiBlue,
+  poiYellow,
+  poiRed,
+  poiPink,
+  poiPurple,
+  poiGray,
+  poiDefault,
 
-  // Social colors
-  socialFacebook: "#3a5999",
-  socialFacebookMessenger: "#1472fb",
-  socialPinterest: "#cb2027",
-  socialReddit: "#fc4220",
+  socialFacebook,
+  socialFacebookMessenger,
+  socialPinterest,
+  socialReddit,
 };
