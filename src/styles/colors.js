@@ -9,6 +9,9 @@ const bgSecondary = "#f4fbfe";
 const linkPrimary = "#297cbb";
 const linkPrimaryHover = rgba(linkPrimary, 0.8);
 
+// Border colors
+const borderPrimary = "#e4e4e4";
+
 // Text colors
 const textPrimary = "#2c3643";
 const textPrimaryBody = rgba(textPrimary, 0.93);
@@ -43,6 +46,8 @@ export default {
 
   linkPrimary,
   linkPrimaryHover,
+
+  borderPrimary,
 
   textPrimary,
   textPrimaryBody,
