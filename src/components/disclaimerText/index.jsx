@@ -6,7 +6,7 @@ import { fontSizeUppercase } from "../../styles/typography";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
-  color: colors.textSecondary,
+  color: colors.accentGray,
   fontFamily: font("benton"),
   fontSize: `${fontSizeUppercase}px`,
   lineHeight: (17 / 11),
