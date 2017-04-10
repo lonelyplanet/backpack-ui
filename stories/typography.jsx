@@ -8,6 +8,7 @@ import {
   textHeading4,
   textHeading5,
   textHeading6,
+  textHeading7,
   textBodyArticle,
   textBodySmall,
   textAccent,
@@ -66,6 +67,13 @@ function Typography() {
       <div>
         <div style={styles.smallText}><small>Heading 6</small></div>
         <div style={textHeading6()}>Top experiences in Asia</div>
+      </div>
+
+      <br /><br />
+
+      <div>
+        <div style={styles.smallText}><small>Heading 7</small></div>
+        <div style={textHeading7()}>Top experiences in Asia</div>
       </div>
 
       <br /><br />
