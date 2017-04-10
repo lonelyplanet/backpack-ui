@@ -11,7 +11,7 @@ const fontSize = fontSizeBodySmall;
 
 const hoverStyles = {
   default: {
-    backgroundColor: rgba(colors.textSecondary, 0.1),
+    backgroundColor: rgba(colors.accentGray, 0.15),
   },
 
   selected: {
@@ -22,7 +22,7 @@ const hoverStyles = {
 const styles = {
   default: Object.assign({}, textBodySmall(), {
     backgroundColor: colors.bgPrimary,
-    borderColor: rgba(colors.textSecondary, 0.3),
+    borderColor: rgba(colors.accentGray, 0.42),
     borderStyle: "solid",
     borderWidth: `${1 / fontSize}em`,
     borderRadius: `${32 / fontSize}em`,
