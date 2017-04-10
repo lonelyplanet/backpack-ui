@@ -11,7 +11,7 @@ const styles = {
   }, textUppercase()),
 
   icon: {
-    color: colors.textSecondary,
+    color: colors.accentGray,
     fontSize: "10px",
     marginRight: "7px",
     verticalAlign: "top",
