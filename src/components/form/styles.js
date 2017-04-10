@@ -25,23 +25,38 @@ const styles = {
   size: {
     tiny: {
       fontSize: "11px",
-      padding: `${7 / 11}em ${7 / 11}em ${3 / 11}em`,
+      paddingTop: `${7 / 11}em`,
+      paddingLeft: `${7 / 11}em`,
+      paddingRight: `${7 / 11}em`,
+      paddingBottom: `${3 / 11}em`,
     },
     small: {
       fontSize: "11px",
-      padding: `1em 1em ${7 / 11}em`,
+      paddingTop: "1em",
+      paddingLeft: "1em",
+      paddingRight: "1em",
+      paddingBottom: `${7 / 11}em`,
     },
     medium: {
       fontSize: "13px",
-      padding: `${15 / 13}em ${15 / 13}em ${11 / 13}em`,
+      paddingTop: `${15 / 13}em`,
+      paddingLeft: `${15 / 13}em`,
+      paddingRight: `${15 / 13}em`,
+      paddingBottom: `${1 / 13}em`,
     },
     large: {
       fontSize: "15px",
-      padding: `${19 / 15}em ${19 / 15}em 1em`,
+      paddingTop: `${19 / 15}em`,
+      paddingLeft: `${19 / 15}em`,
+      paddingRight: `${19 / 15}em`,
+      paddingBottom: "1em",
     },
     huge: {
       fontSize: "16px",
-      padding: `${23 / 16}em ${20 / 16}em ${19 / 16}em`,
+      paddingTop: `${23 / 16}em`,
+      paddingLeft: `${20 / 16}em`,
+      paddingRight: `${20 / 16}em`,
+      paddingBottom: `${19 / 16}em`,
     },
   },
 
@@ -117,10 +132,15 @@ const styles = {
         light: {},
         dark: {},
         inputGroup: {
-          padding: "4rem 2rem 1.3rem",
-
+          paddingTop: "4rem",
+          paddingLeft: "2rem",
+          paddingRight: "2rem",
+          paddingBottom: "1.3rem",
           [`@media (min-width: ${media.min["768"]})`]: {
-            padding: "3.5rem 1.5rem 1rem",
+            paddingTop: "3.5rem",
+            paddingLeft: "1.5rem",
+            paddingRight: "1.5rem",
+            paddingBottom: "1rem",
           },
         },
       },
@@ -198,11 +218,17 @@ const styles = {
         inputGroup: {
           backgroundImage: `url("data:image/svg+xml;charset=UTF-8,${icons.triangle.base}")`,
           backgroundPosition: "calc(100% - 2rem) 4.5rem",
-          padding: "4rem 2rem 1.3rem",
+          paddingTop: "4rem",
+          paddingLeft: "2rem",
+          paddingRight: "2rem",
+          paddingBottom: "1.3rem",
 
           [`@media (min-width: ${media.min["768"]})`]: {
             backgroundPosition: "calc(100% - 2rem) 3.5rem",
-            padding: "3.5rem 1.5rem 1rem",
+            paddingTop: "3.5rem",
+            paddingLeft: "1.5rem",
+            paddingRight: "1.5rem",
+            paddingBottom: "1rem",
           },
         },
       },

@@ -2,31 +2,28 @@ import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import CategoryLabel from "../categoryLabel";
 import CheckboxComponent from "../checkbox/checkboxComponent";
-// import Checkbox from "../checkbox";
-
-import { color, timing, typography } from "../../../settings.json";
+import color from "../../styles/colors";
+import { timing, typography } from "../../../settings.json";
 import { rgb } from "../../utils/color";
 import iconFromString from "../../utils/icon";
 
 const styles = {
   wrapper: {
     borderBottom: "1px solid",
-    // @discuss MATCH COMP
-    borderBottomColor: color.gray,
+    borderBottomColor: "#e4e4e4",
   },
   wrapperError: {
-    borderBottomColor: color.red,
+    borderBottomColor: color.accentRed,
   },
-  // @discuss MATCH COMP
   inputPlaceholderRules: {
     "::-webkit-input-placeholder": {
-      color: `rgba(${rgb(color.darkGray, 0.3)})`,
+      color: `rgba(${rgb(color.textPrimary, 0.3)})`,
     },
     "::-moz-placeholder": {
-      color: `rgba(${rgb(color.darkGray, 0.3)})`,
+      color: `rgba(${rgb(color.textPrimary, 0.3)})`,
     },
     ":-ms-input-placeholder": {
-      color: `rgba(${rgb(color.darkGray, 0.3)})`,
+      color: `rgba(${rgb(color.textPrimary, 0.3)})`,
     },
   },
   linkWrapper: {
@@ -34,7 +31,7 @@ const styles = {
     color: "initial",
   },
   title: {
-    color: color.darkGray,
+    color: color.textPrimary,
     fontSize: "16px",
     paddingTop: "16px",
     fontWeight: typography.fontWeightBold,
@@ -46,14 +43,11 @@ const styles = {
   sectionHeading: {
     paddingBottom: "16px",
     fontWeight: typography.fontWeightBold,
-    // @discuss MATCH COMP
-    color: "#99A9B3",
+    color: color.textSecondary,
     verticalAlign: "bottom",
   },
   subtitle: {
-    // color: color.subtitleGray,
-    // @discuss MATCH COMP
-    color: "#99A9B3",
+    color: color.textSecondary,
     fontWeight: typography.fontWeightLight,
     marginTop: "4px",
     fontSize: "11px",
@@ -65,7 +59,7 @@ const styles = {
     marginTop: "8px",
   },
   inputElement: {
-    color: color.darkGray,
+    color: color.textPrimary,
   },
   buttonDescription: {
     flexBasis: "80%",
@@ -74,7 +68,7 @@ const styles = {
   icon: {
     width: "16px",
     height: "16px",
-    fill: color.darkGray,
+    fill: color.textPrimary,
   },
   accordionClosed: {
     padding: 0,
