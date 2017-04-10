@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./styles.json";
 import {
+  textSuper,
   textHeading1,
   textHeading2,
   textHeading3,
@@ -17,6 +18,13 @@ function Typography() {
   return (
     <div style={styles.main}>
       <h1>Typography</h1>
+
+      <br /><br />
+
+      <div>
+        <div style={styles.smallText}><small>Super</small></div>
+        <div style={textSuper()}>Top experiences in Asia</div>
+      </div>
 
       <br /><br />
 
