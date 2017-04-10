@@ -17,8 +17,12 @@ const textPrimary = "#2c3643";
 const textSecondary = rgba(textPrimary, 0.7);
 
 // Accent colors
+const accentBlue = "#88bde7";
+const accentGray = "#b6c3ca";
 const accentGreen = "#16c98d";
 const accentOrange = "#ff882e";
+const accentPink = "#ff6e8d";
+const accentPurple = "#9d69c9";
 const accentRed = "#da0909";
 const accentYellow = "#ffc83f";
 
@@ -51,8 +55,12 @@ export default {
   textPrimary,
   textSecondary,
 
+  accentBlue,
+  accentGray,
   accentGreen,
   accentOrange,
+  accentPink,
+  accentPurple,
   accentRed,
   accentYellow,
 
