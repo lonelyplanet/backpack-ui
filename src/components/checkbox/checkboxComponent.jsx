@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from "react";
 import radium from "radium";
 import kebabCase from "lodash/kebabCase";
-import { color, timing, zIndex } from "../../../settings.json";
+import { timing, zIndex } from "../../../settings.json";
+import color from "../../styles/colors";
 import { darken } from "../../utils/color";
 import font from "../../utils/font";
+import propTypes from "../../utils/propTypes";
 import Icon from "../icon";
 
 const _ = { kebabCase };
@@ -16,7 +18,7 @@ const styles = {
   },
 
   label: {
-    color: color.darkGray,
+    color: color.textPrimary,
     cursor: "pointer",
     display: "block",
     fontSize: "13px",
@@ -30,12 +32,10 @@ const styles = {
   },
 
   checkmark: {
-    // borderColor: color.gray,
-    // @discuss MATCH COMP
-    borderColor: "#99A9B3",
+    borderColor: color.textSecondary,
     borderStyle: "solid",
     borderWidth: "1px",
-    color: color.white,
+    color: color.bgPrimary,
     display: "block",
     left: 0,
     position: "absolute",
@@ -48,16 +48,16 @@ const styles = {
   },
 
   checkmarkChecked: {
-    backgroundColor: color.blue,
-    borderColor: color.blue,
+    backgroundColor: color.linkPrimary,
+    borderColor: color.linkPrimary,
   },
 
   input: {
-    backgroundColor: color.white,
+    backgroundColor: color.bgPrimary,
     border: 0,
     left: 0,
     margin: 0,
-    outlineColor: darken(color.gray, 7),
+    outlineColor: darken(color.textSecondary, 7),
     position: "absolute",
     top: 0,
     WebkitAppearance: "none",
@@ -171,7 +171,7 @@ CheckboxComponent.propTypes = {
   onClick: PropTypes.func,
   size: PropTypes.oneOf([16, 24, 32]),
   rounded: PropTypes.bool,
-  style: PropTypes.objectOf(PropTypes.object),
+  style: propTypes.style,
 };
 
 CheckboxComponent.defaultProps = {

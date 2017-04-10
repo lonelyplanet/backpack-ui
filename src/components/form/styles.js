@@ -1,6 +1,9 @@
-import { color, typography, media, timing } from "../../../settings.json";
+import { color, media, timing } from "../../../settings.json";
 import { lighten, darken, rgb } from "../../utils/color";
 import { outline } from "../../utils/mixins";
+import {
+  fontWeightLight,
+} from "../../styles/typography";
 
 const icons = {
   triangle: {
@@ -12,7 +15,7 @@ const icons = {
 const styles = {
   base: {
     appearance: "none",
-    fontWeight: typography.fontWeightLight,
+    fontWeight: fontWeightLight,
     borderRadius: 0,
     borderStyle: "solid",
     borderWidth: ".1rem",
@@ -110,10 +113,7 @@ const styles = {
       paddingBottom: "16px",
       paddingLeft: 0,
       borderBottom: 0,
-      // ":focus": outline(),
-      // error: {
-      //   borderBottom: `1px solid ${color.red}`,
-      // },
+      ":focus": outline(),
     },
   },
 

@@ -37,9 +37,18 @@ class Checkbox extends Component {
 
   render() {
     return (
-      <CheckboxComponent {...this.props} checked={this.state.checked} onClick={this.onClick} />
+      <CheckboxComponent
+        {...this.props}
+        checked={this.state.checked}
+        onClick={this.onClick}
+      />
     );
   }
 }
+
+Checkbox.propTypes = {
+  checked: PropTypes.bool,
+  onClick: PropTypes.func,
+};
 
 export default radium(Checkbox);

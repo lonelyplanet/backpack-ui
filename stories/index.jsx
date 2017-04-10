@@ -108,13 +108,15 @@ import ScrollIndicator from "../src/components/scrollIndicator";
 import SectionalNav from "../src/components/sectionalNav";
 import SectionHeader from "../src/components/sectionHeader";
 import Select from "../src/components/form/select";
-import SettingBlock, {
-    SettingSection,
-    SettingBlockButton,
-    SettingBlockAccordion,
-    ToggleController,
+import {
+    SettingBlockSection,
+    SettingBlockListItemWrapper,
   } from "../src/components/settingBlock";
-
+import SettingBlockCheckbox from "../src/components/settingBlockCheckbox";
+import SettingBlockAccordion from "../src/components/settingBlockAccordion";
+import SettingBlockTextArea from "../src/components/settingBlockTextArea";
+import SettingBlockInput from "../src/components/settingBlockInput";
+import ToggleController from "../src/utils/toggleController";
 import ShareMenu from "../src/components/shareMenu";
 import Slide from "../src/components/slide";
 import SocialIconButton from "../src/components/socialIconButton";
@@ -133,12 +135,7 @@ import Tag from "../src/components/tag";
 import TagList from "../src/components/tagList";
 // Takeover
 import TallCarousel from "../src/components/tallCarousel";
-<<<<<<< HEAD
 import { TextAccent, TextBodyArticle, TextBodySmall, TextHeading, TextSuper, TextUppercase } from "../src/components/text";
-=======
-import TextArea from "../src/components/form/textarea";
-import { TextAccent, TextBodyArticle, TextBodySmall, TextHeading, TextUppercase } from "../src/components/text";
->>>>>>> feat: add base for user settings component
 import TextBubble from "../src/components/textBubble";
 import ThumbnailListItem from "../src/components/thumbnailListItem";
 import TileGrid from "../src/components/tileGrid";
@@ -1543,16 +1540,6 @@ storiesOf("Select", module)
     <Select options={array("Options", ["USA", "France", "Spain"])} />
   ));
 
-const SettingBlockListItemWrapper = (props) => (
-  <div
-    style={{
-      marginBottom: "8px",
-    }}
-  >
-    {props.children}
-  </div>
-);
-
 storiesOf("Setting Block", module)
   .addDecorator(withKnobs)
   .add("Text Input Setting", () => (
@@ -1561,16 +1548,12 @@ storiesOf("Setting Block", module)
         padding: "16px 24px",
       }}
     >
-      <SettingBlock
+      <SettingBlockInput
         error={boolean("Error", false)}
         title={text("Title", "Name")}
         subtitle={text("Subtitle", "Publicly displayed in your profile")}
-      >
-        <Input
-          theme="float"
-          placeholder={text("Placeholder", "Enter full name")}
-        />
-      </SettingBlock>
+        placeholder={text("Placeholder", "Enter full name")}
+      />
     </div>
   ))
   .add("Textarea Setting", () => (
@@ -1579,31 +1562,13 @@ storiesOf("Setting Block", module)
         padding: "16px 24px",
       }}
     >
-      <SettingBlock
+      <SettingBlockTextArea
         error={boolean("Error", false)}
-        title={text("Title", "Intro")}
-        subtitle={text("Subtitle", "")}
-      >
-        <HeightExpander
-          idToFind="textArea1"
-          baseHeight="0px"
-        >
-          {(expandHeight, newHeight) => (
-            <TextArea
-              id="textArea1"
-              onChange={expandHeight}
-              maxLength="20"
-              placeholder="Enter your intro here"
-              theme="float"
-              customStyles={{
-                minHeight: "56px",
-                height: newHeight,
-              }}
-              rows={2}
-            />
-          )}
-        </HeightExpander>
-      </SettingBlock>
+        title={text("Textarea Title", "Intro")}
+        subtitle={text("Textarea Subtitle", "")}
+        id={text("Id", "testerTime")}
+        placeholder="Add an intro"
+      />
     </div>
   ))
   .add("Checkbox Button Setting", () => (
@@ -1614,7 +1579,7 @@ storiesOf("Setting Block", module)
     >
       <ToggleController active={boolean("Checked", false)}>
         {(active, toggle) => (
-          <SettingBlockButton
+          <SettingBlockCheckbox
             error={boolean("Error", false)}
             title={text("Title", "Lonely Planet Kids newsletter")}
             subtitle={text("Subtitle", "")}
@@ -1664,42 +1629,23 @@ storiesOf("Setting Block", module)
         paddingRight: "24px",
       }}
     >
-      <SettingSection heading={text("Section Heading", "Personal")}>
+      <SettingBlockSection heading={text("Section Heading", "Personal")}>
         <SettingBlockListItemWrapper>
-          <SettingBlock
+          <SettingBlockInput
             error={boolean("Error", false)}
-            title={text("Input Title", "Name")}
-            subtitle={text("Input Subtitle", "Publicly displayed in your profile")}
-          >
-            <Input
-              theme="float"
-              placeholder={text("Input Placeholder", "Enter full name")}
-            />
-          </SettingBlock>
+            title={text("Title", "Name")}
+            subtitle={text("Subtitle", "Publicly displayed in your profile")}
+            placeholder={text("Placeholder", "Enter full name")}
+          />
         </SettingBlockListItemWrapper>
         <SettingBlockListItemWrapper>
-          <SettingBlock
+          <SettingBlockTextArea
             error={boolean("Error", false)}
             title={text("Textarea Title", "Intro")}
             subtitle={text("Textarea Subtitle", "")}
-          >
-            <HeightExpander idToFind="textArea2" baseHeight="0px">
-              {(expandHeight, newHeight) => (
-                <TextArea
-                  id="textArea2"
-                  placeholder="Add an intro"
-                  onChange={expandHeight}
-                  theme="float"
-                  maxLength="20"
-                  customStyles={{
-                    minHeight: "56px",
-                    height: newHeight,
-                  }}
-                  rows={null}
-                />
-              )}
-            </HeightExpander>
-          </SettingBlock>
+            id={text("Id", "tester3")}
+            placeholder="Add an intro"
+          />
         </SettingBlockListItemWrapper>
         <SettingBlockListItemWrapper>
           <ToggleController active={boolean("Expanded", false)}>
@@ -1728,7 +1674,7 @@ storiesOf("Setting Block", module)
         <SettingBlockListItemWrapper>
           <ToggleController active={boolean("Checked", false)}>
             {(active, toggle) => (
-              <SettingBlockButton
+              <SettingBlockCheckbox
                 error={boolean("Error", false)}
                 title={text("Button Title", "Travel news daily")}
                 subtitle={text("Button Subtitle", "")}
@@ -1739,42 +1685,24 @@ storiesOf("Setting Block", module)
             )}
           </ToggleController>
         </SettingBlockListItemWrapper>
-      </SettingSection>
-      <SettingSection heading="Another Section">
+      </SettingBlockSection>
+      <SettingBlockSection heading="Another Section">
         <SettingBlockListItemWrapper>
-          <SettingBlock
+          <SettingBlockInput
             error={boolean("Error", false)}
-            title={text("Input Title", "Name")}
-            subtitle={text("Input Subtitle", "Publicly displayed in your profile")}
-          >
-            <Input
-              theme="float"
-              placeholder={text("Input Placeholder", "Enter full name")}
-            />
-          </SettingBlock>
+            title={text("Title", "Name")}
+            subtitle={text("Subtitle", "Publicly displayed in your profile")}
+            placeholder={text("Placeholder", "Enter full name")}
+          />
         </SettingBlockListItemWrapper>
         <SettingBlockListItemWrapper>
-          <SettingBlock
+          <SettingBlockTextArea
             error={boolean("Error", false)}
             title={text("Textarea Title", "Intro")}
             subtitle={text("Textarea Subtitle", "")}
-          >
-            <HeightExpander idToFind="textArea3" baseHeight="0px">
-              {(expandHeight, newHeight) => (
-                <TextArea
-                  id="textArea3"
-                  onChange={expandHeight}
-                  placeholder="Add an intro"
-                  theme="float"
-                  customStyles={{
-                    minHeight: "56px",
-                    height: newHeight,
-                  }}
-                  rows={null}
-                />
-              )}
-            </HeightExpander>
-          </SettingBlock>
+            id={text("Id", "tester1")}
+            placeholder="Add an intro"
+          />
         </SettingBlockListItemWrapper>
         <SettingBlockListItemWrapper>
           <ToggleController active={boolean("Expanded", false)}>
@@ -1803,7 +1731,7 @@ storiesOf("Setting Block", module)
         <SettingBlockListItemWrapper>
           <ToggleController active={boolean("Checked", false)}>
             {(active, toggle) => (
-              <SettingBlockButton
+              <SettingBlockCheckbox
                 error={boolean("Error", false)}
                 title={text("Button Title", "Twitter")}
                 subtitle={text("Button Subtitle", "")}
@@ -1814,7 +1742,7 @@ storiesOf("Setting Block", module)
             )}
           </ToggleController>
         </SettingBlockListItemWrapper>
-      </SettingSection>
+      </SettingBlockSection>
     </div>
   ));
 

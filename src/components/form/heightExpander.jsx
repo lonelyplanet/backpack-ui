@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from "react";
+import React, { PropTypes } from "react";
 
 
-class HeightExpander extends Component {
+class HeightExpander extends React.Component {
   constructor(props) {
     super(props);
 
