@@ -27,13 +27,14 @@ const accentRed = "#da0909";
 const accentYellow = "#ffc83f";
 
 // POI colors
-const poiGreen = "#00ca8b";
-const poiBlue = "#88bde7";
-const poiYellow = "#ffc92a";
-const poiRed = "#f8324d";
-const poiPink = "#ff6e8d";
-const poiPurple = "#9d69c9";
-const poiGray = "#b6c3ca";
+// These are deprecated and will be removed in the next major release
+const poiGreen = accentGreen;
+const poiBlue = accentBlue;
+const poiYellow = accentYellow;
+const poiRed = accentRed;
+const poiPink = accentPink;
+const poiPurple = accentPurple;
+const poiGray = accentGray;
 const poiDefault = "#a8a9ae";
 
 // Social colors
