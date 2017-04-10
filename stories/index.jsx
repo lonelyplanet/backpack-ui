@@ -55,6 +55,7 @@ import Flyout from "../src/components/flyout";
 import GridColumn from "../src/components/gridColumn";
 import GridRow from "../src/components/gridRow";
 import Heading from "../src/components/heading";
+import HeightExpander from "../src/components/form/heightExpander";
 import Icons from "./icons";
 import Icon from "../src/components/icon";
 import IconButton from "../src/components/iconButton";
@@ -1583,10 +1584,25 @@ storiesOf("Setting Block", module)
         title={text("Title", "Intro")}
         subtitle={text("Subtitle", "")}
       >
-        <TextArea
-          theme="float"
-          rows={5}
-        />
+        <HeightExpander
+          idToFind="textArea1"
+          baseHeight="0px"
+        >
+          {(expandHeight, newHeight) => (
+            <TextArea
+              id="textArea1"
+              onChange={expandHeight}
+              maxLength="20"
+              placeholder="Enter your intro here"
+              theme="float"
+              customStyles={{
+                minHeight: "56px",
+                height: newHeight,
+              }}
+              rows={2}
+            />
+          )}
+        </HeightExpander>
       </SettingBlock>
     </div>
   ))
@@ -1667,11 +1683,22 @@ storiesOf("Setting Block", module)
             title={text("Textarea Title", "Intro")}
             subtitle={text("Textarea Subtitle", "")}
           >
-            <TextArea
-              theme="float"
-              placeholder={text("Placeholder", "Enter intro")}
-              rows={2}
-            />
+            <HeightExpander idToFind="textArea2" baseHeight="0px">
+              {(expandHeight, newHeight) => (
+                <TextArea
+                  id="textArea2"
+                  placeholder="Add an intro"
+                  onChange={expandHeight}
+                  theme="float"
+                  maxLength="20"
+                  customStyles={{
+                    minHeight: "56px",
+                    height: newHeight,
+                  }}
+                  rows={null}
+                />
+              )}
+            </HeightExpander>
           </SettingBlock>
         </SettingBlockListItemWrapper>
         <SettingBlockListItemWrapper>
@@ -1732,11 +1759,21 @@ storiesOf("Setting Block", module)
             title={text("Textarea Title", "Intro")}
             subtitle={text("Textarea Subtitle", "")}
           >
-            <TextArea
-              theme="float"
-              placeholder={text("Placeholder", "Enter intro")}
-              rows={null}
-            />
+            <HeightExpander idToFind="textArea3" baseHeight="0px">
+              {(expandHeight, newHeight) => (
+                <TextArea
+                  id="textArea3"
+                  onChange={expandHeight}
+                  placeholder="Add an intro"
+                  theme="float"
+                  customStyles={{
+                    minHeight: "56px",
+                    height: newHeight,
+                  }}
+                  rows={null}
+                />
+              )}
+            </HeightExpander>
           </SettingBlock>
         </SettingBlockListItemWrapper>
         <SettingBlockListItemWrapper>

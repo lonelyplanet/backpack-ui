@@ -16,6 +16,7 @@ function TextArea({
   theme,
   onChange,
   customStyles,
+  maxLength,
 }) {
   const style = [styles.base];
 
@@ -48,6 +49,7 @@ function TextArea({
       onChange={onChange}
       aria-label={label}
       title={label}
+      maxLength={maxLength}
     />
   );
 }
@@ -87,6 +89,8 @@ TextArea.propTypes = {
   onChange: React.PropTypes.func,
 
   customStyles: propTypes.style,
+
+  maxLength: React.PropTypes.string,
 };
 
 TextArea.defaultProps = {
