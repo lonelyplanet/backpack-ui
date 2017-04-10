@@ -57,6 +57,11 @@ const scopedStyles = {
     fontFamily: "arial,sans-serif",
     padding: "6px 24px",
   },
+  ".VideoEmbed-lowerthird-overlay": {
+    position: "relative",
+    paddingBottom: "56.25%", /* 16:9 */
+    height: 0,
+  },
   ".VideoEmbed-lowerthird-overlay>div": {
     width: "100% !important",
     height: "100% !important",
@@ -64,6 +69,9 @@ const scopedStyles = {
   ".VideoEmbed-lowerthird-overlay iframe": {
     width: "100%",
     height: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
   },
   mediaQueries: {
     [`(max-width: ${media.max["480"]})`]: {
@@ -88,7 +96,6 @@ class VideoEmbed extends Component {
 
   componentDidMount() {
     this.setupPlayer();
-    window.addEventListener("resize", this.resizeLowerThirds);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -106,7 +113,6 @@ class VideoEmbed extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.resizeLowerThirds);
     this.tearDownPlayer();
   }
 
@@ -170,8 +176,6 @@ class VideoEmbed extends Component {
       return;
     }
 
-    this.resizeLowerThirds();
-
     if (this.props.onCueChange) {
       this.props.onCueChange(cue, cueIndex, overlayElementId);
     }
@@ -195,19 +199,6 @@ class VideoEmbed extends Component {
     script.onload = this.onLoadSetupScript.bind(this);
 
     document.body.appendChild(script);
-  }
-
-  resizeLowerThirds() {  // eslint-disable-line class-methods-use-this
-    const lowerthirds = document.getElementsByClassName("VideoEmbed-lowerthird-overlay");
-    const videos = document.getElementsByTagName("video");
-
-    if (!videos.length) {
-      return;
-    }
-
-    [].forEach.call(lowerthirds, (el) => {
-      el.style.height = `${videos[0].clientHeight}px`;
-    });
   }
 
   tearDownPlayer() {
