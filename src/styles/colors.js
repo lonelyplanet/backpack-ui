@@ -14,7 +14,7 @@ const borderPrimary = "#e4e4e4";
 
 // Text colors
 const textPrimary = "#2c3643";
-const textSecondary = "#99a9b3";
+const textSecondary = rgba(textPrimary, 0.7);
 
 // Accent colors
 const accentGreen = "#16c98d";
