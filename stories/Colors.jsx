@@ -33,7 +33,7 @@ function Colors() {
             <span
               style={{
                 display: "inline-block",
-                width: "90px",
+                width: "250px",
               }}
             >
               <span style={{ userSelect: "none" }}>{colors[name]}</span>
