@@ -140,7 +140,7 @@ describe("Text heading 4", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "32px",
       fontWeight: 400,
-      lineHeight: 1.125,
+      lineHeight: 1.25,
     });
   });
 
@@ -152,7 +152,7 @@ describe("Text heading 4", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "32px",
       fontWeight: 300,
-      lineHeight: 1.125,
+      lineHeight: 1.25,
     });
   });
 
@@ -164,7 +164,7 @@ describe("Text heading 4", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "32px",
       fontWeight: 600,
-      lineHeight: 1.125,
+      lineHeight: 1.25,
     });
   });
 });
