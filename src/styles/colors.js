@@ -15,6 +15,7 @@ const borderPrimary = "#e4e4e4";
 // Text colors
 const textPrimary = "#2c3643";
 const textSecondary = rgba(textPrimary, 0.7);
+const textOverlay = "#fff";
 
 // Accent colors
 const accentBlue = "#88bde7";
@@ -55,6 +56,7 @@ export default {
 
   textPrimary,
   textSecondary,
+  textOverlay,
 
   accentBlue,
   accentGray,
