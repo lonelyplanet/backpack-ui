@@ -1,9 +1,9 @@
 import { rgba } from "../utils/color";
 
 // Background colors
-const bgOverlay = "#000";
 const bgPrimary = "#fff";
 const bgSecondary = "#f4fbfe";
+const bgOverlay = "#000";
 
 // Link colors
 const linkPrimary = "#297cbb";
@@ -44,9 +44,9 @@ const socialPinterest = "#cb2027";
 const socialReddit = "#fc4220";
 
 export default {
-  bgOverlay,
   bgPrimary,
   bgSecondary,
+  bgOverlay,
 
   linkPrimary,
   linkPrimaryHover,
