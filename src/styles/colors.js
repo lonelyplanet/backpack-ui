@@ -7,7 +7,7 @@ const bgOverlay = "#000";
 
 // Link colors
 const linkPrimary = "#297cbb";
-const linkPrimaryHover = rgba(linkPrimary, 0.8);
+const linkPrimaryHover = rgba(linkPrimary, 0.7);
 
 // Border colors
 const borderPrimary = "#e4e4e4";
