@@ -125,20 +125,46 @@ class VideoEmbed extends Component {
     this.player.controls(true);
 
     this.player.ready(this.onPlayerReady.bind(this));
+    this.player.on("loadstart", this.onPlayerLoadStart.bind(this));
+    this.player.on("error", this.onPlayerError.bind(this));
     this.player.on("playing", this.onPlayerPlaying.bind(this));
     this.player.on("ended", this.onPlayerEnded.bind(this));
     this.player.on("ads-ad-ended", this.onAdEnded.bind(this));
   }
 
   onPlayerReady() {
+    // We load our video as soon as the player is instantiated and ready
+    this.loadVideo(this.props.videoId);
+  }
+
+  onPlayerLoadStart() {
+    const tt = this.player.textTracks()[0];
+    if (tt) {
+      tt.oncuechange = this.onPlayerCueChange.bind(this);
+    }
+
+    this.configureOverlays();
+
+    if (this.props.autoplay) {
+      this.player.play();
+    }
+  }
+
+  onPlayerError() {
+    // If the current video errors (ex. a timeout), we can recover by just attempting
+    // to load/play the video again.
     this.loadVideo(this.props.videoId);
   }
 
   onPlayerPlaying() {
+    // If videoId was set while an ad was playing, and the user skips the ad,
+    // the onAdEnded() handler will not be run.  This makes sure we load the new video.
     this.loadVideo(this.props.videoId);
   }
 
   onAdEnded() {
+    // If videoId was set while an ad was playing, and the
+    // ad ends (without being skipped), make sure to load the new video.
     this.loadVideo(this.props.videoId);
   }
 
@@ -166,7 +192,7 @@ class VideoEmbed extends Component {
 
     let cueIndex = null;
 
-    tt.cues_.filter(c => c.text === "CODE").forEach((c, i) => {
+    this.getCues().forEach((c, i) => {
       if (c.originalCuePoint.id === cue.id) {
         cueIndex = i;
       }
@@ -179,6 +205,29 @@ class VideoEmbed extends Component {
     if (this.props.onCueChange) {
       this.props.onCueChange(cue, cueIndex, overlayElementId);
     }
+  }
+
+  getCues() {
+    if (!this.player) {
+      return [];
+    }
+
+    const tt = this.player.textTracks()[0];
+    if (!tt) {
+      return [];
+    }
+
+    let index = 0;
+    const cues = [];
+    while (index < tt.cues.length) {
+      const cue = tt.cues[index];
+      if (cue.text === "CODE") {
+        cues.push(cue);
+      }
+      index += 1;
+    }
+
+    return cues;
   }
 
   getPlayerVideoClassName() {
@@ -201,6 +250,37 @@ class VideoEmbed extends Component {
     document.body.appendChild(script);
   }
 
+  isVideoLoaded(videoId) {
+    return this.player && this.player.mediainfo && this.player.mediainfo.id === videoId;
+  }
+
+  loadVideo(videoId) {
+    if (!this.isReady()) {
+      return;
+    }
+
+    if (this.isVideoLoaded(videoId)) {
+      if (this.props.autoplay) {
+        this.player.play();
+      }
+    } else {
+      this.player.catalog.getVideo(videoId, (error, video) => {
+        if (!error) {
+          this.player.catalog.load(video);
+          // wait for 'loadstart' event
+        }
+      });
+    }
+  }
+
+  isReady() {
+    return this.player && this.player.isReady_;
+  }
+
+  isAdRunning() {
+    return this.player && this.player.ads.state === "ad-playback";
+  }
+
   tearDownPlayer() {
     const scriptId = this.getPlayerScriptId();
     const script = document.getElementById(scriptId);
@@ -215,52 +295,8 @@ class VideoEmbed extends Component {
     }
   }
 
-  isAdRunning() {
-    return this.player && this.player.ads.state === "ad-playback";
-  }
-
-  isReady() {
-    return this.player && this.player.isReady_;
-  }
-
-  isVideoLoaded(videoId) {
-    return this.player && this.player.mediainfo && this.player.mediainfo.id === videoId;
-  }
-
-  loadVideo(videoId) {
-    if (!this.isReady()) {
-      return;
-    }
-
-    const { autoplay } = this.props;
-
-    if (this.isVideoLoaded(videoId)) {
-      if (autoplay) {
-        this.player.play();
-      }
-    } else {
-      this.player.catalog.getVideo(videoId, (error, video) => {
-        if (!error) {
-          this.player.catalog.load(video);
-
-          const tt = this.player.textTracks()[0];
-          tt.off("cuechange");
-          tt.on("cuechange", this.onPlayerCueChange.bind(this));
-
-          this.configureOverlays();
-
-          if (autoplay) {
-            this.player.play();
-          }
-        }
-      });
-    }
-  }
-
   configureOverlays() {
-    const tt = this.player.textTracks()[0];
-
-    const overlays = tt.cues_.filter(c => c.text === "CODE").map((c) => {
+    const overlays = this.getCues().map((c) => {
       const cue = c.originalCuePoint;
 
       const defaultEnd = cue.startTime + 15;
