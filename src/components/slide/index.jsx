@@ -32,34 +32,29 @@ const styles = {
     },
   },
   adContainer: {
-    // ad container will get display: block inline if present through GTM
-    display: "none",
-    marginBottom: "36px",
-    [`@media (min-width: ${media.min["720"]})`]: {
-      marginBottom: "56px",
-    },
+    marginBottom: "20px",
   },
   heading: {
     color: color.white,
     fontSize: "32px",
     letterSpacing: "0",
-    marginBottom: "32px",
+    marginBottom: "16px",
     [`@media (min-width: ${media.min["600"]})`]: {
       letterSpacing: "-0.56px",
       fontSize: "calc(11px + 5vw)",
     },
     [`@media (min-width: ${media.min["720"]})`]: {
       fontSize: "60px",
-      marginBottom: "40px",
+      marginBottom: "20px",
     },
     [`@media (min-width: ${media.min["840"]})`]: {
-      marginBottom: "40px",
       fontSize: "68px",
     },
   },
   button: {
     paddingRight: "30px",
     paddingLeft: "30px",
+    marginTop: "16px",
     icon: {
       fontSize: "18px",
       marginRight: "16px",
@@ -67,6 +62,7 @@ const styles = {
     [`@media (min-width: ${media.min["720"]})`]: {
       paddingRight: "46px",
       paddingLeft: "46px",
+      marginTop: "20px",
     },
   },
   fullOverlay: {
@@ -97,7 +93,6 @@ const styles = {
       },
     },
     leftBottom: {
-      // position: "absolute",
       bottom: "5.5em",
       zIndex: zIndex.slideshowSlide,
       [`@media (min-width: ${media.min["720"]})`]: {
