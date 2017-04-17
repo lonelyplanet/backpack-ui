@@ -3,21 +3,16 @@ import SettingBlock from "../settingBlock/";
 import Input from "../form/input";
 
 
-const SettingBlockInput = ({
-  error,
-  title,
-  subtitle,
-
-  placeholder,
-}) => (
+const SettingBlockInput = (props) => (
   <SettingBlock
-    error={error}
-    title={title}
-    subtitle={subtitle}
+    error={props.error}
+    title={props.title}
+    subtitle={props.subtitle}
   >
     <Input
+      {...props}
       theme="float"
-      placeholder={placeholder}
+      placeholder={props.placeholder}
     />
   </SettingBlock>
 );

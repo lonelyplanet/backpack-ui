@@ -4,24 +4,19 @@ import TextArea from "../form/textarea";
 import HeightExpander from "../form/heightExpander";
 
 
-const SettingBlockTextArea = ({
-  error,
-  title,
-  subtitle,
-  id,
-  placeholder,
-}) => (
+const SettingBlockTextArea = (props) => (
   <SettingBlock
-    error={error}
-    title={title}
-    subtitle={subtitle}
+    error={props.error}
+    title={props.title}
+    subtitle={props.subtitle}
   >
-    <HeightExpander idToFind={id} baseHeight="0px">
+    <HeightExpander idToFind={props.id} baseHeight="0px">
       {(expandHeight, newHeight) => (
         <TextArea
-          id={id}
+          {...props}
+          id={props.id}
           onChange={expandHeight}
-          placeholder={placeholder}
+          placeholder={props.placeholder}
           theme="float"
           customStyles={{
             minHeight: "56px",
