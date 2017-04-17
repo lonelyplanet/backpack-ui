@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react";
 
-import SettingBlockWrapper from "../settingBlock/settingBlockWrapper.jsx";
-import SettingBlockHeader from "../settingBlock/settingBlockHeader.jsx";
+import SettingBlockWrapper from "../settingBlock/settingBlockWrapper";
+import SettingBlockHeader from "../settingBlock/settingBlockHeader";
 
 const SettingBlock = ({
   children,

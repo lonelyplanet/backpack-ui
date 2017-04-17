@@ -1,9 +1,9 @@
-export SettingBlockWrapper from "./settingBlockWrapper.jsx";
-export SettingBlockHeader from "./settingBlockHeader.jsx";
-export SettingBlockSection from "./settingBlockSection.jsx";
-export SettingBlockListItemWrapper from "./settingBlockListItemWrapper.jsx";
-export SettingBlockButtonDescription from "./settingBlockButtonDescription.jsx";
-export SettingBlockButtonWrapper from "./settingBlockButtonWrapper.jsx";
-export SettingBlockDescription from "./settingBlockDescription.jsx";
+export SettingBlockWrapper from "./settingBlockWrapper";
+export SettingBlockHeader from "./settingBlockHeader";
+export SettingBlockSection from "./settingBlockSection";
+export SettingBlockListItemWrapper from "./settingBlockListItemWrapper";
+export SettingBlockButtonDescription from "./settingBlockButtonDescription";
+export SettingBlockButtonWrapper from "./settingBlockButtonWrapper";
+export SettingBlockDescription from "./settingBlockDescription";
 
 export default from "./settingBlock";
