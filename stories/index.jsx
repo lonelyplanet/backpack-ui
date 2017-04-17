@@ -134,6 +134,7 @@ import SpotlightZone from "../src/components/spotlightZone";
 import StaticMap from "../src/components/staticMap";
 import Strapline from "../src/components/strapline";
 import TabbedNav from "../src/components/tabbedNav";
+import { Tabs, Tab } from "../src/components/tabs";
 import Tag from "../src/components/tag";
 import TagList from "../src/components/tagList";
 // Takeover
@@ -2065,6 +2066,23 @@ storiesOf("Tabbed nav", module)
         onClick={action("Tab clicked")}
       />
     </StyleRoot>
+  ));
+
+storiesOf("Tabs", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Tabs
+      id="tabbedNavigation"
+      navigationHeight={number("Navigation height", 80)}
+      navigationSticky={boolean("Sticky navigation", false)}
+    >
+      <Tab label="Experiences" active>Experiences tab content</Tab>
+      <Tab label="Map">Map tab content</Tab>
+      <Tab label="Articles">Articles tab content</Tab>
+      <Tab label="Interests">Interests tab content</Tab>
+      <Tab label="Books">Books tab content</Tab>
+      <Tab label="Adventures">Adventures tab content</Tab>
+    </Tabs>
   ));
 
 storiesOf("Tag", module)
