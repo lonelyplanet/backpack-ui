@@ -1,0 +1,66 @@
+import React, { PropTypes } from "react";
+import radium from "radium";
+import colors from "../../styles/colors";
+import timing from "../../styles/timing";
+import { fontWeightMedium } from "../../styles/typography";
+import { textUppercase } from "../../utils/typography";
+import propTypes from "../../utils/propTypes";
+
+const styles = Object.assign({}, {
+  backgroundColor: colors.bgPrimary,
+  borderBottomColor: colors.bgPrimary,
+  borderBottomStyle: "solid",
+  borderBottomWidth: "4px",
+  color: colors.textPrimary,
+  cursor: "pointer",
+  display: "inline-block",
+  fontWeight: fontWeightMedium,
+  height: "100%",
+  paddingLeft: "16px",
+  paddingRight: "16px",
+  paddingTop: "4px", // offset border width, keep text centered
+  textAlign: "center",
+  transition: `border-bottom-color ${timing.fast} ease-in-out,
+    color ${timing.fast} ease-in-out`,
+  verticalAlign: "middle",
+
+  ":hover": {
+    color: colors.textSecondary,
+  },
+
+  ":active": {
+    color: colors.textSecondary,
+  },
+
+  ":focus": {
+    color: colors.linkPrimary,
+  },
+}, textUppercase());
+
+const NavigationTab = (props) => {
+  const { children, onClick, active, style, ...properties } = props;
+
+  return (
+    <button
+      className="NavigationTab"
+      onClick={onClick}
+      style={[
+        styles,
+        active && { borderBottomColor: colors.linkPrimary },
+        style,
+      ]}
+      {...properties}
+    >
+      {children}
+    </button>
+  );
+};
+
+NavigationTab.propTypes = {
+  children: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  active: PropTypes.bool,
+  style: propTypes.style,
+};
+
+export default radium(NavigationTab);
