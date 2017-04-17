@@ -114,6 +114,7 @@ import {
     SettingBlockListItemWrapper,
   } from "../src/components/settingBlock";
 import SettingBlockCheckbox from "../src/components/settingBlockCheckbox";
+import SettingBlockAction from "../src/components/settingBlockAction";
 import SettingBlockAccordion from "../src/components/settingBlockAccordion";
 import SettingBlockTextArea from "../src/components/settingBlockTextArea";
 import SettingBlockInput from "../src/components/settingBlockInput";
@@ -1614,6 +1615,22 @@ storiesOf("Setting Block", module)
           />
         )}
       </ToggleController>
+    </div>
+  ))
+  .add("Action Button Setting", () => (
+    <div
+      style={{
+        padding: "16px 24px",
+      }}
+    >
+      <SettingBlockAction
+        error={boolean("Error", false)}
+        title={text("Title", "Delete Account")}
+        actionText={text("Action Text", "Delete Account")}
+        subtitle={text("Subtitle", "")}
+        onClick={action("DeleteAcount")}
+        description={text("Description", "Think twice! All your stuff will be deleted.")}
+      />
     </div>
   ))
   .add("Accordion Setting", () => (
