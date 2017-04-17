@@ -15,6 +15,7 @@ class HeightExpander extends React.Component {
   componentDidMount() {
     this.element = document.getElementById(this.props.idToFind);
     window.addEventListener("resize", this.updateHeight);
+    this.updateHeight();
   }
 
   componentWillUnmount() {
