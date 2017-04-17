@@ -85,6 +85,7 @@ import MastheadSlider from "../src/components/mastheadSlider";
 import Modal from "../src/components/modal";
 import MoreLink from "../src/components/moreLink";
 import Narrative from "../src/components/narrative";
+import { Navigation, NavigationTab } from "../src/components/navigation";
 import NewsArticleAuthor from "../src/components/newsArticleAuthor";
 import NewsList from "../src/components/newsList";
 import Newsletter from "../src/components/newsletter";
@@ -1153,6 +1154,22 @@ storiesOf("More link", module)
     >
       {text("Text", "View all tours")}
     </MoreLink>
+  ));
+
+storiesOf("Navigation", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Navigation height={number("Height", 80)} sticky={boolean("Sticky", false)}>
+      <NavigationTab active={boolean("Active", true)} onClick={action("Experiences tab clicked")}>
+        {text("Text", "Experiences")}
+      </NavigationTab>
+
+      <NavigationTab onClick={action("Map tab clicked")}>Map</NavigationTab>
+      <NavigationTab onClick={action("Articles tab clicked")}>Articles</NavigationTab>
+      <NavigationTab onClick={action("Interests tab clicked")}>Interests</NavigationTab>
+      <NavigationTab onClick={action("Books tab clicked")}>Books</NavigationTab>
+      <NavigationTab onClick={action("Adventures tab clicked")}>Adventures</NavigationTab>
+    </Navigation>
   ));
 
 storiesOf("Narrative", module)
