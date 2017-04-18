@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
+import cn from "classnames";
 import { media } from "../../../settings.json";
 
 // @TODO: Replace grid settings with unitless values in settings.json
