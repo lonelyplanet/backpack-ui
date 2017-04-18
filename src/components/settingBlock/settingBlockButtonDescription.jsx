@@ -2,7 +2,7 @@ import React, { PropTypes } from "react";
 
 const styles = {
   base: {
-    flexBasis: "80%",
+    flexBasis: "60%",
     paddingBottom: "16px",
   },
 };
