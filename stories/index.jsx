@@ -51,6 +51,7 @@ import EditLink from "../src/components/editLink";
 import ErrorMessages from "../src/components/form/errorMessages";
 import ExpandButton from "../src/components/expandButton";
 import FeaturedArticle from "../src/components/featuredArticle";
+import Flag from "../src/components/flag";
 import Flyout from "../src/components/flyout";
 import GridColumn from "../src/components/gridColumn";
 import GridRow from "../src/components/gridRow";
@@ -661,6 +662,12 @@ storiesOf("Featured article", module)
         }}
       />
     </StyleRoot>
+  ));
+
+storiesOf("Flag", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Flag>{text("Text", "Private")}</Flag>
   ));
 
 storiesOf("Flyout", module)
