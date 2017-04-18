@@ -7,6 +7,7 @@ const styles = {
   default: {
     borderRadius: "100%",
     display: "inline-block",
+    objectFit: "cover",
     verticalAlign: "middle",
   },
 
