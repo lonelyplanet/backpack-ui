@@ -9,6 +9,7 @@ import {
   fontSizeHeading5,
   fontSizeHeading6,
   fontSizeHeading7,
+  fontSizeHeading8,
   fontSizeBodyArticle,
   fontSizeBodySmall,
   fontSizeAccent,
@@ -24,6 +25,7 @@ import {
   textHeading5,
   textHeading6,
   textHeading7,
+  textHeading8,
   textBodyArticle,
   textBodySmall,
   textAccent,
@@ -89,6 +91,13 @@ function Typography() {
       <div>
         <div style={styles.smallText}><small>Heading 7 ({fontSizeHeading7})</small></div>
         <div style={textHeading7()}>Top experiences in Asia</div>
+      </div>
+
+      <br /><br />
+
+      <div>
+        <div style={styles.smallText}><small>Heading 8 ({fontSizeHeading8})</small></div>
+        <div style={textHeading8()}>Top experiences in Asia</div>
       </div>
 
       <br /><br />

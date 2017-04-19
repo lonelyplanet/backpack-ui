@@ -7,6 +7,7 @@ import {
   textHeading5,
   textHeading6,
   textHeading7,
+  textHeading8,
   textBodyArticle,
   textBodySmall,
   textAccent,
@@ -279,6 +280,44 @@ describe("Text heading 7", () => {
       fontSize: "16px",
       fontWeight: 600,
       lineHeight: 1.5,
+    });
+  });
+});
+
+describe("Text heading 8", () => {
+  it("should add text heading 8 styles with default weight book", () => {
+    const styles = Object.assign({}, baseStyles, textHeading8());
+
+    expect(styles).to.deep.equal({
+      color: "black",
+      fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+      fontSize: "11px",
+      fontWeight: 400,
+      lineHeight: 1.4545454545454546,
+    });
+  });
+
+  it("should add text heading 8 styles with weight light", () => {
+    const styles = Object.assign({}, baseStyles, textHeading8("light"));
+
+    expect(styles).to.deep.equal({
+      color: "black",
+      fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+      fontSize: "11px",
+      fontWeight: 300,
+      lineHeight: 1.4545454545454546,
+    });
+  });
+
+  it("should add text heading 8 styles with weight medium", () => {
+    const styles = Object.assign({}, baseStyles, textHeading8("medium"));
+
+    expect(styles).to.deep.equal({
+      color: "black",
+      fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+      fontSize: "11px",
+      fontWeight: 600,
+      lineHeight: 1.4545454545454546,
     });
   });
 });

@@ -11,6 +11,7 @@ import {
   fontSizeHeading5,
   fontSizeHeading6,
   fontSizeHeading7,
+  fontSizeHeading8,
   fontSizeBodyArticle,
   fontSizeBodySmall,
   fontSizeAccent,
@@ -23,6 +24,7 @@ import {
   lineHeightHeading5,
   lineHeightHeading6,
   lineHeightHeading7,
+  lineHeightHeading8,
   lineHeightBodyArticle,
   lineHeightBodySmall,
   lineHeightAccent,
@@ -104,6 +106,15 @@ export function textHeading7(weight = "book") {
     fontSize: `${fontSizeHeading7}px`,
     fontWeight: weights[weight],
     lineHeight: lineHeightHeading7,
+  };
+}
+
+export function textHeading8(weight = "book") {
+  return {
+    fontFamily: font("benton"),
+    fontSize: `${fontSizeHeading8}px`,
+    fontWeight: weights[weight],
+    lineHeight: lineHeightHeading8,
   };
 }
 
