@@ -8,6 +8,7 @@ function Input({
   label,
   name,
   defaultValue,
+  value,
   error,
   min,
   max,
@@ -49,6 +50,7 @@ function Input({
     style,
     type,
     id,
+    value,
     name: name || id,
   };
 
@@ -89,6 +91,8 @@ Input.propTypes = {
   name: React.PropTypes.string,
 
   defaultValue: React.PropTypes.string,
+
+  value: React.PropTypes.string,
 
   error: React.PropTypes.bool,
 

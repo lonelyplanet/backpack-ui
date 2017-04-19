@@ -15,7 +15,13 @@ const SettingBlockTextArea = (props) => (
         <TextArea
           {...props}
           id={props.id}
-          onChange={expandHeight}
+          onChange={(e) => {
+            expandHeight(e);
+            if (typeof props.onChange === "function") {
+              props.onChange(e);
+            }
+          }}
+          name={props.name}
           placeholder={props.placeholder}
           theme="float"
           customStyles={{
@@ -32,9 +38,11 @@ const SettingBlockTextArea = (props) => (
 SettingBlockTextArea.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   subtitle: PropTypes.string,
   error: PropTypes.bool,
+  onChange: PropTypes.func,
 };
 
 export default SettingBlockTextArea;

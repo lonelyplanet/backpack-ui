@@ -41,7 +41,7 @@ function TextArea({
       style={style}
       id={id}
       name={name || id}
-      defaultValue={value}
+      value={value}
       placeholder={placeholder}
       rows={rows}
       cols={cols}
@@ -100,7 +100,6 @@ TextArea.defaultProps = {
 
   name: "",
 
-  value: "",
 
   placeholder: "",
 

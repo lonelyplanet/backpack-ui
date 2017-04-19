@@ -12,6 +12,7 @@ const SettingBlockInput = (props) => (
     <Input
       {...props}
       theme="float"
+      name={props.name}
       placeholder={props.placeholder}
     />
   </SettingBlock>
@@ -20,6 +21,7 @@ const SettingBlockInput = (props) => (
 
 SettingBlockInput.propTypes = {
   title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   subtitle: PropTypes.string,
   error: PropTypes.bool,

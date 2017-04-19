@@ -120,6 +120,7 @@ import SettingBlockAction from "../src/components/settingBlockAction";
 import SettingBlockAccordion from "../src/components/settingBlockAccordion";
 import SettingBlockTextArea from "../src/components/settingBlockTextArea";
 import SettingBlockInput from "../src/components/settingBlockInput";
+import TextArea from "../src/components/form/textarea";
 import ToggleController from "../src/utils/toggleController";
 import ShareMenu from "../src/components/shareMenu";
 import Slide from "../src/components/slide";
@@ -618,6 +619,13 @@ storiesOf("Form", module)
   .addDecorator(withKnobs)
   .add("Input", () => (
     <Input
+      placeholder={text("Placeholder", "johndoe@gmail.com")}
+      error={boolean("Has Error", false)}
+      theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
+    />
+  ))
+  .add("Text Area", () => (
+    <TextArea
       placeholder={text("Placeholder", "johndoe@gmail.com")}
       error={boolean("Has Error", false)}
       theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
@@ -1602,6 +1610,7 @@ storiesOf("Setting Block", module)
       <SettingBlockInput
         error={boolean("Error", false)}
         title={text("Title", "Name")}
+        name={text("Name", "name")}
         subtitle={text("Subtitle", "Publicly displayed in your profile")}
         placeholder={text("Placeholder", "Enter full name")}
       />
@@ -1618,6 +1627,7 @@ storiesOf("Setting Block", module)
         title={text("Textarea Title", "Intro")}
         subtitle={text("Textarea Subtitle", "")}
         id={text("Id", "testerTime")}
+        name={text("Name", "testerTime")}
         placeholder="Add an intro"
       />
     </div>
@@ -1701,6 +1711,7 @@ storiesOf("Setting Block", module)
           <SettingBlockInput
             error={boolean("Error", false)}
             title={text("Title", "Name")}
+            name={text("Name", "name")}
             subtitle={text("Subtitle", "Publicly displayed in your profile")}
             placeholder={text("Placeholder", "Enter full name")}
           />
@@ -1711,6 +1722,7 @@ storiesOf("Setting Block", module)
             title={text("Textarea Title", "Intro")}
             subtitle={text("Textarea Subtitle", "")}
             id={text("Id", "tester3")}
+            name={text("Name", "tester3")}
             placeholder="Add an intro"
           />
         </SettingBlockListItemWrapper>
@@ -1758,6 +1770,7 @@ storiesOf("Setting Block", module)
           <SettingBlockInput
             error={boolean("Error", false)}
             title={text("Title", "Name")}
+            name={text("Name", "tester4")}
             subtitle={text("Subtitle", "Publicly displayed in your profile")}
             placeholder={text("Placeholder", "Enter full name")}
           />
@@ -1768,6 +1781,7 @@ storiesOf("Setting Block", module)
             title={text("Textarea Title", "Intro")}
             subtitle={text("Textarea Subtitle", "")}
             id={text("Id", "tester1")}
+            name={text("Name", "tester5")}
             placeholder="Add an intro"
           />
         </SettingBlockListItemWrapper>
