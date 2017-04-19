@@ -26,7 +26,7 @@ describe("Text heading 1", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "64px",
       fontWeight: 400,
-      lineHeight: 1.1875,
+      lineHeight: 1.125,
     });
   });
 
@@ -38,7 +38,7 @@ describe("Text heading 1", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "64px",
       fontWeight: 300,
-      lineHeight: 1.1875,
+      lineHeight: 1.125,
     });
   });
 
@@ -50,7 +50,7 @@ describe("Text heading 1", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "64px",
       fontWeight: 600,
-      lineHeight: 1.1875,
+      lineHeight: 1.125,
     });
   });
 });
@@ -178,7 +178,7 @@ describe("Text heading 5", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "24px",
       fontWeight: 400,
-      lineHeight: 1.1666666666666667,
+      lineHeight: 1.3333333333333333,
     });
   });
 
@@ -190,7 +190,7 @@ describe("Text heading 5", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "24px",
       fontWeight: 300,
-      lineHeight: 1.1666666666666667,
+      lineHeight: 1.3333333333333333,
     });
   });
 
@@ -202,7 +202,7 @@ describe("Text heading 5", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "24px",
       fontWeight: 600,
-      lineHeight: 1.1666666666666667,
+      lineHeight: 1.3333333333333333,
     });
   });
 });
@@ -216,7 +216,7 @@ describe("Text heading 6", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "20px",
       fontWeight: 400,
-      lineHeight: 1.2,
+      lineHeight: 1.4,
     });
   });
 
@@ -228,7 +228,7 @@ describe("Text heading 6", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "20px",
       fontWeight: 300,
-      lineHeight: 1.2,
+      lineHeight: 1.4,
     });
   });
 
@@ -240,7 +240,7 @@ describe("Text heading 6", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "20px",
       fontWeight: 600,
-      lineHeight: 1.2,
+      lineHeight: 1.4,
     });
   });
 });
@@ -254,7 +254,7 @@ describe("Text heading 7", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "16px",
       fontWeight: 400,
-      lineHeight: 1.25,
+      lineHeight: 1.5,
     });
   });
 
@@ -266,7 +266,7 @@ describe("Text heading 7", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "16px",
       fontWeight: 300,
-      lineHeight: 1.25,
+      lineHeight: 1.5,
     });
   });
 
@@ -278,7 +278,7 @@ describe("Text heading 7", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "16px",
       fontWeight: 600,
-      lineHeight: 1.25,
+      lineHeight: 1.5,
     });
   });
 });
