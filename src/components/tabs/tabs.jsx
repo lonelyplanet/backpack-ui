@@ -95,7 +95,7 @@ class Tabs extends Component {
           {tabs}
         </Navigation>
 
-        <div style={{ marginTop: "80px" }}>
+        <div>
           {tabContent}
         </div>
       </div>
