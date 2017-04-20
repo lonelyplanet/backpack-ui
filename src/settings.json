@@ -1,0 +1,175 @@
+{
+  "color": {
+    "darkGray": "#2c3643",
+    "titleGray": "#3b444f",
+    "featureCopy": "#67747c",
+    "lpBlue": "#297cbb",
+    "blue": "#297cbb",
+    "subduedGray": "#dbe6ec",
+    "orange": "#ffc83f",
+    "yellow": "#feef6d",
+
+    "active": "#0fdebd",
+    "red": "#dc221a",
+    "gray": "#e4e4e4",
+    "lightGrayBlue": "#f0f6f9",
+    "articlesBlurb": "#7e838b",
+    "text": "#474f5a",
+    "footerCopyright": "#bfc2c6",
+    "lightText": "#898e95",
+    "fontColorLight": "#959aa0",
+    "lightSlate": "#e4eaf8",
+    "activeBackgroundColor": "#f4f5f8",
+    "lightBlue": "#bdcee3",
+    "iconBlue": "#2095cf",
+
+    "white": "#fff",
+    "black": "#000",
+
+    "topPlaceNumber": "#a7a9ae",
+    "detailHeaderSmall": "#b6c3ca",
+    "socialNetworkButton": "#e5e7ed",
+
+    "alertWarning": "#dc221a",
+    "alertNotice": "#feef6d",
+    "alertDefault": "#3b444f",
+
+    "facebook": "#3b5998",
+    "twitter": "#00aced",
+    "pinterest": "#cb2027",
+
+    "poiEat": "#00ca8b",
+    "poiDrink": "#88bde7",
+    "poiPlay": "#ffc92a",
+    "poiSee": "#f8324d",
+    "poiShop": "#ff6e8d",
+    "poiSleep": "#9d69c9",
+    "poiTransport": "#b6c3ca",
+    "poiDefault": "#a8a9ae"
+  },
+  "components": {
+    "header": {
+      "height": "13rem",
+      "heightMobile": "5rem"
+    }
+  },
+  "default": {
+    "minWidth": "32rem",
+    "maxWidth": "129rem",
+    "spacing": "1.5rem",
+    "gutter": "3rem",
+    "radius": ".2rem",
+    "baseSize": "1.8em"
+  },
+  "font": {
+    "family": {
+      "sansSerif": [
+        "'Helvetica Neue'",
+        "'Helvetica'",
+        "'Arial'",
+        "sans-serif"
+      ],
+      "serif": [
+        "'Georgia'",
+        "'Times'",
+        "'Times New Roman'",
+        "serif"
+      ],
+      "benton": [
+        "'Benton Sans'",
+        "'Helvetica Neue'",
+        "'Helvetica'",
+        "'Arial'",
+        "sans-serif"
+      ],
+      "miller": [
+        "'Miller Daily'",
+        "'Georgia'",
+        "'Times'",
+        "'Times New Roman'",
+        "serif"
+      ]
+    }
+  },
+  "grid": {
+    "columns": 12,
+    "columnWidth": "8rem",
+    "container": "129rem",
+    "gutterPosition": "before",
+    "gutters": "3 / 8",
+    "math": "fluid",
+    "output": "float"
+  },
+  "layout": {
+    "gutter": "3rem",
+    "borderRadius": ".4rem",
+    "avatarSize": "4rem"
+  },
+  "media": {
+    "min": {
+      "1430": "89.375em",
+      "1410": "88.125em",
+      "1350": "84.375em",
+      "1290": "80.625em",
+      "1200": "75em",
+      "1080": "67.5em",
+      "1024": "64em",
+      "960": "60em",
+      "840": "52.5em",
+      "768": "48em",
+      "720": "45em",
+      "600": "37.5em",
+      "560": "35em",
+      "480": "30em",
+      "360": "22.5em",
+      "320": "20em"
+    },
+    "max": {
+      "1530": "95.625em",
+      "1430": "89.3125em",
+      "1410": "88.0625em",
+      "1350": "84.3125em",
+      "1290": "80.5625em",
+      "1200": "74.9375em",
+      "1080": "67.4375em",
+      "1024": "63.9375em",
+      "960": "59.9375em",
+      "840": "52.4375em",
+      "768": "47.9375em",
+      "720": "44.9375em",
+      "600": "37.4375em",
+      "560": "34.9375em",
+      "480": "29.9375em",
+      "360": "22.4375em",
+      "320": "19.9375em"
+    }
+  },
+  "spacing": {
+    "mobile": "2rem"
+  },
+  "timing": {
+    "fast": "200ms",
+    "default": "400ms",
+    "slow": "800ms"
+  },
+  "typography": {
+    "fontSize": "1.8rem",
+    "fontWeightLight": 300,
+    "fontWeightMedium": 500,
+    "fontWeightSemibold": 600,
+    "fontWeightBold": 700,
+    "lineHeight": 1.5
+  },
+  "zIndex": {
+    "auto": "auto",
+    "below": -1,
+    "default": 1,
+    "slideshowSlide": 3,
+    "middle": 10,
+    "top": 20,
+    "globalHeader": 100,
+    "mapHolderOpen": 200,
+    "videoOverlayClose": 1000,
+    "modal": 9999
+  }
+}
