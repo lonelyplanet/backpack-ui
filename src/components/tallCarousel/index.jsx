@@ -26,7 +26,7 @@ const styles = {
     letterSpacing: "-0.08px",
     fontSize: "12px",
     bottom: "16px",
-    left: "16[x]",
+    left: "16px",
   },
   ".slick-list": {
     overflow: "visible",

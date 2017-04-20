@@ -23,7 +23,7 @@ const WatchLaterModal = ({
     leftActionContent={<Close width={24} height={24} />}
     closeModal={onClose}
     desktopWidth={loggedIn ? "85%" : "650px"}
-    title={loggedIn && "Watch Later"}
+    title={loggedIn ? "Watch Later" : ""}
     style={style}
   >
     { loggedIn ? (
