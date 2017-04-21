@@ -19,16 +19,14 @@ function outline(offset = 2) {
  * @return {Object} CSS styles
  */
 function blueLink() {
-  const hoverColor = rgba(colors.linkPrimary, 0.8);
-
   return {
     color: colors.linkPrimary,
     textDecoration: "none",
     transition: `color ${timing.fast} ease-in-out`,
 
-    ":hover": { color: hoverColor },
-    ":active": { color: hoverColor },
-    ":focus": Object.assign({}, outline(), { color: hoverColor }),
+    ":hover": { color: colors.linkPrimaryHover },
+    ":active": { color: colors.linkPrimaryHover },
+    ":focus": Object.assign({}, outline(), { color: colors.linkPrimaryHover }),
   };
 }
 
