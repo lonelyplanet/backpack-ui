@@ -4,36 +4,40 @@ import TextArea from "../form/textarea";
 import HeightExpander from "../form/heightExpander";
 
 
-const SettingBlockTextArea = (props) => (
-  <SettingBlock
-    error={props.error}
-    title={props.title}
-    subtitle={props.subtitle}
-  >
-    <HeightExpander idToFind={props.id} baseHeight="0px">
-      {(expandHeight, newHeight) => (
-        <TextArea
-          {...props}
-          id={props.id}
-          onChange={(e) => {
-            expandHeight(e);
-            if (typeof props.onChange === "function") {
-              props.onChange(e);
-            }
-          }}
-          name={props.name}
-          placeholder={props.placeholder}
-          theme="float"
-          customStyles={{
-            minHeight: "56px",
-            height: newHeight,
-          }}
-          rows={null}
-        />
-      )}
-    </HeightExpander>
-  </SettingBlock>
-);
+const SettingBlockTextArea = (props) => {
+  const { onChange } = props;
+
+  return (
+    <SettingBlock
+      error={props.error}
+      title={props.title}
+      subtitle={props.subtitle}
+    >
+      <HeightExpander idToFind={props.id} baseHeight="0px">
+        {(expandHeight, newHeight) => (
+          <TextArea
+            {...props}
+            id={props.id}
+            onChange={(e) => {
+              expandHeight(e);
+              if (typeof onChange === "function") {
+                onChange(e);
+              }
+            }}
+            name={props.name}
+            placeholder={props.placeholder}
+            theme="float"
+            customStyles={{
+              minHeight: "56px",
+              height: newHeight,
+            }}
+            rows={null}
+          />
+        )}
+      </HeightExpander>
+    </SettingBlock>
+  );
+};
 
 SettingBlockTextArea.propTypes = {
   id: PropTypes.string.isRequired,
