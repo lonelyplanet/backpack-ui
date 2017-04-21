@@ -15,23 +15,56 @@ const styles = {
   },
 };
 
-const TagList = ({ children, rows, style }) => (
-  <div
-    className="TagList"
-    style={[
-      styles.container,
-      { maxHeight: `${rowHeight * rows}px` },
-      style,
-    ]}
-  >
-    {React.Children.map(children, (child, index) => (
-      React.cloneElement(child, {
-        key: index,
-        style: styles.tag,
-      })
-    ))}
-  </div>
-);
+class TagList extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      expanded: false,
+    };
+
+    this.expand = this.expand.bind(this);
+    this.shouldShowExpand = this.shouldShowExpand.bind(this);
+  }
+
+  expand() {
+    this.setState({ expanded: true });
+  }
+
+  shouldShowExpand() {
+    return this.props.children.length - this.props.limit > 0 &&
+          !this.state.expanded;
+  }
+
+  render() {
+    const { children, rows, style } = this.props;
+    return (
+      <div
+        className="TagList"
+        style={[
+          styles.container,
+          { maxHeight: `${rowHeight * rows}px` },
+          style,
+        ]}
+      >
+        {React.Children.map(children, (child, index) => (
+          React.cloneElement(child, {
+            key: index,
+            style: styles.tag,
+          })
+        )).slice(0, this.state.expanded
+          ? this.props.children.length
+          : this.props.limit
+        )}
+        {this.shouldShowExpand() &&
+          <Tag onClick={this.expand}>
+            {`+${this.props.children.length - this.props.limit}`}
+          </Tag>
+        }
+      </div>
+    );
+  }
+}
 
 TagList.propTypes = {
   children: (props, propName, componentName) => {
@@ -47,6 +80,7 @@ TagList.propTypes = {
     return error;
   },
   rows: PropTypes.number,
+  limit: PropTypes.number,
   style: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,

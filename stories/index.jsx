@@ -139,6 +139,7 @@ import TabbedNav from "../src/components/tabbedNav";
 import { Tabs, Tab } from "../src/components/tabs";
 import Tag from "../src/components/tag";
 import TagList from "../src/components/tagList";
+import TagListLimiter from "../src/components/tagListLimiter";
 // Takeover
 import TallCarousel from "../src/components/tallCarousel";
 import { TextAccent, TextBodyArticle, TextBodySmall, TextHeading, TextSuper, TextUppercase } from "../src/components/text";
@@ -2133,14 +2134,15 @@ storiesOf("Tag", module)
 storiesOf("Tag list", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <TagList>
+    <TagList
+      limit={number("Limit", 3)}
+    >
       <Tag href="#" selected>All</Tag>
       <Tag href="#">The Americas</Tag>
       <Tag href="#">World</Tag>
       <Tag href="#">Asia & the Pacific</Tag>
       <Tag href="#">Europe</Tag>
       <Tag href="#">Middle East & Africa</Tag>
-      <Tag href="#">Editor’s pick</Tag>
     </TagList>
   ));
 
