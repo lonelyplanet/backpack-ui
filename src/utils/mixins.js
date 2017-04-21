@@ -24,9 +24,17 @@ function blueLink() {
     textDecoration: "none",
     transition: `color ${timing.fast} ease-in-out`,
 
-    ":hover": { color: colors.linkPrimaryHover },
-    ":active": { color: colors.linkPrimaryHover },
-    ":focus": Object.assign({}, outline(), { color: colors.linkPrimaryHover }),
+    ":hover": {
+      color: colors.linkPrimaryHover,
+    },
+
+    ":active": {
+      color: colors.linkPrimaryHover,
+    },
+
+    ":focus": Object.assign({}, outline(), {
+      color: colors.linkPrimaryHover,
+    }),
   };
 }
 
