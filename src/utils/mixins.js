@@ -1,4 +1,3 @@
-import assign from "object-assign";
 import colors from "../styles/colors";
 import timing from "../styles/timing";
 import { rgba } from "./color";
@@ -29,7 +28,7 @@ function blueLink() {
 
     ":hover": { color: hoverColor },
     ":active": { color: hoverColor },
-    ":focus": assign({}, outline(), { color: hoverColor }),
+    ":focus": Object.assign({}, outline(), { color: hoverColor }),
   };
 }
 
