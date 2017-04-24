@@ -2008,9 +2008,12 @@ storiesOf("Social Login Button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <SocialLoginButton
-      iconName={select("Icon Name", Object.keys(Icon), "FacebookBlock")}
-      iconColor={color("Icon Color", bpColor.facebook)}
-      onClick={action("Handle Login")}
+      iconName={select("Icon Name", [
+        "FacebookBlockColor",
+        "GoogleColor",
+        "TwitterColor",
+      ], "FacebookBlockColor")}
+      onClick={action("Handle Log In")}
     >{text("Text", "Continue with Facebook")}</SocialLoginButton>
   ));
 
