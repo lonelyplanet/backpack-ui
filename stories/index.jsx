@@ -1532,18 +1532,20 @@ storiesOf("Recommended articles", module)
 storiesOf("Related tour", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <RelatedTour
-      title="Vienna City by Bike and Boat"
-      slug="/#"
-      image="http://dummyimage.com/630x284/4d494d/686a82.gif"
-      price={{
-        currency: "USD",
-        amount: 2595,
-      }}
-      tripLength="14 days"
-      destination="Kochi to Kolkata"
-      reviews={8}
-    />
+    <StyleRoot>
+      <RelatedTour
+        title="Vienna City by Bike and Boat"
+        slug="/#"
+        image="http://dummyimage.com/630x284/4d494d/686a82.gif"
+        price={{
+          currency: "USD",
+          amount: 2595,
+        }}
+        tripLength="14 days"
+        destination="Kochi to Kolkata"
+        reviews={8}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Reviewed badge", module)
