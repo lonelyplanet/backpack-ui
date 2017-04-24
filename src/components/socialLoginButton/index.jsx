@@ -1,84 +1,93 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import Icon from "../icon";
-import { color, typography } from "../../../settings.json";
-import { rgb } from "../../utils/color";
+import colors from "../../styles/colors";
+import { fontSizeHeading7 } from "../../styles/typography";
+import timing from "../../styles/timing";
+import { rgba } from "../../utils/color";
 import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
+import { textHeading7 } from "../../utils/typography";
 
 const hoverStyles = {
-  base: {
-    backgroundColor: `rgba(${rgb(color.activeBackgroundColor)}, 0.4)`,
-  },
+  backgroundColor: rgba(colors.borderPrimary, 0.15),
 };
 
 const styles = {
-  base: {
-    width: "100%",
-    maxWidth: "295px",
-    borderRadius: "100px",
-    border: `1px solid ${color.detailHeaderSmall}`,
-    backgroundColor: "transparent",
-    paddingTop: "10px",
-    paddingBottom: "10px",
-    paddingLeft: "24px",
-    fontSize: "16px",
-    fontWeight: typography.fontWeightMedium,
-    display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "center",
+  button: Object.assign({}, {
+    backgroundColor: colors.bgPrimary,
+    border: `1px solid ${colors.borderPrimary}`,
+    borderRadius: "44px",
+    color: colors.textPrimary,
     cursor: "pointer",
-    ":hover": hoverStyles.base,
-    ":active": hoverStyles.base,
-    ":focus": Object.assign({}, hoverStyles.base, outline()),
-  },
-  text: {
-    flex: 1,
-    color: color.darkGray,
+    display: "block",
+    height: "44px",
+    maxWidth: "296px",
+    overflow: "hidden",
+    paddingLeft: "27px",
+    paddingRight: "27px",
+    paddingTop: "2px",
     textAlign: "left",
-    paddingLeft: "16px",
+    transition: `background-color ${timing.fast} ease-in-out`,
+    whiteSpace: "nowrap",
+    width: "100%",
+
+    ":hover": hoverStyles,
+    ":active": hoverStyles,
+    ":focus": Object.assign({}, hoverStyles, outline()),
+  }, textHeading7(), {
     lineHeight: 1,
-    fontWeight: typography.fontWeightBold,
-  },
+  }),
+
   icon: {
-    fontSize: "18px",
+    fontSize: `${fontSizeHeading7}px`,
+    marginRight: "20px",
+    marginTop: "-1px",
+    verticalAlign: "top",
   },
 };
 
-const iconSettings = {
-  style: styles.icon,
-};
+const SocialLoginButton = (props) => {
+  const {
+    onClick,
+    iconName,
+    iconProps,
+    children,
+    style,
+  } = props;
 
-const SocialLoginButton = ({
-  onClick,
-  iconName,
-  iconProps,
-  iconColor,
-  children,
-  style,
-}) => {
-  const iconStyles = {
-    style: {
-      color: iconColor,
-      ...styles.icon,
-    },
+  const iconSettings = {
+    style: styles.icon,
   };
 
-  const iconParameters = Object.assign({}, iconSettings, iconProps, iconStyles);
+  const iconParameters = Object.assign({},
+    iconSettings,
+    iconProps,
+  );
+
   return (
-    <button style={[styles.base, style && style]} onClick={onClick}>
+    <button
+      style={[
+        styles.button,
+        style,
+      ]}
+      onClick={onClick}
+      {...props}
+    >
       {iconFromString(iconName, iconParameters)}
-      <span style={styles.text}>{children}</span>
+      {children}
     </button>
   );
 };
 
 SocialLoginButton.propTypes = {
   children: PropTypes.string.isRequired,
-  iconName: PropTypes.oneOf(Object.keys(Icon)).isRequired,
+  iconName: PropTypes.oneOf(
+    "FacebookBlockColor",
+    "GoogleColor",
+    "TwitterColor",
+  ).isRequired,
   onClick: PropTypes.func,
-  iconColor: PropTypes.string,
   iconProps: PropTypes.objectOf(PropTypes.object),
   style: propTypes.style,
 };
