@@ -55,9 +55,9 @@ const Segment = ({
     id={id}
     style={[
       styles.container.default,
-      border && styles.container.hasBorder,
-      halfSpace && styles.container.halfSpace,
-      showBorderAtBreakpoint && breakpointBorder(showBorderAtBreakpoint, showAbove),
+      border ? styles.container.hasBorder : {},
+      halfSpace ? styles.container.halfSpace : {},
+      typeof showBorderAtBreakpoint === "number" ? breakpointBorder(showBorderAtBreakpoint, showAbove) : {},
       style,
     ]}
   >
