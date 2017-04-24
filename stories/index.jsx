@@ -56,7 +56,6 @@ import Flyout from "../src/components/flyout";
 import GridColumn from "../src/components/gridColumn";
 import GridRow from "../src/components/gridRow";
 import Heading from "../src/components/heading";
-import HeightExpander from "../src/components/form/heightExpander";
 import Icons from "./icons";
 import Icon from "../src/components/icon";
 import IconButton from "../src/components/iconButton";
@@ -139,7 +138,6 @@ import TabbedNav from "../src/components/tabbedNav";
 import { Tabs, Tab } from "../src/components/tabs";
 import Tag from "../src/components/tag";
 import TagList from "../src/components/tagList";
-import TagListLimiter from "../src/components/tagListLimiter";
 // Takeover
 import TallCarousel from "../src/components/tallCarousel";
 import { TextAccent, TextBodyArticle, TextBodySmall, TextHeading, TextSuper, TextUppercase } from "../src/components/text";

@@ -14,6 +14,7 @@ const ProfileHeader = ({
   avatarSrc,
   location,
   interests,
+  interestsLimit,
   alignment,
   style,
 }) => (
@@ -75,7 +76,11 @@ const ProfileHeader = ({
       }
 
       {interests && interests.length > 0 &&
-        <TagList style={{ marginTop: "39px" }}>
+        <TagList
+          style={{ marginTop: "39px" }}
+          limit={interestsLimit}
+          rows={10}
+        >
           {interests.map((interest) => (
             <Tag key={interest}>{interest}</Tag>
           ))}
@@ -91,6 +96,7 @@ ProfileHeader.propTypes = {
   avatarSrc: PropTypes.string,
   location: PropTypes.string,
   interests: PropTypes.arrayOf(PropTypes.string),
+  interestsLimit: PropTypes.number,
   alignment: PropTypes.oneOf(["center", "left"]),
   style: propTypes.style,
 };
