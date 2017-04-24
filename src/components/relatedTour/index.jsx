@@ -1,7 +1,7 @@
 import React from "react";
 import radium, { Style } from "radium";
 import { media } from "../../../settings.json";
-import color from "../../styles/colors"
+import color from "../../styles/colors";
 import Heading from "../heading";
 import Price from "../price";
 import Bullet from "../bullet";
