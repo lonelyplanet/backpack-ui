@@ -6,12 +6,13 @@ import { rgba } from "../../utils/color";
 import { fontSizeBodySmall, fontWeightMedium } from "../../styles/typography";
 import { textBodySmall } from "../../utils/typography";
 import propTypes from "../../utils/propTypes";
+import { outline } from "../../utils/mixins";
 
 const fontSize = fontSizeBodySmall;
 
 const hoverStyles = {
   default: {
-    backgroundColor: rgba(colors.accentGray, 0.15),
+    backgroundColor: rgba(colors.borderPrimary, 0.15),
   },
 
   selected: {
@@ -20,37 +21,39 @@ const hoverStyles = {
 };
 
 const styles = {
-  default: Object.assign({}, textBodySmall(), {
+  default: Object.assign({}, {
     backgroundColor: colors.bgPrimary,
-    borderColor: rgba(colors.accentGray, 0.42),
+    borderColor: colors.borderPrimary,
     borderStyle: "solid",
     borderWidth: `${1 / fontSize}em`,
     borderRadius: `${32 / fontSize}em`,
     color: colors.textPrimary,
     display: "inline-block",
-    fontWeight: fontWeightMedium,
-    lineHeight: 1,
+    maxHeight: "32px",
     padding: `${9 / fontSize}em ${25 / fontSize}em ${7 / fontSize}em`,
     textDecoration: "none",
     textOverflow: "ellipsis",
     transition: `background-color ${timing.fast}`,
     whiteSpace: "nowrap",
+  }, textBodySmall(), {
+    fontWeight: fontWeightMedium,
+    lineHeight: 1,
   }),
 
   defaultHover: {
     ":hover": hoverStyles.default,
     ":active": hoverStyles.default,
-    ":focus": hoverStyles.default,
+    ":focus": Object.assign({}, hoverStyles.default, outline()),
   },
 
   selected: {
     backgroundColor: colors.textPrimary,
     borderColor: colors.textPrimary,
-    color: colors.bgPrimary,
+    color: colors.textOverlay,
 
     ":hover": hoverStyles.selected,
     ":active": hoverStyles.selected,
-    ":focus": hoverStyles.selected,
+    ":focus": Object.assign({}, hoverStyles.selected, outline()),
   },
 };
 
