@@ -23,6 +23,7 @@ const SocialShare = ({ networks, onClick, headingText, style }) => (
     <div style={headingText ? styles.container : {}}>
       {Object.keys(networks).map((network, index) => (
         <SocialIconButton
+          className={networks[network].name}
           network={networks[network].name}
           href={networks[network].href}
           aria-label={networks[network].label}
