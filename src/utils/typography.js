@@ -1,7 +1,7 @@
 import font from "./font";
 import {
   fontWeightLight,
-  fontWeightBook,
+  fontWeightRegular,
   fontWeightMedium,
   fontSizeSuper,
   fontSizeHeading1,
@@ -33,8 +33,9 @@ import {
 
 const weights = {
   light: fontWeightLight,
-  book: fontWeightBook,
+  regular: fontWeightRegular,
   medium: fontWeightMedium,
+  book: fontWeightRegular, // Book is deprecated and will be removed in the next major release
 };
 
 export function textSuper() {
@@ -46,7 +47,7 @@ export function textSuper() {
   };
 }
 
-export function textHeading1(weight = "book") {
+export function textHeading1(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading1}px`,
@@ -55,7 +56,7 @@ export function textHeading1(weight = "book") {
   };
 }
 
-export function textHeading2(weight = "book") {
+export function textHeading2(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading2}px`,
@@ -64,7 +65,7 @@ export function textHeading2(weight = "book") {
   };
 }
 
-export function textHeading3(weight = "book") {
+export function textHeading3(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading3}px`,
@@ -73,7 +74,7 @@ export function textHeading3(weight = "book") {
   };
 }
 
-export function textHeading4(weight = "book") {
+export function textHeading4(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading4}px`,
@@ -82,7 +83,7 @@ export function textHeading4(weight = "book") {
   };
 }
 
-export function textHeading5(weight = "book") {
+export function textHeading5(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading5}px`,
@@ -91,7 +92,7 @@ export function textHeading5(weight = "book") {
   };
 }
 
-export function textHeading6(weight = "book") {
+export function textHeading6(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading6}px`,
@@ -100,7 +101,7 @@ export function textHeading6(weight = "book") {
   };
 }
 
-export function textHeading7(weight = "book") {
+export function textHeading7(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading7}px`,
@@ -109,7 +110,7 @@ export function textHeading7(weight = "book") {
   };
 }
 
-export function textHeading8(weight = "book") {
+export function textHeading8(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading8}px`,

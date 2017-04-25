@@ -9,7 +9,7 @@ import {
   fontSizeHeading5,
   fontSizeUppercase,
   fontWeightLight,
-  fontWeightBook,
+  fontWeightRegular,
   fontWeightMedium,
 } from "../../styles/typography";
 import { rgba } from "../../utils/color";
@@ -68,7 +68,7 @@ const styles = {
       fontWeight: fontWeightLight,
     },
     normal: {
-      fontWeight: fontWeightBook,
+      fontWeight: fontWeightRegular,
     },
     thick: {
       fontWeight: fontWeightMedium,

@@ -2202,9 +2202,9 @@ storiesOf("Text", module)
       size={select("Size", [1, 2, 3, 4, 5, 6, 7, 8], 2)}
       weight={select("Weight", {
         light: "Light",
-        book: "Book",
+        regular: "Regular",
         medium: "Medium",
-      }, "book")}
+      }, "regular")}
     >
       {text("Text", "Lorem ipsum")}
     </TextHeading>

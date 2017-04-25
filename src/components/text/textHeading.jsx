@@ -61,7 +61,7 @@ Heading.propTypes = {
 Heading.defaultProps = {
   level: 2,
   size: 2,
-  weight: "book",
+  weight: "regular",
 };
 
 export default radium(Heading);

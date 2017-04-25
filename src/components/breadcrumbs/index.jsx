@@ -2,7 +2,7 @@ import React, { PropTypes } from "react";
 import radium from "radium";
 import capitalize from "lodash/capitalize";
 import colors from "../../styles/colors";
-import { fontSizeBodySmall, fontWeightBook } from "../../styles/typography";
+import { fontSizeBodySmall, fontWeightRegular } from "../../styles/typography";
 import Icon from "../icon";
 import { blueLink } from "../../utils/mixins";
 import schema from "../../utils/schema";
@@ -17,7 +17,7 @@ const styles = {
     color: rgba(colors.textPrimary, 0.56),
     fontFamily: font("benton"),
     fontSize: `${fontSizeBodySmall}px`,
-    fontWeight: fontWeightBook,
+    fontWeight: fontWeightRegular,
     lineHeight: 1,
   },
 
