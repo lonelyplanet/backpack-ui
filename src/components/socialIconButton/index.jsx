@@ -1,60 +1,73 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import upperFirst from "lodash/upperFirst";
-import { color, timing } from "../../../settings.json";
+import cn from "classnames";
+import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import iconFromString from "../../utils/icon";
+import { outline } from "../../utils/mixins";
 
-const _ = { upperFirst };
+const backgroundColors = {
+  twitter: colors.socialTwitter,
+  facebook: colors.socialFacebook,
+  facebookMessenger: colors.socialFacebookMessenger,
+  reddit: colors.socialReddit,
+  email: colors.textPrimary,
+};
 
-const colors = {
-  twitter: color.twitter,
-  facebook: color.facebook,
-  facebookMessenger: color.facebookMessenger,
-  reddit: color.reddit,
-  email: color.darkGray,
+const iconNames = {
+  twitter: "Twitter",
+  facebook: "Facebook",
+  facebookMessenger: "FacebookMessenger",
+  reddit: "Reddit",
+  email: "Email",
 };
 
 const sizeMultiplier = 2.5;
 
-function SocialIconButton({ network, href, onClick, iconSize, style }) {
+function SocialIconButton({
+  network,
+  href,
+  onClick,
+  iconSize,
+  id,
+  className,
+  style,
+}) {
+  const size = (iconSize * sizeMultiplier);
+
+  const hoverStyles = {
+    opacity: 0.7,
+  };
+
   const styles = {
-    backgroundColor: colors[network],
-    borderRadius: `${((iconSize * sizeMultiplier) * 2)}px`,
-    color: color.white,
+    backgroundColor: backgroundColors[network],
+    borderRadius: "100%",
+    color: colors.textOverlay,
     cursor: "pointer",
     display: "inline-block",
     fontSize: `${iconSize}px`,
-    height: `${(iconSize * sizeMultiplier)}px`,
-    lineHeight: `${(iconSize * sizeMultiplier)}px`,
+    height: `${size}px`,
+    lineHeight: `${size}px`,
     textAlign: "center",
     textDecoration: "none",
     transition: `opacity ${timing.fast} ease-in-out`,
-    width: `${(iconSize * sizeMultiplier)}px`,
+    width: `${size}px`,
 
-    ":hover": {
-      opacity: 0.7,
-    },
-
-    ":active": {
-      opacity: 0.7,
-    },
-
-    ":focus": {
-      opacity: 0.7,
-      outline: "1px lightgray dotted",
-      outlineOffset: "2px",
-    },
+    ":hover": hoverStyles,
+    ":active": hoverStyles,
+    ":focus": Object.assign({}, hoverStyles, outline()),
   };
 
   return (
     <a
-      className="SocialIconButton"
+      className={cn("SocialIconButton", className)}
+      id={id}
       href={href}
       onClick={onClick}
       style={[styles, style]}
       data-network={network}
     >
-      {iconFromString(_.upperFirst(network))}
+      {iconFromString(iconNames[network])}
     </a>
   );
 }
@@ -70,6 +83,8 @@ SocialIconButton.propTypes = {
   href: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   iconSize: PropTypes.number,
+  id: PropTypes.string,
+  className: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
 };
 
