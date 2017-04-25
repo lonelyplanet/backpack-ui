@@ -11,6 +11,7 @@ import {
   fontSizeHeading7,
   fontSizeHeading8,
   fontSizeBodyArticle,
+  fontSizeBodyArticleSmall,
   fontSizeBodySmall,
   fontSizeAccent,
   fontSizeUppercase,
@@ -27,6 +28,7 @@ import {
   textHeading7,
   textHeading8,
   textBodyArticle,
+  textBodyArticleSmall,
   textBodySmall,
   textAccent,
   textUppercase,
@@ -105,6 +107,17 @@ function Typography() {
       <div>
         <div style={styles.smallText}><small>Body article ({fontSizeBodyArticle})</small></div>
         <div style={textBodyArticle()}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
+          mauris sit amet massa interdum bibendum. Ut ac ex leo. Cras blandit
+          enim ut metus feugiat, vitae pharetra massa aliquet.
+        </div>
+      </div>
+
+      <br /><br />
+
+      <div>
+        <div style={styles.smallText}><small>Body article small ({fontSizeBodyArticleSmall})</small></div>
+        <div style={textBodyArticleSmall()}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
           mauris sit amet massa interdum bibendum. Ut ac ex leo. Cras blandit
           enim ut metus feugiat, vitae pharetra massa aliquet.

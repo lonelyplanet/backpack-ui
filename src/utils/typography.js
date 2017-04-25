@@ -13,6 +13,7 @@ import {
   fontSizeHeading7,
   fontSizeHeading8,
   fontSizeBodyArticle,
+  fontSizeBodyArticleSmall,
   fontSizeBodySmall,
   fontSizeAccent,
   fontSizeUppercase,
@@ -26,6 +27,7 @@ import {
   lineHeightHeading7,
   lineHeightHeading8,
   lineHeightBodyArticle,
+  lineHeightBodyArticleSmall,
   lineHeightBodySmall,
   lineHeightAccent,
   lineHeightUppercase,
@@ -123,6 +125,14 @@ export function textBodyArticle() {
     fontFamily: font("miller"),
     fontSize: `${fontSizeBodyArticle}px`,
     lineHeight: lineHeightBodyArticle,
+  };
+}
+
+export function textBodyArticleSmall() {
+  return {
+    fontFamily: font("miller"),
+    fontSize: `${fontSizeBodyArticleSmall}px`,
+    lineHeight: lineHeightBodyArticleSmall,
   };
 }
 

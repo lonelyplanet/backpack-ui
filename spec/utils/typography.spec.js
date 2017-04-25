@@ -9,6 +9,7 @@ import {
   textHeading7,
   textHeading8,
   textBodyArticle,
+  textBodyArticleSmall,
   textBodySmall,
   textAccent,
   textUppercase,
@@ -331,6 +332,19 @@ describe("Text body article", () => {
       fontFamily: "'Miller Daily', 'Georgia', 'Times', 'Times New Roman', serif",
       fontSize: "20px",
       lineHeight: 1.8,
+    });
+  });
+});
+
+describe("Text body article small", () => {
+  it("should add text body article styles", () => {
+    const styles = Object.assign({}, baseStyles, textBodyArticleSmall());
+
+    expect(styles).to.deep.equal({
+      color: "black",
+      fontFamily: "'Miller Daily', 'Georgia', 'Times', 'Times New Roman', serif",
+      fontSize: "16px",
+      lineHeight: 2,
     });
   });
 });
