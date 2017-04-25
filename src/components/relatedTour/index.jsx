@@ -14,14 +14,14 @@ const styles = {
     image: {
       base: {
         display: "block",
-        marginBottom: 32,
+        marginBottom: "32px",
         width: "100%",
       },
     },
 
     heading: {
       fontSize: "28px",
-      lineHeight: "28px",
+      lineHeight: 1,
     },
 
     content: {
@@ -40,7 +40,7 @@ const styles = {
         [`@media (max-width: ${media.max["480"]})`]: {
           display: "inline-block",
           color: color.accentGray,
-          marginTop: 14,
+          marginTop: "14px",
           fontWeight: 600,
         },
 
@@ -133,20 +133,20 @@ function RelatedTour({
             [`(max-width: ${media.max["480"]})`]: {
               ".Price": {
                 display: "block",
-                marginTop: 20,
+                marginTop: "20px",
 
               },
 
               ".Price-amount": {
-                fontWeight: "200 !important",
-                color: `${color.accentRed}`,
+                fontWeight: "300 !important",
+                color: color.accentRed,
               },
             },
 
             [`(min-width: ${media.min["480"]})`]: {
               ".Heading": {
                 maxWidth: "50rem",
-                width: 400,
+                width: "80%",
               },
 
               ".Price": {
@@ -156,7 +156,7 @@ function RelatedTour({
               },
 
               ".Price-amount": {
-                color: `${color.textPrimary}`,
+                color: color.textPrimary,
                 fontSize: "2.4rem",
               },
             },
