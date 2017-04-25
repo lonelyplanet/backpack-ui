@@ -1,7 +1,8 @@
 import React from "react";
 import radium from "radium";
 import assign from "object-assign";
-import { color as bpColor, timing } from "../../../settings.json";
+import { timing } from "../../../settings.json";
+import { default as bpColor } from "../../styles/colors";
 import { lighten } from "../../utils/color";
 import { outline } from "../../utils/mixins";
 
@@ -11,13 +12,23 @@ const hoverStyles = {
   },
 
   blue: {
-    backgroundColor: lighten(bpColor.blue, 7),
-    color: bpColor.white,
+    backgroundColor: lighten(bpColor.linkPrimary, 7),
+    color: bpColor.bgPrimary,
   },
 
   white: {
-    backgroundColor: bpColor.white,
-    color: lighten(bpColor.blue, 14),
+    backgroundColor: bpColor.bgPrimary,
+    color: lighten(bpColor.linkPrimary, 14),
+  },
+
+  gray: {
+    backgroundColor: bpColor.bgPrimary,
+    color: lighten(bpColor.textPrimary, 100),
+  },
+
+  transparent: {
+    backgroundColor: "transparent",
+    color: bpColor.textOverlay,
   },
 
 };
@@ -51,17 +62,29 @@ const styles = {
 
   color: {
     blue: {
-      backgroundColor: bpColor.blue,
-      color: bpColor.white,
+      backgroundColor: bpColor.linkPrimary,
+      color: bpColor.textOverlay,
+      boxShadow: "none",
 
       ":hover": hoverStyles.blue,
       ":focus": hoverStyles.blue,
       ":active": hoverStyles.blue,
     },
 
+    gray: {
+      backgroundColor: "transparent",
+      color: bpColor.textPrimary,
+      boxShadow: `0 0 0 1px ${bpColor.borderPrimary} inset`,
+
+      ":hover": hoverStyles.gray,
+      ":focus": hoverStyles.gray,
+      ":active": hoverStyles.gray,
+    },
+
     white: {
-      backgroundColor: bpColor.white,
-      color: bpColor.blue,
+      backgroundColor: bpColor.bgPrimary,
+      color: bpColor.linkPrimary,
+      boxShadow: `0 0 0 1px ${bpColor.linkPrimary} inset`,
 
       ":hover": hoverStyles.white,
       ":focus": hoverStyles.white,
@@ -70,13 +93,14 @@ const styles = {
 
     transparent: {
       backgroundColor: "transparent",
-      color: bpColor.white,
-      border: `1px solid ${bpColor.white}`,
+      color: bpColor.textOverlay,
+      boxShadow: `0 0 0 1px ${bpColor.bgPrimary} inset`,
 
-      ":hover": hoverStyles.white,
-      ":focus": hoverStyles.white,
-      ":active": hoverStyles.white,
+      ":hover": hoverStyles.transparent,
+      ":focus": hoverStyles.transparent,
+      ":active": hoverStyles.transparent,
     },
+
   },
 
   size: {
@@ -113,8 +137,8 @@ const styles = {
     rounded: {
       base: {
         borderRadius: "100px", // a value large enough to scale
-        paddingLeft: `${19 / 9}em`,
-        paddingRight: `${19 / 9}em`,
+        paddingLeft: `${21 / 9}em`,
+        paddingRight: `${21 / 9}em`,
         paddingTop: `${12 / 9}em`,
       },
 
@@ -180,10 +204,11 @@ function Button({
     full && styles.type.full,
     customStyles,
     disabled && styles.disabled,
-    border && {
-      boxShadow: `0 0 0 1px ${(color === "white") ? bpColor.blue : bpColor.white} inset`,
+    !border && {
+      boxShadow: "none",
     },
   ];
+
 
   return (
     <Element
