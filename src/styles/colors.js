@@ -43,6 +43,7 @@ const socialFacebook = "#3a5999";
 const socialFacebookMessenger = "#1472fb";
 const socialPinterest = "#cb2027";
 const socialReddit = "#fc4220";
+const socialTwitter = "#1da1f2";
 
 export default {
   bgPrimary,
@@ -80,4 +81,5 @@ export default {
   socialFacebookMessenger,
   socialPinterest,
   socialReddit,
+  socialTwitter,
 };
