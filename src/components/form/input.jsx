@@ -2,24 +2,18 @@ import React from "react";
 import radium from "radium";
 import styles from "./styles";
 
-function Input({
-  type,
-  id,
-  label,
-  name,
-  defaultValue,
-  value,
-  error,
-  min,
-  max,
-  placeholder,
-  required,
-  size,
-  theme,
-  fill,
-  customStyles,
-  onChange,
-}) {
+function Input(props) {
+  const {
+    label,
+    name,
+    id,
+    type,
+    error,
+    size,
+    theme,
+    fill,
+    customStyles,
+  } = props;
   const style = [styles.base];
 
   style.push(styles.element.input.base);
@@ -46,25 +40,16 @@ function Input({
     style.push(customStyles);
   }
 
-  const props = {
-    style,
-    type,
-    id,
-    value,
-    name: name || id,
-  };
-
-  props.defaultValue = defaultValue || null;
-  props.placeholder = placeholder || null;
-  props.required = required || null;
-
-  if (type === "number") {
-    props.min = min;
-    props.max = max;
-  }
 
   return (
-    <input {...props} aria-label={label} title={label} onChange={onChange} />
+    <input
+      name={name || id}
+      aria-label={label}
+      title={label}
+      type={type}
+      {...props}
+      style={style}
+    />
   );
 }
 
@@ -90,19 +75,8 @@ Input.propTypes = {
 
   name: React.PropTypes.string,
 
-  defaultValue: React.PropTypes.string,
-
-  value: React.PropTypes.string,
 
   error: React.PropTypes.bool,
-
-  min: React.PropTypes.string,
-
-  max: React.PropTypes.string,
-
-  placeholder: React.PropTypes.string,
-
-  required: React.PropTypes.bool,
 
   size: React.PropTypes.oneOf([
     "tiny",
@@ -133,7 +107,6 @@ Input.propTypes = {
     ]),
   ),
 
-  onChange: React.PropTypes.func,
 };
 
 Input.defaultProps = {
@@ -145,16 +118,6 @@ Input.defaultProps = {
 
   name: "",
 
-  defaultValue: "",
-
-  min: "",
-
-  max: "",
-
-  placeholder: "",
-
-  required: false,
-
   size: "medium",
 
   theme: "base",
@@ -163,7 +126,6 @@ Input.defaultProps = {
 
   customStyles: null,
 
-  onChange: null,
 };
 
 Input.styles = styles;

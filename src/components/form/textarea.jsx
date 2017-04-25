@@ -3,21 +3,15 @@ import radium from "radium";
 import styles from "./styles";
 import propTypes from "../../utils/propTypes";
 
-function TextArea({
-  id,
-  label,
-  name,
-  value,
-  placeholder,
-  required,
-  rows,
-  cols,
-  size,
-  theme,
-  onChange,
-  customStyles,
-  maxLength,
-}) {
+function TextArea(props) {
+  const {
+    id,
+    label,
+    name,
+    size,
+    theme,
+    customStyles,
+  } = props;
   const style = [styles.base];
 
   style.push(styles.element.textarea.base);
@@ -38,18 +32,11 @@ function TextArea({
 
   return (
     <textarea
-      style={style}
-      id={id}
       name={name || id}
-      value={value}
-      placeholder={placeholder}
-      rows={rows}
-      cols={cols}
-      required={required}
-      onChange={onChange}
       aria-label={label}
       title={label}
-      maxLength={maxLength}
+      {...props}
+      style={style}
     />
   );
 }
@@ -60,16 +47,6 @@ TextArea.propTypes = {
   label: React.PropTypes.string.isRequired,
 
   name: React.PropTypes.string,
-
-  value: React.PropTypes.string,
-
-  placeholder: React.PropTypes.string,
-
-  required: React.PropTypes.bool,
-
-  rows: React.PropTypes.number,
-
-  cols: React.PropTypes.number,
 
   size: React.PropTypes.oneOf([
     "tiny",
@@ -86,11 +63,9 @@ TextArea.propTypes = {
     "float",
   ]),
 
-  onChange: React.PropTypes.func,
 
   customStyles: propTypes.style,
 
-  maxLength: React.PropTypes.string,
 };
 
 TextArea.defaultProps = {
@@ -99,7 +74,6 @@ TextArea.defaultProps = {
   label: "",
 
   name: "",
-
 
   placeholder: "",
 
