@@ -79,6 +79,9 @@ class AvatarUpload extends Component {
         this.setState({
           src: e.target.result,
         });
+        if (typeof this.props.exposeImageOnChange === "function") {
+          this.props.exposeImageOnChange(e.target.result);
+        }
       };
 
       reader.readAsDataURL(this.input.files[0]);
@@ -128,6 +131,7 @@ class AvatarUpload extends Component {
 AvatarUpload.propTypes = {
   src: PropTypes.string.isRequired,
   style: propTypes.style,
+  exposeImageOnChange: PropTypes.func,
 };
 
 export default radium(AvatarUpload);
