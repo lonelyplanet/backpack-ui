@@ -70,7 +70,11 @@ class SocialShareContainer extends Component {
     const isFacebook = event.currentTarget.dataset.network === "facebook";
     const isReddit = event.currentTarget.dataset.network === "reddit";
     const isTwitter = event.currentTarget.dataset.network === "twitter";
-    const shouldOpenWindow = isFacebook || isReddit || isTwitter;
+    const hasTwitterWidgets = typeof window !== "undefined" &&
+      typeof window.__twttr !== "undefined" &&
+      window.__twttr.widgets &&
+      window.__twttr.widgets.init;
+    const shouldOpenWindow = isFacebook || isReddit || (isTwitter && !hasTwitterWidgets);
 
     if (shouldOpenWindow) {
       window.open(
