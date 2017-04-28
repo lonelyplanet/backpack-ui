@@ -82,11 +82,9 @@ class SocialShareContainer extends Component {
         "share",
         `${windowOptions},${windowSize}`
       );
-    } else {
-      window.location = event.currentTarget.href;
-    }
 
-    event.preventDefault();
+      event.preventDefault();
+    }
   }
 
   constructor() {
