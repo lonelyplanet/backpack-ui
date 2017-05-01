@@ -21,6 +21,7 @@ import ArticlePreview from "../src/components/articlePreview";
 import Author from "../src/components/author";
 import AuthorName from "../src/components/authorName";
 import Avatar from "../src/components/avatar";
+import AvatarMarker from "../src/components/avatarMarker";
 import AvatarUpload from "../src/components/avatarUpload";
 // Availability
 import Bookmark from "../src/components/bookmark";
@@ -361,6 +362,16 @@ storiesOf("Avatar", module)
       alt={text("Alternate text", "Rizzo")}
       size={select("Size", [40, 48, 80, 104], 80)}
       href={text("URL", "")}
+    />
+  ));
+
+storiesOf("Avatar marker", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <AvatarMarker
+      href={text("URL", "/profile")}
+      src={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+      username={text("Username", "Rizzo the Rat")}
     />
   ));
 
