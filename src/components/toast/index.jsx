@@ -41,7 +41,7 @@ const styles = {
 
   icon: {
     fontSize: `${(16 / fontSizeUppercase)}em`,
-    marginRight: `${(20 / fontSizeUppercase)}em`,
+    marginRight: `${(6 / fontSizeUppercase)}em`,
     verticalAlign: "bottom",
   },
 };
