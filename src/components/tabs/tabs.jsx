@@ -44,7 +44,7 @@ class Tabs extends Component {
     }
 
     Children.forEach(this.props.children, (child, index) => {
-      if (child.props.active) {
+      if (child && child.props.active) {
         selectedIndex = index;
       }
     });
