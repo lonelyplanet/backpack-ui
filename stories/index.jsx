@@ -359,7 +359,7 @@ storiesOf("Avatar", module)
     <Avatar
       src={text("Image source", data.avatar.rizzo)}
       alt={text("Alternate text", "Rizzo")}
-      size={select("Size", [40, 48, 80, 104], 80)}
+      size={select("Size", [24, 40, 48, 80, 104], 80)}
       href={text("URL", "")}
     />
   ));
