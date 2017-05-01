@@ -11,6 +11,7 @@ export { default as Author } from "./components/author";
 export { default as AuthorName } from "./components/authorName";
 export { default as Availability } from "./components/availability";
 export { default as Avatar } from "./components/avatar";
+export { default as AvatarMarker } from "./components/avatarMarker";
 export { default as AvatarUpload } from "./components/avatarUpload";
 export { default as Bookmark } from "./components/bookmark";
 export { default as Bullet } from "./components/bullet";
