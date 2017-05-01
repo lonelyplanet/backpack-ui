@@ -79,6 +79,7 @@ Avatar.propTypes = {
 };
 
 Avatar.defaultProps = {
+  alt: "",
   size: 80,
 };
 
