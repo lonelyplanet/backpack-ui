@@ -178,6 +178,7 @@ const Slide = ({
           <Button
             rounded
             color={callToAction.theme}
+            border={callToAction.border}
             size="large"
             customStyles={styles.button}
             onClick={callToAction.onClick}
@@ -200,6 +201,7 @@ Slide.propTypes = {
   callToAction: PropTypes.shape({
     text: PropTypes.string,
     theme: PropTypes.string,
+    border: PropTypes.bool,
     link: PropTypes.string,
     icon: PropTypes.string,
     onClick: PropTypes.func,
