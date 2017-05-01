@@ -73,7 +73,7 @@ function Avatar({ src, alt, size, href, style }) {
 Avatar.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string,
-  size: PropTypes.oneOf([40, 48, 80, 104]),
+  size: PropTypes.oneOf([24, 40, 48, 80, 104]),
   href: PropTypes.string,
   style: propTypes.style,
 };
