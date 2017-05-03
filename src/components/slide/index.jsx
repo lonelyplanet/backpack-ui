@@ -51,6 +51,10 @@ const styles = {
       fontSize: "68px",
     },
   },
+  graphic: {
+    maxWidth: "100%",
+    marginBottom: "14px",
+  },
   button: {
     paddingRight: "30px",
     paddingLeft: "30px",
@@ -131,6 +135,7 @@ const Slide = ({
   fullOverlay,
   fullOverlayStyles,
   headline,
+  graphic,
   adPosition,
   gradientColor,
   position,
@@ -157,6 +162,7 @@ const Slide = ({
             style={styles.bullets}
           />
         }
+
         <Heading
           level={1}
           size="huge"
@@ -164,7 +170,10 @@ const Slide = ({
           override={styles.heading}
         >
           <Link to={callToAction.link} onClick={callToAction.onClick} style={styles.link} >
-            {headline}
+            {graphic &&
+              <img src={graphic} style={styles.graphic} alt={headline} />
+            }
+            {!graphic && headline}
           </Link>
         </Heading>
 
@@ -174,6 +183,7 @@ const Slide = ({
             style={styles.adContainer}
           />
         }
+
         <Link to={callToAction.link}>
           <Button
             rounded
@@ -198,6 +208,7 @@ const Slide = ({
 Slide.propTypes = {
   image: PropTypes.string.isRequired,
   headline: PropTypes.string.isRequired,
+  graphic: PropTypes.string,
   callToAction: PropTypes.shape({
     text: PropTypes.string,
     theme: PropTypes.string,

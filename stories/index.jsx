@@ -1038,6 +1038,7 @@ storiesOf("Masthead", module)
       image: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtNTM0NzUzNjQ1X3N1cGVyLmpwZ01vbiBKYW4gMzAgMjAxNyAwOTo0MToyOSBHTVQrMDAwMCAoVVRDKQ%3D%3D.jpg?q=40&sharp=10&w=2500",
       type: "FEATURED ARTICLE",
       headline: "Architecture for travellers: a novice's guide",
+      graphic: "https://s3.amazonaws.com/static-asset/op-video-sync/assets/gopro_graphic_test.png",
       description: "",
       callToAction: {
         text: "Play",
