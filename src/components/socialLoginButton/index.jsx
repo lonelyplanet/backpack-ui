@@ -67,12 +67,12 @@ const SocialLoginButton = (props) => {
 
   return (
     <button
+      {...props}
       style={[
         styles.button,
         style,
       ]}
       onClick={onClick}
-      {...props}
     >
       {iconFromString(iconName, iconParameters)}
       {children}
