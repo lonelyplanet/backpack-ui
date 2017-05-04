@@ -28,6 +28,10 @@
   ],
   "author": "Lonely Planet",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lonelyplanet/backpack-ui.git"
+  },
   "dependencies": {
     "@kadira/storybook": "^2.35.0",
     "@kadira/storybook-addon-knobs": "^1.7.1",
