@@ -35,3 +35,7 @@ storiesOf("Some component name", module)
     <ComponentName prop="value" />
   ));
 ```
+
+### Contributing
+
+Please read the [guidelines](https://github.com/lonelyplanet/backpack-ui/blob/master/CONTRIBUTING.md) for contributing before making a pull request.
