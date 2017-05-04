@@ -27,7 +27,7 @@
     "lint"
   ],
   "author": "Lonely Planet",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@kadira/storybook": "^2.35.0",
     "@kadira/storybook-addon-knobs": "^1.7.1",
