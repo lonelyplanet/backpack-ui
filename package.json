@@ -12,6 +12,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "gh-pages": "npm run build-storybook -- -o _gh-pages && gh-pages -d _gh-pages && rm -rf _gh-pages",
+    "release": "standard-version",
     "version": "npm run release --commit-all",
     "version:patch": "npm run release -- --release-as patch",
     "version:minor": "npm run release -- --release-as minor",
