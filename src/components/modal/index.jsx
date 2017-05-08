@@ -1,7 +1,8 @@
 import React, { PropTypes } from "react";
 import Modal from "react-modal";
 import radium, { Style } from "radium";
-import { color, media, timing, zIndex } from "../../../settings.json";
+import colors from "../../styles/colors";
+import { media, timing, zIndex } from "../../../settings.json";
 import Heading from "../heading";
 import { rgb } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
@@ -11,13 +12,13 @@ const modalPadding = 56;
 
 const styles = {
   overlay: {
-    backgroundColor: `rgba(${rgb(color.black)}, .4)`,
+    backgroundColor: `rgba(${rgb(colors.bgOverlay)}, .4)`,
     overflow: "hidden",
     zIndex: zIndex.modal - 2,
   },
 
   header: {
-    borderBottom: `1px solid ${color.gray}`,
+    borderBottom: `1px solid ${colors.borderPrimary}`,
     paddingBottom: "16px",
     paddingTop: "16px",
     position: "relative",
@@ -134,13 +135,13 @@ function ModalComponent({
     },
 
     ".ModalBase": {
-      background: color.white,
+      background: colors.bgPrimary,
       position: "absolute",
       overflow: "auto",
       WebkitOverflowScrolling: "touch",
       border: 0,
       borderRadius: 0,
-      boxShadow: `0 27px 50px rgba(${rgb(color.black)}, .36)`,
+      boxShadow: `0 27px 50px rgba(${rgb(colors.bgOverlay)}, .36)`,
       top: 0,
       left: 0,
       right: 0,
