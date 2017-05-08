@@ -30,7 +30,6 @@ const styles = {
       paddingRight: `${modalPadding}px`,
       paddingTop: `${modalPadding}px`,
       paddingBottom: 0,
-      textAlign: "left",
     },
   },
 
