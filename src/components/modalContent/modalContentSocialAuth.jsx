@@ -13,15 +13,18 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
   },
+
   logo: {
     marginBottom: "16px",
     width: "160px",
   },
+
   message: {
     width: "75%",
     marginBottom: "40px",
     textAlign: "center",
   },
+
   content: {
     display: "flex",
     flexDirection: "column",
@@ -29,12 +32,15 @@ const styles = {
     alignItems: "center",
     marginBottom: "72px",
   },
+
   button: {
     marginBottom: "16px",
   },
+
   buttonLast: {
     marginBottom: "40px",
   },
+
   more: {
     letterSpacing: 0,
   },
@@ -56,8 +62,12 @@ const socialNavigate = (path) => {
 const ModalContentSocialAuth = ({ message, style }) => (
   <div style={[styles.container, style]} className="ModalContentSocialAuth">
     <Logo style={styles.logo} />
+
     <div style={styles.content}>
-      <p style={styles.message}>{message}</p>
+      <p style={styles.message}>
+        {message}
+      </p>
+
       <SocialLoginButton
         style={styles.button}
         iconName="FacebookBlockColor"
@@ -65,6 +75,7 @@ const ModalContentSocialAuth = ({ message, style }) => (
       >
         Continue with Facebook
       </SocialLoginButton>
+
       <SocialLoginButton
         style={styles.button}
         iconName="TwitterColor"
@@ -72,6 +83,7 @@ const ModalContentSocialAuth = ({ message, style }) => (
       >
         Continue with Twitter
       </SocialLoginButton>
+
       <SocialLoginButton
         style={styles.buttonLast}
         iconName="GoogleColor"
@@ -87,7 +99,6 @@ const ModalContentSocialAuth = ({ message, style }) => (
       >
         Sign in or sign up with email
       </MoreLink>
-
     </div>
 
     <DisclaimerText>
