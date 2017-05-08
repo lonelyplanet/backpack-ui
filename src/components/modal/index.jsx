@@ -234,6 +234,10 @@ function ModalComponent({
 
 ModalComponent.propTypes = {
   isOpen: PropTypes.bool.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.string,
+  ]).isRequired,
   closeModal: PropTypes.func,
   leftAction: PropTypes.func,
   leftActionContent: PropTypes.node,
@@ -244,10 +248,6 @@ ModalComponent.propTypes = {
   desktopWidth: PropTypes.string,
   title: PropTypes.string,
   style: propTypes.style,
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.string,
-  ]).isRequired,
 };
 
 ModalComponent.defaultProps = {
