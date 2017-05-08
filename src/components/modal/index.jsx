@@ -242,7 +242,7 @@ ModalComponent.propTypes = {
   closeTimeoutMS: PropTypes.number,
   contentLabel: PropTypes.string,
   desktopWidth: PropTypes.string,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   style: propTypes.style,
   children: PropTypes.oneOfType([
     PropTypes.node,
