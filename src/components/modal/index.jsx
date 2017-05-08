@@ -20,7 +20,6 @@ const styles = {
   },
 
   header: {
-    borderBottom: `1px solid ${colors.borderPrimary}`,
     paddingBottom: "16px",
     paddingTop: "16px",
     position: "relative",
@@ -32,7 +31,6 @@ const styles = {
       paddingRight: `${modalPadding}px`,
       paddingTop: `${modalPadding}px`,
       paddingBottom: 0,
-      borderBottom: 0,
       textAlign: "left",
     },
   },
@@ -183,7 +181,14 @@ function ModalComponent({
 
       <header
         className="Modal-header clearfix"
-        style={styles.header}
+        style={[
+          styles.header,
+          title && {
+            [`@media (max-width: ${mq.max["768"]})`]: {
+              borderBottom: `1px solid ${colors.borderPrimary}`,
+            },
+          },
+        ]}
       >
         {leftAction &&
           <button
