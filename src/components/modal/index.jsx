@@ -2,14 +2,14 @@ import React, { PropTypes } from "react";
 import Modal from "react-modal";
 import radium, { Style } from "radium";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
-import { media } from "../../../settings.json";
 import Heading from "../heading";
 import { rgb } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 
-const largeMQ = `(min-width: ${media.min["768"]})`;
+const largeMQ = `(min-width: ${mq.min["768"]})`;
 const modalPadding = 56;
 
 const styles = {
