@@ -64,8 +64,9 @@ const styles = {
   },
 
   mobileTitle: {
-    display: "block",
+    display: "inline-block",
     minHeight: "10px",
+    paddingTop: "23px",
 
     [`@media ${largeMQ}`]: {
       display: "none",
