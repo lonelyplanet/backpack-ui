@@ -4,6 +4,7 @@ import { Logo } from "../icon";
 import { color, typography } from "../../../settings.json";
 import SocialLoginButton from "../socialLoginButton";
 import MoreLink from "../moreLink";
+import DisclaimerText from "../disclaimerText";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
@@ -39,10 +40,16 @@ const styles = {
     letterSpacing: 0,
     fontWeight: typography.fontWeightBold,
   },
-  disclaimer: {
-    fontSize: "10px",
-  },
 };
+
+const disclaimer = `If you sign up with Twitter, Facebook or Google, we’ll automatically import your
+  profile information. We’ll never post without your permission. Alternatively sign in with a
+  <a href="https://auth.lonelyplanet.com/users/sign_in">username and password</a>. To sign into
+  Lonely Planet you must have cookies enabled and agree to the
+  <a href="//www.lonelyplanet.com/legal/website-terms/">Terms of Service</a> and read the
+  <a href="//www.lonelyplanet.com/legal/privacy-policy/">Privacy Policy</a> and
+  <a href="//www.lonelyplanet.com/legal/cookies/">Cookie Policy</a>. For additional account
+  enquiries see <a href="">Account help</a>.`;
 
 const socialNavigate = (path) => {
   window.location = `https://auth.lonelyplanet.com/users/auth/${path}`;
@@ -85,13 +92,9 @@ const ModalContentSocialAuth = ({ message, style }) => (
 
     </div>
 
-    <p style={styles.disclaimer}>
-    If you sign up with Twitter, Facebook or Google,
-     we'll automatically import your profile information.
-     We'll never post without your permission. Alternatively sign in with a username and password.
-     To sign into Lonely Planet you must have cookies enabled
-      and agree to the Terms of Service and read the Privacy Policy and Cookie Policy.
-     For additional account enquiries see Account help.</p>
+    <DisclaimerText>
+      {disclaimer}
+    </DisclaimerText>
   </div>
 );
 
