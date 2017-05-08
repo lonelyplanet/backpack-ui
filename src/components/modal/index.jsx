@@ -24,7 +24,6 @@ const styles = {
     paddingTop: "16px",
     position: "relative",
     textAlign: "center",
-    textTransform: "uppercase",
 
     [`@media ${largeMQ}`]: {
       paddingLeft: `${modalPadding}px`,
