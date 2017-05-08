@@ -37,10 +37,6 @@ const styles = {
     marginBottom: "16px",
   },
 
-  buttonLast: {
-    marginBottom: "40px",
-  },
-
   moreLink: {
     letterSpacing: 0,
     padding: "16px",
@@ -86,7 +82,7 @@ const ModalContentSocialAuth = ({ message, style }) => (
       </SocialLoginButton>
 
       <SocialLoginButton
-        style={styles.buttonLast}
+        style={styles.button}
         iconName="GoogleColor"
         onClick={() => socialNavigate("google_oauth2")}
       >
