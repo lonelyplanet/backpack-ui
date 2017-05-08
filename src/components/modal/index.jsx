@@ -39,27 +39,20 @@ const styles = {
   actionItem: {
     position: "absolute",
     backgroundColor: "transparent",
-    top: "12px",
+    top: 0,
+    padding: "16px",
 
     [`@media ${largeMQ}`]: {
-      top: `${modalPadding}px`,
+      padding: `${modalPadding}px`,
     },
   },
 
   rightAction: {
-    right: "16px",
-
-    [`@media ${largeMQ}`]: {
-      right: `${modalPadding}px`,
-    },
+    right: 0,
   },
 
   leftAction: {
-    left: "16px",
-
-    [`@media ${largeMQ}`]: {
-      left: `${modalPadding}px`,
-    },
+    left: 0,
   },
 
   desktopTitle: {
