@@ -2,7 +2,7 @@ import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import colors from "../../styles/colors";
 import font from "../../utils/font";
-import { fontSizeUppercase } from "../../styles/typography";
+import { fontSizeUppercase, fontWeightMedium } from "../../styles/typography";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
@@ -26,7 +26,7 @@ const DisclaimerText = ({ children, style }) => (
     <Style
       rules={{
         ".DisclaimerText a": {
-          color: "inherit",
+          fontWeight: fontWeightMedium,
         },
       }}
     />
