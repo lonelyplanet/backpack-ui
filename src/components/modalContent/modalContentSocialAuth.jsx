@@ -43,6 +43,7 @@ const styles = {
 
   moreLink: {
     letterSpacing: 0,
+    padding: "16px",
   },
 };
 
