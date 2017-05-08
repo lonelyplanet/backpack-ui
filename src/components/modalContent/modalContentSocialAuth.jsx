@@ -95,6 +95,7 @@ const ModalContentSocialAuth = ({ message, style }) => (
 
       <MoreLink
         caps
+        size="small"
         style={styles.moreLink}
         href="https://auth.lonelyplanet.com/users/sign_in"
       >
