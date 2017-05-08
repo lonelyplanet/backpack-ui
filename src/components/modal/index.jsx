@@ -30,10 +30,7 @@ const styles = {
   },
 
   contentContainer: {
-    paddingLeft: `${modalPadding}px`,
-    paddingRight: `${modalPadding}px`,
-    paddingTop: "32px",
-    paddingBottom: `${modalPadding * 2}px`,
+    padding: "40px",
   },
 
   actionItem: {
