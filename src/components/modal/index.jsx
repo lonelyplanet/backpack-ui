@@ -20,16 +20,12 @@ const styles = {
   },
 
   header: {
-    paddingBottom: "16px",
-    paddingTop: "16px",
+    height: "56px",
     position: "relative",
     textAlign: "center",
 
     [`@media ${largeMQ}`]: {
-      paddingLeft: `${modalPadding}px`,
-      paddingRight: `${modalPadding}px`,
-      paddingTop: `${modalPadding}px`,
-      paddingBottom: 0,
+      height: "72px",
     },
   },
 
