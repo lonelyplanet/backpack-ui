@@ -1,7 +1,6 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import Logo from "../logo";
-import { typography } from "../../../settings.json";
 import SocialLoginButton from "../socialLoginButton";
 import MoreLink from "../moreLink";
 import DisclaimerText from "../disclaimerText";
@@ -38,7 +37,6 @@ const styles = {
   },
   more: {
     letterSpacing: 0,
-    fontWeight: typography.fontWeightBold,
   },
 };
 
