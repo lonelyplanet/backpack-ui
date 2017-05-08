@@ -1103,7 +1103,8 @@ storiesOf("Modal", module)
         )}
       </ModalWrapper>
     </StyleRoot>
-  )).add("Watch Later", () => (
+  ))
+  .add("Watch Later", () => (
     <StyleRoot>
       <ModalWrapper>
         {(isOpen, toggle) => (
