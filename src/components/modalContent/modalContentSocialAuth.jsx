@@ -41,7 +41,7 @@ const styles = {
     marginBottom: "40px",
   },
 
-  more: {
+  moreLink: {
     letterSpacing: 0,
   },
 };
@@ -94,7 +94,7 @@ const ModalContentSocialAuth = ({ message, style }) => (
 
       <MoreLink
         caps
-        style={styles.more}
+        style={styles.moreLink}
         href="https://auth.lonelyplanet.com/users/sign_in"
       >
         Sign in or sign up with email
