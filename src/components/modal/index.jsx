@@ -103,6 +103,10 @@ function ModalComponent({
   style,
 }) {
   const rules = {
+    ".ReactModal__Content": {
+      outline: 0,
+    },
+
     ".ReactModal__Content--after-open.ReactModal__Content--before-close": {
       opacity: 0,
       transform: "translateY(55%)",
