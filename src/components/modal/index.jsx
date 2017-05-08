@@ -252,9 +252,7 @@ ModalComponent.propTypes = {
 
 ModalComponent.defaultProps = {
   isOpen: false,
-  title: "Modal",
   desktopWidth: "85%",
-  contentLabel: "Modal",
   closeTimeoutMS: 500,
   children: null,
 };
