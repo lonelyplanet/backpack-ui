@@ -2,14 +2,14 @@ import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import colors from "../../styles/colors";
 import font from "../../utils/font";
-import { fontSizeUppercase, fontWeightMedium } from "../../styles/typography";
+import { fontWeightMedium } from "../../styles/typography";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
-  color: colors.accentGray,
+  color: colors.textSecondary,
   fontFamily: font("benton"),
-  fontSize: `${fontSizeUppercase}px`,
-  lineHeight: (17 / 11),
+  fontSize: "9px",
+  lineHeight: (15 / 9),
 };
 
 function markup(htmlContent) {
