@@ -4,6 +4,7 @@ import Logo from "../logo";
 import SocialLoginButton from "../socialLoginButton";
 import MoreLink from "../moreLink";
 import DisclaimerText from "../disclaimerText";
+import { textHeading7 } from "../../utils/typography";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
@@ -19,12 +20,12 @@ const styles = {
     width: "160px",
   },
 
-  message: {
+  message: Object.assign({}, {
     maxWidth: "295px",
     width: "100%",
     marginBottom: "40px",
     textAlign: "center",
-  },
+  }, textHeading7()),
 
   content: {
     display: "flex",
