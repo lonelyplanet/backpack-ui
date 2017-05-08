@@ -84,6 +84,7 @@ import Masthead from "../src/components/masthead";
 import MastheadSlider from "../src/components/mastheadSlider";
 // MobileToolbar
 import Modal from "../src/components/modal";
+import ModalLogIn from "../src/components/modalLogIn";
 import MoreLink from "../src/components/moreLink";
 import Narrative from "../src/components/narrative";
 import { Navigation, NavigationTab } from "../src/components/navigation";
@@ -1143,6 +1144,18 @@ storiesOf("Modal", module)
             videos={[]}
             removeVideo={action("Remove Video")}
             authMessage={text("Auth Message", "Organize your research & unlock tools like bookmarking.")}
+          />
+        )}
+      </ModalWrapper>
+    </StyleRoot>
+  ))
+  .add("Log in", () => (
+    <StyleRoot>
+      <ModalWrapper>
+        {(isOpen, toggle) => (
+          <ModalLogIn
+            isOpen={isOpen}
+            onClose={toggle}
           />
         )}
       </ModalWrapper>
