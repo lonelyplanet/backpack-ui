@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import { Logo } from "../icon";
-import { color, typography } from "../../../settings.json";
+import Logo from "../logo";
+import { typography } from "../../../settings.json";
 import SocialLoginButton from "../socialLoginButton";
 import MoreLink from "../moreLink";
 import DisclaimerText from "../disclaimerText";
@@ -15,8 +15,8 @@ const styles = {
     alignItems: "center",
   },
   logo: {
-    color: color.blue,
-    fontSize: "160px",
+    marginBottom: "16px",
+    width: "160px",
   },
   message: {
     width: "75%",
