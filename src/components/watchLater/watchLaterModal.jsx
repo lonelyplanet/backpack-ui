@@ -27,7 +27,7 @@ const WatchLaterModal = ({
     title={loggedIn ? "Watch Later" : ""}
     style={style}
   >
-    { loggedIn ? (
+    {loggedIn ? (
       <ModalContentWatchLaterList
         videos={videos}
         removeVideo={removeVideo}
@@ -38,7 +38,6 @@ const WatchLaterModal = ({
     )}
   </Modal>
 );
-
 
 WatchLaterModal.propTypes = {
   loggedIn: PropTypes.bool,
