@@ -254,7 +254,6 @@ ModalComponent.defaultProps = {
   isOpen: false,
   desktopWidth: "85%",
   closeTimeoutMS: timing.default,
-  children: null,
 };
 
 ModalComponent.styles = styles;
