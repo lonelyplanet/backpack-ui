@@ -149,7 +149,7 @@
     }
   },
   "spacing": {
-    "mobile": "20px"
+    "mobile": "16px"
   },
   "timing": {
     "fast": "200ms",
