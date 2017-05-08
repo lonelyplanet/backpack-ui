@@ -150,6 +150,7 @@ function ModalComponent({
       },
     },
   };
+
   return (
     <Modal
       isOpen={isOpen}
