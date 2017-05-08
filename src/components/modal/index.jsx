@@ -10,7 +10,7 @@ import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 
 const largeMQ = `(min-width: ${mq.min["768"]})`;
-const modalPadding = 56;
+const modalPadding = 24;
 
 const styles = {
   overlay: {
