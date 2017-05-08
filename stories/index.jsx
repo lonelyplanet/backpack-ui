@@ -1078,33 +1078,6 @@ class ModalWrapper extends React.Component {
   }
 }
 
-const watchLaterVideos = [
-  {
-    id: 1,
-    heading: "Test Heading",
-    bullets: ["On the Road", "Ep1"],
-    runtime: 30000,
-    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
-    href: "/test",
-  },
-  {
-    id: 2,
-    heading: "Test Heading",
-    bullets: ["On the Road", "Ep2"],
-    runtime: 30000,
-    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
-    href: "/test",
-  },
-  {
-    id: 3,
-    heading: "Test Heading",
-    bullets: ["On the Road", "Ep3"],
-    runtime: 30000,
-    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
-    href: "/test",
-  },
-];
-
 storiesOf("Modal", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1139,7 +1112,6 @@ storiesOf("Modal", module)
             loggedIn={boolean("Logged in", false)}
             isOpen={isOpen}
             onClose={toggle}
-            // videos={watchLaterVideos}
             videos={[]}
             removeVideo={action("Remove Video")}
             authMessage={text("Auth Message", "Organize your research & unlock tools like bookmarking.")}
