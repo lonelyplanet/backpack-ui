@@ -14,7 +14,7 @@ const modalPadding = 56;
 
 const styles = {
   overlay: {
-    backgroundColor: rgba(colors.bgOverlay, 0.4),
+    backgroundColor: rgba(colors.bgOverlay, 0.3),
     overflow: "hidden",
     zIndex: zIndex.modal - 2,
   },
