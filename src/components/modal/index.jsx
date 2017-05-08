@@ -194,15 +194,17 @@ function ModalComponent({
           </button>
         }
 
-        <Heading
-          level={4}
-          size="small"
-          weight="thick"
-          override={styles.mobileTitle}
-          caps
-        >
-          {title}
-        </Heading>
+        {title &&
+          <Heading
+            level={4}
+            size="small"
+            weight="thick"
+            override={styles.mobileTitle}
+            caps
+          >
+            {title}
+          </Heading>
+        }
 
         {rightAction &&
           <button
