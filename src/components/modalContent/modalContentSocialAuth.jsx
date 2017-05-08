@@ -20,7 +20,8 @@ const styles = {
   },
 
   message: {
-    width: "75%",
+    maxWidth: "295px",
+    width: "100%",
     marginBottom: "40px",
     textAlign: "center",
   },
