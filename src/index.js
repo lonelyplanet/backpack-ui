@@ -71,6 +71,7 @@ export { default as Masthead } from "./components/masthead";
 export { default as MastheadSlider } from "./components/mastheadSlider";
 export { default as MobileToolbar } from "./components/mobileToolbar";
 export { default as Modal } from "./components/modal";
+export { default as ModalLogIn } from "./components/modalLogIn";
 export { default as MoreLink } from "./components/moreLink";
 export { default as Narrative } from "./components/narrative";
 export { default as NewsArticleAuthor } from "./components/newsArticleAuthor";
