@@ -31,6 +31,10 @@ const styles = {
 
   contentContainer: {
     padding: "40px",
+
+    [`@media ${largeMQ}`]: {
+      padding: "8px 56px",
+    },
   },
 
   actionItem: {
