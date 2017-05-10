@@ -83,6 +83,7 @@ function ModalComponent({
   closeModal,
   closeTimeoutMS,
   contentLabel,
+  desktopMaxHeight,
   desktopWidth,
   leftAction,
   leftActionContent,
@@ -145,7 +146,7 @@ function ModalComponent({
     mediaQueries: {
       [largeMQ]: {
         ".ModalBase": {
-          maxHeight: "85vh",
+          maxHeight: desktopMaxHeight,
           top: "50%",
           width: desktopWidth,
           maxWidth: "1290px",
@@ -245,6 +246,7 @@ ModalComponent.propTypes = {
   rightActionContent: PropTypes.node,
   closeTimeoutMS: PropTypes.number,
   contentLabel: PropTypes.string,
+  desktopMaxHeight: PropTypes.string,
   desktopWidth: PropTypes.string,
   title: PropTypes.string,
   style: propTypes.style,
@@ -252,6 +254,7 @@ ModalComponent.propTypes = {
 
 ModalComponent.defaultProps = {
   isOpen: false,
+  desktopMaxHeight: "85vh",
   desktopWidth: "85%",
   closeTimeoutMS: timing.default,
 };
