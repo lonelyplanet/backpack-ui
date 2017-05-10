@@ -12,6 +12,7 @@ const ModalLogIn = ({ isOpen, onClose, style }) => (
     leftAction={onClose}
     leftActionContent={<Close width={24} height={24} />}
     closeModal={onClose}
+    desktopMaxHeight="650px"
     desktopWidth={span(6, "static")}
     style={style}
   >
