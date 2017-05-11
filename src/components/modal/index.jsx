@@ -114,14 +114,12 @@ function ModalComponent({
 
     ".ReactModal__Overlay--after-open.ReactModal__Overlay--before-close": {
       opacity: 0,
-      transition: `opacity ${timing.default},
-        transform ${timing.default}`,
+      transition: `opacity ${timing.default}`,
     },
 
     ".ReactModal__Overlay--after-open": {
       opacity: 1,
-      transition: `opacity ${timing.default},
-        transform ${timing.default}`,
+      transition: `opacity ${timing.default}`,
     },
 
     ".ModalBase": {
