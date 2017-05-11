@@ -100,7 +100,7 @@ Overlay.defaultProps = {
 
   attached: false,
 
-  color: `rgba(${rgb(settings.color.black)}, .4)`,
+  color: `rgba(${rgb(settings.color.black)}, .3)`,
 
   onClick: null,
 
