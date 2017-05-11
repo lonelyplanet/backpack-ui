@@ -106,8 +106,8 @@ function ModalComponent({
     },
 
     ".ReactModal__Content--after-open": {
-      opacity: "1 !important",
-      transform: "translateY(0) !important",
+      opacity: 1,
+      transform: "translateY(0)",
       transition: `opacity ${timing.default},
         transform ${timing.default}`,
     },
