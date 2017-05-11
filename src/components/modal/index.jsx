@@ -16,7 +16,7 @@ const styles = {
   overlay: {
     backgroundColor: rgba(colors.bgOverlay, 0.3),
     overflow: "hidden",
-    zIndex: zIndex.modal - 2,
+    zIndex: zIndex.modal,
   },
 
   header: {
@@ -135,7 +135,6 @@ function ModalComponent({
       top: 0,
       left: 0,
       right: 0,
-      zIndex: zIndex.modal,
       marginLeft: "auto",
       marginRight: "auto",
       bottom: "auto",
