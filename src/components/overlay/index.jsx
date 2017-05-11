@@ -106,7 +106,7 @@ Overlay.defaultProps = {
 
   visible: false,
 
-  zIndex: settings.zIndex.modal - 2,
+  zIndex: settings.zIndex.overlay,
 };
 
 export default radium(Overlay);
