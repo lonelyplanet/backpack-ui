@@ -1316,8 +1316,8 @@ storiesOf("Newsletter", module)
         placeholder={text("Input placeholder text", "Enter email")}
         cta={text("Button text", "Sign up")}
         confirmation={object("Confirmation data", {
-          title: "Thank you for signing up!",
-          text: "We’ll send a confirmation email to",
+          title: "Thanks for signing up!",
+          text: "We just sent a confirmation email to",
         })}
         signup={object("Signup data", {
           vars: "sailthru[vars][sf_LP_Editorial_Newsletter]",

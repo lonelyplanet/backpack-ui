@@ -248,8 +248,8 @@ class Newsletter extends Component {
           {this.state.showSuccess &&
             <div>
               <p style={styles.copy}>
-                Thanks for signing up! We just sent a confirmatinon email
-                to <span style={styles.email}>{this.state.email}</span>
+                {confirmation.title} <br />
+                {confirmation.text} <span style={styles.email}>{this.state.email}</span>
               </p>
 
               <MoreLink
@@ -346,8 +346,8 @@ Newsletter.defaultProps = {
   placeholder: "Enter email",
   cta: "Sign up",
   confirmation: {
-    title: "Thank you for signing up!",
-    text: "We’ll send a confirmation email to",
+    title: "Thanks for signing up!",
+    text: "We just sent a confirmation email to",
   },
   signup: {
     vars: "sailthru[vars][sf_LP_Editorial_Newsletter]",
