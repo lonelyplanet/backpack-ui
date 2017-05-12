@@ -36,7 +36,7 @@
     "url": "https://github.com/lonelyplanet/backpack-ui.git"
   },
   "dependencies": {
-    "@kadira/storybook": "^2.35.0",
+    "@kadira/storybook": "^2.35.3",
     "@kadira/storybook-addon-knobs": "^1.7.1",
     "axios": "^0.15.3",
     "chai": "^3.5.0",
