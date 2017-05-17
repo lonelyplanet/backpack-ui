@@ -4,7 +4,7 @@ import { rgba } from "../utils/color";
 const bgPrimary = "#fff";
 const bgSecondary = "#f4fbfe";
 const bgOverlay = "#000";
-const bgDark = rgba("#000", 0.88);
+const bgDark = rgba("#000", 0.96);
 
 // Link colors
 const linkPrimary = "#297cbb";
