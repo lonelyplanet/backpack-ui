@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-import radium from "radium";
+import radium, { Style } from "radium";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import { fontWeightMedium, fontSizeUppercase } from "../../styles/typography";
@@ -58,10 +58,22 @@ const Toast = ({ children, color, icon, direction, visible, style }) => (
       style,
     ]}
   >
+    <Style
+      scopeSelector=".Toast"
+      rules={{
+        mediaQueries: {
+          "(prefers-reduced-motion)": {
+            transform: "translateY(0) !important",
+          },
+        },
+      }}
+    />
+
     {icon && iconFromString(icon, {
       style: styles.icon,
       ariaHidden: true,
     })}
+
     {children}
   </div>
 );
