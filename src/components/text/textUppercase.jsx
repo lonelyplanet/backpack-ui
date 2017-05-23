@@ -10,9 +10,9 @@ const styles = Object.assign({}, {
   marginTop: 0,
 }, textUppercase());
 
-const TextUppercase = ({ children, style }) => (
-  <p style={[styles, style]}>
-    {children}
+const TextUppercase = (props) => (
+  <p {...props} style={[styles, props.style]}>
+    {props.children}
   </p>
 );
 

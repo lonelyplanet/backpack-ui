@@ -10,9 +10,9 @@ const styles = Object.assign({}, {
   marginTop: 0,
 }, textBodySmall());
 
-const TextBodySmall = ({ children, style }) => (
-  <p style={[styles, style]}>
-    {children}
+const TextBodySmall = (props) => (
+  <p {...props} style={[styles, props.style]}>
+    {props.children}
   </p>
 );
 

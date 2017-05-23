@@ -4,16 +4,15 @@ import Heading from "./textHeading";
 import { textSuper } from "../../utils/typography";
 import propTypes from "../../utils/propTypes";
 
-function TextSuper({ children, style }) {
-  return (
-    <Heading
-      level={1}
-      style={[textSuper(), style]}
-    >
-      {children}
-    </Heading>
-  );
-}
+const TextSuper = (props) => (
+  <Heading
+    {...props}
+    level={1}
+    style={[textSuper(), props.style]}
+  >
+    {props.children}
+  </Heading>
+);
 
 TextSuper.propTypes = {
   children: PropTypes.node.isRequired,
