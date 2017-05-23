@@ -37,6 +37,8 @@ const Heading = ({
 
   return (
     <Element
+      className={className}
+      id={id}
       style={[
         {
           color: colors.textPrimary,
@@ -57,6 +59,8 @@ Heading.propTypes = {
   level: propTypes.heading,
   size: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8]),
   weight: propTypes.fontWeight,
+  className: PropTypes.string,
+  id: PropTypes.string,
   style: propTypes.style,
 };
 
