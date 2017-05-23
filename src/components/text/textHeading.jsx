@@ -13,13 +13,15 @@ import {
 } from "../../utils/typography";
 import propTypes from "../../utils/propTypes";
 
-function Heading({
+const Heading = ({
   children,
   level,
   size,
   weight,
+  className,
+  id,
   style,
-}) {
+}) => {
   const Element = `h${level}`;
 
   const styles = {
@@ -48,7 +50,7 @@ function Heading({
       {children}
     </Element>
   );
-}
+};
 
 Heading.propTypes = {
   children: PropTypes.node.isRequired,
