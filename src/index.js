@@ -29,6 +29,7 @@ export { default as Container } from "./components/container";
 export { default as ContentBlock } from "./components/contentBlock";
 export { default as ContentHeader } from "./components/contentHeader";
 export { default as ContentSectionList } from "./components/contentSectionList";
+export { default as Dialog } from "./components/dialog";
 export { default as DisclaimerText } from "./components/disclaimerText";
 export { default as DotLoader } from "./components/dotLoader";
 export { default as Dropdown } from "./components/dropdown";
