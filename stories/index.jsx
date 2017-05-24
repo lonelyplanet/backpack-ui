@@ -45,6 +45,7 @@ import Container from "../src/components/container";
 import ContentHeader from "../src/components/contentHeader";
 // ContentSectionList
 // Decoration
+import Dialog from "../src/components/dialog";
 import DisclaimerText from "../src/components/disclaimerText";
 import DotLoader from "../src/components/dotLoader";
 import Dropdown from "../src/components/dropdown";
@@ -581,7 +582,52 @@ storiesOf("Content Header", module)
       title="Title"
       border="bottom"
     />
-    ));
+  ));
+
+storiesOf("Dialog", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <ModalWrapper>
+        {(isOpen, toggle) => (
+          <div>
+            <button onClick={toggle}>Toggle Dialog</button>
+
+            <Dialog
+              id="storybookDialog"
+              title={text("Title", "Are you sure?")}
+              isOpen={isOpen}
+              onClose={toggle}
+              modal={boolean("Modal", true)}
+              centered={boolean("Centered", true)}
+              hasOverlay={boolean("Overlay", true)}
+              actions={[
+                <Button
+                  size="small"
+                  onClick={() => { console.log("✌🏼"); }}
+                  rounded
+                >
+                  Yes, delete my account
+                </Button>,
+                <Button
+                  size="small"
+                  onClick={toggle}
+                  color="gray"
+                  rounded
+                  border
+                >
+                  Cancel
+                </Button>,
+              ]}
+            >
+              Deleting your account will result in the loss of all content,
+              including collections and profile information, forever.
+            </Dialog>
+          </div>
+        )}
+      </ModalWrapper>
+    </StyleRoot>
+  ));
 
 storiesOf("Disclaimer text", module)
   .addDecorator(withKnobs)
