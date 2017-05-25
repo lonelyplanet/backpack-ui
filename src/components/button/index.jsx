@@ -246,6 +246,7 @@ Button.propTypes = {
   color: React.PropTypes.oneOf([
     "blue",
     "white",
+    "gray",
     "transparent",
   ]),
 
