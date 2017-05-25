@@ -87,6 +87,7 @@ import MastheadSlider from "../src/components/mastheadSlider";
 import Modal from "../src/components/modal";
 import ModalLogIn from "../src/components/modalLogIn";
 import MoreLink from "../src/components/moreLink";
+import { MultiStep, MultiStepWrapper } from "../src/components/multiStep";
 import Narrative from "../src/components/narrative";
 import { Navigation, NavigationTab } from "../src/components/navigation";
 import NewsArticleAuthor from "../src/components/newsArticleAuthor";
@@ -1258,6 +1259,38 @@ storiesOf("Navigation", module)
       <NavigationTab onClick={action("Books tab clicked")}>Books</NavigationTab>
       <NavigationTab onClick={action("Adventures tab clicked")}>Adventures</NavigationTab>
     </Navigation>
+  ));
+
+storiesOf("Multi-step", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <MultiStepWrapper totalSteps={4}>
+      {(currentStep, goToNextStep, goToPreviousStep) => (
+        <MultiStep currentStep={currentStep}>
+          <div>
+            <h1>Step {currentStep}</h1>
+            <Button size="tiny" onClick={goToNextStep}>Next step</Button>
+          </div>
+
+          <div>
+            <h1>Step {currentStep}</h1>
+            <Button size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button size="tiny" onClick={goToNextStep}>Next step</Button>
+          </div>
+
+          <div>
+            <h1>Step {currentStep}</h1>
+            <Button size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button size="tiny" onClick={goToNextStep}>Next step</Button>
+          </div>
+
+          <div>
+            <h1>Step {currentStep}</h1>
+            <Button size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+          </div>
+        </MultiStep>
+      )}
+    </MultiStepWrapper>
   ));
 
 storiesOf("Narrative", module)
