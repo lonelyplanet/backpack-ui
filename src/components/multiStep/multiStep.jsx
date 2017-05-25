@@ -10,13 +10,7 @@ const MultiStep = ({ children, currentStep, className, id, style }) => (
     style={style}
   >
     {Children.map(children, (child, index) => (index + 1) === currentStep && (
-      <div
-        className={className ? `${className}-step-${index}` : `MultiStep-step-${index}`}
-        id={id ? `${id}-step-${index}` : null}
-        key={`step-${index}`}
-      >
-        {child}
-      </div>
+      child
     ))}
   </div>
 );
