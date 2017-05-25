@@ -1288,6 +1288,7 @@ storiesOf("Multi-step", module)
           <div>
             <h1>Step {currentStep}</h1>
             <Button size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button size="tiny" onClick={() => { setCurrentStep(1); }}>Jump to step 1</Button>
           </div>
         </MultiStep>
       )}
