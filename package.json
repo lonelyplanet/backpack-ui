@@ -49,6 +49,7 @@
     "moment": "^2.15.1",
     "no-scroll": "^2.0.0",
     "object-assign": "^4.1.0",
+    "prop-types": "^15.5.10",
     "radium": "^0.18.1",
     "rc-slider": "^5.1.1",
     "react": "^15.3.2",
@@ -68,6 +69,7 @@
     "react-slick": "0.14.4",
     "react-stickynode": "^1.2.1",
     "react-tether": "^0.5.2",
+    "react-validate-form": "^1.0.3",
     "react-waypoint": "^5.0.3",
     "truncate": "^2.0.0"
   },
