@@ -74,6 +74,8 @@ export { default as MobileToolbar } from "./components/mobileToolbar";
 export { default as Modal } from "./components/modal";
 export { default as ModalLogIn } from "./components/modalLogIn";
 export { default as MoreLink } from "./components/moreLink";
+export { default as MultiStep } from "./components/multiStep/multiStep";
+export { default as MultiStepWrapper } from "./components/multiStep/multiStepWrapper";
 export { default as Narrative } from "./components/narrative";
 export { default as NewsArticleAuthor } from "./components/newsArticleAuthor";
 export { default as Newsletter } from "./components/newsletter";
