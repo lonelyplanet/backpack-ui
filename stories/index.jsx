@@ -1265,11 +1265,12 @@ storiesOf("Multi-step", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <MultiStepWrapper totalSteps={4}>
-      {(currentStep, goToNextStep, goToPreviousStep) => (
+      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => (
         <MultiStep currentStep={currentStep}>
           <div>
             <h1>Step {currentStep}</h1>
             <Button size="tiny" onClick={goToNextStep}>Next step</Button>
+            <Button size="tiny" onClick={() => { setCurrentStep(4); }}>Jump to step 4</Button>
           </div>
 
           <div>
