@@ -33,6 +33,7 @@ export default class MultiStepWrapper extends React.Component {
       this.state.currentStep,
       this.goToNextStep.bind(this),
       this.goToPreviousStep.bind(this),
+      this.setCurrentStep.bind(this),
     );
   }
 }
