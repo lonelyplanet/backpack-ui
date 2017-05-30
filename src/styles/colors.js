@@ -1,10 +1,10 @@
-import { rgba } from "../utils/color";
+import { overlay, rgba } from "../utils/color";
 
 // Background colors
 const bgPrimary = "#fff";
 const bgSecondary = "#f4fbfe";
-const bgOverlay = "#000";
-const bgDark = rgba("#000", 0.96);
+const bgOverlay = overlay();
+const bgDark = overlay(0.96);
 
 // Link colors
 const linkPrimary = "#297cbb";

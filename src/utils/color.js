@@ -39,9 +39,19 @@ function lighten(hex, amount) {
   return color(hex).lighten((amount / 100)).hexString();
 }
 
+/**
+ * Output a black overlay at a specified opacity
+ * @param  {Number} opacity Values range between 0 and 1
+ * @return {String}         rgba value for CSS
+ */
+function overlay(opacity = 0.3) {
+  return rgba("#000", opacity);
+}
+
 export {
   rgb,
   rgba,
   darken,
   lighten,
+  overlay,
 };

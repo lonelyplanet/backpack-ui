@@ -6,7 +6,7 @@ import mq from "../../styles/mq";
 import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
 import Heading from "../heading";
-import { rgba } from "../../utils/color";
+import { overlay } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 
 const largeMQ = `(min-width: ${mq.min["768"]})`;
@@ -14,7 +14,7 @@ const modalPadding = 24;
 
 const styles = {
   overlay: {
-    backgroundColor: rgba(colors.bgOverlay, 0.3),
+    backgroundColor: colors.bgOverlay,
     overflow: "hidden",
     zIndex: zIndex.modal,
   },
@@ -129,7 +129,7 @@ function ModalComponent({
       WebkitOverflowScrolling: "touch",
       border: 0,
       borderRadius: 0,
-      boxShadow: `0 27px 50px ${rgba(colors.bgOverlay, 0.36)}`,
+      boxShadow: `0 27px 50px ${overlay(0.36)}`,
       top: 0,
       left: 0,
       right: 0,
