@@ -59,7 +59,7 @@ const styles = {
     left: 0,
   },
 
-  mobileTitle: {
+  title: {
     display: "inline-block",
     minHeight: "10px",
     paddingTop: "23px",
@@ -184,7 +184,7 @@ function ModalComponent({
             level={4}
             size="small"
             weight="thick"
-            override={styles.mobileTitle}
+            override={styles.title}
             caps
           >
             {title}
