@@ -20,7 +20,10 @@ const styles = {
   },
 
   header: {
+    alignItems: "center",
+    display: "flex",
     height: "56px",
+    justifyContent: "center",
     position: "relative",
     textAlign: "center",
 
