@@ -5,6 +5,7 @@ import colors from "../../styles/colors";
 import mq from "../../styles/mq";
 import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
+import { textHeading6 } from "../../utils/typography";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 
@@ -58,15 +59,15 @@ const styles = {
     left: 0,
   },
 
-  title: {
+  title: Object.assign({}, {
     display: "inline-block",
-    minHeight: "10px",
-    paddingTop: "23px",
 
     [`@media ${largeMQ}`]: {
       display: "none",
     },
-  },
+  }, textHeading6("medium"), {
+    lineHeight: 1,
+  }),
 };
 
 function ModalComponent({
