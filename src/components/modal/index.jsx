@@ -56,17 +56,6 @@ const styles = {
     left: 0,
   },
 
-  desktopTitle: {
-    display: "none",
-
-    [`@media ${largeMQ}`]: {
-      display: "block",
-      textAlign: "center",
-      paddingTop: "90px",
-      paddingBottom: "104px",
-    },
-  },
-
   mobileTitle: {
     display: "inline-block",
     minHeight: "10px",
@@ -213,17 +202,6 @@ function ModalComponent({
         className="Modal-content"
         style={styles.contentContainer}
       >
-        {title &&
-          <Heading
-            level={2}
-            size="huge"
-            weight="thick"
-            override={styles.desktopTitle}
-          >
-            {title}
-          </Heading>
-        }
-
         {children}
       </div>
     </Modal>
