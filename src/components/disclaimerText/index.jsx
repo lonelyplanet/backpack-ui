@@ -11,12 +11,6 @@ const styles = {
   fontFamily: font("benton"),
   fontSize: "9px",
   lineHeight: (15 / 9),
-};
-
-function markup(htmlContent) {
-  return {
-    __html: htmlContent,
-  };
 }
 
 const scopedStyles = {
@@ -45,7 +39,7 @@ const DisclaimerText = ({ children, style }) => (
   >
     <Style rules={scopedStyles} />
 
-    <div dangerouslySetInnerHTML={markup(children)} />
+    {children}
   </div>
 );
 
