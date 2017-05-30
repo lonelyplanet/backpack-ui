@@ -5,7 +5,6 @@ import colors from "../../styles/colors";
 import mq from "../../styles/mq";
 import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
-import Heading from "../heading";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 
@@ -180,15 +179,9 @@ function ModalComponent({
         }
 
         {title &&
-          <Heading
-            level={4}
-            size="small"
-            weight="thick"
-            override={styles.title}
-            caps
-          >
+          <span style={styles.title}>
             {title}
-          </Heading>
+          </span>
         }
 
         {rightAction &&
