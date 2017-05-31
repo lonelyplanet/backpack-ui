@@ -1,8 +1,19 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Validate from "react-validate-form";
+import ErrorMessages from "../form/errorMessages";
 import Input from "../form/input";
 import Button from "../button";
+import color from "../../styles/colors";
+
+const styles = {
+  inputContainer: {
+    marginBottom: "48px",
+  },
+  input: {
+    borderBottom: `1px solid ${color.borderPrimary}`,
+  },
+};
 
 class MagicLinkForm extends Component {
   constructor(props) {
@@ -36,23 +47,32 @@ class MagicLinkForm extends Component {
         }}
       >
         <Validate>
-          {({ validate, errorCount }) => (
+          {({ validate, errorMessages, errorCount }) => (
             <div>
-              <Input
-                theme="float"
-                type="email"
-                name="email"
-                required
-                onChange={(e) => {
-                  this.handleChange(e, errorCount);
-                  validate(e);
-                }}
-                onBlur={(e) => {
-                  this.handleChange(e, errorCount);
-                  validate(e);
-                }}
-                value={this.state.value}
-              />
+              <div style={styles.inputContainer}>
+                <Input
+                  theme="float"
+                  type="email"
+                  name="email"
+                  customStyles={styles.input}
+                  required
+                  placeholder="example@expample.com"
+                  onChange={(e) => {
+                    this.handleChange(e, errorCount);
+                    validate(e);
+                  }}
+                  onBlur={(e) => {
+                    this.handleChange(e, errorCount);
+                    validate(e);
+                  }}
+                  value={this.state.value}
+                />
+                {errorMessages.email && errorMessages.email.length > 0 &&
+                  <ErrorMessages
+                    messages={errorMessages.email}
+                  />
+                }
+              </div>
               <Button
                 onClick={this.handleSubmit}
                 disabled={!this.state.valid}
