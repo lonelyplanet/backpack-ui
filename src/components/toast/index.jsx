@@ -27,6 +27,7 @@ const styles = {
         visibility ${timing.fast} ease-in-out`,
       textAlign: "center",
       visibility: "visible",
+      width: "272px",
       zIndex: zIndex.toast,
     },
 
