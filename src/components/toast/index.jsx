@@ -54,6 +54,14 @@ const styles = {
       opacity: 1,
       tranform: "translateY(0)",
     },
+
+    affixed: {
+      left: 0,
+      marginLeft: "auto",
+      marginRight: "auto",
+      position: "fixed",
+      right: 0,
+    },
   },
 
   icon: {
@@ -99,7 +107,7 @@ const types = {
   },
 };
 
-const Toast = ({ children, color, type, direction, visible, style }) => (
+const Toast = ({ children, color, type, direction, visible, affixed, style }) => (
   <div
     className="Toast"
     style={[
@@ -109,6 +117,14 @@ const Toast = ({ children, color, type, direction, visible, style }) => (
       visible && styles.container.visible,
       (!visible && direction === "bottom") && styles.container.invisibleBottom,
       (!visible && direction === "top") && styles.container.invisibleTop,
+      (affixed && direction === "bottom") && Object.assign({},
+        styles.container.affixed,
+        { bottom: `${padding}px` },
+      ),
+      (affixed && direction === "top") && Object.assign({},
+        styles.container.affixed,
+        { top: `${padding}px` },
+      ),
       style,
     ]}
     aria-hidden={!visible}
@@ -146,6 +162,7 @@ Toast.propTypes = {
   ]),
   direction: PropTypes.oneOf(["top", "bottom"]),
   visible: PropTypes.bool,
+  affixed: PropTypes.bool,
   style: propTypes.style,
 };
 
@@ -154,6 +171,7 @@ Toast.defaultProps = {
   type: "neutral",
   direction: "bottom",
   visible: false,
+  affixed: false,
 };
 
 export default radium(Toast);
