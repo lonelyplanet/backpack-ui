@@ -8,6 +8,8 @@ import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 import iconFromString from "../../utils/icon";
 
+const height = 40;
+
 const styles = {
   container: {
     default: {
@@ -19,6 +21,7 @@ const styles = {
       fontWeight: fontWeightMedium,
       justifyContent: "center",
       lineHeight: (13 / fontSizeUppercase),
+      minHeight: `${height}px`,
       paddingBottom: `${(8 / fontSizeUppercase)}em`,
       paddingTop: `${(10 / fontSizeUppercase)}em`,
       position: "relative",
