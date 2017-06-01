@@ -19,7 +19,6 @@ All notable changes to this project will be documented in this file. See [standa
 * Add design tokens story ([#335](https://github.com/lonelyplanet/backpack-ui/issues/335)) ([c45a105](https://github.com/lonelyplanet/backpack-ui/commit/c45a105))
 
 
-
 <a name="4.22.2"></a>
 ## [4.22.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.22.1...v4.22.2) (2017-06-01)
 
