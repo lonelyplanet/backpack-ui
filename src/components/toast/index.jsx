@@ -111,6 +111,9 @@ const Toast = ({ children, color, type, direction, visible, style }) => (
       (!visible && direction === "top") && styles.container.invisibleTop,
       style,
     ]}
+    aria-hidden={!visible}
+    aria-live="polite"
+    role="status"
   >
     <Style
       scopeSelector=".Toast"
