@@ -9,6 +9,7 @@ import propTypes from "../../utils/propTypes";
 import iconFromString from "../../utils/icon";
 
 const height = 40;
+const padding = 24;
 
 const styles = {
   container: {
@@ -23,6 +24,8 @@ const styles = {
       lineHeight: (13 / fontSizeUppercase),
       minHeight: `${height}px`,
       paddingBottom: `${(8 / fontSizeUppercase)}em`,
+      paddingLeft: `${(padding / fontSizeUppercase)}em`,
+      paddingRight: `${(padding / fontSizeUppercase)}em`,
       paddingTop: `${(10 / fontSizeUppercase)}em`,
       position: "relative",
       transition: `opacity ${timing.fast} ease-in-out,
