@@ -23,19 +23,23 @@ const styles = {
       paddingTop: `${(10 / fontSizeUppercase)}em`,
       position: "relative",
       transition: `opacity ${timing.fast} ease-in-out,
-        transform ${timing.fast} ease-in-out`,
+        transform ${timing.fast} ease-in-out,
+        visibility ${timing.fast} ease-in-out`,
       textAlign: "center",
+      visibility: "visible",
       zIndex: zIndex.toast,
     },
 
     invisibleBottom: {
       opacity: 0,
       transform: `translateY(${(36 / fontSizeUppercase)}em)`,
+      visibility: "hidden",
     },
 
     invisibleTop: {
       opacity: 0,
       transform: `translateY(${(-36 / fontSizeUppercase)}em)`,
+      visibility: "hidden",
     },
 
     visible: {
