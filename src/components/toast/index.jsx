@@ -128,7 +128,7 @@ Toast.propTypes = {
 };
 
 Toast.defaultProps = {
-  color: "textPrimary",
+  color: "linkPrimary",
   type: "neutral",
   direction: "bottom",
   visible: false,
