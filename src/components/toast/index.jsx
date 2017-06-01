@@ -3,6 +3,7 @@ import radium, { Style } from "radium";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import { fontWeightMedium, fontSizeUppercase } from "../../styles/typography";
+import zIndex from "../../styles/zIndex";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 import iconFromString from "../../utils/icon";
@@ -17,9 +18,11 @@ const styles = {
       lineHeight: (13 / fontSizeUppercase),
       paddingBottom: `${(10 / fontSizeUppercase)}em`,
       paddingTop: `${(10 / fontSizeUppercase)}em`,
+      position: "relative",
       transition: `opacity ${timing.fast} ease-in-out,
         transform ${timing.fast} ease-in-out`,
       textAlign: "center",
+      zIndex: zIndex.toast,
     },
 
     invisibleBottom: {
