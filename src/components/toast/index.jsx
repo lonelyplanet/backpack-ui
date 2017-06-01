@@ -19,7 +19,7 @@ const styles = {
       fontWeight: fontWeightMedium,
       justifyContent: "center",
       lineHeight: (13 / fontSizeUppercase),
-      paddingBottom: `${(10 / fontSizeUppercase)}em`,
+      paddingBottom: `${(8 / fontSizeUppercase)}em`,
       paddingTop: `${(10 / fontSizeUppercase)}em`,
       position: "relative",
       transition: `opacity ${timing.fast} ease-in-out,
