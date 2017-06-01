@@ -11,10 +11,13 @@ import iconFromString from "../../utils/icon";
 const styles = {
   container: {
     default: {
+      alignItems: "center",
       borderRadius: `${(4 / fontSizeUppercase)}em`,
       color: colors.textOverlay,
+      display: "flex",
       fontSize: `${fontSizeUppercase}px`,
       fontWeight: fontWeightMedium,
+      justifyContent: "center",
       lineHeight: (13 / fontSizeUppercase),
       paddingBottom: `${(10 / fontSizeUppercase)}em`,
       paddingTop: `${(10 / fontSizeUppercase)}em`,
@@ -42,6 +45,7 @@ const styles = {
   },
 
   icon: {
+    flexShrink: 0,
     fontSize: `${(16 / fontSizeUppercase)}em`,
     marginRight: `${(6 / fontSizeUppercase)}em`,
     verticalAlign: "bottom",
