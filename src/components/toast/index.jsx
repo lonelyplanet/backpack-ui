@@ -10,6 +10,7 @@ import iconFromString from "../../utils/icon";
 
 const height = 40;
 const padding = 24;
+const translateY = (padding + height) / fontSizeUppercase;
 
 const styles = {
   container: {
@@ -39,13 +40,13 @@ const styles = {
 
     invisibleBottom: {
       opacity: 0,
-      transform: `translateY(${(36 / fontSizeUppercase)}em)`,
+      transform: `translateY(${translateY}em)`,
       visibility: "hidden",
     },
 
     invisibleTop: {
       opacity: 0,
-      transform: `translateY(${(-36 / fontSizeUppercase)}em)`,
+      transform: `translateY(${(translateY * -1)}em)`,
       visibility: "hidden",
     },
 
