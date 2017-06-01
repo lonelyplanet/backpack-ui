@@ -108,7 +108,7 @@ const types = {
 };
 
 const Toast = ({ children, color, type, direction, visible, affixed, onClick, style }) => (
-  <div
+  <div // eslint-disable-line jsx-a11y/no-static-element-interactions
     className="Toast"
     style={[
       styles.container.default,
