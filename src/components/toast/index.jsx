@@ -12,7 +12,7 @@ const styles = {
   container: {
     default: {
       borderRadius: `${(5 / fontSizeUppercase)}em`,
-      color: colors.bgPrimary,
+      color: colors.textOverlay,
       fontSize: `${fontSizeUppercase}px`,
       fontWeight: fontWeightMedium,
       lineHeight: (13 / fontSizeUppercase),
