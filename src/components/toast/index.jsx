@@ -3,7 +3,6 @@ import radium, { Style } from "radium";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import { fontWeightMedium, fontSizeUppercase } from "../../styles/typography";
-import Icon from "../icon";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 import iconFromString from "../../utils/icon";
@@ -81,7 +80,7 @@ const types = {
   },
 };
 
-const Toast = ({ children, color, type, icon, direction, visible, style }) => (
+const Toast = ({ children, color, type, direction, visible, style }) => (
   <div
     className="Toast"
     style={[
@@ -105,7 +104,7 @@ const Toast = ({ children, color, type, icon, direction, visible, style }) => (
       }}
     />
 
-    {icon && iconFromString(icon, {
+    {types[type].icon && iconFromString(types[type].icon, {
       style: styles.icon,
       ariaHidden: true,
     })}
@@ -123,7 +122,6 @@ Toast.propTypes = {
     "neutral",
     "success",
   ]),
-  icon: PropTypes.oneOf(Object.keys(Icon)),
   direction: PropTypes.oneOf(["top", "bottom"]),
   visible: PropTypes.bool,
   style: propTypes.style,
