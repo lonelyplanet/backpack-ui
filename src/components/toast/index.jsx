@@ -11,7 +11,7 @@ import iconFromString from "../../utils/icon";
 const styles = {
   container: {
     default: {
-      borderRadius: `${(5 / fontSizeUppercase)}em`,
+      borderRadius: `${(4 / fontSizeUppercase)}em`,
       color: colors.textOverlay,
       fontSize: `${fontSizeUppercase}px`,
       fontWeight: fontWeightMedium,
