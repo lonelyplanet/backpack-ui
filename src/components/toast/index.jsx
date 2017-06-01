@@ -109,7 +109,6 @@ const types = {
 
 const Toast = ({
   children,
-  color,
   type,
   direction,
   visible,
@@ -121,7 +120,6 @@ const Toast = ({
     className="Toast"
     style={[
       styles.container.default,
-      color && { backgroundColor: rgba(colors[color], 0.86) },
       types[type].styles,
       visible && styles.container.visible,
       (!visible && direction === "bottom") && styles.container.invisibleBottom,
@@ -163,7 +161,6 @@ const Toast = ({
 
 Toast.propTypes = {
   children: PropTypes.string.isRequired,
-  color: PropTypes.oneOf(Object.keys(colors)), // color is deprecated
   type: PropTypes.oneOf([
     "alert",
     "error",
