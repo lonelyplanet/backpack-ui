@@ -46,6 +46,41 @@ const styles = {
   },
 };
 
+const types = {
+  alert: {
+    styles: {
+      backgroundColor: rgba(colors.accentYellow, 0.86),
+      color: colors.textSecondary,
+    },
+
+    icon: null,
+  },
+
+  error: {
+    styles: {
+      backgroundColor: rgba(colors.accentRed, 0.86),
+    },
+
+    icon: null,
+  },
+
+  neutral: {
+    styles: {
+      backgroundColor: rgba(colors.linkPrimary, 0.86),
+    },
+
+    icon: null,
+  },
+
+  success: {
+    styles: {
+      backgroundColor: rgba(colors.accentGreen, 0.86),
+    },
+
+    icon: "Checkmark",
+  },
+};
+
 const Toast = ({ children, color, icon, direction, visible, style }) => (
   <div
     className="Toast"
