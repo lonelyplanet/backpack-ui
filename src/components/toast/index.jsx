@@ -115,7 +115,7 @@ const Toast = ({ children, color, type, direction, visible, style }) => (
 
 Toast.propTypes = {
   children: PropTypes.string.isRequired,
-  color: PropTypes.oneOf(Object.keys(colors)),
+  color: PropTypes.oneOf(Object.keys(colors)), // color is deprecated
   type: PropTypes.oneOf([
     "alert",
     "error",
