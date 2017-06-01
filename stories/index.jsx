@@ -2496,9 +2496,14 @@ storiesOf("Toast", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <Toast
-      color={select("Color", Object.keys(colors), "accentGreen")}
-      icon={select("Icon", Object.keys(Icon), "Checkmark")}
       visible={boolean("Visible", true)}
+      affixed={boolean("Affixed", false)}
+      type={select("Type", {
+        alert: "Alert",
+        error: "Error",
+        neutral: "Neutral",
+        success: "Success",
+      }, "neutral")}
       direction={select("Direction", {
         top: "Top",
         bottom: "Bottom",
