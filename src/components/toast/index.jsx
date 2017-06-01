@@ -81,12 +81,13 @@ const types = {
   },
 };
 
-const Toast = ({ children, color, icon, direction, visible, style }) => (
+const Toast = ({ children, color, type, icon, direction, visible, style }) => (
   <div
     className="Toast"
     style={[
       styles.container.default,
       color && { backgroundColor: rgba(colors[color], 0.86) },
+      types[type].styles,
       visible && styles.container.visible,
       (!visible && direction === "bottom") && styles.container.invisibleBottom,
       (!visible && direction === "top") && styles.container.invisibleTop,
@@ -116,6 +117,12 @@ const Toast = ({ children, color, icon, direction, visible, style }) => (
 Toast.propTypes = {
   children: PropTypes.string.isRequired,
   color: PropTypes.oneOf(Object.keys(colors)),
+  type: PropTypes.oneOf([
+    "alert",
+    "error",
+    "neutral",
+    "success",
+  ]),
   icon: PropTypes.oneOf(Object.keys(Icon)),
   direction: PropTypes.oneOf(["top", "bottom"]),
   visible: PropTypes.bool,
@@ -124,6 +131,7 @@ Toast.propTypes = {
 
 Toast.defaultProps = {
   color: "textPrimary",
+  type: "neutral",
   direction: "bottom",
   visible: false,
 };
