@@ -107,7 +107,7 @@ const types = {
   },
 };
 
-const Toast = ({ children, color, type, direction, visible, affixed, style }) => (
+const Toast = ({ children, color, type, direction, visible, affixed, onClick, style }) => (
   <div
     className="Toast"
     style={[
@@ -130,6 +130,7 @@ const Toast = ({ children, color, type, direction, visible, affixed, style }) =>
     aria-hidden={!visible}
     aria-live="polite"
     role="status"
+    onClick={onClick}
   >
     <Style
       scopeSelector=".Toast"
@@ -163,6 +164,7 @@ Toast.propTypes = {
   direction: PropTypes.oneOf(["top", "bottom"]),
   visible: PropTypes.bool,
   affixed: PropTypes.bool,
+  onClick: PropTypes.func,
   style: propTypes.style,
 };
 
