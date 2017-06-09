@@ -10,6 +10,7 @@ import { color as bpColor } from "../settings.json";
 import colors from "../src/styles/colors";
 import data from "./data.json";
 import Colors from "./Colors";
+import DesignTokens from "./designTokens";
 import Fonts from "./fonts";
 import Typography from "./typography";
 import { Accordion, AccordionItem } from "../src/components/accordion";
@@ -161,6 +162,9 @@ import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 
 storiesOf("Styles", module)
   .addDecorator(withKnobs)
+  .add("Design tokens", () => (
+    <DesignTokens />
+  ))
   .add("Colors", () => (
     <Colors />
   ))
