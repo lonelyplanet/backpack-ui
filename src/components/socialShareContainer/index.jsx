@@ -97,7 +97,7 @@ class SocialShareContainer extends Component {
   getData() {
     const text = encodeURIComponent(this.props.text);
     const url = encodeURIComponent(this.props.url);
-    const via = "lonelyplanet";
+    const via = this.props.via;
     const data = SocialShareContainer.defineNetworks();
 
     data.facebook.href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
@@ -140,6 +140,7 @@ SocialShareContainer.propTypes = {
   url: PropTypes.string.isRequired, // eslint-disable-line react/no-unused-prop-types
   text: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
   hide: PropTypes.arrayOf(PropTypes.oneOf(Object.keys(SocialShareContainer.defineNetworks()))),
+  via: PropTypes.string,
 };
 
 SocialShareContainer.defaultProps = {
@@ -147,6 +148,7 @@ SocialShareContainer.defaultProps = {
   url: null,
   text: null,
   hide: null,
+  via: "lonelyplanet",
 };
 
 export default SocialShareContainer;
