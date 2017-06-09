@@ -33,3 +33,4 @@ export const lineHeightBodyArticleSmall = (32 / fontSizeBodyArticleSmall);
 export const lineHeightBodySmall = (20 / fontSizeBodySmall);
 export const lineHeightAccent = (24 / fontSizeAccent);
 export const lineHeightUppercase = (11 / fontSizeUppercase);
+export const lineHeightReset = 1;
