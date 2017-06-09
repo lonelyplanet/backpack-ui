@@ -1,2 +1,4 @@
-export const maxWidth = 1290;
-export const minWidth = 320;
+export default {
+  maxWidth: 1290,
+  minWidth: 320,
+};
