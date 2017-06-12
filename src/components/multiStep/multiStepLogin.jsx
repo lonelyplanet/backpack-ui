@@ -38,7 +38,7 @@ const MultiStepLogin = ({
   );
   return (
     <MultiStep currentStep={currentStep}>
-      <AuthContainer key="home" hasLogo>
+      <AuthContainer key="home" hasLogo={showLogo}>
         <AuthMessage>
           Organize your research & unlock
           tools like bookmarking.
