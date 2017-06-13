@@ -42,11 +42,9 @@ const scopedStyles = {
   }),
 };
 
-function markup(htmlContent) {
-  return {
-    __html: htmlContent,
-  };
-}
+const markup = (htmlContent) => ({
+  __html: htmlContent,
+});
 
 const TravelAlert = ({ children, style }) => (
   <div className="TravelAlert" style={[styles, style]} role="status">
