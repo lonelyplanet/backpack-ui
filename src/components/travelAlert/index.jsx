@@ -6,6 +6,7 @@ import { color } from "../../../settings.json";
 import timing from "../../styles/timing";
 import font from "../../utils/font";
 import { rgb } from "../../utils/color";
+import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
@@ -43,11 +44,11 @@ const TravelAlert = ({ children, style }) => (
           color: colors.textSecondary,
         },
 
-        "a:focus": {
+        "a:focus": Object.assign({}, {
           color: colors.textSecondary,
-          outline: `1px rgba(${rgb(color.black)}, .3) dotted`,
-          outlineOffset: "2px",
-        },
+        }, outline(), {
+          outlineColor: colors.textSecondary,
+        }),
       }}
     />
 
