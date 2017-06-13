@@ -1,15 +1,16 @@
 import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import Container from "../container";
+import colors from "../../styles/colors";
 import { color } from "../../../settings.json";
 import font from "../../utils/font";
 import { rgb } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
-  backgroundColor: color.orange,
+  backgroundColor: colors.accentYellow,
   boxSizing: "border-box",
-  color: color.titleGray,
+  color: colors.textPrimary,
   fontFamily: font("benton"),
   fontSize: "14px",
   padding: "20px",
