@@ -38,7 +38,9 @@ const TravelAlert = ({ children, style }) => (
       }}
     />
 
-    <Container dangerouslySetInnerHTML={markup(children)} />
+    <Container>
+      <div dangerouslySetInnerHTML={markup(children)} />
+    </Container>
   </div>
 );
 
