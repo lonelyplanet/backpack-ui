@@ -2,10 +2,8 @@ import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import Container from "../container";
 import colors from "../../styles/colors";
-import { color } from "../../../settings.json";
 import timing from "../../styles/timing";
 import font from "../../utils/font";
-import { rgb } from "../../utils/color";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 
