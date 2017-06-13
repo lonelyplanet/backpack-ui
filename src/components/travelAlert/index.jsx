@@ -47,7 +47,11 @@ const markup = (htmlContent) => ({
 });
 
 const TravelAlert = ({ children, style }) => (
-  <div className="TravelAlert" style={[styles, style]} role="status">
+  <div
+    className="TravelAlert"
+    style={[styles, style]}
+    role="status"
+  >
     <Style
       scopeSelector=".TravelAlert"
       rules={scopedStyles}
