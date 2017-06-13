@@ -3,6 +3,7 @@ import radium, { Style } from "radium";
 import Container from "../container";
 import colors from "../../styles/colors";
 import { color } from "../../../settings.json";
+import timing from "../../styles/timing";
 import font from "../../utils/font";
 import { rgb } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
@@ -31,9 +32,19 @@ const TravelAlert = ({ children, style }) => (
         a: {
           color: "inherit",
           textDecoration: "underline",
+          transition: `color ${timing.fast} ease-in-out`,
+        },
+
+        "a:hover": {
+          color: colors.textSecondary,
+        },
+
+        "a:active": {
+          color: colors.textSecondary,
         },
 
         "a:focus": {
+          color: colors.textSecondary,
           outline: `1px rgba(${rgb(color.black)}, .3) dotted`,
           outlineOffset: "2px",
         },
