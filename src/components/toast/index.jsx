@@ -8,6 +8,7 @@ import { benton } from "../../styles/fonts";
 import zIndex from "../../styles/zIndex";
 import { span } from "../../utils/grid";
 import { outline } from "../../utils/mixins";
+import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 import iconFromString from "../../utils/icon";
 
@@ -21,6 +22,7 @@ const styles = {
       backgroundColor: colors.bgPrimary,
       borderRadius: `${(4 / fontSizeUppercase)}em`,
       borderTop: "3px currentColor solid",
+      boxShadow: `0 4px 6px ${rgba(colors.bgOverlay, 0.25)}`,
       display: "flex",
       fontFamily: benton,
       fontSize: `${fontSizeUppercase}px`,
