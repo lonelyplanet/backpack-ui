@@ -20,6 +20,28 @@ const styles = {
   textAlign: "center",
 };
 
+const scopedStyles = {
+  a: {
+    color: "inherit",
+    textDecoration: "underline",
+    transition: `color ${timing.fast} ease-in-out`,
+  },
+
+  "a:hover": {
+    color: colors.textSecondary,
+  },
+
+  "a:active": {
+    color: colors.textSecondary,
+  },
+
+  "a:focus": Object.assign({}, {
+    color: colors.textSecondary,
+  }, outline(), {
+    outlineColor: colors.textSecondary,
+  }),
+};
+
 function markup(htmlContent) {
   return {
     __html: htmlContent,
@@ -30,27 +52,7 @@ const TravelAlert = ({ children, style }) => (
   <div className="TravelAlert" style={[styles, style]} role="status">
     <Style
       scopeSelector=".TravelAlert"
-      rules={{
-        a: {
-          color: "inherit",
-          textDecoration: "underline",
-          transition: `color ${timing.fast} ease-in-out`,
-        },
-
-        "a:hover": {
-          color: colors.textSecondary,
-        },
-
-        "a:active": {
-          color: colors.textSecondary,
-        },
-
-        "a:focus": Object.assign({}, {
-          color: colors.textSecondary,
-        }, outline(), {
-          outlineColor: colors.textSecondary,
-        }),
-      }}
+      rules={scopedStyles}
     />
 
     <Container>
