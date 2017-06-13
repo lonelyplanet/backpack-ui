@@ -2,6 +2,7 @@ import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import Container from "../container";
 import colors from "../../styles/colors";
+import { fontSizeHeading7, lineHeightHeading7 } from "../../styles/typography";
 import timing from "../../styles/timing";
 import font from "../../utils/font";
 import { outline } from "../../utils/mixins";
@@ -12,7 +13,8 @@ const styles = {
   boxSizing: "border-box",
   color: colors.textPrimary,
   fontFamily: font("benton"),
-  fontSize: "14px",
+  fontSize: `${fontSizeHeading7}px`,
+  lineHeight: lineHeightHeading7,
   padding: "20px",
   textAlign: "center",
 };
