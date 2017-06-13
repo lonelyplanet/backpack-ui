@@ -15,7 +15,8 @@ const styles = {
   fontFamily: font("benton"),
   fontSize: `${fontSizeHeading7}px`,
   lineHeight: lineHeightHeading7,
-  padding: "20px",
+  paddingBottom: `${18 / fontSizeHeading7}em`,
+  paddingTop: `${22 / fontSizeHeading7}em`,
   textAlign: "center",
 };
 
