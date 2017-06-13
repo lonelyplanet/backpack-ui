@@ -1,9 +1,9 @@
 import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
+import Container from "../container";
 import { color } from "../../../settings.json";
 import font from "../../utils/font";
 import { rgb } from "../../utils/color";
-import Container from "../container";
 
 const styles = {
   backgroundColor: color.orange,
