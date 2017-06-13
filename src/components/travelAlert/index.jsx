@@ -4,6 +4,7 @@ import Container from "../container";
 import { color } from "../../../settings.json";
 import font from "../../utils/font";
 import { rgb } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   backgroundColor: color.orange,
@@ -46,7 +47,7 @@ const TravelAlert = ({ children, style }) => (
 
 TravelAlert.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.objectOf(PropTypes.object),
+  style: propTypes.style,
 };
 
 export default radium(TravelAlert);
