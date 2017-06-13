@@ -9,6 +9,7 @@ import { withKnobs, text, boolean, number, array, object, select, color } from "
 import { color as bpColor } from "../settings.json";
 import colors from "../src/styles/colors";
 import data from "./data.json";
+import Center from "./center";
 import Colors from "./Colors";
 import DesignTokens from "./designTokens";
 import Fonts from "./fonts";
@@ -2499,22 +2500,26 @@ storiesOf("Timestamp", module)
 storiesOf("Toast", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <Toast
-      visible={boolean("Visible", true)}
-      affixed={boolean("Affixed", false)}
-      type={select("Type", {
-        alert: "Alert",
-        error: "Error",
-        neutral: "Neutral",
-        success: "Success",
-      }, "neutral")}
-      direction={select("Direction", {
-        top: "Top",
-        bottom: "Bottom",
-      }, "bottom")}
-    >
-      {text("Text", "Added to Watch Later")}
-    </Toast>
+    <Center grow>
+      <Toast
+        type={select("Type", {
+          error: "Error",
+          info: "Info",
+          success: "Success",
+          warning: "Warning",
+        }, "success")}
+        direction={select("Animate from", {
+          bottom: "Bottom",
+          top: "Top",
+        }, "bottom")}
+        title={text("Title", "")}
+        visible={boolean("Visible", true)}
+        affixed={boolean("Affixed", false)}
+        onClose={action("Function to dismiss toast")}
+      >
+        {text("Message", "Toast message displayed here. It can span multiple lines.")}
+      </Toast>
+    </Center>
   ));
 
 storiesOf("Tooltip", module)
