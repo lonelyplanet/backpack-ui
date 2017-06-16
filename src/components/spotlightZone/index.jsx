@@ -278,8 +278,9 @@ const SpotlightZone = ({
           {title}
         </Heading>
 
-        <p style={styles.paragraph}>
-          {paragraph}
+        <p
+          style={styles.paragraph}
+          dangerouslySetInnerHTML={{ __html: paragraph }}>
         </p>
 
         {adSlot && <hr style={styles.divider} /> }
