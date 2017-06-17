@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 import kebabCase from "lodash/kebabCase";
 import { timing, zIndex } from "../../../settings.json";
@@ -65,102 +65,96 @@ const styles = {
 };
 
 
-class CheckboxComponent extends Component {
+const CheckboxComponent = ({
+  checked,
+  onClick,
+  id,
+  value,
+  size,
+  name,
+  label,
+  rounded,
+  style,
+}) => {
+  const textPadding = {
+    16: {
+      paddingBottom: "1px",
+      paddingLeft: "28px",
+      paddingTop: "2px",
+    },
+    24: {
+      paddingBottom: "5px",
+      paddingLeft: "36px",
+      paddingTop: "6px",
+    },
+    32: {
+      paddingBottom: "9px",
+      paddingLeft: "44px",
+      paddingTop: "10px",
+    },
+  };
 
-  render() {
-    const {
-      checked,
-      onClick,
-      id,
-      value,
-      size,
-      name,
-      label,
-      rounded,
-      style,
-    } = this.props;
+  const checkmarkPadding = {
+    16: { padding: "2px" },
+    24: { padding: "4px" },
+    32: { padding: "6px" },
+  };
 
-    const textPadding = {
-      16: {
-        paddingBottom: "1px",
-        paddingLeft: "28px",
-        paddingTop: "2px",
-      },
-      24: {
-        paddingBottom: "5px",
-        paddingLeft: "36px",
-        paddingTop: "6px",
-      },
-      32: {
-        paddingBottom: "9px",
-        paddingLeft: "44px",
-        paddingTop: "10px",
-      },
-    };
-
-    const checkmarkPadding = {
-      16: { padding: "2px" },
-      24: { padding: "4px" },
-      32: { padding: "6px" },
-    };
-
-    return (
-      <span
-        className="Checkbox"
-        id={_.kebabCase(id)}
-        ref={_.kebabCase(id)}
+  return (
+    <span
+      className="Checkbox"
+      id={_.kebabCase(id)}
+      style={[
+        styles.container,
+        style,
+      ]}
+    >
+      <label
+        htmlFor={`${_.kebabCase(id)}-input`}
         style={[
-          styles.container,
-          style,
+          styles.label,
+          { height: `${size}px` },
+          label ? { width: "auto" } : { width: `${size}px` },
         ]}
       >
-        <label
-          htmlFor={`${_.kebabCase(id)}-input`}
+        <span
           style={[
-            styles.label,
-            { height: `${size}px` },
-            label ? { width: "auto" } : { width: `${size}px` },
+            styles.checkmark,
+            {
+              fontSize: `${(size / 2)}px`,
+              height: `${size}px`,
+              width: `${size}px`,
+            },
+            checkmarkPadding[size],
+            rounded && { borderRadius: "100%" },
+            checked && styles.checkmarkChecked,
           ]}
         >
-          <span
-            style={[
-              styles.checkmark,
-              {
-                fontSize: `${(size / 2)}px`,
-                height: `${size}px`,
-                width: `${size}px`,
-              },
-              checkmarkPadding[size],
-              rounded && { borderRadius: "100%" },
-              checked && styles.checkmarkChecked,
-            ]}
-          >
-            <Icon.Checkmark
-              style={checked ? { opacity: 1 } : { opacity: 0 }}
-            />
-          </span>
-
-          {label && <span style={[styles.text, textPadding[size]]}>{label}</span>}
-
-          <input
-            id={`${_.kebabCase(id)}-input`}
-            type="checkbox"
-            style={[
-              styles.input,
-              {
-                height: `${size}px`,
-                width: `${size}px`,
-              },
-            ]}
-            value={value}
-            name={_.kebabCase(name)}
-            onClick={onClick}
+          <Icon.Checkmark
+            style={checked ? { opacity: 1 } : { opacity: 0 }}
           />
-        </label>
-      </span>
-    );
-  }
-}
+        </span>
+
+        {label && <span style={[styles.text, textPadding[size]]}>{label}</span>}
+
+        <input
+          id={`${_.kebabCase(id)}-input`}
+          type="checkbox"
+          style={[
+            styles.input,
+            {
+              height: `${size}px`,
+              width: `${size}px`,
+            },
+          ]}
+          value={value}
+          name={_.kebabCase(name)}
+          onClick={onClick}
+        />
+      </label>
+    </span>
+  );
+};
 
 CheckboxComponent.propTypes = {
   id: PropTypes.string.isRequired,
