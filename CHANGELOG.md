@@ -3,69 +3,12 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 <a name="4.25.0"></a>
-# [4.25.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.6.3...v4.25.0) (2017-06-17)
+# [4.25.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.24.1...v4.25.0) (2017-06-17)
 
 
 ### Bug Fixes
 
-* Add "gray" to Button color prop validation ([#313](https://github.com/lonelyplanet/backpack-ui/issues/313)) ([c7117c2](https://github.com/lonelyplanet/backpack-ui/commit/c7117c2))
-* Add avatar uploader onChangeFiles method ([#304](https://github.com/lonelyplanet/backpack-ui/issues/304)) ([8eb8009](https://github.com/lonelyplanet/backpack-ui/commit/8eb8009))
-* Add component to center components in storybook ([#338](https://github.com/lonelyplanet/backpack-ui/issues/338)) ([fec67c2](https://github.com/lonelyplanet/backpack-ui/commit/fec67c2))
-* Add export for ModalLogIn component ([#287](https://github.com/lonelyplanet/backpack-ui/issues/287)) ([599fddf](https://github.com/lonelyplanet/backpack-ui/commit/599fddf))
-* Add hover, active, focus to DisclaimerText link ([#286](https://github.com/lonelyplanet/backpack-ui/issues/286)) ([9ef7905](https://github.com/lonelyplanet/backpack-ui/commit/9ef7905))
-* Add lineHeightReset value to typography styles ([#332](https://github.com/lonelyplanet/backpack-ui/issues/332)) ([47cfd2f](https://github.com/lonelyplanet/backpack-ui/commit/47cfd2f))
-* Add link to account help in social auth component ([#310](https://github.com/lonelyplanet/backpack-ui/issues/310)) ([5998b36](https://github.com/lonelyplanet/backpack-ui/commit/5998b36))
-* Add media query to disable motion in Toast ([#301](https://github.com/lonelyplanet/backpack-ui/issues/301)) ([5d6df27](https://github.com/lonelyplanet/backpack-ui/commit/5d6df27))
-* Add via prop to SocialShareContainer ([#331](https://github.com/lonelyplanet/backpack-ui/issues/331)) ([d92cc6b](https://github.com/lonelyplanet/backpack-ui/commit/d92cc6b))
-* adjust setting block styles ([#230](https://github.com/lonelyplanet/backpack-ui/issues/230)) ([91a11ba](https://github.com/lonelyplanet/backpack-ui/commit/91a11ba))
-* change ad padding to not let ad break out of container ([#284](https://github.com/lonelyplanet/backpack-ui/issues/284)) ([76adc3a](https://github.com/lonelyplanet/backpack-ui/commit/76adc3a))
-* Change content padding for large screen in Modal ([#288](https://github.com/lonelyplanet/backpack-ui/issues/288)) ([a9ab1d4](https://github.com/lonelyplanet/backpack-ui/commit/a9ab1d4))
-* Change z-index, color for Overlay ([#293](https://github.com/lonelyplanet/backpack-ui/issues/293)) ([b8a001f](https://github.com/lonelyplanet/backpack-ui/commit/b8a001f))
-* Check for child in Tabs ([#263](https://github.com/lonelyplanet/backpack-ui/issues/263)) ([c55518b](https://github.com/lonelyplanet/backpack-ui/commit/c55518b))
-* Delete unused watchLaterVideos from stories ([#283](https://github.com/lonelyplanet/backpack-ui/issues/283)) ([5279f7c](https://github.com/lonelyplanet/backpack-ui/commit/5279f7c))
-* Export dimension styles as single object ([#333](https://github.com/lonelyplanet/backpack-ui/issues/333)) ([dc68b01](https://github.com/lonelyplanet/backpack-ui/commit/dc68b01))
-* Fix lint error, define onChange ([#243](https://github.com/lonelyplanet/backpack-ui/issues/243)) ([f079e1e](https://github.com/lonelyplanet/backpack-ui/commit/f079e1e))
-* Fix, update TravelAlert component ([#342](https://github.com/lonelyplanet/backpack-ui/issues/342)) ([40b5ace](https://github.com/lonelyplanet/backpack-ui/commit/40b5ace))
-* icon color on interactive map being overwritten ([#337](https://github.com/lonelyplanet/backpack-ui/issues/337)) ([b1c8032](https://github.com/lonelyplanet/backpack-ui/commit/b1c8032))
-* Make bgDark 96% black ([#302](https://github.com/lonelyplanet/backpack-ui/issues/302)) ([7e5f436](https://github.com/lonelyplanet/backpack-ui/commit/7e5f436)), closes [#297](https://github.com/lonelyplanet/backpack-ui/issues/297)
-* Prevent double Twitter pop-up window ([#258](https://github.com/lonelyplanet/backpack-ui/issues/258)) ([2fd53df](https://github.com/lonelyplanet/backpack-ui/commit/2fd53df))
-* pull out multistep auth into its own component ([9285816](https://github.com/lonelyplanet/backpack-ui/commit/9285816))
-* Refactor mixins to use styles ([#179](https://github.com/lonelyplanet/backpack-ui/issues/179)) ([357d1e3](https://github.com/lonelyplanet/backpack-ui/commit/357d1e3))
-* reorder social login props to not override styles ([#269](https://github.com/lonelyplanet/backpack-ui/issues/269)) ([3467766](https://github.com/lonelyplanet/backpack-ui/commit/3467766))
-* Reorder storybook addon imports ([#341](https://github.com/lonelyplanet/backpack-ui/issues/341)) ([1003f06](https://github.com/lonelyplanet/backpack-ui/commit/1003f06))
-* Separate deprecated z-index values into their own object ([#334](https://github.com/lonelyplanet/backpack-ui/issues/334)) ([67f707e](https://github.com/lonelyplanet/backpack-ui/commit/67f707e))
-* Set default href and role in Button to null ([#312](https://github.com/lonelyplanet/backpack-ui/issues/312)) ([83506a3](https://github.com/lonelyplanet/backpack-ui/commit/83506a3))
-* Set max-height for ModalLogIn ([#291](https://github.com/lonelyplanet/backpack-ui/issues/291)) ([433d4bf](https://github.com/lonelyplanet/backpack-ui/commit/433d4bf))
-* Set width of WatchLaterModal to 630px ([#277](https://github.com/lonelyplanet/backpack-ui/issues/277)) ([1e16dda](https://github.com/lonelyplanet/backpack-ui/commit/1e16dda))
-* Spread props on text components ([#305](https://github.com/lonelyplanet/backpack-ui/issues/305)) ([71e64f1](https://github.com/lonelyplanet/backpack-ui/commit/71e64f1))
-* Update DisclaimerText component ([#320](https://github.com/lonelyplanet/backpack-ui/issues/320)) ([efbf72e](https://github.com/lonelyplanet/backpack-ui/commit/efbf72e))
-* Update Heading with className and ID props ([#306](https://github.com/lonelyplanet/backpack-ui/issues/306)) ([23f43c2](https://github.com/lonelyplanet/backpack-ui/commit/23f43c2))
-* update login forms for modal content ([#326](https://github.com/lonelyplanet/backpack-ui/issues/326)) ([6946e99](https://github.com/lonelyplanet/backpack-ui/commit/6946e99))
-* Update Modal component ([#321](https://github.com/lonelyplanet/backpack-ui/issues/321)) ([f26c90d](https://github.com/lonelyplanet/backpack-ui/commit/f26c90d))
-* update modal content error display ([6ebbbac](https://github.com/lonelyplanet/backpack-ui/commit/6ebbbac))
-* Update ModalContentSocialAuth ([#290](https://github.com/lonelyplanet/backpack-ui/issues/290)) ([8bf5beb](https://github.com/lonelyplanet/backpack-ui/commit/8bf5beb))
-* Update storybook to 2.35.3 ([#295](https://github.com/lonelyplanet/backpack-ui/issues/295)) ([6a8cdaf](https://github.com/lonelyplanet/backpack-ui/commit/6a8cdaf))
-* Update Toast component ([#328](https://github.com/lonelyplanet/backpack-ui/issues/328)) ([1bb9259](https://github.com/lonelyplanet/backpack-ui/commit/1bb9259))
-* Update Toast design ([#340](https://github.com/lonelyplanet/backpack-ui/issues/340)) ([d5cf346](https://github.com/lonelyplanet/backpack-ui/commit/d5cf346))
-* Update Toast styles ([#343](https://github.com/lonelyplanet/backpack-ui/issues/343)) ([54adc0a](https://github.com/lonelyplanet/backpack-ui/commit/54adc0a))
-* Update typo in newsletter component ([#296](https://github.com/lonelyplanet/backpack-ui/issues/296)) ([98c056f](https://github.com/lonelyplanet/backpack-ui/commit/98c056f))
-
-
-### Features
-
-* Add bgDark color ([#285](https://github.com/lonelyplanet/backpack-ui/issues/285)) ([e6e55a0](https://github.com/lonelyplanet/backpack-ui/commit/e6e55a0))
-* Add design tokens story ([#335](https://github.com/lonelyplanet/backpack-ui/issues/335)) ([c45a105](https://github.com/lonelyplanet/backpack-ui/commit/c45a105))
-* Add desktopMaxHeight prop to Modal ([#289](https://github.com/lonelyplanet/backpack-ui/issues/289)) ([f887984](https://github.com/lonelyplanet/backpack-ui/commit/f887984))
-* Add icons for toast message ([#339](https://github.com/lonelyplanet/backpack-ui/issues/339)) ([ba9d1bf](https://github.com/lonelyplanet/backpack-ui/commit/ba9d1bf))
-* add magic link form component for sign in modal ([#317](https://github.com/lonelyplanet/backpack-ui/issues/317)) ([c38641b](https://github.com/lonelyplanet/backpack-ui/commit/c38641b))
-* Add new values for z-index ([#292](https://github.com/lonelyplanet/backpack-ui/issues/292)) ([51ab22f](https://github.com/lonelyplanet/backpack-ui/commit/51ab22f))
-* add profile settings ([#213](https://github.com/lonelyplanet/backpack-ui/issues/213)) ([a66ee30](https://github.com/lonelyplanet/backpack-ui/commit/a66ee30))
-* add taglist limiter ([#245](https://github.com/lonelyplanet/backpack-ui/issues/245)) ([ddc673b](https://github.com/lonelyplanet/backpack-ui/commit/ddc673b))
-* Create Auth components ([#322](https://github.com/lonelyplanet/backpack-ui/issues/322)) ([9c3e1cd](https://github.com/lonelyplanet/backpack-ui/commit/9c3e1cd))
-* Create AvatarMarker component ([#266](https://github.com/lonelyplanet/backpack-ui/issues/266)) ([c6c2471](https://github.com/lonelyplanet/backpack-ui/commit/c6c2471))
-* Create Dialog component ([#307](https://github.com/lonelyplanet/backpack-ui/issues/307)) ([6995877](https://github.com/lonelyplanet/backpack-ui/commit/6995877))
-* Create ModalLogIn component ([#282](https://github.com/lonelyplanet/backpack-ui/issues/282)) ([15347c4](https://github.com/lonelyplanet/backpack-ui/commit/15347c4))
-* Create Multi-step component ([#309](https://github.com/lonelyplanet/backpack-ui/issues/309)) ([aa4532b](https://github.com/lonelyplanet/backpack-ui/commit/aa4532b))
+* Update spotlightZone to allow HTML within its paragraph property value ([#344](https://github.com/lonelyplanet/backpack-ui/issues/344)) ([802bcc6](https://github.com/lonelyplanet/backpack-ui/commit/802bcc6))
 
 
 
