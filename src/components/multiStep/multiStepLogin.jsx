@@ -19,7 +19,7 @@ const MultiStepLogin = ({
   showLogo,
   doneAction,
 }) => {
-  const Disclaimer = (
+  const SocialDisclaimer = (
     <AuthDisclaimer>
       If you sign up with Twitter, Facebook or Google, we'll import your profile
       information. We'll never post without your permission. Or sign in with a
@@ -34,6 +34,16 @@ const MultiStepLogin = ({
       You may receive notifications from us and can opt out at any time.
       For additional account inquiries
       see <a href="http://support.lonelyplanet.com/hc/en-us/sections/203968787-Account-administration" target="_blank" rel="noopener noreferrer">Account help</a>.
+    </AuthDisclaimer>
+  );
+
+  const EmailDisclaimer = (
+    <AuthDisclaimer>
+      By clicking next, you agree to our <a href="//www.lonelyplanet.com/legal/website-terms/">terms of service </a>
+       and that you have read our <a href="//www.lonelyplanet.com/legal/privacy-policy/">privacy policy</a>, including
+       our <a href="//www.lonelyplanet.com/legal/cookies/">cookie use</a>.
+       For additional account inquiries
+       see <a href="http://support.lonelyplanet.com/hc/en-us/sections/203968787-Account-administration" target="_blank" rel="noopener noreferrer">Account help</a>.
     </AuthDisclaimer>
   );
   return (
@@ -54,7 +64,7 @@ const MultiStepLogin = ({
           }}
         />
 
-        {Disclaimer}
+        {SocialDisclaimer}
       </AuthContainer>
 
       <AuthContainer key="passwordless" hasLogo={showLogo}>
@@ -69,7 +79,7 @@ const MultiStepLogin = ({
           }}
         />
 
-        {Disclaimer}
+        {EmailDisclaimer}
       </AuthContainer>
 
       <AuthContainer key="legacy" hasLogo={showLogo}>
@@ -80,7 +90,7 @@ const MultiStepLogin = ({
         <ModalContentLegacyLoginForm
           authLink={authActions.password()}
         />
-        {Disclaimer}
+        {EmailDisclaimer}
       </AuthContainer>
 
       <AuthContainer key="success" hasLogo={showLogo}>
