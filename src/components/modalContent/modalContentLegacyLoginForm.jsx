@@ -30,24 +30,11 @@ class LegacyForm extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    if (!this.state.valid) {
-      return this.setState({
-        showErrors: true,
-      });
-    }
-
-    return this.form.submit();
-  }
-
-  handleChange(e, type, errorCount) {
+  handleChange(e, type) {
     this.setState({
       [`${type}Value`]: e.target.value,
-      valid: errorCount === 0,
     });
   }
 
@@ -55,7 +42,7 @@ class LegacyForm extends React.Component {
     return (
       <div style={styles.container}>
         <Validate>
-          {({ validate, errorMessages, errorCount }) => (
+          {({ validate, errorMessages }) => (
             <form
               action={this.props.authLink}
               ref={(node) => {
@@ -74,9 +61,9 @@ class LegacyForm extends React.Component {
                   error={errorMessages.user_identifier && errorMessages.user_identifier.length > 0}
                   placeholder="Email or username"
                   onChange={(e) => {
-                    this.handleChange(e, "identifier", errorCount);
-                    validate(e);
+                    this.handleChange(e, "identifier");
                   }}
+                  onBlur={validate}
                   value={this.state.identifierValue}
                 />
 
@@ -89,26 +76,23 @@ class LegacyForm extends React.Component {
                   customStyles={styles.input}
                   error={errorMessages.password && errorMessages.password.length > 0}
                   onChange={(e) => {
-                    this.handleChange(e, "password", errorCount);
-                    validate(e);
+                    this.handleChange(e, "password");
                   }}
+                  onBlur={validate}
                   value={this.state.passwordValue}
                 />
                 {
-                  this.state.showErrors &&
                   errorMessages.user_identifier &&
                   errorMessages.user_identifier.length > 0 &&
                   <ErrorMessages messages={errorMessages.user_identifier} />
                 }
                 {
-                  this.state.showErrors &&
                   errorMessages.password &&
                   errorMessages.password.length > 0 &&
                   <ErrorMessages messages={errorMessages.password} />
                 }
               </div>
               <Button
-                onClick={this.handleSubmit}
                 rounded
               >
                 Submit
