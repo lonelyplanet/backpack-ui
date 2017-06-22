@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import color from "../../styles/colors";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   base: {
@@ -21,6 +22,7 @@ const SettingBlockWrapper = ({
   children,
   error,
   hasAction,
+  style,
 }) => (
   <div
     className="SettingBlockWrapper"
@@ -28,6 +30,7 @@ const SettingBlockWrapper = ({
       styles.base,
       error && styles.error,
       hasAction && styles.hasAction,
+      style,
     ]}
   >
     {children}
@@ -38,6 +41,7 @@ SettingBlockWrapper.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
   error: PropTypes.bool,
   hasAction: PropTypes.bool,
+  style: propTypes.style,
 };
 
 export default radium(SettingBlockWrapper);
