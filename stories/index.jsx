@@ -157,6 +157,7 @@ import Toast from "../src/components/toast";
 import Tooltip from "../src/components/tooltip";
 import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
+import Typeahead from "../src/components/typeahead";
 import TypeSelector from "../src/components/typeSelector";
 import VideoEmbed from "../src/components/videoEmbed";
 import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
@@ -2558,6 +2559,22 @@ storiesOf("Travel alert", module)
     <TravelAlert>
       {text("Text", "The US Center for Disease Control <a href=\"http://www.cdc.gov/zika/geo/active-countries.html\">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.")}
     </TravelAlert>
+  ));
+
+storiesOf("Typeahead", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Typeahead
+      options={data.typeaheadPlaces}
+      placeholder="Select a place to go"
+    />
+  ))
+  .add("Tokenizer", () => (
+    <Typeahead
+      options={data.travelInterests}
+      placeholder="Select your travel interests"
+      useTokens
+    />
   ));
 
 storiesOf("Type selector", module)
