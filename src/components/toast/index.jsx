@@ -2,6 +2,7 @@ import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import Icon from "../icon";
 import colors from "../../styles/colors";
+import dimensions from "../../styles/dimensions";
 import timing from "../../styles/timing";
 import { fontWeightRegular, fontWeightMedium, fontSizeUppercase } from "../../styles/typography";
 import { benton } from "../../styles/fonts";
@@ -30,7 +31,7 @@ const styles = {
       lineHeight: (14 / fontSizeUppercase),
       maxWidth: span(6, "static"),
       minHeight: `${height}px`,
-      minWidth: "312px",
+      minWidth: `${(dimensions.minWidth - (padding * 2))}px`,
       paddingBottom: `${(8 / fontSizeUppercase)}em`,
       paddingLeft: `${(padding / fontSizeUppercase)}em`,
       paddingRight: `${(padding / fontSizeUppercase)}em`,
@@ -40,6 +41,7 @@ const styles = {
         transform ${timing.fast} ease-in-out,
         visibility ${timing.fast} ease-in-out`,
       visibility: "visible",
+      width: `calc(100vw - ${(padding * 2)}px)`,
       zIndex: zIndex.toast,
     },
 
