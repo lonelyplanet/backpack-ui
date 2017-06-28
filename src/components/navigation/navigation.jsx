@@ -11,7 +11,7 @@ const styles = {
     position: "relative",
     textAlign: "center",
     transform: "translateZ(0)",
-    zIndex: zIndex.globalHeader -1,
+    zIndex: zIndex.globalHeader - 1,
   },
 
   container: {
