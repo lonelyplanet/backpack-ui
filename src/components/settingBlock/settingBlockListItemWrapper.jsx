@@ -1,4 +1,7 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import radium from "radium";
+import PropTypes from "prop-types";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   base: {
@@ -6,10 +9,10 @@ const styles = {
   },
 };
 
-const SettingBlockListItemWrapper = ({ children }) => (
+const SettingBlockListItemWrapper = ({ children, style }) => (
   <div
     className="SettingBlockListItemWrapper"
-    style={styles.base}
+    style={[styles.base, style]}
   >
     {children}
   </div>
@@ -17,6 +20,7 @@ const SettingBlockListItemWrapper = ({ children }) => (
 
 SettingBlockListItemWrapper.propTypes = {
   children: PropTypes.element,
+  style: propTypes.style,
 };
 
-export default SettingBlockListItemWrapper;
+export default radium(SettingBlockListItemWrapper);
