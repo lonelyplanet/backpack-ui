@@ -66,7 +66,6 @@ const styles = {
 
 
 class CheckboxComponent extends Component {
-
   render() {
     const {
       checked,
