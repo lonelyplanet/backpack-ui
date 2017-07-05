@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import kebabCase from "lodash/kebabCase";
 import { timing, zIndex } from "../../../settings.json";
