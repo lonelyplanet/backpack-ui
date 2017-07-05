@@ -4,7 +4,6 @@ import radium from "radium";
 import kebabCase from "lodash/kebabCase";
 import { timing, zIndex } from "../../../settings.json";
 import color from "../../styles/colors";
-import { darken } from "../../utils/color";
 import font from "../../utils/font";
 import propTypes from "../../utils/propTypes";
 import Icon from "../icon";
@@ -58,7 +57,6 @@ const styles = {
     border: 0,
     left: 0,
     margin: 0,
-    outlineColor: darken(color.textSecondary, 7),
     position: "absolute",
     top: 0,
     WebkitAppearance: "none",
