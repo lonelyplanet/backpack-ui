@@ -68,7 +68,6 @@
     "react-slick": "0.14.4",
     "react-stickynode": "^1.2.1",
     "react-tether": "^0.5.2",
-    "react-typeahead": "git://github.com/thomasthesecond/react-typeahead.git#refactor",
     "react-validate-form": "^1.0.3",
     "react-waypoint": "^5.0.3",
     "truncate": "^2.0.0"
