@@ -17,11 +17,7 @@
     "version:patch": "npm run release -- --release-as patch",
     "version:minor": "npm run release -- --release-as minor",
     "version:major": "npm run release -- --release-as major",
-    "push": "git push --follow-tags origin master && npm publish",
-    "deploy": "npm run version && npm run push",
-    "deploy:patch": "npm run version:patch && npm run push",
-    "deploy:minor": "npm run version:minor && npm run push",
-    "deploy:major": "npm run version:major && npm run push",
+    "push": "git push --follow-tags origin master; npm publish",
     "preversion": "npm run test && npm run lint && npm run build",
     "prepublish": "npm run build",
     "postpublish": "npm run gh-pages"
