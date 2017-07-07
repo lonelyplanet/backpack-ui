@@ -100,3 +100,34 @@ If you have questions or problems, you can contact one of the core maintainers:
 - [jcreamer898](https://github.com/jcreamer898)
 - [nickfranciosi](https://github.com/nickfranciosi)
 - [thomasthesecond](https://github.com/thomasthesecond)
+
+## Release guide
+
+This section is for maintainers who will be creating releases.
+
+When creating a new release, most of the heavy lifting is done by standard-version. However, there are a few steps you should follow in order to successfully create a new release.
+
+1. Make sure you have all of the latest changes on your local master branch.
+```
+git checkout master
+git pull origin master
+```
+2. Create a new feature branch off of master that will contain the release.
+```
+git checkout -b tc-release-0.19.1
+```
+3. On your new feature branch, create a new release.
+```
+npm run version
+```
+4. Do not push tags or publish to npm yet.
+5. Push your release feature branch and make a new pull request.
+```
+git push -u origin tc-release-0.19.1
+```
+6. After your pull request has been approved, squash and merge into master.
+7. Head back to the command line and repeat step 1 to get the latest changes.
+8. On the master branch, push tags and publish to npm.
+```
+git push --follow-tags origin master; npm publish
+```
