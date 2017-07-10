@@ -99,7 +99,6 @@ const styles = {
   ".Typeahead-input": {
     backgroundColor: colors.bgPrimary,
     border: 0,
-    borderBottom: `1px solid ${colors.borderPrimary}`,
     color: "inherit",
     display: "block",
     fontFamily: "inherit",
