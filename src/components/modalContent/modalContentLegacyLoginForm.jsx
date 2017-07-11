@@ -6,6 +6,7 @@ import Input from "../form/input";
 import Button from "../button";
 import ErrorMessages from "../form/errorMessages";
 import color from "../../styles/colors";
+import { emailValidation } from "../../utils/validations";
 
 const styles = {
   container: {
@@ -20,10 +21,15 @@ const styles = {
 };
 
 class LegacyForm extends React.Component {
+  static setIdentifierType(val) {
+    return emailValidation.test(val) ? "email" : "username";
+  }
+
   constructor(props) {
     super(props);
     this.state = {
       identifierValue: "",
+      identifierType: "username",
       passwordValue: "",
       showErrors: false,
       valid: false,
@@ -35,6 +41,7 @@ class LegacyForm extends React.Component {
   handleChange(e, type) {
     this.setState({
       [`${type}Value`]: e.target.value,
+      identifierType: type === "identifier" ? LegacyForm.setIdentifierType(e.target.value) : this.state.identifierType,
     });
   }
 
@@ -51,7 +58,7 @@ class LegacyForm extends React.Component {
               method="post"
             >
               <div style={styles.inputContainer}>
-                <input type="hidden" name="user_identifier_type" value="email" />
+                <input type="hidden" name="user_identifier_type" value={this.state.identifierType} />
                 <Input
                   theme="float"
                   type="text"
@@ -84,7 +91,7 @@ class LegacyForm extends React.Component {
                 {
                   errorMessages.user_identifier &&
                   errorMessages.user_identifier.length > 0 &&
-                  <ErrorMessages messages={errorMessages.user_identifier} />
+                  <ErrorMessages messages="Username/Email is required" />
                 }
                 {
                   errorMessages.password &&
