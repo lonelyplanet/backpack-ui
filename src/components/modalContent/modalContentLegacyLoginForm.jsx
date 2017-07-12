@@ -91,7 +91,7 @@ class LegacyForm extends React.Component {
                 {
                   errorMessages.user_identifier &&
                   errorMessages.user_identifier.length > 0 &&
-                  <ErrorMessages messages="Username/Email is required" />
+                  <ErrorMessages messages={["Username/Email is required"]} />
                 }
                 {
                   errorMessages.password &&
