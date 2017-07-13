@@ -249,6 +249,7 @@ class Newsletter extends Component {
       cta,
       confirmation,
       legalOptInLabel,
+      captchaSiteKey,
       style: overrideStyles,
     } = this.props;
 
@@ -374,7 +375,7 @@ class Newsletter extends Component {
           {this.state.showCaptcha &&
             <div style={{ marginTop: "24px" }}>
               <Recaptcha
-                sitekey="6LegewcUAAAAAG-5-ZTtWJ9M8cUyz7Mh0-uzNbC_"
+                sitekey={captchaSiteKey}
                 render="explicit"
                 verifyCallback={this.submitRequest}
                 onloadCallback={this.recaptchCallback}
@@ -401,6 +402,7 @@ Newsletter.propTypes = {
     source: PropTypes.string,
   }),
   legalOptInLabel: PropTypes.string,
+  captchaSiteKey: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
 };
 
@@ -419,6 +421,7 @@ Newsletter.defaultProps = {
     source: "homepage",
   },
   legalOptInLabel: ["Tick to opt-in. Opt out at any time via the “unsubscribe” link in the footer of the emails. View our ", <a href="https://www.lonelyplanet.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">privacy policy</a>, "."],
+  captchaSiteKey: null,
 };
 
 export default radium(Newsletter);
