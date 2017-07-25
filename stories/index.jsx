@@ -4,8 +4,9 @@ import "leaflet/dist/leaflet.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-photoswipe/lib/photoswipe.css";
-import { storiesOf, action } from "@storybook/react";
+import { storiesOf } from "@storybook/react";
 import { withKnobs, text, boolean, number, array, object, select, color } from "@storybook/addon-knobs";
+import { action } from "@storybook/addon-actions";
 import { color as bpColor } from "../settings.json";
 import colors from "../src/styles/colors";
 import data from "./data.json";
@@ -76,6 +77,7 @@ import Lede from "../src/components/lede";
 // ListItem
 // ListItemBookable
 // ListItemImage
+import ListButton from "../src/components/listButton";
 import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
 // Loading
@@ -992,6 +994,18 @@ storiesOf("Lede", module)
         Excepteur sint occaecat cupidatat non proident,
         sunt in culpa qui officia deserunt mollit anim id
         est laborum`)}
+    />
+  ));
+
+storiesOf("List Button", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <ListButton
+      onClick={action("List Button clicked")}
+      size={select("Size", ["", "large"], "")}
+      marked={boolean("Marked", false)}
+      icon={select("Icon", Object.keys(Icon), "BookmarkOutline")}
+      markedIcon={select("Marked Icon", Object.keys(Icon), "Bookmark")}
     />
   ));
 

@@ -56,6 +56,7 @@ export { default as ImageHero } from "./components/imageHero";
 export { default as ItalicText } from "./components/italicText";
 export { default as LastUpdated } from "./components/lastUpdated";
 export { default as Lede } from "./components/lede";
+export { default as ListButton } from "./components/listButton";
 export { default as ListContainer } from "./components/listContainer";
 // export { default as ListItem } from "./components/listItem";
 // export { default as ListItemBookable } from "./components/listItemBookable";
