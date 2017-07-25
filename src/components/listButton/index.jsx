@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import { fontSizeHeading4, fontSizeHeading5 } from "../../styles/typography";
-import { outline } from "../../utils/mixins";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import Icon from "../icon";
@@ -12,8 +11,8 @@ const styles = {
   backgroundColor: colors.bgPrimary,
   border: 0,
   borderRadius: "50%",
-  boxShadow: `rgba(0, 0, 0, 0.1) 0 ${5 / fontSizeHeading5}em ${5 / fontSizeHeading5}em`,
-  color: colors.textSecondary,
+  boxShadow: `rgba(0, 0, 0, 0.2) 0 ${4 / fontSizeHeading5}em ${16 / fontSizeHeading5}em`,
+  color: colors.textPrimary,
   cursor: "pointer",
   display: "inline-flex",
   fontSize: `${fontSizeHeading5}px`,
@@ -21,16 +20,17 @@ const styles = {
   justifyContent: "center",
   lineHeight: 1,
   padding: 0,
-  transition: `color ${timing.default}`,
+  transition: `color ${timing.fast}, box-shadow ${timing.fast}`,
   width: `${(54 / fontSizeHeading5)}em`,
 
-  ":focus": outline(),
+  ":active": {
+    boxShadow: `rgba(0, 0, 0, 0.2) 0 ${(4 / fontSizeHeading5) / 3}em ${(16 / fontSizeHeading5) / 2}em`,
+  },
 };
 
 const iconProps = {
   label: "Bookmark",
   style: {
-    color: colors.textPrimary,
     display: "block",
   },
 };
