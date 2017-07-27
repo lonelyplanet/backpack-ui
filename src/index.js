@@ -128,6 +128,7 @@ export { default as Tooltip } from "./components/tooltip";
 export { default as TourItinerary } from "./components/tourItinerary";
 export { default as TravelAlert } from "./components/travelAlert";
 export { default as TypeSelector } from "./components/typeSelector";
+export { default as UserListAuthor } from "./components/userListAuthor";
 export { default as VideoEmbed } from "./components/videoEmbed";
 
 export { default as DateInput } from "./components/form/dateInput";
