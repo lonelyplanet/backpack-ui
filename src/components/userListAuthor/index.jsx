@@ -13,12 +13,9 @@ const styles = {
     display: "inline-flex",
   },
 
-  avatar: {
-    marginRight: "8px",
-  },
-
   authorName: {
     color: "currentColor",
+    marginLeft: "8px",
   },
 };
 
@@ -31,7 +28,6 @@ const UserListAuthor = ({ children, imageSrc, href, style }) => (
     <Avatar
       src={imageSrc}
       size={24}
-      style={styles.avatar}
       alt=""
     />
 
