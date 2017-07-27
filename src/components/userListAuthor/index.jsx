@@ -5,12 +5,15 @@ import AuthorName from "../authorName";
 import Avatar from "../avatar";
 import colors from "../../styles/colors";
 import propTypes from "../../utils/propTypes";
+import { outline } from "../../utils/mixins";
 
 const styles = {
   container: {
     alignItems: "center",
     color: colors.textSecondary,
     display: "inline-flex",
+
+    ":focus": outline(),
   },
 
   authorName: {
