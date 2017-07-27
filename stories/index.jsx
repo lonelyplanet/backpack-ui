@@ -2616,7 +2616,7 @@ storiesOf("User list author", module)
   .add("Default", () => (
     <UserListAuthor
       href={text("URL", "/")}
-      imageSrc={data.avatar.default}
+      imageSrc={text("Image source", data.avatar.default)}
     >
       {text("Name", "Alex Butler")}
     </UserListAuthor>
