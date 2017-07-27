@@ -161,6 +161,7 @@ import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
 import { Typeahead, TypeaheadTokenizer } from "../src/components/typeahead";
 import TypeSelector from "../src/components/typeSelector";
+import UserListAuthor from "../src/components/userListAuthor";
 import VideoEmbed from "../src/components/videoEmbed";
 import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 
@@ -2608,6 +2609,17 @@ storiesOf("Type selector", module)
         ]}
       />
     </StyleRoot>
+  ));
+
+storiesOf("User list author", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <UserListAuthor
+      href={text("URL", "/")}
+      imageSrc={data.avatar.default}
+    >
+      {text("Name", "Alex Butler")}
+    </UserListAuthor>
   ));
 
 storiesOf("Video embed", module)
