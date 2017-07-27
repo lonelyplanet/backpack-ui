@@ -4,6 +4,7 @@ import radium from "radium";
 import AuthorName from "../authorName";
 import Avatar from "../avatar";
 import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import propTypes from "../../utils/propTypes";
 import { outline } from "../../utils/mixins";
 
@@ -12,8 +13,19 @@ const styles = {
     alignItems: "center",
     color: colors.textSecondary,
     display: "inline-flex",
+    transition: `color ${timing.fast} ease-in-out`,
 
-    ":focus": outline(),
+    ":hover": {
+      color: colors.textPrimary,
+    },
+
+    ":active": {
+      color: colors.textPrimary,
+    },
+
+    ":focus": Object.assign({}, {
+      color: colors.textPrimary,
+    }, outline()),
   },
 
   authorName: {
