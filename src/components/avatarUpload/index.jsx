@@ -72,6 +72,10 @@ class AvatarUpload extends Component {
   onChange(event) {
     event.preventDefault();
 
+    if (this.input.files && this.props.onChangeFiles) {
+      this.props.onChangeFiles(this.input.files);
+    }
+
     if (this.input.files && this.input.files[0]) {
       const reader = new FileReader();
 
@@ -132,6 +136,7 @@ AvatarUpload.propTypes = {
   src: PropTypes.string.isRequired,
   style: propTypes.style,
   exposeImageOnChange: PropTypes.func,
+  onChangeFiles: PropTypes.func,
 };
 
 export default radium(AvatarUpload);

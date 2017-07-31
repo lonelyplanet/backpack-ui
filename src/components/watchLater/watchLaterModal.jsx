@@ -6,6 +6,7 @@ import CardVideo from "../cardVideo";
 import ModalContentWatchLaterList from "../modalContent/modalContentWatchLaterList";
 import ModalContentSocialAuth from "../modalContent/modalContentSocialAuth";
 import propTypes from "../../utils/propTypes";
+import { span } from "../../utils/grid";
 
 const WatchLaterModal = ({
   loggedIn,
@@ -22,11 +23,11 @@ const WatchLaterModal = ({
     leftAction={onClose}
     leftActionContent={<Close width={24} height={24} />}
     closeModal={onClose}
-    desktopWidth={loggedIn ? "85%" : "650px"}
+    desktopWidth={loggedIn ? "85%" : span(6, "static")}
     title={loggedIn ? "Watch Later" : ""}
     style={style}
   >
-    { loggedIn ? (
+    {loggedIn ? (
       <ModalContentWatchLaterList
         videos={videos}
         removeVideo={removeVideo}
@@ -37,7 +38,6 @@ const WatchLaterModal = ({
     )}
   </Modal>
 );
-
 
 WatchLaterModal.propTypes = {
   loggedIn: PropTypes.bool,

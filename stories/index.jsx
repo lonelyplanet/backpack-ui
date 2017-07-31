@@ -4,12 +4,15 @@ import "leaflet/dist/leaflet.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-photoswipe/lib/photoswipe.css";
-import { storiesOf, action } from "@kadira/storybook";
-import { withKnobs, text, boolean, number, array, object, select, color } from "@kadira/storybook-addon-knobs";
+import { storiesOf } from "@storybook/react";
+import { withKnobs, text, boolean, number, array, object, select, color } from "@storybook/addon-knobs";
+import { action } from "@storybook/addon-actions";
 import { color as bpColor } from "../settings.json";
 import colors from "../src/styles/colors";
 import data from "./data.json";
+import Center from "./center";
 import Colors from "./Colors";
+import DesignTokens from "./designTokens";
 import Fonts from "./fonts";
 import Typography from "./typography";
 import { Accordion, AccordionItem } from "../src/components/accordion";
@@ -74,6 +77,7 @@ import Lede from "../src/components/lede";
 // ListItem
 // ListItemBookable
 // ListItemImage
+import ListButton from "../src/components/listButton";
 import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
 // Loading
@@ -87,6 +91,7 @@ import MastheadSlider from "../src/components/mastheadSlider";
 import Modal from "../src/components/modal";
 import ModalLogIn from "../src/components/modalLogIn";
 import MoreLink from "../src/components/moreLink";
+import { MultiStep, MultiStepWrapper } from "../src/components/multiStep";
 import Narrative from "../src/components/narrative";
 import { Navigation, NavigationTab } from "../src/components/navigation";
 import NewsArticleAuthor from "../src/components/newsArticleAuthor";
@@ -154,12 +159,17 @@ import Toast from "../src/components/toast";
 import Tooltip from "../src/components/tooltip";
 import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
+import { Typeahead, TypeaheadTokenizer } from "../src/components/typeahead";
 import TypeSelector from "../src/components/typeSelector";
+import UserListAuthor from "../src/components/userListAuthor";
 import VideoEmbed from "../src/components/videoEmbed";
 import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 
 storiesOf("Styles", module)
   .addDecorator(withKnobs)
+  .add("Design tokens", () => (
+    <DesignTokens />
+  ))
   .add("Colors", () => (
     <Colors />
   ))
@@ -988,6 +998,18 @@ storiesOf("Lede", module)
     />
   ));
 
+storiesOf("List Button", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <ListButton
+      onClick={action("List Button clicked")}
+      size={select("Size", ["", "large"], "")}
+      marked={boolean("Marked", false)}
+      icon={select("Icon", Object.keys(Icon), "BookmarkOutline")}
+      markedIcon={select("Marked Icon", Object.keys(Icon), "Bookmark")}
+    />
+  ));
+
 storiesOf("List item (news)", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1115,7 +1137,6 @@ class ModalWrapper extends React.Component {
     open: true,
   }
 
-
   toggleOpen() {
     this.setState({ open: !this.state.open });
   }
@@ -1124,33 +1145,6 @@ class ModalWrapper extends React.Component {
     return this.props.children(this.state.open, this.toggleOpen.bind(this));
   }
 }
-
-const watchLaterVideos = [
-  {
-    id: 1,
-    heading: "Test Heading",
-    bullets: ["On the Road", "Ep1"],
-    runtime: 30000,
-    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
-    href: "/test",
-  },
-  {
-    id: 2,
-    heading: "Test Heading",
-    bullets: ["On the Road", "Ep2"],
-    runtime: 30000,
-    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
-    href: "/test",
-  },
-  {
-    id: 3,
-    heading: "Test Heading",
-    bullets: ["On the Road", "Ep3"],
-    runtime: 30000,
-    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
-    href: "/test",
-  },
-];
 
 storiesOf("Modal", module)
   .addDecorator(withKnobs)
@@ -1178,7 +1172,8 @@ storiesOf("Modal", module)
         )}
       </ModalWrapper>
     </StyleRoot>
-  )).add("Watch Later", () => (
+  ))
+  .add("Watch Later", () => (
     <StyleRoot>
       <ModalWrapper>
         {(isOpen, toggle) => (
@@ -1186,7 +1181,6 @@ storiesOf("Modal", module)
             loggedIn={boolean("Logged in", false)}
             isOpen={isOpen}
             onClose={toggle}
-            // videos={watchLaterVideos}
             videos={[]}
             removeVideo={action("Remove Video")}
             authMessage={text("Auth Message", "Organize your research & unlock tools like bookmarking.")}
@@ -1258,6 +1252,40 @@ storiesOf("Navigation", module)
       <NavigationTab onClick={action("Books tab clicked")}>Books</NavigationTab>
       <NavigationTab onClick={action("Adventures tab clicked")}>Adventures</NavigationTab>
     </Navigation>
+  ));
+
+storiesOf("Multi-step", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <MultiStepWrapper totalSteps={4}>
+      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => (
+        <MultiStep currentStep={currentStep}>
+          <div>
+            <h1>Step {currentStep}</h1>
+            <Button size="tiny" onClick={goToNextStep}>Next step</Button>
+            <Button size="tiny" onClick={() => { setCurrentStep(4); }}>Jump to step 4</Button>
+          </div>
+
+          <div>
+            <h1>Step {currentStep}</h1>
+            <Button size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button size="tiny" onClick={goToNextStep}>Next step</Button>
+          </div>
+
+          <div>
+            <h1>Step {currentStep}</h1>
+            <Button size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button size="tiny" onClick={goToNextStep}>Next step</Button>
+          </div>
+
+          <div>
+            <h1>Step {currentStep}</h1>
+            <Button size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button size="tiny" onClick={() => { setCurrentStep(1); }}>Jump to step 1</Button>
+          </div>
+        </MultiStep>
+      )}
+    </MultiStepWrapper>
   ));
 
 storiesOf("Narrative", module)
@@ -2488,17 +2516,26 @@ storiesOf("Timestamp", module)
 storiesOf("Toast", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <Toast
-      color={select("Color", Object.keys(colors), "accentGreen")}
-      icon={select("Icon", Object.keys(Icon), "Checkmark")}
-      visible={boolean("Visible", true)}
-      direction={select("Direction", {
-        top: "Top",
-        bottom: "Bottom",
-      }, "bottom")}
-    >
-      {text("Text", "Added to Watch Later")}
-    </Toast>
+    <Center grow>
+      <Toast
+        type={select("Type", {
+          error: "Error",
+          info: "Info",
+          success: "Success",
+          warning: "Warning",
+        }, "success")}
+        direction={select("Animate from", {
+          bottom: "Bottom",
+          top: "Top",
+        }, "bottom")}
+        title={text("Title", "")}
+        visible={boolean("Visible", true)}
+        affixed={boolean("Affixed", false)}
+        onClose={action("Function to dismiss toast")}
+      >
+        {text("Message", "Toast message displayed here. It can span multiple lines.")}
+      </Toast>
+    </Center>
   ));
 
 storiesOf("Tooltip", module)
@@ -2535,8 +2572,23 @@ storiesOf("Travel alert", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <TravelAlert>
-      {text("Text", `The US Center for Disease Control <a href="http://www.cdc.gov/zika/geo/active-countries.html">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.`)}
+      {text("Text", "The US Center for Disease Control <a href=\"http://www.cdc.gov/zika/geo/active-countries.html\">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.")}
     </TravelAlert>
+  ));
+
+storiesOf("Typeahead", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Typeahead
+      options={data.typeaheadPlaces}
+      placeholder="Select a place to go"
+    />
+  ))
+  .add("Tokenizer", () => (
+    <TypeaheadTokenizer
+      options={data.travelInterests}
+      placeholder="Select your travel interests"
+    />
   ));
 
 storiesOf("Type selector", module)
@@ -2557,6 +2609,17 @@ storiesOf("Type selector", module)
         ]}
       />
     </StyleRoot>
+  ));
+
+storiesOf("User list author", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <UserListAuthor
+      href={text("URL", "/")}
+      imageSrc={text("Image source", data.avatar.default)}
+    >
+      {text("Name", "Alex Butler")}
+    </UserListAuthor>
   ));
 
 storiesOf("Video embed", module)

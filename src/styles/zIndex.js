@@ -1,4 +1,4 @@
-export default {
+export const values = {
   auto: "auto",
   below: -1,
   default: 1,
@@ -9,8 +9,10 @@ export default {
   menu: 8000,
   modal: 9000,
   toast: 10000,
+};
 
-  // TODO: Deprecate legacy z-index values
+// TODO: Deprecate legacy z-index values
+const deprecated = {
   slideshowSlide: 3,
   middle: 10,
   top: 20,
@@ -18,3 +20,5 @@ export default {
   mapHolderOpen: 200,
   videoOverlayClose: 1000,
 };
+
+export default Object.assign({}, values, deprecated);

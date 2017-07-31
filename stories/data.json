@@ -257,5 +257,53 @@
         "description": "From the Statue of Liberty to Ground Zero to Chinatown, New York City is full of things to do and see. We recommend spending extra time here; please speak to your sales agent to book extra accommodation. \n\nIncluded Activities:\nDeparture Day"
       }
     ]
-  }
+  },
+
+  "travelInterests": [
+    "Adventure",
+    "Art and architecture",
+    "Backpacking",
+    "Beaches",
+    "Business",
+    "Ecotourism",
+    "Family",
+    "Food",
+    "History",
+    "Locals",
+    "LGBTQ",
+    "Luxury",
+    "Nature",
+    "Nightlife",
+    "Peace and quiet",
+    "Shopping"
+  ],
+
+  "typeaheadPlaces": [
+    "Africa",
+    "Antarctica",
+    "Asia",
+    "Australia & Pacific",
+    "Caribbean",
+    "Central America",
+    "Europe",
+    "Franklin, Tennessee",
+    "Knoxville, Tennessee",
+    "Memphis, Tennessee",
+    "Middle East",
+    "Nashville, Tennessee",
+    "North America",
+    "North Carolina",
+    "North Dakota",
+    "North Horr, Kenya",
+    "North Korea",
+    "Northren Ireland",
+    "South Africa",
+    "South America",
+    "South Carolina",
+    "South Dakota",
+    "South Korea",
+    "South Sudan",
+    "Southwell, England",
+    "Tennessee"
+  ]
 }

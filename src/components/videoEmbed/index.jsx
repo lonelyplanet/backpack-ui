@@ -73,6 +73,9 @@ const scopedStyles = {
     top: 0,
     left: 0,
   },
+  ".vjs-error .vjs-error-display": {
+    display: "none",
+  },
   mediaQueries: {
     [`(max-width: ${media.max["480"]})`]: {
       ".vjs-big-play-button": {
@@ -129,6 +132,7 @@ class VideoEmbed extends Component {
     this.player.on("error", this.onPlayerError.bind(this));
     this.player.on("playing", this.onPlayerPlaying.bind(this));
     this.player.on("ended", this.onPlayerEnded.bind(this));
+    this.player.on("ads-ad-started", this.onAdStarted.bind(this));
     this.player.on("ads-ad-ended", this.onAdEnded.bind(this));
   }
 
@@ -157,12 +161,24 @@ class VideoEmbed extends Component {
   }
 
   onPlayerPlaying() {
+    // When an ad ends, the "playing" event or the "ads-ad-ended" event may be fired.
+    // so we make sure to disable the "ad overlay" when any of these events fire.
+    this.disableAdOverlay();
+
     // If videoId was set while an ad was playing, and the user skips the ad,
     // the onAdEnded() handler will not be run.  This makes sure we load the new video.
     this.loadVideo(this.props.videoId);
   }
 
+  onAdStarted() {
+    this.enableAdOverlay();
+  }
+
   onAdEnded() {
+    // When an ad ends, the "playing" event or the "ads-ad-ended" event may be fired.
+    // so we make sure to disable the "ad overlay" when any of these events fire.
+    this.disableAdOverlay();
+
     // If videoId was set while an ad was playing, and the
     // ad ends (without being skipped), make sure to load the new video.
     this.loadVideo(this.props.videoId);
@@ -238,6 +254,10 @@ class VideoEmbed extends Component {
     return `VideoEmbed-initialize-${this.id}`;
   }
 
+  getAdOverlayId() {
+    return `ad-overlay-${this.id}`;
+  }
+
   setupPlayer() {
     const scriptId = this.getPlayerScriptId();
     const scriptSrc = `https://players.brightcove.net/${this.accountId}/${this.playerId}_${this.embedId}/index.min.js`;
@@ -248,6 +268,20 @@ class VideoEmbed extends Component {
     script.onload = this.onLoadSetupScript.bind(this);
 
     document.body.appendChild(script);
+  }
+
+  enableAdOverlay() {
+    const adOverlay = document.getElementById(this.getAdOverlayId());
+    if (adOverlay) {
+      adOverlay.style.display = "inline-block";
+    }
+  }
+
+  disableAdOverlay() {
+    const adOverlay = document.getElementById(this.getAdOverlayId());
+    if (adOverlay) {
+      adOverlay.style.display = "none";
+    }
   }
 
   isVideoLoaded(videoId) {
@@ -311,7 +345,7 @@ class VideoEmbed extends Component {
     });
 
     overlays.push({
-      content: "<div class=\"VideoEmbed-ad-overlay\">Advertisement</div>",
+      content: `<div id="${this.getAdOverlayId()}" class="VideoEmbed-ad-overlay">Advertisement</div>`,
       align: "top-left",
       start: "ads-ad-started",
       end: "playing",

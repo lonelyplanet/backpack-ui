@@ -2,6 +2,289 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.28.0"></a>
+# [4.28.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.27.3...v4.28.0) (2017-07-28)
+
+
+### Bug Fixes
+
+* password function was being called on component being rendered ([#389](https://github.com/lonelyplanet/backpack-ui/issues/389)) ([0701527](https://github.com/lonelyplanet/backpack-ui/commit/0701527))
+
+
+### Features
+
+* Add HOC to detect outside clicks ([#373](https://github.com/lonelyplanet/backpack-ui/issues/373)) ([f04e650](https://github.com/lonelyplanet/backpack-ui/commit/f04e650))
+* Create UserListAuthor component ([#387](https://github.com/lonelyplanet/backpack-ui/issues/387)) ([656351b](https://github.com/lonelyplanet/backpack-ui/commit/656351b))
+* refactor Bookmark component; update actions to addon-actions ([#375](https://github.com/lonelyplanet/backpack-ui/issues/375)) ([#376](https://github.com/lonelyplanet/backpack-ui/issues/376)) ([00a992c](https://github.com/lonelyplanet/backpack-ui/commit/00a992c))
+
+
+
+<a name="4.27.3"></a>
+## [4.27.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.27.2...v4.27.3) (2017-07-12)
+
+
+### Bug Fixes
+
+* put error message in an array ([#372](https://github.com/lonelyplanet/backpack-ui/issues/372)) ([86f1b03](https://github.com/lonelyplanet/backpack-ui/commit/86f1b03))
+
+
+
+<a name="4.27.2"></a>
+## [4.27.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.27.1...v4.27.2) (2017-07-12)
+
+
+### Bug Fixes
+
+* allow legacy user to use both email/username to login ([#371](https://github.com/lonelyplanet/backpack-ui/issues/371)) ([5c83e83](https://github.com/lonelyplanet/backpack-ui/commit/5c83e83))
+* remove typeahead border style ([#369](https://github.com/lonelyplanet/backpack-ui/issues/369)) ([dd3752b](https://github.com/lonelyplanet/backpack-ui/commit/dd3752b))
+
+
+
+<a name="4.27.1"></a>
+## [4.27.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.27.0...v4.27.1) (2017-07-07)
+
+
+### Bug Fixes
+
+* Move fetch logic into dataSource prop for typeahead ([a9f0f61](https://github.com/lonelyplanet/backpack-ui/commit/a9f0f61))
+
+
+
+<a name="4.27.0"></a>
+# [4.27.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.4...v4.27.0) (2017-07-06)
+
+
+### Features
+
+* Refactor Typeahead component ([#364](https://github.com/lonelyplanet/backpack-ui/issues/364)) ([757d364](https://github.com/lonelyplanet/backpack-ui/commit/757d364))
+
+
+
+<a name="4.26.4"></a>
+## [4.26.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.3...v4.26.4) (2017-07-05)
+
+
+### Bug Fixes
+
+* Add focus state to checkbox in SettingBlockButtonWrapper ([#363](https://github.com/lonelyplanet/backpack-ui/issues/363)) ([5db69e2](https://github.com/lonelyplanet/backpack-ui/commit/5db69e2))
+* add max width to disclaimer text for wrapping in IE and auto hide scrollbars on container ([4d4ce1a](https://github.com/lonelyplanet/backpack-ui/commit/4d4ce1a))
+* Set Checkbox input’s opacity to 0 to fix double border bug in legacy IE ([#362](https://github.com/lonelyplanet/backpack-ui/issues/362)) ([f645aae](https://github.com/lonelyplanet/backpack-ui/commit/f645aae))
+
+
+
+<a name="4.26.3"></a>
+## [4.26.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.2...v4.26.3) (2017-06-29)
+
+
+### Bug Fixes
+
+* add passthrough to listItemWrapper ([#358](https://github.com/lonelyplanet/backpack-ui/issues/358)) ([f0d77d2](https://github.com/lonelyplanet/backpack-ui/commit/f0d77d2))
+
+
+
+<a name="4.26.2"></a>
+## [4.26.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.1...v4.26.2) (2017-06-28)
+
+
+### Bug Fixes
+
+* change navigation z index down to 99 from 100 to stay behind public profile dropdowns ([1c39fbb](https://github.com/lonelyplanet/backpack-ui/commit/1c39fbb))
+* Resolve lint error in Navigation component ([#357](https://github.com/lonelyplanet/backpack-ui/issues/357)) ([a518978](https://github.com/lonelyplanet/backpack-ui/commit/a518978))
+
+
+
+<a name="4.26.1"></a>
+## [4.26.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.0...v4.26.1) (2017-06-27)
+
+
+### Bug Fixes
+
+* Adjust min-width and set width for Toast ([#355](https://github.com/lonelyplanet/backpack-ui/issues/355)) ([d918126](https://github.com/lonelyplanet/backpack-ui/commit/d918126))
+
+
+
+<a name="4.26.0"></a>
+# [4.26.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.25.0...v4.26.0) (2017-06-27)
+
+
+### Bug Fixes
+
+* pass style through to settingBlockWrapper ([#353](https://github.com/lonelyplanet/backpack-ui/issues/353)) ([aff095d](https://github.com/lonelyplanet/backpack-ui/commit/aff095d))
+* remove form submission hijack ([#350](https://github.com/lonelyplanet/backpack-ui/issues/350)) ([aed9c0c](https://github.com/lonelyplanet/backpack-ui/commit/aed9c0c))
+* Update arrow icons ([a488c06](https://github.com/lonelyplanet/backpack-ui/commit/a488c06))
+* Update close, plus icons ([4ead707](https://github.com/lonelyplanet/backpack-ui/commit/4ead707))
+* update disclaimer based on type of authentication ([#347](https://github.com/lonelyplanet/backpack-ui/issues/347)) ([56f39ba](https://github.com/lonelyplanet/backpack-ui/commit/56f39ba))
+
+
+### Features
+
+* Add menu icon ([a03ba20](https://github.com/lonelyplanet/backpack-ui/commit/a03ba20))
+* Add search icon ([a5e1adf](https://github.com/lonelyplanet/backpack-ui/commit/a5e1adf))
+* Create Typeahead component ([#354](https://github.com/lonelyplanet/backpack-ui/issues/354)) ([32036f3](https://github.com/lonelyplanet/backpack-ui/commit/32036f3))
+
+
+
+<a name="4.25.0"></a>
+# [4.25.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.24.1...v4.25.0) (2017-06-17)
+
+
+### Bug Fixes
+
+* Update spotlightZone to allow HTML within its paragraph property value ([#344](https://github.com/lonelyplanet/backpack-ui/issues/344)) ([802bcc6](https://github.com/lonelyplanet/backpack-ui/commit/802bcc6))
+
+
+
+<a name="4.24.1"></a>
+## [4.24.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.24.0...v4.24.1) (2017-06-13)
+
+
+### Bug Fixes
+
+* Update Toast styles ([#343](https://github.com/lonelyplanet/backpack-ui/issues/343)) ([54adc0a](https://github.com/lonelyplanet/backpack-ui/commit/54adc0a))
+
+
+
+<a name="4.24.0"></a>
+# [4.24.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.23.3...v4.24.0) (2017-06-13)
+
+
+### Bug Fixes
+
+* Add component to center components in storybook ([#338](https://github.com/lonelyplanet/backpack-ui/issues/338)) ([fec67c2](https://github.com/lonelyplanet/backpack-ui/commit/fec67c2))
+* Fix, update TravelAlert component ([#342](https://github.com/lonelyplanet/backpack-ui/issues/342)) ([40b5ace](https://github.com/lonelyplanet/backpack-ui/commit/40b5ace))
+* Reorder storybook addon imports ([#341](https://github.com/lonelyplanet/backpack-ui/issues/341)) ([1003f06](https://github.com/lonelyplanet/backpack-ui/commit/1003f06))
+* Update Toast design ([#340](https://github.com/lonelyplanet/backpack-ui/issues/340)) ([d5cf346](https://github.com/lonelyplanet/backpack-ui/commit/d5cf346))
+
+
+### Features
+
+* Add icons for toast message ([#339](https://github.com/lonelyplanet/backpack-ui/issues/339)) ([ba9d1bf](https://github.com/lonelyplanet/backpack-ui/commit/ba9d1bf))
+
+
+
+<a name="4.23.3"></a>
+## [4.23.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.23.2...v4.23.3) (2017-06-12)
+
+
+### Bug Fixes
+
+* icon color on interactive map being overwritten ([#337](https://github.com/lonelyplanet/backpack-ui/issues/337)) ([b1c8032](https://github.com/lonelyplanet/backpack-ui/commit/b1c8032))
+
+
+
+<a name="4.23.2"></a>
+## [4.23.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.23.1...v4.23.2) (2017-06-12)
+
+
+
+<a name="4.23.1"></a>
+## [4.23.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.23.0...v4.23.1) (2017-06-12)
+
+
+### Bug Fixes
+
+* pull out multistep auth into its own component ([9285816](https://github.com/lonelyplanet/backpack-ui/commit/9285816))
+
+
+
+<a name="4.23.0"></a>
+# [4.23.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.22.2...v4.23.0) (2017-06-12)
+
+
+### Bug Fixes
+
+* Add lineHeightReset value to typography styles ([#332](https://github.com/lonelyplanet/backpack-ui/issues/332)) ([47cfd2f](https://github.com/lonelyplanet/backpack-ui/commit/47cfd2f))
+* Add via prop to SocialShareContainer ([#331](https://github.com/lonelyplanet/backpack-ui/issues/331)) ([d92cc6b](https://github.com/lonelyplanet/backpack-ui/commit/d92cc6b))
+* Export dimension styles as single object ([#333](https://github.com/lonelyplanet/backpack-ui/issues/333)) ([dc68b01](https://github.com/lonelyplanet/backpack-ui/commit/dc68b01))
+* Separate deprecated z-index values into their own object ([#334](https://github.com/lonelyplanet/backpack-ui/issues/334)) ([67f707e](https://github.com/lonelyplanet/backpack-ui/commit/67f707e))
+
+
+### Features
+
+* Add design tokens story ([#335](https://github.com/lonelyplanet/backpack-ui/issues/335)) ([c45a105](https://github.com/lonelyplanet/backpack-ui/commit/c45a105))
+
+
+<a name="4.22.2"></a>
+## [4.22.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.22.1...v4.22.2) (2017-06-01)
+
+
+### Bug Fixes
+
+* update modal content error display ([6ebbbac](https://github.com/lonelyplanet/backpack-ui/commit/6ebbbac))
+* Update Toast component ([#328](https://github.com/lonelyplanet/backpack-ui/issues/328)) ([1bb9259](https://github.com/lonelyplanet/backpack-ui/commit/1bb9259))
+
+
+
+<a name="4.22.1"></a>
+## [4.22.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.22.0...v4.22.1) (2017-05-31)
+
+
+### Bug Fixes
+
+* update login forms for modal content ([#326](https://github.com/lonelyplanet/backpack-ui/issues/326)) ([6946e99](https://github.com/lonelyplanet/backpack-ui/commit/6946e99))
+
+
+
+<a name="4.22.0"></a>
+# [4.22.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.21.0...v4.22.0) (2017-05-31)
+
+
+### Bug Fixes
+
+* Add avatar uploader onChangeFiles method ([#304](https://github.com/lonelyplanet/backpack-ui/issues/304)) ([8eb8009](https://github.com/lonelyplanet/backpack-ui/commit/8eb8009))
+* Update DisclaimerText component ([#320](https://github.com/lonelyplanet/backpack-ui/issues/320)) ([efbf72e](https://github.com/lonelyplanet/backpack-ui/commit/efbf72e))
+* Update Modal component ([#321](https://github.com/lonelyplanet/backpack-ui/issues/321)) ([f26c90d](https://github.com/lonelyplanet/backpack-ui/commit/f26c90d))
+
+
+### Features
+
+* Create Auth components ([#322](https://github.com/lonelyplanet/backpack-ui/issues/322)) ([9c3e1cd](https://github.com/lonelyplanet/backpack-ui/commit/9c3e1cd))
+
+
+
+<a name="4.21.0"></a>
+# [4.21.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.20.1...v4.21.0) (2017-05-26)
+
+
+### Features
+
+* add magic link form component for sign in modal ([#317](https://github.com/lonelyplanet/backpack-ui/issues/317)) ([c38641b](https://github.com/lonelyplanet/backpack-ui/commit/c38641b))
+
+
+
+<a name="4.20.1"></a>
+## [4.20.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.20.0...v4.20.1) (2017-05-25)
+
+
+### Bug Fixes
+
+* Add media query to disable motion in Toast ([#301](https://github.com/lonelyplanet/backpack-ui/issues/301)) ([5d6df27](https://github.com/lonelyplanet/backpack-ui/commit/5d6df27))
+* Delete unused watchLaterVideos from stories ([#283](https://github.com/lonelyplanet/backpack-ui/issues/283)) ([5279f7c](https://github.com/lonelyplanet/backpack-ui/commit/5279f7c))
+* Make bgDark 96% black ([#302](https://github.com/lonelyplanet/backpack-ui/issues/302)) ([7e5f436](https://github.com/lonelyplanet/backpack-ui/commit/7e5f436)), closes [#297](https://github.com/lonelyplanet/backpack-ui/issues/297)
+* Set width of WatchLaterModal to 630px ([#277](https://github.com/lonelyplanet/backpack-ui/issues/277)) ([1e16dda](https://github.com/lonelyplanet/backpack-ui/commit/1e16dda))
+
+
+
+<a name="4.20.0"></a>
+# [4.20.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.19.1...v4.20.0) (2017-05-25)
+
+
+### Bug Fixes
+
+* Add "gray" to Button color prop validation ([#313](https://github.com/lonelyplanet/backpack-ui/issues/313)) ([c7117c2](https://github.com/lonelyplanet/backpack-ui/commit/c7117c2))
+* Add link to account help in social auth component ([#310](https://github.com/lonelyplanet/backpack-ui/issues/310)) ([5998b36](https://github.com/lonelyplanet/backpack-ui/commit/5998b36))
+* Set default href and role in Button to null ([#312](https://github.com/lonelyplanet/backpack-ui/issues/312)) ([83506a3](https://github.com/lonelyplanet/backpack-ui/commit/83506a3))
+* Spread props on text components ([#305](https://github.com/lonelyplanet/backpack-ui/issues/305)) ([71e64f1](https://github.com/lonelyplanet/backpack-ui/commit/71e64f1))
+* Update Heading with className and ID props ([#306](https://github.com/lonelyplanet/backpack-ui/issues/306)) ([23f43c2](https://github.com/lonelyplanet/backpack-ui/commit/23f43c2))
+
+
+### Features
+
+* Create Dialog component ([#307](https://github.com/lonelyplanet/backpack-ui/issues/307)) ([6995877](https://github.com/lonelyplanet/backpack-ui/commit/6995877))
+* Create Multi-step component ([#309](https://github.com/lonelyplanet/backpack-ui/issues/309)) ([aa4532b](https://github.com/lonelyplanet/backpack-ui/commit/aa4532b))
+
+
+
 <a name="4.19.1"></a>
 ## [4.19.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.19.0...v4.19.1) (2017-05-12)
 

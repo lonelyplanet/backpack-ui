@@ -193,7 +193,7 @@ function Button({
   customStyles,
 }) {
   const Element = href ? "a" : "button";
-  const role = Element === "a" ? "button" : "";
+  const role = Element === "a" ? "button" : null;
 
   const style = [
     styles.base,
@@ -246,6 +246,7 @@ Button.propTypes = {
   color: React.PropTypes.oneOf([
     "blue",
     "white",
+    "gray",
     "transparent",
   ]),
 
@@ -298,7 +299,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  href: "",
+  href: null,
 
   onClick: null,
 

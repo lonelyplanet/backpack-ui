@@ -100,3 +100,14 @@ If you have questions or problems, you can contact one of the core maintainers:
 - [jcreamer898](https://github.com/jcreamer898)
 - [nickfranciosi](https://github.com/nickfranciosi)
 - [thomasthesecond](https://github.com/thomasthesecond)
+
+## Release guide
+
+Releases can be made by:
+
+- [egdelwonk](https://github.com/egdelwonk)
+- [jcreamer898](https://github.com/jcreamer898)
+- [nickfranciosi](https://github.com/nickfranciosi)
+- [thomasthesecond](https://github.com/thomasthesecond)
+
+Please ping one of them to create a new release.

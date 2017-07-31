@@ -122,7 +122,6 @@ class InteractiveMap extends Component {
 
   render() {
     const { width, height, style } = this.props;
-
     return (
       <div
         className="InteractiveMap-container"
@@ -134,7 +133,7 @@ class InteractiveMap extends Component {
       >
         <Style
           scopeSelector=".InteractiveMap-container"
-          rules={Object.assign(scopedStyles, markerStyles)}
+          rules={Object.assign({}, scopedStyles, markerStyles)}
         />
 
         <div id="map" style={styles.map.base} />

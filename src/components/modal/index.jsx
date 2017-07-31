@@ -5,7 +5,7 @@ import colors from "../../styles/colors";
 import mq from "../../styles/mq";
 import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
-import Heading from "../heading";
+import { textHeading6 } from "../../utils/typography";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 
@@ -20,7 +20,10 @@ const styles = {
   },
 
   header: {
+    alignItems: "center",
+    display: "flex",
     height: "56px",
+    justifyContent: "center",
     position: "relative",
     textAlign: "center",
 
@@ -56,26 +59,15 @@ const styles = {
     left: 0,
   },
 
-  desktopTitle: {
-    display: "none",
-
-    [`@media ${largeMQ}`]: {
-      display: "block",
-      textAlign: "center",
-      paddingTop: "90px",
-      paddingBottom: "104px",
-    },
-  },
-
-  mobileTitle: {
+  title: Object.assign({}, {
     display: "inline-block",
-    minHeight: "10px",
-    paddingTop: "23px",
 
     [`@media ${largeMQ}`]: {
       display: "none",
     },
-  },
+  }, textHeading6("medium"), {
+    lineHeight: 1,
+  }),
 };
 
 function ModalComponent({
@@ -124,19 +116,20 @@ function ModalComponent({
 
     ".ModalBase": {
       background: colors.bgPrimary,
-      position: "absolute",
-      overflow: "auto",
-      WebkitOverflowScrolling: "touch",
       border: 0,
       borderRadius: 0,
+      bottom: "auto",
       boxShadow: `0 27px 50px ${rgba(colors.bgOverlay, 0.36)}`,
-      top: 0,
+      height: "100vh",
       left: 0,
-      right: 0,
       marginLeft: "auto",
       marginRight: "auto",
-      bottom: "auto",
-      height: "100vh",
+      MsOverflowStyle: "-ms-autohiding-scrollbar",
+      overflow: "auto",
+      position: "absolute",
+      right: 0,
+      top: 0,
+      WebkitOverflowScrolling: "touch",
       width: "100%",
     },
 
@@ -188,15 +181,9 @@ function ModalComponent({
         }
 
         {title &&
-          <Heading
-            level={4}
-            size="small"
-            weight="thick"
-            override={styles.mobileTitle}
-            caps
-          >
+          <span style={styles.title}>
             {title}
-          </Heading>
+          </span>
         }
 
         {rightAction &&
@@ -213,17 +200,6 @@ function ModalComponent({
         className="Modal-content"
         style={styles.contentContainer}
       >
-        {title &&
-          <Heading
-            level={2}
-            size="huge"
-            weight="thick"
-            override={styles.desktopTitle}
-          >
-            {title}
-          </Heading>
-        }
-
         {children}
       </div>
     </Modal>

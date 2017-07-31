@@ -1,50 +1,71 @@
 import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
-import { color } from "../../../settings.json";
-import font from "../../utils/font";
-import { rgb } from "../../utils/color";
 import Container from "../container";
+import colors from "../../styles/colors";
+import { fontSizeHeading7, lineHeightHeading7 } from "../../styles/typography";
+import timing from "../../styles/timing";
+import font from "../../utils/font";
+import { outline } from "../../utils/mixins";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
-  backgroundColor: color.orange,
+  backgroundColor: colors.accentYellow,
   boxSizing: "border-box",
-  color: color.titleGray,
+  color: colors.textPrimary,
   fontFamily: font("benton"),
-  fontSize: "14px",
-  padding: "20px",
+  fontSize: `${fontSizeHeading7}px`,
+  lineHeight: lineHeightHeading7,
+  paddingBottom: `${18 / fontSizeHeading7}em`,
+  paddingTop: `${22 / fontSizeHeading7}em`,
   textAlign: "center",
 };
 
-function markup(htmlContent) {
-  return {
-    __html: htmlContent,
-  };
-}
+const scopedStyles = {
+  a: {
+    color: "inherit",
+    textDecoration: "underline",
+    transition: `color ${timing.fast} ease-in-out`,
+  },
+
+  "a:hover": {
+    color: colors.textSecondary,
+  },
+
+  "a:active": {
+    color: colors.textSecondary,
+  },
+
+  "a:focus": Object.assign({}, {
+    color: colors.textSecondary,
+  }, outline(), {
+    outlineColor: colors.textSecondary,
+  }),
+};
+
+const markup = (htmlContent) => ({
+  __html: htmlContent,
+});
 
 const TravelAlert = ({ children, style }) => (
-  <div className="TravelAlert" style={[styles, style]}>
+  <div
+    className="TravelAlert"
+    style={[styles, style]}
+    role="status"
+  >
     <Style
       scopeSelector=".TravelAlert"
-      rules={{
-        a: {
-          color: "inherit",
-          textDecoration: "underline",
-        },
-
-        "a:focus": {
-          outline: `1px rgba(${rgb(color.black)}, .3) dotted`,
-          outlineOffset: "2px",
-        },
-      }}
+      rules={scopedStyles}
     />
 
-    <Container dangerouslySetInnerHTML={markup(children)} />
+    <Container>
+      <div dangerouslySetInnerHTML={markup(children)} />
+    </Container>
   </div>
 );
 
 TravelAlert.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.objectOf(PropTypes.object),
+  style: propTypes.style,
 };
 
 export default radium(TravelAlert);

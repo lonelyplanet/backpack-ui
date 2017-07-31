@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import kebabCase from "lodash/kebabCase";
 import { timing, zIndex } from "../../../settings.json";
 import color from "../../styles/colors";
-import { darken } from "../../utils/color";
 import font from "../../utils/font";
 import propTypes from "../../utils/propTypes";
 import Icon from "../icon";
@@ -57,7 +57,7 @@ const styles = {
     border: 0,
     left: 0,
     margin: 0,
-    outlineColor: darken(color.textSecondary, 7),
+    opacity: 0,
     position: "absolute",
     top: 0,
     WebkitAppearance: "none",
@@ -66,7 +66,6 @@ const styles = {
 
 
 class CheckboxComponent extends Component {
-
   render() {
     const {
       checked,
