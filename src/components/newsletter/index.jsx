@@ -6,6 +6,7 @@ import { color, media } from "../../../settings.json";
 import font from "../../utils/font";
 import Heading from "../heading";
 import Input from "../form/input";
+import Checkbox from "../checkbox";
 import Button from "../button";
 import MoreLink from "../moreLink";
 import Icon from "../icon";
@@ -81,11 +82,25 @@ const styles = {
     marginTop: "25px",
     maxWidth: "410px",
     width: "100%",
+    flexWrap: "wrap",
   },
 
   input: {
     borderWidth: 0,
     WebkitAppearance: "none",
+    flex: "0 1 60%",
+    paddingTop: "1em",
+    paddingRight: "1em",
+    paddingBottom: ".5em",
+    paddingLeft: "1em",
+  },
+
+  checkbox: {
+    flex: "0 1 100%",
+  },
+
+  button: {
+    flex: "0 1 40%",
   },
 
   reset: {
@@ -169,8 +184,6 @@ class Newsletter extends Component {
 
     const formattedData = Newsletter.formatFormData({
       [this.props.signup.vars]: "true",
-      "sailthru[editable]": "1",
-      "sailthru[email_template]": this.props.signup.email_template,
       "sailthru[source]": this.props.signup.source,
       "sailthru[opt_in]": "on",
       "sailthru[email]": this.state.email,
@@ -221,6 +234,7 @@ class Newsletter extends Component {
       placeholder,
       cta,
       confirmation,
+      legalOptinLabel,
       style: overrideStyles,
     } = this.props;
 
@@ -282,6 +296,7 @@ class Newsletter extends Component {
                 action="//www.lonelyplanet.com/newsletter"
                 onSubmit={this.handleSubmit}
               >
+
                 <Input
                   type="email"
                   label="email"
@@ -302,6 +317,18 @@ class Newsletter extends Component {
                   {!this.state.waiting && cta}
                   {this.state.waiting && <Icon.Loading />}
                 </Button>
+
+                <Checkbox
+                  id="idhere"
+                  label={legalOptinLabel}
+                  type="checkbox"
+                  style={[
+                    styles.input,
+                    styles.checkbox,
+                  ]}
+                  value="value"
+                  name="name"
+                />
               </form>
             </div>
           }
@@ -333,9 +360,9 @@ Newsletter.propTypes = {
   }),
   signup: PropTypes.shape({
     vars: PropTypes.string,
-    email_template: PropTypes.string,
     source: PropTypes.string,
   }),
+  legalOptinLabel: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
 };
 
@@ -351,9 +378,13 @@ Newsletter.defaultProps = {
   },
   signup: {
     vars: "sailthru[vars][sf_LP_Editorial_Newsletter]",
-    email_template: "Welcome email",
     source: "homepage",
   },
+  legalOptin: {
+    label: "Thanks for signing up!",
+  },
+  legalOptinLabel: ["Tick to opt-in. Opt out at any time via the 'unsubscribe' link in the footer of the emails. View our ", <a href="http://www.lonelyplanet.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">privacy policy</a>, "."],
 };
+
 
 export default radium(Newsletter);
