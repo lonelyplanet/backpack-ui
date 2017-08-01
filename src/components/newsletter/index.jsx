@@ -1,9 +1,10 @@
 import React, { PropTypes, Component } from "react";
-import radium from "radium";
+import radium, { Style } from "radium";
 import axios from "axios";
 import Recaptcha from "react-recaptcha";
 import { color, media } from "../../../settings.json";
 import font from "../../utils/font";
+import colors from "../../styles/colors";
 import Heading from "../heading";
 import Input from "../form/input";
 import Checkbox from "../checkbox";
@@ -27,6 +28,8 @@ const styles = {
     flexDirection: "column",
     flexShrink: 1,
     justifyContent: "center",
+    paddingBottom: "48px",
+    paddingTop: "48px",
     width: "100%",
   },
 
@@ -78,29 +81,29 @@ const styles = {
   },
 
   form: {
-    display: "flex",
     marginTop: "25px",
     maxWidth: "410px",
     width: "100%",
-    flexWrap: "wrap",
+  },
+
+  inputFieldset: {
+    display: "flex",
+    width: "100%",
   },
 
   input: {
     borderWidth: 0,
     WebkitAppearance: "none",
-    flex: "0 1 60%",
-    paddingTop: "1em",
-    paddingRight: "1em",
-    paddingBottom: ".5em",
-    paddingLeft: "1em",
+    paddingBottom: `${10 / 13}em`,
+  },
+
+  checkboxFieldset: {
+    marginTop: "32px",
   },
 
   checkbox: {
-    flex: "0 1 100%",
-  },
-
-  button: {
-    flex: "0 1 40%",
+    display: "block",
+    width: "100%",
   },
 
   reset: {
@@ -122,7 +125,6 @@ class Newsletter extends Component {
 
     return str.join("&");
   }
-
 
   constructor(props) {
     super(props);
@@ -256,6 +258,28 @@ class Newsletter extends Component {
           overrideStyles && overrideStyles,
         ]}
       >
+        <Style
+          scopeSelector=".Newsletter"
+          rules={{
+            ".Checkbox label": {
+              color: `${colors.textSecondary} !important`,
+              fontSize: "9px !important",
+              height: "auto !important",
+              lineHeight: `${(16 / 9)} !important`,
+              textAlign: "left !important",
+            },
+            ".Checkbox span:first-of-type": {
+              marginTop: "2px",
+              padding: "0 !important",
+            },
+            ".Checkbox label span + span": {
+              lineHeight: "inherit !important",
+              paddingRight: "8px",
+              paddingTop: "0 !important",
+            },
+          }}
+        />
+
         <Container style={styles.container}>
           <Heading
             level={2}
@@ -306,41 +330,41 @@ class Newsletter extends Component {
                 action="//www.lonelyplanet.com/newsletter"
                 onSubmit={() => this.handleSubmit()}
               >
+                <div style={styles.inputFieldset}>
+                  <Input
+                    type="email"
+                    label="email"
+                    placeholder={placeholder}
+                    required
+                    id="newsletter-email"
+                    name="sailthru[email]"
+                    customStyles={styles.input}
+                    onChange={this.handleInput}
+                  />
 
-                <Input
-                  type="email"
-                  label="email"
-                  placeholder={placeholder}
-                  required
-                  id="newsletter-email"
-                  name="sailthru[email]"
-                  customStyles={styles.input}
-                  onChange={this.handleInput}
-                />
+                  <Button
+                    color="blue"
+                    size="small"
+                    disabled={this.state.disabled}
+                    customStyles={styles.button}
+                  >
+                    {!this.state.waiting && cta}
+                    {this.state.waiting && <Icon.Loading />}
+                  </Button>
+                </div>
 
-                <Button
-                  color="blue"
-                  size="small"
-                  disabled={this.state.disabled}
-                  customStyles={styles.button}
-                >
-                  {!this.state.waiting && cta}
-                  {this.state.waiting && <Icon.Loading />}
-                </Button>
-
-                <Checkbox
-                  id="legalOptIn"
-                  label={legalOptInLabel}
-                  style={[
-                    styles.input,
-                    styles.checkbox,
-                  ]}
-                  checked={this.state.acceptLegalOptIn}
-                  onClick={this.handleOptIn}
-                  value="legalOptIn"
-                  name="legalOptIn"
-                  required
-                />
+                <div style={styles.checkboxFieldset}>
+                  <Checkbox
+                    id="legalOptIn"
+                    label={legalOptInLabel}
+                    style={styles.checkbox}
+                    checked={this.state.acceptLegalOptIn}
+                    onClick={this.handleOptIn}
+                    value="legalOptIn"
+                    name="legalOptIn"
+                    required
+                  />
+                </div>
               </form>
             </div>
           }
