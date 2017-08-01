@@ -75,6 +75,7 @@ class CheckboxComponent extends Component {
       size,
       name,
       label,
+      required,
       rounded,
       style,
     } = this.props;
@@ -154,6 +155,7 @@ class CheckboxComponent extends Component {
             value={value}
             name={_.kebabCase(name)}
             onClick={onClick}
+            required={required}
           />
         </label>
       </span>
@@ -169,6 +171,7 @@ CheckboxComponent.propTypes = {
   checked: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf([16, 24, 32]),
+  required: PropTypes.string,
   rounded: PropTypes.bool,
   style: propTypes.style,
 };
@@ -177,6 +180,7 @@ CheckboxComponent.defaultProps = {
   checked: false,
   onClick: null,
   size: 16,
+  required: "",
   rounded: false,
 };
 

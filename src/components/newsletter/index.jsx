@@ -319,15 +319,16 @@ class Newsletter extends Component {
                 </Button>
 
                 <Checkbox
-                  id="idhere"
+                  id="legalOptin"
                   label={legalOptinLabel}
                   type="checkbox"
                   style={[
                     styles.input,
                     styles.checkbox,
                   ]}
-                  value="value"
-                  name="name"
+                  value="legalOptin"
+                  name="legalOptin"
+                  required="required"
                 />
               </form>
             </div>
