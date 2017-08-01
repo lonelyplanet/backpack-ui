@@ -141,7 +141,7 @@ class Newsletter extends Component {
     };
 
     this.handleInput = this.handleInput.bind(this);
-    this.handleOptin = this.handleOptin.bind(this);
+    this.handleOptIn = this.handleOptIn.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resetForm = this.resetForm.bind(this);
     this.submitRequest = this.submitRequest.bind(this);
@@ -173,7 +173,7 @@ class Newsletter extends Component {
     });
   }
 
-  handleOptin() {
+  handleOptIn() {
     this.setState({
       acceptLegalOptIn: !this.state.acceptLegalOptIn,
     });
@@ -244,7 +244,7 @@ class Newsletter extends Component {
       placeholder,
       cta,
       confirmation,
-      legalOptinLabel,
+      legalOptInLabel,
       style: overrideStyles,
     } = this.props;
 
@@ -329,16 +329,16 @@ class Newsletter extends Component {
                 </Button>
 
                 <Checkbox
-                  id="legalOptin"
-                  label={legalOptinLabel}
+                  id="legalOptIn"
+                  label={legalOptInLabel}
                   style={[
                     styles.input,
                     styles.checkbox,
                   ]}
                   checked={this.state.acceptLegalOptIn}
-                  onClick={this.handleOptin}
-                  value="legalOptin"
-                  name="legalOptin"
+                  onClick={this.handleOptIn}
+                  value="legalOptIn"
+                  name="legalOptIn"
                   required="required"
                 />
               </form>
@@ -374,7 +374,7 @@ Newsletter.propTypes = {
     vars: PropTypes.string,
     source: PropTypes.string,
   }),
-  legalOptinLabel: PropTypes.string,
+  legalOptInLabel: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
 };
 
@@ -392,8 +392,7 @@ Newsletter.defaultProps = {
     vars: "sailthru[vars][sf_LP_Editorial_Newsletter]",
     source: "homepage",
   },
-  legalOptinLabel: ["Tick to opt-in. Opt out at any time via the 'unsubscribe' link in the footer of the emails. View our ", <a href="http://www.lonelyplanet.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">privacy policy</a>, "."],
+  legalOptInLabel: ["Tick to opt-in. Opt out at any time via the “unsubscribe” link in the footer of the emails. View our ", <a href="http://www.lonelyplanet.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">privacy policy</a>, "."],
 };
-
 
 export default radium(Newsletter);
