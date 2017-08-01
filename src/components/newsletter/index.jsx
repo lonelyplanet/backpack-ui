@@ -141,8 +141,8 @@ class Newsletter extends Component {
     };
 
     this.handleInput = this.handleInput.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOptin = this.handleOptin.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.resetForm = this.resetForm.bind(this);
     this.submitRequest = this.submitRequest.bind(this);
     this.recaptchCallback = this.recaptchCallback.bind(this);
@@ -168,7 +168,9 @@ class Newsletter extends Component {
 
   handleInput(event) {
     const validEmail = event.target.validity.valid;
-    this.setState({ disabled: !validEmail });
+    this.setState({
+      disabled: !validEmail,
+    });
   }
 
   handleOptin() {
@@ -337,7 +339,7 @@ class Newsletter extends Component {
                   onClick={this.handleOptin}
                   value="legalOptin"
                   name="legalOptin"
-                  // required="required"
+                  required="required"
                 />
               </form>
             </div>
@@ -389,9 +391,6 @@ Newsletter.defaultProps = {
   signup: {
     vars: "sailthru[vars][sf_LP_Editorial_Newsletter]",
     source: "homepage",
-  },
-  legalOptin: {
-    label: "Thanks for signing up!",
   },
   legalOptinLabel: ["Tick to opt-in. Opt out at any time via the 'unsubscribe' link in the footer of the emails. View our ", <a href="http://www.lonelyplanet.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">privacy policy</a>, "."],
 };
