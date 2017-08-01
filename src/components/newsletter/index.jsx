@@ -137,10 +137,12 @@ class Newsletter extends Component {
       error: {},
       loading: false,
       waiting: false,
+      acceptLegalOptIn: false,
     };
 
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleOptin = this.handleOptin.bind(this);
     this.resetForm = this.resetForm.bind(this);
     this.submitRequest = this.submitRequest.bind(this);
     this.recaptchCallback = this.recaptchCallback.bind(this);
@@ -167,6 +169,12 @@ class Newsletter extends Component {
   handleInput(event) {
     const validEmail = event.target.validity.valid;
     this.setState({ disabled: !validEmail });
+  }
+
+  handleOptin() {
+    this.setState({
+      acceptLegalOptIn: !this.state.acceptLegalOptIn,
+    });
   }
 
   handleSubmit(event) {
@@ -294,7 +302,7 @@ class Newsletter extends Component {
               <form
                 style={styles.form}
                 action="//www.lonelyplanet.com/newsletter"
-                onSubmit={this.handleSubmit}
+                onSubmit={() => this.handleSubmit()}
               >
 
                 <Input
@@ -321,14 +329,15 @@ class Newsletter extends Component {
                 <Checkbox
                   id="legalOptin"
                   label={legalOptinLabel}
-                  type="checkbox"
                   style={[
                     styles.input,
                     styles.checkbox,
                   ]}
+                  checked={this.state.acceptLegalOptIn}
+                  onClick={this.handleOptin}
                   value="legalOptin"
                   name="legalOptin"
-                  required="required"
+                  // required="required"
                 />
               </form>
             </div>
