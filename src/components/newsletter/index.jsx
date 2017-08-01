@@ -236,6 +236,7 @@ class Newsletter extends Component {
       error: {},
       loading: false,
       waiting: false,
+      acceptLegalOptIn: false,
     });
   }
 
