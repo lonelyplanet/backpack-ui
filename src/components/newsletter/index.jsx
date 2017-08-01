@@ -187,7 +187,7 @@ class Newsletter extends Component {
     this.setState({
       loading: true,
       showCaptcha: true,
-      email: event.currentTarget.elements["sailthru[email]"].value,
+      email: event.currentTarget.elements["newsletter[email]"].value,
     });
   }
 
@@ -196,9 +196,9 @@ class Newsletter extends Component {
 
     const formattedData = Newsletter.formatFormData({
       [this.props.signup.vars]: "true",
-      "sailthru[source]": this.props.signup.source,
-      "sailthru[opt_in]": "on",
-      "sailthru[email]": this.state.email,
+      "newsletter[source]": this.props.signup.source,
+      "newsletter[legalOptIn]": this.state.acceptLegalOptIn,
+      "newsletter[email]": this.state.email,
       "g-recaptcha-response": reCaptchaResponse,
     });
 
@@ -328,7 +328,7 @@ class Newsletter extends Component {
               <form
                 style={styles.form}
                 action="//www.lonelyplanet.com/newsletter"
-                onSubmit={() => this.handleSubmit()}
+                onSubmit={this.handleSubmit}
               >
                 <div style={styles.inputFieldset}>
                   <Input
@@ -337,7 +337,7 @@ class Newsletter extends Component {
                     placeholder={placeholder}
                     required
                     id="newsletter-email"
-                    name="sailthru[email]"
+                    name="newsletter[email]"
                     customStyles={styles.input}
                     onChange={this.handleInput}
                   />
@@ -413,7 +413,7 @@ Newsletter.defaultProps = {
     text: "We just sent a confirmation email to",
   },
   signup: {
-    vars: "sailthru[vars][sf_LP_Editorial_Newsletter]",
+    vars: "newsletter[LP_Editorial_Newsletter]",
     source: "homepage",
   },
   legalOptInLabel: ["Tick to opt-in. Opt out at any time via the “unsubscribe” link in the footer of the emails. View our ", <a href="http://www.lonelyplanet.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">privacy policy</a>, "."],
