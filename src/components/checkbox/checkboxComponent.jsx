@@ -171,7 +171,7 @@ CheckboxComponent.propTypes = {
   checked: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf([16, 24, 32]),
-  required: PropTypes.string,
+  required: PropTypes.bool,
   rounded: PropTypes.bool,
   style: propTypes.style,
 };
@@ -180,7 +180,7 @@ CheckboxComponent.defaultProps = {
   checked: false,
   onClick: null,
   size: 16,
-  required: "",
+  required: false,
   rounded: false,
 };
 
