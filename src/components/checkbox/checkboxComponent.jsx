@@ -155,7 +155,7 @@ class CheckboxComponent extends Component {
             value={value}
             name={_.kebabCase(name)}
             onClick={onClick}
-            required={required}
+            required={required && !checked}
           />
         </label>
       </span>
