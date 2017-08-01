@@ -339,7 +339,7 @@ class Newsletter extends Component {
                   onClick={this.handleOptIn}
                   value="legalOptIn"
                   name="legalOptIn"
-                  required="required"
+                  required
                 />
               </form>
             </div>
