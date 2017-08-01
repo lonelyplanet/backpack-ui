@@ -1398,7 +1398,6 @@ storiesOf("Newsletter", module)
           email_template: "Welcome email",
           source: "homepage",
         })}
-        legalOptInLabel={text("Legal Opt-In", ["Tick to opt-in. Opt out at any time via the “unsubscribe” link in the footer of the emails. View our ", <a href="http://www.lonelyplanet.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">privacy policy</a>, "."])}
       />
     </StyleRoot>
   ));
