@@ -1394,7 +1394,7 @@ storiesOf("Newsletter", module)
           text: "We just sent a confirmation email to",
         })}
         signup={object("Signup data", {
-          vars: "sailthru[vars][sf_LP_Editorial_Newsletter]",
+          vars: "newsletter[LP_Editorial_Newsletter]",
           email_template: "Welcome email",
           source: "homepage",
         })}

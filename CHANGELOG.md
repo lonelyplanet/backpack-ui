@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.28.1"></a>
+## [4.28.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.28.0...v4.28.1) (2017-08-02)
+
+
+### Bug Fixes
+
+* Add opt-in checkbox to newsletter component ([#390](https://github.com/lonelyplanet/backpack-ui/issues/390)) ([90124f8](https://github.com/lonelyplanet/backpack-ui/commit/90124f8))
+
+
+
 <a name="4.28.0"></a>
 # [4.28.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.27.3...v4.28.0) (2017-07-28)
 
