@@ -28,17 +28,6 @@ const accentPurple = "#9d69c9";
 const accentRed = "#da0909";
 const accentYellow = "#ffc83f";
 
-// POI colors
-// These are deprecated and will be removed in the next major release
-const poiGreen = accentGreen;
-const poiBlue = accentBlue;
-const poiYellow = accentYellow;
-const poiRed = accentRed;
-const poiPink = accentPink;
-const poiPurple = accentPurple;
-const poiGray = accentGray;
-const poiDefault = "#a8a9ae";
-
 // Social colors
 const socialFacebook = "#3a5999";
 const socialFacebookMessenger = "#1472fb";
@@ -69,15 +58,6 @@ export default {
   accentPurple,
   accentRed,
   accentYellow,
-
-  poiGreen,
-  poiBlue,
-  poiYellow,
-  poiRed,
-  poiPink,
-  poiPurple,
-  poiGray,
-  poiDefault,
 
   socialFacebook,
   socialFacebookMessenger,

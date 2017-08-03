@@ -1,6 +1,7 @@
 import React from "react";
 import radium from "radium";
 import { color } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
 import iconFromString from "../../utils/icon";
 import Icon from "../icon";
@@ -9,51 +10,51 @@ function mapMarker({ poiType, size, hideShadow, inverse }) {
   const types = {
     sleeping: {
       icon: "Sleep",
-      color: color.poiSleep,
+      color: colors.accentPurple,
     },
     drinking_nightlife: {
       icon: "Drink",
-      color: color.poiDrink,
+      color: colors.accentBlue,
     },
     transport: {
       icon: "Transport",
-      color: color.poiTransport,
+      color: colors.accentGray,
     },
     activities: {
       icon: "See",
-      color: color.poiSee,
+      color: colors.accentRed,
     },
     tours: {
       icon: "See",
-      color: color.poiSee,
+      color: colors.accentRed,
     },
     entertainment: {
       icon: "Play",
-      color: color.poiPlay,
+      color: colors.accentYellow,
     },
     shopping: {
       icon: "Shop",
-      color: color.poiShop,
+      color: colors.accentPink,
     },
     eating: {
       icon: "Eat",
-      color: color.poiEat,
+      color: colors.accentGreen,
     },
     restaurants: {
       icon: "Eat",
-      color: color.poiEat,
+      color: colors.accentGreen,
     },
     sights: {
       icon: "See",
-      color: color.poiSee,
+      color: colors.accentRed,
     },
     info: {
       icon: "Default",
-      color: color.poiDefault,
+      color: "#a8a9ae",
     },
     festivals_events: {
       icon: "Play",
-      color: color.poiPlay,
+      color: colors.accentYellow,
     },
   };
 

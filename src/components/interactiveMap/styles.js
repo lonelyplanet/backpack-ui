@@ -1,6 +1,7 @@
 import { color, components, timing, zIndex } from "../../../settings.json";
 import Flyout from "../flyout";
 import { rgb } from "../../utils/color";
+import colors from "../../styles/colors";
 
 const flyoutPopupStyles = Flyout.styles.type.mapPopup;
 
@@ -192,14 +193,14 @@ function markerStylesMixin(markerColor, mode, state) {
 }
 
 const markerColors = {
-  eat: color.poiEat,
-  drink: color.poiDrink,
-  play: color.poiPlay,
-  see: color.poiSee,
-  shop: color.poiShop,
-  sleep: color.poiSleep,
-  transport: color.poiTransport,
-  default: color.poiDefault,
+  eat: colors.accentGreen,
+  drink: colors.accentBlue,
+  play: colors.accentYellow,
+  see: colors.accentRed,
+  shop: colors.accentPink,
+  sleep: colors.accentPurple,
+  transport: colors.accentGray,
+  default: "#a8a9ae",
   center: color.blue,
 };
 
