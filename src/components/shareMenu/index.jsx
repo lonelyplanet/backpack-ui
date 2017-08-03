@@ -1,10 +1,10 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import ReactDOM from "react-dom";
 import styles from "./styles";
 import IconButton from "../iconButton";
 import Flyout from "../flyout";
 import ShareMenuItem from "./item";
+import clickOutside from "../../hoc/clickOutside";
 
 class ShareMenu extends React.Component {
   constructor() {
@@ -20,12 +20,10 @@ class ShareMenu extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener("click", this.handleClickOutside);
     document.addEventListener("keydown", this.handleKeydown);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("click", this.handleClickOutside);
     document.removeEventListener("keydown", this.handleKeydown);
   }
 
@@ -35,17 +33,10 @@ class ShareMenu extends React.Component {
     });
   }
 
-  handleClickOutside(event) {
-    /* eslint-disable */
-    const button = ReactDOM.findDOMNode(this._button);
-    const menu = ReactDOM.findDOMNode(this._menu);
-    /* eslint-enable */
-
-    if (button.contains(event.target)) {
-      return;
-    } else if (!menu.contains(event.target) && !this.state.optionsHidden) {
-      this.toggleOptions();
-    }
+  handleClickOutside() {
+    this.setState({
+      optionsHidden: true,
+    });
   }
 
   handleKeydown(event) {
@@ -91,6 +82,7 @@ class ShareMenu extends React.Component {
       <div
         className="ShareMenu"
         style={style.container}
+        ref={this.props.innerRef}
       >
         <IconButton
           className="ShareMenu-button"
@@ -98,7 +90,6 @@ class ShareMenu extends React.Component {
           label="Share this article on Twitter, Facebook, or email"
           owns="share-menu-options"
           onClick={this.toggleOptions}
-          ref={(node) => { this._button = node; }}
         />
 
         <div
@@ -106,7 +97,6 @@ class ShareMenu extends React.Component {
           id="share-menu-options"
           style={style.options}
           aria-hidden={this.state.optionsHidden}
-          ref={(node) => { this._menu = node; }}
         >
           <Flyout arrow={flyoutArrow} fill>
             {Object.keys(networks).map((network, index) => (
@@ -126,6 +116,7 @@ class ShareMenu extends React.Component {
 }
 
 ShareMenu.propTypes = {
+  innerRef: PropTypes.func.isRequired,
   networks: PropTypes.objectOf(PropTypes.object),
   onClick: PropTypes.func,
   menuPosition: PropTypes.oneOf([
@@ -143,4 +134,4 @@ ShareMenu.defaultProps = {
 
 ShareMenu.styles = styles;
 
-export default radium(ShareMenu);
+export default clickOutside(radium(ShareMenu));
