@@ -46,7 +46,12 @@ class ShareMenu extends React.Component {
   }
 
   render() {
-    const { networks, onClick, menuPosition } = this.props;
+    const {
+      innerRef,
+      networks,
+      onClick,
+      menuPosition,
+    } = this.props;
 
     const style = {
       container: [styles.container.base],
@@ -82,7 +87,7 @@ class ShareMenu extends React.Component {
       <div
         className="ShareMenu"
         style={style.container}
-        ref={this.props.innerRef}
+        ref={innerRef}
       >
         <IconButton
           className="ShareMenu-button"
