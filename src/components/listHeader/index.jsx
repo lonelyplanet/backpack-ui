@@ -77,8 +77,8 @@ const styles = {
 };
 
 const ListHeader = ({
-  href,
-  src,
+  profileHref,
+  avatarSrc,
   username,
   title,
   items,
@@ -93,8 +93,8 @@ const ListHeader = ({
       style={[styles.header, style]}
     >
       <AvatarMarker
-        href={href}
-        src={src}
+        profileHref={profileHref}
+        avatarSrc={avatarSrc}
         username={username}
         style={styles.avatarMarker}
       />
@@ -113,8 +113,8 @@ const ListHeader = ({
 };
 
 ListHeader.propTypes = {
-  href: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
+  profileHref: PropTypes.string.isRequired,
+  avatarSrc: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   items: PropTypes.objectOf(PropTypes.array).isRequired,

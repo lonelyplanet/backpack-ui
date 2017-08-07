@@ -1016,30 +1016,11 @@ storiesOf("List Header", module)
   .add("Default", () => (
     <StyleRoot>
       <ListHeader
-        href={text("URL", "/profile")}
-        src={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+        profileHref={text("Profile URL", "/profile")}
+        avatarSrc={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
         username={text("Username", "Rizzo the Rat")}
         title={text("Title", "Europe Summer Highlights")}
         items={[
-          "oj",
-          "waffles",
-          "coffee",
-          "syrup",
-          "pancakes",
-          "bacon",
-          "eggs",
-          "sausage",
-          "hashbrowns",
-          "pancakes",
-          "bacon",
-          "eggs",
-          "sausage",
-          "hashbrowns",
-          "pancakes",
-          "bacon",
-          "eggs",
-          "sausage",
-          "hashbrowns",
           "pancakes",
           "bacon",
           "eggs",
