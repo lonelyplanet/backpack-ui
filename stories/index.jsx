@@ -1029,8 +1029,8 @@ storiesOf("List Button", module)
       onClick={action("List Button clicked")}
       size={select("Size", ["", "large"], "")}
       marked={boolean("Marked", false)}
-      icon={select("Icon", Object.keys(Icon), "ListBookmark")}
-      markedIcon={select("Marked Icon", Object.keys(Icon), "ListBookmarked")}
+      icon={select("Icon", Object.keys(Icon), "Bookmark")}
+      markedIcon={select("Marked Icon", Object.keys(Icon), "Bookmarked")}
     />
   ));
 
