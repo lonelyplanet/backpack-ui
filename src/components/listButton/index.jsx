@@ -1,10 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { fontSizeHeading4, fontSizeHeading5 } from "../../styles/typography";
+import { fontSizeHeading5 } from "../../styles/typography";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
-import Icon from "../icon";
+import { rgba } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
+import iconFromString from "../../utils/icon";
+import { outline } from "../../utils/mixins";
 
 const styles = {
   alignItems: "center",
@@ -20,16 +23,19 @@ const styles = {
   justifyContent: "center",
   lineHeight: 1,
   padding: 0,
-  transition: `box-shadow ${timing.fast}`,
+  transition: `box-shadow ${timing.fast} ease-in-out`,
   width: `${(54 / fontSizeHeading5)}em`,
 
   ":active": {
-    boxShadow: `rgba(0, 0, 0, 0.2) 0 ${(4 / fontSizeHeading5) / 3}em ${(16 / fontSizeHeading5) / 2}em`,
+    boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${(4 / fontSizeHeading5) / 3}em ${(16 / fontSizeHeading5) / 2}em`,
   },
+
+  ":focus": Object.assign({}, {
+    boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${(4 / fontSizeHeading5) / 3}em ${(16 / fontSizeHeading5) / 2}em`,
+  }, outline()),
 };
 
 const iconProps = {
-  label: "Bookmark",
   style: {
     display: "block",
   },
@@ -37,40 +43,39 @@ const iconProps = {
 
 const ListButton = ({
   onClick,
-  size,
-  marked,
   icon,
-  markedIcon,
+  label,
+  owns,
   style,
-}) => {
-  const IconType = Icon[marked ? markedIcon : icon];
-
-  return (
-    <button
-      className="ListButton"
-      style={[
-        styles,
-        size === "large" && { fontSize: `${fontSizeHeading4}px` },
-        style,
-      ]}
-      onClick={onClick}
-    >
-      <IconType {...iconProps} />
-    </button>
-  );
-};
+}) => (
+  <button
+    className="ListButton"
+    style={[styles, style]}
+    onClick={onClick}
+    title={label}
+    aria-label={label}
+    aria-owns={owns}
+  >
+    {iconFromString(icon, iconProps)}
+  </button>
+);
 
 ListButton.propTypes = {
   onClick: PropTypes.func.isRequired,
-  size: PropTypes.oneOf(["", "large"]),
-  marked: PropTypes.bool,
-  icon: PropTypes.oneOf(Object.keys(Icon)).isRequired,
-  markedIcon: PropTypes.oneOf(Object.keys(Icon)),
-  style: PropTypes.objectOf(PropTypes.object),
+  icon: PropTypes.oneOf([
+    "Bookmark",
+    "BookmarkActive",
+    "Ellipsis",
+  ]).isRequired,
+  label: PropTypes.string,
+  owns: PropTypes.string,
+  style: propTypes.style,
 };
 
 ListButton.defaultProps = {
-  icon: "Bookmark",
+  label: null,
+  owns: null,
+  style: null,
 };
 
 export default radium(ListButton);
