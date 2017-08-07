@@ -51,7 +51,7 @@ const AvatarMarker = ({ href, src, username, style }) => (
       size={24}
     />
 
-    <span style={styles.username}>
+    <span style={[styles.username, style.username]}>
       {username}
     </span>
   </a>
