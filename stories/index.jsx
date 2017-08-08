@@ -779,6 +779,7 @@ storiesOf("Flyout", module)
       size={select("Size", ["small", "medium"], "small")}
       shadow={select("Shadow", ["small", "large"], "small")}
       arrow={select("Arrow direction", ["up", "down", "left", "right"], "down")}
+      arrowPosition={select("Arrow alignment", ["", "left", "right"], "")}
       removePadding={boolean("Remove padding", false)}
       fill={boolean("Fill", false)}
     />
