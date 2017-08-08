@@ -1,28 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, zIndex } from "../../../settings.json";
-import { rgb } from "../../utils/color";
+import colors from "../../styles/colors";
+import zIndex from "../../styles/zIndex";
+import { rgba } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   container: {
     base: {
-      backgroundColor: color.white,
+      backgroundColor: colors.bgPrimary,
       borderRadius: "4px",
       display: "inline-block",
       lineHeight: 1,
       padding: `${10 / 13}em ${16 / 13}em ${8 / 13}em`,
       position: "relative",
-      zIndex: zIndex.globalHeader,
+      zIndex: zIndex.popup,
     },
 
     shadow: {
       small: {
-        boxShadow: `0 ${2 / 13}em ${13 / 13}em rgba(${rgb(color.black)}, .2)`,
+        boxShadow: `0 ${2 / 13}em ${13 / 13}em ${rgba(colors.shadowPrimary, 0.2)}`,
       },
 
       large: {
-        boxShadow: `0 ${36 / 13}em ${57 / 13}em rgba(${rgb(color.black)}, .3)`,
+        boxShadow: `0 ${36 / 13}em ${57 / 13}em ${rgba(colors.shadowPrimary, 0.3)}`,
       },
     },
 
@@ -48,19 +50,19 @@ const styles = {
 
   arrow: {
     base: {
-      color: color.white,
+      color: colors.bgPrimary,
       position: "absolute",
     },
 
     direction: {
       up: {
         height: `${6 / 13}em`,
-        top: `${-5.5 / 13}em`,
+        top: `${-5 / 13}em`,
         width: "100%",
       },
 
       down: {
-        bottom: `${-5.5 / 13}em`,
+        bottom: `${-5 / 13}em`,
         height: `${6 / 13}em`,
         width: "100%",
       },
@@ -91,14 +93,14 @@ const styles = {
           bottom: `${-2 / 13}em`,
           left: "50%",
           marginLeft: `${-4.5 / 13}em`,
-          textShadow: `0 ${-1 / 13}em ${1 / 13}em rgba(${rgb(color.black)}, .05)`,
+          textShadow: `0 ${-1 / 13}em ${1 / 13}em ${rgba(colors.shadowPrimary, 0.05)}`,
           transform: "scaleX(2)",
         },
 
         down: {
           left: "50%",
           marginLeft: `${-4.5 / 13}em`,
-          textShadow: `0 ${1 / 13}em ${1 / 13}em rgba(${rgb(color.black)}, .05)`,
+          textShadow: `0 ${1 / 13}em ${1 / 13}em ${rgba(colors.shadowPrimary, 0.05)}`,
           top: `${-1 / 13}em`,
           transform: "scaleX(2)",
         },
@@ -107,7 +109,7 @@ const styles = {
           left: `${-1 / 13}em`,
           marginTop: `${-4 / 13}em`,
           top: "50%",
-          textShadow: `${-1 / 13}em 0 ${1 / 13}em rgba(${rgb(color.black)}, .05)`,
+          textShadow: `${-1 / 13}em 0 ${1 / 13}em ${rgba(colors.shadowPrimary, 0.05)}`,
           transform: "scaleY(2)",
         },
 
@@ -115,7 +117,7 @@ const styles = {
           marginTop: `${-4 / 13}em`,
           right: `${-1 / 13}em`,
           top: "50%",
-          textShadow: `${1 / 13}em 0 ${1 / 13}em rgba(${rgb(color.black)}, .05)`,
+          textShadow: `${1 / 13}em 0 ${1 / 13}em ${rgba(colors.shadowPrimary, 0.05)}`,
           transform: "scaleY(2)",
         },
       },
@@ -136,12 +138,30 @@ const styles = {
         top: 0,
       },
     },
+
+    position: {
+      right: {
+        left: "auto",
+        marginLeft: 0,
+        marginRight: 0,
+        right: "28px",
+        width: "auto",
+      },
+
+      left: {
+        left: "28px",
+        marginLeft: 0,
+        marginRight: 0,
+        right: "auto",
+        width: "auto",
+      },
+    },
   },
 
   type: {
     dropdown: {
       container: {
-        boxShadow: `0 ${30 / 18}em ${90 / 18}em rgba(${rgb(color.black)}, .36)`,
+        boxShadow: `0 ${30 / 18}em ${90 / 18}em ${rgba(colors.shadowPrimary, 0.36)}`,
         fontSize: "18px",
         padding: `${20 / 18}em ${40 / 18}em`,
       },
@@ -153,7 +173,7 @@ const styles = {
     mapPopup: {
       container: {
         borderRadius: 0,
-        boxShadow: `0 ${17 / 11}em ${27 / 11}em rgba(${rgb(color.titleGray)}, .36)`,
+        boxShadow: `0 ${17 / 11}em ${27 / 11}em ${rgba(colors.textPrimary, 0.36)}`,
         display: "inline-block",
         fontSize: "11px",
         fontWeight: 600,
@@ -174,6 +194,7 @@ const styles = {
 function Flyout({
   size,
   arrow,
+  arrowPosition,
   fill,
   children,
   displayType,
@@ -218,6 +239,8 @@ function Flyout({
           arrow && styles.arrow.direction[arrow],
           (arrow === "up" || arrow === "down") && styles.arrow.center.horizontal,
           (arrow === "left" || arrow === "right") && styles.arrow.center.vertical,
+          (arrow === "up" || arrow === "down") && arrowPosition === "left" && styles.arrow.position.left,
+          (arrow === "up" || arrow === "down") && arrowPosition === "right" && styles.arrow.position.right,
           displayType && styles.type[displayType].arrow,
         ]}
       >
@@ -258,6 +281,16 @@ Flyout.propTypes = {
   ]),
 
   /**
+   * Used with up and down arrows; allows for the arrow to be offset to
+   * the left or right
+   */
+  arrowPosition: PropTypes.oneOf([
+    "",
+    "left",
+    "right",
+  ]),
+
+  /**
    * Whether or not the flyout should fill its parent's width
    */
   fill: PropTypes.bool,
@@ -287,28 +320,18 @@ Flyout.propTypes = {
   /**
    * Styles for positioning, etc.
    */
-  style: PropTypes.objectOf(
-    PropTypes.string,
-    PropTypes.number,
-  ),
+  style: propTypes.style,
 };
 
 Flyout.defaultProps = {
-  children: null,
-
   size: "small",
-
   arrow: "down",
-
+  arrowPosition: "",
   fill: false,
-
   displayType: "",
-
   shadow: "small",
-
   removePadding: false,
-
-  style: {},
+  style: null,
 };
 
 Flyout.styles = styles;
