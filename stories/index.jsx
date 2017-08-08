@@ -31,6 +31,8 @@ import AvatarUpload from "../src/components/avatarUpload";
 // Availability
 import Bookmark from "../src/components/bookmark";
 import BookmarkListAuthor from "../src/components/bookmarkListAuthor";
+import BookmarkListMenu from "../src/components/bookmarkListMenu";
+import BookmarkListMenuOption from "../src/components/bookmarkListMenu/option.jsx";
 import Breadcrumbs from "../src/components/breadcrumbs";
 import BulletDescription from "../src/components/bulletDescription";
 import Button from "../src/components/button";
@@ -442,6 +444,21 @@ storiesOf("Bookmark list author", module)
     >
       {text("Name", "Alex Butler")}
     </BookmarkListAuthor>
+  ));
+
+storiesOf("Bookmark list menu", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Center>
+      <BookmarkListMenu>
+        <BookmarkListMenuOption onClick={action("Edit click")}>Edit list</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Add click")}>Add new places</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Reorder click")}>Reorder places</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Share click")}>Share on Twitter</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Share click")}>Share on Facebook</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Copy click")}>Copy link</BookmarkListMenuOption>
+      </BookmarkListMenu>
+    </Center>
   ));
 
 storiesOf("Breadcrumbs", module)
