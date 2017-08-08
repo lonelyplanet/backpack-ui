@@ -18,6 +18,9 @@ const textPrimary = "#2c3643";
 const textSecondary = rgba(textPrimary, 0.7);
 const textOverlay = "#fff";
 
+// Shadow colors
+const shadowPrimary = "#000";
+
 // Accent colors
 const accentBlue = "#88bde7";
 const accentGray = "#b6c3ca";
@@ -67,6 +70,8 @@ export default {
   textPrimary,
   textSecondary,
   textOverlay,
+
+  shadowPrimary,
 
   accentBlue,
   accentGray,
