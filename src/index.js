@@ -57,6 +57,7 @@ export { default as ItalicText } from "./components/italicText";
 export { default as LastUpdated } from "./components/lastUpdated";
 export { default as Lede } from "./components/lede";
 export { default as ListButton } from "./components/listButton";
+export { default as ListEntry } from "./components/listEntry";
 export { default as ListHeader } from "./components/listHeader";
 export { default as ListContainer } from "./components/listContainer";
 // export { default as ListItem } from "./components/listItem";

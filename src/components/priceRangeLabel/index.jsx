@@ -4,9 +4,11 @@ import radium from "radium";
 import colors from "../../styles/colors";
 import {
   fontSizeHeading8,
+  fontSizeBodySmall,
   fontWeightMedium,
   lineHeightReset,
 } from "../../styles/typography";
+import mq from "../../styles/mq";
 import { visuallyHidden } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 
@@ -18,6 +20,10 @@ const styles = {
     fontWeight: fontWeightMedium,
     lineHeight: lineHeightReset,
     opacity: 0.5,
+
+    [`@media (min-width: ${mq.min["768"]})`]: {
+      fontSize: `${fontSizeBodySmall}px`,
+    },
   },
 
   activeSymbol: {

@@ -8,23 +8,26 @@ import {
   fontSizeBodySmall,
   fontSizeUppercase,
   fontWeightMedium,
-  fontWeightRegular,
   lineHeightHeading3,
 } from "../../styles/typography";
 import mq from "../../styles/mq";
 import font from "../../utils/font";
 import AvatarMarker from "../avatarMarker";
+import colors from "../../styles/colors";
+import { rgba } from "../../utils/color";
 
 const styles = {
   header: {
+    borderBottom: `1px solid ${colors.borderPrimary}`,
     display: "flex",
     flexFlow: "column wrap",
     padding: "32px 16px",
 
     [`@media (min-width: ${mq.min["768"]})`]: {
+      borderBottom: 0,
       flexFlow: "row wrap",
       fontSize: `${(fontSizeHeading5 + 2)}px`,
-      padding: 0,
+      padding: "0 0 24px",
     },
   },
 
@@ -43,6 +46,7 @@ const styles = {
 
     username: {
       alignSelf: "center",
+      color: rgba(colors.textPrimary, 0.5),
     },
   },
 
@@ -54,7 +58,6 @@ const styles = {
     order: 2,
 
     [`@media (min-width: ${mq.min["768"]})`]: {
-      fontWeight: fontWeightRegular,
       letterSpacing: ".6px",
       marginBottom: 0,
       width: "100%",

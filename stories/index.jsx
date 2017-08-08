@@ -79,6 +79,7 @@ import Lede from "../src/components/lede";
 // ListItemBookable
 // ListItemImage
 import ListButton from "../src/components/listButton";
+import ListEntry from "../src/components/listEntry";
 import ListHeader from "../src/components/listHeader";
 import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
@@ -1051,6 +1052,20 @@ storiesOf("List Header", module)
           "hashbrowns",
         ]}
         isPublic={boolean("Public", false)}
+      />
+    </StyleRoot>
+  ));
+
+storiesOf("List Entry", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <ListEntry
+        name={text("Name", "POI Name")}
+        category={text("Category", "Category")}
+        city={text("City", "City")}
+        note={text("Note", "This is where a nice little note goes.")}
+        value={select("Range", ["$", "$$", "$$$"], "$")}
       />
     </StyleRoot>
   ));
