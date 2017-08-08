@@ -1026,13 +1026,16 @@ storiesOf("Lede", module)
 storiesOf("List Button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <ListButton
-      onClick={action("List Button clicked")}
-      size={select("Size", ["", "large"], "")}
-      marked={boolean("Marked", false)}
-      icon={select("Icon", Object.keys(Icon), "Bookmark")}
-      markedIcon={select("Marked Icon", Object.keys(Icon), "Bookmarked")}
-    />
+    <Center>
+      <ListButton
+        onClick={action("List Button clicked")}
+        icon={select("Icon", [
+          "Bookmark",
+          "BookmarkActive",
+          "Ellipsis",
+        ], "Ellipsis")}
+      />
+    </Center>
   ));
 
 storiesOf("List Header", module)
