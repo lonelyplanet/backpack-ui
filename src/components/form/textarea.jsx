@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import styles from "./styles";
 import propTypes from "../../utils/propTypes";
@@ -42,13 +43,13 @@ function TextArea(props) {
 }
 
 TextArea.propTypes = {
-  id: React.PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 
-  label: React.PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 
-  name: React.PropTypes.string,
+  name: PropTypes.string,
 
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "tiny",
     "small",
     "medium",
@@ -56,7 +57,7 @@ TextArea.propTypes = {
     "huge",
   ]),
 
-  theme: React.PropTypes.oneOf([
+  theme: PropTypes.oneOf([
     "base",
     "light",
     "dark",

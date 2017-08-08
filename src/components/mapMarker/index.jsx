@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color } from "../../../settings.json";
 import { rgb } from "../../utils/color";
@@ -153,7 +154,7 @@ mapMarker.propTypes = {
    * A pre-defined POI type that maps to an icon; "center" is a custom value
    * that can be used to create an LP Blue marker that uses the default icon
    */
-  poiType: React.PropTypes.oneOf([
+  poiType: PropTypes.oneOf([
     "center",
     "activities",
     "drinking_nightlife",
@@ -172,18 +173,18 @@ mapMarker.propTypes = {
   /**
    * Number to define width and height
    */
-  size: React.PropTypes.number,
+  size: PropTypes.number,
 
   /**
    * Whether or not to hide the shadow on the marker; note that the "inverse"
    * marker always has a shadow, regardless of the value of this prop
    */
-  hideShadow: React.PropTypes.bool,
+  hideShadow: PropTypes.bool,
 
   /**
    * Reverse the colors; the background becomes white and the icon a color
    */
-  inverse: React.PropTypes.bool,
+  inverse: PropTypes.bool,
 };
 
 mapMarker.defaultProps = {

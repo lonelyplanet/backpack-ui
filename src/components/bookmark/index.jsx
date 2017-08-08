@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color } from "../../../settings.json";
 import Icon from "../icon";
@@ -45,7 +46,7 @@ const Bookmark = ({ onClick, size, marked, style }) => (
 );
 
 Bookmark.propTypes = {
-  onClick: PropTypes.func.isRequireed,
+  onClick: PropTypes.func.isRequired,
   size: PropTypes.oneOf(["", "large"]),
   marked: PropTypes.bool,
   style: PropTypes.objectOf(PropTypes.object),

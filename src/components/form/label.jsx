@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import settings from "../../../settings.json";
 import { rgb } from "../../utils/color";
@@ -72,18 +73,18 @@ Label.propTypes = {
   /**
    * Content for label
    */
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 
   /**
    * ID of the input that the label owns/controls
    */
-  owns: React.PropTypes.string.isRequired,
+  owns: PropTypes.string.isRequired,
 
   /**
    * Whether or not the label is floated to the left (horizontal)
    * or stacked (vertical)
    */
-  orientation: React.PropTypes.oneOf([
+  orientation: PropTypes.oneOf([
     "horizontal",
     "vertical",
   ]),
@@ -91,7 +92,7 @@ Label.propTypes = {
   /**
    * Controls the font size of the label
    */
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "",
     "small",
   ]),
@@ -99,12 +100,12 @@ Label.propTypes = {
   /**
    * Defines a type of label to apply specific styles
    */
-  type: React.PropTypes.oneOf([
+  type: PropTypes.oneOf([
     "",
     "full",
   ]),
 
-  uppercase: React.PropTypes.bool,
+  uppercase: PropTypes.bool,
 };
 
 Label.defaultProps = {

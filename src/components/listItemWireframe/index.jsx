@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { pulseOpacity } from "../../utils/keyframes";
 
@@ -57,7 +58,7 @@ function ListItemWireframe({ type }) {
 }
 
 ListItemWireframe.propTypes = {
-  type: React.PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 ListItemWireframe.defaultProps = {

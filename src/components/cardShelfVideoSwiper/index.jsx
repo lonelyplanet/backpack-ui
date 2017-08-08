@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Slider from "react-slick";
 import { grid, media, timing, zIndex } from "../../../settings.json";

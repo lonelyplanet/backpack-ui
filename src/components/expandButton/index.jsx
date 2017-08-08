@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import settings from "../../../settings.json";
 import Icon from "../icon";
@@ -75,12 +76,12 @@ ExpandButton.propTypes = {
   /**
    * Text to be placed to the right of the icon
    */
-  label: React.PropTypes.string,
+  label: PropTypes.string,
 
   /**
    * Perform an action when the button is clicked
    */
-  onClick: React.PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 ExpandButton.defaultProps = {

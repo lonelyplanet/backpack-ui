@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import { Link } from "react-router";
 import { color, media, timing, zIndex } from "../../../settings.json";
@@ -247,28 +248,28 @@ TypeSelector.propTypes = {
   /**
    * Title for Type Selector
    */
-  title: React.PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 
   /**
    * Menu Items for Type Selector
    */
-  menuItems: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  menuItems: PropTypes.arrayOf(PropTypes.object).isRequired,
 
   /**
    * Method to run when the Link component is clicked
    */
-  onClick: React.PropTypes.func,
+  onClick: PropTypes.func,
 
   /**
    * Whether or not to use the mobile layout
    */
-  mobile: React.PropTypes.bool,
+  mobile: PropTypes.bool,
 
-  style: React.PropTypes.objectOf(
-    React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number,
-      React.PropTypes.object,
+  style: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
     ]),
   ),
 };

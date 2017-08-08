@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import upperFirst from "lodash/upperFirst";
 import styles from "./styles";
@@ -26,14 +27,14 @@ const ShareMenuItem = ({ network, href, label, onClick }) => (
 );
 
 ShareMenuItem.propTypes = {
-  network: React.PropTypes.oneOf([
+  network: PropTypes.oneOf([
     "twitter",
     "facebook",
     "email",
   ]).isRequired,
-  href: React.PropTypes.string.isRequired,
-  label: React.PropTypes.string.isRequired,
-  onClick: React.PropTypes.func,
+  href: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 };
 
 ShareMenuItem.defaultProps = {

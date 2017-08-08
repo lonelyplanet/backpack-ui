@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
 import upperFirst from "lodash/upperFirst";
@@ -120,17 +121,17 @@ MoreLink.propTypes = {
   /**
    * Content for the link
    */
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 
   /**
    * Where the link should point to
    */
-  href: React.PropTypes.string,
+  href: PropTypes.string,
 
   /**
    * Adjusts the font size
    */
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "",
     "small",
   ]),
@@ -138,35 +139,35 @@ MoreLink.propTypes = {
   /**
    * Fires onclick function
    */
-  onClick: React.PropTypes.func,
+  onClick: PropTypes.func,
 
   /**
    * Applies textTransform and fontWeight CSS properties
    */
-  caps: React.PropTypes.bool,
+  caps: PropTypes.bool,
 
   /**
    * If the arrow icon should be hidden
    */
-  hideIcon: React.PropTypes.bool,
+  hideIcon: PropTypes.bool,
 
   /**
    * If the link is nested within another link; makes the container a `span`
    */
-  isNested: React.PropTypes.bool,
+  isNested: PropTypes.bool,
 
   /**
    * Object to add override or positioning styles
    */
-  style: React.PropTypes.objectOf(
-    React.PropTypes.string,
-    React.PropTypes.number,
+  style: PropTypes.objectOf(
+    PropTypes.string,
+    PropTypes.number,
   ),
 
   /**
    * Direction of the arrow
    */
-  arrowDirection: React.PropTypes.oneOf([
+  arrowDirection: PropTypes.oneOf([
     "up",
     "down",
     "left",
@@ -176,7 +177,7 @@ MoreLink.propTypes = {
   /**
    * Specifies where to open the linked document
    */
-  target: React.PropTypes.oneOf([
+  target: PropTypes.oneOf([
     "_blank",
     "_parent",
     "_self",

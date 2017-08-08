@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import MoreLink from "../moreLink";
 import Heading from "../heading";
 import font from "../../utils/font";
@@ -61,10 +62,10 @@ TourItinerary.propTypes = {
   /**
    * Array of objects for each day of the tour
    */
-  itinerary: PropTypes.arrayOf(React.PropTypes.shape({
-    day: React.PropTypes.number,
-    description: React.PropTypes.string,
-    title: React.PropTypes.string,
+  itinerary: PropTypes.arrayOf(PropTypes.shape({
+    day: PropTypes.number,
+    description: PropTypes.string,
+    title: PropTypes.string,
   })).isRequired,
 
   /**

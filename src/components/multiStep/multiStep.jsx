@@ -1,4 +1,5 @@
-import React, { Children, PropTypes } from "react";
+import React, { Children } from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import cn from "classnames";
 import propTypes from "../../utils/propTypes";

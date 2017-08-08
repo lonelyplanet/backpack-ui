@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import truncate from "truncate";
 import upperFirst from "lodash/upperFirst";
@@ -513,32 +514,32 @@ ListItemBookable.propTypes = {
    * The name of the POI
    * key: name
    */
-  title: React.PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 
   /**
    * The URL slug of the POI; constructed via parent (pois/{id})
    */
-  slug: React.PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 
   /**
    * The type of POI
    * key: poi_type
    */
-  type: React.PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 
   /**
    * The subtype of POI; i.e. Museum
    * key: subtypes[0]
    * partner-activities key: canonical_category
    */
-  subtype: React.PropTypes.string.isRequired,
+  subtype: PropTypes.string.isRequired,
 
   /**
    * The place data for the POI; required keys are name and type
    */
-  place: React.PropTypes.shape({
-    name: React.PropTypes.string,
-    type: React.PropTypes.string,
+  place: PropTypes.shape({
+    name: PropTypes.string,
+    type: PropTypes.string,
   }).isRequired,
 
   /**
@@ -546,23 +547,23 @@ ListItemBookable.propTypes = {
    * key: price_string
    * partner-activities key: minimum_price.formatted_amount
    */
-  price: React.PropTypes.shape({
-    amount: React.PropTypes.number,
-    rate: React.PropTypes.string,
+  price: PropTypes.shape({
+    amount: PropTypes.number,
+    rate: PropTypes.string,
   }),
 
   /**
    * A short list of features; limited to three
    */
-  features: React.PropTypes.arrayOf(React.PropTypes.string),
+  features: PropTypes.arrayOf(PropTypes.string),
 
   /**
    * Image src for the POI; required keys are path and orientation
    * partner-activities key: links.image
    */
-  image: React.PropTypes.shape({
-    path: React.PropTypes.string,
-    orientation: React.PropTypes.oneOf([
+  image: PropTypes.shape({
+    path: PropTypes.string,
+    orientation: PropTypes.oneOf([
       "",
       "portrait",
       "landscape",
@@ -574,35 +575,35 @@ ListItemBookable.propTypes = {
    * key: review.essential, review.extension
    * partner-activities key: descriptions.short_description, descriptions.long_description
    */
-  description: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.object,
+  description: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
   ]),
 
   /**
    * Add a "sponsored" label
    */
-  sponsored: React.PropTypes.bool,
+  sponsored: PropTypes.bool,
 
   /**
    * Add a "top choice" label
    */
-  topChoice: React.PropTypes.bool,
+  topChoice: PropTypes.bool,
 
   /**
    * If the POI has been reviewed by Lonely Planet staff
    */
-  reviewed: React.PropTypes.bool,
+  reviewed: PropTypes.bool,
 
   /**
    * If list item is able to be bookmarked
    */
-  bookmark: React.PropTypes.bool,
+  bookmark: PropTypes.bool,
 
   /**
    * Size of bookmark component
    */
-  bookmarkSize: React.PropTypes.oneOf([
+  bookmarkSize: PropTypes.oneOf([
     "small",
     "large",
   ]),
@@ -611,64 +612,64 @@ ListItemBookable.propTypes = {
    * Unique ID for item
    * key: id
    */
-  id: React.PropTypes.string,
+  id: PropTypes.string,
 
   /**
    * The length of the tour or activity; partner activity only
    * partner-activities key: duration_string
    */
-  duration: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.object,
+  duration: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
   ]),
 
   /**
    * If tour, whether or not to show tour destination info
    */
-  showTourDestinations: React.PropTypes.bool,
+  showTourDestinations: PropTypes.bool,
 
   /**
    * City name where the tour or activity begins; partner activity only
    * partner-activities key: departure_info
    */
-  tourStart: React.PropTypes.string,
+  tourStart: PropTypes.string,
 
   /**
    * City name where the tour or activity begins; partner activity only
    * partner-activities key: return_info
    */
-  tourEnd: React.PropTypes.string,
+  tourEnd: PropTypes.string,
 
   /**
    * Image URL of the tour or activity; partner activity only
    * partner-activities key: links.map
    */
-  tourMap: React.PropTypes.string,
+  tourMap: PropTypes.string,
 
   /**
    * String to determine whether to show activity or tour info
    */
-  activityType: React.PropTypes.string,
+  activityType: PropTypes.string,
 
   /**
    * Default string for duration
    */
-  durationInfo: React.PropTypes.string,
+  durationInfo: PropTypes.string,
 
   /**
    * Is the mobile layout active?
    */
-  mobile: React.PropTypes.bool,
+  mobile: PropTypes.bool,
 
   /**
    * Hide price and display "Show price" button instead; used with availability
    */
-  hidePrice: React.PropTypes.bool,
+  hidePrice: PropTypes.bool,
 
   /**
    * Method to run to show price; used in tandem with `hidePrice`
    */
-  onShowPrices: React.PropTypes.func,
+  onShowPrices: PropTypes.func,
 };
 
 ListItemBookable.defaultProps = {

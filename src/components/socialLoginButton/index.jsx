@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import colors from "../../styles/colors";
 import { fontSizeHeading7 } from "../../styles/typography";

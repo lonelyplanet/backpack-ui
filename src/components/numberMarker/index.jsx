@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color, zIndex } from "../../../settings.json";
 import font from "../../utils/font";
@@ -131,14 +132,14 @@ NumberMarker.propTypes = {
   /**
    * Number to show
    */
-  number: React.PropTypes.number.isRequired,
+  number: PropTypes.number.isRequired,
 
   /**
    * How big the marker should be; if size is
    * undefined, the size will be inherited from
    * the parent
    */
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "",
     "xSmall",
     "small",
@@ -149,19 +150,19 @@ NumberMarker.propTypes = {
    * Changes the box shadow style to look more
    * like an outline/border
    */
-  outlined: React.PropTypes.bool,
+  outlined: PropTypes.bool,
 
   /**
    * If the marker used within a place list;
    * positions the marker over an 80px wide photo
    */
-  place: React.PropTypes.bool,
+  place: PropTypes.bool,
 
   /**
    * Show a transparent version of the marker;
    *
    */
-  transparent: React.PropTypes.bool,
+  transparent: PropTypes.bool,
 };
 
 NumberMarker.defaultProps = {

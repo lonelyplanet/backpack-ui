@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import SocialLoginButton from "../socialLoginButton";
 import propTypes from "../../utils/propTypes";

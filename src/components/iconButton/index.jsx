@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
 import upperFirst from "lodash/upperFirst";
@@ -85,32 +86,32 @@ IconButton.propTypes = {
   /**
    * Name of the icon to display inside of the button
    */
-  iconName: React.PropTypes.oneOf(Object.keys(Icon)).isRequired,
+  iconName: PropTypes.oneOf(Object.keys(Icon)).isRequired,
 
   /**
    * A descriptive label of the button's purpose
    */
-  label: React.PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 
   /**
    * A custom classname to append to the default IconButton classname
    */
-  className: React.PropTypes.string,
+  className: PropTypes.string,
 
   /**
    * Pass an href prop to make the button an `a` element instead of a `button`
    */
-  href: React.PropTypes.string,
+  href: PropTypes.string,
 
   /**
    * Function to run when the button is clicked
    */
-  onClick: React.PropTypes.func,
+  onClick: PropTypes.func,
 
   /**
    * Size of the button
    */
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "small",
     "medium",
     "large",
@@ -120,7 +121,7 @@ IconButton.propTypes = {
    * The ID of the sibling element that the button owns, e.g., if the button has
    * a menu with an ID of "share-menu", then `owns="share-menu"`.
    */
-  owns: React.PropTypes.string,
+  owns: PropTypes.string,
 };
 
 IconButton.defaultProps = {

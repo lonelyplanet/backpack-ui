@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";

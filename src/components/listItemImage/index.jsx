@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ImageLoader from "react-imageloader";
 import Placeholder from "../placeholder";
 
@@ -26,15 +27,15 @@ ListItemImage.propTypes = {
    * The name of the POI
    * key: name
    */
-  title: React.PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 
   /**
    * Image src for the POI; required keys are path and orientation
    * partner-activities key: links.image
    */
-  image: React.PropTypes.shape({
-    path: React.PropTypes.string,
-    orientation: React.PropTypes.oneOf([
+  image: PropTypes.shape({
+    path: PropTypes.string,
+    orientation: PropTypes.oneOf([
       "",
       "portrait",
       "landscape",

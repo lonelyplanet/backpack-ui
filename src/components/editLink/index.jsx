@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import settings from "../../../settings.json";
 import font from "../../utils/font";
@@ -29,9 +30,9 @@ function EditLink({ url, display }) {
 }
 
 EditLink.propTypes = {
-  url: React.PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 
-  display: React.PropTypes.oneOf([
+  display: PropTypes.oneOf([
     "inline",
     "block",
   ]),

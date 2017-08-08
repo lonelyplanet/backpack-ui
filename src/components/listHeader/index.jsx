@@ -117,7 +117,7 @@ ListHeader.propTypes = {
   avatarSrc: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  items: PropTypes.objectOf(PropTypes.array).isRequired,
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
   isPublic: PropTypes.bool.isRequired,
   style: PropTypes.objectOf(PropTypes.object),
 };

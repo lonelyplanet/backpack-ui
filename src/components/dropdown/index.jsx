@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
 import { color, timing } from "../../../settings.json";
@@ -65,22 +66,22 @@ Dropdown.propTypes = {
   /**
    * An array of options for the select element
    */
-  options: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
 
   /**
    * A value from the options array that will be selected initially
    */
-  defaultValue: React.PropTypes.string,
+  defaultValue: PropTypes.string,
 
   /**
    * A function to run when the value changes
    */
-  onChange: React.PropTypes.func,
+  onChange: PropTypes.func,
 
   /**
    * A keyword to adjust the font size and padding
    */
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "",
     "small",
   ]),

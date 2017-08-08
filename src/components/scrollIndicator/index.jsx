@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import Icon from "../icon";
 import { color as bpColor } from "../../../settings.json";
@@ -45,7 +46,7 @@ const ScrollIndicator = ({ color }) => (
 );
 
 ScrollIndicator.propTypes = {
-  color: React.PropTypes.string,
+  color: PropTypes.string,
 };
 
 ScrollIndicator.defaultProps = {

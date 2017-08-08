@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Calendar as CalendarComponent, DateRange as DateRangeComponent } from "react-date-range";
 import moment from "moment";
 import radium, { Style } from "radium";

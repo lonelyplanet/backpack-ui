@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color, media } from "../../../settings.json";
 import { rgb } from "../../utils/color";
@@ -209,24 +210,24 @@ function Callout({ type, heading, slug, image, price, description, category, ali
 }
 
 Callout.propTypes = {
-  type: React.PropTypes.oneOf([
+  type: PropTypes.oneOf([
     "activity",
     "book",
   ]).isRequired,
 
-  heading: React.PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
 
-  slug: React.PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 
-  image: React.PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 
-  price: React.PropTypes.shape(Price.propTypes),
+  price: PropTypes.shape(Price.propTypes),
 
-  description: React.PropTypes.string,
+  description: PropTypes.string,
 
-  category: React.PropTypes.string,
+  category: PropTypes.string,
 
-  align: React.PropTypes.oneOf([
+  align: PropTypes.oneOf([
     "",
     "center",
   ]),

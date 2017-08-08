@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 
 import React from "react";
+import PropTypes from "prop-types";
 import assign from "object-assign";
 import classNames from "classnames";
 import colors from "../../styles/colors";
@@ -63,14 +64,14 @@ function Icon(props) {
 }
 
 Icon.propTypes = {
-  children: React.PropTypes.node.isRequired,
-  viewBox: React.PropTypes.string.isRequired,
-  className: React.PropTypes.string,
-  fill: React.PropTypes.string,
-  width: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-  height: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-  label: React.PropTypes.string,
-  style: React.PropTypes.oneOfType([React.PropTypes.object]),
+  children: PropTypes.node.isRequired,
+  viewBox: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  fill: PropTypes.string,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  label: PropTypes.string,
+  style: PropTypes.oneOfType([PropTypes.object]),
 };
 
 Icon.defaultProps = {

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { StyleRoot } from "radium";
 import "leaflet/dist/leaflet.css";
 import "slick-carousel/slick/slick.css";
@@ -1175,7 +1176,7 @@ storiesOf("Masthead", module)
 
 class ModalWrapper extends React.Component {
   static propTypes = {
-    children: React.PropTypes.function,
+    children: PropTypes.function,
   }
 
   state = {

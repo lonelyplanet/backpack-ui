@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Style } from "radium";
 import { color, media } from "../../../settings.json";
 import ContentBlock from "../contentBlock";
@@ -115,21 +116,21 @@ Narrative.propTypes = {
   /**
    * Title of the narrative
    */
-  heading: React.PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
 
   /**
    * HTML formatted content
    */
-  htmlContent: React.PropTypes.string.isRequired,
+  htmlContent: PropTypes.string.isRequired,
 
   /**
    * Author object
    */
-  author: React.PropTypes.shape({
-    name: React.PropTypes.string,
-    title: React.PropTypes.string,
-    avatar: React.PropTypes.string,
-    url: React.PropTypes.string,
+  author: PropTypes.shape({
+    name: PropTypes.string,
+    title: PropTypes.string,
+    avatar: PropTypes.string,
+    url: PropTypes.string,
   }),
 };
 

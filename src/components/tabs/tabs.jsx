@@ -1,4 +1,5 @@
-import React, { Children, Component, PropTypes, cloneElement, createElement, isValidElement } from "react";
+import React, { Children, Component, cloneElement, createElement, isValidElement } from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { Navigation } from "../navigation";
 import Tab from "./tab";

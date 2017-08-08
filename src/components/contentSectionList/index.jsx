@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import font from "../../utils/font";
 import ContentHeader from "../contentHeader";
 import Heading from "../heading";
@@ -42,10 +43,10 @@ ContentSectionList.propTypes = {
   /**
    * Props for ContentHeader
    */
-  header: React.PropTypes.shape({
-    title: React.PropTypes.string,
-    heading: React.PropTypes.shape(Heading.propTypes),
-    border: React.PropTypes.oneOf([
+  header: PropTypes.shape({
+    title: PropTypes.string,
+    heading: PropTypes.shape(Heading.propTypes),
+    border: PropTypes.oneOf([
       "",
       "top",
       "bottom",
@@ -55,9 +56,9 @@ ContentSectionList.propTypes = {
   /**
    * List item(s) to display
    */
-  listItems: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.arrayOf(React.PropTypes.string),
+  listItems: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
   ]).isRequired,
 };
 

@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
 const styles = {
   base: {
@@ -17,9 +18,9 @@ const SettingBlockButtonDescription = ({ children }) => (
 );
 
 SettingBlockButtonDescription.propTypes = {
-  children: PropTypes.arrayOf(React.PropTypes.oneOfType([
-    React.PropTypes.element,
-    React.PropTypes.string,
+  children: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
   ])),
 };
 

@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color } from "../../../settings.json";
 import Bullet from "../bullet";
@@ -24,7 +25,7 @@ const BulletDescription = ({ description, style }) => (
 );
 
 BulletDescription.propTypes = {
-  description: PropTypes.arrayOf(React.PropTypes.string).isRequired,
+  description: PropTypes.arrayOf(PropTypes.string).isRequired,
   style: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,

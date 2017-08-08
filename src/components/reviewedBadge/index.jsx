@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color, media } from "../../../settings.json";
 import Icon from "../icon";
@@ -84,13 +85,13 @@ function ReviewedBadge({ size, parent }) {
 }
 
 ReviewedBadge.propTypes = {
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "small",
     "medium",
     "large",
   ]),
 
-  parent: React.PropTypes.oneOf([
+  parent: PropTypes.oneOf([
     "",
     "listItem",
   ]),

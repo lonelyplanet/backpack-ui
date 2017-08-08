@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import moment from "moment";
 import TetherComponent from "react-tether";
@@ -408,63 +409,63 @@ DateInput.propTypes = {
   /**
    * ID of the input
    */
-  id: React.PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 
   /**
    * Label for the input; will not create a `label` element but instead add
    * `title` and `aria-label` attributes; this is a design decision to not
    * show labels
    */
-  label: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.array,
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
   ]).isRequired,
 
   /**
    * Name of the input
    */
-  name: React.PropTypes.string,
+  name: PropTypes.string,
 
   /**
    * Start date value
    */
-  startDate: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.object, // Moment.js object
-    React.PropTypes.func,
+  startDate: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object, // Moment.js object
+    PropTypes.func,
   ]),
 
   /**
    * End date value; range only
    */
-  endDate: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.object, // Moment.js object
-    React.PropTypes.func,
+  endDate: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object, // Moment.js object
+    PropTypes.func,
   ]),
 
   /**
    * Moment.js date format
    */
-  format: React.PropTypes.string,
+  format: PropTypes.string,
 
   /**
    * Placeholder text for the input
    */
-  placeholder: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.array,
+  placeholder: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
   ]),
 
   /**
    * Whether or not the input is required
    */
-  required: React.PropTypes.bool,
+  required: PropTypes.bool,
 
   /**
    * Size of the input; sizes are defined in styles.js
    */
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "tiny",
     "small",
     "medium",
@@ -475,7 +476,7 @@ DateInput.propTypes = {
   /**
    * Theme of the input; themes are defined in styles.js
    */
-  theme: React.PropTypes.oneOf([
+  theme: PropTypes.oneOf([
     "base",
     "light",
     "dark",
@@ -485,29 +486,29 @@ DateInput.propTypes = {
   /**
    * Fills the width of the parent
    */
-  fill: React.PropTypes.bool,
+  fill: PropTypes.bool,
 
   /**
    * Remove border
    */
-  noBorder: React.PropTypes.bool,
+  noBorder: PropTypes.bool,
 
   /**
    * Whether or not to use the range calendar
    */
-  range: React.PropTypes.bool,
+  range: PropTypes.bool,
 
   /**
    * Whether or not to show a "time" drop down
    */
-  time: React.PropTypes.bool,
+  time: PropTypes.bool,
 
   /**
    * An array of time options or a keyword to use a preset
    */
-  timeOptions: React.PropTypes.oneOfType([
-    React.PropTypes.array,
-    React.PropTypes.oneOf([
+  timeOptions: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.oneOf([
       "default",
       "openTable",
     ]),
@@ -516,9 +517,9 @@ DateInput.propTypes = {
   /**
    * A string to set the default value (time)
    */
-  defaultTime: React.PropTypes.string,
+  defaultTime: PropTypes.string,
 
-  onClose: React.PropTypes.func,
+  onClose: PropTypes.func,
 };
 
 DateInput.defaultProps = {

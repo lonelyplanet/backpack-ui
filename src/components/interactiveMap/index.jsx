@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import leaflet from "leaflet";
 import { styles, scopedStyles, markerStyles, markerColors, markerStylesMixin } from "./styles";

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color, zIndex } from "../../../settings.json";
 import { rgb } from "../../utils/color";
@@ -236,12 +237,12 @@ Flyout.propTypes = {
   /**
    * Content for the flyout
    */
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 
   /**
    * Size of the flyout
    */
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "small",
     "medium",
   ]),
@@ -249,7 +250,7 @@ Flyout.propTypes = {
   /**
    * Position of the flyout arrow
    */
-  arrow: React.PropTypes.oneOf([
+  arrow: PropTypes.oneOf([
     "up",
     "down",
     "left",
@@ -259,12 +260,12 @@ Flyout.propTypes = {
   /**
    * Whether or not the flyout should fill its parent's width
    */
-  fill: React.PropTypes.bool,
+  fill: PropTypes.bool,
 
   /**
    * Size of the shadow
    */
-  shadow: React.PropTypes.oneOf([
+  shadow: PropTypes.oneOf([
     "small",
     "large",
   ]),
@@ -272,7 +273,7 @@ Flyout.propTypes = {
   /**
    * Determine display type
    */
-  displayType: React.PropTypes.oneOf([
+  displayType: PropTypes.oneOf([
     "",
     "dropdown",
     "mapPopup",
@@ -281,14 +282,14 @@ Flyout.propTypes = {
   /**
    * Remove padding from container and let content touch the edges
    */
-  removePadding: React.PropTypes.bool,
+  removePadding: PropTypes.bool,
 
   /**
    * Styles for positioning, etc.
    */
-  style: React.PropTypes.objectOf(
-    React.PropTypes.string,
-    React.PropTypes.number,
+  style: PropTypes.objectOf(
+    PropTypes.string,
+    PropTypes.number,
   ),
 };
 

@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import AccordionItem from "./accordionItem";
 import propTypes from "../../utils/propTypes";
