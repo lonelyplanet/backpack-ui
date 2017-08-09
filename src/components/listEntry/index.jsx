@@ -7,26 +7,28 @@ import {
   fontSizeAccent,
   fontSizeBodySmall,
   fontSizeBodyArticle,
-  fontSizeUppercase,
   fontWeightMedium,
 } from "../../styles/typography";
 import mq from "../../styles/mq";
-import font from "../../utils/font";
-import PriceRangeLabel from "../priceRangeLabel";
 import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
+import PriceRangeLabel from "../priceRangeLabel";
+import { Heading, TextAccent } from "../../components/text";
+import CategoryLabel from "../categoryLabel";
 
 const styles = {
-  borderBottom: `1px solid ${colors.borderPrimary}`,
-  padding: "16px",
+  container: {
+    borderBottom: `1px solid ${colors.borderPrimary}`,
+    padding: "16px",
 
-  [`@media (min-width: ${mq.min["768"]})`]: {
-    padding: "24px 0",
+    [`@media (min-width: ${mq.min["768"]})`]: {
+      padding: "24px 0",
+    },
   },
 
   name: {
     fontSize: `${fontSizeHeading7}px`,
-    fontWeight: fontWeightMedium,
 
     [`@media (min-width: ${mq.min["768"]})`]: {
       fontSize: `${fontSizeHeading6}px`,
@@ -35,22 +37,17 @@ const styles = {
 
   category: {
     color: rgba(colors.textPrimary, 0.5),
-    fontSize: `${fontSizeUppercase}px`,
     fontWeight: fontWeightMedium,
-    letterSpacing: ".1px",
-    marginBottom: "14px",
-    textTransform: "uppercase",
+    margin: "6px 0",
 
     [`@media (min-width: ${mq.min["768"]})`]: {
       fontSize: `${fontSizeBodySmall}px`,
-      marginBottom: "12px",
+      margin: "7px 0",
     },
   },
 
   note: {
-    fontFamily: font("miller"),
     fontSize: `${fontSizeAccent}px`,
-    fontStyle: "italic",
     letterSpacing: ".4px",
 
     [`@media (min-width: ${mq.min["768"]})`]: {
@@ -74,37 +71,39 @@ const ListEntry = ({
 }) => (
   <article
     className="ListEntry"
-    style={[styles, style]}
+    style={[styles.container, style]}
   >
     <PriceRangeLabel
       value={value}
       style={styles.value}
     />
 
-    <h2
-      className="ListEntry"
-      style={[styles.name, style]}
+    <Heading
+      level="2"
+      size="5"
+      weight="medium"
+      style={styles.name}
     >
       {name}
-    </h2>
+    </Heading>
 
-    <h3 style={styles.category}>
+    <CategoryLabel style={styles.category}>
       {category} in {city}
-    </h3>
+    </CategoryLabel>
 
-    <p style={styles.note}>
+    <TextAccent style={styles.note}>
       {note}
-    </p>
+    </TextAccent>
   </article>
 );
 
 ListEntry.propTypes = {
   name: PropTypes.string.isRequired,
-  category: PropTypes.objectOf(PropTypes.array).isRequired,
-  city: PropTypes.objectOf(PropTypes.array).isRequired,
-  note: PropTypes.bool.isRequired,
+  category: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  note: PropTypes.string,
   value: PropTypes.oneOf(["$", "$$", "$$$"]).isRequired,
-  style: PropTypes.objectOf(PropTypes.object),
+  style: propTypes.style,
 };
 
 ListEntry.styles = styles;
