@@ -30,7 +30,7 @@ import AvatarMarker from "../src/components/avatarMarker";
 import AvatarUpload from "../src/components/avatarUpload";
 // Availability
 import Bookmark from "../src/components/bookmark";
-import BookmarkListAuthor from "../src/components/userListAuthor";
+import BookmarkListAuthor from "../src/components/bookmarkListAuthor";
 import Breadcrumbs from "../src/components/breadcrumbs";
 import BulletDescription from "../src/components/bulletDescription";
 import Button from "../src/components/button";
