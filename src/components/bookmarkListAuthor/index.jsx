@@ -34,9 +34,9 @@ const styles = {
   },
 };
 
-const UserListAuthor = ({ children, imageSrc, href, style }) => (
+const BookmarkListAuthor = ({ children, imageSrc, href, style }) => (
   <a
-    className="UserListAuthor"
+    className="BookmarkListAuthor"
     href={href}
     style={[styles.container, style]}
   >
@@ -52,11 +52,11 @@ const UserListAuthor = ({ children, imageSrc, href, style }) => (
   </a>
 );
 
-UserListAuthor.propTypes = {
+BookmarkListAuthor.propTypes = {
   children: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
   imageSrc: PropTypes.string.isRequired,
   style: propTypes.style,
 };
 
-export default radium(UserListAuthor);
+export default radium(BookmarkListAuthor);
