@@ -50,7 +50,7 @@ const styles = {
     },
   },
 
-  title: {
+  name: {
     fontWeight: fontWeightMedium,
     letterSpacing: ".9px",
     lineHeight: lineHeightHeading3,
@@ -77,51 +77,51 @@ const styles = {
       letterSpacing: 0,
     },
   },
+
+  visibility: {
+    textTransform: "capitalize",
+  },
 };
 
 const ListHeader = ({
   profileHref,
   avatarSrc,
   username,
-  title,
-  items,
-  isPublic,
+  name,
+  entries,
+  visibility,
   style,
-}) => {
-  const privacy = isPublic ? "Public" : "Private";
+}) => (
+  <header
+    className="ListHeader"
+    style={[styles.header, style]}
+  >
+    <AvatarMarker
+      profileHref={profileHref}
+      avatarSrc={avatarSrc}
+      username={username}
+      style={styles.avatarMarker}
+    />
 
-  return (
-    <header
-      className="ListHeader"
-      style={[styles.header, style]}
+    <h2
+      style={styles.name}
     >
-      <AvatarMarker
-        profileHref={profileHref}
-        avatarSrc={avatarSrc}
-        username={username}
-        style={styles.avatarMarker}
-      />
+      {name}
+    </h2>
 
-      <h2
-        style={styles.title}
-      >
-        {title}
-      </h2>
-
-      <p
-        style={styles.meta}
-      >{items.length} places • {privacy}</p>
-    </header>
-  );
-};
+    <p
+      style={styles.meta}
+    >{entries.length} places • <span style={styles.visibility}>{visibility}</span></p>
+  </header>
+);
 
 ListHeader.propTypes = {
   profileHref: PropTypes.string.isRequired,
   avatarSrc: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.string).isRequired,
-  isPublic: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  entries: PropTypes.arrayOf(PropTypes.string).isRequired,
+  visibility: PropTypes.oneOf(["private", "public"]).isRequired,
   style: PropTypes.objectOf(PropTypes.object),
 };
 

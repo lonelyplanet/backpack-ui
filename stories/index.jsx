@@ -30,7 +30,7 @@ import AvatarMarker from "../src/components/avatarMarker";
 import AvatarUpload from "../src/components/avatarUpload";
 // Availability
 import Bookmark from "../src/components/bookmark";
-import BookmarkListAuthor from "../src/components/userListAuthor";
+import BookmarkListAuthor from "../src/components/bookmarkListAuthor";
 import Breadcrumbs from "../src/components/breadcrumbs";
 import BulletDescription from "../src/components/bulletDescription";
 import Button from "../src/components/button";
@@ -82,6 +82,7 @@ import Lede from "../src/components/lede";
 // ListItemImage
 import ListButton from "../src/components/listButton";
 import ListEntry from "../src/components/listEntry";
+import ListItemBookmark from "../src/components/listItemBookmark";
 import ListHeader from "../src/components/listHeader";
 import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
@@ -1058,15 +1059,15 @@ storiesOf("List Header", module)
         profileHref={text("Profile URL", "/profile")}
         avatarSrc={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
         username={text("Username", "Rizzo the Rat")}
-        title={text("Title", "Europe Summer Highlights")}
-        items={[
+        name={text("Title", "Europe Summer Highlights")}
+        entries={[
           "pancakes",
           "bacon",
           "eggs",
           "sausage",
           "hashbrowns",
         ]}
-        isPublic={boolean("Public", false)}
+        visibility={select("Visibility", ["private", "public"], "private")}
       />
     </StyleRoot>
   ));
@@ -1081,6 +1082,26 @@ storiesOf("List Entry", module)
         city={text("City", "City")}
         note={text("Note", "This is where a nice little note goes.")}
         value={select("Range", ["$", "$$", "$$$"], "$")}
+      />
+    </StyleRoot>
+  ));
+
+storiesOf("List Item Bookmark", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <ListItemBookmark
+        name={text("Name", "Favorites")}
+        href={text("List URL", "#")}
+        thumbnail={text("Thumbnail", "https://www.fillmurray.com/195/194")}
+        entries={[
+          // "pancakes",
+          // "bacon",
+          // "eggs",
+          // "sausage",
+          // "hashbrowns",
+        ]}
+        visibility={select("Visibility", ["private", "public"], "private")}
       />
     </StyleRoot>
   ));
