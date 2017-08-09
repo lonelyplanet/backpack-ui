@@ -11,10 +11,12 @@ const styles = Object.assign({}, {
   marginTop: 0,
 }, textBodySmall());
 
+const markup = (htmlContent) => ({ __html: htmlContent });
+
 const TextBodySmall = (props) => (
-  <p {...props} style={[styles, props.style]}>
-    {props.children}
-  </p>
+  <div {...props} style={[styles, props.style]}>
+    <div dangerouslySetInnerHTML={markup(props.children)} />
+  </div>
 );
 
 TextBodySmall.propTypes = {
