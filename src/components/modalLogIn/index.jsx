@@ -7,7 +7,7 @@ import ModalContentSocialAuth from "../modalContent/modalContentSocialAuth";
 import propTypes from "../../utils/propTypes";
 import { span } from "../../utils/grid";
 
-const ModalLogIn = ({ isOpen, onClose, style }) => (
+const ModalLogIn = ({ isOpen, onClose, style, authActions }) => (
   <Modal
     isOpen={isOpen}
     leftAction={onClose}
@@ -18,6 +18,7 @@ const ModalLogIn = ({ isOpen, onClose, style }) => (
     style={style}
   >
     <ModalContentSocialAuth
+      authActions={authActions}
       message="Organize your research and unlock tools like bookmarking."
     />
   </Modal>
@@ -27,6 +28,12 @@ ModalLogIn.propTypes = {
   isOpen: PropTypes.bool,
   onClose: PropTypes.func,
   style: propTypes.style,
+  authActions: PropTypes.shape({
+    facebook: PropTypes.func,
+    twitter: PropTypes.func,
+    google: PropTypes.func,
+    passwordless: PropTypes.func,
+  }),
 };
 
 export default radium(ModalLogIn);

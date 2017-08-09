@@ -46,8 +46,8 @@ const styles = {
   },
 };
 
-const disclaimer = `If you sign up with Twitter, Facebook or Google, weâ€™ll automatically import your
-  profile information. Weâ€™ll never post without your permission. Alternatively sign in with a
+const disclaimer = `If you sign up with Twitter, Facebook or Google, we’ll automatically import your
+  profile information. We’ll never post without your permission. Alternatively sign in with a
   <a href="https://auth.lonelyplanet.com/users/sign_in">username and password</a>. To sign into
   Lonely Planet you must have cookies enabled and agree to the
   <a href="//www.lonelyplanet.com/legal/website-terms/">Terms of Service</a> and read the
@@ -56,11 +56,8 @@ const disclaimer = `If you sign up with Twitter, Facebook or Google, weâ€™ll aut
   enquiries see
   <a href="http://support.lonelyplanet.com/hc/en-us/sections/203968787-Account-administration" target="_blank" rel="noopener noreferrer">Account help</a>.`;
 
-const socialNavigate = (path) => {
-  window.location = `https://auth.lonelyplanet.com/users/auth/${path}`;
-};
 
-const ModalContentSocialAuth = ({ message, style }) => (
+const ModalContentSocialAuth = ({ message, authActions, style }) => (
   <div style={[styles.container, style]} className="ModalContentSocialAuth">
     <Logo style={styles.logo} />
 
@@ -72,7 +69,7 @@ const ModalContentSocialAuth = ({ message, style }) => (
       <SocialLoginButton
         style={styles.button}
         iconName="FacebookBlockColor"
-        onClick={() => socialNavigate("facebook")}
+        onClick={authActions.facebook}
       >
         Continue with Facebook
       </SocialLoginButton>
@@ -80,7 +77,7 @@ const ModalContentSocialAuth = ({ message, style }) => (
       <SocialLoginButton
         style={styles.button}
         iconName="TwitterColor"
-        onClick={() => socialNavigate("twitter")}
+        onClick={authActions.twitter}
       >
         Continue with Twitter
       </SocialLoginButton>
@@ -88,7 +85,7 @@ const ModalContentSocialAuth = ({ message, style }) => (
       <SocialLoginButton
         style={styles.button}
         iconName="GoogleColor"
-        onClick={() => socialNavigate("google_oauth2")}
+        onClick={authActions.google}
       >
         Continue with Google
       </SocialLoginButton>
@@ -97,7 +94,7 @@ const ModalContentSocialAuth = ({ message, style }) => (
         caps
         size="small"
         style={styles.moreLink}
-        href="https://auth.lonelyplanet.com/users/sign_in"
+        onClick={authActions.passwordless}
       >
         Sign in or sign up with email
       </MoreLink>
@@ -111,6 +108,12 @@ const ModalContentSocialAuth = ({ message, style }) => (
 
 ModalContentSocialAuth.propTypes = {
   message: PropTypes.string.isRequired,
+  authActions: PropTypes.shape({
+    facebook: PropTypes.func,
+    twitter: PropTypes.func,
+    google: PropTypes.func,
+    passwordless: PropTypes.func,
+  }),
   style: propTypes.style,
 };
 
