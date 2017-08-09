@@ -14,6 +14,7 @@ export { default as Avatar } from "./components/avatar";
 export { default as AvatarMarker } from "./components/avatarMarker";
 export { default as AvatarUpload } from "./components/avatarUpload";
 export { default as Bookmark } from "./components/bookmark";
+export { default as BookmarkListAuthor } from "./components/bookmarkListAuthor";
 export { default as Bullet } from "./components/bullet";
 export { default as BulletDescription } from "./components/bulletDescription";
 export { default as Breadcrumbs } from "./components/breadcrumbs";
@@ -131,7 +132,6 @@ export { default as Tooltip } from "./components/tooltip";
 export { default as TourItinerary } from "./components/tourItinerary";
 export { default as TravelAlert } from "./components/travelAlert";
 export { default as TypeSelector } from "./components/typeSelector";
-export { default as UserListAuthor } from "./components/userListAuthor";
 export { default as VideoEmbed } from "./components/videoEmbed";
 
 export { default as DateInput } from "./components/form/dateInput";
