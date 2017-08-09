@@ -30,6 +30,7 @@ import AvatarMarker from "../src/components/avatarMarker";
 import AvatarUpload from "../src/components/avatarUpload";
 // Availability
 import Bookmark from "../src/components/bookmark";
+import BookmarkListAuthor from "../src/components/userListAuthor";
 import Breadcrumbs from "../src/components/breadcrumbs";
 import BulletDescription from "../src/components/bulletDescription";
 import Button from "../src/components/button";
@@ -166,7 +167,6 @@ import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
 import { Typeahead, TypeaheadTokenizer } from "../src/components/typeahead";
 import TypeSelector from "../src/components/typeSelector";
-import UserListAuthor from "../src/components/userListAuthor";
 import VideoEmbed from "../src/components/videoEmbed";
 import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 
@@ -429,6 +429,17 @@ storiesOf("Bookmark", module)
       size={select("Size", ["", "large"], "")}
       marked={boolean("Marked", false)}
     />
+  ));
+
+storiesOf("Bookmark list author", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <BookmarkListAuthor
+      href={text("URL", "/")}
+      imageSrc={text("Image source", data.avatar.default)}
+    >
+      {text("Name", "Alex Butler")}
+    </BookmarkListAuthor>
   ));
 
 storiesOf("Breadcrumbs", module)
@@ -2681,17 +2692,6 @@ storiesOf("Type selector", module)
         ]}
       />
     </StyleRoot>
-  ));
-
-storiesOf("User list author", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <UserListAuthor
-      href={text("URL", "/")}
-      imageSrc={text("Image source", data.avatar.default)}
-    >
-      {text("Name", "Alex Butler")}
-    </UserListAuthor>
   ));
 
 storiesOf("Video embed", module)
