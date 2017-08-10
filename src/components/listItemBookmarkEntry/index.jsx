@@ -40,11 +40,13 @@ const styles = {
   category: {
     color: rgba(colors.textPrimary, 0.5),
     fontWeight: fontWeightMedium,
-    margin: "6px 0",
+    marginBottom: "6px",
+    marginTop: "6px",
 
     [`@media (min-width: ${mq.min["768"]})`]: {
       fontSize: `${fontSizeBodySmall}px`,
-      margin: "7px 0",
+      marginBottom: "7px",
+      marginTop: "7px",
     },
   },
 
