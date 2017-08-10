@@ -11,7 +11,9 @@ import {
 } from "../../styles/typography";
 import mq from "../../styles/mq";
 import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import { rgba } from "../../utils/color";
+import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 import PriceRangeLabel from "../priceRangeLabel";
 import { Heading, TextAccent } from "../../components/text";
@@ -44,6 +46,23 @@ const styles = {
       fontSize: `${fontSizeBodySmall}px`,
       margin: "7px 0",
     },
+  },
+
+  anchor: {
+    color: "inherit",
+    transition: `color ${timing.fast} ease-in-out`,
+
+    ":hover": {
+      color: colors.linkPrimary,
+    },
+
+    ":active": {
+      color: colors.linkPrimary,
+    },
+
+    ":focus": Object.assign({}, {
+      color: colors.linkPrimary,
+    }, outline()),
   },
 
   note: {
