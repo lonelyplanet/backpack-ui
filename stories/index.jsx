@@ -456,13 +456,7 @@ storiesOf("Bookmark list header", module)
         avatarSrc={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
         username={text("Username", "Rizzo the Rat")}
         name={text("Title", "Europe Summer Highlights")}
-        entries={[
-          "pancakes",
-          "bacon",
-          "eggs",
-          "sausage",
-          "hashbrowns",
-        ]}
+        entriesCount={5}
         visibility={select("Visibility", ["private", "public"], "private")}
       />
     </StyleRoot>

@@ -88,7 +88,7 @@ const BookmarkListHeader = ({
   avatarSrc,
   username,
   name,
-  entries,
+  entriesCount,
   visibility,
   style,
 }) => (
@@ -111,7 +111,7 @@ const BookmarkListHeader = ({
 
     <p
       style={styles.meta}
-    >{entries.length} places • <span style={styles.visibility}>{visibility}</span></p>
+    >{entriesCount} places • <span style={styles.visibility}>{visibility}</span></p>
   </header>
 );
 
@@ -120,7 +120,7 @@ BookmarkListHeader.propTypes = {
   avatarSrc: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  entries: PropTypes.arrayOf(PropTypes.string).isRequired,
+  entriesCount: PropTypes.number.isRequired,
   visibility: PropTypes.oneOf(["private", "public"]).isRequired,
   style: PropTypes.objectOf(PropTypes.object),
 };
