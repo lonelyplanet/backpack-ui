@@ -1092,8 +1092,9 @@ storiesOf("List Item Bookmark", module)
     <StyleRoot>
       <ListItemBookmark
         name={text("Name", "Favorites")}
-        href={text("List URL", "#")}
-        thumbnail={text("Thumbnail", "https://www.fillmurray.com/195/194")}
+        onClick={action("List Button clicked")}
+        checked={boolean("Checked", false)}
+        thumbnail={text("Thumbnail", "")}
         entries={[
           // "pancakes",
           // "bacon",
