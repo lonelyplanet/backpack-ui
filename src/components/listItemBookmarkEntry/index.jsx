@@ -77,7 +77,7 @@ const styles = {
     },
   },
 
-  value: {
+  priceRange: {
     float: "right",
   },
 };
@@ -87,10 +87,10 @@ const ListItemBookmarkEntry = ({
   category,
   city,
   url,
+  priceRange,
   categoryUrl,
   cityUrl,
   note,
-  value,
   style,
 }) => (
   <article
@@ -98,8 +98,8 @@ const ListItemBookmarkEntry = ({
     style={[styles.container, style]}
   >
     <PriceRangeLabel
-      value={value}
-      style={styles.value}
+      value={priceRange}
+      style={styles.priceRange}
     />
 
     <Heading
@@ -148,10 +148,10 @@ ListItemBookmarkEntry.propTypes = {
   category: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
+  priceRange: PropTypes.oneOf(["$", "$$", "$$$"]).isRequired,
   categoryUrl: PropTypes.string,
   cityUrl: PropTypes.string,
   note: PropTypes.string,
-  value: PropTypes.oneOf(["$", "$$", "$$$"]).isRequired,
   style: propTypes.style,
 };
 
