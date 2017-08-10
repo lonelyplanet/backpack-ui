@@ -11,8 +11,8 @@ import {
   lineHeightHeading3,
 } from "../../styles/typography";
 import mq from "../../styles/mq";
-import font from "../../utils/font";
 import AvatarMarker from "../avatarMarker";
+import { TextAccent } from "../text";
 import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
 
@@ -65,16 +65,13 @@ const styles = {
   },
 
   meta: {
-    fontFamily: font("miller"),
     fontSize: `${fontSizeHeading7}px`,
-    fontStyle: "italic",
     letterSpacing: ".3px",
     marginRight: "24px",
     order: 2,
 
     [`@media (min-width: ${mq.min["768"]})`]: {
       fontSize: `${fontSizeHeading6}px`,
-      letterSpacing: 0,
     },
   },
 
@@ -109,9 +106,9 @@ const BookmarkListHeader = ({
       {name}
     </h2>
 
-    <p
-      style={styles.meta}
-    >{entriesCount} places • <span style={styles.visibility}>{visibility}</span></p>
+    <TextAccent style={styles.meta}>
+      {entriesCount} places • <span style={styles.visibility}>{visibility}</span>
+    </TextAccent>
   </header>
 );
 
