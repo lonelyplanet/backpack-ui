@@ -84,6 +84,7 @@ import ListButton from "../src/components/listButton";
 import ListEntry from "../src/components/listEntry";
 import ListItemBookmark from "../src/components/listItemBookmark";
 import ListHeader from "../src/components/listHeader";
+import ListItemBookmarkEntry from "../src/components/listItemBookmarkEntry";
 import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
 // Loading
@@ -1072,11 +1073,11 @@ storiesOf("List Header", module)
     </StyleRoot>
   ));
 
-storiesOf("List Entry", module)
+storiesOf("List item (bookmark entry)", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
-      <ListEntry
+      <ListItemBookmarkEntry
         name={text("Name", "POI Name")}
         category={text("Category", "Category")}
         city={text("City", "City")}
