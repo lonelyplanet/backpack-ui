@@ -70,6 +70,14 @@ class AvatarUpload extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.src !== this.props.src) {
+      this.state = {
+        src: nextProps.src,
+      };
+    }
+  }
+
   onChange(event) {
     event.preventDefault();
 
