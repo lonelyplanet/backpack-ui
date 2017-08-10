@@ -61,7 +61,7 @@ const styles = {
   },
 };
 
-const ListEntry = ({
+const ListItemBookmarkEntry = ({
   name,
   category,
   city,
@@ -70,7 +70,7 @@ const ListEntry = ({
   style,
 }) => (
   <article
-    className="ListEntry"
+    className="ListItemBookmarkEntry"
     style={[styles.container, style]}
   >
     <PriceRangeLabel
@@ -97,7 +97,7 @@ const ListEntry = ({
   </article>
 );
 
-ListEntry.propTypes = {
+ListItemBookmarkEntry.propTypes = {
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
@@ -106,6 +106,4 @@ ListEntry.propTypes = {
   style: propTypes.style,
 };
 
-ListEntry.styles = styles;
-
-export default radium(ListEntry);
+export default radium(ListItemBookmarkEntry);
