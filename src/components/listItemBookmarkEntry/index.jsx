@@ -86,6 +86,9 @@ const ListItemBookmarkEntry = ({
   name,
   category,
   city,
+  url,
+  categoryUrl,
+  cityUrl,
   note,
   value,
   style,
@@ -105,11 +108,33 @@ const ListItemBookmarkEntry = ({
       weight="medium"
       style={styles.name}
     >
-      {name}
+      <a
+        key={name}
+        style={styles.anchor}
+        href={url}
+      >
+        {name}
+      </a>
     </Heading>
 
     <CategoryLabel style={styles.category}>
-      {category} in {city}
+      {categoryUrl ?
+        <a
+          key={category}
+          style={styles.anchor}
+          href={categoryUrl}
+        >
+          {category}
+        </a> : category
+      } in {cityUrl ?
+        <a
+          key={city}
+          style={styles.anchor}
+          href={cityUrl}
+        >
+          {city}
+        </a> : city
+      }
     </CategoryLabel>
 
     <TextAccent style={styles.note}>
@@ -122,6 +147,9 @@ ListItemBookmarkEntry.propTypes = {
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  categoryUrl: PropTypes.string,
+  cityUrl: PropTypes.string,
   note: PropTypes.string,
   value: PropTypes.oneOf(["$", "$$", "$$$"]).isRequired,
   style: propTypes.style,
