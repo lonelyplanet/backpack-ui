@@ -81,7 +81,6 @@ import Lede from "../src/components/lede";
 // ListItemBookable
 // ListItemImage
 import ListButton from "../src/components/listButton";
-import ListEntry from "../src/components/listEntry";
 import ListItemBookmark from "../src/components/listItemBookmark";
 import ListHeader from "../src/components/listHeader";
 import ListItemBookmarkEntry from "../src/components/listItemBookmarkEntry";
@@ -99,6 +98,7 @@ import Modal from "../src/components/modal";
 import ModalLogIn from "../src/components/modalLogIn";
 import MoreLink from "../src/components/moreLink";
 import { MultiStep, MultiStepWrapper } from "../src/components/multiStep";
+import MultiStepLogin from "../src/components/multiStep/multiStepLogin";
 import Narrative from "../src/components/narrative";
 import { Navigation, NavigationTab } from "../src/components/navigation";
 import NewsArticleAuthor from "../src/components/newsArticleAuthor";
@@ -1386,6 +1386,25 @@ storiesOf("Multi-step", module)
     </MultiStepWrapper>
   ));
 
+storiesOf("MultiStep Login", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <MultiStepWrapper totalSteps={4}>
+      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => {
+        return (
+          <MultiStepLogin
+            currentStep={currentStep}
+            setStep={setCurrentStep}
+            authActions={{}}
+            showLogo
+            doneAction={() => {}}
+          />
+        );
+      }}
+    </MultiStepWrapper>
+
+  ));
+
 storiesOf("Narrative", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1408,6 +1427,7 @@ storiesOf("Narrative", module)
       />
     </StyleRoot>
   ));
+
 
 storiesOf("News article author", module)
   .addDecorator(withKnobs)

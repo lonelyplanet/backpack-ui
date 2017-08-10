@@ -12,6 +12,13 @@ import {
   AuthSocialButtons,
 } from "../auth";
 
+const styles = {
+  disclaimerAboveButton: {
+    maxWidth: "100%",
+    width: "100%",
+  },
+};
+
 const MultiStepLogin = ({
   currentStep,
   setStep,
@@ -30,7 +37,7 @@ const MultiStepLogin = ({
           event.preventDefault();
         }}
       >username and password</a> Lonely Planet uses cookies to improve your
-      experience, see our <a href="//www.lonelyplanet.com/legal/cookies/">Cookie Policy</a>.
+      experience, see our <a href="https//www.lonelyplanet.com/legal/cookies/">Cookie Policy</a>.
       You may receive notifications from us and can opt out at any time.
       For additional account inquiries
       see <a href="http://support.lonelyplanet.com/hc/en-us/sections/203968787-Account-administration" target="_blank" rel="noopener noreferrer">Account help</a>.
@@ -38,12 +45,11 @@ const MultiStepLogin = ({
   );
 
   const EmailDisclaimer = (
-    <AuthDisclaimer>
-      By clicking next, you agree to our <a href="//www.lonelyplanet.com/legal/website-terms/">terms of service </a>
-       and that you have read our <a href="//www.lonelyplanet.com/legal/privacy-policy/">privacy policy</a>, including
-       our <a href="//www.lonelyplanet.com/legal/cookies/">cookie use</a>.
-       For additional account inquiries
-       see <a href="http://support.lonelyplanet.com/hc/en-us/sections/203968787-Account-administration" target="_blank" rel="noopener noreferrer">Account help</a>.
+    <AuthDisclaimer style={styles.disclaimerAboveButton}>
+      By clicking next below and creating an account, you agree to our <a href="https//www.lonelyplanet.com/legal/website-terms/">terms of service</a> and
+       that you're happy for Lonely Planet to use your information as set out in our <a href="https//www.lonelyplanet.com/legal/privacy-policy/">privacy policy</a> (including our <a href="https//www.lonelyplanet.com/legal/cookies/">cookie use</a>).
+       Once you create your account, we will send an email to your email address containing a
+       unique link so that you can login to Lonely Planet.
     </AuthDisclaimer>
   );
   return (
@@ -73,13 +79,12 @@ const MultiStepLogin = ({
         </AuthMessage>
 
         <ModalContentMagicLinkForm
+          disclaimer={EmailDisclaimer}
           onSubmit={(email) => {
             authActions.passwordless(email);
             setStep(4);
           }}
         />
-
-        {EmailDisclaimer}
       </AuthContainer>
 
       <AuthContainer key="legacy" hasLogo={showLogo}>
@@ -90,7 +95,6 @@ const MultiStepLogin = ({
         <ModalContentLegacyLoginForm
           authLink={authActions.password}
         />
-        {EmailDisclaimer}
       </AuthContainer>
 
       <AuthContainer key="success" hasLogo={showLogo}>
