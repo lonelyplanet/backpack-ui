@@ -114,7 +114,7 @@ ListItemBookmark.propTypes = {
   checked: PropTypes.bool.isRequired,
   thumbnail: PropTypes.string,
   entriesCount: PropTypes.number.isRequired,
-  visibility: PropTypes.oneOf(["private", "public"]).isRequired,
+  visibility: PropTypes.oneOf(["Private", "Public"]).isRequired,
   style: propTypes.style,
 };
 
