@@ -1,26 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+import { fontWeightLight, fontWeightRegular } from "../../styles/typography";
 import { color } from "../../../settings.json";
 import propTypes from "../../utils/propTypes";
-import font from "../../utils/font";
+import { textUppercase } from "../../utils/typography";
 
 const styles = {
-  default: {
+  default: Object.assign({}, {
     color: color.titleGray,
     display: "inline-block",
-    fontFamily: font("benton"),
-    fontSize: "11px",
-    fontWeight: 500,
+    fontWeight: fontWeightRegular,
     letterSpacing: "0.06px",
-    lineHeight: 1,
     overflow: "hidden",
-    textTransform: "uppercase",
-  },
+  }, textUppercase()),
 
   light: {
     color: color.lightText,
-    fontWeight: 400,
+    fontWeight: fontWeightLight,
   },
 };
 
@@ -45,6 +42,7 @@ CategoryLabel.propTypes = {
 
 CategoryLabel.defaultProps = {
   light: false,
+  style: null,
 };
 
 export default radium(CategoryLabel);
