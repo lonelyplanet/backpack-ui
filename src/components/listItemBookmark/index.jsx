@@ -107,15 +107,17 @@ function ListItemBookmark({
         </CategoryLabel>
       </div>
 
-      <div style={[styles.checkbox, checked && styles.checkedBox]}>
-        {checked &&
-          <Icon.Checkmark
-            label="Bookmark"
-            fill={colors.bgPrimary}
-            width="11px"
-          />
-        }
-      </div>
+      {onClick &&
+        <div style={[styles.checkbox, checked && styles.checkedBox]}>
+          {checked &&
+            <Icon.Checkmark
+              label="Bookmark"
+              fill={colors.bgPrimary}
+              width="11px"
+            />
+          }
+        </div>
+      }
     </Element>
   );
 }
