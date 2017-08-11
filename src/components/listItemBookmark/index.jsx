@@ -103,7 +103,13 @@ const ListItemBookmark = ({
     </div>
 
     <div style={[styles.checkbox, checked && styles.checkedBox]}>
-      {checked && <Icon.Checkmark label="Bookmark" fill={colors.bgPrimary} width="11px" />}
+      {checked &&
+        <Icon.Checkmark
+          label="Bookmark"
+          fill={colors.bgPrimary}
+          width="11px"
+        />
+      }
     </div>
   </button>
 );
