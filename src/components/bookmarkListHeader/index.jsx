@@ -12,7 +12,7 @@ import {
 } from "../../styles/typography";
 import mq from "../../styles/mq";
 import AvatarMarker from "../avatarMarker";
-import { TextAccent } from "../text";
+import { TextAccent, TextHeading } from "../text";
 import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
 
@@ -100,11 +100,14 @@ const BookmarkListHeader = ({
       style={styles.avatarMarker}
     />
 
-    <h2
+    <TextHeading
+      size={3}
+      level={2}
+      weight="medium"
       style={styles.name}
     >
       {name}
-    </h2>
+    </TextHeading>
 
     <TextAccent style={styles.meta}>
       {entriesCount} places • <span style={styles.visibility}>{visibility}</span>
