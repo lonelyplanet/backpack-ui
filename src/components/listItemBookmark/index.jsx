@@ -63,7 +63,7 @@ const styles = {
   meta: {
     color: rgba(colors.textPrimary, 0.5),
     fontWeight: fontWeightMedium,
-    margin: "6px 0 0",
+    marginTop: "6px",
   },
 };
 
