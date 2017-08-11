@@ -457,7 +457,7 @@ storiesOf("Bookmark list header", module)
         username={text("Username", "Rizzo the Rat")}
         name={text("Title", "Europe Summer Highlights")}
         entriesCount={5}
-        visibility={select("Visibility", ["private", "public"], "private")}
+        visibility={select("Visibility", ["Private", "Public"], "Private")}
       />
     </StyleRoot>
   ));
