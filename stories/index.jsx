@@ -286,8 +286,8 @@ storiesOf("Album thumbnail image", module)
   .add("Image", () => (
     <Center>
       <AlbumThumbnailImage
-        src="https://lonelyplanetwp.imgix.net/2017/07/GettyImages-647005142_high_1-360ee8e327d5.jpg?crop=entropy&fit=crop&h=96&sharp=10&vib=20&w=104"
-        alt=""
+        src={text("Source", "https://lonelyplanetwp.imgix.net/2017/07/GettyImages-647005142_high_1-360ee8e327d5.jpg?crop=entropy&fit=crop&h=96&sharp=10&vib=20&w=104")}
+        alt={text("Alternate text", "")}
       />
     </Center>
   ));
