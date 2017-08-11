@@ -76,8 +76,10 @@ function ListItemBookmark({
   visibility,
   style,
 }) {
+  const Element = onClick ? "button" : "a";
+
   return (
-    <button
+    <Element
       className="ListItemBookmark"
       name={name}
       onClick={onClick}
@@ -112,7 +114,7 @@ function ListItemBookmark({
           />
         }
       </div>
-    </button>
+    </Element>
   );
 }
 

@@ -1112,17 +1112,10 @@ storiesOf("List Item Bookmark", module)
     <StyleRoot>
       <ListItemBookmark
         name={text("Name", "Favorites")}
-        onClick={action("List Button clicked")}
         checked={boolean("Checked", false)}
         thumbnail={text("Thumbnail", "")}
-        entries={[
-          // "pancakes",
-          // "bacon",
-          // "eggs",
-          // "sausage",
-          // "hashbrowns",
-        ]}
-        visibility={select("Visibility", ["private", "public"], "private")}
+        entriesCount={5}
+        visibility={select("Visibility", ["Private", "Public"], "Private")}
       />
     </StyleRoot>
   ));
