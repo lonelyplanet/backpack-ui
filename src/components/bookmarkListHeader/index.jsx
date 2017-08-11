@@ -120,7 +120,7 @@ BookmarkListHeader.propTypes = {
   username: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   entriesCount: PropTypes.number.isRequired,
-  visibility: PropTypes.oneOf(["private", "public"]).isRequired,
+  visibility: PropTypes.oneOf(["Private", "Public"]).isRequired,
   style: PropTypes.objectOf(PropTypes.object),
 };
 
