@@ -131,4 +131,11 @@ ListItemBookmark.propTypes = {
   style: propTypes.style,
 };
 
+ListItemBookmark.defaultProps = {
+  href: null,
+  onClick: null,
+  thumbnail: null,
+  style: null,
+};
+
 export default radium(ListItemBookmark);
