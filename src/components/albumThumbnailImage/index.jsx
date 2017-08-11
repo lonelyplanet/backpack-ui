@@ -8,6 +8,9 @@ import { lighten, rgba } from "../../utils/color";
 import iconFromString from "../../utils/icon";
 import propTypes from "../../utils/propTypes";
 
+const size = 48;
+const overlayWidth = 4;
+
 const styles = {
   container: {
     alignItems: "center",
@@ -15,14 +18,12 @@ const styles = {
     color: colors.accentGray,
     display: "flex",
     fontSize: `${fontSizeHeading7}px`,
-    height: "48px",
     justifyContent: "center",
     position: "relative",
-    width: "52px",
   },
 
   icon: {
-    marginLeft: "-4px",
+    marginLeft: `-${(overlayWidth / fontSizeHeading7)}em`,
   },
 
   img: {
@@ -38,17 +39,27 @@ const styles = {
     position: "absolute",
     right: 0,
     top: 0,
-    width: "4px",
+    width: `${(overlayWidth / fontSizeHeading7)}em`,
     zIndex: zIndex.default,
   },
 };
 
-const AlbumThumbnailImage = ({ icon, src, alt, backgroundColor, style }) => (
+const AlbumThumbnailImage = ({
+  icon,
+  src,
+  alt,
+  backgroundColor,
+  style,
+}) => (
   <div
     className="AlbumThumbnailImage"
     style={[
       styles.container,
-      { backgroundColor },
+      {
+        backgroundColor,
+        height: `${(size / fontSizeHeading7)}em`,
+        width: `${((size + overlayWidth) / fontSizeHeading7)}em`,
+      },
       !src && { backgroundColor: lighten(colors.accentGray, 14) },
       style,
     ]}
@@ -66,13 +77,13 @@ const AlbumThumbnailImage = ({ icon, src, alt, backgroundColor, style }) => (
     })}
 
     <svg
-      viewBox="0 0 4 48"
+      viewBox={`0 0 ${overlayWidth} ${size}`}
       style={styles.overlay}
     >
-      <rect fill={colors.bgPrimary} width="1" height="48" />
-      <polygon fill={colors.bgPrimary} points="4,1 4,0 3,0 2,0 2,48 3,48 4,48 4,47 3,47 3,1" />
-      {src && <rect fill={`${rgba(colors.bgOverlay, 0.4)}`} x="1" width="1" height="48" />}
-      {src && <rect fill={`${rgba(colors.bgOverlay, 0.4)}`} x="3" y="1" width="1" height="46" />}
+      <rect fill={colors.bgPrimary} width="1" height={`${size}`} />
+      <polygon fill={colors.bgPrimary} points={`4,1 4,0 3,0 2,0 2,${size} 3,${size} 4,${size} 4,${(size - 1)} 3,${(size - 1)} 3,1`} />
+      {src && <rect fill={`${rgba(colors.bgOverlay, 0.4)}`} x="1" width="1" height={`${size}`} />}
+      {src && <rect fill={`${rgba(colors.bgOverlay, 0.4)}`} x="3" y="1" width="1" height={`${(size - 2)}`} />}
     </svg>
   </div>
 );
