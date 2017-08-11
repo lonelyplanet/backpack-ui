@@ -26,7 +26,6 @@ const styles = {
     [`@media (min-width: ${mq.min["768"]})`]: {
       borderBottom: 0,
       flexFlow: "row wrap",
-      fontSize: `${(fontSizeHeading5 + 2)}px`,
       padding: "0 0 24px",
     },
   },
