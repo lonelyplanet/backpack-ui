@@ -8,7 +8,7 @@ import {
   fontSizeBodySmall,
   fontSizeUppercase,
   fontWeightMedium,
-  lineHeightHeading3,
+  lineHeightHeading5,
 } from "../../styles/typography";
 import mq from "../../styles/mq";
 import AvatarMarker from "../avatarMarker";
@@ -51,15 +51,15 @@ const styles = {
   },
 
   name: {
-    fontWeight: fontWeightMedium,
-    letterSpacing: ".9px",
-    lineHeight: lineHeightHeading3,
-    marginBottom: "6px",
     order: 2,
 
+    [`@media (max-width: ${mq.max["768"]})`]: {
+      marginBottom: "6px",
+      fontSize: `${fontSizeHeading5}px`,
+      lineHeight: lineHeightHeading5,
+    },
+
     [`@media (min-width: ${mq.min["768"]})`]: {
-      letterSpacing: ".6px",
-      marginBottom: 0,
       width: "100%",
     },
   },
