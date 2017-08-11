@@ -65,12 +65,13 @@ const styles = {
 
   meta: {
     fontSize: `${fontSizeBodyArticleSmall}px`,
-    letterSpacing: ".3px",
+    letterSpacing: ".4px",
     marginRight: "24px",
     order: 2,
 
     [`@media (min-width: ${mq.min["768"]})`]: {
       fontSize: `${fontSizeBodyArticle}px`,
+      letterSpacing: ".5px",
     },
   },
 };
