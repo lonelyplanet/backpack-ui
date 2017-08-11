@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import {
   fontSizeHeading5,
-  fontSizeHeading6,
-  fontSizeHeading7,
+  fontSizeBodyArticle,
+  fontSizeBodyArticleSmall,
   fontSizeBodySmall,
   fontSizeUppercase,
   fontWeightMedium,
@@ -64,13 +64,13 @@ const styles = {
   },
 
   meta: {
-    fontSize: `${fontSizeHeading7}px`,
+    fontSize: `${fontSizeBodyArticleSmall}px`,
     letterSpacing: ".3px",
     marginRight: "24px",
     order: 2,
 
     [`@media (min-width: ${mq.min["768"]})`]: {
-      fontSize: `${fontSizeHeading6}px`,
+      fontSize: `${fontSizeBodyArticle}px`,
     },
   },
 };
