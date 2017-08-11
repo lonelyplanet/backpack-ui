@@ -1092,6 +1092,32 @@ storiesOf("List Header", module)
     </StyleRoot>
   ));
 
+storiesOf("List item (bookmark)", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <ListItemBookmark
+        name={text("Name", "Favorites")}
+        href={text("URL", "/")}
+        thumbnail={text("Thumbnail", "")}
+        entriesCount={5}
+        visibility={select("Visibility", ["Private", "Public"], "Private")}
+      />
+    </StyleRoot>
+  ))
+  .add("With checkbox", () => (
+    <StyleRoot>
+      <ListItemBookmark
+        name={text("Name", "Favorites")}
+        onClick={action("List Button clicked")}
+        checked={boolean("Checked", false)}
+        thumbnail={text("Thumbnail", "")}
+        entriesCount={5}
+        visibility={select("Visibility", ["Private", "Public"], "Private")}
+      />
+    </StyleRoot>
+  ))
+
 storiesOf("List item (bookmark entry)", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1102,20 +1128,6 @@ storiesOf("List item (bookmark entry)", module)
         city={text("City", "City")}
         note={text("Note", "This is where a nice little note goes.")}
         value={select("Range", ["$", "$$", "$$$"], "$")}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("List Item Bookmark", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <ListItemBookmark
-        name={text("Name", "Favorites")}
-        checked={boolean("Checked", false)}
-        thumbnail={text("Thumbnail", "")}
-        entriesCount={5}
-        visibility={select("Visibility", ["Private", "Public"], "Private")}
       />
     </StyleRoot>
   ));
