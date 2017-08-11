@@ -67,7 +67,7 @@ const styles = {
   },
 };
 
-const ListItemBookmark = ({
+function ListItemBookmark({
   name,
   onClick,
   checked,
@@ -75,44 +75,46 @@ const ListItemBookmark = ({
   entriesCount,
   visibility,
   style,
-}) => (
-  <button
-    className="ListItemBookmark"
-    name={name}
-    onClick={onClick}
-    style={[styles.container, style]}
-  >
-    <AlbumThumbnailImage
-      src={thumbnail}
-      alt={name}
-    />
+}) {
+  return (
+    <button
+      className="ListItemBookmark"
+      name={name}
+      onClick={onClick}
+      style={[styles.container, style]}
+    >
+      <AlbumThumbnailImage
+        src={thumbnail}
+        alt={name}
+      />
 
-    <div style={styles.caption}>
-      <Heading
-        level="2"
-        size="7"
-        weight="medium"
-        style={[styles.name, checked && styles.checkedName]}
-      >
-        {name}
-      </Heading>
+      <div style={styles.caption}>
+        <Heading
+          level="2"
+          size="7"
+          weight="medium"
+          style={[styles.name, checked && styles.checkedName]}
+        >
+          {name}
+        </Heading>
 
-      <CategoryLabel style={styles.meta}>
-        {visibility} • {entriesCount} places
-      </CategoryLabel>
-    </div>
+        <CategoryLabel style={styles.meta}>
+          {visibility} • {entriesCount} places
+        </CategoryLabel>
+      </div>
 
-    <div style={[styles.checkbox, checked && styles.checkedBox]}>
-      {checked &&
-        <Icon.Checkmark
-          label="Bookmark"
-          fill={colors.bgPrimary}
-          width="11px"
-        />
-      }
-    </div>
-  </button>
-);
+      <div style={[styles.checkbox, checked && styles.checkedBox]}>
+        {checked &&
+          <Icon.Checkmark
+            label="Bookmark"
+            fill={colors.bgPrimary}
+            width="11px"
+          />
+        }
+      </div>
+    </button>
+  );
+}
 
 ListItemBookmark.propTypes = {
   name: PropTypes.string.isRequired,
