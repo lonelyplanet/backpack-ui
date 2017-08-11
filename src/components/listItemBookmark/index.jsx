@@ -2,10 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import {
+  fontSizeBodySmall,
+  fontSizeHeading5,
+  fontSizeHeading6,
+  fontSizeUppercase,
   fontWeightMedium,
-  lineHeightHeading1,
+  lineHeightBodySmall,
+  lineHeightHeading6,
 } from "../../styles/typography";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import timing from "../../styles/timing";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
@@ -23,21 +29,39 @@ const styles = {
     flexFlow: "row wrap",
     padding: "16px",
     textAlign: "left",
-    transition: `background ${timing.default}`,
+    transition: `background-color ${timing.default} ease-in-out`,
     width: "100%",
 
     ":hover": {
-      background: rgba(colors.bgOverlay, 0.05),
+      backgroundColor: rgba(colors.bgOverlay, 0.02),
+    },
+
+    [`@media (min-width: ${mq.min["720"]})`]: {
+      padding: "24px 0",
+    },
+  },
+
+  thumbnail: {
+    [`@media (min-width: ${mq.min["720"]})`]: {
+      fontSize: `${fontSizeHeading5}px`,
     },
   },
 
   caption: {
+    display: "flex",
+    flexDirection: "column",
     marginLeft: "16px",
+
+    [`@media (min-width: ${mq.min["720"]})`]: {
+      marginLeft: "32px",
+    },
   },
 
   name: {
-    lineHeight: lineHeightHeading1,
-    marginTop: "6px",
+    [`@media (min-width: ${mq.min["720"]})`]: {
+      fontSize: `${fontSizeHeading6}px`,
+      lineHeight: lineHeightHeading6,
+    },
   },
 
   checkedName: {
@@ -63,7 +87,12 @@ const styles = {
   meta: {
     color: rgba(colors.textPrimary, 0.5),
     fontWeight: fontWeightMedium,
-    marginTop: "6px",
+    lineHeight: (18 / fontSizeUppercase),
+
+    [`@media (min-width: ${mq.min["720"]})`]: {
+      fontSize: `${fontSizeBodySmall}px`,
+      lineHeight: lineHeightBodySmall,
+    },
   },
 };
 
@@ -88,6 +117,7 @@ function ListItemBookmark({
       <AlbumThumbnailImage
         src={thumbnail}
         alt={name}
+        style={styles.thumbnail}
       />
 
       <div style={styles.caption}>
