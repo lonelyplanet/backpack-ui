@@ -110,11 +110,11 @@ const ListItemBookmark = ({
 
 ListItemBookmark.propTypes = {
   name: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
   checked: PropTypes.bool.isRequired,
-  thumbnail: PropTypes.string,
   entriesCount: PropTypes.number.isRequired,
   visibility: PropTypes.oneOf(["Private", "Public"]).isRequired,
+  onClick: PropTypes.func,
+  thumbnail: PropTypes.string,
   style: propTypes.style,
 };
 
