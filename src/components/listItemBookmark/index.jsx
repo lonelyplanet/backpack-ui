@@ -72,7 +72,7 @@ const ListItemBookmark = ({
   onClick,
   checked,
   thumbnail,
-  entries,
+  entriesCount,
   visibility,
   style,
 }) => (
@@ -98,7 +98,7 @@ const ListItemBookmark = ({
       </Heading>
 
       <CategoryLabel style={styles.meta}>
-        {visibility} • {entries.length} places
+        {visibility} • {entriesCount} places
       </CategoryLabel>
     </div>
 
@@ -113,7 +113,7 @@ ListItemBookmark.propTypes = {
   onClick: PropTypes.func,
   checked: PropTypes.bool.isRequired,
   thumbnail: PropTypes.string,
-  entries: PropTypes.arrayOf(PropTypes.string).isRequired,
+  entriesCount: PropTypes.number.isRequired,
   visibility: PropTypes.oneOf(["private", "public"]).isRequired,
   style: propTypes.style,
 };
