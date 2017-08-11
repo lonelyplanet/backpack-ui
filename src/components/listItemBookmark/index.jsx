@@ -118,6 +118,4 @@ ListItemBookmark.propTypes = {
   style: propTypes.style,
 };
 
-ListItemBookmark.styles = styles;
-
 export default radium(ListItemBookmark);
