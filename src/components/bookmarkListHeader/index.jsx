@@ -73,10 +73,6 @@ const styles = {
       fontSize: `${fontSizeHeading6}px`,
     },
   },
-
-  visibility: {
-    textTransform: "capitalize",
-  },
 };
 
 const BookmarkListHeader = ({
@@ -109,7 +105,7 @@ const BookmarkListHeader = ({
     </TextHeading>
 
     <TextAccent style={styles.meta}>
-      {entriesCount} places • <span style={styles.visibility}>{visibility}</span>
+      {entriesCount} places • {visibility}
     </TextAccent>
   </header>
 );
