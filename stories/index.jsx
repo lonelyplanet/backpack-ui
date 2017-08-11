@@ -31,6 +31,7 @@ import AvatarUpload from "../src/components/avatarUpload";
 // Availability
 import Bookmark from "../src/components/bookmark";
 import BookmarkListAuthor from "../src/components/bookmarkListAuthor";
+import BookmarkListHeader from "../src/components/bookmarkListHeader";
 import BookmarkListMenu from "../src/components/bookmarkListMenu";
 import BookmarkListMenuOption from "../src/components/bookmarkListMenu/option.jsx";
 import Breadcrumbs from "../src/components/breadcrumbs";
@@ -84,7 +85,6 @@ import Lede from "../src/components/lede";
 // ListItemImage
 import ListButton from "../src/components/listButton";
 import ListItemBookmark from "../src/components/listItemBookmark";
-import ListHeader from "../src/components/listHeader";
 import ListItemBookmarkEntry from "../src/components/listItemBookmarkEntry";
 import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
@@ -445,6 +445,27 @@ storiesOf("Bookmark list author", module)
     >
       {text("Name", "Alex Butler")}
     </BookmarkListAuthor>
+  ));
+
+storiesOf("Bookmark list header", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <BookmarkListHeader
+        profileHref={text("Profile URL", "/profile")}
+        avatarSrc={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+        username={text("Username", "Rizzo the Rat")}
+        name={text("Title", "Europe Summer Highlights")}
+        entries={[
+          "pancakes",
+          "bacon",
+          "eggs",
+          "sausage",
+          "hashbrowns",
+        ]}
+        visibility={select("Visibility", ["private", "public"], "private")}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Bookmark list menu", module)
@@ -1069,27 +1090,6 @@ storiesOf("List Button", module)
         ], "Ellipsis")}
       />
     </Center>
-  ));
-
-storiesOf("List Header", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <ListHeader
-        profileHref={text("Profile URL", "/profile")}
-        avatarSrc={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
-        username={text("Username", "Rizzo the Rat")}
-        name={text("Title", "Europe Summer Highlights")}
-        entries={[
-          "pancakes",
-          "bacon",
-          "eggs",
-          "sausage",
-          "hashbrowns",
-        ]}
-        visibility={select("Visibility", ["private", "public"], "private")}
-      />
-    </StyleRoot>
   ));
 
 storiesOf("List item (bookmark)", module)

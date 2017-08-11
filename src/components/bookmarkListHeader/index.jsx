@@ -83,7 +83,7 @@ const styles = {
   },
 };
 
-const ListHeader = ({
+const BookmarkListHeader = ({
   profileHref,
   avatarSrc,
   username,
@@ -93,7 +93,7 @@ const ListHeader = ({
   style,
 }) => (
   <header
-    className="ListHeader"
+    className="BookmarkListHeader"
     style={[styles.header, style]}
   >
     <AvatarMarker
@@ -115,7 +115,7 @@ const ListHeader = ({
   </header>
 );
 
-ListHeader.propTypes = {
+BookmarkListHeader.propTypes = {
   profileHref: PropTypes.string.isRequired,
   avatarSrc: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
@@ -125,6 +125,6 @@ ListHeader.propTypes = {
   style: PropTypes.objectOf(PropTypes.object),
 };
 
-ListHeader.styles = styles;
+BookmarkListHeader.styles = styles;
 
-export default radium(ListHeader);
+export default radium(BookmarkListHeader);
