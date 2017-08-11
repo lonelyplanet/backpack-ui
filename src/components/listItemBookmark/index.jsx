@@ -69,6 +69,7 @@ const styles = {
 
 function ListItemBookmark({
   name,
+  href,
   onClick,
   checked,
   thumbnail,
@@ -83,6 +84,7 @@ function ListItemBookmark({
       className="ListItemBookmark"
       name={name}
       onClick={onClick}
+      href={href}
       style={[styles.container, style]}
     >
       <AlbumThumbnailImage
@@ -123,6 +125,7 @@ ListItemBookmark.propTypes = {
   checked: PropTypes.bool.isRequired,
   entriesCount: PropTypes.number.isRequired,
   visibility: PropTypes.oneOf(["Private", "Public"]).isRequired,
+  href: PropTypes.string,
   onClick: PropTypes.func,
   thumbnail: PropTypes.string,
   style: propTypes.style,
