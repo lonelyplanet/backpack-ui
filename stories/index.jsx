@@ -1120,8 +1120,11 @@ storiesOf("List item (bookmark entry)", module)
         name={text("Name", "POI Name")}
         category={text("Category", "Category")}
         city={text("City", "City")}
+        url={text("URL", "/")}
+        priceRange={select("Range", ["$", "$$", "$$$"], "$")}
+        categoryUrl={text("Category URL", "/")}
+        cityUrl={text("City URL", "/")}
         note={text("Note", "This is where a nice little note goes.")}
-        value={select("Range", ["$", "$$", "$$$"], "$")}
       />
     </StyleRoot>
   ));
