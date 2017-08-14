@@ -7,6 +7,7 @@ import {
   fontSizeBodySmall,
   fontSizeBodyArticle,
   fontWeightMedium,
+  lineHeightBodyArticle,
   lineHeightHeading6,
   lineHeightHeading7,
 } from "../../styles/typography";
@@ -77,6 +78,7 @@ const styles = {
     [`@media (min-width: ${mq.min["768"]})`]: {
       fontSize: `${fontSizeBodyArticle}px`,
       letterSpacing: 0,
+      lineHeight: lineHeightBodyArticle,
     },
   },
 
