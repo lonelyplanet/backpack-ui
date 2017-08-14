@@ -4,7 +4,6 @@ import radium from "radium";
 import {
   fontSizeHeading6,
   fontSizeHeading7,
-  fontSizeAccent,
   fontSizeBodySmall,
   fontSizeBodyArticle,
   fontWeightMedium,
@@ -73,7 +72,6 @@ const styles = {
   },
 
   note: {
-    fontSize: `${fontSizeAccent}px`,
     letterSpacing: ".4px",
 
     [`@media (min-width: ${mq.min["768"]})`]: {
