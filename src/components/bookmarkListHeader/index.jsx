@@ -20,11 +20,9 @@ const styles = {
   header: {
     display: "flex",
     flexFlow: "column wrap",
-    padding: "32px 16px",
 
     [`@media (min-width: ${mq.min["768"]})`]: {
       flexFlow: "row wrap",
-      padding: "0 0 24px",
     },
   },
 
