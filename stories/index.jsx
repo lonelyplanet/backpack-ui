@@ -29,7 +29,7 @@ import Avatar from "../src/components/avatar";
 import AvatarMarker from "../src/components/avatarMarker";
 import AvatarUpload from "../src/components/avatarUpload";
 // Availability
-import Bookmark from "../src/components/bookmark";
+import BookmarkButton from "../src/components/bookmarkButton";
 import BookmarkListAuthor from "../src/components/bookmarkListAuthor";
 import BookmarkListHeader from "../src/components/bookmarkListHeader";
 import BookmarkListMenu from "../src/components/bookmarkListMenu";
@@ -425,11 +425,11 @@ storiesOf("Avatar upload", module)
     />
   ));
 
-storiesOf("Bookmark", module)
+storiesOf("Bookmark button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <Center>
-      <Bookmark
+      <BookmarkButton
         onClick={action("Bookmark clicked")}
         marked={boolean("Marked", false)}
       />

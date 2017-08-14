@@ -5,7 +5,7 @@ import truncate from "truncate";
 import moment from "moment";
 import { Link } from "react-router";
 import { color, media } from "../../../settings.json";
-import Bookmark from "../bookmark";
+import BookmarkButton from "../bookmarkButton";
 import MoreLink from "../moreLink";
 import { gutter, span, percentage } from "../../utils/grid";
 
@@ -253,7 +253,7 @@ function ListItem({
 
           {bookmark &&
             <div className="ListItem-bookmark" style={styles.bookmark.base}>
-              <Bookmark
+              <BookmarkButton
                 onClick={null}
                 size={bookmarkSize}
               />

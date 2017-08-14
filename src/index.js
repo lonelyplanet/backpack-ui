@@ -13,7 +13,7 @@ export { default as Availability } from "./components/availability";
 export { default as Avatar } from "./components/avatar";
 export { default as AvatarMarker } from "./components/avatarMarker";
 export { default as AvatarUpload } from "./components/avatarUpload";
-export { default as Bookmark } from "./components/bookmark";
+export { default as BookmarkButton } from "./components/bookmarkButton";
 export { default as BookmarkListAuthor } from "./components/bookmarkListAuthor";
 export { default as Bullet } from "./components/bullet";
 export { default as BulletDescription } from "./components/bulletDescription";

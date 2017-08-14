@@ -7,7 +7,7 @@ import { Link } from "react-router";
 import { color, media } from "../../../settings.json";
 import Button from "../button";
 import Price from "../price";
-import Bookmark from "../bookmark";
+import BookmarkButton from "../bookmarkButton";
 import Bullet from "../bullet";
 import Icon from "../icon";
 import Tooltip from "../tooltip";
@@ -383,7 +383,7 @@ function ListItemBookable({
 
             {bookmark &&
               <div className="ListItem-bookmark" style={styles.bookmark.base}>
-                <Bookmark
+                <BookmarkButton
                   onClick={null}
                   size={bookmarkSize}
                 />

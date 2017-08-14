@@ -6,7 +6,7 @@ import capitalize from "lodash/capitalize";
 import settings from "../../../settings.json";
 import Heading from "../heading";
 import Strapline from "../strapline";
-import Bookmark from "../bookmark";
+import BookmarkButton from "../bookmarkButton";
 import { gutter, span } from "../../utils/grid";
 import { blueLink } from "../../utils/mixins";
 
@@ -187,7 +187,7 @@ class PageHeader extends React.Component {
               className="PageHeader-bookmark"
               style={styles.bookmark.base}
             >
-              <Bookmark
+              <BookmarkButton
                 onClick={this._bookmarkOnClick}
                 marked={this.state.marked}
                 size="large"

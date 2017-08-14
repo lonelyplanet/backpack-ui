@@ -4,7 +4,7 @@ import radium from "radium";
 import ListButton from "../listButton";
 import propTypes from "../../utils/propTypes";
 
-const Bookmark = ({ onClick, marked, style }) => (
+const BookmarkButton = ({ onClick, marked, style }) => (
   <ListButton
     onClick={onClick}
     icon={marked ? "BookmarkActive" : "Bookmark"}
@@ -12,16 +12,16 @@ const Bookmark = ({ onClick, marked, style }) => (
   />
 );
 
-Bookmark.propTypes = {
+BookmarkButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   marked: PropTypes.bool,
   style: propTypes.style,
 };
 
-Bookmark.defaultProps = {
+BookmarkButton.defaultProps = {
   onClick: null,
   marked: false,
   style: null,
 };
 
-export default radium(Bookmark);
+export default radium(BookmarkButton);
