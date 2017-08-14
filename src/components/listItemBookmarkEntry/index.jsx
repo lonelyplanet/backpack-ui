@@ -8,6 +8,8 @@ import {
   fontSizeBodySmall,
   fontSizeBodyArticle,
   fontWeightMedium,
+  lineHeightHeading6,
+  lineHeightHeading7,
 } from "../../styles/typography";
 import mq from "../../styles/mq";
 import colors from "../../styles/colors";
@@ -31,9 +33,11 @@ const styles = {
 
   name: {
     fontSize: `${fontSizeHeading7}px`,
+    lineHeight: lineHeightHeading7,
 
     [`@media (min-width: ${mq.min["768"]})`]: {
       fontSize: `${fontSizeHeading6}px`,
+      lineHeight: lineHeightHeading6,
     },
   },
 
