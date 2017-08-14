@@ -45,6 +45,7 @@ const styles = {
 
   category: {
     color: rgba(colors.textPrimary, 0.5),
+    display: "block",
     fontWeight: fontWeightMedium,
     marginBottom: "6px",
     marginTop: "6px",
