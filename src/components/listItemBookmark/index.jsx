@@ -27,7 +27,8 @@ const styles = {
     borderBottom: `1px solid ${colors.borderPrimary}`,
     display: "flex",
     flexFlow: "row wrap",
-    padding: "16px",
+    paddingBottom: "16px",
+    paddingTop: "16px",
     textAlign: "left",
     transition: `background-color ${timing.default} ease-in-out`,
     width: "100%",
@@ -37,7 +38,8 @@ const styles = {
     },
 
     [`@media (min-width: ${mq.min["720"]})`]: {
-      padding: "24px 0",
+      paddingBottom: "24px",
+      paddingTop: "24px",
     },
   },
 
