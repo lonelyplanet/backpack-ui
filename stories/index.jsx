@@ -1110,7 +1110,7 @@ storiesOf("List item (bookmark)", module)
         visibility={select("Visibility", ["Private", "Public"], "Private")}
       />
     </StyleRoot>
-  ))
+  ));
 
 storiesOf("List item (bookmark entry)", module)
   .addDecorator(withKnobs)
