@@ -106,7 +106,7 @@ const BookmarkListHeader = ({
     </TextHeading>
 
     <TextAccent style={styles.meta}>
-      {entriesCount} place{entriesCount !== 1 && "s"} • {visibility}
+      {entriesCount} place{entriesCount !== 1 && "s"} · {visibility}
     </TextAccent>
   </header>
 );
