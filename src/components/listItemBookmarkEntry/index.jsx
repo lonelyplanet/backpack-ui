@@ -73,11 +73,12 @@ const styles = {
   },
 
   note: {
-    letterSpacing: ".4px",
+    [`@media (max-width: ${mq.max["768"]})`]: {
+      letterSpacing: ".4px",
+    },
 
     [`@media (min-width: ${mq.min["768"]})`]: {
       fontSize: `${fontSizeBodyArticle}px`,
-      letterSpacing: 0,
       lineHeight: lineHeightBodyArticle,
       marginTop: "16px",
     },
