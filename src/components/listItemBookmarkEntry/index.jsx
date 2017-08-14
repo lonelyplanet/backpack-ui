@@ -24,10 +24,12 @@ import CategoryLabel from "../categoryLabel";
 const styles = {
   container: {
     borderBottom: `1px solid ${colors.borderPrimary}`,
-    padding: "16px",
+    paddingBottom: "16px",
+    paddingTop: "16px",
 
     [`@media (min-width: ${mq.min["768"]})`]: {
-      padding: "24px 0",
+      paddingBottom: "24px",
+      paddingTop: "24px",
     },
   },
 
