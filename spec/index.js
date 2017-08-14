@@ -4,7 +4,7 @@ import {
   Amenities,
   ArticleAuthor,
   Availability,
-  Bookmark,
+  BookmarkButton,
   Breadcrumbs,
   Bullet,
   Button,
@@ -69,7 +69,7 @@ describe("backpack-ui", () => {
     expect(Amenities).to.be.ok;
     expect(ArticleAuthor).to.be.ok;
     expect(Availability).to.be.ok;
-    expect(Bookmark).to.be.ok;
+    expect(BookmarkButton).to.be.ok;
     expect(Breadcrumbs).to.be.ok;
     expect(Button).to.be.ok;
     expect(Bullet).to.be.ok;
