@@ -79,6 +79,7 @@ const styles = {
       fontSize: `${fontSizeBodyArticle}px`,
       letterSpacing: 0,
       lineHeight: lineHeightBodyArticle,
+      marginTop: "16px",
     },
   },
 
