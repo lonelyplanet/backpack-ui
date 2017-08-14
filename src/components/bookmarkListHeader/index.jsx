@@ -19,10 +19,10 @@ import { rgba } from "../../utils/color";
 const styles = {
   header: {
     display: "flex",
-    flexFlow: "column wrap",
+    flexWrap: "wrap",
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
-      flexFlow: "row wrap",
+    [`@media (max-width: ${mq.max["768"]})`]: {
+      flexDirection: "column",
     },
   },
 
