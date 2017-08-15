@@ -27,16 +27,18 @@ const styles = {
   },
 
   avatarMarker: {
-    fontSize: `${fontSizeUppercase}px`,
-    fontWeight: fontWeightMedium,
-    marginBottom: "16px",
-    order: 1,
-    textTransform: "uppercase",
+    container: {
+      fontSize: `${fontSizeUppercase}px`,
+      fontWeight: fontWeightMedium,
+      marginBottom: "16px",
+      order: 1,
+      textTransform: "uppercase",
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
-      fontSize: `${fontSizeBodySmall}px`,
-      marginBottom: 0,
-      order: 3,
+      [`@media (min-width: ${mq.min["768"]})`]: {
+        fontSize: `${fontSizeBodySmall}px`,
+        marginBottom: 0,
+        order: 3,
+      },
     },
 
     username: {
@@ -89,7 +91,7 @@ const BookmarkListHeader = ({
       profileHref={profileHref}
       avatarSrc={avatarSrc}
       username={username}
-      style={styles.avatarMarker}
+      style={styles.avatarMarker.container}
     />
 
     <TextHeading
