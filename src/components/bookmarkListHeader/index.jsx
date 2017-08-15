@@ -95,6 +95,7 @@ const BookmarkListHeader = ({
       avatarSrc={avatarSrc}
       username={username}
       style={styles.avatarMarker.container}
+      usernameStyle={styles.avatarMarker.username}
     />
 
     <TextHeading
