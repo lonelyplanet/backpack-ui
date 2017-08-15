@@ -44,6 +44,9 @@ const styles = {
     username: {
       alignSelf: "center",
       color: rgba(colors.textPrimary, 0.5),
+      marginLeft: "8px",
+      maxWidth: "none",
+      paddingTop: "3px",
     },
   },
 
