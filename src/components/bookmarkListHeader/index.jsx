@@ -123,6 +123,4 @@ BookmarkListHeader.propTypes = {
   style: PropTypes.objectOf(PropTypes.object),
 };
 
-BookmarkListHeader.styles = styles;
-
 export default radium(BookmarkListHeader);
