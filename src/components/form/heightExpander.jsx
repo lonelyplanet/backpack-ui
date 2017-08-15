@@ -19,6 +19,10 @@ class HeightExpander extends React.Component {
     this.updateHeight();
   }
 
+  componentWillReceiveProps() {
+    this.updateHeight();
+  }
+
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateHeight);
   }

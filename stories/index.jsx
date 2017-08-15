@@ -1868,6 +1868,7 @@ storiesOf("Setting Block", module)
       }}
     >
       <SettingBlockTextArea
+        value={text("Value", "")}
         error={boolean("Error", false)}
         title={text("Textarea Title", "Intro")}
         subtitle={text("Textarea Subtitle", "")}
