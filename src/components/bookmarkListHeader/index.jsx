@@ -91,8 +91,8 @@ const BookmarkListHeader = ({
     style={[styles.header, style]}
   >
     <AvatarMarker
-      profileHref={profileHref}
-      avatarSrc={avatarSrc}
+      href={profileHref}
+      src={avatarSrc}
       username={username}
       style={styles.avatarMarker.container}
       usernameStyle={styles.avatarMarker.username}
