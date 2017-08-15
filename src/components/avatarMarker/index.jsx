@@ -41,7 +41,13 @@ const styles = {
   },
 };
 
-const AvatarMarker = ({ href, src, username, style }) => (
+const AvatarMarker = ({
+  href,
+  src,
+  username,
+  style,
+  usernameStyle,
+}) => (
   <a
     className="AvatarMarker"
     href={href}
@@ -52,7 +58,7 @@ const AvatarMarker = ({ href, src, username, style }) => (
       size={24}
     />
 
-    <span style={[styles.username, style && style.username]}>
+    <span style={[styles.username, usernameStyle]}>
       {username}
     </span>
   </a>
@@ -63,10 +69,12 @@ AvatarMarker.propTypes = {
   src: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   style: propTypes.style,
+  usernameStyle: propTypes.style,
 };
 
 AvatarMarker.defaultProps = {
-  style: [],
+  style: null,
+  usernameStyle: null,
 };
 
 export default radium(AvatarMarker);
