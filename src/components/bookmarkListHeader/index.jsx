@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import {
-  fontSizeHeading5,
+  fontSizeHeading4,
   fontSizeBodyArticle,
   fontSizeBodyArticleSmall,
   fontSizeBodySmall,
   fontSizeUppercase,
   fontWeightMedium,
-  lineHeightHeading5,
+  lineHeightHeading4,
 } from "../../styles/typography";
 import mq from "../../styles/mq";
 import AvatarMarker from "../avatarMarker";
@@ -55,8 +55,8 @@ const styles = {
 
     [`@media (max-width: ${mq.max["768"]})`]: {
       marginBottom: "6px",
-      fontSize: `${fontSizeHeading5}px`,
-      lineHeight: lineHeightHeading5,
+      fontSize: `${fontSizeHeading4}px`,
+      lineHeight: lineHeightHeading4,
     },
 
     [`@media (min-width: ${mq.min["768"]})`]: {
