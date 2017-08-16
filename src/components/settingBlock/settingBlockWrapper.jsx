@@ -5,7 +5,7 @@ import color from "../../styles/colors";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
-  base: {
+  hasBorder: {
     borderBottom: "1px solid",
     borderBottomColor: color.borderPrimary,
   },
@@ -23,13 +23,14 @@ const SettingBlockWrapper = ({
   children,
   error,
   hasAction,
+  hasBorder,
   style,
 }) => (
   <div
     className="SettingBlockWrapper"
     style={[
-      styles.base,
       error && styles.error,
+      hasBorder && styles.hasBorder,
       hasAction && styles.hasAction,
       style,
     ]}
@@ -42,7 +43,12 @@ SettingBlockWrapper.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
   error: PropTypes.bool,
   hasAction: PropTypes.bool,
+  hasBorder: PropTypes.bool,
   style: propTypes.style,
+};
+
+SettingBlockWrapper.defaultProps = {
+  hasBorder: true,
 };
 
 export default radium(SettingBlockWrapper);

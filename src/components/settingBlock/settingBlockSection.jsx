@@ -4,6 +4,7 @@ import radium, { Style } from "radium";
 import CategoryLabel from "../categoryLabel";
 import color from "../../styles/colors";
 import { typography } from "../../../settings.json";
+import propTypes from "../../utils/propTypes";
 import { rgba } from "../../utils/color";
 
 
@@ -30,10 +31,10 @@ const styles = {
   },
 };
 
-const SettingBlockSection = ({ children, heading }) => (
+const SettingBlockSection = ({ children, heading, style }) => (
   <div
     className="SettingBlockSection"
-    style={styles.base}
+    style={[styles.base, style]}
   >
     <Style
       scopeSelector=".SettingBlockSection"
@@ -47,6 +48,7 @@ const SettingBlockSection = ({ children, heading }) => (
 SettingBlockSection.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
   heading: PropTypes.string.isRequired,
+  style: propTypes.style,
 };
 
 export default radium(SettingBlockSection);
