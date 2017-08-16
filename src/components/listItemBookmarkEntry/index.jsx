@@ -23,7 +23,6 @@ import CategoryLabel from "../categoryLabel";
 
 const styles = {
   container: {
-    borderBottom: `1px solid ${colors.borderPrimary}`,
     paddingBottom: "16px",
     paddingTop: "16px",
 
