@@ -19,6 +19,7 @@ const BookmarkButton = ({ onClick, marked, iconType, style }) => {
       position: "relative",
       right: 0,
     },
+  };
 
   const icons = {
     default: ["BookmarkActive", "Bookmark"],
@@ -28,7 +29,6 @@ const BookmarkButton = ({ onClick, marked, iconType, style }) => {
   return (
     <ListButton
       onClick={onClick}
-      style={[styles, style]}
       icon={marked ? icons[iconType][0] : icons[iconType][1]}
       style={[styles, style]}
     />
