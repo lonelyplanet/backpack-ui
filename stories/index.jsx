@@ -432,6 +432,10 @@ storiesOf("Bookmark button", module)
       <StyleRoot>
         <BookmarkButton
           onClick={action("Bookmark clicked")}
+          iconType={select("Icon type", {
+            default: "Default",
+            alternate: "Alternate",
+          }, "default")}
           marked={boolean("Marked", false)}
         />
       </StyleRoot>
@@ -1082,6 +1086,8 @@ storiesOf("List Button", module)
         icon={select("Icon", [
           "Bookmark",
           "BookmarkActive",
+          "BookmarkAlt",
+          "BookmarkAltActive",
           "Ellipsis",
         ], "Ellipsis")}
       />

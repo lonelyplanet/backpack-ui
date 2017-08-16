@@ -65,6 +65,8 @@ ListButton.propTypes = {
   icon: PropTypes.oneOf([
     "Bookmark",
     "BookmarkActive",
+    "BookmarkAlt",
+    "BookmarkAltActive",
     "Ellipsis",
   ]).isRequired,
   label: PropTypes.string,

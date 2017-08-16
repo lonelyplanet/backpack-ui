@@ -130,6 +130,18 @@ exports.BookmarkActive = props => (
   </Icon>
 );
 
+exports.BookmarkAlt = props => (
+  <Icon {...props}>
+    <path d="M5.6 0v32l10.4-8.9 10.4 8.9v-32h-20.8zM23.7 26l-5.9-5-1.8-1.6-1.8 1.6-5.8 5v-23.2h15.3v23.2z" />
+  </Icon>
+);
+
+exports.BookmarkAltActive = props => (
+  <Icon {...props}>
+    <path fill={colors.accentGreen} d="M5.6 0h20.9v32l-10.5-8.9-10.4 8.9v-32z" />
+  </Icon>
+);
+
 exports.Camera = props => (
   <Icon {...props}>
     <path d="M26.3 6.3h-13.7v-0.7c0-1.5-1.2-2.7-2.7-2.7h-1.4c-1.5 0-2.7 1.2-2.7 2.7v0.7c-3.2 0-5.8 2.5-5.8 5.7v11.4c0 3.2 2.6 5.7 5.7 5.7h20.6c3.2 0 5.7-2.6 5.7-5.7v-11.4c0-3.2-2.6-5.7-5.7-5.7zM8 5.6c0-0.3 0.2-0.5 0.5-0.5h1.4c0.3 0 0.5 0.2 0.5 0.5v0.5h-2.3v-0.5zM29.7 23.4c0 1.9-1.5 3.4-3.4 3.4h-20.6c-1.9 0-3.4-1.5-3.4-3.4v-11.4c0-1.9 1.5-3.4 3.4-3.4h20.6c1.9 0 3.4 1.5 3.4 3.4v11.4z" />

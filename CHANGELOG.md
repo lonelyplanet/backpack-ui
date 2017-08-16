@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.31.0"></a>
+# [4.31.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.30.3...v4.31.0) (2017-08-16)
+
+
+### Bug Fixes
+
+* Allow alternate bookmark icons in ListButton ([33386e1](https://github.com/lonelyplanet/backpack-ui/commit/33386e1))
+
+
+### Features
+
+* Add alternate bookmark icons ([49cab86](https://github.com/lonelyplanet/backpack-ui/commit/49cab86))
+* Add iconType to BookmarkButton for alternate icons ([9a83879](https://github.com/lonelyplanet/backpack-ui/commit/9a83879))
+
+
+
 <a name="4.30.3"></a>
 ## [4.30.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.30.2...v4.30.3) (2017-08-16)
 
