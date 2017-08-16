@@ -111,22 +111,18 @@ const ListItemBookmarkEntry = ({
       weight="medium"
       style={styles.name}
     >
-      <a
-        key={name}
-        style={styles.anchor}
-        href={url}
-      >
-        {name}
-      </a>
+      {name}
     </Heading>
 
     <CategoryLabel style={styles.category}>
       {category} in {city}
     </CategoryLabel>
 
-    <TextAccent style={styles.note}>
-      {note}
-    </TextAccent>
+    {note &&
+      <TextAccent style={styles.note}>
+        {note}
+      </TextAccent>
+    }
   </article>
 );
 
