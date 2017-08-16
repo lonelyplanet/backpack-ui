@@ -12,7 +12,6 @@ import {
 } from "../../styles/typography";
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
-import timing from "../../styles/timing";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 import { Heading } from "../../components/text";
@@ -23,18 +22,12 @@ import Icon from "../icon";
 const styles = {
   container: {
     alignItems: "center",
-    borderBottom: `1px solid ${colors.borderPrimary}`,
     display: "flex",
     flexFlow: "row wrap",
     paddingBottom: "16px",
     paddingTop: "16px",
     textAlign: "left",
-    transition: `background-color ${timing.default} ease-in-out`,
     width: "100%",
-
-    ":hover": {
-      backgroundColor: rgba(colors.bgOverlay, 0.02),
-    },
 
     [`@media (min-width: ${mq.min["720"]})`]: {
       paddingBottom: "24px",
