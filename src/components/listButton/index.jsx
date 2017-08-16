@@ -36,6 +36,8 @@ const styles = {
 const iconProps = {
   style: {
     display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
 };
 
