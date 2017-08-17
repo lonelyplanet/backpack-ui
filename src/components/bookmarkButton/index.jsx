@@ -12,12 +12,6 @@ const BookmarkButton = ({ onClick, marked, iconType, style }) => {
       boxShadow: "none",
       display: "flex",
       fontSize: fontSizeBodyArticle,
-      marginBottom: "40px",
-      marginLeft: "auto",
-      marginRight: "auto",
-      marginTop: "-21px",
-      position: "relative",
-      right: 0,
     },
   };
 
