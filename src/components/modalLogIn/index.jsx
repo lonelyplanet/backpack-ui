@@ -18,7 +18,7 @@ const ModalLogIn = ({ isOpen, onClose, style }) => (
     style={style}
   >
     <ModalContentSocialAuth
-      message="Organize your research and unlock tools like bookmarking."
+      message="Organize your research and unlock tools like lists."
     />
   </Modal>
 );
