@@ -65,6 +65,7 @@ class AvatarUpload extends Component {
 
     this.state = {
       src: props.src,
+      loading: false,
     };
 
     this.onChange = this.onChange.bind(this);
@@ -80,22 +81,37 @@ class AvatarUpload extends Component {
 
   onChange(event) {
     event.preventDefault();
-
-    if (this.input.files && this.props.onChangeFiles) {
-      this.props.onChangeFiles(this.input.files);
-    }
-
     if (this.input.files && this.input.files[0]) {
       const reader = new FileReader();
+      reader.onload = async (e) => {
+        // We need to convert png to jpg and remove exif data
+        // by writing the image data to a canvas element we can
+        // achieve everything!
+        const converterCanvas = await document.createElement("canvas");
+        const ctx = await converterCanvas.getContext("2d");
+        const converterImage = new Image();
+        converterImage.src = e.target.result;
 
-      reader.onload = (e) => {
-        this.setState({
-          src: e.target.result,
-        });
-        if (typeof this.props.exposeImageOnChange === "function") {
-          this.props.exposeImageOnChange(e.target.result);
-        }
+        converterImage.onload = async () => {
+          ctx.canvas.width = converterImage.width;
+          ctx.canvas.height = converterImage.height;
+          await ctx.drawImage(converterImage, 0, 0);
+          const convertedUrl = await converterCanvas.toDataURL("image/jpeg");
+
+          this.setState({
+            src: convertedUrl,
+            loading: false,
+          });
+          this.props.onChangeFiles(convertedUrl);
+          if (typeof this.props.exposeImageOnChange === "function") {
+            this.props.exposeImageOnChange(convertedUrl);
+          }
+        };
       };
+
+      this.setState({
+        loading: true,
+      });
 
       reader.readAsDataURL(this.input.files[0]);
     }
@@ -122,19 +138,24 @@ class AvatarUpload extends Component {
             onChange={this.onChange}
             style={styles.input}
           />
-
           <Avatar
             src={this.state.src}
             size={80}
             alt="Avatar image upload preview"
           />
-
-          <label
-            htmlFor="avatarUploadInput"
-            style={styles.label}
-          >
-            Change profile photo
-          </label>
+          {this.state.loading ?
+            <p
+              style={styles.label}
+            >
+              Loading...
+            </p> :
+            <label
+              htmlFor="avatarUploadInput"
+              style={styles.label}
+            >
+              Change profile photo
+            </label>
+          }
         </div>
       </div>
     );
