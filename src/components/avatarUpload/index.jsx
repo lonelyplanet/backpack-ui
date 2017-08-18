@@ -69,11 +69,13 @@ class AvatarUpload extends Component {
     } else {
       byteString = unescape(dataURI.split(",")[1]);
     }
+
     // separate out the mime component
-    const mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
+    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
     // write the bytes of the string to a typed array
     const ia = new Uint8Array(byteString.length);
-    for (let i = 0; i < byteString.length; i + 1) {
+    for (let i = 0; i < byteString.length; i += 1) {
       ia[i] = byteString.charCodeAt(i);
     }
 
@@ -117,7 +119,7 @@ class AvatarUpload extends Component {
           ctx.canvas.height = converterImage.height;
           await ctx.drawImage(converterImage, 0, 0);
           const convertedUrl = await converterCanvas.toDataURL("image/jpeg");
-          const blobImage = AvatarUpload.dataURItoBlob(convertedUrl);
+          const blobImage = await AvatarUpload.dataURItoBlob(convertedUrl);
 
           this.setState({
             src: convertedUrl,
