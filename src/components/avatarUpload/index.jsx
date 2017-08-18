@@ -71,7 +71,7 @@ class AvatarUpload extends Component {
     }
 
     // separate out the mime component
-    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+    const mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
 
     // write the bytes of the string to a typed array
     const ia = new Uint8Array(byteString.length);
