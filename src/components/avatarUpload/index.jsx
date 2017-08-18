@@ -60,6 +60,26 @@ const scopedStyles = {
 };
 
 class AvatarUpload extends Component {
+
+  static dataURItoBlob(dataURI) {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    let byteString;
+    if (dataURI.split(",")[0].indexOf("base64") >= 0) {
+      byteString = atob(dataURI.split(",")[1]);
+    } else {
+      byteString = unescape(dataURI.split(",")[1]);
+    }
+    // separate out the mime component
+    const mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
+    // write the bytes of the string to a typed array
+    const ia = new Uint8Array(byteString.length);
+    for (let i = 0; i < byteString.length; i + 1) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+
+    return new Blob([ia], { type: mimeString });
+  }
+
   constructor(props) {
     super(props);
 
@@ -97,14 +117,15 @@ class AvatarUpload extends Component {
           ctx.canvas.height = converterImage.height;
           await ctx.drawImage(converterImage, 0, 0);
           const convertedUrl = await converterCanvas.toDataURL("image/jpeg");
+          const blobImage = AvatarUpload.dataURItoBlob(convertedUrl);
 
           this.setState({
             src: convertedUrl,
             loading: false,
           });
-          this.props.onChangeFiles(convertedUrl);
+          this.props.onChangeFiles(blobImage);
           if (typeof this.props.exposeImageOnChange === "function") {
-            this.props.exposeImageOnChange(convertedUrl);
+            this.props.exposeImageOnChange(blobImage);
           }
         };
       };
