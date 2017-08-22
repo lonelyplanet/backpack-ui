@@ -23,6 +23,7 @@ const BookmarkButton = ({ onClick, marked, iconType, style }) => {
   return (
     <ListButton
       onClick={onClick}
+      label={marked ? "Remove from list" : "Save to list"}
       icon={marked ? icons[iconType][0] : icons[iconType][1]}
       style={[styles, style]}
     />
