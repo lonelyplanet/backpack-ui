@@ -14,7 +14,7 @@ const styles = {
   backgroundColor: colors.bgPrimary,
   border: 0,
   borderRadius: "50%",
-  boxShadow: `rgba(0, 0, 0, 0.2) 0 ${4 / fontSizeHeading5}em ${16 / fontSizeHeading5}em`,
+  boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${4 / fontSizeHeading5}em ${16 / fontSizeHeading5}em`,
   color: colors.textPrimary,
   cursor: "pointer",
   display: "inline-flex",
