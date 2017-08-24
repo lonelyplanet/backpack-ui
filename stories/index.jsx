@@ -30,6 +30,7 @@ import AvatarMarker from "../src/components/avatarMarker";
 import AvatarUpload from "../src/components/avatarUpload";
 // Availability
 import BookmarkButton from "../src/components/bookmarkButton";
+import BookmarkButtonAlt from "../src/components/bookmarkButtonAlt";
 import BookmarkListAuthor from "../src/components/bookmarkListAuthor";
 import BookmarkListHeader from "../src/components/bookmarkListHeader";
 import BookmarkListMenu from "../src/components/bookmarkListMenu";
@@ -429,16 +430,18 @@ storiesOf("Bookmark button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <Center>
-      <StyleRoot>
-        <BookmarkButton
-          onClick={action("Bookmark clicked")}
-          iconType={select("Icon type", {
-            default: "Default",
-            alternate: "Alternate",
-          }, "default")}
-          marked={boolean("Marked", false)}
-        />
-      </StyleRoot>
+      <BookmarkButton
+        onClick={action("Bookmark clicked")}
+        marked={boolean("Marked", false)}
+      />
+    </Center>
+  ))
+  .add("Alternate", () => (
+    <Center>
+      <BookmarkButtonAlt
+        onClick={action("Bookmark clicked")}
+        marked={boolean("Marked", false)}
+      />
     </Center>
   ));
 
