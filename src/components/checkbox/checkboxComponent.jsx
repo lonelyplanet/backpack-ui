@@ -77,6 +77,7 @@ class CheckboxComponent extends Component {
       label,
       required,
       rounded,
+      type,
       style,
     } = this.props;
 
@@ -144,7 +145,7 @@ class CheckboxComponent extends Component {
 
           <input
             id={`${_.kebabCase(id)}-input`}
-            type="checkbox"
+            type={type}
             style={[
               styles.input,
               {
@@ -173,6 +174,7 @@ CheckboxComponent.propTypes = {
   size: PropTypes.oneOf([16, 24, 32]),
   required: PropTypes.bool,
   rounded: PropTypes.bool,
+  type: PropTypes.oneOf(["checkbox", "radio"]),
   style: propTypes.style,
 };
 
@@ -181,6 +183,7 @@ CheckboxComponent.defaultProps = {
   onClick: null,
   size: 16,
   required: false,
+  type: "checkbox",
   rounded: false,
 };
 
