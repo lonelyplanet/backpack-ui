@@ -127,7 +127,7 @@ function ListItemBookmark({
           {name}
         </Heading>
 
-        {visibility && entriesCount &&
+        {visibility &&
           <CategoryLabel style={styles.meta}>
             {visibility} · {entriesCount} place{entriesCount !== 1 && "s"}
           </CategoryLabel>
