@@ -42,10 +42,11 @@ const styles = {
   },
 
   actionItem: {
-    position: "absolute",
     backgroundColor: "transparent",
-    top: 0,
+    cursor: "pointer",
     padding: "16px",
+    position: "absolute",
+    top: 0,
 
     [`@media ${largeMQ}`]: {
       padding: `${modalPadding}px`,
