@@ -1,6 +1,8 @@
 ![](https://travis-ci.org/lonelyplanet/backpack-ui.svg?branch=master)
 
 # backpack-ui
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/lonelyplanet/backpack-ui.svg)](https://greenkeeper.io/)
 Every adventurer needs a set of tools to take along the way! Backpack is the Lonely Planet toolset that we use to build front end
 apps.
 
