@@ -155,6 +155,12 @@ exports.Checkmark = props => (
   </Icon>
 );
 
+exports.Checkbox = props => (
+  <Icon {...props}>
+    <path d="M13.867 21.333c-0.267 0-0.667-0.133-0.8-0.4l-4.267-4.4 1.733-1.733 3.467 3.467 7.867-7.867 1.733 1.733-8.667 8.667c-0.533 0.4-0.8 0.533-1.067 0.533z" />
+  </Icon>
+);
+
 exports.ChevronLeft = props => (
   <Icon {...props}>
     <path d="M28.8 6.2l-12.8 12.8-12.8-12.8-3.2 3.2 16 16.4 16-16.4z" transform="rotate(90 16 16)" />
