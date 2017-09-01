@@ -81,8 +81,10 @@ function ModalComponent({
   desktopWidth,
   leftAction,
   leftActionContent,
+  leftActionDisabled,
   rightAction,
   rightActionContent,
+  rightActionDisabled,
   title,
   children,
   style,
@@ -176,6 +178,7 @@ function ModalComponent({
         {leftAction &&
           <button
             style={[styles.actionItem, styles.leftAction]}
+            disabled={leftActionDisabled}
             onClick={leftAction}
           >
             {leftActionContent}
@@ -191,6 +194,7 @@ function ModalComponent({
         {rightAction &&
           <button
             style={[styles.actionItem, styles.rightAction]}
+            disabled={rightActionDisabled}
             onClick={rightAction}
           >
             {rightActionContent}
@@ -217,8 +221,10 @@ ModalComponent.propTypes = {
   closeModal: PropTypes.func,
   leftAction: PropTypes.func,
   leftActionContent: PropTypes.node,
+  leftActionDisabled: PropTypes.bool,
   rightAction: PropTypes.func,
   rightActionContent: PropTypes.node,
+  rightActionDisabled: PropTypes.bool,
   closeTimeoutMS: PropTypes.number,
   contentLabel: PropTypes.string,
   desktopMaxHeight: PropTypes.string,
