@@ -119,8 +119,8 @@ function ListItemBookmark({
 
       <div style={styles.caption}>
         <Heading
-          level="2"
-          size="7"
+          level={2}
+          size={7}
           weight="medium"
           style={[styles.name, checked && styles.checkedName]}
         >
