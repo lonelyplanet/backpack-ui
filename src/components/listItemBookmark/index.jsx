@@ -12,12 +12,13 @@ import {
 } from "../../styles/typography";
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
+import timing from "../../styles/timing";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 import { Heading } from "../../components/text";
 import AlbumThumbnailImage from "../albumThumbnailImage";
+import CheckboxComponent from "../checkbox";
 import CategoryLabel from "../categoryLabel";
-import Icon from "../icon";
 
 const styles = {
   container: {
@@ -53,6 +54,8 @@ const styles = {
   },
 
   name: {
+    transition: `color ${timing.fast}`,
+
     [`@media (min-width: ${mq.min["720"]})`]: {
       fontSize: `${fontSizeHeading6}px`,
       lineHeight: lineHeightHeading6,
@@ -64,19 +67,9 @@ const styles = {
   },
 
   checkbox: {
-    border: `1px solid ${colors.borderPrimary}`,
-    borderRadius: "50%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    alignSelf: "flex-start",
     marginLeft: "auto",
-    height: "24px",
-    width: "24px",
-  },
-
-  checkedBox: {
-    background: colors.linkPrimary,
-    border: 0,
+    marginTop: "23px",
   },
 
   meta: {
@@ -135,15 +128,16 @@ function ListItemBookmark({
       </div>
 
       {onClick && !addItem &&
-        <div style={[styles.checkbox, checked && styles.checkedBox]}>
-          {checked &&
-            <Icon.Checkmark
-              label="Bookmark"
-              fill={colors.bgPrimary}
-              width="11px"
-            />
-          }
-        </div>
+        <CheckboxComponent
+          id={name.toLowerCase().replace(" ", "-")}
+          name={name.toLowerCase().replace(" ", "_")}
+          value={null}
+          key={name}
+          checked={checked}
+          size={24}
+          style={styles.checkbox}
+          rounded
+        />
       }
     </Element>
   );
