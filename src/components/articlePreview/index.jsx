@@ -6,6 +6,8 @@ import font from "../../utils/font";
 import CategoryLabelLink from "../categoryLabelLink";
 import Heading from "../heading";
 
+const markup = html => ({ __html: html });
+
 function ArticlePreview({ title, paragraph, image, href, category, categoryHref }) {
   const styles = {
     container: {
@@ -66,9 +68,10 @@ function ArticlePreview({ title, paragraph, image, href, category, categoryHref 
             {title}
           </Heading>
 
-          <p style={styles.paragraph}>
-            {paragraph}
-          </p>
+          <p
+            style={styles.paragraph}
+            dangerouslySetInnerHTML={markup(paragraph)}
+          />
         </a>
       </div>
     </article>
