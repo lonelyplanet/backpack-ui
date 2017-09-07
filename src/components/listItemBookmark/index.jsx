@@ -11,6 +11,7 @@ import {
   lineHeightHeading6,
 } from "../../styles/typography";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import timing from "../../styles/timing";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
@@ -33,14 +34,18 @@ const styles = {
     },
 
     large: {
-      paddingBottom: "24px",
-      paddingTop: "24px",
+      [`@media (min-width: ${mq.min["720"]})`]: {
+        paddingBottom: "24px",
+        paddingTop: "24px",
+      },
     },
   },
 
   thumbnail: {
     large: {
-      fontSize: `${fontSizeHeading5}px`,
+      [`@media (min-width: ${mq.min["720"]})`]: {
+        fontSize: `${fontSizeHeading5}px`,
+      },
     },
   },
 
@@ -52,7 +57,9 @@ const styles = {
     },
 
     large: {
-      marginLeft: "32px",
+      [`@media (min-width: ${mq.min["720"]})`]: {
+        marginLeft: "32px",
+      },
     },
   },
 
@@ -62,8 +69,10 @@ const styles = {
     },
 
     large: {
-      fontSize: `${fontSizeHeading6}px`,
-      lineHeight: lineHeightHeading6,
+      [`@media (min-width: ${mq.min["720"]})`]: {
+        fontSize: `${fontSizeHeading6}px`,
+        lineHeight: lineHeightHeading6,
+      },
     },
   },
 
@@ -85,8 +94,10 @@ const styles = {
     },
 
     large: {
-      fontSize: `${fontSizeBodySmall}px`,
-      lineHeight: lineHeightBodySmall,
+      [`@media (min-width: ${mq.min["720"]})`]: {
+        fontSize: `${fontSizeBodySmall}px`,
+        lineHeight: lineHeightBodySmall,
+      },
     },
   },
 };
