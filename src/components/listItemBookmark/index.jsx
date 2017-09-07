@@ -11,7 +11,6 @@ import {
   lineHeightHeading6,
 } from "../../styles/typography";
 import colors from "../../styles/colors";
-import mq from "../../styles/mq";
 import timing from "../../styles/timing";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
@@ -22,41 +21,47 @@ import CategoryLabel from "../categoryLabel";
 
 const styles = {
   container: {
-    alignItems: "center",
-    backgroundColor: "transparent",
-    display: "flex",
-    flexFlow: "row wrap",
-    paddingBottom: "16px",
-    paddingTop: "16px",
-    textAlign: "left",
-    width: "100%",
+    default: {
+      alignItems: "center",
+      backgroundColor: "transparent",
+      display: "flex",
+      flexFlow: "row wrap",
+      paddingBottom: "16px",
+      paddingTop: "16px",
+      textAlign: "left",
+      width: "100%",
+    },
 
-    [`@media (min-width: ${mq.min["720"]})`]: {
+    large: {
       paddingBottom: "24px",
       paddingTop: "24px",
     },
   },
 
   thumbnail: {
-    [`@media (min-width: ${mq.min["720"]})`]: {
+    large: {
       fontSize: `${fontSizeHeading5}px`,
     },
   },
 
   caption: {
-    display: "flex",
-    flexDirection: "column",
-    marginLeft: "16px",
+    default: {
+      display: "flex",
+      flexDirection: "column",
+      marginLeft: "16px",
+    },
 
-    [`@media (min-width: ${mq.min["720"]})`]: {
+    large: {
       marginLeft: "32px",
     },
   },
 
   name: {
-    transition: `color ${timing.fast}`,
+    default: {
+      transition: `color ${timing.fast}`,
+    },
 
-    [`@media (min-width: ${mq.min["720"]})`]: {
+    large: {
       fontSize: `${fontSizeHeading6}px`,
       lineHeight: lineHeightHeading6,
     },
@@ -73,11 +78,13 @@ const styles = {
   },
 
   meta: {
-    color: rgba(colors.textPrimary, 0.5),
-    fontWeight: fontWeightMedium,
-    lineHeight: (18 / fontSizeUppercase),
+    default: {
+      color: rgba(colors.textPrimary, 0.5),
+      fontWeight: fontWeightMedium,
+      lineHeight: (18 / fontSizeUppercase),
+    },
 
-    [`@media (min-width: ${mq.min["720"]})`]: {
+    large: {
       fontSize: `${fontSizeBodySmall}px`,
       lineHeight: lineHeightBodySmall,
     },
@@ -92,6 +99,7 @@ function ListItemBookmark({
   entriesCount,
   visibility,
   addItem,
+  large,
   style,
 }) {
   const Element = onClick ? "button" : "div";
@@ -101,27 +109,47 @@ function ListItemBookmark({
       className="ListItemBookmark"
       name={name}
       onClick={onClick}
-      style={[styles.container, style]}
+      style={[
+        styles.container.default,
+        large && styles.container.large,
+        style,
+      ]}
     >
       <AlbumThumbnailImage
         src={thumbnail}
         icon={addItem ? "Plus" : "List"}
         alt={name}
-        style={styles.thumbnail}
+        style={[
+          large && styles.thumbnail.large,
+        ]}
       />
 
-      <div style={styles.caption}>
+      <div
+        style={[
+          styles.caption.default,
+          large && styles.caption.large,
+        ]}
+      >
         <Heading
           level={2}
           size={7}
           weight="medium"
-          style={[styles.name, checked && styles.checkedName]}
+          style={[
+            styles.name.default,
+            large && styles.name.large,
+            checked && styles.checkedName,
+          ]}
         >
           {name}
         </Heading>
 
         {visibility &&
-          <CategoryLabel style={styles.meta}>
+          <CategoryLabel
+            style={[
+              styles.meta.default,
+              large && styles.meta.large,
+            ]}
+          >
             {visibility} · {entriesCount} place{entriesCount !== 1 && "s"}
           </CategoryLabel>
         }
@@ -151,6 +179,7 @@ ListItemBookmark.propTypes = {
   onClick: PropTypes.func,
   thumbnail: PropTypes.string,
   addItem: PropTypes.bool,
+  large: PropTypes.bool,
   style: propTypes.style,
 };
 
@@ -161,6 +190,7 @@ ListItemBookmark.defaultProps = {
   onClick: null,
   thumbnail: null,
   addItem: false,
+  large: false,
   style: null,
 };
 
