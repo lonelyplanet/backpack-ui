@@ -76,10 +76,6 @@ const styles = {
     },
   },
 
-  checkedName: {
-    color: colors.linkPrimary,
-  },
-
   checkbox: {
     alignSelf: "flex-start",
     marginLeft: "auto",
@@ -148,7 +144,6 @@ function ListItemBookmark({
           style={[
             styles.name.default,
             large && styles.name.large,
-            checked && styles.checkedName,
           ]}
         >
           {name}
