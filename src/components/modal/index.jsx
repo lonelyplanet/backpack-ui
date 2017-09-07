@@ -85,7 +85,9 @@ function ModalComponent({
   rightAction,
   rightActionContent,
   rightActionDisabled,
+  disableContentPadding,
   title,
+  className,
   children,
   style,
 }) {
@@ -157,7 +159,7 @@ function ModalComponent({
       onRequestClose={closeModal}
       closeTimeoutMS={closeTimeoutMS}
       contentLabel={contentLabel}
-      className="ModalBase"
+      className={className ? `ModalBase ${className}` : "ModalBase"}
     >
       <Style
         scopeSelector=".ReactModalPortal"
@@ -204,7 +206,7 @@ function ModalComponent({
 
       <div
         className="Modal-content"
-        style={styles.contentContainer}
+        style={!disableContentPadding ? styles.contentContainer : {}}
       >
         {children}
       </div>
@@ -230,6 +232,8 @@ ModalComponent.propTypes = {
   desktopMaxHeight: PropTypes.string,
   desktopWidth: PropTypes.string,
   title: PropTypes.string,
+  className: PropTypes.string,
+  disableContentPadding: PropTypes.bool,
   style: propTypes.style,
 };
 
@@ -238,6 +242,7 @@ ModalComponent.defaultProps = {
   desktopMaxHeight: "85vh",
   desktopWidth: "85%",
   closeTimeoutMS: timing.default,
+  disableContentPadding: false,
 };
 
 ModalComponent.styles = styles;
