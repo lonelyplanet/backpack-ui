@@ -2,6 +2,7 @@ import { expect } from "chai";
 import {
   outline,
   underlinedLink,
+  visuallyHidden,
 } from "../../src/utils/mixins";
 
 const baseStyles = {
@@ -96,6 +97,78 @@ describe("underlinedLink mixin", () => {
       -1px 1px 0 #fff,
       1px 1px 0 #fff`,
       transition: "color 200ms ease",
+    });
+  });
+});
+
+describe("visuallyHidden mixin", () => {
+  it("should add visuallyHidden styles", () => {
+    const styles = Object.assign({}, baseStyles, visuallyHidden());
+
+    expect(styles).to.deep.equal({
+      border: 0,
+      clipPath: "inset(50%)",
+      display: "inline-block",
+      height: "1px",
+      margin: "-1px",
+      overflow: "hidden",
+      padding: 0,
+      whiteSpace: "nowrap",
+      width: "1px",
+    });
+  });
+
+  it("should add visuallyHidden styles with focusable styles", () => {
+    const styles = Object.assign({}, baseStyles, visuallyHidden("focusable"));
+
+    expect(styles).to.deep.equal({
+      border: 0,
+      clipPath: "inset(50%)",
+      display: "inline-block",
+      height: "1px",
+      margin: "-1px",
+      overflow: "hidden",
+      padding: 0,
+      whiteSpace: "nowrap",
+      width: "1px",
+
+      ":active": {
+        clip: "auto",
+        clipPath: "none",
+        height: "auto",
+        margin: 0,
+        overflow: "visible",
+        position: "static",
+        whiteSpace: "inherit",
+        width: "auto",
+      },
+
+      ":focus": {
+        clip: "auto",
+        clipPath: "none",
+        height: "auto",
+        margin: 0,
+        overflow: "visible",
+        position: "static",
+        whiteSpace: "inherit",
+        width: "auto",
+      },
+    });
+  });
+
+  it("should add visuallyHidden styles without focusable styles", () => {
+    const styles = Object.assign({}, baseStyles, visuallyHidden(true));
+
+    expect(styles).to.deep.equal({
+      border: 0,
+      clipPath: "inset(50%)",
+      display: "inline-block",
+      height: "1px",
+      margin: "-1px",
+      overflow: "hidden",
+      padding: 0,
+      whiteSpace: "nowrap",
+      width: "1px",
     });
   });
 });
