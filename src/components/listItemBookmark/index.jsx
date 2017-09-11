@@ -105,6 +105,7 @@ function ListItemBookmark({
   visibility,
   addItem,
   large,
+  hideDetail,
   style,
 }) {
   const Element = onClick ? "button" : "div";
@@ -147,14 +148,14 @@ function ListItemBookmark({
           {name}
         </Heading>
 
-        {visibility &&
+        {!hideDetail &&
           <CategoryLabel
             style={[
               styles.meta.default,
               large && styles.meta.large,
             ]}
           >
-            {visibility} · {entriesCount} place{entriesCount !== 1 && "s"}
+            {visibility && `${visibility} · `}{entriesCount} place{entriesCount !== 1 && "s"}
           </CategoryLabel>
         }
       </div>
@@ -184,6 +185,7 @@ ListItemBookmark.propTypes = {
   thumbnail: PropTypes.string,
   addItem: PropTypes.bool,
   large: PropTypes.bool,
+  hideDetail: PropTypes.bool,
   style: propTypes.style,
 };
 
