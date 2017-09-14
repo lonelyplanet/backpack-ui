@@ -115,9 +115,10 @@ class AvatarUpload extends Component {
         converterImage.src = e.target.result;
 
         converterImage.onload = async () => {
-          ctx.canvas.width = converterImage.width;
-          ctx.canvas.height = converterImage.height;
-          await ctx.drawImage(converterImage, 0, 0);
+          const targetWidth = 160;
+          ctx.canvas.width = targetWidth;
+          ctx.canvas.height = converterImage.height * (targetWidth / converterImage.width);
+          await ctx.drawImage(converterImage, 0, 0, targetWidth, ctx.canvas.height);
           const convertedUrl = await converterCanvas.toDataURL("image/jpeg");
           const blobImage = await AvatarUpload.dataURItoBlob(convertedUrl);
 
