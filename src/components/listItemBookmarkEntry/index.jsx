@@ -59,14 +59,12 @@ const styles = {
   },
 
   note: {
-    [`@media (max-width: ${mq.max["768"]})`]: {
-      letterSpacing: ".4px",
-    },
+    letterSpacing: ".4px",
+    marginTop: "16px",
 
     [`@media (min-width: ${mq.min["768"]})`]: {
       fontSize: `${fontSizeBodyArticle}px`,
       lineHeight: lineHeightBodyArticle,
-      marginTop: "16px",
     },
   },
 
