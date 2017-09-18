@@ -26,7 +26,6 @@ const styles = {
       alignItems: "center",
       backgroundColor: "transparent",
       display: "flex",
-      flexFlow: "row wrap",
       paddingBottom: "16px",
       paddingTop: "16px",
       textAlign: "left",
@@ -42,6 +41,11 @@ const styles = {
   },
 
   thumbnail: {
+    default: {
+      alignSelf: "flex-start",
+      flexShrink: 0,
+    },
+
     large: {
       [`@media (min-width: ${mq.min["720"]})`]: {
         fontSize: `${fontSizeHeading5}px`,
@@ -65,13 +69,20 @@ const styles = {
 
   name: {
     default: {
+      display: "-webkit-box",
+      maxHeight: "48px",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
       transition: `color ${timing.fast}`,
+      WebkitBoxOrient: "vertical",
+      WebkitLineClamp: 2,
     },
 
     large: {
       [`@media (min-width: ${mq.min["720"]})`]: {
         fontSize: `${fontSizeHeading6}px`,
         lineHeight: lineHeightHeading6,
+        maxHeight: "56px",
       },
     },
   },
@@ -126,6 +137,7 @@ function ListItemBookmark({
         icon={addItem ? "Plus" : "List"}
         alt={name}
         style={[
+          styles.thumbnail.default,
           large && styles.thumbnail.large,
         ]}
       />
