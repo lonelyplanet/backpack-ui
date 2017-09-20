@@ -120,6 +120,14 @@ function ListItemBookmark({
   style,
 }) {
   const Element = onClick ? "button" : "div";
+  let icon;
+  if (name === "Favorites") {
+    icon = "Heart";
+  } else if (addItem) {
+    icon = "Plus";
+  } else {
+    icon = "List";
+  }
 
   return (
     <Element
@@ -134,7 +142,7 @@ function ListItemBookmark({
     >
       <AlbumThumbnailImage
         src={thumbnail}
-        icon={addItem ? "Plus" : "List"}
+        icon={icon}
         alt={name}
         style={[
           styles.thumbnail.default,
