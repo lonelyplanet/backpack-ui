@@ -138,7 +138,7 @@ exports.BookmarkAlt = props => (
 
 exports.BookmarkAltActive = props => (
   <Icon {...props}>
-    <path fill={colors.accentGreen} d="M5.6 0h20.9v32l-10.5-8.9-10.4 8.9v-32z" />
+    <path fill={colors.linkPrimary} d="M5.6 0h20.9v32l-10.5-8.9-10.4 8.9v-32z" />
   </Icon>
 );
 
