@@ -246,6 +246,14 @@ exports.ConfirmedCheckmark = props => (
   </Icon>
 );
 
+exports.Delete = props => (
+  <Icon {...props}>
+    <path d="M12.267 13.333h2v9.333h-2v-9.333z" />
+    <path d="M17.6 13.333h2v9.333h-2v-9.333z" />
+    <path d="M26.667 8.267h-6.933v-2.933c0-0.533-0.4-1.067-1.067-1.067h-5.333c-0.533 0-1.067 0.533-1.067 1.067v2.933h-6.933v2h1.6v16.4c0 0.533 0.4 1.067 1.067 1.067h16c0.533 0 1.067-0.4 1.067-1.067v-16.267h1.6v-2.133zM14.4 6.4h3.333v2h-3.333v-2zM22.933 25.6h-13.867v-15.2h13.867v15.2z" />
+  </Icon>
+);
+
 exports.DepartureReturn = props => (
   <Icon {...props}>
     <path d="M32 8l-8-8v6h-24v4h24v6z" />
