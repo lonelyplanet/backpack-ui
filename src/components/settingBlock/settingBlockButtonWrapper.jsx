@@ -2,16 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import { outline } from "../../utils/mixins";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
-  base: {
-    cursor: "pointer",
+  container: {
     color: "initial",
+    cursor: "pointer",
   },
+
   buttonResets: {
+    backgroundColor: "transparent",
     textAlign: "left",
     width: "100%",
-    backgroundColor: "transparent",
   },
 };
 
@@ -21,9 +23,9 @@ const scopedStyles = {
 
 const SettingBlockButtonWrapper = (props) => (
   <button
-    className="SettingBlockButtonWrapper"
-    style={[styles.base, styles.buttonResets]}
     {...props}
+    className="SettingBlockButtonWrapper"
+    style={[styles.container, styles.buttonResets, props.style]}
   >
     <Style rules={scopedStyles} />
 
@@ -33,6 +35,7 @@ const SettingBlockButtonWrapper = (props) => (
 
 SettingBlockButtonWrapper.propTypes = {
   children: PropTypes.element,
+  style: propTypes.style,
 };
 
 export default radium(SettingBlockButtonWrapper);

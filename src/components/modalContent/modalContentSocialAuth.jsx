@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import Logo from "../logo";
 import SocialLoginButton from "../socialLoginButton";
@@ -49,11 +50,11 @@ const disclaimer = `If you sign up with Twitter, Facebook or Google, we’ll aut
   profile information. We’ll never post without your permission. Alternatively sign in with a
   <a href="https://auth.lonelyplanet.com/users/sign_in">username and password</a>. To sign into
   Lonely Planet you must have cookies enabled and agree to the
-  <a href="//www.lonelyplanet.com/legal/website-terms/">Terms of Service</a> and read the
-  <a href="//www.lonelyplanet.com/legal/privacy-policy/">Privacy Policy</a> and
-  <a href="//www.lonelyplanet.com/legal/cookies/">Cookie Policy</a>. For additional account
+  <a href="https://www.lonelyplanet.com/legal/website-terms/">Terms of Service</a> and read the
+  <a href="https://www.lonelyplanet.com/legal/privacy-policy/">Privacy Policy</a> and
+  <a href="https://www.lonelyplanet.com/legal/cookies/">Cookie Policy</a>. For additional account
   enquiries see
-  <a href="http://support.lonelyplanet.com/hc/en-us/sections/203968787-Account-administration" target="_blank" rel="noopener noreferrer">Account help</a>.`;
+  <a href="https://support.lonelyplanet.com/hc/en-us/sections/203968787-Account-administration" target="_blank" rel="noopener noreferrer">Account help</a>.`;
 
 const socialNavigate = (path) => {
   window.location = `https://auth.lonelyplanet.com/users/auth/${path}`;

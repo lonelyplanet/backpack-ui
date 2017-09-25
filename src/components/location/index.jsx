@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color } from "../../../settings.json";
 import MoreLink from "../moreLink";
@@ -106,33 +107,33 @@ Location.propTypes = {
    * Name of the location; used for the static map and in the Google URL with
    * the coordinates
    */
-  name: React.PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 
   /**
    * Street address of the location
    */
-  street: React.PropTypes.string.isRequired,
+  street: PropTypes.string.isRequired,
 
   /**
    * An array of containing places, usually city and country
    */
-  place: React.PropTypes.arrayOf(
-    React.PropTypes.shape({
-      href: React.PropTypes.string,
-      title: React.PropTypes.string,
-      type: React.PropTypes.string,
+  place: PropTypes.arrayOf(
+    PropTypes.shape({
+      href: PropTypes.string,
+      title: PropTypes.string,
+      type: PropTypes.string,
     }),
   ).isRequired,
 
   /**
    * An array of latitude and longitude coordinates; used in the Google URL
    */
-  coordinates: React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
+  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
 
   /**
    * Should mobile-specific styles and props be used
    */
-  mobile: React.PropTypes.bool.isRequired,
+  mobile: PropTypes.bool.isRequired,
 };
 
 Location.defaultProps = {

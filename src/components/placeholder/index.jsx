@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import font from "../../utils/font";
 
@@ -76,34 +77,34 @@ Placeholder.propTypes = {
   /**
    * Title of placeholder; will be truncated to first letter
    */
-  title: React.PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 
   /**
    * Width in pixels
    */
-  width: React.PropTypes.number,
+  width: PropTypes.number,
 
   /**
    * Height in pixels
    */
-  height: React.PropTypes.number,
+  height: PropTypes.number,
 
   /**
    * Should be written in the form of `16 / 9`
    */
-  aspectRatio: React.PropTypes.number,
+  aspectRatio: PropTypes.number,
 
   /**
    * Font size in pixels
    */
-  fontSize: React.PropTypes.number,
+  fontSize: PropTypes.number,
 
   /**
    * Style object
    */
-  style: React.PropTypes.oneOfType([
-    React.PropTypes.arrayOf(React.PropTypes.object),
-    React.PropTypes.objectOf(React.PropTypes.string, React.PropTypes.number),
+  style: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.objectOf(PropTypes.string, PropTypes.number),
   ]),
 };
 

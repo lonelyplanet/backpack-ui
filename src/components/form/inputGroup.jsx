@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import { color, media } from "../../../settings.json";
 import { darken, rgb } from "../../utils/color";
@@ -108,16 +109,16 @@ InputGroup.propTypes = {
     return error;
   },
 
-  label: React.PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 
-  id: React.PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "full",
     "half",
   ]),
 
-  removeBorder: React.PropTypes.bool,
+  removeBorder: PropTypes.bool,
 };
 
 InputGroup.defaultProps = {

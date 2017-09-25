@@ -1,26 +1,30 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
+import radium from "radium";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
-  base: {
+  container: {
     flexBasis: "60%",
     paddingBottom: "16px",
   },
 };
 
-const SettingBlockButtonDescription = ({ children }) => (
+const SettingBlockButtonDescription = ({ children, style }) => (
   <div
     className="SettingBlockButtonDescription"
-    style={styles.base}
+    style={[styles.container, style]}
   >
     {children}
   </div>
 );
 
 SettingBlockButtonDescription.propTypes = {
-  children: PropTypes.arrayOf(React.PropTypes.oneOfType([
-    React.PropTypes.element,
-    React.PropTypes.string,
+  children: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
   ])),
+  style: propTypes.style,
 };
 
-export default SettingBlockButtonDescription;
+export default radium(SettingBlockButtonDescription);

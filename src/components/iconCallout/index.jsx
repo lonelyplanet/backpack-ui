@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import { color, timing } from "../../../settings.json";
 import font from "../../utils/font";
 import { add, span, gutter } from "../../utils/grid";

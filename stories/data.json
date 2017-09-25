@@ -104,7 +104,7 @@
   },
 
   "avatar": {
-    "default": "//assets.staticlp.com/profiles/users/placeholders/large.png",
+    "default": "https://assets.staticlp.com/profiles/users/placeholders/large.png",
     "rizzo": "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png"
   },
 
@@ -119,23 +119,23 @@
   "numberList": [
     {
       "title": "New online test in Australia hopes to encourage people to seek early skin cancer treatment",
-      "url": "http://www.lonelyplanet.com/news#ixzz43kczbTEi"
+      "url": "https://www.lonelyplanet.com/news#ixzz43kczbTEi"
     },
     {
       "title": "Rugby’s Lions Tour to be huge draw for UK and Irish visitors to New Zealand",
-      "url": "http://www.lonelyplanet.com/news#ixzz43kd8jfjx"
+      "url": "https://www.lonelyplanet.com/news#ixzz43kd8jfjx"
     },
     {
       "title": "Single day tickets for Chicago’s Lollapalooza music festival now on sale",
-      "url": "http://www.lonelyplanet.com/news#ixzz43kkox8n3"
+      "url": "https://www.lonelyplanet.com/news#ixzz43kkox8n3"
     },
     {
       "title": "New Mexico police hunt flying saucer missing from UFO museum in Roswell",
-      "url": "http://www.lonelyplanet.com/news#ixzz43kkvuGLJ"
+      "url": "https://www.lonelyplanet.com/news#ixzz43kkvuGLJ"
     },
     {
       "title": "Videos of the week: celebrating daredevils, divers, and historic speeches",
-      "url": "http://www.lonelyplanet.com/news#ixzz43kl1y2Wp"
+      "url": "https://www.lonelyplanet.com/news#ixzz43kl1y2Wp"
     }
   ],
 

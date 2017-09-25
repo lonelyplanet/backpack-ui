@@ -1,11 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { Link } from "react-router";
 import capitalize from "lodash/capitalize";
 import settings from "../../../settings.json";
 import Heading from "../heading";
 import Strapline from "../strapline";
-import Bookmark from "../bookmark";
+import BookmarkButton from "../bookmarkButton";
 import { gutter, span } from "../../utils/grid";
 import { blueLink } from "../../utils/mixins";
 
@@ -186,7 +187,7 @@ class PageHeader extends React.Component {
               className="PageHeader-bookmark"
               style={styles.bookmark.base}
             >
-              <Bookmark
+              <BookmarkButton
                 onClick={this._bookmarkOnClick}
                 marked={this.state.marked}
                 size="large"
@@ -217,47 +218,47 @@ PageHeader.propTypes = {
   /**
    * Text for the heading
    */
-  heading: React.PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
 
   /**
    * Small title
    */
-  title: React.PropTypes.string,
+  title: PropTypes.string,
 
   /**
    * URL for small title
    */
-  titleHref: React.PropTypes.string,
+  titleHref: PropTypes.string,
 
   /**
    * Show the top choice text
    */
-  topChoice: React.PropTypes.bool,
+  topChoice: PropTypes.bool,
 
   /**
    * Override the strapline
    */
-  strapline: React.PropTypes.string,
+  strapline: PropTypes.string,
 
   /**
    * Type of POI
    */
-  type: React.PropTypes.string,
+  type: PropTypes.string,
 
   /**
    * Neighborhood where the POI is located
    */
-  neighborhood: React.PropTypes.string,
+  neighborhood: PropTypes.string,
 
   /**
    * Where the POI is located, if neighborhood is null
    */
-  place: React.PropTypes.string,
+  place: PropTypes.string,
 
   /**
    * Alignment for header text
    */
-  alignment: React.PropTypes.oneOf([
+  alignment: PropTypes.oneOf([
     "",
     "center",
   ]),
@@ -265,17 +266,17 @@ PageHeader.propTypes = {
   /**
    * Whether or not to set a max width on the header
    */
-  contained: React.PropTypes.bool,
+  contained: PropTypes.bool,
 
   /**
    * Whether or not to show the bookmark button
    */
-  bookmark: React.PropTypes.bool,
+  bookmark: PropTypes.bool,
 
   /**
    * Number of stars a poi has
    */
-  stars: React.PropTypes.number,
+  stars: PropTypes.number,
 };
 
 PageHeader.defaultProps = {

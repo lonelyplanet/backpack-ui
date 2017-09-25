@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import Avatar from "../avatar";
 import colors from "../../styles/colors";
@@ -40,7 +41,13 @@ const styles = {
   },
 };
 
-const AvatarMarker = ({ href, src, username, style }) => (
+const AvatarMarker = ({
+  href,
+  src,
+  username,
+  style,
+  usernameStyle,
+}) => (
   <a
     className="AvatarMarker"
     href={href}
@@ -51,7 +58,7 @@ const AvatarMarker = ({ href, src, username, style }) => (
       size={24}
     />
 
-    <span style={styles.username}>
+    <span style={[styles.username, usernameStyle]}>
       {username}
     </span>
   </a>
@@ -62,6 +69,12 @@ AvatarMarker.propTypes = {
   src: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   style: propTypes.style,
+  usernameStyle: propTypes.style,
+};
+
+AvatarMarker.defaultProps = {
+  style: null,
+  usernameStyle: null,
 };
 
 export default radium(AvatarMarker);

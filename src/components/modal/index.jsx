@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Modal from "react-modal";
 import radium, { Style } from "radium";
 import colors from "../../styles/colors";
@@ -41,10 +42,11 @@ const styles = {
   },
 
   actionItem: {
-    position: "absolute",
     backgroundColor: "transparent",
-    top: 0,
+    cursor: "pointer",
     padding: "16px",
+    position: "absolute",
+    top: 0,
 
     [`@media ${largeMQ}`]: {
       padding: `${modalPadding}px`,
@@ -79,9 +81,13 @@ function ModalComponent({
   desktopWidth,
   leftAction,
   leftActionContent,
+  leftActionDisabled,
   rightAction,
   rightActionContent,
+  rightActionDisabled,
+  disableContentPadding,
   title,
+  className,
   children,
   style,
 }) {
@@ -153,7 +159,7 @@ function ModalComponent({
       onRequestClose={closeModal}
       closeTimeoutMS={closeTimeoutMS}
       contentLabel={contentLabel}
-      className="ModalBase"
+      className={className ? `ModalBase ${className}` : "ModalBase"}
     >
       <Style
         scopeSelector=".ReactModalPortal"
@@ -174,6 +180,7 @@ function ModalComponent({
         {leftAction &&
           <button
             style={[styles.actionItem, styles.leftAction]}
+            disabled={leftActionDisabled}
             onClick={leftAction}
           >
             {leftActionContent}
@@ -189,6 +196,7 @@ function ModalComponent({
         {rightAction &&
           <button
             style={[styles.actionItem, styles.rightAction]}
+            disabled={rightActionDisabled}
             onClick={rightAction}
           >
             {rightActionContent}
@@ -198,7 +206,7 @@ function ModalComponent({
 
       <div
         className="Modal-content"
-        style={styles.contentContainer}
+        style={!disableContentPadding ? styles.contentContainer : {}}
       >
         {children}
       </div>
@@ -215,13 +223,17 @@ ModalComponent.propTypes = {
   closeModal: PropTypes.func,
   leftAction: PropTypes.func,
   leftActionContent: PropTypes.node,
+  leftActionDisabled: PropTypes.bool,
   rightAction: PropTypes.func,
   rightActionContent: PropTypes.node,
+  rightActionDisabled: PropTypes.bool,
   closeTimeoutMS: PropTypes.number,
   contentLabel: PropTypes.string,
   desktopMaxHeight: PropTypes.string,
   desktopWidth: PropTypes.string,
   title: PropTypes.string,
+  className: PropTypes.string,
+  disableContentPadding: PropTypes.bool,
   style: propTypes.style,
 };
 
@@ -230,6 +242,7 @@ ModalComponent.defaultProps = {
   desktopMaxHeight: "85vh",
   desktopWidth: "85%",
   closeTimeoutMS: timing.default,
+  disableContentPadding: false,
 };
 
 ModalComponent.styles = styles;

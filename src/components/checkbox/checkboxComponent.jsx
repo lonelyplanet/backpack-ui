@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import kebabCase from "lodash/kebabCase";
 import { timing, zIndex } from "../../../settings.json";
-import color from "../../styles/colors";
+import colors from "../../styles/colors";
 import font from "../../utils/font";
+import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 import Icon from "../icon";
 
@@ -18,7 +19,7 @@ const styles = {
   },
 
   label: {
-    color: color.textPrimary,
+    color: colors.textPrimary,
     cursor: "pointer",
     display: "block",
     fontSize: "13px",
@@ -32,10 +33,10 @@ const styles = {
   },
 
   checkmark: {
-    borderColor: color.textSecondary,
+    borderColor: rgba(colors.textPrimary, 0.5),
     borderStyle: "solid",
     borderWidth: "1px",
-    color: color.bgPrimary,
+    color: colors.bgPrimary,
     display: "block",
     left: 0,
     position: "absolute",
@@ -48,12 +49,12 @@ const styles = {
   },
 
   checkmarkChecked: {
-    backgroundColor: color.linkPrimary,
-    borderColor: color.linkPrimary,
+    backgroundColor: colors.linkPrimary,
+    borderColor: colors.linkPrimary,
   },
 
   input: {
-    backgroundColor: color.bgPrimary,
+    backgroundColor: colors.bgPrimary,
     border: 0,
     left: 0,
     margin: 0,
@@ -61,6 +62,15 @@ const styles = {
     position: "absolute",
     top: 0,
     WebkitAppearance: "none",
+  },
+
+  icon: {
+    color: colors.textOverlay,
+    display: "block",
+    filter: `drop-shadow(${rgba(colors.bgOverlay, 0.2)} 0 1px 1px)`,
+    left: "-1px",
+    position: "absolute",
+    top: "-1px",
   },
 };
 
@@ -77,6 +87,7 @@ class CheckboxComponent extends Component {
       label,
       required,
       rounded,
+      type,
       style,
     } = this.props;
 
@@ -96,12 +107,6 @@ class CheckboxComponent extends Component {
         paddingLeft: "44px",
         paddingTop: "10px",
       },
-    };
-
-    const checkmarkPadding = {
-      16: { padding: "2px" },
-      24: { padding: "4px" },
-      32: { padding: "6px" },
     };
 
     return (
@@ -126,17 +131,16 @@ class CheckboxComponent extends Component {
             style={[
               styles.checkmark,
               {
-                fontSize: `${(size / 2)}px`,
-                height: `${size}px`,
-                width: `${size}px`,
+                fontSize: `${size}px`,
+                height: "1em",
+                width: "1em",
               },
-              checkmarkPadding[size],
               rounded && { borderRadius: "100%" },
               checked && styles.checkmarkChecked,
             ]}
           >
-            <Icon.Checkmark
-              style={checked ? { opacity: 1 } : { opacity: 0 }}
+            <Icon.Checkbox
+              style={Object.assign({}, styles.icon, checked ? { opacity: 1 } : { opacity: 0 })}
             />
           </span>
 
@@ -144,7 +148,7 @@ class CheckboxComponent extends Component {
 
           <input
             id={`${_.kebabCase(id)}-input`}
-            type="checkbox"
+            type={type}
             style={[
               styles.input,
               {
@@ -173,6 +177,7 @@ CheckboxComponent.propTypes = {
   size: PropTypes.oneOf([16, 24, 32]),
   required: PropTypes.bool,
   rounded: PropTypes.bool,
+  type: PropTypes.oneOf(["checkbox", "radio"]),
   style: propTypes.style,
 };
 
@@ -181,6 +186,7 @@ CheckboxComponent.defaultProps = {
   onClick: null,
   size: 16,
   required: false,
+  type: "checkbox",
   rounded: false,
 };
 

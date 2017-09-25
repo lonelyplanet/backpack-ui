@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default class MultiStepWrapper extends React.Component {
   static propTypes = {
-    children: React.PropTypes.func.isRequired,
-    totalSteps: React.PropTypes.number.isRequired,
+    children: PropTypes.func.isRequired,
+    totalSteps: PropTypes.number.isRequired,
   }
 
   state = {

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import NumberMarker from "../numberMarker/";
 import { color, timing, typography } from "../../../settings.json";
@@ -107,35 +108,35 @@ SightsListItem.propTypes = {
   /**
    * Text label which is the Sight name
    */
-  title: React.PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 
   /**
    * Text label which is the usually the Sights containing place
    */
-  subtitle: React.PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
 
   /**
    * Slug URL of the tag
    */
-  slug: React.PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 
   /**
    *  URL of the image to display
    */
-  imgPath: React.PropTypes.string,
+  imgPath: PropTypes.string,
 
   /**
    * Number to be displayed in the NumberMarker Component
    */
-  markerNumber: React.PropTypes.number,
+  markerNumber: PropTypes.number,
   /**
    * Function to fire on mouse enter
    */
-  onMouseEnter: React.PropTypes.func,
+  onMouseEnter: PropTypes.func,
   /**
    * Function to fire on mouse leave
    */
-  onMouseLeave: React.PropTypes.func,
+  onMouseLeave: PropTypes.func,
 };
 
 SightsListItem.defaultProps = {

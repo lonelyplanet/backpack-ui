@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import moment from "moment";
 import assign from "object-assign";
 import radium, { Style } from "radium";
@@ -293,23 +294,23 @@ DateRange.propTypes = {
   /**
    * Remove border
    */
-  noBorder: React.PropTypes.bool,
+  noBorder: PropTypes.bool,
 
   /**
    * Should the component open with the full screen portal
    */
-  withFullScreenPortal: React.PropTypes.bool,
+  withFullScreenPortal: PropTypes.bool,
 
-  focusedInput: React.PropTypes.string,
+  focusedInput: PropTypes.string,
 
-  onFocusChange: React.PropTypes.func,
+  onFocusChange: PropTypes.func,
 
-  startDate: React.PropTypes.string,
+  startDate: PropTypes.string,
 
   /**
    * Puts a red border around the input
    */
-  soldOut: React.PropTypes.bool,
+  soldOut: PropTypes.bool,
 };
 
 DateRange.defaultProps = {

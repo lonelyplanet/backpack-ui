@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color } from "../../../settings.json";
 import Heading from "../heading";
@@ -120,32 +121,32 @@ PoiPaginator.propTypes = {
   /**
    * Name of the POI
    */
-  title: React.PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 
   /**
    * Show the top choice text
    */
-  topChoice: React.PropTypes.bool,
+  topChoice: PropTypes.bool,
 
   /**
    * Type of POI
    */
-  type: React.PropTypes.string,
+  type: PropTypes.string,
 
   /**
    * Neighborhood where the POI is located
    */
-  neighborhood: React.PropTypes.string,
+  neighborhood: PropTypes.string,
 
   /**
    * Where the POI is located, if neighborhood is null
    */
-  place: React.PropTypes.string,
+  place: PropTypes.string,
 
   /**
    * Function to run on button click
    */
-  onClick: React.PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 PoiPaginator.defaultProps = {

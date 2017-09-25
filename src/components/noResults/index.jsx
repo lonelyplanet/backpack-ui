@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import MoreLink from "../moreLink";
 
@@ -41,9 +42,9 @@ NoResults.propTypes = {
   /**
    * Style object to add or override container styles
    */
-  style: React.PropTypes.objectOf(
-    React.PropTypes.string,
-    React.PropTypes.number,
+  style: PropTypes.objectOf(
+    PropTypes.string,
+    PropTypes.number,
   ),
 };
 

@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
 
 class HeightExpander extends React.Component {
@@ -15,6 +16,10 @@ class HeightExpander extends React.Component {
   componentDidMount() {
     this.element = document.getElementById(this.props.idToFind);
     window.addEventListener("resize", this.updateHeight);
+    this.updateHeight();
+  }
+
+  componentWillReceiveProps() {
     this.updateHeight();
   }
 

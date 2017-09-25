@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import styles from "./styles";
 
@@ -57,19 +58,19 @@ function Select({
 }
 
 Select.propTypes = {
-  id: React.PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 
-  options: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
 
-  label: React.PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 
-  name: React.PropTypes.string,
+  name: PropTypes.string,
 
-  defaultValue: React.PropTypes.string,
+  defaultValue: PropTypes.string,
 
-  required: React.PropTypes.bool,
+  required: PropTypes.bool,
 
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "tiny",
     "small",
     "medium",
@@ -77,7 +78,7 @@ Select.propTypes = {
     "huge",
   ]),
 
-  theme: React.PropTypes.oneOf([
+  theme: PropTypes.oneOf([
     "base",
     "light",
     "dark",
@@ -87,17 +88,17 @@ Select.propTypes = {
   /**
    * Remove border
    */
-  noBorder: React.PropTypes.bool,
+  noBorder: PropTypes.bool,
 
-  style: React.PropTypes.objectOf(
-    React.PropTypes.string,
-    React.PropTypes.number,
+  style: PropTypes.objectOf(
+    PropTypes.string,
+    PropTypes.number,
   ),
 
   /**
    * onChange function for the select element
    */
-  onChange: React.PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 Select.defaultProps = {

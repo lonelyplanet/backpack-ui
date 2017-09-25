@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import settings from "../../../settings.json";
 import { rgb } from "../../utils/color";
@@ -72,12 +73,12 @@ Strapline.propTypes = {
   /**
    * Text for the strapline
    */
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 
   /**
    * Declares the font size
    */
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "",
     "tiny",
     "small",
@@ -86,7 +87,7 @@ Strapline.propTypes = {
   /**
    * Adjusts the font color
    */
-  color: React.PropTypes.oneOf([
+  color: PropTypes.oneOf([
     "",
     "white",
     "gray",
@@ -95,7 +96,7 @@ Strapline.propTypes = {
   /**
    * Add a parent identifier
    */
-  parent: React.PropTypes.oneOf([
+  parent: PropTypes.oneOf([
     "",
     "masthead",
     "pageHeader",

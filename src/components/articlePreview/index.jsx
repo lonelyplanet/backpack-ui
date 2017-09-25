@@ -1,9 +1,12 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import assign from "object-assign";
 import { color } from "../../../settings.json";
 import font from "../../utils/font";
 import CategoryLabelLink from "../categoryLabelLink";
 import Heading from "../heading";
+
+const markup = html => ({ __html: html });
 
 function ArticlePreview({ title, paragraph, image, href, category, categoryHref }) {
   const styles = {
@@ -65,9 +68,10 @@ function ArticlePreview({ title, paragraph, image, href, category, categoryHref 
             {title}
           </Heading>
 
-          <p style={styles.paragraph}>
-            {paragraph}
-          </p>
+          <p
+            style={styles.paragraph}
+            dangerouslySetInnerHTML={markup(paragraph)}
+          />
         </a>
       </div>
     </article>

@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import truncate from "truncate";
 import moment from "moment";
 import { Link } from "react-router";
 import { color, media } from "../../../settings.json";
-import Bookmark from "../bookmark";
+import BookmarkButton from "../bookmarkButton";
 import MoreLink from "../moreLink";
 import { gutter, span, percentage } from "../../utils/grid";
 
@@ -252,7 +253,7 @@ function ListItem({
 
           {bookmark &&
             <div className="ListItem-bookmark" style={styles.bookmark.base}>
-              <Bookmark
+              <BookmarkButton
                 onClick={null}
                 size={bookmarkSize}
               />
@@ -322,32 +323,32 @@ ListItem.propTypes = {
   /**
    * The name of the POI
    */
-  title: React.PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 
   /**
    * The URL slug of the POI
    */
-  slug: React.PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 
   /**
    * The subtype of POI; i.e. Museum
    */
-  subtype: React.PropTypes.string.isRequired,
+  subtype: PropTypes.string.isRequired,
 
   /**
    * The place data for the POI; required keys are name and type
    */
-  place: React.PropTypes.shape({
-    name: React.PropTypes.string,
-    type: React.PropTypes.string,
+  place: PropTypes.shape({
+    name: PropTypes.string,
+    type: PropTypes.string,
   }).isRequired,
 
   /**
    * Image src for the POI; required keys are path and orientation
    */
-  image: React.PropTypes.shape({
-    path: React.PropTypes.string,
-    orientation: React.PropTypes.oneOf([
+  image: PropTypes.shape({
+    path: PropTypes.string,
+    orientation: PropTypes.oneOf([
       "",
       "portrait",
       "landscape",
@@ -357,35 +358,35 @@ ListItem.propTypes = {
   /**
    * Link to display under image; required keys are title and url
    */
-  link: React.PropTypes.shape({
-    title: React.PropTypes.string,
-    url: React.PropTypes.string,
+  link: PropTypes.shape({
+    title: PropTypes.string,
+    url: PropTypes.string,
   }),
 
   /**
    * Description for POI
    */
-  description: React.PropTypes.string,
+  description: PropTypes.string,
 
   /**
    * Add a "sponsored" label
    */
-  sponsored: React.PropTypes.bool,
+  sponsored: PropTypes.bool,
 
   /**
    * Add a "top choice" label
    */
-  topChoice: React.PropTypes.bool,
+  topChoice: PropTypes.bool,
 
   /**
    * If list item is able to be bookmarked
    */
-  bookmark: React.PropTypes.bool,
+  bookmark: PropTypes.bool,
 
   /**
    * Size of bookmark component
    */
-  bookmarkSize: React.PropTypes.oneOf([
+  bookmarkSize: PropTypes.oneOf([
     "small",
     "large",
   ]),
@@ -393,19 +394,19 @@ ListItem.propTypes = {
   /**
    * Google DFP ad; sponsored must be true
    */
-  ad: React.PropTypes.string,
+  ad: PropTypes.string,
 
   /**
    * Publish date for news article
    */
-  date: React.PropTypes.string,
+  date: PropTypes.string,
 
   /**
    * Unique ID for item
    */
-  id: React.PropTypes.string,
+  id: PropTypes.string,
 
-  onClick: React.PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 ListItem.defaultProps = {

@@ -1,17 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { fontSizeHeading4, fontSizeHeading5 } from "../../styles/typography";
+import cn from "classnames";
+import { fontSizeHeading5 } from "../../styles/typography";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
-import Icon from "../icon";
+import { rgba } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
+import iconFromString from "../../utils/icon";
+import { outline } from "../../utils/mixins";
 
 const styles = {
   alignItems: "center",
   backgroundColor: colors.bgPrimary,
   border: 0,
   borderRadius: "50%",
-  boxShadow: `rgba(0, 0, 0, 0.2) 0 ${4 / fontSizeHeading5}em ${16 / fontSizeHeading5}em`,
+  boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${4 / fontSizeHeading5}em ${16 / fontSizeHeading5}em`,
   color: colors.textPrimary,
   cursor: "pointer",
   display: "inline-flex",
@@ -20,57 +24,71 @@ const styles = {
   justifyContent: "center",
   lineHeight: 1,
   padding: 0,
-  transition: `color ${timing.fast}, box-shadow ${timing.fast}`,
+  transition: `box-shadow ${timing.fast} ease-in-out,
+    transform ${timing.fast} ease-in-out`,
   width: `${(54 / fontSizeHeading5)}em`,
+  WebkitTapHighlightColor: rgba(colors.bgOverlay, 0.04),
 
   ":active": {
-    boxShadow: `rgba(0, 0, 0, 0.2) 0 ${(4 / fontSizeHeading5) / 3}em ${(16 / fontSizeHeading5) / 2}em`,
+    boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${(4 / fontSizeHeading5) / 3}em ${(16 / fontSizeHeading5) / 2}em`,
+    transform: "translateY(1px)",
   },
+
+  ":focus": outline(4),
 };
 
 const iconProps = {
-  label: "Bookmark",
   style: {
     display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
 };
 
 const ListButton = ({
   onClick,
-  size,
-  marked,
   icon,
-  markedIcon,
+  label,
+  owns,
+  id,
+  className,
   style,
-}) => {
-  const IconType = Icon[marked ? markedIcon : icon];
-
-  return (
-    <button
-      className="ListButton"
-      style={[
-        styles,
-        size === "large" && { fontSize: `${fontSizeHeading4}px` },
-        style,
-      ]}
-      onClick={onClick}
-    >
-      <IconType {...iconProps} />
-    </button>
-  );
-};
+}) => (
+  <button
+    id={id}
+    className={cn("ListButton", className)}
+    style={[styles, style]}
+    onClick={onClick}
+    title={label}
+    aria-label={label}
+    aria-owns={owns}
+  >
+    {iconFromString(icon, iconProps)}
+  </button>
+);
 
 ListButton.propTypes = {
-  onClick: PropTypes.func.isRequireed,
-  size: PropTypes.oneOf(["", "large"]),
-  marked: PropTypes.bool,
-  icon: PropTypes.oneOf(Object.keys(Icon)).isRequired,
-  markedIcon: PropTypes.oneOf(Object.keys(Icon)),
-  style: PropTypes.objectOf(PropTypes.object),
+  onClick: PropTypes.func.isRequired,
+  icon: PropTypes.oneOf([
+    "Bookmark",
+    "BookmarkActive",
+    "BookmarkAlt",
+    "BookmarkAltActive",
+    "Ellipsis",
+  ]).isRequired,
+  label: PropTypes.string,
+  owns: PropTypes.string,
+  id: PropTypes.string,
+  className: PropTypes.string,
+  style: propTypes.style,
 };
 
 ListButton.defaultProps = {
-  icon: "BookmarkOutline",
+  label: null,
+  owns: null,
+  id: null,
+  className: null,
+  style: null,
 };
 
 export default radium(ListButton);

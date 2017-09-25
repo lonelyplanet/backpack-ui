@@ -1,10 +1,11 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Icon from "../icon";
 import colors from "../../styles/colors";
 import dimensions from "../../styles/dimensions";
 import timing from "../../styles/timing";
-import { fontWeightRegular, fontWeightMedium, fontSizeUppercase } from "../../styles/typography";
+import { fontWeightMedium, fontSizeUppercase } from "../../styles/typography";
 import { benton } from "../../styles/fonts";
 import zIndex from "../../styles/zIndex";
 import { span } from "../../utils/grid";
@@ -13,21 +14,20 @@ import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 import iconFromString from "../../utils/icon";
 
-const height = 48;
+const height = 56;
 const padding = 16;
 const translateY = (padding + height) / fontSizeUppercase;
 
 const styles = {
   container: {
     default: {
-      backgroundColor: colors.bgPrimary,
+      alignItems: "center",
       borderRadius: `${(4 / fontSizeUppercase)}em`,
-      borderTop: "3px currentColor solid",
-      boxShadow: `0 4px 6px ${rgba(colors.bgOverlay, 0.25)}`,
+      color: colors.textOverlay,
       display: "flex",
       fontFamily: benton,
       fontSize: `${fontSizeUppercase}px`,
-      fontWeight: fontWeightRegular,
+      fontWeight: fontWeightMedium,
       lineHeight: (14 / fontSizeUppercase),
       maxWidth: span(6, "static"),
       minHeight: `${height}px`,
@@ -72,16 +72,7 @@ const styles = {
   },
 
   text: {
-    alignSelf: "center",
     marginRight: `${(padding / fontSizeUppercase)}em`,
-  },
-
-  title: {
-    fontWeight: fontWeightMedium,
-  },
-
-  message: {
-    color: colors.textPrimary,
   },
 
   icon: {
@@ -91,31 +82,45 @@ const styles = {
     marginRight: `${(padding / 24)}em`,
   },
 
-  action: {
-    backgroundColor: colors.bgPrimary,
+  button: {
+    backgroundColor: "transparent",
     border: 0,
-    color: colors.textPrimary,
+    color: "currentColor",
     cursor: "pointer",
     display: "block",
-    fontSize: `${(8 / fontSizeUppercase)}em`,
     flexShrink: 0,
-    height: `${(24 / 8)}em`,
     marginLeft: "auto",
-    marginRight: `${(-8 / 8)}em`,
-    transition: `color ${timing.fast} ease-in-out`,
-    width: `${(24 / 8)}em`,
+    transition: `opacity ${timing.fast} ease-in-out`,
+    textTransform: "uppercase",
 
     ":hover": {
-      color: colors.textSecondary,
+      opacity: 0.8,
     },
 
     ":active": {
-      color: colors.textSecondary,
+      opacity: 0.8,
     },
 
     ":focus": Object.assign({}, {
-      color: colors.textSecondary,
+      opacity: 0.8,
     }, outline()),
+  },
+
+  onClickButton: {
+    marginRight: `${(-8 / fontSizeUppercase)}em`,
+    padding: "15px 8px 12px",
+  },
+
+  onCloseButton: {
+    fontSize: `${(10 / fontSizeUppercase)}em`,
+    height: `${(24 / 10)}em`,
+    marginRight: `${(-8 / 10)}em`,
+    width: `${(24 / 10)}em`,
+  },
+
+  onCloseIcon: {
+    stroke: "currentColor",
+    strokeWidth: "2px",
   },
 };
 
@@ -149,7 +154,9 @@ const Toast = ({
   visible,
   affixed,
   title,
+  onClick,
   onClose,
+  buttonLabel,
   style,
 }) => (
   <div
@@ -159,7 +166,13 @@ const Toast = ({
     aria-live="assertive"
     style={[
       styles.container.default,
-      type && { color: messageTypes[type].color },
+      type && {
+        backgroundColor: rgba(messageTypes[type].color, 0.98),
+        boxShadow: `0 4px 6px ${rgba(messageTypes[type].color, 0.25)}`,
+      },
+      type === "warning" && {
+        color: colors.textPrimary,
+      },
       visible && styles.container.visible,
       (!visible && direction === "bottom") && styles.container.invisibleBottom,
       (!visible && direction === "top") && styles.container.invisibleTop,
@@ -191,22 +204,31 @@ const Toast = ({
     })}
 
     <div style={styles.text}>
-      <div style={styles.title}>
+      <div>
         {title || messageTypes[type].title}
       </div>
 
-      <div style={styles.message}>
+      <div>
         {children}
       </div>
     </div>
 
+    {onClick && buttonLabel &&
+      <button
+        style={[styles.button, styles.onClickButton]}
+        onClick={onClick}
+      >
+        {buttonLabel}
+      </button>
+    }
+
     {onClose &&
       <button
-        style={styles.action}
+        style={[styles.button, styles.onCloseButton]}
         onClick={onClose}
         title="Close"
       >
-        <Icon.Close title="Close" />
+        <Icon.Close title="Close" style={styles.onCloseIcon} />
       </button>
     }
   </div>
@@ -218,8 +240,10 @@ Toast.propTypes = {
   direction: PropTypes.oneOf(["top", "bottom"]),
   visible: PropTypes.bool,
   affixed: PropTypes.bool,
+  onClick: PropTypes.func,
   onClose: PropTypes.func,
   title: PropTypes.string,
+  buttonLabel: PropTypes.string,
   style: propTypes.style,
 };
 
@@ -227,8 +251,10 @@ Toast.defaultProps = {
   direction: "bottom",
   visible: false,
   affixed: false,
+  onClick: null,
   onClose: null,
   title: null,
+  buttonLabel: null,
   style: null,
 };
 

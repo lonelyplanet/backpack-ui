@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
 import { color, timing } from "../../../settings.json";
@@ -121,15 +122,15 @@ ContactBar.propTypes = {
   /**
    * Phone number for POI
    */
-  phone: React.PropTypes.oneOf([
-    React.PropTypes.string,
-    React.PropTypes.object,
+  phone: PropTypes.oneOf([
+    PropTypes.string,
+    PropTypes.object,
   ]),
 
   /**
    * Website URL for POI
    */
-  website: React.PropTypes.string,
+  website: PropTypes.string,
 };
 
 ContactBar.defaultProps = {

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import ProviderLogo from "../providerLogo";
 import schema from "../../utils/schema";
@@ -82,22 +83,22 @@ Rating.propTypes = {
   /**
    * A numeric value, 0-5
    */
-  amount: React.PropTypes.number,
+  amount: PropTypes.number,
 
   /**
    * A number that defines the maximum rating value
    */
-  max: React.PropTypes.number,
+  max: PropTypes.number,
 
   /**
    * A word that describes the rating, i.e., excellent, great, poor, etc.
    */
-  description: React.PropTypes.string,
+  description: PropTypes.string,
 
   /**
    * If the rating comes from a third-party
    */
-  provider: React.PropTypes.oneOf([
+  provider: PropTypes.oneOf([
     "",
     "bdc",
     "hostelworld",
@@ -109,7 +110,7 @@ Rating.propTypes = {
   /**
    * Should the rating use an icon instead of text to describe the rating
    */
-  icon: React.PropTypes.bool,
+  icon: PropTypes.bool,
 };
 
 Rating.defaultProps = {

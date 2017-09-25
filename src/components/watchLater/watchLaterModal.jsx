@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import Modal from "../modal";
 import { Close } from "../icon";
@@ -23,7 +24,7 @@ const WatchLaterModal = ({
     leftAction={onClose}
     leftActionContent={<Close width={24} height={24} />}
     closeModal={onClose}
-    desktopWidth={loggedIn ? "85%" : span(6, "static")}
+    desktopWidth={(loggedIn && videos.length > 0) ? "85%" : span(6, "static")}
     title={loggedIn ? "Watch Later" : ""}
     style={style}
   >

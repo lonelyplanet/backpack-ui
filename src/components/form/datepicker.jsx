@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import styles from "./styles";
 
@@ -29,13 +30,13 @@ function DatePicker({ id, name, required, size, theme }) {
 }
 
 DatePicker.propTypes = {
-  id: React.PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 
-  name: React.PropTypes.string,
+  name: PropTypes.string,
 
-  required: React.PropTypes.bool,
+  required: PropTypes.bool,
 
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "tiny",
     "small",
     "medium",
@@ -43,7 +44,7 @@ DatePicker.propTypes = {
     "huge",
   ]),
 
-  theme: React.PropTypes.oneOf([
+  theme: PropTypes.oneOf([
     "base",
     "light",
     "dark",

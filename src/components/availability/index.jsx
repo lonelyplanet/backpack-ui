@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import { media } from "../../../settings.json";
 import Price from "../price";
@@ -93,22 +94,22 @@ Availability.propTypes = {
   /**
    * Price
    */
-  price: React.PropTypes.shape(Price.propTypes).isRequired,
+  price: PropTypes.shape(Price.propTypes).isRequired,
 
   /**
    * Availability url to send to external resource
    */
-  url: React.PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 
   /**
    * Button label
    */
-  buttonLabel: React.PropTypes.string,
+  buttonLabel: PropTypes.string,
 
   /**
    * Function to run when button is clicked
    */
-  buttonClick: React.PropTypes.func,
+  buttonClick: PropTypes.func,
 };
 
 Availability.defaultProps = {

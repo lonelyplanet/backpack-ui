@@ -15,6 +15,38 @@ function outline(offset = 2) {
 }
 
 /**
+ * Hide only visually, but have available for screen readers
+ * @return {Object} CSS styles
+ */
+function visuallyHidden(focusable) {
+  const focusableStyles = {
+    clip: "auto",
+    clipPath: "none",
+    height: "auto",
+    margin: 0,
+    overflow: "visible",
+    position: "static",
+    whiteSpace: "inherit",
+    width: "auto",
+  };
+
+  return Object.assign({}, {
+    border: 0,
+    clipPath: "inset(50%)",
+    display: "inline-block",
+    height: "1px",
+    margin: "-1px",
+    overflow: "hidden",
+    padding: 0,
+    whiteSpace: "nowrap",
+    width: "1px",
+  }, focusable === "focusable" ? {
+    ":active": focusableStyles,
+    ":focus": focusableStyles,
+  } : {});
+}
+
+/**
  * Creates a blue hyperlink; for use with inline styles via Radium
  * @return {Object} CSS styles
  */
@@ -75,6 +107,7 @@ function underlinedLink(linkColor = colors.textPrimary) {
 
 export {
   outline,
+  visuallyHidden,
   blueLink,
   underlinedLink,
 };

@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import Modal from "../modal";
 import { Close } from "../icon";
@@ -17,7 +18,7 @@ const ModalLogIn = ({ isOpen, onClose, style }) => (
     style={style}
   >
     <ModalContentSocialAuth
-      message="Organize your research and unlock tools like bookmarking."
+      message="Organize your research and unlock tools like lists."
     />
   </Modal>
 );

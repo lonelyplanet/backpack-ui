@@ -1,40 +1,43 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
-import color from "../../styles/colors";
+import colors from "../../styles/colors";
 import * as typography from "../../styles/typography";
-import TextHeading from "../text/textHeading";
 
 const styles = {
-  title: {
-    paddingTop: "16px",
+  label: {
     display: "block",
-    lineHeight: 1,
+    fontSize: `${typography.fontSizeHeading7}px`,
+    fontWeight: typography.fontWeightMedium,
+    lineHeight: typography.lineHeightReset,
+    paddingTop: "16px",
   },
+
   subtitle: {
-    color: color.textSecondary,
+    color: colors.textSecondary,
+    fontSize: typography.fontSizeUppercase,
     fontWeight: typography.fontWeightLight,
     marginTop: "4px",
-    fontSize: typography.fontSizeUppercase,
-    lineHeight: 1,
   },
 };
 
-const SettingBlockHeader = ({ children, subtitle }) => (
+const SettingBlockHeader = ({ children, htmlFor, subtitle }) => (
   <div className="SettingBlockHeader">
-    <TextHeading
-      level={7}
-      size={7}
-      weight="medium"
-      style={styles.title}
-    >
+    <label htmlFor={htmlFor} style={styles.label}>
       {children}
-    </TextHeading>
-    { subtitle && <p style={styles.subtitle}>{subtitle}</p>}
+    </label>
+
+    {subtitle &&
+      <p style={styles.subtitle}>
+        {subtitle}
+      </p>
+    }
   </div>
 );
 
 SettingBlockHeader.propTypes = {
   children: PropTypes.string.isRequired,
+  htmlFor: PropTypes.string,
   subtitle: PropTypes.string,
 };
 

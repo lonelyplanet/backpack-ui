@@ -13,7 +13,7 @@ const styles = {
     textAlign: "center",
   },
   inputContainer: {
-    marginBottom: "48px",
+    marginBottom: "24px",
   },
   input: {
     borderBottom: `1px solid ${color.borderPrimary}`,
@@ -79,6 +79,7 @@ class MagicLinkForm extends Component {
                   messages={errorMessages.email}
                 />
               }
+              {this.props.disclaimer}
             </div>
             <Button
               onClick={this.handleSubmit}
@@ -94,6 +95,7 @@ class MagicLinkForm extends Component {
 }
 
 MagicLinkForm.propTypes = {
+  disclaimer: PropTypes.element.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
 

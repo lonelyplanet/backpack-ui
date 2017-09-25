@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import { media } from "../../../settings.json";
 import color from "../../styles/colors";
@@ -210,45 +211,45 @@ RelatedTour.propTypes = {
   /**
    * The name of the tour
    */
-  title: React.PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 
   /**
    * The URL of the tour
    */
-  slug: React.PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 
   /**
    * The image of the tour
    */
-  image: React.PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 
   /**
    * The price of the tour, containing currency and amount
    */
-  price: React.PropTypes.shape({
-    currency: React.PropTypes.string,
-    amount: React.PropTypes.number,
+  price: PropTypes.shape({
+    currency: PropTypes.string,
+    amount: PropTypes.number,
   }).isRequired,
 
   /**
    * The length of the trip, usually in days i.e., "14 days"
    */
-  tripLength: React.PropTypes.string,
+  tripLength: PropTypes.string,
 
   /**
    * The main destination of the tour; can be something like "London to Ireland"
    */
-  destination: React.PropTypes.string,
+  destination: PropTypes.string,
 
   /**
    * The number of reviews for the tour
    */
-  reviews: React.PropTypes.number,
+  reviews: PropTypes.number,
 
   /**
    * Callback for clicking on the tour
    */
-  clickHandler: React.PropTypes.func,
+  clickHandler: PropTypes.func,
 };
 
 RelatedTour.defaultProps = {

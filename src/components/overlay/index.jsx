@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Portal from "react-portal";
 import radium from "radium";
 import settings from "../../../settings.json";

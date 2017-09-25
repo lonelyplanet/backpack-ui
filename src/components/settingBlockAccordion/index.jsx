@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import {
   SettingBlockWrapper,
@@ -6,30 +7,34 @@ import {
   SettingBlockButtonDescription,
   SettingBlockButtonWrapper,
   SettingBlockHeader,
-} from "../settingBlock/";
+} from "../settingBlock";
 import color from "../../styles/colors";
 import { timing } from "../../../settings.json";
 import iconFromString from "../../utils/icon";
 
 const styles = {
   flexContainer: {
-    display: "flex",
     alignItems: "center",
+    display: "flex",
     justifyContent: "space-between",
   },
+
   icon: {
-    width: "16px",
-    height: "16px",
     fill: color.textPrimary,
+    height: "16px",
+    width: "16px",
   },
+
   accordion: {
-    overflow: "hidden",
     maxHeight: 0,
-    transition: `max-height ${timing.slow} ease-in-out, padding-bottom ${timing.slow} ease-in-out`,
+    overflow: "hidden",
+    transition: `max-height ${timing.slow} ease-in-out,
+      padding-bottom ${timing.slow} ease-in-out`,
   },
+
   accordionOpen: {
-    paddingBottom: "16px",
     maxHeight: "500vh",
+    paddingBottom: "16px",
   },
 };
 
@@ -42,7 +47,6 @@ const SettingBlockAccordion = ({
   subtitle,
   onClick,
  }) => (
-
    <SettingBlockWrapper error={error}>
      <SettingBlockButtonWrapper onClick={onClick}>
        <div style={styles.flexContainer}>
@@ -50,11 +54,18 @@ const SettingBlockAccordion = ({
            <SettingBlockHeader subtitle={subtitle}>
              {title}
            </SettingBlockHeader>
-           {description && <SettingBlockDescription>{description}</SettingBlockDescription>}
+
+           {description &&
+             <SettingBlockDescription>
+               {description}
+             </SettingBlockDescription>
+           }
          </SettingBlockButtonDescription>
+
          {expanded ? iconFromString("ChevronUp", styles.icon) : iconFromString("ChevronDown", styles.icon)}
        </div>
      </SettingBlockButtonWrapper>
+
      <div
        className="AccordionContent"
        style={[styles.accordion, expanded && styles.accordionOpen]}
@@ -62,7 +73,6 @@ const SettingBlockAccordion = ({
        {children}
      </div>
    </SettingBlockWrapper>
-
 );
 
 SettingBlockAccordion.propTypes = {

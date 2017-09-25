@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import styles from "./styles";
 import Icon from "../icon";
@@ -208,21 +209,21 @@ class NumberInput extends React.Component {
 }
 
 NumberInput.propTypes = {
-  id: React.PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 
-  name: React.PropTypes.string,
+  name: PropTypes.string,
 
-  value: React.PropTypes.number,
+  value: PropTypes.number,
 
-  min: React.PropTypes.number,
+  min: PropTypes.number,
 
-  max: React.PropTypes.number,
+  max: PropTypes.number,
 
-  placeholder: React.PropTypes.string,
+  placeholder: PropTypes.string,
 
-  required: React.PropTypes.bool,
+  required: PropTypes.bool,
 
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "tiny",
     "small",
     "medium",
@@ -230,7 +231,7 @@ NumberInput.propTypes = {
     "huge",
   ]),
 
-  theme: React.PropTypes.oneOf([
+  theme: PropTypes.oneOf([
     "base",
     "light",
     "dark",
@@ -240,7 +241,7 @@ NumberInput.propTypes = {
   /**
    * Fills the width of the parent
    */
-  fill: React.PropTypes.bool,
+  fill: PropTypes.bool,
 };
 
 NumberInput.defaultProps = {

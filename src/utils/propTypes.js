@@ -1,4 +1,4 @@
-import { PropTypes } from "react";
+import PropTypes from "prop-types";
 
 export default {
   heading: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),

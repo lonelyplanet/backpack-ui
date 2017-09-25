@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color, spacing } from "../../../settings.json";
 import Icon from "../icon";
@@ -155,8 +156,8 @@ MobileToolbar.propTypes = {
    * Style object to add or override container styles
    */
   style: PropTypes.objectOf(
-    React.PropTypes.string,
-    React.PropTypes.number,
+    PropTypes.string,
+    PropTypes.number,
   ),
 };
 

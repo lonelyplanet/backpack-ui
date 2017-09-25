@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color } from "../../../settings.json";
 import { span } from "../../utils/grid";
@@ -152,14 +153,14 @@ Amenities.propTypes = {
   /**
    * Data
    */
-  items: React.PropTypes.arrayOf(React.PropTypes.shape({
-    title: React.PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
   })).isRequired,
 
   /**
    * Number of columns to span
    */
-  columns: React.PropTypes.oneOf([
+  columns: PropTypes.oneOf([
     1,
     2,
     3,
@@ -168,7 +169,7 @@ Amenities.propTypes = {
   /**
    * Type of list
    */
-  listType: React.PropTypes.oneOf([
+  listType: PropTypes.oneOf([
     "single",
     "grouped",
   ]),

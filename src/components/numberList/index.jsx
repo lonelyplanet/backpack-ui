@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color, timing } from "../../../settings.json";
 import NumberMarker from "../numberMarker";
@@ -107,7 +108,7 @@ NumberList.propTypes = {
   /**
    * An array of items to list
    */
-  list: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+  list: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 NumberList.defaultProps = {

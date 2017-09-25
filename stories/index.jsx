@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { StyleRoot } from "radium";
 import "leaflet/dist/leaflet.css";
 import "slick-carousel/slick/slick.css";
@@ -16,6 +17,7 @@ import DesignTokens from "./designTokens";
 import Fonts from "./fonts";
 import Typography from "./typography";
 import { Accordion, AccordionItem } from "../src/components/accordion";
+import AlbumThumbnailImage from "../src/components/albumThumbnailImage";
 import Amenities from "../src/components/amenities";
 import ArticleAuthor from "../src/components/articleAuthor";
 import ArticlePaginationItem from "../src/components/articlePaginationItem";
@@ -27,7 +29,12 @@ import Avatar from "../src/components/avatar";
 import AvatarMarker from "../src/components/avatarMarker";
 import AvatarUpload from "../src/components/avatarUpload";
 // Availability
-import Bookmark from "../src/components/bookmark";
+import BookmarkButton from "../src/components/bookmarkButton";
+import BookmarkButtonAlt from "../src/components/bookmarkButtonAlt";
+import BookmarkListAuthor from "../src/components/bookmarkListAuthor";
+import BookmarkListHeader from "../src/components/bookmarkListHeader";
+import BookmarkListMenu from "../src/components/bookmarkListMenu";
+import BookmarkListMenuOption from "../src/components/bookmarkListMenu/option.jsx";
 import Breadcrumbs from "../src/components/breadcrumbs";
 import BulletDescription from "../src/components/bulletDescription";
 import Button from "../src/components/button";
@@ -69,7 +76,8 @@ import IconCalloutGroup from "../src/components/iconCalloutGroup";
 import ImageCarousel from "../src/components/imageCarousel";
 // ImageGallery
 import ImageHero from "../src/components/imageHero";
-import Input from "../src/components/form/input";
+import Input from "../src/components/input";
+import FormInput from "../src/components/form/input";
 import InteractiveMap from "../src/components/interactiveMap";
 import ItalicText from "../src/components/italicText";
 // LastUpdated
@@ -78,6 +86,8 @@ import Lede from "../src/components/lede";
 // ListItemBookable
 // ListItemImage
 import ListButton from "../src/components/listButton";
+import ListItemBookmark from "../src/components/listItemBookmark";
+import ListItemBookmarkEntry from "../src/components/listItemBookmarkEntry";
 import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
 // Loading
@@ -92,6 +102,7 @@ import Modal from "../src/components/modal";
 import ModalLogIn from "../src/components/modalLogIn";
 import MoreLink from "../src/components/moreLink";
 import { MultiStep, MultiStepWrapper } from "../src/components/multiStep";
+import MultiStepLogin from "../src/components/multiStep/multiStepLogin";
 import Narrative from "../src/components/narrative";
 import { Navigation, NavigationTab } from "../src/components/navigation";
 import NewsArticleAuthor from "../src/components/newsArticleAuthor";
@@ -107,6 +118,7 @@ import PhotoGallery from "../src/components/photoGallery";
 import Placeholder from "../src/components/placeholder";
 import PoiPaginator from "../src/components/poiPaginator";
 // Price
+import PriceRangeLabel from "../src/components/priceRangeLabel";
 import ProfileHeader from "../src/components/profileHeader";
 import PromotedGuidebook from "../src/components/promotedGuidebook";
 import ProviderLogo from "../src/components/providerLogo";
@@ -127,7 +139,7 @@ import SettingBlockAction from "../src/components/settingBlockAction";
 import SettingBlockAccordion from "../src/components/settingBlockAccordion";
 import SettingBlockTextArea from "../src/components/settingBlockTextArea";
 import SettingBlockInput from "../src/components/settingBlockInput";
-import TextArea from "../src/components/form/textarea";
+import FormTextArea from "../src/components/form/textarea";
 import ToggleController from "../src/utils/toggleController";
 import ShareMenu from "../src/components/shareMenu";
 import Slide from "../src/components/slide";
@@ -142,6 +154,7 @@ import SponsorLabel from "../src/components/sponsorLabel";
 import SpotlightZone from "../src/components/spotlightZone";
 import StaticMap from "../src/components/staticMap";
 import Strapline from "../src/components/strapline";
+import Switch from "../src/components/switch";
 import TabbedNav from "../src/components/tabbedNav";
 import { Tabs, Tab } from "../src/components/tabs";
 import Tag from "../src/components/tag";
@@ -150,6 +163,7 @@ import TagList from "../src/components/tagList";
 import TallCarousel from "../src/components/tallCarousel";
 import { TextAccent, TextBodyArticle, TextBodySmall, TextHeading, TextSuper, TextUppercase } from "../src/components/text";
 import TextBubble from "../src/components/textBubble";
+import Textarea from "../src/components/textarea";
 import ThumbnailListItem from "../src/components/thumbnailListItem";
 import TileGrid from "../src/components/tileGrid";
 import TileVideo from "../src/components/tileVideo";
@@ -161,7 +175,6 @@ import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
 import { Typeahead, TypeaheadTokenizer } from "../src/components/typeahead";
 import TypeSelector from "../src/components/typeSelector";
-import UserListAuthor from "../src/components/userListAuthor";
 import VideoEmbed from "../src/components/videoEmbed";
 import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 
@@ -262,6 +275,27 @@ storiesOf("Accordion", module)
     </StyleRoot>
   ));
 
+storiesOf("Album thumbnail image", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Center>
+      <AlbumThumbnailImage />
+    </Center>
+  ))
+  .add("Plus icon", () => (
+    <Center>
+      <AlbumThumbnailImage icon="Plus" />
+    </Center>
+  ))
+  .add("Image", () => (
+    <Center>
+      <AlbumThumbnailImage
+        src={text("Source", "https://lonelyplanetwp.imgix.net/2017/07/GettyImages-647005142_high_1-360ee8e327d5.jpg?crop=entropy&fit=crop&h=96&sharp=10&vib=20&w=104")}
+        alt={text("Alternate text", "")}
+      />
+    </Center>
+  ));
+
 storiesOf("Amenities", module)
   .addDecorator(withKnobs)
   .add("2-column, single list", () => (
@@ -340,7 +374,7 @@ storiesOf("Article preview", module)
   .add("Default", () => (
     <ArticlePreview
       title={text("Title", "New York’s most iconic buildings reimagined on deserted streets")}
-      paragraph={text("Paragraph", "A new exhibition in New York of the city’s most iconic buildings shows them in a new light, with the bustle of modern life stripped out. Photographer")}
+      paragraph={text("Paragraph", "A new exhibition in New York of the city’s most &ldquo;iconic&rdquo; buildings shows them in a new light, with the bustle of modern life stripped out. Photographer")}
       image={text("Image URL", "http://placehold.it/410x230")}
       href={text("URL", "/")}
       category={text("Category name", "Art and culture")}
@@ -395,14 +429,71 @@ storiesOf("Avatar upload", module)
     />
   ));
 
-storiesOf("Bookmark", module)
+storiesOf("Bookmark button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <Bookmark
-      onClick={action("Bookmark clicked")}
-      size={select("Size", ["", "large"], "")}
-      marked={boolean("Marked", false)}
-    />
+    <Center>
+      <BookmarkButton
+        id={text("ID", null)}
+        className={text("Classname", null)}
+        onClick={action("Bookmark clicked")}
+        marked={boolean("Marked", false)}
+      />
+    </Center>
+  ))
+  .add("Alternate", () => (
+    <Center>
+      <BookmarkButtonAlt
+        id={text("ID", null)}
+        className={text("Classname", null)}
+        onClick={action("Bookmark clicked")}
+        marked={boolean("Marked", false)}
+      />
+    </Center>
+  ));
+
+storiesOf("Bookmark list author", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <BookmarkListAuthor
+      href={text("URL", "/")}
+      imageSrc={text("Image source", data.avatar.default)}
+    >
+      {text("Name", "Alex Butler")}
+    </BookmarkListAuthor>
+  ));
+
+storiesOf("Bookmark list header", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <BookmarkListHeader
+        profileHref={text("Profile URL", "/profile")}
+        avatarSrc={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+        username={text("Username", "Rizzo the Rat")}
+        name={text("Title", "Europe Summer Highlights")}
+        entriesCount={5}
+        visibility={select("Visibility", ["Private", "Public"], "Private")}
+      />
+    </StyleRoot>
+  ));
+
+storiesOf("Bookmark list menu", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Center>
+      <BookmarkListMenu
+        iconName={select("Icon name", ["Ellipsis", "Share"], "Ellipsis")}
+        iconLabel={text("Icon label", "View list options")}
+      >
+        <BookmarkListMenuOption onClick={action("Edit click")}>Edit list</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Add click")}>Add new places</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Reorder click")}>Reorder places</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Share click")}>Share on Twitter</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Share click")}>Share on Facebook</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Copy click")}>Copy link</BookmarkListMenuOption>
+      </BookmarkListMenu>
+    </Center>
   ));
 
 storiesOf("Breadcrumbs", module)
@@ -682,21 +773,21 @@ storiesOf("Expand button", module)
     <ExpandButton label={text("Label", "Open")} />
   ));
 
-
 storiesOf("Form", module)
   .addDecorator(withKnobs)
   .add("Input", () => (
-    <Input
+    <FormInput
       placeholder={text("Placeholder", "johndoe@gmail.com")}
       error={boolean("Has Error", false)}
       theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
     />
   ))
-  .add("Text Area", () => (
-    <TextArea
+  .add("Textarea", () => (
+    <FormTextArea
       placeholder={text("Placeholder", "johndoe@gmail.com")}
       error={boolean("Has Error", false)}
       theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
+      autogrow={boolean("Autogrow", false)}
     />
   ))
   .add("ErrorMessages", () => (
@@ -754,6 +845,7 @@ storiesOf("Flyout", module)
       size={select("Size", ["small", "medium"], "small")}
       shadow={select("Shadow", ["small", "large"], "small")}
       arrow={select("Arrow direction", ["up", "down", "left", "right"], "down")}
+      arrowPosition={select("Arrow alignment", ["", "left", "right"], "")}
       removePadding={boolean("Remove padding", false)}
       fill={boolean("Fill", false)}
     />
@@ -861,10 +953,29 @@ storiesOf("Heading", module)
 storiesOf("Icon button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <IconButton
-      icon="share"
-      label="Share this"
-    />
+    <Center backgroundColor="white">
+      <IconButton
+        iconName={select("Icon name", [
+          "Bookmark",
+          "BookmarkActive",
+          "BookmarkAlt",
+          "BookmarkAltActive",
+          "Ellipsis",
+          "Share",
+        ], "Share")}
+        label={text("Label", "Share this")}
+        id={text("ID", null)}
+        className={text("Classname", null)}
+        href={text("href", null)}
+        onClick={action("onClick action")}
+        size={select("Size", [32, 40, 56], 32)}
+        owns={text("Aria owns", null)}
+        backgroundColor={text("Background color", null)}
+        color={text("Color", null)}
+        border={boolean("Border", false)}
+        shadow={boolean("Shadow", false)}
+      />
+    </Center>
   ));
 
 storiesOf("Icon callout", module)
@@ -950,6 +1061,14 @@ storiesOf("Image hero", module)
     />
   ));
 
+storiesOf("Input", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Center backgroundColor="white">
+      <Input />
+    </Center>
+  ));
+
 storiesOf("Interactive Map", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1001,13 +1120,63 @@ storiesOf("Lede", module)
 storiesOf("List Button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <ListButton
-      onClick={action("List Button clicked")}
-      size={select("Size", ["", "large"], "")}
-      marked={boolean("Marked", false)}
-      icon={select("Icon", Object.keys(Icon), "BookmarkOutline")}
-      markedIcon={select("Marked Icon", Object.keys(Icon), "Bookmark")}
-    />
+    <Center>
+      <ListButton
+        id={text("ID", null)}
+        className={text("Classname", null)}
+        onClick={action("List Button clicked")}
+        icon={select("Icon", [
+          "Bookmark",
+          "BookmarkActive",
+          "BookmarkAlt",
+          "BookmarkAltActive",
+          "Ellipsis",
+        ], "Ellipsis")}
+      />
+    </Center>
+  ));
+
+storiesOf("List item (bookmark)", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <ListItemBookmark
+        name={text("Name", "Favorites")}
+        href={text("URL", "/")}
+        thumbnail={text("Thumbnail", "")}
+        entriesCount={5}
+        visibility={select("Visibility", ["Private", "Public"], "Private")}
+        large={boolean("Large", false)}
+      />
+    </StyleRoot>
+  ))
+  .add("With checkbox", () => (
+    <StyleRoot>
+      <ListItemBookmark
+        name={text("Name", "Favorites")}
+        onClick={action("List Button clicked")}
+        checked={boolean("Checked", false)}
+        thumbnail={text("Thumbnail", "")}
+        entriesCount={5}
+        visibility={select("Visibility", ["Private", "Public"], "Private")}
+        large={boolean("Large", false)}
+      />
+    </StyleRoot>
+  ));
+
+storiesOf("List item (bookmark entry)", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <ListItemBookmarkEntry
+        name={text("Name", "POI Name")}
+        category={text("Category", "Category")}
+        city={text("City", "City")}
+        priceRange={select("Range", ["$", "$$", "$$$"], "$")}
+        topChoice={boolean("Top choice", false)}
+        note={text("Note", "This is where a nice little note goes.")}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("List item (news)", module)
@@ -1130,7 +1299,7 @@ storiesOf("Masthead", module)
 
 class ModalWrapper extends React.Component {
   static propTypes = {
-    children: React.PropTypes.function,
+    children: PropTypes.function,
   }
 
   state = {
@@ -1288,6 +1457,25 @@ storiesOf("Multi-step", module)
     </MultiStepWrapper>
   ));
 
+storiesOf("MultiStep Login", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <MultiStepWrapper totalSteps={4}>
+      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => {
+        return (
+          <MultiStepLogin
+            currentStep={currentStep}
+            setStep={setCurrentStep}
+            authActions={{}}
+            showLogo
+            doneAction={() => {}}
+          />
+        );
+      }}
+    </MultiStepWrapper>
+
+  ));
+
 storiesOf("Narrative", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1310,6 +1498,7 @@ storiesOf("Narrative", module)
       />
     </StyleRoot>
   ));
+
 
 storiesOf("News article author", module)
   .addDecorator(withKnobs)
@@ -1458,25 +1647,25 @@ storiesOf("Photo gallery", module)
     <PhotoGallery
       photos={[
         {
-          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Trinidad-6666420241af.jpg",
+          src: "https://lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Trinidad-6666420241af.jpg",
           w: 1500,
           h: 1000,
           title: "A radiant blue-chinned sapphire hummingbird perched in a branch in Trinidad © ArenFrancis",
         },
         {
-          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Iguazu-falls-86198db70380.jpg",
+          src: "https://lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Iguazu-falls-86198db70380.jpg",
           w: 1500,
           h: 1000,
           title: "Get an eyeful of Brazil's Iguazu Falls © Michael Runkel / Getty Images",
         },
         {
-          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Panda-f1ebbbd0fe6b.jpg",
+          src: "https://lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Panda-f1ebbbd0fe6b.jpg",
           w: 1500,
           h: 1691,
           title: "A giant panda cub at the Chengdu Giant Panda Breeding Research Base in Sichuan © Feng Wei Photography / Getty Images",
         },
         {
-          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Shere-Khan-848929cc2677.jpg",
+          src: "https://lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Shere-Khan-848929cc2677.jpg",
           w: 1500,
           h: 1000,
           title: "Stalk the forests of Madhya Pradesh for a chance of spotting Shere Khan © Andrew Parkinson / Getty Images",
@@ -1512,11 +1701,19 @@ storiesOf("POI Paginator", module)
     />
   ));
 
+storiesOf("Price range", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <PriceRangeLabel
+      value={select("Range", ["$", "$$", "$$$"], "$$")}
+    />
+  ));
+
 storiesOf("Profile header", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <ProfileHeader
-      avatarSrc={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+      avatarSrc={text("Avatar URL", "https://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
       name={text("Name", "Rizzo the Rat")}
       location={text("Location", "Ottawa, Ontario")}
       intro={text("Introduction", `The very basic core of a woman’s living spirit is
@@ -1543,8 +1740,8 @@ storiesOf("Promoted guidebook", module)
     <StyleRoot>
       <PromotedGuidebook
         title={text("Title", "Egypt travel guide")}
-        url={text("URL", "http://shop.lonelyplanet.com/egypt/egypt-travel-guide-12/")}
-        imageUrl={text("Image URL", "http://media.lonelyplanet.com/shop/images/9919-Egypt_travel_guide_-_12th_edition_Large.jpg")}
+        url={text("URL", "https://shop.lonelyplanet.com/egypt/egypt-travel-guide-12/")}
+        imageUrl={text("Image URL", "https://media.lonelyplanet.com/shop/images/9919-Egypt_travel_guide_-_12th_edition_Large.jpg")}
         price={object("Price", {
           usd: "27.99",
         })}
@@ -1712,6 +1909,7 @@ storiesOf("Setting Block", module)
         error={boolean("Error", false)}
         title={text("Title", "Name")}
         name={text("Name", "name")}
+        id={text("ID", "name")}
         subtitle={text("Subtitle", "Publicly displayed in your profile")}
         placeholder={text("Placeholder", "Enter full name")}
       />
@@ -1727,7 +1925,7 @@ storiesOf("Setting Block", module)
         error={boolean("Error", false)}
         title={text("Textarea Title", "Intro")}
         subtitle={text("Textarea Subtitle", "")}
-        id={text("Id", "testerTime")}
+        id={text("ID", "testerTime")}
         name={text("Name", "testerTime")}
         placeholder="Add an intro"
       />
@@ -1747,6 +1945,7 @@ storiesOf("Setting Block", module)
             subtitle={text("Subtitle", "")}
             checked={active}
             onClick={toggle}
+            type={select("Type", ["checkbox", "radio"], "checkbox")}
             description={text("Description", "hand-picked selection of family travel articles, fun activity sheets and competitions")}
           />
         )}
@@ -2172,6 +2371,21 @@ storiesOf("Strapline", module)
     </Strapline>
   ));
 
+storiesOf("Switch", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Center>
+      <Switch
+        id={text("ID", "privacy-control")}
+        name={text("Name", "privacy_control")}
+        className={text("Classname", null)}
+        value={text("Value", "private")}
+        checked={boolean("Checked", false)}
+        onClick={action("Switch toggled")}
+      />
+    </Center>
+  ));
+
 storiesOf("Tabbed nav", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -2326,6 +2540,22 @@ storiesOf("Text bubble", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <TextBubble>{text("Text", "44 mins")}</TextBubble>
+  ));
+
+storiesOf("Textarea", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Center backgroundColor="white">
+      <Textarea />
+    </Center>
+  ))
+  .add("Autogrow", () => (
+    <Center backgroundColor="white">
+      <Textarea
+        maxLines={number("Maximum lines", 3)}
+        autogrow
+      />
+    </Center>
   ));
 
 storiesOf("Thumbnail list item", module)
@@ -2536,6 +2766,29 @@ storiesOf("Toast", module)
         {text("Message", "Toast message displayed here. It can span multiple lines.")}
       </Toast>
     </Center>
+  ))
+  .add("With onClick action", () => (
+    <Center grow>
+      <Toast
+        type={select("Type", {
+          error: "Error",
+          info: "Info",
+          success: "Success",
+          warning: "Warning",
+        }, "success")}
+        direction={select("Animate from", {
+          bottom: "Bottom",
+          top: "Top",
+        }, "bottom")}
+        title={text("Title", "")}
+        visible={boolean("Visible", true)}
+        affixed={boolean("Affixed", false)}
+        onClick={action("Some action")}
+        buttonLabel="Action"
+      >
+        {text("Message", "Toast message displayed here. It can span multiple lines.")}
+      </Toast>
+    </Center>
   ));
 
 storiesOf("Tooltip", module)
@@ -2609,17 +2862,6 @@ storiesOf("Type selector", module)
         ]}
       />
     </StyleRoot>
-  ));
-
-storiesOf("User list author", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <UserListAuthor
-      href={text("URL", "/")}
-      imageSrc={text("Image source", data.avatar.default)}
-    >
-      {text("Name", "Alex Butler")}
-    </UserListAuthor>
   ));
 
 storiesOf("Video embed", module)

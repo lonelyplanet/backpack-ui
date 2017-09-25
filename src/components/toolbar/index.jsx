@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color, timing } from "../../../settings.json";
 import Icon from "../icon";
@@ -109,19 +110,19 @@ Toolbar.propTypes = {
   /**
    * Phone number for POI
    */
-  phone: React.PropTypes.string,
+  phone: PropTypes.string,
 
   /**
    * Website URL for POI
    */
-  website: React.PropTypes.string,
+  website: PropTypes.string,
 
   /**
    * Address or coordinates for POI
    */
-  directions: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.arrayOf(React.PropTypes.string, React.PropTypes.number),
+  directions: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string, PropTypes.number),
   ]),
 };
 

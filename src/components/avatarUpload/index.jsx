@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Avatar from "../avatar";
 import colors from "../../styles/colors";
@@ -59,34 +60,82 @@ const scopedStyles = {
 };
 
 class AvatarUpload extends Component {
+
+  static dataURItoBlob(dataURI) {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    let byteString;
+    if (dataURI.split(",")[0].indexOf("base64") >= 0) {
+      byteString = atob(dataURI.split(",")[1]);
+    } else {
+      byteString = unescape(dataURI.split(",")[1]);
+    }
+
+    // separate out the mime component
+    const mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
+
+    // write the bytes of the string to a typed array
+    const ia = new Uint8Array(byteString.length);
+    for (let i = 0; i < byteString.length; i += 1) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+
+    return new Blob([ia], { type: mimeString });
+  }
+
   constructor(props) {
     super(props);
 
     this.state = {
       src: props.src,
+      loading: false,
     };
 
     this.onChange = this.onChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.src !== this.props.src) {
+      this.state = {
+        src: nextProps.src,
+      };
+    }
+  }
+
   onChange(event) {
     event.preventDefault();
-
-    if (this.input.files && this.props.onChangeFiles) {
-      this.props.onChangeFiles(this.input.files);
-    }
-
     if (this.input.files && this.input.files[0]) {
       const reader = new FileReader();
+      reader.onload = async (e) => {
+        // We need to convert png to jpg and remove exif data
+        // by writing the image data to a canvas element we can
+        // achieve everything!
+        const converterCanvas = await document.createElement("canvas");
+        const ctx = await converterCanvas.getContext("2d");
+        const converterImage = new Image();
+        converterImage.src = e.target.result;
 
-      reader.onload = (e) => {
-        this.setState({
-          src: e.target.result,
-        });
-        if (typeof this.props.exposeImageOnChange === "function") {
-          this.props.exposeImageOnChange(e.target.result);
-        }
+        converterImage.onload = async () => {
+          const targetWidth = 160;
+          ctx.canvas.width = targetWidth;
+          ctx.canvas.height = converterImage.height * (targetWidth / converterImage.width);
+          await ctx.drawImage(converterImage, 0, 0, targetWidth, ctx.canvas.height);
+          const convertedUrl = await converterCanvas.toDataURL("image/jpeg");
+          const blobImage = await AvatarUpload.dataURItoBlob(convertedUrl);
+
+          this.setState({
+            src: convertedUrl,
+            loading: false,
+          });
+          this.props.onChangeFiles(blobImage);
+          if (typeof this.props.exposeImageOnChange === "function") {
+            this.props.exposeImageOnChange(blobImage);
+          }
+        };
       };
+
+      this.setState({
+        loading: true,
+      });
 
       reader.readAsDataURL(this.input.files[0]);
     }
@@ -113,19 +162,24 @@ class AvatarUpload extends Component {
             onChange={this.onChange}
             style={styles.input}
           />
-
           <Avatar
             src={this.state.src}
             size={80}
             alt="Avatar image upload preview"
           />
-
-          <label
-            htmlFor="avatarUploadInput"
-            style={styles.label}
-          >
-            Change profile photo
-          </label>
+          {this.state.loading ?
+            <p
+              style={styles.label}
+            >
+              Loading...
+            </p> :
+            <label
+              htmlFor="avatarUploadInput"
+              style={styles.label}
+            >
+              Change profile photo
+            </label>
+          }
         </div>
       </div>
     );

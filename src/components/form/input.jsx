@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import styles from "./styles";
 
@@ -54,7 +55,7 @@ function Input(props) {
 }
 
 Input.propTypes = {
-  type: React.PropTypes.oneOf([
+  type: PropTypes.oneOf([
     "date",
     "time",
     "email",
@@ -69,16 +70,16 @@ Input.propTypes = {
     "checkbox",
   ]).isRequired,
 
-  id: React.PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 
-  label: React.PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 
-  name: React.PropTypes.string,
+  name: PropTypes.string,
 
 
-  error: React.PropTypes.bool,
+  error: PropTypes.bool,
 
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "tiny",
     "small",
     "medium",
@@ -86,7 +87,7 @@ Input.propTypes = {
     "huge",
   ]),
 
-  theme: React.PropTypes.oneOf([
+  theme: PropTypes.oneOf([
     "base",
     "light",
     "dark",
@@ -97,13 +98,13 @@ Input.propTypes = {
   /**
    * Fills the width of the parent
    */
-  fill: React.PropTypes.bool,
+  fill: PropTypes.bool,
 
-  customStyles: React.PropTypes.objectOf(
-    React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number,
-      React.PropTypes.object,
+  customStyles: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
     ]),
   ),
 

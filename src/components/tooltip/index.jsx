@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { spring } from "react-motion";
 import Transition from "react-motion-ui-pack";
 import Flyout from "../flyout";

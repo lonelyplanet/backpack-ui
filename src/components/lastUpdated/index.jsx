@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import settings from "../../../settings.json";
 
 const styles = {
@@ -31,12 +32,12 @@ LastUpdated.propTypes = {
   /**
    * Date
    */
-  date: React.PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
 
   /**
    * Link to "suggest an edit" page
    */
-  editUrl: React.PropTypes.string,
+  editUrl: PropTypes.string,
 };
 
 LastUpdated.defaultProps = {

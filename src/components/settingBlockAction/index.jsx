@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import {
   SettingBlockDescription,
@@ -6,7 +7,7 @@ import {
   SettingBlockButtonWrapper,
   SettingBlockWrapper,
   SettingBlockHeader,
-} from "../settingBlock/";
+} from "../settingBlock";
 import MoreLink from "../moreLink/";
 
 const SettingBlockAction = ({
@@ -23,15 +24,21 @@ const SettingBlockAction = ({
         <SettingBlockHeader subtitle={subtitle}>
           {title}
         </SettingBlockHeader>
-        {description && <SettingBlockDescription>{description}</SettingBlockDescription>}
+
+        {description &&
+          <SettingBlockDescription>
+            {description}
+          </SettingBlockDescription>
+        }
       </SettingBlockButtonDescription>
+
       <MoreLink
-        caps
-        hideIcon
-        isNested
         size="small"
         style={{ textAlign: "right" }}
         onClick={(e) => e.preventDefault()}
+        hideIcon
+        isNested
+        caps
       >
         {actionText}
       </MoreLink>

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import cn from "classnames";
 import assign from "object-assign";
@@ -242,44 +243,44 @@ SidebarSection.propTypes = {
   /**
    * Content for the section
    */
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 
   /**
    * The name of the section
    */
-  title: React.PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 
   /**
    * The name of an icon to be placed to the left of the title
    */
-  icon: React.PropTypes.string,
+  icon: PropTypes.string,
 
   /**
    * Should the section be collapsed and expandable
    */
-  collapsed: React.PropTypes.bool,
+  collapsed: PropTypes.bool,
 
   /**
    * Should the section be boxed in with a blue background
    */
-  background: React.PropTypes.bool,
+  background: PropTypes.bool,
 
   /**
    * Should the component include scoped styles (for user generated content)
    */
-  scopedStyles: React.PropTypes.bool,
+  scopedStyles: PropTypes.bool,
 
   /**
    * A modifier classname to be appended to base classname; usually this is used
    * as a layout styling hook within an SCSS file, so be careful when removing
    */
-  modifier: React.PropTypes.string,
+  modifier: PropTypes.string,
 
   /**
    * A keyword to define the type of content within `SidebarSection-content`,
    * used to provide additional styling
    */
-  contentType: React.PropTypes.oneOf([
+  contentType: PropTypes.oneOf([
     "",
     "booking",
     "checkboxes",
@@ -290,13 +291,13 @@ SidebarSection.propTypes = {
   /**
    * Should the component have top margin
    */
-  noMargin: React.PropTypes.bool,
+  noMargin: PropTypes.bool,
 
   /**
    * Denotes that this is the first section in the sidebar; removes the top
    * border and padding
    */
-  first: React.PropTypes.bool,
+  first: PropTypes.bool,
 };
 
 SidebarSection.defaultProps = {

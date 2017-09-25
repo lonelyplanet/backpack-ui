@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Slider from "rc-slider";
 import { color } from "../../../settings.json";
@@ -159,37 +160,37 @@ Range.propTypes = {
   /**
    * Method to run after slide values change, e.g., filter list
    */
-  onAfterChange: React.PropTypes.func.isRequired,
+  onAfterChange: PropTypes.func.isRequired,
 
   /**
    * Initial values for the slider
    */
-  defaultValue: React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
+  defaultValue: PropTypes.arrayOf(PropTypes.number).isRequired,
 
   /**
    * Minimum value for slider
    */
-  min: React.PropTypes.number.isRequired,
+  min: PropTypes.number.isRequired,
 
   /**
    * Maximum value for slider
    */
-  max: React.PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
 
   /**
    * Text to describe the input
    */
-  label: React.PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 
   /**
    * Is this a price slider? Format the marks with $
    */
-  price: React.PropTypes.bool,
+  price: PropTypes.bool,
 
   /**
    * Is this a time slider? Format the marks with hours/days
    */
-  time: React.PropTypes.bool,
+  time: PropTypes.bool,
 };
 
 Range.defaultProps = {

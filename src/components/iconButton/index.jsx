@@ -1,74 +1,96 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
-import assign from "object-assign";
 import upperFirst from "lodash/upperFirst";
-import settings from "../../../settings.json";
-import Icon from "../icon";
-import { darken } from "../../utils/color";
+import cn from "classnames";
+import colors from "../../styles/colors";
+import timing from "../../styles/timing";
+import { lineHeightReset } from "../../styles/typography";
+import { darken, rgba } from "../../utils/color";
 import { outline } from "../../utils/mixins";
 import iconFromString from "../../utils/icon";
+import propTypes from "../../utils/propTypes";
 
 const _ = { upperFirst };
 
-const hoverStyles = {
-  backgroundColor: darken(settings.color.white, 12),
-  textDecoration: "none",
-};
-
 const styles = {
-  base: {
-    appearance: "none",
-    backgroundColor: darken(settings.color.white, 6),
-    backfaceVisibility: "hidden",
-    border: 0,
-    borderRadius: "100%",
-    color: settings.color.darkGray,
-    cursor: "pointer",
-    display: "inline-block",
-    fontWeight: 600,
-    height: `${30 / 15}em`,
-    lineHeight: 1,
-    padding: 0,
-    position: "relative",
-    textAlign: "center",
-    textDecoration: "none",
-    transition: `background-color ${settings.timing.default}`,
-    verticalAlign: "middle",
-    whiteSpace: "nowrap",
-    width: `${30 / 15}em`,
+  alignItems: "center",
+  backgroundColor: darken(colors.bgPrimary, 6),
+  backfaceVisibility: "hidden",
+  border: 0,
+  borderRadius: "100%",
+  color: colors.textPrimary,
+  cursor: "pointer",
+  display: "inline-flex",
+  justifyContent: "center",
+  lineHeight: lineHeightReset,
+  padding: 0,
+  position: "relative",
+  textAlign: "center",
+  textDecoration: "none",
+  transition: `background-color ${timing.default}`,
+  verticalAlign: "middle",
+  whiteSpace: "nowrap",
+  WebkitTapHighlightColor: rgba(colors.bgOverlay, 0.04),
 
-    ":hover": hoverStyles,
-    ":active": hoverStyles,
-    ":focus": assign({}, hoverStyles, outline()),
-  },
-
-  size: {
-    small: {
-      fontSize: "12px",
-    },
-    medium: {
-      fontSize: "15px",
-    },
-    large: {
-      fontSize: "20px",
-    },
-  },
+  ":focus": outline(4),
 };
 
-function IconButton({ iconName, label, className, href, onClick, size, owns }) {
+const iconStyle = {
+  display: "block",
+  marginLeft: "auto",
+  marginRight: "auto",
+};
+
+const fontSize = {
+  32: 12,
+  40: 16,
+  56: 24,
+};
+
+function IconButton({
+  iconName,
+  label,
+  id,
+  className,
+  href,
+  onClick,
+  size,
+  owns,
+  backgroundColor,
+  color,
+  border,
+  shadow,
+  style,
+}) {
   const Element = href ? "a" : "button";
-  const role = Element === "a" ? "button" : "";
-
-  const style = [styles.base];
-
-  if (size) {
-    style.push(styles.size[size]);
-  }
+  const role = Element === "a" ? "button" : null;
+  const dimensions = {
+    fontSize: fontSize[size],
+    height: `${size}px`,
+    width: `${size}px`,
+  };
 
   return (
     <Element
-      className={`${className ? `${className} ` : ""}IconButton`}
-      style={style}
+      id={id}
+      className={cn("IconButton", className)}
+      style={[
+        styles,
+        dimensions,
+        backgroundColor && { backgroundColor },
+        color && { color },
+        border && { border: "1px solid currentColor" },
+        shadow && {
+          boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${4 / fontSize[size]}em ${16 / fontSize[size]}em`,
+          transition: `box-shadow ${timing.fast} ease-in-out`,
+
+          ":active": {
+            boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${(4 / fontSize[size]) / 3}em ${(16 / fontSize[size]) / 2}em`,
+          },
+        },
+        style,
+      ]}
       href={href}
       onClick={onClick}
       role={role}
@@ -76,69 +98,46 @@ function IconButton({ iconName, label, className, href, onClick, size, owns }) {
       aria-label={label}
       aria-owns={owns}
     >
-      {iconFromString(_.upperFirst(iconName), { label })}
+      {iconFromString(_.upperFirst(iconName), { label, style: iconStyle })}
     </Element>
   );
 }
 
 IconButton.propTypes = {
-  /**
-   * Name of the icon to display inside of the button
-   */
-  iconName: React.PropTypes.oneOf(Object.keys(Icon)).isRequired,
-
-  /**
-   * A descriptive label of the button's purpose
-   */
-  label: React.PropTypes.string.isRequired,
-
-  /**
-   * A custom classname to append to the default IconButton classname
-   */
-  className: React.PropTypes.string,
-
-  /**
-   * Pass an href prop to make the button an `a` element instead of a `button`
-   */
-  href: React.PropTypes.string,
-
-  /**
-   * Function to run when the button is clicked
-   */
-  onClick: React.PropTypes.func,
-
-  /**
-   * Size of the button
-   */
-  size: React.PropTypes.oneOf([
-    "small",
-    "medium",
-    "large",
-  ]),
-
-  /**
-   * The ID of the sibling element that the button owns, e.g., if the button has
-   * a menu with an ID of "share-menu", then `owns="share-menu"`.
-   */
-  owns: React.PropTypes.string,
+  iconName: PropTypes.oneOf([
+    "Bookmark",
+    "BookmarkActive",
+    "BookmarkAlt",
+    "BookmarkAltActive",
+    "Ellipsis",
+    "Share",
+  ]).isRequired,
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  className: PropTypes.string,
+  href: PropTypes.string,
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf([32, 40, 56]),
+  owns: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  color: PropTypes.string,
+  border: PropTypes.bool,
+  shadow: PropTypes.bool,
+  style: propTypes.style,
 };
 
 IconButton.defaultProps = {
-  iconName: "",
-
-  label: "",
-
-  className: "",
-
-  href: "",
-
+  id: null,
+  className: null,
+  href: null,
   onClick: null,
-
-  size: "medium",
-
-  owns: "",
+  size: 32,
+  owns: null,
+  backgroundColor: "",
+  color: "",
+  border: false,
+  shadow: false,
+  style: null,
 };
-
-IconButton.styles = styles;
 
 export default radium(IconButton);

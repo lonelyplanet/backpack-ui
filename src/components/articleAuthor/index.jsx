@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import Avatar from "../avatar";
 import Author from "../author";
@@ -59,7 +60,7 @@ ArticleAuthor.propTypes = {
 };
 
 ArticleAuthor.defaultProps = {
-  avatarSrc: "//assets.staticlp.com/profiles/users/placeholders/large.png",
+  avatarSrc: "https://assets.staticlp.com/profiles/users/placeholders/large.png",
   orientation: "vertical",
 };
 

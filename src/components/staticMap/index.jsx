@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color, timing } from "../../../settings.json";
 import { span, percentage } from "../../utils/grid";
@@ -106,38 +107,38 @@ StaticMap.propTypes = {
   /**
    * Mapbox API token
    */
-  token: React.PropTypes.string.isRequired,
+  token: PropTypes.string.isRequired,
 
   /**
    * Location string as lontxlat
    */
-  location: React.PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
 
   /**
    * Size for the static image in width x height
    * Defaults to 640x480
    */
-  size: React.PropTypes.string,
+  size: PropTypes.string,
 
   /**
    * If the static map is located within the sidebar (POI)
    */
-  sidebar: React.PropTypes.bool,
+  sidebar: PropTypes.bool,
 
   /**
    * Hide the map's attribution and copyright notice
    */
-  hideAttribution: React.PropTypes.bool,
+  hideAttribution: PropTypes.bool,
 
   /**
    * Name of location; this can be POI or place
    */
-  name: React.PropTypes.string,
+  name: PropTypes.string,
 
   /**
    * URL string to wrap an anchor link around the map image
    */
-  url: React.PropTypes.string,
+  url: PropTypes.string,
 };
 
 const token = "pk.eyJ1IjoibG9uZWx5cGxhbmV0IiwiYSI6Imh1ODUtdUEifQ.OLLon0V6rcoTyayXzzUzsg";

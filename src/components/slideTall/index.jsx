@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Link from "../link";
 import { color, zIndex } from "../../../settings.json";
 import HeroImageContainer from "../heroImageContainer";

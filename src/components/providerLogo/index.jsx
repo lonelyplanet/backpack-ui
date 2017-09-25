@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function ProviderLogo({ provider, style }) {
   const providers = {
@@ -34,7 +35,7 @@ function ProviderLogo({ provider, style }) {
 }
 
 ProviderLogo.propTypes = {
-  provider: React.PropTypes.oneOf([
+  provider: PropTypes.oneOf([
     "",
     "bdc",
     "hostelworld",
@@ -43,9 +44,9 @@ ProviderLogo.propTypes = {
     "viator",
   ]).isRequired,
 
-  style: React.PropTypes.objectOf(
-    React.PropTypes.string,
-    React.PropTypes.number,
+  style: PropTypes.objectOf(
+    PropTypes.string,
+    PropTypes.number,
   ),
 };
 

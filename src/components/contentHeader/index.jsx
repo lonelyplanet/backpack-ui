@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
 import settings from "../../../settings.json";
@@ -75,17 +76,17 @@ ContentHeader.propTypes = {
   /**
    * Title of the content widget
    */
-  title: React.PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 
   /**
    * Options for Heading component
    */
-  heading: React.PropTypes.shape(Heading.propTypes).isRequired,
+  heading: PropTypes.shape(Heading.propTypes).isRequired,
 
   /**
    * Adds a border to the header
    */
-  border: React.PropTypes.oneOf([
+  border: PropTypes.oneOf([
     "",
     "top",
     "bottom",
@@ -94,7 +95,7 @@ ContentHeader.propTypes = {
   /**
    * Options for MoreLink component
    */
-  moreLink: React.PropTypes.shape(MoreLink.propTypes),
+  moreLink: PropTypes.shape(MoreLink.propTypes),
 };
 
 ContentHeader.defaultProps = {

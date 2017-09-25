@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color } from "../../../settings.json";
 import propTypes from "../../utils/propTypes";
@@ -29,7 +30,7 @@ function ImageHero({ image, imageSize, style }) {
 
 ImageHero.propTypes = {
   image: PropTypes.string.isRequired,
-  imageSize: PropTypes.arrayOf(React.PropTypes.number).isRequired,
+  imageSize: PropTypes.arrayOf(PropTypes.number).isRequired,
   style: propTypes.style,
 };
 

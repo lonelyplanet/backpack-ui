@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { color, media } from "../../../settings.json";
 import font from "../../utils/font";
@@ -133,7 +134,7 @@ ListItemNews.propTypes = {
   link: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,
   isSponsored: PropTypes.bool,
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "small",
     "medium",
   ]),

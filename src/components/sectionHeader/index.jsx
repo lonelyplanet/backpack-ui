@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import Heading from "../heading";
 import { color, media } from "../../../settings.json";
@@ -71,7 +72,7 @@ const SectionHeader = ({ children, heading, theme, style }) => {
 SectionHeader.propTypes = {
   children: PropTypes.node.isRequired,
   heading: PropTypes.shape(Heading.propTypes),
-  theme: React.PropTypes.oneOf([
+  theme: PropTypes.oneOf([
     "default",
     "light",
   ]).isRequired,

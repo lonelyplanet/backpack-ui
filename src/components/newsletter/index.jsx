@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import axios from "axios";
 import Recaptcha from "react-recaptcha";
@@ -208,7 +209,7 @@ class Newsletter extends Component {
       },
     };
 
-    axios.post("//www.lonelyplanet.com/newsletter", formattedData, config)
+    axios.post("https://www.lonelyplanet.com/newsletter", formattedData, config)
       .then(response => this.setState({
         success: true,
         showSuccess: true,
@@ -328,7 +329,7 @@ class Newsletter extends Component {
 
               <form
                 style={styles.form}
-                action="//www.lonelyplanet.com/newsletter"
+                action="https://www.lonelyplanet.com/newsletter"
                 onSubmit={this.handleSubmit}
               >
                 <div style={styles.inputFieldset}>
@@ -417,7 +418,7 @@ Newsletter.defaultProps = {
     vars: "newsletter[LP_Editorial_Newsletter]",
     source: "homepage",
   },
-  legalOptInLabel: ["Tick to opt-in. Opt out at any time via the “unsubscribe” link in the footer of the emails. View our ", <a href="http://www.lonelyplanet.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">privacy policy</a>, "."],
+  legalOptInLabel: ["Tick to opt-in. Opt out at any time via the “unsubscribe” link in the footer of the emails. View our ", <a href="https://www.lonelyplanet.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">privacy policy</a>, "."],
 };
 
 export default radium(Newsletter);

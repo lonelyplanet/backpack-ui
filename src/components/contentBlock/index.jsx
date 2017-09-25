@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import { color } from "../../../settings.json";
 import Heading from "../heading";
@@ -130,20 +131,20 @@ ContentBlock.propTypes = {
   /**
    * Heading to describe the section
    */
-  heading: React.PropTypes.string,
+  heading: PropTypes.string,
 
   /**
    * A link that will be placed under the heading
    */
-  headerLink: React.PropTypes.shape({
-    label: React.PropTypes.string,
-    href: React.PropTypes.string,
+  headerLink: PropTypes.shape({
+    label: PropTypes.string,
+    href: PropTypes.string,
   }),
 
   /**
    * HTML formatted content
    */
-  htmlContent: React.PropTypes.string.isRequired,
+  htmlContent: PropTypes.string.isRequired,
 };
 
 ContentBlock.defaultProps = {

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
 import { timing } from "../../../settings.json";
@@ -228,22 +229,22 @@ Button.propTypes = {
   /**
    * Pass an href prop to make the button an `a` element instead of a `button`
    */
-  href: React.PropTypes.string,
+  href: PropTypes.string,
 
   /**
    * Content for the button
    */
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 
   /**
    * Function to run when the button is clicked
    */
-  onClick: React.PropTypes.func,
+  onClick: PropTypes.func,
 
   /**
    * Color of the button
    */
-  color: React.PropTypes.oneOf([
+  color: PropTypes.oneOf([
     "blue",
     "white",
     "gray",
@@ -258,7 +259,7 @@ Button.propTypes = {
    * large: 66 px tall
    * huge: 72 px tall
    */
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "tiny",
     "small",
     "medium",
@@ -269,33 +270,33 @@ Button.propTypes = {
   /**
    * Use a rounded button
    */
-  rounded: React.PropTypes.bool,
+  rounded: PropTypes.bool,
 
   /**
    * Allow button to span available width
    */
-  full: React.PropTypes.bool,
+  full: PropTypes.bool,
 
   /**
    * Special styles passed in props
    */
-  customStyles: React.PropTypes.objectOf(
-    React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number,
-      React.PropTypes.object,
+  customStyles: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
     ]),
   ),
 
   /**
    * Use a border
    */
-  border: React.PropTypes.bool,
+  border: PropTypes.bool,
 
   /**
    * Disable button
    */
-  disabled: React.PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import { timing } from "../../../settings.json";
 import { bookingLoaderFade } from "../../utils/keyframes";
@@ -46,7 +47,7 @@ function DotLoader({ inline }) {
 }
 
 DotLoader.propTypes = {
-  inline: React.PropTypes.bool,
+  inline: PropTypes.bool,
 };
 
 DotLoader.defaultProps = {
