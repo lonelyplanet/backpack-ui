@@ -63,10 +63,6 @@ const styles = {
 
   title: Object.assign({}, {
     display: "inline-block",
-
-    [`@media ${largeMQ}`]: {
-      display: "none",
-    },
   }, textHeading6("medium"), {
     lineHeight: 1,
   }),
@@ -87,6 +83,7 @@ function ModalComponent({
   rightActionDisabled,
   disableContentPadding,
   title,
+  showTitle,
   className,
   children,
   style,
@@ -188,7 +185,16 @@ function ModalComponent({
         }
 
         {title &&
-          <span style={styles.title}>
+          <span
+            style={[
+              styles.title,
+              !showTitle && {
+                [`@media ${largeMQ}`]: {
+                  display: "none",
+                },
+              },
+            ]}
+          >
             {title}
           </span>
         }
@@ -232,6 +238,7 @@ ModalComponent.propTypes = {
   desktopMaxHeight: PropTypes.string,
   desktopWidth: PropTypes.string,
   title: PropTypes.string,
+  showTitle: PropTypes.bool,
   className: PropTypes.string,
   disableContentPadding: PropTypes.bool,
   style: propTypes.style,
