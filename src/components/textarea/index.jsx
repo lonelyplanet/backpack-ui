@@ -18,11 +18,15 @@ class Textarea extends React.Component {
     };
 
     this.onInput = this.onInput.bind(this);
+    this.autoGrow = this.autoGrow.bind(this);
   }
 
   componentDidMount() {
     if (this.props.autofocus) {
       this.textarea.focus();
+    }
+    if (this.props.autogrow) {
+      this.autoGrow();
     }
   }
 
@@ -42,18 +46,22 @@ class Textarea extends React.Component {
     }
 
     if (this.props.autogrow) {
-      const maxHeight = (this.props.maxLines * Input.lineHeight) + Input.height;
-
-      this.textarea.style.height = Input.styles.height;
-
-      this.setState({
-        height: Math.min(this.textarea.scrollHeight, maxHeight),
-        hideOverflow: Math.min(this.textarea.scrollHeight, maxHeight) < maxHeight,
-      }, () => {
-        this.textarea.style.height = `${this.state.height}px`;
-        this.textarea.style.overflow = this.state.hideOverflow ? "hidden" : null;
-      });
+      this.autoGrow();
     }
+  }
+
+  autoGrow() {
+    const maxHeight = (this.props.maxLines * Input.lineHeight) + Input.height;
+
+    this.textarea.style.height = Input.styles.height;
+
+    this.setState({
+      height: Math.min(this.textarea.scrollHeight, maxHeight),
+      hideOverflow: Math.min(this.textarea.scrollHeight, maxHeight) < maxHeight,
+    }, () => {
+      this.textarea.style.height = `${this.state.height}px`;
+      this.textarea.style.overflow = this.state.hideOverflow ? "hidden" : null;
+    });
   }
 
   render() {
