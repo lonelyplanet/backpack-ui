@@ -12,6 +12,7 @@ import {
   lineHeightHeading7,
 } from "../../styles/typography";
 import mq from "../../styles/mq";
+import timing from "../../styles/timing";
 import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
@@ -86,6 +87,15 @@ const styles = {
     },
   },
 
+  noteLink: {
+    color: colors.linkPrimary,
+    backgroundColor: "transparent",
+    transition: `color ${timing.default} ease`,
+    ":hover": {
+      color: colors.linkPrimaryHover,
+    },
+  },
+
   priceRange: {
     default: {
       float: "right",
@@ -101,6 +111,8 @@ const ListItemBookmarkEntry = ({
   topChoice,
   note,
   large,
+  handleNoteAction,
+  showNoteAction,
   style,
 }) => (
   <article
@@ -155,6 +167,13 @@ const ListItemBookmarkEntry = ({
         {note}
       </TextAccent>
     }
+    {showNoteAction && handleNoteAction &&
+      <TextAccent>
+        <button onClick={handleNoteAction} style={[styles.note, styles.noteLink]} >
+          {note ? "Edit note" : "Add note..."}
+        </button>
+      </TextAccent>
+    }
   </article>
 );
 
@@ -166,6 +185,8 @@ ListItemBookmarkEntry.propTypes = {
   topChoice: PropTypes.bool,
   note: PropTypes.string,
   large: PropTypes.bool,
+  showNoteAction: PropTypes.bool,
+  handleNoteAction: PropTypes.func,
   style: propTypes.style,
 };
 
