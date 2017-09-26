@@ -169,7 +169,14 @@ const ListItemBookmarkEntry = ({
     }
     {showNoteAction && handleNoteAction &&
       <TextAccent>
-        <button onClick={handleNoteAction} style={[styles.note, styles.noteLink]} >
+        <button
+          onClick={handleNoteAction}
+          style={[
+            styles.note.default,
+            large && styles.note.large,
+            styles.noteLink,
+          ]}
+        >
           {note ? "Edit note" : "Add note..."}
         </button>
       </TextAccent>
