@@ -11,6 +11,15 @@ class ModalWrapper extends React.Component {
     };
 
     this.toggleOpen = this.toggleOpen.bind(this);
+    this.handleNavigateAway = this.handleNavigateAway.bind(this);
+  }
+
+  componentDidMount() {
+    window.onbeforeunload = this.handleNavigateAway;
+  }
+
+  componentWillUnmount() {
+    this.handleNavigateAway();
   }
 
   toggleOpen() {
@@ -23,6 +32,11 @@ class ModalWrapper extends React.Component {
         noScroll.off();
       }
     });
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  handleNavigateAway() {
+    noScroll.off();
   }
 
   render() {
