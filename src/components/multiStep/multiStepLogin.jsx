@@ -48,8 +48,6 @@ const MultiStepLogin = ({
     <AuthDisclaimer style={styles.disclaimerAboveButton}>
       By clicking next below and creating an account, you agree to our <a href="https://www.lonelyplanet.com/legal/website-terms/">terms of service</a> and
        that you're happy for Lonely Planet to use your information as set out in our <a href="https://www.lonelyplanet.com/legal/privacy-policy/">privacy policy</a> (including our <a href="https://www.lonelyplanet.com/legal/cookies/">cookie use</a>).
-       Once you create your account, we will send an email to your email address containing a
-       unique link so that you can login to Lonely Planet.
     </AuthDisclaimer>
   );
   return (
@@ -75,7 +73,7 @@ const MultiStepLogin = ({
 
       <AuthContainer key="passwordless" hasLogo={showLogo}>
         <AuthMessage style={{ marginTop: "56px" }}>
-          Enter your email address to sign in or create an account on Lonely Planet.
+          Enter your email address to sign in or create an account.
         </AuthMessage>
 
         <ModalContentMagicLinkForm
@@ -99,11 +97,10 @@ const MultiStepLogin = ({
 
       <AuthContainer key="success" hasLogo={showLogo}>
         <AuthMessage
-          title="Success!"
+          title="Check your email"
           style={{ marginTop: "80px" }}
         >
-          We sent a link to log in.
-          Please check your inbox.
+          We sent you a secure link to sign in with. Please check your email inbox.
         </AuthMessage>
 
         <Button
@@ -111,7 +108,7 @@ const MultiStepLogin = ({
           onClick={doneAction}
           rounded
         >
-          Done
+          Ok
         </Button>
       </AuthContainer>
     </MultiStep>

@@ -33,7 +33,6 @@ class MagicLinkForm extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-
   handleSubmit() {
     if (!this.state.valid) {
       return this.setState({
@@ -58,12 +57,13 @@ class MagicLinkForm extends Component {
           <div style={styles.container}>
             <div style={styles.inputContainer}>
               <Input
+                autoFocus
                 theme="float"
                 type="email"
                 name="email"
                 customStyles={styles.input}
-                requiredd
-                placeholder="example@expample.com"
+                required
+                placeholder="Email"
                 onChange={(e) => {
                   this.handleChange(e, errorCount);
                   validate(e);
@@ -84,8 +84,9 @@ class MagicLinkForm extends Component {
             <Button
               onClick={this.handleSubmit}
               rounded
+              disabled={!this.state.valid}
             >
-              Next
+              Email me a link to sign in
             </Button>
           </div>
         )}
