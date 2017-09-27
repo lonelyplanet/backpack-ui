@@ -18,6 +18,7 @@ class Textarea extends React.Component {
     };
 
     this.onInput = this.onInput.bind(this);
+    this.disableEnterKey = this.disableEnterKey.bind(this);
     this.autoGrow = this.autoGrow.bind(this);
   }
 
@@ -25,8 +26,10 @@ class Textarea extends React.Component {
     if (this.props.autofocus) {
       this.textarea.focus();
     }
+
     if (this.props.autogrow) {
       this.autoGrow();
+      document.addEventListener("keydown", this.disableEnterKey);
     }
   }
 
@@ -38,6 +41,10 @@ class Textarea extends React.Component {
     if (this.props.autofocus) {
       this.textarea.blur();
     }
+
+    if (this.props.autogrow) {
+      document.removeEventListener("keydown", this.disableEnterKey);
+    }
   }
 
   onInput() {
@@ -47,6 +54,14 @@ class Textarea extends React.Component {
 
     if (this.props.autogrow) {
       this.autoGrow();
+    }
+  }
+
+  disableEnterKey(event) {
+    const hasFocus = (this.textarea === document.activeElement) || false;
+
+    if (hasFocus && event.keyCode === 13) {
+      event.preventDefault();
     }
   }
 
