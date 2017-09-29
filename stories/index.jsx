@@ -78,6 +78,7 @@ import ImageCarousel from "../src/components/imageCarousel";
 import ImageHero from "../src/components/imageHero";
 import Input from "../src/components/input";
 import FormInput from "../src/components/form/input";
+import IconRevealButton from "../src/components/iconRevealButton";
 import InteractiveMap from "../src/components/interactiveMap";
 import ItalicText from "../src/components/italicText";
 // LastUpdated
@@ -1035,6 +1036,22 @@ storiesOf("Icon callout group", module)
           copy="Keep safe and well on the open road"
         />
       </IconCalloutGroup>
+    </StyleRoot>
+  ));
+
+storiesOf("Icon Reveal Button", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <Center>
+        <IconRevealButton
+          id={text("ID", null)}
+          icon={<Icon.Share />}
+          label={text("Label", "Label")}
+          className={text("Classname", null)}
+          onClick={action("Bookmark clicked")}
+        />
+      </Center>
     </StyleRoot>
   ));
 
