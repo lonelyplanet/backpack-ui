@@ -79,7 +79,7 @@ class BookmarkListMenu extends React.Component {
   }
 
   handleKeydown(event) {
-    if (event.keyCode === 27 && !this.state.menuVisible) {
+    if (event.keyCode === 27 && this.state.menuVisible) {
       this.toggleOptions();
     }
   }
