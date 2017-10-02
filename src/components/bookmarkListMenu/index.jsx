@@ -108,7 +108,7 @@ class BookmarkListMenu extends React.Component {
           onClick={this.toggleOptions}
           iconName={iconName}
           label={iconLabel}
-          size={32}
+          size={40}
           owns={optionsId}
           color={colors.textPrimary}
           backgroundColor={colors.bgPrimary}
