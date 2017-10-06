@@ -36,7 +36,6 @@ import BookmarkListMenuOption from "../src/components/bookmarkListMenu/option.js
 import Breadcrumbs from "../src/components/breadcrumbs";
 import BulletDescription from "../src/components/bulletDescription";
 import Button from "../src/components/button";
-import Calendar from "../src/components/calendar";
 import Callout from "../src/components/callout";
 import CalloutLink from "../src/components/calloutLink";
 import CardBasic from "../src/components/cardBasic";
@@ -79,7 +78,7 @@ import FormInput from "../src/components/form/input";
 import IconRevealButton from "../src/components/iconRevealButton";
 import InteractiveMap from "../src/components/interactiveMap";
 import ItalicText from "../src/components/italicText";
-// LastUpdated
+// LastUpsd
 import Lede from "../src/components/lede";
 // ListItem
 // ListItemBookable
@@ -539,12 +538,6 @@ storiesOf("Button", module)
     >
       {text("Text", "Hello Button")}
     </Button>
-  ));
-
-storiesOf("Calendar", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Calendar />
   ));
 
 storiesOf("Callout", module)
