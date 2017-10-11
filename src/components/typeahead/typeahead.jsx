@@ -148,10 +148,15 @@ class Typeahead extends Component {
     const query = e.target.value;
     clearTimeout(this.searchTimer);
 
+    if (this.props.validate) {
+      this.props.validate(query, this.state.searchResults);
+    }
+
+    if (e.key === "Backspace" && query === "") {
+      return;
+    }
+
     if (e.key !== "Enter" && e.key !== "ArrowUp" && e.key !== "ArrowDown") {
-      if (this.props.validate) {
-        this.props.validate(query, this.state.searchResults);
-      }
       this.searchTimer = setTimeout(() => {
         this.props.dataSource(query)
         .then((json) => {
