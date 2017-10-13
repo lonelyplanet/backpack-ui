@@ -8,8 +8,6 @@ import "react-photoswipe/lib/photoswipe.css";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, text, boolean, number, array, object, select, color } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
-import { color as bpColor } from "../settings.json";
-import colors from "../src/styles/colors";
 import data from "./data.json";
 import Center from "./center";
 import Colors from "./Colors";
@@ -486,6 +484,7 @@ storiesOf("Bookmark list menu", module)
       <BookmarkListMenu
         iconName={select("Icon name", ["Ellipsis", "Share"], "Ellipsis")}
         iconLabel={text("Icon label", "View list options")}
+        reveal={boolean("Reveal", false)}
       >
         <BookmarkListMenuOption onClick={action("Edit click")}>Edit list</BookmarkListMenuOption>
         <BookmarkListMenuOption onClick={action("Add click")}>Add new places</BookmarkListMenuOption>
@@ -707,7 +706,7 @@ storiesOf("Dialog", module)
               actions={[
                 <Button
                   size="small"
-                  onClick={() => { console.log("✌🏼"); }}
+                  onClick={action("✌🏼")}
                   rounded
                 >
                   Yes, delete my account
@@ -1366,7 +1365,7 @@ storiesOf("Modal", module)
             <button onClick={toggle}>Toggle Modal</button>
             <Modal
               isOpen={isOpen}
-              rightAction={() => console.log("clicked the left")}
+              rightAction={action("clicked the left")}
               rightActionContent={<p>Test</p>}
               leftAction={toggle}
               leftActionContent={<Icon.Close width={24} height={24} />}
@@ -1375,7 +1374,11 @@ storiesOf("Modal", module)
             >
               <div>
                 <h2>Some Content</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequuntur alias amet repellat quis veritatis dignissimos. Veniam adipisci qui facere culpa accusamus ducimus eum rem, amet, fugit, quasi, optio aut?</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequuntur
+                  alias amet repellat quis veritatis dignissimos. Veniam adipisci qui facere culpa
+                  accusamus ducimus eum rem, amet, fugit, quasi, optio aut?
+                </p>
               </div>
             </Modal>
           </div>
@@ -1502,19 +1505,16 @@ storiesOf("MultiStep Login", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <MultiStepWrapper totalSteps={4}>
-      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => {
-        return (
-          <MultiStepLogin
-            currentStep={currentStep}
-            setStep={setCurrentStep}
-            authActions={{}}
-            showLogo
-            doneAction={() => {}}
-          />
-        );
-      }}
+      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => (
+        <MultiStepLogin
+          currentStep={currentStep}
+          setStep={setCurrentStep}
+          authActions={{}}
+          showLogo
+          doneAction={() => {}}
+        />
+      )}}
     </MultiStepWrapper>
-
   ));
 
 storiesOf("Narrative", module)

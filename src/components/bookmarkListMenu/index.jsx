@@ -4,8 +4,10 @@ import radium from "radium";
 import cn from "classnames";
 import Flyout from "../flyout";
 import IconButton from "../iconButton";
+import IconRevealButton from "../iconRevealButton";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
+import iconFromString from "../../utils/icon";
 import propTypes from "../../utils/propTypes";
 import clickOutside from "../../hoc/clickOutside";
 
@@ -92,6 +94,7 @@ class BookmarkListMenu extends React.Component {
       iconLabel,
       id,
       className,
+      reveal,
       style,
     } = this.props;
 
@@ -104,15 +107,24 @@ class BookmarkListMenu extends React.Component {
         style={[styles.container, style]}
         ref={innerRef}
       >
-        <IconButton
-          onClick={this.toggleOptions}
-          iconName={iconName}
-          label={iconLabel}
-          size={40}
-          owns={optionsId}
-          color={colors.textPrimary}
-          backgroundColor={colors.bgPrimary}
-        />
+        {reveal ?
+          <IconRevealButton
+            id={`${id}-IconRevealButton`}
+            icon={iconFromString(iconName)}
+            label={iconLabel}
+            onClick={this.toggleOptions}
+          />
+          :
+          <IconButton
+            onClick={this.toggleOptions}
+            iconName={iconName}
+            label={iconLabel}
+            size={40}
+            owns={optionsId}
+            color={colors.textPrimary}
+            backgroundColor={colors.bgPrimary}
+          />
+        }
 
         <div
           className="BookmarkListMenu-options"
@@ -151,12 +163,14 @@ BookmarkListMenu.propTypes = {
   iconLabel: PropTypes.string.isRequired,
   id: PropTypes.string,
   className: PropTypes.string,
+  reveal: PropTypes.bool,
   style: propTypes.style,
 };
 
 BookmarkListMenu.defaultProps = {
   id: null,
   className: null,
+  reveal: false,
   style: null,
 };
 
