@@ -38,17 +38,21 @@ class ProfileHeader extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener("resize", () => {
-      setTimeout(() => {
-        this.toggleReadMoreLink();
-      }, 100);
-    });
+    if (this.props.intro) {
+      window.addEventListener("resize", () => {
+        setTimeout(() => {
+          this.toggleReadMoreLink();
+        }, 100);
+      });
 
-    this.toggleReadMoreLink();
+      this.toggleReadMoreLink();
+    }
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.toggleReadMoreLink);
+    if (this.props.intro) {
+      window.removeEventListener("resize", this.toggleReadMoreLink);
+    }
   }
 
   toggleReadMoreLink() {
