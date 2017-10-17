@@ -271,7 +271,11 @@ class ProfileHeader extends React.Component {
                 ]}
               >
                 <a href={website} target="_blank" rel="noopener noreferrer">
-                  {website.substr(website.indexOf("://") + 3).replace("www.", "")}
+                  {website
+                    .replace("https://", "")
+                    .replace("http://", "")
+                    .replace("www.", "")
+                  }
                 </a>
               </p>
             }
