@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import radium, { Style } from "radium";
+import radium from "radium";
 import MarkdownRenderer from "react-markdown-renderer";
+import cn from "classnames";
 import Avatar from "../avatar";
 import LocationLabel from "../locationLabel";
 import Tag from "../tag";
@@ -16,6 +17,7 @@ import {
   lineHeightReset,
 } from "../../styles/typography";
 import { textBodySmall } from "../../utils/typography";
+import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 
 class ProfileHeader extends React.Component {
@@ -158,15 +160,6 @@ class ProfileHeader extends React.Component {
         },
       },
 
-      clampedText: {
-        display: "-webkit-box",
-        maxHeight: `${this.maxHeight}px`,
-        overflow: "hidden",
-        textOverflow: "ellipsis",
-        WebkitBoxOrient: "vertical",
-        WebkitLineClamp: this.maxLines,
-      },
-
       tagList: {
         center: {
           marginTop: "39px",
@@ -184,6 +177,50 @@ class ProfileHeader extends React.Component {
       }, textBodySmall()),
     };
 
+    const lineHeight = (alignment === "center" && (this.paragraphLineHeight / fontSizeBodySmall)) ||
+      (alignment === "left" && lineHeightHeading7);
+
+    const markup = (htmlContent) => ({ __html: htmlContent });
+
+    const dangerousStyles = `
+      .ProfileHeader .ClampedText img,
+      .ProfileHeader .ClampedText video,
+      .ProfileHeader .ClampedText iframe {
+        display: none !important;
+      }
+
+      .ProfileHeader .ClampedText:not(.expanded) {
+        display: block;
+        display: -webkit-box;
+        height: calc(1em * ${lineHeight} * ${this.maxLines});
+        line-height: ${lineHeight};
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: ${this.maxLines};
+      }
+
+      .ProfileHeader .ClampedText:not(.expanded)::after {
+        background: linear-gradient(to right, ${rgba(colors.bgPrimary, 0)}, ${rgba(colors.bgPrimary, 1)} 75%);
+        bottom: 0;
+        content: "…";
+        display: block;
+        height: calc(1em * ${lineHeight});
+        position: absolute;
+        right: 0;
+        text-align: right;
+        width: 10%;
+      }
+
+      @supports (-webkit-line-clamp: ${this.maxLines}) {
+        .ProfileHeader .ClampedText:not(.expanded)::after {
+          display: none !important;
+        }
+      }
+    `;
+
     return (
       <header
         className="ProfileHeader"
@@ -192,13 +229,8 @@ class ProfileHeader extends React.Component {
           style,
         ]}
       >
-        <Style
-          scopeSelector=".ProfileHeader-bio"
-          rules={{
-            "img, video, iframe": {
-              display: "none !important",
-            },
-          }}
+        <style
+          dangerouslySetInnerHTML={markup(dangerousStyles)}
         />
 
         <div style={styles.flexContainer[alignment]}>
@@ -255,8 +287,8 @@ class ProfileHeader extends React.Component {
             ]}
           >
             <div
+              className={cn("ClampedText", this.state.expanded && "expanded")}
               ref={node => { this.clampedText = node; }}
-              style={[!this.state.expanded && styles.clampedText]}
             >
               {/*
                 Wrap {intro} with `p` and delete this comment
