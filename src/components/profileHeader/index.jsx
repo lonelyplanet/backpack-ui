@@ -345,7 +345,13 @@ ProfileHeader.propTypes = {
 };
 
 ProfileHeader.defaultProps = {
+  intro: "",
+  website: "",
+  avatarSrc: "",
+  location: "",
+  interests: [],
   alignment: "center",
+  style: null,
 };
 
 export default radium(ProfileHeader);
