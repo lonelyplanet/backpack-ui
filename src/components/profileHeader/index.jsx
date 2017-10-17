@@ -335,7 +335,7 @@ class ProfileHeader extends React.Component {
 ProfileHeader.propTypes = {
   name: PropTypes.string.isRequired,
   intro: PropTypes.string,
-  website: PropTypes.website,
+  website: PropTypes.string,
   avatarSrc: PropTypes.string,
   location: PropTypes.string,
   interests: PropTypes.arrayOf(PropTypes.string),
