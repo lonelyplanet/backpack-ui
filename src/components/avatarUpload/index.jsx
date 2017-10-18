@@ -158,6 +158,7 @@ class AvatarUpload extends Component {
           <input
             id="avatarUploadInput"
             type="file"
+            accept="image/*"
             ref={node => (this.input = node)}
             onChange={this.onChange}
             style={styles.input}
