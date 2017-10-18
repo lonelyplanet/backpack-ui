@@ -225,6 +225,12 @@ class ProfileHeader extends React.Component {
       }
     `;
 
+    const formattedWebsite = website ? website
+      .replace("https://", "")
+      .replace("http://", "")
+      .replace("www.", "")
+    : "";
+
     return (
       <header
         className="ProfileHeader"
@@ -274,12 +280,12 @@ class ProfileHeader extends React.Component {
                   styles.website[alignment],
                 ]}
               >
-                <a href={website} target="_blank" rel="noopener noreferrer">
-                  {website
-                    .replace("https://", "")
-                    .replace("http://", "")
-                    .replace("www.", "")
-                  }
+                <a
+                  href={`http://${formattedWebsite}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {formattedWebsite}
                 </a>
               </p>
             }
