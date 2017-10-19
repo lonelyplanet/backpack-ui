@@ -231,7 +231,7 @@ class ProfileHeader extends React.Component {
 
     const urlParser = (url) => {
       if (typeof document === "undefined") {
-        return false;
+        return { hostname: "" };
       }
 
       const anchor = typeof document !== "undefined" ? document.createElement("a") : null;
