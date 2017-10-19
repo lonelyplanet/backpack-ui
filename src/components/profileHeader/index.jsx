@@ -230,7 +230,11 @@ class ProfileHeader extends React.Component {
     const validateUrl = (url) => urlRegex.test(url);
 
     const urlParser = (url) => {
-      const anchor = document.createElement("a");
+      if (typeof document === "undefined") {
+        return false;
+      }
+
+      const anchor = typeof document !== "undefined" ? document.createElement("a") : null;
       anchor.href = url;
       return anchor;
     };
