@@ -11,11 +11,21 @@ import {
   AuthMessage,
   AuthSocialButtons,
 } from "../auth";
+import { fontWeightMedium } from "../../styles/typography";
+import colors from "../../styles/colors";
 
 const styles = {
   disclaimerAboveButton: {
     maxWidth: "100%",
     width: "100%",
+  },
+  disclaimerBelowButton: {
+    maxWidth: "350px",
+    textAlign: "center",
+  },
+  legacyText: {
+    color: colors.textPrimary,
+    fontWeight: fontWeightMedium,
   },
 };
 
@@ -27,20 +37,23 @@ const MultiStepLogin = ({
   doneAction,
 }) => {
   const SocialDisclaimer = (
-    <AuthDisclaimer>
-      If you sign up with Twitter, Facebook or Google, we'll import your profile
-      information. We'll never post without your permission. Or sign in with a
-      legacy <a
-        href="https://auth.lonelyplanet.com/users/sign_in"
-        onClick={(event) => {
-          setStep(3);
-          event.preventDefault();
-        }}
-      >username and password</a> Lonely Planet uses cookies to improve your
+    <AuthDisclaimer style={styles.disclaimerBelowButton}>
+      <p>
+        <span style={styles.legacyText}>Or sign in with a legacy username and password. </span>
+        <a
+          href="https://auth.lonelyplanet.com/users/sign_in"
+          onClick={(event) => {
+            setStep(3);
+            event.preventDefault();
+          }}
+        >
+          username and password
+        </a>.
+      </p>
+      Lonely Planet uses cookies to improve your
       experience, see our <a href="https://www.lonelyplanet.com/legal/cookies/">Cookie Policy</a>.
-      You may receive notifications from us and can opt out at any time.
-      For additional account inquiries
-      see <a href="https://support.lonelyplanet.com/hc/en-us/sections/203968787-Account-administration" target="_blank" rel="noopener noreferrer">Account help</a>.
+      Having trouble signing in?
+      See <a href="https://support.lonelyplanet.com/hc/en-us/sections/115003521167-Lonely-Planet-Profiles" target="_blank" rel="noopener noreferrer">Account help</a>.
     </AuthDisclaimer>
   );
 
