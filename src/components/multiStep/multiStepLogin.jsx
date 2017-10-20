@@ -39,7 +39,7 @@ const MultiStepLogin = ({
   const SocialDisclaimer = (
     <AuthDisclaimer style={styles.disclaimerBelowButton}>
       <p>
-        <span style={styles.legacyText}>Or sign in with a legacy username and password. </span>
+        <span style={styles.legacyText}>Or sign in with a legacy </span>
         <a
           href="https://auth.lonelyplanet.com/users/sign_in"
           onClick={(event) => {
