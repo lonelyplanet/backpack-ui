@@ -35,6 +35,10 @@ class ModalWrapper extends React.Component {
     }, () => {
       if (this.state.open) {
         noScroll.on();
+        ModalWrapper.scrollTo(0, 0);
+        this.setState({
+          scrollPosition: parseInt(document.documentElement.style.top.replace("px", ""), 10) * -1,
+        });
       } else {
         noScroll.off();
       }
