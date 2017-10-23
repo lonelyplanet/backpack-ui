@@ -41,6 +41,7 @@ class ModalWrapper extends React.Component {
         });
       } else {
         noScroll.off();
+        ModalWrapper.scrollTo(0, this.state.scrollPosition);
       }
     });
   }
