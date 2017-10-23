@@ -164,6 +164,8 @@ const Toast = ({
     role="alertdialog"
     aria-hidden={!visible}
     aria-live="assertive"
+    aria-labelledby="toastTitle"
+    aria-describedby="toastMessage"
     style={[
       styles.container.default,
       type && {
@@ -204,11 +206,11 @@ const Toast = ({
     })}
 
     <div style={styles.text}>
-      <div>
+      <div id="toastTitle">
         {title || messageTypes[type].title}
       </div>
 
-      <div>
+      <div id="toastMessage">
         {children}
       </div>
     </div>
