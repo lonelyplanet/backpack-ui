@@ -14,6 +14,7 @@ class ModalWrapper extends React.Component {
 
     this.state = {
       open: false,
+      scrollPosition: 0,
     };
 
     this.toggleOpen = this.toggleOpen.bind(this);
