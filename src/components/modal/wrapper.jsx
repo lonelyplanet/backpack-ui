@@ -3,6 +3,12 @@ import PropTypes from "prop-types";
 import noScroll from "no-scroll";
 
 class ModalWrapper extends React.Component {
+  static scrollTo = (x = 0, y = 0) => {
+    if (typeof window !== "undefined") {
+      window.scrollTo(x, y);
+    }
+  }
+
   constructor(props) {
     super(props);
 
