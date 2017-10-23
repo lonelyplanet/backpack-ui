@@ -161,7 +161,7 @@ const Toast = ({
 }) => (
   <div
     className="Toast"
-    role="alert"
+    role="alertdialog"
     aria-hidden={!visible}
     aria-live="assertive"
     style={[
