@@ -205,7 +205,7 @@ const Toast = ({
       ariaHidden: true,
     })}
 
-    <div style={styles.text}>
+    <div style={styles.text} role="document" tabIndex="0">
       <div id="toastTitle">
         {title || messageTypes[type].title}
       </div>
