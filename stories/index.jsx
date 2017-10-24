@@ -2557,13 +2557,15 @@ storiesOf("Text", module)
     </TextAccent>
   ))
   .add("Body article", () => (
-    <TextBodyArticle>
-      {text("Text", `Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit. Aenean sed
-        mauris sit amet massa interdum bibendum.
-        Ut ac ex leo. Cras blandit enim ut metus
-        feugiat, vitae pharetra massa aliquet.`)}
-    </TextBodyArticle>
+    <StyleRoot>
+      <TextBodyArticle>
+        {text("Text", `Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Aenean sed
+          mauris sit amet massa interdum bibendum.
+          Ut ac ex leo. Cras blandit enim ut metus
+          feugiat, vitae pharetra massa aliquet.`)}
+      </TextBodyArticle>
+    </StyleRoot>
   ))
   .add("Body small", () => (
     <TextBodySmall>
@@ -2575,17 +2577,19 @@ storiesOf("Text", module)
     </TextBodySmall>
   ))
   .add("Heading", () => (
-    <TextHeading
-      level={select("Level", [1, 2, 3, 4, 5, 6], 2)}
-      size={select("Size", [1, 2, 3, 4, 5, 6, 7, 8], 2)}
-      weight={select("Weight", {
-        light: "Light",
-        regular: "Regular",
-        medium: "Medium",
-      }, "regular")}
-    >
-      {text("Text", "Lorem ipsum")}
-    </TextHeading>
+    <StyleRoot>
+      <TextHeading
+        level={select("Level", [1, 2, 3, 4, 5, 6], 2)}
+        size={select("Size", [1, 2, 3, 4, 5, 6, 7, 8], 2)}
+        weight={select("Weight", {
+          light: "Light",
+          regular: "Regular",
+          medium: "Medium",
+        }, "regular")}
+      >
+        {text("Text", "Lorem ipsum")}
+      </TextHeading>
+    </StyleRoot>
   ))
   .add("Super", () => (
     <TextSuper>
