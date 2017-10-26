@@ -6,8 +6,9 @@ import propTypes from "../../utils/propTypes";
 
 const styles = {
   container: {
-    color: "initial",
+    color: "inherit",
     cursor: "pointer",
+    ":focus": outline(),
   },
 
   buttonResets: {
