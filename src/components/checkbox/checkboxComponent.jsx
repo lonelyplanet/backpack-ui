@@ -46,6 +46,11 @@ const styles = {
       border-color ${timing.fast}`,
     userSelect: "none",
     zIndex: zIndex.default,
+
+    ":focus": {
+      borderColor: colors.textPrimary,
+      outline: 0,
+    },
   },
 
   checkmarkNoBorder: {
@@ -93,6 +98,7 @@ class CheckboxComponent extends Component {
       rounded,
       type,
       removeBorder,
+      innerRef,
       style,
     } = this.props;
 
@@ -133,6 +139,8 @@ class CheckboxComponent extends Component {
           ]}
         >
           <span
+            ref={innerRef}
+            tabIndex="0"
             style={[
               styles.checkmark,
               {
@@ -185,6 +193,7 @@ CheckboxComponent.propTypes = {
   rounded: PropTypes.bool,
   type: PropTypes.oneOf(["checkbox", "radio"]),
   removeBorder: PropTypes.bool,
+  innerRef: PropTypes.func,
   style: propTypes.style,
 };
 
@@ -196,6 +205,7 @@ CheckboxComponent.defaultProps = {
   type: "checkbox",
   rounded: false,
   removeBorder: false,
+  innerRef: null,
 };
 
 export default radium(CheckboxComponent);
