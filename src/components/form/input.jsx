@@ -5,7 +5,6 @@ import styles from "./styles";
 
 function Input(props) {
   const {
-    label,
     name,
     id,
     type,
@@ -45,8 +44,6 @@ function Input(props) {
   return (
     <input
       name={name || id}
-      aria-label={label}
-      title={label}
       type={type}
       {...props}
       style={style}
@@ -71,8 +68,6 @@ Input.propTypes = {
   ]).isRequired,
 
   id: PropTypes.string.isRequired,
-
-  label: PropTypes.string.isRequired,
 
   name: PropTypes.string,
 
@@ -114,8 +109,6 @@ Input.defaultProps = {
   type: "text",
 
   id: "",
-
-  label: "",
 
   name: "",
 
