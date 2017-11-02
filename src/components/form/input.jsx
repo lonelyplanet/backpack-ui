@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import styles from "./styles";
+import propTypes from "../../utils/propTypes";
 
 function Input(props) {
   const {
@@ -86,13 +87,7 @@ Input.propTypes = {
    * Fills the width of the parent
    */
   fill: PropTypes.bool,
-  customStyles: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  customStyles: propTypes.style,
 };
 
 Input.defaultProps = {
