@@ -40,7 +40,6 @@ function Input(props) {
     style.push(customStyles);
   }
 
-
   return (
     <input
       name={name || id}
@@ -66,14 +65,9 @@ Input.propTypes = {
     "radio",
     "checkbox",
   ]).isRequired,
-
   id: PropTypes.string.isRequired,
-
   name: PropTypes.string,
-
-
   error: PropTypes.bool,
-
   size: PropTypes.oneOf([
     "tiny",
     "small",
@@ -81,7 +75,6 @@ Input.propTypes = {
     "large",
     "huge",
   ]),
-
   theme: PropTypes.oneOf([
     "base",
     "light",
@@ -89,12 +82,10 @@ Input.propTypes = {
     "float",
     "inputGroup",
   ]),
-
   /**
    * Fills the width of the parent
    */
   fill: PropTypes.bool,
-
   customStyles: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,
@@ -102,24 +93,16 @@ Input.propTypes = {
       PropTypes.object,
     ]),
   ),
-
 };
 
 Input.defaultProps = {
   type: "text",
-
   id: "",
-
   name: "",
-
   size: "medium",
-
   theme: "base",
-
   fill: false,
-
   customStyles: null,
-
 };
 
 Input.styles = styles;
