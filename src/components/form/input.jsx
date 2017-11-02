@@ -15,38 +15,23 @@ function Input(props) {
     fill,
     customStyles,
   } = props;
-  const style = [styles.base];
-
-  style.push(styles.element.input.base);
-
-  if (size) {
-    style.push(styles.size[size]);
-    style.push(styles.element.input.size[size]);
-  }
-
-  if (theme) {
-    style.push(styles.theme[theme]);
-    style.push(styles.element.input.theme[theme]);
-
-    if (error) {
-      style.push(styles.theme[theme].error);
-    }
-  }
-
-  if (fill) {
-    style.push(styles.fill);
-  }
-
-  if (customStyles) {
-    style.push(customStyles);
-  }
 
   return (
     <input
       name={name || id}
       type={type}
       {...props}
-      style={style}
+      style={[
+        styles.base,
+        styles.element.input.base,
+        size && styles.size[size],
+        size && styles.element.input.size[size],
+        theme && styles.theme[theme],
+        theme && styles.element.input.theme[theme],
+        theme && error && styles.theme[theme].error,
+        fill && styles.fill,
+        customStyles,
+      ]}
     />
   );
 }
