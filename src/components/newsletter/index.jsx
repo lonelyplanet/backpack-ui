@@ -393,6 +393,7 @@ class Newsletter extends Component {
 }
 
 Newsletter.propTypes = {
+  captchaSiteKey: PropTypes.string.isRequired,
   title: PropTypes.string,
   subtitle: PropTypes.string,
   placeholder: PropTypes.string,
@@ -406,7 +407,6 @@ Newsletter.propTypes = {
     source: PropTypes.string,
   }),
   legalOptInLabel: PropTypes.string,
-  captchaSiteKey: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
 };
 
