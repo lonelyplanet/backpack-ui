@@ -5,9 +5,11 @@ import axios from "axios";
 import Recaptcha from "react-recaptcha";
 import { color, media } from "../../../settings.json";
 import font from "../../utils/font";
+import { outline } from "../../utils/mixins";
 import colors from "../../styles/colors";
+import { fontWeightLight } from "../../styles/typography";
 import Heading from "../heading";
-import Input from "../form/input";
+import Input from "../input";
 import Checkbox from "../checkbox";
 import Button from "../button";
 import MoreLink from "../moreLink";
@@ -63,7 +65,8 @@ const styles = {
     fontStyle: "italic",
     letterSpacing: "-.1px",
     lineHeight: (18 / 12),
-    margin: 0,
+    marginLeft: "auto",
+    marginRight: "auto",
     maxWidth: "386px",
 
     [`@media (min-width: ${media.min["480"]})`]: {
@@ -94,8 +97,15 @@ const styles = {
 
   input: {
     borderWidth: 0,
-    WebkitAppearance: "none",
-    paddingBottom: `${10 / 13}em`,
+    fontSize: "13px",
+    fontWeight: fontWeightLight,
+    height: "44px",
+    minHeight: null,
+    paddingBottom: 0,
+    paddingLeft: "16px",
+    paddingRight: "16px",
+    paddingTop: "4px",
+    ":focus": outline(),
   },
 
   checkboxFieldset: {
@@ -271,6 +281,7 @@ class Newsletter extends Component {
         <Style
           scopeSelector=".Newsletter"
           rules={{
+            "a:focus": outline(),
             ".Checkbox label": {
               color: `${colors.textSecondary} !important`,
               fontSize: "9px !important",
@@ -343,12 +354,11 @@ class Newsletter extends Component {
                 <div style={styles.inputFieldset}>
                   <Input
                     type="email"
-                    label="email"
                     placeholder={placeholder}
                     required
                     id="newsletter-email"
                     name="newsletter[email]"
-                    customStyles={styles.input}
+                    style={styles.input}
                     onChange={this.handleInput}
                   />
 
