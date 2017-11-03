@@ -127,16 +127,6 @@ const styles = {
 };
 
 class Newsletter extends Component {
-  static formatFormData(data) {
-    const str = [];
-
-    Object.keys(data).forEach((item) => {
-      str.push(`${encodeURIComponent(item)}=${encodeURIComponent(data[item])}`);
-    });
-
-    return str.join("&");
-  }
-
   constructor(props) {
     super(props);
 
@@ -203,25 +193,29 @@ class Newsletter extends Component {
   }
 
   submitRequest(reCaptchaResponse) {
-    const { endpoint } = this.props;
+    const { endpoint, signup } = this.props;
 
     this.setState({ waiting: true });
 
-    const formattedData = Newsletter.formatFormData({
-      [this.props.signup.vars]: "true",
-      "newsletter[source]": this.props.signup.source,
-      "newsletter[legalOptIn]": this.state.acceptLegalOptIn,
-      "newsletter[email]": this.state.email,
-      "g-recaptcha-response": reCaptchaResponse,
-    });
-
-    const config = {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    const data = {
+      newsletter: {
+        [signup.vars]: "true",
+        "newsletter[source]": signup.source,
+        "newsletter[legalOptIn]": this.state.acceptLegalOptIn,
+        "newsletter[email]": this.state.email,
+        "g-recaptcha-response": reCaptchaResponse,
       },
     };
 
-    axios.post(endpoint, formattedData, config)
+    const config = {
+      // TODO: Figure out why this returns a 500 server error; or decide if it's even needed
+      // headers: {
+      //   "X-Requested-With": "XMLHttpRequest",
+      // },
+      withCredentials: true,
+    };
+
+    axios.post(endpoint, data, config)
       .then(response => this.setState({
         success: true,
         showSuccess: true,
