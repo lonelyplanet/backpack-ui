@@ -1650,6 +1650,11 @@ storiesOf("Newsletter", module)
           email_template: "Welcome email",
           source: "homepage",
         })}
+        endpoint={process.env.NODE_ENV === "development" ?
+          "http://localhost:8080/newsletter" :
+          "https://www.lonelyplanet.com/newsletter"
+        }
+        captchaSiteKey={process.env.STORYBOOK_CAPTCHA_SITE_KEY || ""}
       />
     </StyleRoot>
   ));
