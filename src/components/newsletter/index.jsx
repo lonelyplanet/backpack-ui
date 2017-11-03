@@ -253,6 +253,10 @@ class Newsletter extends Component {
       style: overrideStyles,
     } = this.props;
 
+    if (!captchaSiteKey) {
+      throw new Error("You did not supply an API key for Recaptcha.");
+    }
+
     return (
       <div
         className="Newsletter"
