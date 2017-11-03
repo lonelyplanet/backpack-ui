@@ -193,6 +193,8 @@ class Newsletter extends Component {
   }
 
   submitRequest(reCaptchaResponse) {
+    const { endpoint } = this.props;
+
     this.setState({ waiting: true });
 
     const formattedData = Newsletter.formatFormData({
@@ -209,7 +211,7 @@ class Newsletter extends Component {
       },
     };
 
-    axios.post("https://www.lonelyplanet.com/newsletter", formattedData, config)
+    axios.post(endpoint, formattedData, config)
       .then(response => this.setState({
         success: true,
         showSuccess: true,
@@ -250,6 +252,7 @@ class Newsletter extends Component {
       confirmation,
       legalOptInLabel,
       captchaSiteKey,
+      endpoint,
       style: overrideStyles,
     } = this.props;
 
@@ -334,7 +337,7 @@ class Newsletter extends Component {
 
               <form
                 style={styles.form}
-                action="https://www.lonelyplanet.com/newsletter"
+                action={endpoint}
                 onSubmit={this.handleSubmit}
               >
                 <div style={styles.inputFieldset}>
@@ -407,6 +410,7 @@ Newsletter.propTypes = {
     source: PropTypes.string,
   }),
   legalOptInLabel: PropTypes.string,
+  endpoint: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
 };
 
@@ -426,6 +430,7 @@ Newsletter.defaultProps = {
   },
   legalOptInLabel: ["Tick to opt-in. Opt out at any time via the “unsubscribe” link in the footer of the emails. View our ", <a href="https://www.lonelyplanet.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">privacy policy</a>, "."],
   captchaSiteKey: null,
+  endpoint: "https://www.lonelyplanet.com/newsletter",
 };
 
 export default radium(Newsletter);
