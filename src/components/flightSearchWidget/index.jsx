@@ -104,7 +104,7 @@ class FlightSearchWidget extends Component {
       icon: {
         display: (width <= 182 && "none") || null,
         fontSize: `${(28 / fontSizeHeading4)}em`,
-        marginLeft: width <= 400 ? "16px" : "24px",
+        marginLeft: width <= 400 ? "16px" : "36px",
         stroke: colors.bgPrimary,
         strokeWidth: "2px",
         verticalAlign: "top",
