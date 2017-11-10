@@ -594,6 +594,14 @@ exports.FacebookMessengerColor = props => (
   </Icon>
 );
 
+exports.Flipboard = props => (
+  <Icon {...props}>
+    <path d="M10.6 0h-10.6v32h10.6z" />
+    <path opacity="0.5" d="M10.6 10.6h10.6v10.6h-10.6v-10.6z" />
+    <path opacity="0.8" d="M21.4 0h-10.8v10.6h21.4v-10.6z" />
+  </Icon>
+);
+
 exports.Google = props => (
   <Icon {...props}>
     <path d="M31.7 16.4c0-1.1-0.1-2.2-0.3-3.3h-15.1v6.2h8.6c-0.4 2-1.5 3.7-3.2 4.8v4h5.2c3-2.8 4.8-6.9 4.8-11.7v0z" />
