@@ -134,6 +134,7 @@ function ModalComponent({
       top: 0,
       WebkitOverflowScrolling: "touch",
       width: "100%",
+      transform: "translate3d(0, 0, 0) !important",
     },
 
     mediaQueries: {
@@ -143,7 +144,7 @@ function ModalComponent({
           top: "50%",
           width: desktopWidth,
           maxWidth: "1290px",
-          transform: "translateY(-50%)",
+          transform: "translate3d(0, -50%, 0) !important",
         },
       },
     },
