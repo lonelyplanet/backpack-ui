@@ -5,7 +5,7 @@ import { Link } from "react-router";
 import capitalize from "lodash/capitalize";
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
-import { fontSizeHeading4, lineHeightHeading4 } from "../../styles/typography";
+import { fontSizeHeading3, lineHeightHeading3 } from "../../styles/typography";
 import { Heading, TextUppercase } from "../text";
 import Strapline from "../strapline";
 import { gutter, span } from "../../utils/grid";
@@ -34,10 +34,9 @@ const styles = {
   heading: {
     base: {
       letterSpacing: "-1px",
-
       [`@media (max-width: ${mq.max["600"]})`]: {
-        fontSize: `${fontSizeHeading4}px`,
-        lineHeight: lineHeightHeading4,
+        fontSize: `${fontSizeHeading3}px`,
+        lineHeight: lineHeightHeading3,
       },
     },
   },
