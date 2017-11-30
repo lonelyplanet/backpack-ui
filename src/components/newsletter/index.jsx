@@ -199,19 +199,18 @@ class Newsletter extends Component {
 
     const data = {
       newsletter: {
-        [signup.vars]: "true",
-        "newsletter[source]": signup.source,
-        "newsletter[legalOptIn]": this.state.acceptLegalOptIn,
-        "newsletter[email]": this.state.email,
+        [signup.vars.replace(/newsletter\[(.*)\]/, "$1")]: true,
+        source: signup.source,
+        legalOptIn: this.state.acceptLegalOptIn,
+        email: this.state.email,
         "g-recaptcha-response": reCaptchaResponse,
       },
     };
 
     const config = {
-      // TODO: Figure out why this returns a 500 server error; or decide if it's even needed
-      // headers: {
-      //   "X-Requested-With": "XMLHttpRequest",
-      // },
+      headers: {
+        "X-Requested-With": "XMLHttpRequest",
+      },
       withCredentials: true,
     };
 
