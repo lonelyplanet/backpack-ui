@@ -80,12 +80,12 @@ const css = `
     transform: scale(1.05);
   }
 
-  .Heading {
+  .ArticlePaginationItem .Heading {
     font-size: 32px !important;
   }
 
   @media (min-width: ${media.min["960"]}) {
-    .Heading {
+    .ArticlePaginationItem .Heading {
       font-size: 40px !important;
       line-height: ${(46 / 40)} !important;
       margin-top: 7px !important;
