@@ -8,19 +8,21 @@ import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
 
 const backgroundColors = {
-  twitter: colors.socialTwitter,
+  email: colors.textPrimary,
   facebook: colors.socialFacebook,
   facebookMessenger: colors.socialFacebookMessenger,
+  pinterest: colors.socialPinterest,
   reddit: colors.socialReddit,
-  email: colors.textPrimary,
+  twitter: colors.socialTwitter,
 };
 
 const iconNames = {
-  twitter: "Twitter",
+  email: "Email",
   facebook: "Facebook",
   facebookMessenger: "FacebookMessenger",
+  pinterest: "Pinterest",
   reddit: "Reddit",
-  email: "Email",
+  twitter: "Twitter",
 };
 
 const sizeMultiplier = 2.5;
@@ -78,6 +80,7 @@ SocialIconButton.propTypes = {
     "email",
     "facebook",
     "facebookMessenger",
+    "pinterest",
     "reddit",
     "twitter",
   ]).isRequired,

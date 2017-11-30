@@ -1,94 +1,108 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import Heading from "../heading";
-import { color, media } from "../../../settings.json";
+import Measure from "react-measure";
+import { Heading } from "../text";
+import colors from "../../styles/colors";
+import { fontSizeHeading2 } from "../../styles/typography";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
-  container: {
-    textAlign: "center",
-    marginBottom: "40px",
-    [`@media (min-width: ${media.min["720"]})`]: {
-      marginBottom: "64px",
-    },
-  },
-
   heading: {
-    marginBottom: "16px",
-    lineHeight: 1.3,
-    fontSize: "28px",
-
-    [`@media (min-width: ${media.min["720"]})`]: {
-      fontSize: "45px",
-    },
+    textAlign: "center",
   },
 
   divider: {
-    width: "30px",
-    borderStyle: "solid",
-    borderWidth: "1px",
-    marginBottom: "32px",
+    display: "block",
+    height: "2px",
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: `${16 / fontSizeHeading2}em`,
+    width: `${32 / fontSizeHeading2}em`,
   },
+
   theme: {
     default: {
       divider: {
-        borderColor: color.red,
+        backgroundColor: colors.accentRed,
       },
     },
+
     light: {
       divider: {
-        borderColor: color.white,
+        backgroundColor: "currentColor",
       },
+
       heading: {
-        color: color.white,
+        color: colors.textOverlay,
       },
     },
   },
 };
 
+class SectionHeader extends React.Component {
+  constructor(props) {
+    super(props);
 
-const SectionHeader = ({ children, heading, theme, style }) => {
-  heading = heading || {};
-  heading.size = heading.size || "large";
-  heading.weight = heading.weight || "extraThin";
+    this.state = {
+      dimensions: {
+        width: -1,
+      },
+    };
+  }
 
-  return (
-    <header
-      className="SectionHeader"
-      style={[styles.container, style]}
-    >
-      <Heading
-        {...heading}
-        override={[styles.heading, styles.theme[theme].heading]}
+  render() {
+    const { width } = this.state.dimensions;
+    const { children, theme, style } = this.props;
+
+    return (
+      <Measure
+        bounds
+        onResize={(contentRect) => {
+          this.setState({
+            dimensions: contentRect.bounds,
+          });
+        }}
       >
-        {children}
-      </Heading>
+        {({ measureRef }) => (
+          <Heading
+            className="SectionHeader"
+            innerRef={measureRef}
+            weight="regular"
+            level={2}
+            size={width < 600 ? 4 : 2}
+            style={[
+              styles.heading,
+              styles.theme[theme].heading,
+              style,
+            ]}
+          >
+            {children}
 
-      <hr style={[styles.divider, styles.theme[theme].divider]} />
-    </header>
-  );
-};
+            <span
+              style={[
+                styles.divider,
+                styles.theme[theme].divider,
+              ]}
+            />
+          </Heading>
+        )}
+      </Measure>
+    );
+  }
+}
 
 SectionHeader.propTypes = {
   children: PropTypes.node.isRequired,
-  heading: PropTypes.shape(Heading.propTypes),
   theme: PropTypes.oneOf([
     "default",
     "light",
-  ]).isRequired,
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  ]),
+  style: propTypes.style,
 };
 
 SectionHeader.defaultProps = {
   theme: "default",
 };
-
-SectionHeader.styles = styles;
 
 export default radium(SectionHeader);

@@ -60,6 +60,7 @@ class LegacyForm extends React.Component {
               <div style={styles.inputContainer}>
                 <input type="hidden" name="user_identifier_type" value={this.state.identifierType} />
                 <Input
+                  autoFocus
                   theme="float"
                   type="text"
                   name="user_identifier"

@@ -11,11 +11,21 @@ import {
   AuthMessage,
   AuthSocialButtons,
 } from "../auth";
+import { fontWeightMedium } from "../../styles/typography";
+import colors from "../../styles/colors";
 
 const styles = {
   disclaimerAboveButton: {
     maxWidth: "100%",
     width: "100%",
+  },
+  disclaimerBelowButton: {
+    maxWidth: "350px",
+    textAlign: "center",
+  },
+  legacyText: {
+    color: colors.textPrimary,
+    fontWeight: fontWeightMedium,
   },
 };
 
@@ -27,20 +37,23 @@ const MultiStepLogin = ({
   doneAction,
 }) => {
   const SocialDisclaimer = (
-    <AuthDisclaimer>
-      If you sign up with Twitter, Facebook or Google, we'll import your profile
-      information. We'll never post without your permission. Or sign in with a
-      legacy <a
-        href="https://auth.lonelyplanet.com/users/sign_in"
-        onClick={(event) => {
-          setStep(3);
-          event.preventDefault();
-        }}
-      >username and password</a> Lonely Planet uses cookies to improve your
+    <AuthDisclaimer style={styles.disclaimerBelowButton}>
+      <p>
+        <span style={styles.legacyText}>Or sign in with a legacy </span>
+        <a
+          href="https://auth.lonelyplanet.com/users/sign_in"
+          onClick={(event) => {
+            setStep(3);
+            event.preventDefault();
+          }}
+        >
+          username and password
+        </a>.
+      </p>
+      Lonely Planet uses cookies to improve your
       experience, see our <a href="https://www.lonelyplanet.com/legal/cookies/">Cookie Policy</a>.
-      You may receive notifications from us and can opt out at any time.
-      For additional account inquiries
-      see <a href="https://support.lonelyplanet.com/hc/en-us/sections/203968787-Account-administration" target="_blank" rel="noopener noreferrer">Account help</a>.
+      Having trouble signing in?
+      See <a href="https://support.lonelyplanet.com/hc/en-us/sections/115003521167-Lonely-Planet-Profiles" target="_blank" rel="noopener noreferrer">Account help</a>.
     </AuthDisclaimer>
   );
 
@@ -48,8 +61,6 @@ const MultiStepLogin = ({
     <AuthDisclaimer style={styles.disclaimerAboveButton}>
       By clicking next below and creating an account, you agree to our <a href="https://www.lonelyplanet.com/legal/website-terms/">terms of service</a> and
        that you're happy for Lonely Planet to use your information as set out in our <a href="https://www.lonelyplanet.com/legal/privacy-policy/">privacy policy</a> (including our <a href="https://www.lonelyplanet.com/legal/cookies/">cookie use</a>).
-       Once you create your account, we will send an email to your email address containing a
-       unique link so that you can login to Lonely Planet.
     </AuthDisclaimer>
   );
   return (
@@ -75,7 +86,7 @@ const MultiStepLogin = ({
 
       <AuthContainer key="passwordless" hasLogo={showLogo}>
         <AuthMessage style={{ marginTop: "56px" }}>
-          Enter your email address to sign in or create an account on Lonely Planet.
+          Enter your email address to sign in or create an account.
         </AuthMessage>
 
         <ModalContentMagicLinkForm
@@ -99,11 +110,10 @@ const MultiStepLogin = ({
 
       <AuthContainer key="success" hasLogo={showLogo}>
         <AuthMessage
-          title="Success!"
+          title="Check your email"
           style={{ marginTop: "80px" }}
         >
-          We sent a link to log in.
-          Please check your inbox.
+          We sent you a secure link to sign in with. Please check your email inbox.
         </AuthMessage>
 
         <Button
@@ -111,7 +121,7 @@ const MultiStepLogin = ({
           onClick={doneAction}
           rounded
         >
-          Done
+          Ok
         </Button>
       </AuthContainer>
     </MultiStep>

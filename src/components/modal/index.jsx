@@ -63,10 +63,6 @@ const styles = {
 
   title: Object.assign({}, {
     display: "inline-block",
-
-    [`@media ${largeMQ}`]: {
-      display: "none",
-    },
   }, textHeading6("medium"), {
     lineHeight: 1,
   }),
@@ -87,6 +83,8 @@ function ModalComponent({
   rightActionDisabled,
   disableContentPadding,
   title,
+  showTitle,
+  hideHeader,
   className,
   children,
   style,
@@ -137,6 +135,7 @@ function ModalComponent({
       top: 0,
       WebkitOverflowScrolling: "touch",
       width: "100%",
+      transform: "translate3d(0, 0, 0) !important",
     },
 
     mediaQueries: {
@@ -146,7 +145,7 @@ function ModalComponent({
           top: "50%",
           width: desktopWidth,
           maxWidth: "1290px",
-          transform: "translateY(-50%)",
+          transform: "translate3d(0, -50%, 0) !important",
         },
       },
     },
@@ -166,43 +165,54 @@ function ModalComponent({
         rules={rules}
       />
 
-      <header
-        className="Modal-header clearfix"
-        style={[
-          styles.header,
-          title && {
-            [`@media (max-width: ${mq.max["768"]})`]: {
-              borderBottom: `1px solid ${colors.borderPrimary}`,
+      {!hideHeader &&
+        <header
+          className="Modal-header clearfix"
+          style={[
+            styles.header,
+            title && {
+              [`@media (max-width: ${mq.max["768"]})`]: {
+                borderBottom: `1px solid ${colors.borderPrimary}`,
+              },
             },
-          },
-        ]}
-      >
-        {leftAction &&
-          <button
-            style={[styles.actionItem, styles.leftAction]}
-            disabled={leftActionDisabled}
-            onClick={leftAction}
-          >
-            {leftActionContent}
-          </button>
-        }
+          ]}
+        >
+          {leftAction &&
+            <button
+              style={[styles.actionItem, styles.leftAction]}
+              disabled={leftActionDisabled}
+              onClick={leftAction}
+            >
+              {leftActionContent}
+            </button>
+          }
 
-        {title &&
-          <span style={styles.title}>
-            {title}
-          </span>
-        }
+          {title &&
+            <span
+              style={[
+                styles.title,
+                !showTitle && {
+                  [`@media ${largeMQ}`]: {
+                    display: "none",
+                  },
+                },
+              ]}
+            >
+              {title}
+            </span>
+          }
 
-        {rightAction &&
-          <button
-            style={[styles.actionItem, styles.rightAction]}
-            disabled={rightActionDisabled}
-            onClick={rightAction}
-          >
-            {rightActionContent}
-          </button>
-        }
-      </header>
+          {rightAction &&
+            <button
+              style={[styles.actionItem, styles.rightAction]}
+              disabled={rightActionDisabled}
+              onClick={rightAction}
+            >
+              {rightActionContent}
+            </button>
+          }
+        </header>
+      }
 
       <div
         className="Modal-content"
@@ -232,6 +242,8 @@ ModalComponent.propTypes = {
   desktopMaxHeight: PropTypes.string,
   desktopWidth: PropTypes.string,
   title: PropTypes.string,
+  showTitle: PropTypes.bool,
+  hideHeader: PropTypes.bool,
   className: PropTypes.string,
   disableContentPadding: PropTypes.bool,
   style: propTypes.style,
@@ -243,6 +255,7 @@ ModalComponent.defaultProps = {
   desktopWidth: "85%",
   closeTimeoutMS: timing.default,
   disableContentPadding: false,
+  hideHeader: false,
 };
 
 ModalComponent.styles = styles;

@@ -12,9 +12,9 @@ const styles = {
   }, textUppercase()),
 
   icon: {
-    color: colors.accentGray,
+    color: "#99a9b3",
     fontSize: "10px",
-    marginRight: "7px",
+    marginRight: "8px",
     verticalAlign: "top",
   },
 };

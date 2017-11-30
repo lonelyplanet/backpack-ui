@@ -18,7 +18,7 @@ const TextAccent = (props) => (
 );
 
 TextAccent.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   style: propTypes.style,
 };
 

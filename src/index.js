@@ -19,7 +19,6 @@ export { default as Bullet } from "./components/bullet";
 export { default as BulletDescription } from "./components/bulletDescription";
 export { default as Breadcrumbs } from "./components/breadcrumbs";
 export { default as Button } from "./components/button";
-export { default as Calendar } from "./components/calendar";
 export { default as Callout } from "./components/callout";
 export { default as CalloutLink } from "./components/calloutLink";
 export { default as CategoryLabel } from "./components/categoryLabel";
@@ -135,7 +134,6 @@ export { default as TravelAlert } from "./components/travelAlert";
 export { default as TypeSelector } from "./components/typeSelector";
 export { default as VideoEmbed } from "./components/videoEmbed";
 
-export { default as DateInput } from "./components/form/dateInput";
 export { default as DatePicker } from "./components/form/datepicker";
 export { default as DateRange } from "./components/form/daterange";
 export { default as Input } from "./components/form/input";

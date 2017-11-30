@@ -12,10 +12,17 @@ class TypeaheadOption extends Component {
     super(props);
 
     this.onClick = this.onClick.bind(this);
+    this.onTouchStart = this.onTouchStart.bind(this);
     this.onMouseOver = this.onMouseOver.bind(this);
   }
 
   onClick(event) {
+    event.preventDefault();
+
+    return this.props.onClick(event);
+  }
+
+  onTouchStart(event) {
     event.preventDefault();
 
     return this.props.onClick(event);
@@ -63,6 +70,7 @@ class TypeaheadOption extends Component {
         role="option"
         aria-selected={hover}
         onClick={this.onClick}
+        onTouchStart={this.onTouchStart}
         onMouseDown={this.onClick} // https://github.com/fmoo/react-typeahead/pull/235
         onMouseOver={this.onMouseOver}
       >

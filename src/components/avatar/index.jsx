@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+import cn from "classnames";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 
@@ -23,7 +24,7 @@ const styles = {
   },
 };
 
-function Avatar({ src, alt, size, href, style }) {
+function Avatar({ src, alt, size, href, id, className, style }) {
   const dimensions = {
     height: `${size}px`,
     width: `${size}px`,
@@ -31,7 +32,8 @@ function Avatar({ src, alt, size, href, style }) {
 
   const Image = (
     <img
-      className="Avatar"
+      id={id}
+      className={cn("Avatar", className)}
       style={[
         styles.default,
         dimensions,
@@ -55,7 +57,8 @@ function Avatar({ src, alt, size, href, style }) {
 
   const Anchor = (
     <a
-      className="Avatar"
+      id={id}
+      className={cn("Avatar", className)}
       style={[
         styles.default,
         styles.anchor,
@@ -76,12 +79,18 @@ Avatar.propTypes = {
   alt: PropTypes.string,
   size: PropTypes.oneOf([24, 40, 48, 80, 104]),
   href: PropTypes.string,
+  id: PropTypes.string,
+  className: PropTypes.string,
   style: propTypes.style,
 };
 
 Avatar.defaultProps = {
   alt: "",
   size: 80,
+  href: null,
+  id: null,
+  className: null,
+  style: null,
 };
 
 export default radium(Avatar);

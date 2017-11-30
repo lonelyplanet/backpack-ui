@@ -73,7 +73,6 @@ describe("backpack-ui", () => {
     expect(Breadcrumbs).to.be.ok;
     expect(Button).to.be.ok;
     expect(Bullet).to.be.ok;
-    expect(Calendar).to.be.ok;
     expect(Callout).to.be.ok;
     expect(ContentBlock).to.be.ok;
     expect(ContentHeader).to.be.ok;

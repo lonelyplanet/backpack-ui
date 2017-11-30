@@ -6,6 +6,7 @@ import timing from "../../styles/timing";
 import { fontWeightMedium } from "../../styles/typography";
 import { textUppercase } from "../../utils/typography";
 import propTypes from "../../utils/propTypes";
+import { outline } from "../../utils/mixins";
 
 const styles = Object.assign({}, {
   backgroundColor: colors.bgPrimary,
@@ -33,9 +34,7 @@ const styles = Object.assign({}, {
     color: colors.textSecondary,
   },
 
-  ":focus": {
-    color: colors.linkPrimary,
-  },
+  ":focus": outline(),
 }, textUppercase());
 
 const NavigationTab = (props) => {

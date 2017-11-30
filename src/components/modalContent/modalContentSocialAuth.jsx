@@ -54,7 +54,7 @@ const disclaimer = `If you sign up with Twitter, Facebook or Google, we’ll aut
   <a href="https://www.lonelyplanet.com/legal/privacy-policy/">Privacy Policy</a> and
   <a href="https://www.lonelyplanet.com/legal/cookies/">Cookie Policy</a>. For additional account
   enquiries see
-  <a href="https://support.lonelyplanet.com/hc/en-us/sections/203968787-Account-administration" target="_blank" rel="noopener noreferrer">Account help</a>.`;
+  <a href="https://support.lonelyplanet.com/hc/en-us/sections/115003521167-Lonely-Planet-Profiles" target="_blank" rel="noopener noreferrer">Account help</a>.`;
 
 const socialNavigate = (path) => {
   window.location = `https://auth.lonelyplanet.com/users/auth/${path}`;

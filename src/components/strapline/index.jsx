@@ -1,27 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import settings from "../../../settings.json";
-import { rgb } from "../../utils/color";
+import colors from "../../styles/colors";
+import {
+  fontSizeBodySmall,
+  fontSizeHeading4,
+  fontSizeHeading7,
+  lineHeightHeading4,
+  lineHeightHeading7,
+  lineHeightReset,
+} from "../../styles/typography";
+import { rgba } from "../../utils/color";
 import font from "../../utils/font";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   base: {
     fontFamily: font("miller"),
-    fontSize: "30px",
+    fontSize: `${fontSizeHeading4}px`,
     fontStyle: "italic",
+    lineHeight: lineHeightHeading4,
   },
 
   size: {
     tiny: {
-      fontSize: "14px",
+      fontSize: `${fontSizeBodySmall}px`,
       letterSpacing: ".4px",
-      lineHeight: 1,
+      lineHeight: lineHeightReset,
     },
     small: {
-      fontSize: "16px",
+      fontSize: `${fontSizeHeading7}px`,
       letterSpacing: ".4px",
-      lineHeight: (21 / 16),
+      lineHeight: lineHeightHeading7,
     },
   },
 
@@ -33,41 +43,28 @@ const styles = {
 
   color: {
     white: {
-      color: settings.color.white,
+      color: colors.textOverlay,
     },
     gray: {
-      color: `rgba(${rgb(settings.color.black)}, .4)`,
+      color: rgba(colors.bgOverlay, 0.4),
     },
   },
 };
 
-/**
- * Strapline component
- */
-function Strapline({ children, size, parent, color }) {
-  const style = [styles.base];
-
-  if (size) {
-    style.push(styles.size[size]);
-  }
-
-  if (color) {
-    style.push(styles.color[color]);
-  }
-
-  if (parent) {
-    style.push(styles.parent[parent]);
-  }
-
-  return (
-    <div
-      className="Strapline"
-      style={style}
-    >
-      {children}
-    </div>
-  );
-}
+const Strapline = ({ children, size, parent, color, style }) => (
+  <div
+    className="Strapline"
+    style={[
+      styles.base,
+      size && styles.size[size],
+      color && styles.color[color],
+      parent && styles.parent[parent],
+      style,
+    ]}
+  >
+    {children}
+  </div>
+);
 
 Strapline.propTypes = {
   /**
@@ -101,16 +98,18 @@ Strapline.propTypes = {
     "masthead",
     "pageHeader",
   ]),
+
+  /**
+   * Add custom styles
+   */
+  style: propTypes.style,
 };
 
 Strapline.defaultProps = {
   size: "",
-
   color: "",
-
   parent: "",
+  style: null,
 };
-
-Strapline.styles = styles;
 
 export default radium(Strapline);

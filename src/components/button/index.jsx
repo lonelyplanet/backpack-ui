@@ -6,6 +6,7 @@ import { timing } from "../../../settings.json";
 import { default as bpColor } from "../../styles/colors";
 import { lighten } from "../../utils/color";
 import { outline } from "../../utils/mixins";
+import propTypes from "../../utils/propTypes";
 
 const hoverStyles = {
   base: {
@@ -280,13 +281,7 @@ Button.propTypes = {
   /**
    * Special styles passed in props
    */
-  customStyles: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  customStyles: propTypes.style,
 
   /**
    * Use a border

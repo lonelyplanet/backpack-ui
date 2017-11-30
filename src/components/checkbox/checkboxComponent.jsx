@@ -48,6 +48,10 @@ const styles = {
     zIndex: zIndex.default,
   },
 
+  checkmarkNoBorder: {
+    borderColor: "transparent",
+  },
+
   checkmarkChecked: {
     backgroundColor: colors.linkPrimary,
     borderColor: colors.linkPrimary,
@@ -88,6 +92,7 @@ class CheckboxComponent extends Component {
       required,
       rounded,
       type,
+      removeBorder,
       style,
     } = this.props;
 
@@ -136,6 +141,7 @@ class CheckboxComponent extends Component {
                 width: "1em",
               },
               rounded && { borderRadius: "100%" },
+              removeBorder && styles.checkmarkNoBorder,
               checked && styles.checkmarkChecked,
             ]}
           >
@@ -178,6 +184,7 @@ CheckboxComponent.propTypes = {
   required: PropTypes.bool,
   rounded: PropTypes.bool,
   type: PropTypes.oneOf(["checkbox", "radio"]),
+  removeBorder: PropTypes.bool,
   style: propTypes.style,
 };
 
@@ -188,6 +195,7 @@ CheckboxComponent.defaultProps = {
   required: false,
   type: "checkbox",
   rounded: false,
+  removeBorder: false,
 };
 
 export default radium(CheckboxComponent);

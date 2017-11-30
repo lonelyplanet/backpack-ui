@@ -242,9 +242,7 @@ function Flyout({
           (arrow === "up" || arrow === "down") && arrowPosition === "left" && styles.arrow.position.left,
           (arrow === "up" || arrow === "down") && arrowPosition === "right" && styles.arrow.position.right,
           displayType && styles.type[displayType].arrow,
-          {
-            color: style.backgroundColor,
-          },
+          style && style.backgroundColor && { color: style.backgroundColor },
         ]}
       >
         <span

@@ -28,12 +28,12 @@ const styles = {
   accordion: {
     maxHeight: 0,
     overflow: "hidden",
-    transition: `max-height ${timing.slow} ease-in-out,
-      padding-bottom ${timing.slow} ease-in-out`,
+    transition: `max-height ${timing.default} ease,
+      padding-bottom ${timing.default} ease`,
   },
 
   accordionOpen: {
-    maxHeight: "500vh",
+    maxHeight: "100vh",
     paddingBottom: "16px",
   },
 };

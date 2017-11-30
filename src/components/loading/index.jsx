@@ -1,35 +1,40 @@
-import React from "react"; // eslint-disable-line no-unused-vars
+import React from "react";
 import radium from "radium";
-import { color, timing } from "../../../settings.json";
-import Icon from "../icon";
-import { gutter } from "../../utils/grid";
+import { Loading as Icon } from "../icon";
+import colors from "../../styles/colors";
+import { fontSizeHeading4 } from "../../styles/typography";
+import { rgba } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
+
+const spinKeyframes = radium.keyframes({
+  "0%": {
+    transform: "rotate(0)",
+  },
+  "100%": {
+    transform: "rotate(360deg)",
+  },
+}, "spin");
 
 const styles = {
-  base: {
-    color: color.footerCopyright,
-    fontSize: "40px",
-    opacity: 1,
-    paddingBottom: gutter(),
-    paddingTop: gutter(),
-    textAlign: "center",
-    transition: `opacity ${timing.default}`,
-  },
+  animation: "spin 500ms linear infinite",
+  animationName: spinKeyframes,
+  color: rgba(colors.textPrimary, 0.5),
+  fontSize: `${fontSizeHeading4}px`,
 };
 
-/**
- * Loading component
- */
-function Loading() {
-  return (
-    <div
-      className="Loading"
-      style={styles.base}
-    >
-      <Icon.Loading animation="spin" />
-    </div>
-  );
-}
+const Loading = (props) => (
+  <Icon
+    {...props}
+    style={Object.assign({}, styles, props.style)}
+  />
+);
 
-Loading.styles = styles;
+Loading.propTypes = {
+  style: propTypes.style,
+};
 
-export default radium(Loading);
+Loading.defaultProps = {
+  style: null,
+};
+
+export default Loading;

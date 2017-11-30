@@ -8,8 +8,6 @@ import "react-photoswipe/lib/photoswipe.css";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, text, boolean, number, array, object, select, color } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
-import { color as bpColor } from "../settings.json";
-import colors from "../src/styles/colors";
 import data from "./data.json";
 import Center from "./center";
 import Colors from "./Colors";
@@ -64,6 +62,7 @@ import ErrorMessages from "../src/components/form/errorMessages";
 import ExpandButton from "../src/components/expandButton";
 import FeaturedArticle from "../src/components/featuredArticle";
 import Flag from "../src/components/flag";
+import FlightSearchWidget from "../src/components/flightSearchWidget";
 import Flyout from "../src/components/flyout";
 import GridColumn from "../src/components/gridColumn";
 import GridRow from "../src/components/gridRow";
@@ -78,6 +77,7 @@ import ImageCarousel from "../src/components/imageCarousel";
 import ImageHero from "../src/components/imageHero";
 import Input from "../src/components/input";
 import FormInput from "../src/components/form/input";
+import IconRevealButton from "../src/components/iconRevealButton";
 import InteractiveMap from "../src/components/interactiveMap";
 import ItalicText from "../src/components/italicText";
 // LastUpdated
@@ -90,7 +90,7 @@ import ListItemBookmark from "../src/components/listItemBookmark";
 import ListItemBookmarkEntry from "../src/components/listItemBookmarkEntry";
 import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
-// Loading
+import Loading from "../src/components/loading";
 // Location
 import LocationLabel from "../src/components/locationLabel";
 import Logo from "../src/components/logo";
@@ -177,6 +177,7 @@ import { Typeahead, TypeaheadTokenizer } from "../src/components/typeahead";
 import TypeSelector from "../src/components/typeSelector";
 import VideoEmbed from "../src/components/videoEmbed";
 import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
+import colorTokens from "../src/styles/colors";
 
 storiesOf("Styles", module)
   .addDecorator(withKnobs)
@@ -485,6 +486,7 @@ storiesOf("Bookmark list menu", module)
       <BookmarkListMenu
         iconName={select("Icon name", ["Ellipsis", "Share"], "Ellipsis")}
         iconLabel={text("Icon label", "View list options")}
+        reveal={boolean("Reveal", false)}
       >
         <BookmarkListMenuOption onClick={action("Edit click")}>Edit list</BookmarkListMenuOption>
         <BookmarkListMenuOption onClick={action("Add click")}>Add new places</BookmarkListMenuOption>
@@ -671,6 +673,7 @@ storiesOf("Checkbox", module)
       label={text("Label", "Checkbox")}
       checked={boolean("Checked", true)}
       rounded={boolean("Rounded", false)}
+      removeBorder={boolean("Remove border", false)}
       size={select("Size", [16, 24, 32], 16)}
       onClick={action(event)}
     />
@@ -705,7 +708,7 @@ storiesOf("Dialog", module)
               actions={[
                 <Button
                   size="small"
-                  onClick={() => { console.log("✌🏼"); }}
+                  onClick={action("✌🏼")}
                   rounded
                 >
                   Yes, delete my account
@@ -835,6 +838,26 @@ storiesOf("Flag", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <Flag>{text("Text", "Private")}</Flag>
+  ));
+
+storiesOf("Flight search widget", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <FlightSearchWidget
+      depart={{
+        airportCode: "BNA",
+        city: "Nashville",
+      }}
+      arrive={{
+        airportCode: "LAX",
+        city: "Los Angeles",
+      }}
+      price={{
+        amount: 600,
+        currency: "USD",
+      }}
+      onClick={action("Flight search widget")}
+    />
   ));
 
 storiesOf("Flyout", module)
@@ -1038,6 +1061,22 @@ storiesOf("Icon callout group", module)
     </StyleRoot>
   ));
 
+storiesOf("Icon Reveal Button", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <Center>
+        <IconRevealButton
+          id={text("ID", null)}
+          icon={<Icon.Share />}
+          label={text("Label", "Label")}
+          className={text("Classname", null)}
+          onClick={action("Bookmark clicked")}
+        />
+      </Center>
+    </StyleRoot>
+  ));
+
 storiesOf("Image carousel", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1142,24 +1181,36 @@ storiesOf("List item (bookmark)", module)
     <StyleRoot>
       <ListItemBookmark
         name={text("Name", "Favorites")}
-        href={text("URL", "/")}
         thumbnail={text("Thumbnail", "")}
         entriesCount={5}
         visibility={select("Visibility", ["Private", "Public"], "Private")}
         large={boolean("Large", false)}
+        hideDetail={boolean("Hide details", false)}
       />
     </StyleRoot>
   ))
-  .add("With checkbox", () => (
+  .add("With onClick event", () => (
     <StyleRoot>
       <ListItemBookmark
-        name={text("Name", "Favorites")}
-        onClick={action("List Button clicked")}
+        name={text("Name", "Places to see in Nashville")}
+        onClick={action("List item clicked")}
         checked={boolean("Checked", false)}
         thumbnail={text("Thumbnail", "")}
         entriesCount={5}
         visibility={select("Visibility", ["Private", "Public"], "Private")}
         large={boolean("Large", false)}
+        hideDetail={boolean("Hide details", false)}
+      />
+    </StyleRoot>
+  ))
+  .add("As “add item” button", () => (
+    <StyleRoot>
+      <ListItemBookmark
+        name={text("Name", "New item")}
+        onClick={action("Add item clicked")}
+        large={boolean("Large", false)}
+        hideDetail={boolean("Hide details", true)}
+        addItem={boolean("Add item UI", true)}
       />
     </StyleRoot>
   ));
@@ -1175,6 +1226,7 @@ storiesOf("List item (bookmark entry)", module)
         priceRange={select("Range", ["$", "$$", "$$$"], "$")}
         topChoice={boolean("Top choice", false)}
         note={text("Note", "This is where a nice little note goes.")}
+        large={boolean("Large", false)}
       />
     </StyleRoot>
   ));
@@ -1192,6 +1244,16 @@ storiesOf("List item (news)", module)
         size={select("Size", ["small", "medium"], "medium")}
         isSponsored={boolean("Sponsored", false)}
       />
+    </StyleRoot>
+  ));
+
+storiesOf("Loading", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <Center backgroundColor="white">
+        <Loading />
+      </Center>
     </StyleRoot>
   ));
 
@@ -1325,7 +1387,7 @@ storiesOf("Modal", module)
             <button onClick={toggle}>Toggle Modal</button>
             <Modal
               isOpen={isOpen}
-              rightAction={() => console.log("clicked the left")}
+              rightAction={action("clicked the left")}
               rightActionContent={<p>Test</p>}
               leftAction={toggle}
               leftActionContent={<Icon.Close width={24} height={24} />}
@@ -1334,7 +1396,11 @@ storiesOf("Modal", module)
             >
               <div>
                 <h2>Some Content</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequuntur alias amet repellat quis veritatis dignissimos. Veniam adipisci qui facere culpa accusamus ducimus eum rem, amet, fugit, quasi, optio aut?</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequuntur
+                  alias amet repellat quis veritatis dignissimos. Veniam adipisci qui facere culpa
+                  accusamus ducimus eum rem, amet, fugit, quasi, optio aut?
+                </p>
               </div>
             </Modal>
           </div>
@@ -1461,19 +1527,16 @@ storiesOf("MultiStep Login", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <MultiStepWrapper totalSteps={4}>
-      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => {
-        return (
-          <MultiStepLogin
-            currentStep={currentStep}
-            setStep={setCurrentStep}
-            authActions={{}}
-            showLogo
-            doneAction={() => {}}
-          />
-        );
-      }}
+      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => (
+        <MultiStepLogin
+          currentStep={currentStep}
+          setStep={setCurrentStep}
+          authActions={{}}
+          showLogo
+          doneAction={() => {}}
+        />
+      )}}
     </MultiStepWrapper>
-
   ));
 
 storiesOf("Narrative", module)
@@ -1622,7 +1685,6 @@ storiesOf("Page header", module)
         alignment={select("Alignment", ["", "center"], "center")}
         topChoice={boolean("Top choice", false)}
         contained={boolean("Contained", false)}
-        bookmark={boolean("Bookmark", false)}
         stars={number("Stars", 0)}
       />
     </StyleRoot>
@@ -1716,10 +1778,31 @@ storiesOf("Profile header", module)
       avatarSrc={text("Avatar URL", "https://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
       name={text("Name", "Rizzo the Rat")}
       location={text("Location", "Ottawa, Ontario")}
+      website={text("Website URL", "https://www.lonelyplanet.com")}
       intro={text("Introduction", `The very basic core of a woman’s living spirit is
         her passion for adventure. The joy of life comes from our encounters with new
         experiences, and hence there is no greater joy than to have an endlessly changing
         horizon.`)}
+      interests={array("Interests", [
+        "Family",
+        "Shopping",
+        "Adventure",
+        "Art and architecture",
+        "Food",
+      ])}
+      alignment={select("Alignment", {
+        left: "Left",
+        center: "Center",
+      }, "center")}
+    />
+  ))
+  .add("With Markdown", () => (
+    <ProfileHeader
+      avatarSrc={text("Avatar URL", "https://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+      name={text("Name", "Rizzo the Rat")}
+      location={text("Location", "Ottawa, Ontario")}
+      website={text("Website URL", "https://www.lonelyplanet.com")}
+      intro={text("Introduction", "# Heading \n* List item 1 \n* List item 2 \n* List item 3 \nThe very basic core of a woman’s living spirit is her passion for adventure. \n### Heading \nThe joy of life comes from our encounters with new experiences, and hence there is no greater joy than to have an endlessly changing horizon.")}
       interests={array("Interests", [
         "Family",
         "Shopping",
@@ -1884,11 +1967,18 @@ storiesOf("Sectional nav", module)
 storiesOf("Section Header", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <StyleRoot>
+    <Center grow>
       <SectionHeader theme={select("Theme", ["default", "light"], "default")}>
         {text("title", "Top experiences in Vietnam")}
       </SectionHeader>
-    </StyleRoot>
+    </Center>
+  ))
+  .add("Light", () => (
+    <Center backgroundColor={colorTokens.textPrimary} grow>
+      <SectionHeader theme={select("Theme", ["default", "light"], "light")}>
+        {text("title", "Top experiences in Vietnam")}
+      </SectionHeader>
+    </Center>
   ));
 
 storiesOf("Select", module)
@@ -1986,6 +2076,12 @@ storiesOf("Setting Block", module)
           >
             <TagList>
               <Tag href="#" selected>All</Tag>
+              <Tag href="#">The Americas</Tag>
+              <Tag href="#">World</Tag>
+              <Tag href="#">Asia & the Pacific</Tag>
+              <Tag href="#">Europe</Tag>
+              <Tag href="#">Middle East & Africa</Tag>
+              <Tag href="#">Editor’s pick</Tag>
               <Tag href="#">The Americas</Tag>
               <Tag href="#">World</Tag>
               <Tag href="#">Asia & the Pacific</Tag>
@@ -2374,7 +2470,7 @@ storiesOf("Strapline", module)
 storiesOf("Switch", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <Center>
+    <Center backgroundColor="white">
       <Switch
         id={text("ID", "privacy-control")}
         name={text("Name", "privacy_control")}
@@ -2553,6 +2649,7 @@ storiesOf("Textarea", module)
     <Center backgroundColor="white">
       <Textarea
         maxLines={number("Maximum lines", 3)}
+        disableEnter={boolean("Disable enter", false)}
         autogrow
       />
     </Center>
@@ -2869,7 +2966,7 @@ storiesOf("Video embed", module)
   .add("Default", () => (
     <StyleRoot>
       <VideoEmbed
-        videoId={select("Video ID", ["5363317250001", "5184494924001"], "5363317250001")}
+        videoId={select("Video ID", ["5363317250001", "5184494924001", "5615400588001"], "5363317250001")}
         autoplay={boolean("Autoplay", false)}
       />
     </StyleRoot>

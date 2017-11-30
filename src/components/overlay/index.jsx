@@ -2,8 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import Portal from "react-portal";
 import radium from "radium";
-import settings from "../../../settings.json";
+import colors from "../../styles/colors";
+import timing from "../../styles/timing";
+import zIndexDefault from "../../styles/zIndex";
 import { rgb } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   portal: {
@@ -33,7 +36,7 @@ const styles = {
   },
 };
 
-function Overlay({ animationDuration, attached, color, onClick, visible, zIndex }) {
+function Overlay({ animationDuration, attached, color, onClick, visible, zIndex, style }) {
   return (
     <Portal
       className="Overlay-portal"
@@ -50,6 +53,7 @@ function Overlay({ animationDuration, attached, color, onClick, visible, zIndex 
           animationDuration && { transitionDuration: `${animationDuration}ms` },
           zIndex && { zIndex },
           visible ? styles.overlay.visible : styles.overlay.hidden,
+          style,
         ]}
       />
     </Portal>
@@ -94,20 +98,21 @@ Overlay.propTypes = {
    * Used to control where the overlay should be placed on the z-axis
    */
   zIndex: PropTypes.number,
+
+  /**
+   * Apply custom styles
+   */
+  style: propTypes.style,
 };
 
 Overlay.defaultProps = {
-  animationDuration: parseInt(settings.timing.default.replace("ms", ""), 10),
-
+  animationDuration: parseInt(timing.default.replace("ms", ""), 10),
   attached: false,
-
-  color: `rgba(${rgb(settings.color.black)}, .3)`,
-
+  color: `rgba(${rgb(colors.bgOverlay)}, .3)`,
   onClick: null,
-
   visible: false,
-
-  zIndex: settings.zIndex.overlay,
+  zIndex: zIndexDefault.overlay,
+  style: null,
 };
 
 export default radium(Overlay);

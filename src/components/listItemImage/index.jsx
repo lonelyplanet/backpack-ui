@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ImageLoader from "react-imageloader";
+import ImageLoader from "../imageLoader";
 import Placeholder from "../placeholder";
 
 function ListItemImage({ image, title }) {

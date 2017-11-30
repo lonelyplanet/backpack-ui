@@ -95,7 +95,10 @@ class VideoEmbed extends Component {
     this.playerId = "default";
     this.embedId = "default";
 
+    this.container = null;
     this.player = null;
+
+    this.activeCues = [];
   }
 
   componentDidMount() {
@@ -143,11 +146,11 @@ class VideoEmbed extends Component {
   }
 
   onPlayerLoadStart() {
-    const tt = this.player.textTracks()[0];
-    if (tt) {
+    this.player.textTracks().tracks_.forEach((tt) => {
       tt.oncuechange = this.onPlayerCueChange.bind(this);
-    }
+    });
 
+    this.renderPixel();
     this.configureOverlays();
 
     if (this.props.autoplay) {
@@ -192,59 +195,46 @@ class VideoEmbed extends Component {
   }
 
   onPlayerCueChange() {
-    const tt = this.player.textTracks()[0];
-    const activeCue = tt.activeCues[0];
-    if (!activeCue || activeCue.text !== "CODE") {
-      return;
+    const activeCues = this.getActiveCues();
+
+    const cuePointCue = activeCues.find(c => c.text === "CODE" && c.originalCuePoint);
+    if (cuePointCue) {
+      const cue = cuePointCue.originalCuePoint;
+      const x = this.activeCues.find(c => c.originalCuePoint && c.originalCuePoint.id === cue.id);
+      if (!x) {
+        this.onPlayerCuePoint(cue);
+      }
     }
 
-    const cue = activeCue.originalCuePoint;
+    this.activeCues = activeCues;
+  }
 
+  onPlayerCuePoint(cue) {
     const overlayElementId = `ad-lowerthird-${this.id}-${cue.id}`;
-    const element = document.getElementById(overlayElementId);
 
+    const element = document.getElementById(overlayElementId);
     if (!element) {
       return;
     }
 
-    let cueIndex = null;
-
-    this.getCues().forEach((c, i) => {
-      if (c.originalCuePoint.id === cue.id) {
-        cueIndex = i;
-      }
-    });
-
-    if (cueIndex === null) {
+    const cueIndex = this.player.mediainfo.cuePoints.findIndex(c => c.id === cue.id);
+    if (cueIndex === -1) {
       return;
     }
 
-    if (this.props.onCueChange) {
-      this.props.onCueChange(cue, cueIndex, overlayElementId);
+    if (this.props.onCuePoint) {
+      this.props.onCuePoint(cue, cueIndex, overlayElementId);
     }
   }
 
-  getCues() {
-    if (!this.player) {
-      return [];
-    }
-
-    const tt = this.player.textTracks()[0];
-    if (!tt) {
-      return [];
-    }
-
-    let index = 0;
-    const cues = [];
-    while (index < tt.cues.length) {
-      const cue = tt.cues[index];
-      if (cue.text === "CODE") {
-        cues.push(cue);
-      }
-      index += 1;
-    }
-
-    return cues;
+  getActiveCues() {
+    const activeCues = [];
+    this.player.textTracks().tracks_.forEach((tt) => {
+      tt.activeCues_.forEach((c) => {
+        activeCues.push(c);
+      });
+    });
+    return activeCues;
   }
 
   getPlayerVideoClassName() {
@@ -331,9 +321,7 @@ class VideoEmbed extends Component {
   }
 
   configureOverlays() {
-    const overlays = this.getCues().map((c) => {
-      const cue = c.originalCuePoint;
-
+    const overlays = this.player.mediainfo.cuePoints.map((cue) => {
       const defaultEnd = cue.startTime + 15;
       const end = defaultEnd < cue.endTime ? defaultEnd : cue.endTime;
 
@@ -361,6 +349,21 @@ class VideoEmbed extends Component {
     });
   }
 
+  renderPixel() {
+    if (!this.container || !this.player || !this.player.mediainfo) {
+      return;
+    }
+
+    const customFields = this.player.mediainfo.customFields;
+
+    if (customFields && customFields.pixel) {
+      const pixel = customFields.pixel.replace("[timestamp]", (new Date()).getTime());
+      const div = document.createElement("div");
+      div.innerHTML = pixel;
+      this.container.appendChild(div);
+    }
+  }
+
   render() {
     const { override } = this.props;
 
@@ -368,6 +371,7 @@ class VideoEmbed extends Component {
       <div
         className="VideoEmbed"
         style={[styles.container, override]}
+        ref={(container) => { this.container = container; }}
       >
         <Style
           scopeSelector=".VideoEmbed"
@@ -390,7 +394,7 @@ VideoEmbed.propTypes = {
   videoId: PropTypes.string.isRequired,
   autoplay: PropTypes.bool,
   onEnded: PropTypes.func,
-  onCueChange: PropTypes.func,
+  onCuePoint: PropTypes.func,
   override: PropTypes.oneOfType([
     PropTypes.object,
   ]),

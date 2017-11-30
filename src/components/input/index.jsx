@@ -23,10 +23,10 @@ const styles = {
   fontWeight: fontWeightMedium,
   lineHeight: lineHeightHeading7,
   minHeight: `${height}px`,
-  padding: `
-    ${17 / fontSizeHeading7}em
-    0
-    ${15 / fontSizeHeading7}em`,
+  paddingBottom: `${15 / fontSizeHeading7}em`,
+  paddingLeft: 0,
+  paddingRight: 0,
+  paddingTop: `${17 / fontSizeHeading7}em`,
   transition: `
     backgroundColor ${timing.fast},
     border-bottom-color ${timing.fast},

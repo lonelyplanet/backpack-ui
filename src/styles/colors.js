@@ -31,6 +31,9 @@ const accentPurple = "#9d69c9";
 const accentRed = "#da0909";
 const accentYellow = "#ffc83f";
 
+// UI colors
+const uiGreen = "#44db5e";
+
 // POI colors
 // These are deprecated and will be removed in the next major release
 const poiGreen = accentGreen;
@@ -81,6 +84,8 @@ export default {
   accentPurple,
   accentRed,
   accentYellow,
+
+  uiGreen,
 
   poiGreen,
   poiBlue,

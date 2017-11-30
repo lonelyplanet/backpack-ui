@@ -3,12 +3,14 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import { Link } from "react-router";
 import capitalize from "lodash/capitalize";
-import settings from "../../../settings.json";
-import Heading from "../heading";
+import colors from "../../styles/colors";
+import mq from "../../styles/mq";
+import { fontSizeHeading3, lineHeightHeading3 } from "../../styles/typography";
+import { Heading, TextUppercase } from "../text";
 import Strapline from "../strapline";
-import BookmarkButton from "../bookmarkButton";
 import { gutter, span } from "../../utils/grid";
 import { blueLink } from "../../utils/mixins";
+import propTypes from "../../utils/propTypes";
 
 const _ = { capitalize };
 
@@ -29,190 +31,140 @@ const styles = {
     },
   },
 
-  content: {
-    base: {},
-
-    bookmark: {
-      display: "inline-block",
+  heading: {
+    base: {
+      letterSpacing: "-1px",
+      [`@media (max-width: ${mq.max["600"]})`]: {
+        fontSize: `${fontSizeHeading3}px`,
+        lineHeight: lineHeightHeading3,
+      },
     },
   },
 
   title: {
     base: {
+      color: colors.accentRed,
       marginBottom: "14px",
 
-      [`@media (min-width: ${settings.media.min["560"]})`]: {
+      [`@media (min-width: ${mq.min["560"]})`]: {
         display: "inline-block",
       },
 
-      [`@media (min-width: ${settings.media.min["600"]})`]: {
-        marginBottom: "22px",
+      [`@media (min-width: ${mq.min["600"]})`]: {
+        marginBottom: "21px",
       },
     },
   },
 
   topChoice: {
     base: {
-      color: settings.color.red,
-    },
-  },
-
-  bookmark: {
-    base: {
-      display: "inline-block",
-      marginLeft: "8px",
-      verticalAlign: "4px",
-
-      [`@media (min-width: ${settings.media.min["600"]})`]: {
-        marginLeft: "10px",
-        verticalAlign: "30px",
-      },
+      color: colors.accentRed,
     },
   },
 
   strapline: {
     base: {
-      marginTop: "12px",
+      marginTop: "13px",
 
-      [`@media (max-width: ${settings.media.max["600"]})`]: {
+      [`@media (max-width: ${mq.max["600"]})`]: {
         paddingLeft: gutter("static"),
         paddingRight: gutter("static"),
       },
 
-      [`@media (min-width: ${settings.media.min["600"]})`]: {
-        marginTop: "5px",
+      [`@media (min-width: ${mq.min["600"]})`]: {
+        marginTop: "14px",
       },
     },
   },
 };
 
-/**
- * PageHeader component
- */
-class PageHeader extends React.Component {
-  constructor() {
-    super();
+const PageHeader = ({
+  alignment,
+  contained,
+  topChoice,
+  neighborhood,
+  place,
+  strapline,
+  titleHref,
+  title,
+  heading,
+  type,
+  stars,
+  style,
+}) => {
+  const TopChoiceText = topChoice && (
+    <span key="topChoice">
+      <em style={styles.topChoice.base}>Top choice</em>
+    </span>
+  );
 
-    this.state = {
-      marked: false,
-    };
+  const TypeText = (topChoice || stars > 0) ? type.toLowerCase() : _.capitalize(type);
 
-    this._bookmarkOnClick = this._bookmarkOnClick.bind(this);
-  }
+  const PlaceText = (
+    <span key="placeText">
+      {neighborhood ?
+        `${TypeText} in the ${neighborhood} neighbourhood` :
+        `${TypeText} in ${place}`}
+    </span>
+  );
 
-  _bookmarkOnClick() {
-    this.setState({
-      marked: !this.state.marked,
-    });
-  }
+  const StarText = stars > 0 && (
+    <span key="starRating">
+      {stars} star
+    </span>
+  );
 
-  render() {
-    const {
-      alignment,
-      contained,
-      topChoice,
-      neighborhood,
-      place,
-      strapline,
-      titleHref,
-      title,
-      heading,
-      bookmark,
-      type,
-      stars,
-    } = this.props;
+  const straplineText = strapline || [TopChoiceText, " ", StarText, " ", PlaceText];
 
-    const TopChoiceText = topChoice && (
-      <span key="topChoice">
-        <em style={styles.topChoice.base}>Top choice</em>
-      </span>
-    );
+  const TitleContent = titleHref ? (
+    <Link to={titleHref} style={blueLink()}>
+      {title}
+    </Link>
+  ) : title;
 
-    const TypeText = (topChoice || stars > 0) ? type.toLowerCase() : _.capitalize(type);
-
-    const PlaceText = (
-      <span key="placeText">
-        {neighborhood ?
-          `${TypeText} in the ${neighborhood} neighbourhood` :
-          `${TypeText} in ${place}`}
-      </span>
-    );
-
-    const StarText = stars > 0 && (
-      <span key="starRating">
-        {stars} star
-      </span>
-    );
-
-    const straplineText = strapline || [TopChoiceText, " ", StarText, " ", PlaceText];
-
-    const TitleContent = titleHref ? (
-      <Link to={titleHref} style={blueLink()}>
-        {title}
-      </Link>
-    ) : title;
-
-    return (
-      <header
-        className="PageHeader"
-        style={[
-          styles.container.base,
-          alignment && styles.container.alignment[alignment],
-          contained && styles.container.contained,
-        ]}
-      >
-        {title &&
-          <Heading
-            level={6}
-            size="tiny"
-            weight="thick"
-            importance="alert"
-            override={styles.title.base}
-            caps
-          >
-            {TitleContent}
-          </Heading>
-        }
-
-        <Heading
-          level={1}
-          size="huge"
-          weight="thick"
-          importance="high"
+  return (
+    <header
+      className="PageHeader"
+      style={[
+        styles.container.base,
+        alignment && styles.container.alignment[alignment],
+        contained && styles.container.contained,
+        style,
+      ]}
+    >
+      {title &&
+        <TextUppercase
+          style={styles.title.base}
         >
-          {heading}
+          {TitleContent}
+        </TextUppercase>
+      }
 
-          {bookmark &&
-            <div
-              className="PageHeader-bookmark"
-              style={styles.bookmark.base}
-            >
-              <BookmarkButton
-                onClick={this._bookmarkOnClick}
-                marked={this.state.marked}
-                size="large"
-              />
-            </div>
-          }
-        </Heading>
+      <Heading
+        level={1}
+        size={1}
+        weight="medium"
+        style={styles.heading.base}
+      >
+        {heading}
+      </Heading>
 
-        {(type || strapline) &&
-          <div
-            className="PageHeader-strapline"
-            style={styles.strapline.base}
+      {(type || strapline) &&
+        <div
+          className="PageHeader-strapline"
+          style={styles.strapline.base}
+        >
+          <Strapline
+            size="small"
+            parent="pageHeader"
           >
-            <Strapline
-              size="small"
-              parent="pageHeader"
-            >
-              {straplineText}
-            </Strapline>
-          </div>
-        }
-      </header>
-    );
-  }
-}
+            {straplineText}
+          </Strapline>
+        </div>
+      }
+    </header>
+  );
+};
 
 PageHeader.propTypes = {
   /**
@@ -269,38 +221,27 @@ PageHeader.propTypes = {
   contained: PropTypes.bool,
 
   /**
-   * Whether or not to show the bookmark button
-   */
-  bookmark: PropTypes.bool,
-
-  /**
    * Number of stars a poi has
    */
   stars: PropTypes.number,
+
+  /**
+   * Apply custom styles
+   */
+  style: propTypes.style,
 };
 
 PageHeader.defaultProps = {
   title: "",
-
   titleHref: "",
-
   topChoice: false,
-
   type: "",
-
   neighborhood: "",
-
   place: "",
-
   alignment: "",
-
   contained: false,
-
-  bookmark: false,
-
   stars: 0,
+  style: null,
 };
-
-PageHeader.styles = styles;
 
 export default radium(PageHeader);

@@ -8,6 +8,12 @@ export default {
     "medium",
     "book", // Book is deprecated and will be removed in the next major release
   ]),
+  currency: PropTypes.oneOf([
+    "AUD",
+    "EUR",
+    "GBP",
+    "USD",
+  ]),
   style: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,

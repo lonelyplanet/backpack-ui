@@ -189,6 +189,7 @@ function ListItemBookmark({
           checked={checked}
           size={24}
           style={styles.checkbox}
+          removeBorder
           rounded
         />
       }
@@ -217,6 +218,7 @@ ListItemBookmark.defaultProps = {
   thumbnail: null,
   addItem: false,
   large: false,
+  hideDetail: false,
   style: null,
 };
 

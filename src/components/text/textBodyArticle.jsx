@@ -18,7 +18,7 @@ const TextBodyArticle = (props) => (
 );
 
 TextBodyArticle.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   style: propTypes.style,
 };
 

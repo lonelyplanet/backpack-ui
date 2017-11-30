@@ -12,6 +12,7 @@ import {
   lineHeightHeading7,
 } from "../../styles/typography";
 import mq from "../../styles/mq";
+import timing from "../../styles/timing";
 import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
@@ -21,55 +22,84 @@ import CategoryLabel from "../categoryLabel";
 
 const styles = {
   container: {
-    paddingBottom: "16px",
-    paddingTop: "16px",
+    default: {
+      paddingBottom: "16px",
+      paddingTop: "16px",
+    },
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
-      paddingBottom: "24px",
-      paddingTop: "24px",
+    large: {
+      [`@media (min-width: ${mq.min["720"]})`]: {
+        paddingBottom: "24px",
+        paddingTop: "24px",
+      },
     },
   },
 
   name: {
-    fontSize: `${fontSizeHeading7}px`,
-    lineHeight: lineHeightHeading7,
+    default: {
+      fontSize: `${fontSizeHeading7}px`,
+      lineHeight: lineHeightHeading7,
+    },
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
-      fontSize: `${fontSizeHeading6}px`,
-      lineHeight: lineHeightHeading6,
+    large: {
+      [`@media (min-width: ${mq.min["720"]})`]: {
+        fontSize: `${fontSizeHeading6}px`,
+        lineHeight: lineHeightHeading6,
+      },
     },
   },
 
   category: {
-    color: rgba(colors.textPrimary, 0.5),
-    display: "block",
-    fontWeight: fontWeightMedium,
-    marginTop: "4px",
+    default: {
+      color: rgba(colors.textPrimary, 0.5),
+      display: "block",
+      fontWeight: fontWeightMedium,
+      marginTop: "4px",
+    },
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
-      fontSize: `${fontSizeBodySmall}px`,
-      marginTop: "8px",
+    large: {
+      [`@media (min-width: ${mq.min["720"]})`]: {
+        fontSize: `${fontSizeBodySmall}px`,
+        marginTop: "8px",
+      },
     },
   },
 
   topChoiceLabel: {
-    color: colors.accentRed,
-    fontStyle: "normal",
-    paddingLeft: "8px",
+    default: {
+      color: colors.accentRed,
+      fontStyle: "normal",
+      paddingLeft: "8px",
+    },
   },
 
   note: {
-    letterSpacing: ".4px",
-    marginTop: "16px",
+    default: {
+      letterSpacing: ".4px",
+      marginTop: "16px",
+    },
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
-      fontSize: `${fontSizeBodyArticle}px`,
-      lineHeight: lineHeightBodyArticle,
+    large: {
+      [`@media (min-width: ${mq.min["720"]})`]: {
+        fontSize: `${fontSizeBodyArticle}px`,
+        lineHeight: lineHeightBodyArticle,
+      },
+    },
+  },
+
+  noteLink: {
+    color: colors.linkPrimary,
+    backgroundColor: "transparent",
+    transition: `color ${timing.default} ease`,
+    ":hover": {
+      color: colors.linkPrimaryHover,
     },
   },
 
   priceRange: {
-    float: "right",
+    default: {
+      float: "right",
+    },
   },
 };
 
@@ -80,16 +110,23 @@ const ListItemBookmarkEntry = ({
   city,
   topChoice,
   note,
+  large,
+  handleNoteAction,
+  showNoteAction,
   style,
 }) => (
   <article
     className="ListItemBookmarkEntry"
-    style={[styles.container, style]}
+    style={[
+      styles.container.default,
+      large && styles.container.large,
+      style,
+    ]}
   >
     {priceRange &&
       <PriceRangeLabel
         value={priceRange}
-        style={styles.priceRange}
+        style={styles.priceRange.default}
       />
     }
 
@@ -97,15 +134,23 @@ const ListItemBookmarkEntry = ({
       level="2"
       size="5"
       weight="medium"
-      style={styles.name}
+      style={[
+        styles.name.default,
+        large && styles.name.large,
+      ]}
     >
       {name}
     </Heading>
 
     {category &&
-      <CategoryLabel style={styles.category}>
+      <CategoryLabel
+        style={[
+          styles.category.default,
+          large && styles.category.large,
+        ]}
+      >
         {category}{city && ` in ${city}`} {topChoice &&
-          <em style={styles.topChoiceLabel}>
+          <em style={styles.topChoiceLabel.default}>
             Top choice
           </em>
         }
@@ -113,8 +158,27 @@ const ListItemBookmarkEntry = ({
     }
 
     {note &&
-      <TextAccent style={styles.note}>
+      <TextAccent
+        style={[
+          styles.note.default,
+          large && styles.note.large,
+        ]}
+      >
         {note}
+      </TextAccent>
+    }
+    {showNoteAction && handleNoteAction &&
+      <TextAccent>
+        <button
+          onClick={handleNoteAction}
+          style={[
+            styles.note.default,
+            large && styles.note.large,
+            styles.noteLink,
+          ]}
+        >
+          {note ? "Edit note" : "Add note..."}
+        </button>
       </TextAccent>
     }
   </article>
@@ -123,11 +187,24 @@ const ListItemBookmarkEntry = ({
 ListItemBookmarkEntry.propTypes = {
   name: PropTypes.string.isRequired,
   category: PropTypes.string,
-  priceRange: PropTypes.oneOf(["$", "$$", "$$$"]),
+  priceRange: PropTypes.oneOf(["$", "$$", "$$$", "", null]),
   city: PropTypes.string,
   topChoice: PropTypes.bool,
   note: PropTypes.string,
+  large: PropTypes.bool,
+  showNoteAction: PropTypes.bool,
+  handleNoteAction: PropTypes.func,
   style: propTypes.style,
 };
 
+
+ListItemBookmarkEntry.defaultProps = {
+  category: null,
+  priceRange: null,
+  city: null,
+  topChoice: false,
+  note: null,
+  large: false,
+  style: null,
+};
 export default radium(ListItemBookmarkEntry);

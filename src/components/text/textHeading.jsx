@@ -19,6 +19,7 @@ const Heading = ({
   level,
   size,
   weight,
+  innerRef,
   className,
   id,
   style,
@@ -40,6 +41,7 @@ const Heading = ({
     <Element
       className={className}
       id={id}
+      ref={innerRef}
       style={[
         {
           color: colors.textPrimary,
@@ -60,6 +62,7 @@ Heading.propTypes = {
   level: propTypes.heading,
   size: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8]),
   weight: propTypes.fontWeight,
+  innerRef: PropTypes.func,
   className: PropTypes.string,
   id: PropTypes.string,
   style: propTypes.style,
@@ -69,6 +72,10 @@ Heading.defaultProps = {
   level: 2,
   size: 2,
   weight: "regular",
+  innerRef: null,
+  className: null,
+  id: null,
+  style: null,
 };
 
 export default radium(Heading);

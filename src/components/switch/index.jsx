@@ -33,7 +33,7 @@ const styles = {
   },
 
   containerChecked: {
-    backgroundColor: colors.accentGreen,
+    backgroundColor: colors.uiGreen,
     boxShadow: "none",
   },
 

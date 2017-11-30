@@ -2,6 +2,500 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.53.2"></a>
+## [4.53.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.53.1...v4.53.2) (2017-11-30)
+
+
+### Bug Fixes
+
+* Add pinterest as option to SocialIconButton ([#566](https://github.com/lonelyplanet/backpack-ui/issues/566)) ([e13e2cf](https://github.com/lonelyplanet/backpack-ui/commit/e13e2cf))
+* use default hideHeader instead of showHeader ([b4b777d](https://github.com/lonelyplanet/backpack-ui/commit/b4b777d))
+
+
+
+<a name="4.53.1"></a>
+## [4.53.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.53.0...v4.53.1) (2017-11-29)
+
+
+### Bug Fixes
+
+* allow hiding modal header ([cf1a95d](https://github.com/lonelyplanet/backpack-ui/commit/cf1a95d))
+
+
+
+<a name="4.53.0"></a>
+# [4.53.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.52.0...v4.53.0) (2017-11-22)
+
+
+### Bug Fixes
+
+* fix avatar uploader (use exif orientation) ([dc3ba64](https://github.com/lonelyplanet/backpack-ui/commit/dc3ba64))
+* Refactor function in Strapline ([c6b475b](https://github.com/lonelyplanet/backpack-ui/commit/c6b475b))
+* Refactor styles in Strapline ([c1cefae](https://github.com/lonelyplanet/backpack-ui/commit/c1cefae))
+* Replace settings.json with styles/colors in Strapline ([6d703be](https://github.com/lonelyplanet/backpack-ui/commit/6d703be))
+* Use rgba color util in Strapline ([db46fc4](https://github.com/lonelyplanet/backpack-ui/commit/db46fc4))
+* Use typography sizes from styles in Strapline ([913f14a](https://github.com/lonelyplanet/backpack-ui/commit/913f14a))
+
+
+### Features
+
+* Add style prop to Strapline ([5a20421](https://github.com/lonelyplanet/backpack-ui/commit/5a20421))
+
+
+
+<a name="4.52.0"></a>
+# [4.52.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.51.1...v4.52.0) (2017-11-20)
+
+
+### Bug Fixes
+
+* Add missing default prop values for TextHeading ([c1efffc](https://github.com/lonelyplanet/backpack-ui/commit/c1efffc))
+* Adjust SectionHeader size via size prop, not style prop ([4c0ace0](https://github.com/lonelyplanet/backpack-ui/commit/4c0ace0))
+* make pageHeader base header larger on mobile breakpoint ([#561](https://github.com/lonelyplanet/backpack-ui/issues/561)) ([ba6e9ff](https://github.com/lonelyplanet/backpack-ui/commit/ba6e9ff))
+* Update stories ([cd514bd](https://github.com/lonelyplanet/backpack-ui/commit/cd514bd))
+
+
+### Features
+
+* Add innerRef prop to TextHeading ([22f2b0b](https://github.com/lonelyplanet/backpack-ui/commit/22f2b0b))
+* Refactor SectionHeader component ([63c4a09](https://github.com/lonelyplanet/backpack-ui/commit/63c4a09))
+
+
+
+<a name="4.51.1"></a>
+## [4.51.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.51.0...v4.51.1) (2017-11-13)
+
+
+### Bug Fixes
+
+* Change color of icon to blue in BookmarkButton when marked ([36666ad](https://github.com/lonelyplanet/backpack-ui/commit/36666ad))
+* Update strapline top margin in PageHeader ([4e7a4f8](https://github.com/lonelyplanet/backpack-ui/commit/4e7a4f8))
+
+
+
+<a name="4.51.0"></a>
+# [4.51.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.50.3...v4.51.0) (2017-11-13)
+
+
+### Bug Fixes
+
+* Adjust heading styles in PageHeader ([c2c1f85](https://github.com/lonelyplanet/backpack-ui/commit/c2c1f85))
+* Convert PageHeader from stateful to functional component ([8d46e99](https://github.com/lonelyplanet/backpack-ui/commit/8d46e99))
+* cursor jumps out of inputs in modal ([#551](https://github.com/lonelyplanet/backpack-ui/issues/551)) ([3c74a32](https://github.com/lonelyplanet/backpack-ui/commit/3c74a32))
+* Delete comment from PageHeader ([41c87ec](https://github.com/lonelyplanet/backpack-ui/commit/41c87ec))
+* Make label prop required in IconRevealButton ([62dcee5](https://github.com/lonelyplanet/backpack-ui/commit/62dcee5))
+* Remove defaultProp values from required props in IconRevealButton ([e940ed4](https://github.com/lonelyplanet/backpack-ui/commit/e940ed4))
+* Remove extra whitespace in PageHeader ([8bf8b87](https://github.com/lonelyplanet/backpack-ui/commit/8bf8b87))
+* Remove style export from PageHeader ([3e28ac6](https://github.com/lonelyplanet/backpack-ui/commit/3e28ac6))
+* Replace deprecated Heading with text/heading in PageHeader ([5fdaa83](https://github.com/lonelyplanet/backpack-ui/commit/5fdaa83))
+* Replace settings.json in PageHeader with style tokens ([492673f](https://github.com/lonelyplanet/backpack-ui/commit/492673f))
+* Update share icon path ([#553](https://github.com/lonelyplanet/backpack-ui/issues/553)) ([061e215](https://github.com/lonelyplanet/backpack-ui/commit/061e215))
+* Update styles for IconRevealButton ([99e5b2b](https://github.com/lonelyplanet/backpack-ui/commit/99e5b2b))
+* Use TextUppercase instead of h6 heading in PageHeader ([39647bb](https://github.com/lonelyplanet/backpack-ui/commit/39647bb))
+
+
+### Features
+
+* Add Flipboard icon ([#549](https://github.com/lonelyplanet/backpack-ui/issues/549)) ([0e5ca6f](https://github.com/lonelyplanet/backpack-ui/commit/0e5ca6f))
+* Add style prop to PageHeader ([a8a915b](https://github.com/lonelyplanet/backpack-ui/commit/a8a915b))
+* Delete bookmark from PageHeader ([3896b5f](https://github.com/lonelyplanet/backpack-ui/commit/3896b5f))
+* Switch Bookmark and BookmarkAlt buttons, deprecate BookmarkAlt ([3acdbff](https://github.com/lonelyplanet/backpack-ui/commit/3acdbff))
+* Switch Bookmark and BookmarkAlt icons, deprecate BookmarkAlt ([74f93a2](https://github.com/lonelyplanet/backpack-ui/commit/74f93a2))
+
+
+
+<a name="4.50.3"></a>
+## [4.50.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.50.2...v4.50.3) (2017-11-10)
+
+
+### Bug Fixes
+
+* swap the name and location ([8046888](https://github.com/lonelyplanet/backpack-ui/commit/8046888))
+
+
+
+<a name="4.50.2"></a>
+## [4.50.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.50.1...v4.50.2) (2017-11-09)
+
+
+### Bug Fixes
+
+* Add style prop to Overlay ([5ef8e2b](https://github.com/lonelyplanet/backpack-ui/commit/5ef8e2b))
+* Replace settings.json in Overlay ([5dd1360](https://github.com/lonelyplanet/backpack-ui/commit/5dd1360))
+
+
+
+<a name="4.50.1"></a>
+## [4.50.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.50.0...v4.50.1) (2017-11-08)
+
+
+### Bug Fixes
+
+* make flight widget arrow centered ([#547](https://github.com/lonelyplanet/backpack-ui/issues/547)) ([4bc548b](https://github.com/lonelyplanet/backpack-ui/commit/4bc548b))
+
+
+
+<a name="4.50.0"></a>
+# [4.50.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.49.4...v4.50.0) (2017-11-02)
+
+
+### Bug Fixes
+
+* Add story for FlightSearchWidget ([2a43478](https://github.com/lonelyplanet/backpack-ui/commit/2a43478))
+* Add urlRegex method to default export in validations utility ([b05b679](https://github.com/lonelyplanet/backpack-ui/commit/b05b679))
+* Adjust styles for arrow icon in FlightSearchWidget ([dc5acc0](https://github.com/lonelyplanet/backpack-ui/commit/dc5acc0))
+* Use style prop type validation from propTypes util for Button component ([abb93a0](https://github.com/lonelyplanet/backpack-ui/commit/abb93a0))
+
+
+### Features
+
+* Add currency prop type to propTypes utility ([1438ee2](https://github.com/lonelyplanet/backpack-ui/commit/1438ee2))
+* Create FlightSearchWidget component ([6eea2b7](https://github.com/lonelyplanet/backpack-ui/commit/6eea2b7))
+* Create utility to export currency symbols ([f318775](https://github.com/lonelyplanet/backpack-ui/commit/f318775))
+
+
+
+<a name="4.49.4"></a>
+## [4.49.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.49.3...v4.49.4) (2017-11-01)
+
+
+### Bug Fixes
+
+* update url regex, extract to validations ([88bbefc](https://github.com/lonelyplanet/backpack-ui/commit/88bbefc))
+
+
+
+<a name="4.49.3"></a>
+## [4.49.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.49.2...v4.49.3) (2017-10-27)
+
+
+
+<a name="4.49.2"></a>
+## [4.49.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.49.1...v4.49.2) (2017-10-27)
+
+
+### Bug Fixes
+
+* accordion timing animations" ([21efa9b](https://github.com/lonelyplanet/backpack-ui/commit/21efa9b))
+
+
+
+<a name="4.49.1"></a>
+## [4.49.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.49.0...v4.49.1) (2017-10-26)
+
+
+### Bug Fixes
+
+* focus state for tag selector ([#542](https://github.com/lonelyplanet/backpack-ui/issues/542)) ([c539795](https://github.com/lonelyplanet/backpack-ui/commit/c539795))
+
+
+
+<a name="4.49.0"></a>
+# [4.49.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.48.2...v4.49.0) (2017-10-24)
+
+
+### Bug Fixes
+
+* Add story for ProfileHeader with markdown ([4560c3e](https://github.com/lonelyplanet/backpack-ui/commit/4560c3e))
+* Use ProfileIntro in ProfileHeader ([49f0e84](https://github.com/lonelyplanet/backpack-ui/commit/49f0e84))
+
+
+### Features
+
+* Create ProfileIntro component ([43686bd](https://github.com/lonelyplanet/backpack-ui/commit/43686bd))
+* Install react-measure module ([0cfa846](https://github.com/lonelyplanet/backpack-ui/commit/0cfa846))
+* Remove alignment prop; use react-measure for ProfileHeader layout ([b13b988](https://github.com/lonelyplanet/backpack-ui/commit/b13b988))
+
+
+
+<a name="4.48.2"></a>
+## [4.48.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.48.1...v4.48.2) (2017-10-23)
+
+
+### Bug Fixes
+
+* Fix bug in iOS; screen appears blank when modal opens ([#538](https://github.com/lonelyplanet/backpack-ui/issues/538)) ([ea9ffe3](https://github.com/lonelyplanet/backpack-ui/commit/ea9ffe3))
+* Make some accessibility improvements to Toast component ([#539](https://github.com/lonelyplanet/backpack-ui/issues/539)) ([f864578](https://github.com/lonelyplanet/backpack-ui/commit/f864578))
+
+
+
+<a name="4.48.1"></a>
+## [4.48.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.48.0...v4.48.1) (2017-10-20)
+
+
+### Bug Fixes
+
+* update disclaimer styles and text ([#536](https://github.com/lonelyplanet/backpack-ui/issues/536)) ([f2cb533](https://github.com/lonelyplanet/backpack-ui/commit/f2cb533))
+* update text ([#537](https://github.com/lonelyplanet/backpack-ui/issues/537)) ([5e77792](https://github.com/lonelyplanet/backpack-ui/commit/5e77792))
+
+
+
+<a name="4.48.0"></a>
+# [4.48.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.47.11...v4.48.0) (2017-10-20)
+
+
+### Bug Fixes
+
+* Add white background color to switch story ([ffa9926](https://github.com/lonelyplanet/backpack-ui/commit/ffa9926))
+* Delete disableEnter from props spread in textarea component ([8a8368a](https://github.com/lonelyplanet/backpack-ui/commit/8a8368a))
+* Separate padding values in input component ([2e6944b](https://github.com/lonelyplanet/backpack-ui/commit/2e6944b))
+* Use UI green for switch component ([57c5cef](https://github.com/lonelyplanet/backpack-ui/commit/57c5cef))
+
+
+### Features
+
+* Add UI color green to styles/colors ([5ff4f4f](https://github.com/lonelyplanet/backpack-ui/commit/5ff4f4f))
+
+
+
+<a name="4.47.11"></a>
+## [4.47.11](https://github.com/lonelyplanet/backpack-ui/compare/v4.47.10...v4.47.11) (2017-10-19)
+
+
+### Bug Fixes
+
+* update navigation tab :focus styles ([#535](https://github.com/lonelyplanet/backpack-ui/issues/535)) ([079ee4d](https://github.com/lonelyplanet/backpack-ui/commit/079ee4d))
+
+
+
+<a name="4.47.10"></a>
+## [4.47.10](https://github.com/lonelyplanet/backpack-ui/compare/v4.47.9...v4.47.10) (2017-10-19)
+
+
+### Bug Fixes
+
+* make typeahead respond to touch events ([045f606](https://github.com/lonelyplanet/backpack-ui/commit/045f606))
+
+
+
+<a name="4.47.9"></a>
+## [4.47.9](https://github.com/lonelyplanet/backpack-ui/compare/v4.47.8...v4.47.9) (2017-10-19)
+
+
+### Bug Fixes
+
+* return empty hostname from urlparser if server rendr ([#533](https://github.com/lonelyplanet/backpack-ui/issues/533)) ([940c438](https://github.com/lonelyplanet/backpack-ui/commit/940c438))
+
+
+
+<a name="4.47.8"></a>
+## [4.47.8](https://github.com/lonelyplanet/backpack-ui/compare/v4.47.7...v4.47.8) (2017-10-19)
+
+
+### Bug Fixes
+
+* Return false if document is undefined in ProfileHeader ([#532](https://github.com/lonelyplanet/backpack-ui/issues/532)) ([93ba3a1](https://github.com/lonelyplanet/backpack-ui/commit/93ba3a1))
+
+
+
+<a name="4.47.7"></a>
+## [4.47.7](https://github.com/lonelyplanet/backpack-ui/compare/v4.47.6...v4.47.7) (2017-10-19)
+
+
+### Bug Fixes
+
+* only allow photos to be uploaded via avatart uploader ([#531](https://github.com/lonelyplanet/backpack-ui/issues/531)) ([7bc8bed](https://github.com/lonelyplanet/backpack-ui/commit/7bc8bed))
+
+
+
+<a name="4.47.6"></a>
+## [4.47.6](https://github.com/lonelyplanet/backpack-ui/compare/v4.47.5...v4.47.6) (2017-10-18)
+
+
+### Bug Fixes
+
+* Parse and validate website prop for ProfileHeader ([#530](https://github.com/lonelyplanet/backpack-ui/issues/530)) ([0dbfad7](https://github.com/lonelyplanet/backpack-ui/commit/0dbfad7))
+
+
+
+<a name="4.47.5"></a>
+## [4.47.5](https://github.com/lonelyplanet/backpack-ui/compare/v4.47.4...v4.47.5) (2017-10-18)
+
+
+
+<a name="4.47.4"></a>
+## [4.47.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.47.3...v4.47.4) (2017-10-18)
+
+
+### Bug Fixes
+
+* update faq link ([#528](https://github.com/lonelyplanet/backpack-ui/issues/528)) ([f933d1f](https://github.com/lonelyplanet/backpack-ui/commit/f933d1f))
+
+
+
+<a name="4.47.3"></a>
+## [4.47.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.47.2...v4.47.3) (2017-10-17)
+
+
+### Bug Fixes
+
+* Improve line clamping for ProfileHeader bio ([#527](https://github.com/lonelyplanet/backpack-ui/issues/527)) ([c37ec4e](https://github.com/lonelyplanet/backpack-ui/commit/c37ec4e))
+
+
+
+<a name="4.47.2"></a>
+## [4.47.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.47.1...v4.47.2) (2017-10-17)
+
+
+### Bug Fixes
+
+* check if onChange is a function ([d429008](https://github.com/lonelyplanet/backpack-ui/commit/d429008))
+* make textarea controlled input ([d825734](https://github.com/lonelyplanet/backpack-ui/commit/d825734))
+
+
+
+<a name="4.47.1"></a>
+## [4.47.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.47.0...v4.47.1) (2017-10-17)
+
+
+
+<a name="4.47.0"></a>
+# [4.47.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.46.5...v4.47.0) (2017-10-16)
+
+
+### Bug Fixes
+
+* Update profile header component ([2fb2b3e](https://github.com/lonelyplanet/backpack-ui/commit/2fb2b3e))
+* Update styles for LocationLabel ([81849b0](https://github.com/lonelyplanet/backpack-ui/commit/81849b0))
+
+
+### Features
+
+* Add id, className props to Avatar component ([01ded9f](https://github.com/lonelyplanet/backpack-ui/commit/01ded9f))
+* add reveal with flyout to bookmarkListMenu ([#525](https://github.com/lonelyplanet/backpack-ui/issues/525)) ([e5426ed](https://github.com/lonelyplanet/backpack-ui/commit/e5426ed))
+* Update ProfileHeader component ([dd0dbf3](https://github.com/lonelyplanet/backpack-ui/commit/dd0dbf3))
+
+
+
+<a name="4.46.5"></a>
+## [4.46.5](https://github.com/lonelyplanet/backpack-ui/compare/v4.46.4...v4.46.5) (2017-10-11)
+
+
+### Bug Fixes
+
+* Update style, add keyframes to Loading component ([5b6cb02](https://github.com/lonelyplanet/backpack-ui/commit/5b6cb02))
+
+
+
+<a name="4.46.4"></a>
+## [4.46.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.46.3...v4.46.4) (2017-10-11)
+
+
+### Bug Fixes
+
+* typeahead - do not fetch results if pressed key is backspace and query is empty ([#519](https://github.com/lonelyplanet/backpack-ui/issues/519)) ([480a534](https://github.com/lonelyplanet/backpack-ui/commit/480a534))
+
+
+
+<a name="4.46.3"></a>
+## [4.46.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.46.2...v4.46.3) (2017-10-05)
+
+
+### Bug Fixes
+
+* Work on upgrading to react 16 ([cabf025](https://github.com/lonelyplanet/backpack-ui/commit/cabf025))
+
+
+
+<a name="4.46.2"></a>
+## [4.46.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.46.1...v4.46.2) (2017-10-03)
+
+
+### Bug Fixes
+
+* handle issue where style is not being passed to flyout ([#515](https://github.com/lonelyplanet/backpack-ui/issues/515)) ([5bcd301](https://github.com/lonelyplanet/backpack-ui/commit/5bcd301))
+
+
+
+<a name="4.46.1"></a>
+## [4.46.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.46.0...v4.46.1) (2017-10-02)
+
+
+### Bug Fixes
+
+* Increase IconButton size in BookmarkListMenu ([#513](https://github.com/lonelyplanet/backpack-ui/issues/513)) ([e5109c0](https://github.com/lonelyplanet/backpack-ui/commit/e5109c0))
+* only close bookrmarkListMenu with esc ([#511](https://github.com/lonelyplanet/backpack-ui/issues/511)) ([1a465bf](https://github.com/lonelyplanet/backpack-ui/commit/1a465bf))
+* refactor bookmarkButtonAlt to use a lower level component ([#509](https://github.com/lonelyplanet/backpack-ui/issues/509)) ([c9c3969](https://github.com/lonelyplanet/backpack-ui/commit/c9c3969))
+* Update react-date-range to 0.9.4 ([#514](https://github.com/lonelyplanet/backpack-ui/issues/514)) ([7117ca2](https://github.com/lonelyplanet/backpack-ui/commit/7117ca2))
+
+
+
+<a name="4.46.0"></a>
+# [4.46.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.45.4...v4.46.0) (2017-09-29)
+
+
+### Bug Fixes
+
+* Remove border from checkbox in ListItemBookmark ([dabc576](https://github.com/lonelyplanet/backpack-ui/commit/dabc576))
+* Update share icon ([00a1a76](https://github.com/lonelyplanet/backpack-ui/commit/00a1a76))
+* Update stories ([df2070a](https://github.com/lonelyplanet/backpack-ui/commit/df2070a))
+
+
+### Features
+
+* Add disableEnter boolean prop in textarea ([e0c6a23](https://github.com/lonelyplanet/backpack-ui/commit/e0c6a23))
+* Add removeBorder prop to Checkbox ([1125466](https://github.com/lonelyplanet/backpack-ui/commit/1125466))
+
+
+
+<a name="4.45.4"></a>
+## [4.45.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.45.3...v4.45.4) (2017-09-28)
+
+
+### Bug Fixes
+
+* Disable enter key in textarea when autogrow is true ([#505](https://github.com/lonelyplanet/backpack-ui/issues/505)) ([2bd8fbf](https://github.com/lonelyplanet/backpack-ui/commit/2bd8fbf))
+* disable scroll lock off after navigate ([#507](https://github.com/lonelyplanet/backpack-ui/issues/507)) ([7f47576](https://github.com/lonelyplanet/backpack-ui/commit/7f47576))
+* Set default value for hideDetail prop in ListItemBookmark ([6afe91c](https://github.com/lonelyplanet/backpack-ui/commit/6afe91c))
+* update copy for auth modal ([#506](https://github.com/lonelyplanet/backpack-ui/issues/506)) ([a9afded](https://github.com/lonelyplanet/backpack-ui/commit/a9afded))
+
+
+
+<a name="4.45.3"></a>
+## [4.45.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.45.2...v4.45.3) (2017-09-26)
+
+
+### Bug Fixes
+
+* show modal title via bool prop ([#503](https://github.com/lonelyplanet/backpack-ui/issues/503)) ([0ffde50](https://github.com/lonelyplanet/backpack-ui/commit/0ffde50))
+
+
+
+<a name="4.45.2"></a>
+## [4.45.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.45.1...v4.45.2) (2017-09-26)
+
+
+### Bug Fixes
+
+* textarea grow on mount ([#502](https://github.com/lonelyplanet/backpack-ui/issues/502)) ([ec3d365](https://github.com/lonelyplanet/backpack-ui/commit/ec3d365))
+
+
+
+<a name="4.45.1"></a>
+## [4.45.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.45.0...v4.45.1) (2017-09-26)
+
+
+
+<a name="4.45.0"></a>
+# [4.45.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.44.0...v4.45.0) (2017-09-26)
+
+
+### Features
+
+* Add large prop to ListItemBookmarkEntry ([20dcf0a](https://github.com/lonelyplanet/backpack-ui/commit/20dcf0a))
+
+
+
+<a name="4.44.0"></a>
+# [4.44.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.43.0...v4.44.0) (2017-09-25)
+
+
+### Features
+
+* add optional typeahead validation ([0827296](https://github.com/lonelyplanet/backpack-ui/commit/0827296))
+
+
+
 <a name="4.43.0"></a>
 # [4.43.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.42.1...v4.43.0) (2017-09-21)
 

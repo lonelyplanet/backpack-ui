@@ -161,9 +161,11 @@ const Toast = ({
 }) => (
   <div
     className="Toast"
-    role="alert"
+    role="alertdialog"
     aria-hidden={!visible}
     aria-live="assertive"
+    aria-labelledby="toastTitle"
+    aria-describedby="toastMessage"
     style={[
       styles.container.default,
       type && {
@@ -203,12 +205,12 @@ const Toast = ({
       ariaHidden: true,
     })}
 
-    <div style={styles.text}>
-      <div>
+    <div style={styles.text} role="document" tabIndex="0">
+      <div id="toastTitle">
         {title || messageTypes[type].title}
       </div>
 
-      <div>
+      <div id="toastMessage">
         {children}
       </div>
     </div>

@@ -1,17 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import ListButton from "../listButton";
+import cn from "classnames";
+import { BookmarkActive, Bookmark } from "../icon";
+import colors from "../../styles/colors";
 import propTypes from "../../utils/propTypes";
+import IconRevealButton from "../iconRevealButton";
 
 const BookmarkButton = ({ onClick, marked, id, className, style }) => (
-  <ListButton
+  <IconRevealButton
     id={id}
-    className={className}
+    className={cn("BookmarkButton", className)}
     onClick={onClick}
-    label="Save to list"
-    icon={marked ? "BookmarkActive" : "Bookmark"}
-    style={style}
+    icon={marked ? <BookmarkActive /> : <Bookmark />}
+    style={[
+      marked && { color: colors.linkPrimary },
+      style,
+    ]}
+    label="Save"
   />
 );
 
