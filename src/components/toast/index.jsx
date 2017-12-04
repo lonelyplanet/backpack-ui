@@ -90,8 +90,8 @@ const styles = {
     display: "block",
     flexShrink: 0,
     marginLeft: "auto",
-    transition: `opacity ${timing.fast} ease-in-out`,
     textTransform: "uppercase",
+    transition: `opacity ${timing.fast} ease-in-out`,
 
     ":hover": {
       opacity: 0.8,
@@ -148,116 +148,124 @@ const messageTypes = {
 };
 
 const Toast = ({
-  children,
-  type,
-  direction,
-  visible,
   affixed,
-  title,
+  buttonLabel,
+  children,
+  direction,
   onClick,
   onClose,
-  buttonLabel,
   style,
-}) => (
-  <div
-    className="Toast"
-    role="alertdialog"
-    aria-hidden={!visible}
-    aria-live="assertive"
-    aria-labelledby="toastTitle"
-    aria-describedby="toastMessage"
-    style={[
-      styles.container.default,
-      type && {
-        backgroundColor: rgba(messageTypes[type].color, 0.98),
-        boxShadow: `0 4px 6px ${rgba(messageTypes[type].color, 0.25)}`,
-      },
-      type === "warning" && {
-        color: colors.textPrimary,
-      },
-      visible && styles.container.visible,
-      (!visible && direction === "bottom") && styles.container.invisibleBottom,
-      (!visible && direction === "top") && styles.container.invisibleTop,
-      (affixed && direction === "bottom") && Object.assign({},
-        styles.container.affixed,
-        { bottom: `${padding}px` },
-      ),
-      (affixed && direction === "top") && Object.assign({},
-        styles.container.affixed,
-        { top: `${padding}px` },
-      ),
-      style,
-    ]}
-  >
-    <Style
-      scopeSelector=".Toast"
-      rules={{
-        mediaQueries: {
-          "(prefers-reduced-motion)": {
-            transform: "translateY(0) !important",
-          },
+  title,
+  type,
+  url,
+  visible,
+}) => {
+  const Element = url ? "a" : "button";
+
+  return (
+    <div
+      className="Toast"
+      aria-describedby="toastMessage"
+      aria-hidden={!visible}
+      aria-labelledby="toastTitle"
+      aria-live="assertive"
+      role="alertdialog"
+      style={[
+        styles.container.default,
+        type && {
+          backgroundColor: rgba(messageTypes[type].color, 0.98),
+          boxShadow: `0 4px 6px ${rgba(messageTypes[type].color, 0.25)}`,
         },
-      }}
-    />
+        type === "warning" && {
+          color: colors.textPrimary,
+        },
+        visible && styles.container.visible,
+        (!visible && direction === "bottom") && styles.container.invisibleBottom,
+        (!visible && direction === "top") && styles.container.invisibleTop,
+        (affixed && direction === "bottom") && Object.assign({},
+          styles.container.affixed,
+          { bottom: `${padding}px` },
+        ),
+        (affixed && direction === "top") && Object.assign({},
+          styles.container.affixed,
+          { top: `${padding}px` },
+        ),
+        style,
+      ]}
+    >
+      <Style
+        scopeSelector=".Toast"
+        rules={{
+          mediaQueries: {
+            "(prefers-reduced-motion)": {
+              transform: "translateY(0) !important",
+            },
+          },
+        }}
+      />
 
-    {type && iconFromString(messageTypes[type].icon, {
-      style: styles.icon,
-      ariaHidden: true,
-    })}
+      {type && iconFromString(messageTypes[type].icon, {
+        ariaHidden: true,
+        style: styles.icon,
+      })}
 
-    <div style={styles.text} role="document" tabIndex="0">
-      <div id="toastTitle">
-        {title || messageTypes[type].title}
+      <div style={styles.text} role="document" tabIndex="0">
+        <div id="toastTitle">
+          {title || messageTypes[type].title}
+        </div>
+
+        <div id="toastMessage">
+          {children}
+        </div>
       </div>
 
-      <div id="toastMessage">
-        {children}
-      </div>
+      {(url || onClick) && buttonLabel &&
+        <Element
+          href={url}
+          onClick={onClick}
+          style={[styles.button, styles.onClickButton]}
+        >
+          {buttonLabel}
+        </Element>
+      }
+
+      {onClose &&
+        <button
+          onClick={onClose}
+          style={[styles.button, styles.onCloseButton]}
+          title="Close"
+        >
+          <Icon.Close title="Close" style={styles.onCloseIcon} />
+        </button>
+      }
     </div>
-
-    {onClick && buttonLabel &&
-      <button
-        style={[styles.button, styles.onClickButton]}
-        onClick={onClick}
-      >
-        {buttonLabel}
-      </button>
-    }
-
-    {onClose &&
-      <button
-        style={[styles.button, styles.onCloseButton]}
-        onClick={onClose}
-        title="Close"
-      >
-        <Icon.Close title="Close" style={styles.onCloseIcon} />
-      </button>
-    }
-  </div>
-);
+  );
+};
 
 Toast.propTypes = {
   children: PropTypes.string.isRequired,
   type: PropTypes.oneOf(["error", "info", "success", "warning"]).isRequired,
-  direction: PropTypes.oneOf(["top", "bottom"]),
-  visible: PropTypes.bool,
   affixed: PropTypes.bool,
+  buttonLabel: PropTypes.string,
+  direction: PropTypes.oneOf(["top", "bottom"]),
   onClick: PropTypes.func,
   onClose: PropTypes.func,
-  title: PropTypes.string,
-  buttonLabel: PropTypes.string,
   style: propTypes.style,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  visible: PropTypes.bool,
 };
 
 Toast.defaultProps = {
-  direction: "bottom",
-  visible: false,
   affixed: false,
+  buttonLabel: null,
+  direction: "bottom",
   onClick: null,
   onClose: null,
-  title: null,
-  buttonLabel: null,
   style: null,
+  title: null,
+  url: null,
+  visible: false,
 };
 
 export default radium(Toast);
