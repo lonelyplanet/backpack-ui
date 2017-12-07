@@ -165,6 +165,7 @@ const Toast = ({
   return (
     <div
       className="Toast"
+      key="toastElement"
       aria-describedby="toastMessage"
       aria-hidden={!visible}
       aria-labelledby="toastTitle"
@@ -219,25 +220,23 @@ const Toast = ({
         </div>
       </div>
 
-      {(url || onClick) && buttonLabel &&
-        <Element
-          href={url}
+      {onClick && buttonLabel &&
+        <button
           onClick={onClick}
           style={[styles.button, styles.onClickButton]}
         >
           {buttonLabel}
-        </Element>
-      }
-
-      {onClose &&
-        <button
-          onClick={onClose}
-          style={[styles.button, styles.onCloseButton]}
-          title="Close"
-        >
-          <Icon.Close title="Close" style={styles.onCloseIcon} />
         </button>
       }
+
+      <Element
+        href={url}
+        onClick={onClose}
+        style={[styles.button, url ? styles.onClickButton : styles.onCloseButton]}
+        title="Close"
+      >
+        {url ? buttonLabel : <Icon.Close title="Close" style={styles.onCloseIcon} />}
+      </Element>
     </div>
   );
 };
