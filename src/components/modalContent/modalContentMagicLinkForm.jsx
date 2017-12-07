@@ -25,8 +25,6 @@ class MagicLinkForm extends Component {
     super(props);
     this.state = {
       value: "",
-      valid: false,
-      showErrors: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,19 +32,12 @@ class MagicLinkForm extends Component {
   }
 
   handleSubmit() {
-    if (!this.state.valid) {
-      return this.setState({
-        showErrors: true,
-      });
-    }
-
     return this.props.onSubmit(this.state.value);
   }
 
-  handleChange(e, errorCount) {
+  handleChange(e) {
     this.setState({
       value: e.target.value,
-      valid: errorCount === 0,
     });
   }
 
@@ -65,16 +56,16 @@ class MagicLinkForm extends Component {
                 required
                 placeholder="Email"
                 onChange={(e) => {
-                  this.handleChange(e, errorCount);
+                  this.handleChange(e);
                   validate(e);
                 }}
                 onBlur={(e) => {
-                  this.handleChange(e, errorCount);
+                  this.handleChange(e);
                   validate(e);
                 }}
                 value={this.state.value}
               />
-              {this.state.showErrors && errorMessages.email && errorMessages.email.length > 0 &&
+              {errorMessages.email && errorMessages.email.length > 0 &&
                 <ErrorMessages
                   messages={errorMessages.email}
                 />
@@ -84,7 +75,7 @@ class MagicLinkForm extends Component {
             <Button
               onClick={this.handleSubmit}
               rounded
-              disabled={!this.state.valid}
+              disabled={errorCount !== 0}
             >
               Email me a link to sign in
             </Button>

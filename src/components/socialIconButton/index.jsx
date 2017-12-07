@@ -14,6 +14,7 @@ const backgroundColors = {
   pinterest: colors.socialPinterest,
   reddit: colors.socialReddit,
   twitter: colors.socialTwitter,
+  whatsapp: colors.textPrimary,
 };
 
 const iconNames = {
@@ -23,6 +24,7 @@ const iconNames = {
   pinterest: "Pinterest",
   reddit: "Reddit",
   twitter: "Twitter",
+  whatsapp: "Whatsapp",
 };
 
 const sizeMultiplier = 2.5;
@@ -83,6 +85,7 @@ SocialIconButton.propTypes = {
     "pinterest",
     "reddit",
     "twitter",
+    "whatsapp",
   ]).isRequired,
   href: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,

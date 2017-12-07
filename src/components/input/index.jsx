@@ -18,6 +18,7 @@ const styles = {
   borderBottomColor: colors.borderPrimary,
   borderBottomStyle: "solid",
   borderWidth: "0 0 1px 0",
+  color: colors.textPrimary,
   height: `${(height / fontSizeHeading7)}em`,
   fontSize: `${fontSizeHeading7}px`,
   fontWeight: fontWeightMedium,

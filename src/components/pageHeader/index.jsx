@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { Link } from "react-router";
 import capitalize from "lodash/capitalize";
 import colors from "../../styles/colors";
+import Link from "../link";
 import mq from "../../styles/mq";
 import { fontSizeHeading3, lineHeightHeading3 } from "../../styles/typography";
 import { Heading, TextUppercase } from "../text";
@@ -98,21 +98,17 @@ const PageHeader = ({
     </span>
   );
 
-  const TypeText = (topChoice || stars > 0) ? type.toLowerCase() : _.capitalize(type);
+  const TypeText = topChoice || stars > 0 ? type.toLowerCase() : _.capitalize(type);
 
   const PlaceText = (
     <span key="placeText">
-      {neighborhood ?
-        `${TypeText} in the ${neighborhood} neighbourhood` :
-        `${TypeText} in ${place}`}
+      {neighborhood
+        ? `${TypeText} in the ${neighborhood} neighbourhood`
+        : `${TypeText} in ${place}`}
     </span>
   );
 
-  const StarText = stars > 0 && (
-    <span key="starRating">
-      {stars} star
-    </span>
-  );
+  const StarText = stars > 0 && <span key="starRating">{stars} star</span>;
 
   const straplineText = strapline || [TopChoiceText, " ", StarText, " ", PlaceText];
 
@@ -120,7 +116,9 @@ const PageHeader = ({
     <Link to={titleHref} style={blueLink()}>
       {title}
     </Link>
-  ) : title;
+  ) : (
+    title
+  );
 
   return (
     <header
@@ -132,36 +130,19 @@ const PageHeader = ({
         style,
       ]}
     >
-      {title &&
-        <TextUppercase
-          style={styles.title.base}
-        >
-          {TitleContent}
-        </TextUppercase>
-      }
+      {title && <TextUppercase style={styles.title.base}>{TitleContent}</TextUppercase>}
 
-      <Heading
-        level={1}
-        size={1}
-        weight="medium"
-        style={styles.heading.base}
-      >
+      <Heading level={1} size={1} weight="medium" style={styles.heading.base}>
         {heading}
       </Heading>
 
-      {(type || strapline) &&
-        <div
-          className="PageHeader-strapline"
-          style={styles.strapline.base}
-        >
-          <Strapline
-            size="small"
-            parent="pageHeader"
-          >
+      {(type || strapline) && (
+        <div className="PageHeader-strapline" style={styles.strapline.base}>
+          <Strapline size="small" parent="pageHeader">
             {straplineText}
           </Strapline>
         </div>
-      }
+      )}
     </header>
   );
 };
@@ -210,10 +191,7 @@ PageHeader.propTypes = {
   /**
    * Alignment for header text
    */
-  alignment: PropTypes.oneOf([
-    "",
-    "center",
-  ]),
+  alignment: PropTypes.oneOf(["", "center"]),
 
   /**
    * Whether or not to set a max width on the header

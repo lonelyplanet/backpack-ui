@@ -1654,7 +1654,7 @@ storiesOf("Newsletter", module)
           "http://localhost:8080/newsletter" :
           "https://www.lonelyplanet.com/newsletter"
         }
-        captchaSiteKey={process.env.STORYBOOK_CAPTCHA_SITE_KEY || ""}
+        captchaSiteKey={text("Captcha API Key", "")}
       />
     </StyleRoot>
   ));
