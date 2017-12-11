@@ -48,7 +48,7 @@ class ModalWrapper extends React.Component {
         ModalWrapper.scrollTo(0, this.state.scrollPosition);
 
         if (typeof window !== "undefined" && window.location.hash === this.props.hash && history.pushState) {
-          history.pushState("", document.title, window.location.pathname);
+          history.pushState("", "", window.location.pathname);
         }
       }
     });
