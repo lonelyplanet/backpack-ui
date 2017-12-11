@@ -23,6 +23,10 @@ class ModalWrapper extends React.Component {
 
   componentDidMount() {
     window.onbeforeunload = this.handleNavigateAway;
+
+    if (typeof window !== "undefined" && window.location.hash === this.props.hash) {
+      this.toggleOpen();
+    }
   }
 
   componentWillUnmount() {
@@ -42,6 +46,10 @@ class ModalWrapper extends React.Component {
       } else {
         noScroll.off();
         ModalWrapper.scrollTo(0, this.state.scrollPosition);
+
+        if (typeof window !== "undefined" && window.location.hash === this.props.hash && history.pushState) {
+          history.pushState("", document.title, window.location.pathname);
+        }
       }
     });
   }
@@ -58,6 +66,11 @@ class ModalWrapper extends React.Component {
 
 ModalWrapper.propTypes = {
   children: PropTypes.func.isRequired,
+  hash: PropTypes.string,
+};
+
+ModalWrapper.defaultProps = {
+  hash: "",
 };
 
 export default ModalWrapper;
