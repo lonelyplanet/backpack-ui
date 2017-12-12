@@ -39,12 +39,12 @@ const styles = {
   heading: {
     fontSize: "20px",
     letterSpacing: "-.3px",
-    lineHeight: (32 / 20),
+    lineHeight: 32 / 20,
 
     [`@media (min-width: ${media.min["480"]})`]: {
       fontSize: "24px",
       letterSpacing: "-.4px",
-      lineHeight: (32 / 28),
+      lineHeight: 32 / 28,
     },
   },
 
@@ -64,14 +64,14 @@ const styles = {
     fontSize: "14px",
     fontStyle: "italic",
     letterSpacing: "-.1px",
-    lineHeight: (18 / 12),
+    lineHeight: 18 / 12,
     marginLeft: "auto",
     marginRight: "auto",
     maxWidth: "386px",
 
     [`@media (min-width: ${media.min["480"]})`]: {
       letterSpacing: ".4px",
-      lineHeight: (32 / 18),
+      lineHeight: 32 / 18,
     },
   },
 
@@ -108,11 +108,11 @@ const styles = {
     ":focus": outline(),
   },
 
-  checkboxFieldset: {
+  legalSection: {
     marginTop: "32px",
   },
 
-  checkbox: {
+  legalText: {
     display: "block",
     width: "100%",
   },
@@ -193,7 +193,7 @@ class Newsletter extends Component {
   }
 
   submitRequest(reCaptchaResponse) {
-    const { endpoint, signup } = this.props;
+    const { endpoint, signup, hasOptin } = this.props;
 
     this.setState({ waiting: true });
 
@@ -201,7 +201,7 @@ class Newsletter extends Component {
       newsletter: {
         [signup.vars.replace(/newsletter\[(.*)\]/, "$1")]: true,
         source: signup.source,
-        legalOptIn: this.state.acceptLegalOptIn,
+        legalOptIn: hasOptin ? this.state.acceptLegalOptIn : true,
         email: this.state.email,
         "g-recaptcha-response": reCaptchaResponse,
       },
@@ -214,21 +214,26 @@ class Newsletter extends Component {
       withCredentials: true,
     };
 
-    axios.post(endpoint, data, config)
-      .then(response => this.setState({
-        success: true,
-        showSuccess: true,
-        showCaptcha: false,
-        response,
-        waiting: false,
-      }))
-      .catch(error => this.setState({
-        success: false,
-        disabled: true,
-        showCaptcha: false,
-        error,
-        waiting: false,
-      }));
+    axios
+      .post(endpoint, data, config)
+      .then(response =>
+        this.setState({
+          success: true,
+          showSuccess: true,
+          showCaptcha: false,
+          response,
+          waiting: false,
+        })
+      )
+      .catch(error =>
+        this.setState({
+          success: false,
+          disabled: true,
+          showCaptcha: false,
+          error,
+          waiting: false,
+        })
+      );
   }
 
   resetForm() {
@@ -254,6 +259,7 @@ class Newsletter extends Component {
       cta,
       confirmation,
       legalOptInLabel,
+      hasOptin,
       captchaSiteKey,
       endpoint,
       style: overrideStyles,
@@ -264,22 +270,16 @@ class Newsletter extends Component {
     }
 
     return (
-      <div
-        className="Newsletter"
-        style={[
-          styles.wrap,
-          overrideStyles && overrideStyles,
-        ]}
-      >
+      <div className="Newsletter" style={[styles.wrap, overrideStyles && overrideStyles]}>
         <Style
           scopeSelector=".Newsletter"
           rules={{
             "a:focus": outline(),
-            ".Checkbox label": {
+            ".Checkbox label, .Legal span": {
               color: `${colors.textSecondary} !important`,
               fontSize: "9px !important",
               height: "auto !important",
-              lineHeight: `${(16 / 9)} !important`,
+              lineHeight: `${16 / 9} !important`,
               textAlign: "left !important",
             },
             ".Checkbox span:first-of-type": {
@@ -295,94 +295,83 @@ class Newsletter extends Component {
         />
 
         <Container style={styles.container}>
-          <Heading
-            level={2}
-            weight="thick"
-            tracking="tight"
-            override={styles.heading}
-          >
+          <Heading level={2} weight="thick" tracking="tight" override={styles.heading}>
             {title}
             <div style={styles.underline} />
           </Heading>
 
           {this.state.loading && "Loading…"}
 
-          {this.state.showSuccess &&
+          {this.state.showSuccess && (
             <div>
               <p style={styles.copy}>
                 {confirmation.title} <br />
                 {confirmation.text} <span style={styles.email}>{this.state.email}</span>
               </p>
 
-              <MoreLink
-                onClick={this.resetForm}
-                style={styles.reset}
-                size="small"
-                hideIcon
-                caps
-              >
+              <MoreLink onClick={this.resetForm} style={styles.reset} size="small" hideIcon caps>
                 Change Email Address
               </MoreLink>
             </div>
-          }
+          )}
 
-          {!this.state.success && !this.state.showCaptcha &&
-            <div>
-              {Object.keys(this.state.error).length > 0 ?
-                <p style={styles.error}>{this.getErrorMessage()}</p> :
-                <p style={styles.copy}>
-                  {!this.state.success && subtitle}
+          {!this.state.success &&
+            !this.state.showCaptcha && (
+              <div>
+                {Object.keys(this.state.error).length > 0 ? (
+                  <p style={styles.error}>{this.getErrorMessage()}</p>
+                ) : (
+                  <p style={styles.copy}>
+                    {!this.state.success && subtitle}
 
-                  {this.state.success &&
-                    `${confirmation.text} ${this.state.response.email}`
-                  }
-                </p>
-              }
+                    {this.state.success && `${confirmation.text} ${this.state.response.email}`}
+                  </p>
+                )}
 
-              <form
-                style={styles.form}
-                action={endpoint}
-                onSubmit={this.handleSubmit}
-              >
-                <div style={styles.inputFieldset}>
-                  <Input
-                    type="email"
-                    placeholder={placeholder}
-                    required
-                    id="newsletter-email"
-                    name="newsletter[email]"
-                    style={styles.input}
-                    onChange={this.handleInput}
-                  />
+                <form style={styles.form} action={endpoint} onSubmit={this.handleSubmit}>
+                  <div style={styles.inputFieldset}>
+                    <Input
+                      type="email"
+                      placeholder={placeholder}
+                      required
+                      id="newsletter-email"
+                      name="newsletter[email]"
+                      style={styles.input}
+                      onChange={this.handleInput}
+                    />
 
-                  <Button
-                    color="blue"
-                    size="small"
-                    disabled={this.state.disabled}
-                    customStyles={styles.button}
-                  >
-                    {!this.state.waiting && cta}
-                    {this.state.waiting && <Icon.Loading />}
-                  </Button>
-                </div>
+                    <Button
+                      color="blue"
+                      size="small"
+                      disabled={this.state.disabled}
+                      customStyles={styles.button}
+                    >
+                      {!this.state.waiting && cta}
+                      {this.state.waiting && <Icon.Loading />}
+                    </Button>
+                  </div>
 
-                <div style={styles.checkboxFieldset}>
-                  <Checkbox
-                    id="legalOptIn"
-                    label={legalOptInLabel}
-                    style={styles.checkbox}
-                    checked={this.state.acceptLegalOptIn}
-                    onClick={this.handleOptIn}
-                    value="legalOptIn"
-                    name="legalOptIn"
-                    required
-                  />
-                </div>
-              </form>
-            </div>
-          }
+                  <div className={!hasOptin && "Legal"} style={styles.legalSection}>
+                    {hasOptin ? (
+                      <Checkbox
+                        id="legalOptIn"
+                        label={legalOptInLabel}
+                        style={styles.legalText}
+                        checked={this.state.acceptLegalOptIn}
+                        onClick={this.handleOptIn}
+                        value="legalOptIn"
+                        name="legalOptIn"
+                        required
+                      />
+                    ) : (
+                      <span style={styles.legalText}>{legalOptInLabel}</span>
+                    )}
+                  </div>
+                </form>
+              </div>
+            )}
 
-          {this.state.showCaptcha &&
+          {this.state.showCaptcha && (
             <div style={{ marginTop: "24px" }}>
               <Recaptcha
                 sitekey={captchaSiteKey}
@@ -391,7 +380,7 @@ class Newsletter extends Component {
                 onloadCallback={this.recaptchCallback}
               />
             </div>
-          }
+          )}
         </Container>
       </div>
     );
@@ -413,6 +402,7 @@ Newsletter.propTypes = {
     source: PropTypes.string,
   }),
   legalOptInLabel: PropTypes.string,
+  hasOptin: PropTypes.bool,
   endpoint: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
 };
@@ -431,7 +421,21 @@ Newsletter.defaultProps = {
     vars: "newsletter[LP_Editorial_Newsletter]",
     source: "homepage",
   },
-  legalOptInLabel: ["Tick to opt-in. Opt out at any time via the “unsubscribe” link in the footer of the emails. View our ", <a href="https://www.lonelyplanet.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">privacy policy</a>, "."],
+  legalOptInLabel: [
+    "I want emails from Lonely Planet with travel and product information, promotions, advertisements, third-party offers, and surveys. I can unsubscribe any time using the unsubscribe link at the end of all emails. Contact Lonely Planet ",
+    <a href="https://www.lonelyplanet.com/contact" target="_blank" rel="noopener noreferrer">
+      here
+    </a>,
+    ". Lonely Planet ",
+    <a
+      href="https://www.lonelyplanet.com/legal/privacy-policy/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Privacy Policy
+    </a>,
+    ".",
+  ],
   captchaSiteKey: null,
   endpoint: "https://www.lonelyplanet.com/newsletter",
 };

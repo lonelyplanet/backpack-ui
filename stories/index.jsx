@@ -1642,6 +1642,7 @@ storiesOf("Newsletter", module)
         subtitle={text("Subtitle", "Get more travel inspiration, tips and exclusive offers sent straight to your inbox")}
         placeholder={text("Input placeholder text", "Enter email")}
         cta={text("Button text", "Sign up")}
+        hasOptin={boolean("Has Opt In", true)}
         confirmation={object("Confirmation data", {
           title: "Thanks for signing up!",
           text: "We just sent a confirmation email to",
