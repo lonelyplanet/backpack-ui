@@ -11,6 +11,7 @@ import CardShelfVideoSlider from "../cardShelfVideoSlider";
 import CardVideo from "../cardVideo";
 import duration from "../../utils/time";
 import media from "../../styles/mq";
+import spacing from "../../styles/spacing";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
@@ -26,7 +27,7 @@ const styles = {
 
   sliderContainer: {
     display: "none",
-    marginTop: "30px",
+    marginTop: spacing.gutter,
 
     [`@media (min-width: ${media.min["560"]}) and (max-width: ${media.max["960"]})`]: {
       display: "block",
@@ -35,7 +36,7 @@ const styles = {
 
   listContainer: {
     display: "none",
-    marginTop: "30px",
+    marginTop: spacing.gutter,
 
     [`@media (max-width: ${media.max["560"]})`]: {
       display: "block",

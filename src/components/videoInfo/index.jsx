@@ -7,7 +7,21 @@ import SocialIconButton from "../socialIconButton";
 import colors from "../../styles/colors";
 import media from "../../styles/mq";
 import timing from "../../styles/timing";
-import { fontWeightLight } from "../../styles/typography";
+import {
+  fontWeightLight,
+  fontSizeHeading4,
+  lineHeightHeading4,
+  fontSizeHeading5,
+  lineHeightHeading5,
+  fontSizeHeading7,
+  lineHeightHeading7,
+  fontSizeBodySmall,
+  fontSizeBodyArticleSmall,
+  lineHeightBodySmall,
+  lineHeightBodyArticleSmall,
+  fontSizeUppercase,
+  lineHeightUppercase,
+} from "../../styles/typography";
 import { gutter } from "../../utils/grid";
 
 const styles = {
@@ -60,19 +74,19 @@ const styles = {
 
   heading: {
     default: {
-      fontSize: "32px",
-      lineHeight: "40px",
+      fontSize: fontSizeHeading4,
+      lineHeight: lineHeightHeading4,
       paddingRight: "245px",
 
       [`@media (max-width: ${media.max["960"]})`]: {
-        fontSize: "24px",
-        lineHeight: "32px",
+        fontSize: fontSizeHeading5,
+        lineHeight: lineHeightHeading5,
         paddingRight: "0px",
       },
 
       [`@media (max-width: ${media.max["480"]})`]: {
-        fontSize: "18px",
-        lineHeight: "24px",
+        fontSize: fontSizeHeading7,
+        lineHeight: lineHeightHeading7,
         paddingRight: "0px",
         letterSpacing: "-0.5px",
       },
@@ -86,22 +100,22 @@ const styles = {
   },
 
   description: {
-    marginTop: "22px",
-    marginBottom: "22px",
+    marginTop: "24px",
+    marginBottom: "24px",
     fontWeight: fontWeightLight,
-    fontSize: "16px",
-    lineHeight: "28px",
+    fontSize: fontSizeBodyArticleSmall,
+    lineHeight: lineHeightBodyArticleSmall,
 
     [`@media (max-width: ${media.max["960"]})`]: {
-      fontSize: "14px",
-      lineHeight: "20px",
+      fontSize: fontSizeBodySmall,
+      lineHeight: lineHeightBodySmall,
       marginTop: "16px",
       marginBottom: "16px",
     },
   },
 
   data: {
-    fontSize: "11px",
+    fontSize: fontSizeUppercase,
     fontWeight: 400,
     textTransform: "uppercase",
     lineHeight: 1.7,
@@ -110,7 +124,7 @@ const styles = {
 
   dataLabel: {
     color: colors.accentGray,
-    marginRight: "6px",
+    marginRight: "8px",
     textTransform: "none",
     fontStyle: "italic",
   },
@@ -124,7 +138,7 @@ const styles = {
   socialLinksDesktop: {
     display: "none",
     marginLeft: "auto",
-    paddingLeft: "20px",
+    paddingLeft: "24px",
 
     [`@media (min-width: ${media.min["480"]})`]: {
       display: "flex",
@@ -142,8 +156,8 @@ const styles = {
   },
 
   socialLinkDesktop: {
-    marginLeft: "15px",
-    marginBottom: "15px",
+    marginLeft: "16px",
+    marginBottom: "16px",
     float: "right",
   },
 
@@ -173,15 +187,15 @@ const styles = {
   },
 
   socialLinkMobile: {
-    marginRight: "15px",
+    marginRight: "16px",
   },
 
   socialLinksText: {
     default: {
-      fontSize: "11px",
+      fontSize: fontSizeUppercase,
+      lineHeight: lineHeightUppercase,
       fontWeight: 400,
       textTransform: "uppercase",
-      lineHeight: 1.7,
       letterSpacing: "0.05px",
       paddingBottom: gutter("static", 1, 0.5),
     },

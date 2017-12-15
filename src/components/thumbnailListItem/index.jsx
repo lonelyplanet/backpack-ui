@@ -3,10 +3,16 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Link from "../link";
 import { color } from "../../../settings.json";
-import media from "../../styles/mq";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
-import { fontWeightMedium } from "../../styles/typography";
+import {
+  fontWeightMedium,
+  fontSizeUppercase,
+  fontSizeHeading7,
+  lineHeightHeading7,
+  fontSizeHeading8,
+  lineHeightHeading8,
+} from "../../styles/typography";
 import zIndex from "../../styles/zIndex";
 import font from "../../utils/font";
 import { rgba } from "../../utils/color";
@@ -60,7 +66,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     color: colors.textOverlay,
-    fontSize: "22px",
+    fontSize: "20px",
     width: "100%",
     height: "100%",
     position: "absolute",
@@ -71,7 +77,7 @@ const styles = {
 
   imageText: {
     bottom: "3px",
-    fontSize: "11px",
+    fontSize: fontSizeUppercase,
     fontWeight: fontWeightMedium,
     position: "absolute",
     right: "3px",
@@ -88,18 +94,12 @@ const styles = {
   title: {
     default: {
       display: "-webkit-box",
-      fontSize: "16px",
-      lineHeight: (19 / 16),
-      marginBottom: "4px",
+      fontSize: fontSizeHeading7,
+      lineHeight: lineHeightHeading7,
       overflow: "hidden",
       textOverflow: "ellipsis",
       WebkitBoxOrient: "vertical",
       transition: `color ${timing.default} ease`,
-
-      [`@media (max-width: ${media.max["480"]})`]: {
-        fontSize: "14px",
-        lineHeight: "20px",
-      },
     },
     lineClamp: {
       WebkitLineClamp: 1,
@@ -119,20 +119,24 @@ const styles = {
 
   textAnchor: {
     display: "block",
-    paddingLeft: "15px",
+    paddingLeft: "16px",
     width: "100%",
   },
 
   status: {
-    color: color.white,
-    fontFamily: font("miller"),
-    fontSize: "12px",
-    fontStyle: "italic",
-    marginBottom: "4px",
-  },
-
-  description: {
-    marginBottom: "4px",
+    default: {
+      color: color.white,
+      fontFamily: font("miller"),
+      fontSize: fontSizeHeading8,
+      lineHeight: lineHeightHeading8,
+      fontStyle: "italic",
+    },
+    light: {
+      color: colors.textPrimary,
+    },
+    dark: {
+      color: colors.textOverlay,
+    },
   },
 
   descriptionIcon: {
@@ -231,16 +235,18 @@ const ThumbnailListItem = ({
           style={styles.textAnchor}
         >
           {status &&
-            <div style={styles.status}>
+            <div
+              style={[
+                styles.status.default,
+                styles.status[theme],
+              ]}
+            >
               {status}
             </div>
           }
 
           {description &&
-            <BulletDescription
-              description={description}
-              style={styles.description}
-            />
+            <BulletDescription description={description} />
           }
 
           <Heading

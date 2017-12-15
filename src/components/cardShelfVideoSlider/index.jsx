@@ -6,7 +6,11 @@ import CardShelf from "../cardShelf/cardShelf";
 import Heading from "../heading";
 import Link from "../link";
 import MoreLink from "../moreLink";
-import { fontSizeHeading6, fontWeightRegular } from "../../styles/typography";
+import {
+  fontSizeHeading6,
+  lineHeightHeading6,
+  fontWeightRegular,
+} from "../../styles/typography";
 import timing from "../../styles/timing";
 import { lighten } from "../../utils/color";
 import colors from "../../styles/colors";
@@ -25,17 +29,13 @@ const styles = {
 
   header: {
     position: "relative",
-    marginBottom: "19px",
+    marginBottom: "16px",
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-end",
 
-    [`@media (max-width: ${media.max["480"]})`]: {
-      marginBottom: "12px",
-    },
-
     [`@media (max-width: ${media.max["360"]})`]: {
-      marginBottom: "10px",
+      marginBottom: "8px",
     },
   },
 
@@ -44,7 +44,7 @@ const styles = {
       fontSize: fontSizeHeading6,
       fontWeight: fontWeightRegular,
       display: "inline-block",
-      lineHeight: "26px",
+      lineHeight: lineHeightHeading6,
 
       [`@media (max-width: ${media.max["720"]})`]: {
         flexGrow: 1,
@@ -72,17 +72,17 @@ const styles = {
       color: "rgb(228, 228, 228)",
     },
     normal: {
-      top: "-74px",
+      top: "-68px",
 
       [`@media (max-width: ${media.max["768"]})`]: {
-        top: "-44px",
+        top: "-38px",
       },
     },
     compact: {
       top: "-34px",
 
       [`@media (max-width: ${media.max["768"]})`]: {
-        top: "-26px",
+        top: "-32px",
       },
     },
   },
@@ -91,7 +91,7 @@ const styles = {
     fontWeight: 400,
     position: "absolute",
     right: 0,
-    bottom: "7px",
+    bottom: "8px",
 
     [`@media (max-width: ${media.max["720"]})`]: {
       display: "none",
@@ -128,7 +128,7 @@ const styles = {
 
   adSlot: {
     paddingLeft: "20px",
-    paddingBottom: "7px",
+    paddingBottom: "8px",
 
     [`@media (max-width: ${media.max["720"]})`]: {
       marginLeft: "auto",

@@ -38,8 +38,8 @@ const styles = {
     fixedToWindow: {
       position: "fixed",
       zIndex: zIndex.popup,
-      right: "20px",
-      bottom: "20px",
+      right: "24px",
+      bottom: "24px",
       width: "60%",
       maxWidth: "406px",
       height: "initial",

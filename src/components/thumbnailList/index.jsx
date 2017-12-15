@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import {
   fontSizeHeading6,
+  lineHeightHeading6,
   fontWeightRegular,
 } from "../../styles/typography";
 import colors from "../../styles/colors";
@@ -11,23 +12,15 @@ import Heading from "../../components/heading";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
-  header: {
-    marginBottom: "2px",
-  },
-
   heading: {
     default: {
       fontSize: fontSizeHeading6,
       fontWeight: fontWeightRegular,
       display: "inline-block",
-      lineHeight: "28px",
-      marginBottom: "9px",
+      lineHeight: lineHeightHeading6,
+      marginBottom: "8px",
 
       [`@media (max-width: ${media.max["480"]})`]: {
-        marginBottom: "2px",
-      },
-
-      [`@media (max-width: ${media.max["360"]})`]: {
         marginBottom: "0px",
       },
     },
@@ -41,8 +34,8 @@ const styles = {
 
   child: {
     default: {
-      paddingBottom: "12px",
-      paddingTop: "12px",
+      paddingBottom: "16px",
+      paddingTop: "16px",
       borderBottomWidth: "1px",
       borderBottomStyle: "solid",
     },
@@ -66,7 +59,7 @@ const ThumbnailList = ({
     style={style}
   >
     {heading &&
-      <header style={styles.header}>
+      <header>
         <Heading
           level={2}
           override={{

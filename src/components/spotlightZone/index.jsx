@@ -9,6 +9,20 @@ import VideoEmbed from "../videoEmbed";
 import media from "../../styles/mq";
 import zIndex from "../../styles/zIndex";
 import { percentage, gutter } from "../../utils/grid";
+import {
+  fontSizeHeading3,
+  lineHeightHeading3,
+  fontSizeHeading4,
+  lineHeightHeading4,
+  fontSizeHeading5,
+  lineHeightHeading5,
+  fontSizeHeading6,
+  lineHeightHeading6,
+  fontSizeBodyArticleSmall,
+  lineHeightBodyArticleSmall,
+  fontSizeBodySmall,
+  lineHeightBodySmall,
+} from "../../styles/typography";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
@@ -37,7 +51,7 @@ const styles = {
   content: {
     zIndex: (zIndex.default + 1),
     width: "100%",
-    paddingTop: "60px",
+    paddingTop: "56px",
     paddingBottom: "60px",
     display: "flex",
 
@@ -110,13 +124,13 @@ const styles = {
   },
 
   zone: {
-    fontSize: "20px",
+    fontSize: fontSizeHeading6,
+    lineHeight: lineHeightHeading6,
     position: "relative",
     top: 0,
     left: 0,
     display: "inline-block",
     fontWeight: 600,
-    lineHeight: 1,
 
     [`@media (max-width: ${media.max["720"]})`]: {
       fontSize: "18px",
@@ -125,27 +139,27 @@ const styles = {
 
   title: {
     color: "white",
-    fontSize: "40px",
-    lineHeight: (24 / 20),
+    fontSize: fontSizeHeading3,
+    lineHeight: lineHeightHeading3,
 
     [`@media (min-width: ${media.min["720"]}) and (max-width: ${media.max["960"]})`]: {
       width: "50%",
       paddingRight: "20px",
-      fontSize: "32px",
-      lineHeight: "40px",
+      fontSize: fontSizeHeading4,
+      lineHeight: lineHeightHeading4,
     },
 
     [`@media (max-width: ${media.max["720"]})`]: {
-      fontSize: "24px",
-      lineHeight: "32px",
+      fontSize: fontSizeHeading5,
+      lineHeight: lineHeightHeading5,
     },
   },
 
   paragraph: {
-    fontSize: "16px",
+    fontSize: fontSizeBodyArticleSmall,
     fontWeight: 300,
-    lineHeight: "24px",
-    marginTop: "25px",
+    lineHeight: lineHeightBodyArticleSmall,
+    marginTop: "24px",
 
     [`@media (min-width: ${media.min["720"]}) and (max-width: ${media.max["960"]})`]: {
       width: "50%",
@@ -155,8 +169,8 @@ const styles = {
 
     [`@media (max-width: ${media.max["720"]})`]: {
       marginTop: "12px",
-      fontSize: "14px",
-      lineHeight: "20px",
+      fontSize: fontSizeBodySmall,
+      lineHeight: lineHeightBodySmall,
     },
   },
 };

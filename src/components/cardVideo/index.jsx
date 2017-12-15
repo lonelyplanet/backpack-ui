@@ -10,6 +10,10 @@ import {
   CardImage,
   CardText,
 } from "../card";
+import {
+  fontSizeBodySmall,
+  lineHeightBodySmall,
+} from "../../styles/typography";
 import IconButton from "../iconButton";
 import media from "../../styles/mq";
 import colors from "../../styles/colors";
@@ -68,6 +72,7 @@ const styles = {
     position: "absolute",
     paddingLeft: "4px",
     fontSize: "16px",
+
     [`@media (max-width: ${media.max["360"]})`]: {
       bottom: "9px",
       left: "10px",
@@ -79,6 +84,7 @@ const styles = {
     right: "16px",
     position: "absolute",
     fontSize: "16px",
+
     [`@media (max-width: ${media.max["360"]})`]: {
       bottom: "9px",
       right: "10px",
@@ -87,22 +93,26 @@ const styles = {
 
   duration: {
     default: {
-      fontSize: "14px",
+      fontSize: fontSizeBodySmall,
+      lineHeight: lineHeightBodySmall,
       color: colors.textOverlay,
       position: "absolute",
       right: "16px",
+
       [`@media (max-width: ${media.max["360"]})`]: {
         right: "10px",
       },
     },
     topAligned: {
       top: "16px",
+
       [`@media (max-width: ${media.max["360"]})`]: {
         top: "9px",
       },
     },
     bottomAligned: {
       bottom: "21px",
+
       [`@media (max-width: ${media.max["360"]})`]: {
         bottom: "14px",
       },

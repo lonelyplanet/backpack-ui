@@ -5,6 +5,12 @@ import Link from "../link";
 import CoverPhoto from "../coverPhoto";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
+import {
+  fontSizeUppercase,
+  lineHeightUppercase,
+  fontSizeBodySmall,
+  lineHeightBodySmall,
+} from "../../styles/typography";
 import propTypes from "../../utils/propTypes";
 
 const scopedStyles = {
@@ -26,7 +32,7 @@ const styles = {
 
   link: {
     color: colors.textOverlay,
-    padding: "6px",
+    padding: "8px",
     display: "inline-block",
     width: "100%",
   },
@@ -35,7 +41,7 @@ const styles = {
     width: "100px",
     height: "56px",
     overflow: "hidden",
-    marginRight: "6px",
+    marginRight: "8px",
     float: "left",
   },
 
@@ -45,16 +51,19 @@ const styles = {
 
   label: {
     color: colors.accentGray,
-    fontSize: "11px",
+    fontSize: fontSizeUppercase,
+    lineHeight: lineHeightUppercase,
     marginTop: "2px",
   },
 
   title: {
-    lineHeight: "17px",
-    fontSize: "14px",
-    height: "34px",
+    display: "-webkit-box",
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: "vertical",
+    lineHeight: lineHeightBodySmall,
+    fontSize: fontSizeBodySmall,
     overflow: "hidden",
-    marginTop: "1px",
+    marginTop: "4px",
   },
 };
 

@@ -8,6 +8,11 @@ import VideoPopout from "../videoPopout";
 import FeaturedVideo from "../featuredVideo";
 import colors from "../../styles/colors";
 import media from "../../styles/mq";
+import {
+  fontWeightLight,
+  fontSizeHeading7,
+  lineHeightHeading7,
+} from "../../styles/typography";
 import timing from "../../styles/timing";
 import duration from "../../utils/time";
 import propTypes from "../../utils/propTypes";
@@ -72,11 +77,11 @@ const styles = {
 
   playlistHeader: {
     color: colors.textOverlay,
-    fontSize: "14px",
-    fontWeight: 300,
+    fontSize: fontSizeHeading7,
+    fontWeight: fontWeightLight,
     letterSpacing: "1.5px",
-    lineHeight: "14px",
-    padding: "14px 18px",
+    lineHeight: lineHeightHeading7,
+    padding: "8px 16px",
     textAlign: "center",
     borderStyle: "solid",
     borderLeftWidth: "0px",

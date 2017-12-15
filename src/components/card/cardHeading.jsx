@@ -2,7 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import Heading from "../heading";
-import { fontSizeHeading5, fontSizeHeading7 } from "../../styles/typography";
+import {
+  fontSizeHeading5,
+  fontSizeHeading7,
+  lineHeightHeading5,
+  lineHeightHeading7,
+} from "../../styles/typography";
 import media from "../../styles/mq";
 import timing from "../../styles/timing";
 import color from "../../styles/colors";
@@ -13,8 +18,8 @@ const mq = `@media (max-width: ${media.max["768"]})`;
 const styles = {
   default: {
     display: "-webkit-box",
-    fontSize: `${fontSizeHeading5}px`,
-    lineHeight: (32 / 24),
+    fontSize: fontSizeHeading5,
+    lineHeight: lineHeightHeading5,
     maxHeight: "60px",
     overflow: "hidden",
     textOverflow: "ellipsis",
@@ -23,16 +28,16 @@ const styles = {
     WebkitLineClamp: 2,
 
     [mq]: {
-      fontSize: "14px",
-      lineHeight: (18 / 14),
-      maxHeight: "36px",
+      fontSize: fontSizeHeading7,
+      lineHeight: lineHeightHeading7,
     },
   },
   dark: {
     color: color.textOverlay,
   },
   compact: {
-    fontSize: `${fontSizeHeading7}px`,
+    fontSize: fontSizeHeading7,
+    lineHeight: lineHeightHeading7,
   },
 };
 
