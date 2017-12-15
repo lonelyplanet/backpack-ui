@@ -1,255 +1,185 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import settings from "../../../settings.json";
-import { gutter, percentage } from "../../utils/grid";
-import Link from "../link";
 import font from "../../utils/font";
-import { rgba } from "../../utils/color";
 import Heading from "../heading";
-import { Play } from "../icon";
 import Container from "../container";
+import VideoPopout from "../videoPopout";
+import VideoEmbed from "../videoEmbed";
+import media from "../../styles/mq";
+import zIndex from "../../styles/zIndex";
+import { percentage, gutter } from "../../utils/grid";
+import {
+  fontSizeHeading3,
+  lineHeightHeading3,
+  fontSizeHeading4,
+  lineHeightHeading4,
+  fontSizeHeading5,
+  lineHeightHeading5,
+  fontSizeHeading6,
+  lineHeightHeading6,
+  fontSizeBodyArticleSmall,
+  lineHeightBodyArticleSmall,
+  fontSizeBodySmall,
+  lineHeightBodySmall,
+} from "../../styles/typography";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   container: {
+    display: "flex",
     fontFamily: font("benton"),
     position: "relative",
-    backgroundColor: settings.color.black,
-    color: settings.color.white,
-
-    [`@media (min-width: ${settings.media.min["960"]})`]: {
-      display: "flex",
-      maxHeight: "100vh",
-      minHeight: "665px",
-    },
+    backgroundColor: "#1f1f1f",
+    color: "white",
   },
 
   background: {
     position: "absolute",
-    filter: "grayscale(100%)",
     backgroundSize: "cover",
     backgroundPosition: "center",
+    filter: "grayscale(100%)",
     width: "100%",
     height: "100%",
     opacity: 0.4,
-    zIndex: settings.zIndex.default,
+    zIndex: zIndex.default,
     top: 0,
     left: 0,
     right: 0,
   },
 
-  backgroundOverlay: {
-    backgroundColor: rgba(settings.color.black, 0.38),
-    bottom: 0,
-    height: "100%",
-    left: 0,
-    position: "absolute",
-    top: 0,
-    width: percentage("598px", "1510px"),
-    zIndex: settings.zIndex.default,
-
-    [`@media (max-width: ${settings.media.max["960"]})`]: {
-      display: "none",
-    },
-  },
-
   content: {
-    zIndex: (settings.zIndex.default + 1),
+    zIndex: (zIndex.default + 1),
+    width: "100%",
+    paddingTop: "56px",
+    paddingBottom: "60px",
+    display: "flex",
 
-    [`@media (min-width: ${settings.media.min["960"]})`]: {
-      display: "flex",
-      alignItems: "center",
+    [`@media (max-width: ${media.max["960"]})`]: {
+      paddingBottom: gutter("static"),
+      paddingTop: gutter("static"),
+      flexDirection: "column",
     },
   },
 
   leftContent: {
-    [`@media (max-width: ${settings.media.max["480"]})`]: {
-      marginLeft: `-${gutter("static", 1, 0.5)}`,
-      marginRight: `-${gutter("static", 1, 0.5)}`,
-      paddingLeft: gutter("static", 1, 0.5),
-      paddingRight: gutter("static", 1, 0.5),
-    },
+    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
 
-    [`@media (min-width: ${settings.media.min["480"]}) and (max-width: ${settings.media.max["960"]})`]: {
-      marginLeft: `-${gutter("static")}`,
-      marginRight: `-${gutter("static")}`,
-      paddingLeft: gutter("static"),
-      paddingRight: gutter("static"),
-    },
-
-    [`@media (max-width: ${settings.media.max["600"]})`]: {
-      paddingBottom: "32px",
-      paddingTop: "34px",
-    },
-
-    [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
-      paddingBottom: "82px",
-      paddingTop: "84px",
-    },
-
-    [`@media (max-width: ${settings.media.max["960"]})`]: {
-      backgroundColor: rgba(settings.color.black, 0.38),
-    },
-
-    [`@media (min-width: ${settings.media.min["960"]})`]: {
-      marginRight: "84px",
-      marginTop: "25px",
-      paddingRight: "50px",
+    [`@media (min-width: ${media.min["960"]})`]: {
+      paddingRight: "80px",
     },
   },
 
   rightContent: {
-    [`@media (max-width: ${settings.media.max["600"]})`]: {
-      paddingBottom: "38px",
-      paddingTop: "32px",
+    flex: "0 0 auto",
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+
+    [`@media (max-width: ${media.max["480"]})`]: {
+      paddingTop: gutter("static", 1, 0.5),
     },
 
-    [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
-      paddingBottom: "88px",
-      paddingTop: "82px",
+    [`@media (min-width: ${media.min["480"]}) and (max-width: ${media.max["960"]})`]: {
+      paddingTop: gutter("static"),
     },
 
-    [`@media (min-width: ${settings.media.min["960"]})`]: {
-      flex: "0 0 auto",
-      width: percentage("718px", settings.grid.container),
+    [`@media (min-width: ${media.min["960"]})`]: {
+      width: percentage("718px", "1290px"),
+    },
+  },
+
+  leftContentTop: {
+    paddingBottom: gutter("static"),
+  },
+
+  leftContentMiddle: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    flexGrow: 1,
+
+    [`@media (min-width: ${media.min["720"]}) and (max-width: ${media.max["960"]})`]: {
+      flexDirection: "row",
+      justifyContent: "flex-start",
+      paddingBottom: "0px",
+    },
+
+    [`@media (min-width: ${media.min["960"]})`]: {
+      paddingBottom: "60px",
+    },
+  },
+
+  adSlot: {
+    float: "right",
+
+    [`@media (min-width: ${media.min["960"]})`]: {
+      float: "none",
+      paddingTop: "30px",
+      paddingBottom: "8px",
     },
   },
 
   zone: {
-    fontSize: "16px",
-    top: "32px",
-    position: "absolute",
-    fontWeight: settings.typography.fontWeightSemibold,
-    lineHeight: 1,
+    fontSize: fontSizeHeading6,
+    lineHeight: lineHeightHeading6,
+    position: "relative",
+    top: 0,
+    left: 0,
+    display: "inline-block",
+    fontWeight: 600,
 
-    [`@media (min-width: ${settings.media.min["600"]})`]: {
-      fontSize: "24px",
-      top: "64px",
-    },
-
-    [`@media (min-width: ${settings.media.min["960"]})`]: {
-      top: "80px",
+    [`@media (max-width: ${media.max["720"]})`]: {
+      fontSize: "18px",
     },
   },
 
   title: {
-    color: settings.color.white,
-    fontSize: "20px",
-    lineHeight: (24 / 20),
+    color: "white",
+    fontSize: fontSizeHeading3,
+    lineHeight: lineHeightHeading3,
 
-    [`@media (max-width: ${settings.media.max["600"]})`]: {
-      marginTop: "8px",
+    [`@media (min-width: ${media.min["720"]}) and (max-width: ${media.max["960"]})`]: {
+      width: "50%",
+      paddingRight: "20px",
+      fontSize: fontSizeHeading4,
+      lineHeight: lineHeightHeading4,
     },
 
-    [`@media (min-width: ${settings.media.min["600"]})`]: {
-      fontSize: "40px",
-      lineHeight: (48 / 40),
-      marginTop: "10px",
-    },
-  },
-
-  category: {
-    color: settings.color.white,
-    fontSize: "11px",
-    lineHeight: 1,
-
-    [`@media (max-width: ${settings.media.max["600"]})`]: {
-      marginTop: "76px",
-    },
-
-    [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
-      marginTop: "147px",
-    },
-
-    [`@media (min-width: ${settings.media.min["600"]})`]: {
-      fontSize: "16px",
+    [`@media (max-width: ${media.max["720"]})`]: {
+      fontSize: fontSizeHeading5,
+      lineHeight: lineHeightHeading5,
     },
   },
 
   paragraph: {
-    fontSize: "12px",
+    fontSize: fontSizeBodyArticleSmall,
     fontWeight: 300,
-    lineHeight: (20 / 12),
-    marginBottom: 0,
-    marginTop: 0,
+    lineHeight: lineHeightBodyArticleSmall,
+    marginTop: "24px",
 
-    [`@media (max-width: ${settings.media.max["600"]})`]: {
-      marginTop: "18px",
+    [`@media (min-width: ${media.min["720"]}) and (max-width: ${media.max["960"]})`]: {
+      width: "50%",
+      marginTop: "0px",
+      paddingLeft: "20px",
     },
 
-    [`@media (min-width: ${settings.media.min["600"]})`]: {
-      fontSize: "16px",
-      lineHeight: (28 / 16),
-      marginTop: "25px",
+    [`@media (max-width: ${media.max["720"]})`]: {
+      marginTop: "12px",
+      fontSize: fontSizeBodySmall,
+      lineHeight: lineHeightBodySmall,
     },
-  },
-
-  divider: {
-    borderColor: rgba(settings.color.subtitleGray, 0.27),
-    width: "50%",
-    display: "inline-block",
-    borderStyle: "solid",
-    borderTopWidth: 0,
-    marginBottom: "25px",
-    marginTop: "32px",
-
-    [`@media (min-width: ${settings.media.min["600"]})`]: {
-      marginTop: "27px",
-    },
-  },
-
-  link: {
-    position: "relative",
-    display: "inline-block",
-  },
-
-  image: {
-    display: "block",
-    maxWidth: "100%",
-    maxHeight: "100%",
-    boxShadow: `0 12px 34px 0 ${rgba(settings.color.black, 0.12)},
-      inset 0 1px 3px 0 ${rgba(settings.color.black, 0.5)}`,
-    border: `1px solid ${rgba(settings.color.white, 0.2)}`,
-  },
-
-  imageOverlay: {
-    backgroundColor: rgba(settings.color.black, 0.16),
-    position: "absolute",
-    top: 0,
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    transition: `background-color ${settings.timing.default} ease`,
-  },
-
-  playIcon: {
-    color: settings.color.white,
-    height: "21px",
-    width: "21px",
   },
 };
 
-const css = `
-  .SpotlightZone a:hover .SpotlightZone-imageOverlay {
-    background-color: ${rgba(settings.color.black, 0.06)} !important;
-  }
-`;
-
-function markup(htmlContent) {
-  return {
-    __html: htmlContent,
-  };
-}
-
 const SpotlightZone = ({
   zone,
-  category,
   title,
   paragraph,
-  href,
-  imageUrl,
+  videoEmbed,
   backgroundImageUrl,
   adSlot,
   style,
@@ -258,93 +188,66 @@ const SpotlightZone = ({
     className="SpotlightZone"
     style={[styles.container, style]}
   >
-    <style dangerouslySetInnerHTML={markup(css)} />
-
     <Container style={styles.content}>
       <div style={styles.leftContent}>
-        <div style={styles.zone}>
-          {zone}
+        <div style={styles.leftContentTop}>
+          <div style={styles.zone}>
+            { zone }
+          </div>
+
+          <div style={styles.adSlot}>
+            { adSlot }
+          </div>
         </div>
 
-        <div style={styles.category}>
-          {category}
+        <div style={styles.leftContentMiddle}>
+          <Heading
+            level={2}
+            tracking="tight"
+            weight="thin"
+            override={styles.title}
+          >
+            { title }
+          </Heading>
+
+          <p
+            style={styles.paragraph}
+            dangerouslySetInnerHTML={{ __html: paragraph }}
+          />
         </div>
 
-        <Heading
-          level={2}
-          tracking="tight"
-          weight="thin"
-          override={styles.title}
-        >
-          {title}
-        </Heading>
-
-        <p
-          style={styles.paragraph}
-          dangerouslySetInnerHTML={{ __html: paragraph }}
-        />
-
-        {adSlot && <hr style={styles.divider} /> }
-        {adSlot}
       </div>
 
       <div style={styles.rightContent}>
-        <Link to={href} style={styles.link}>
-          <img
-            style={styles.image}
-            src={imageUrl}
-            alt=""
-          />
-
-          <div
-            className="SpotlightZone-imageOverlay"
-            style={styles.imageOverlay}
-          >
-            <Play style={styles.playIcon} />
-          </div>
-        </Link>
+        <VideoPopout videoEmbed={videoEmbed} style={{ height: "auto" }} />
       </div>
     </Container>
 
     <div
       style={[
         styles.background,
-        { backgroundImage: `url("${backgroundImageUrl}")` },
+        { backgroundImage: backgroundImageUrl ? `url("${backgroundImageUrl}")` : "none" },
       ]}
       aria-hidden="true"
     />
-    <div style={styles.backgroundOverlay} />
   </div>
 );
 
 SpotlightZone.propTypes = {
   zone: PropTypes.string.isRequired,
-  category: PropTypes.string,
   title: PropTypes.string.isRequired,
   paragraph: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
+  videoEmbed: PropTypes.shape(VideoEmbed.propTypes).isRequired,
   backgroundImageUrl: PropTypes.string.isRequired,
   adSlot: PropTypes.element,
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 SpotlightZone.defaultProps = {
   zone: "",
-  category: "",
   title: "",
   paragraph: "",
-  href: "",
-  imageUrl: "",
   backgroundImageUrl: "",
 };
-
-SpotlightZone.styles = styles;
 
 export default radium(SpotlightZone);

@@ -42,6 +42,7 @@ import CalloutLink from "../src/components/calloutLink";
 import CardBasic from "../src/components/cardBasic";
 import CardPrice from "../src/components/cardPrice";
 import CardShelfVideo from "../src/components/cardShelfVideo";
+import CardShelfVideoSlider from "../src/components/cardShelfVideoSlider";
 import CardShelfVideoSwiper from "../src/components/cardShelfVideoSwiper";
 import CardVideo from "../src/components/cardVideo";
 import CategoryLabel from "../src/components/categoryLabel";
@@ -61,6 +62,7 @@ import EditLink from "../src/components/editLink";
 import ErrorMessages from "../src/components/form/errorMessages";
 import ExpandButton from "../src/components/expandButton";
 import FeaturedArticle from "../src/components/featuredArticle";
+import FeaturedVideo from "../src/components/featuredVideo";
 import Flag from "../src/components/flag";
 import FlightSearchWidget from "../src/components/flightSearchWidget";
 import Flyout from "../src/components/flyout";
@@ -139,6 +141,7 @@ import SettingBlockAction from "../src/components/settingBlockAction";
 import SettingBlockAccordion from "../src/components/settingBlockAccordion";
 import SettingBlockTextArea from "../src/components/settingBlockTextArea";
 import SettingBlockInput from "../src/components/settingBlockInput";
+import Slider from "../src/components/slider";
 import FormTextArea from "../src/components/form/textarea";
 import ToggleController from "../src/utils/toggleController";
 import ShareMenu from "../src/components/shareMenu";
@@ -165,6 +168,7 @@ import TallCarousel from "../src/components/tallCarousel";
 import { TextAccent, TextBodyArticle, TextBodySmall, TextHeading, TextSuper, TextUppercase } from "../src/components/text";
 import TextBubble from "../src/components/textBubble";
 import Textarea from "../src/components/textarea";
+import ThumbnailList from "../src/components/thumbnailList";
 import ThumbnailListItem from "../src/components/thumbnailListItem";
 import TileGrid from "../src/components/tileGrid";
 import TileVideo from "../src/components/tileVideo";
@@ -177,6 +181,11 @@ import TravelAlert from "../src/components/travelAlert";
 import { Typeahead, TypeaheadTokenizer } from "../src/components/typeahead";
 import TypeSelector from "../src/components/typeSelector";
 import VideoEmbed from "../src/components/videoEmbed";
+import VideoInfo from "../src/components/videoInfo";
+import VideoPlaylist from "../src/components/videoPlaylist";
+import VideoPlaylistWithSlider from "../src/components/videoPlaylistWithSlider";
+import VideoPopout from "../src/components/videoPopout";
+import VideoUpNext from "../src/components/videoUpNext";
 import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 import colorTokens from "../src/styles/colors";
 
@@ -617,14 +626,18 @@ storiesOf("Cards", module)
   ))
   .add("Video card", () => (
     <StyleRoot>
-      <div style={{ padding: "32px" }}>
+      <div style={{ width: "400px", padding: "32px" }}>
         <CardVideo
           heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
           bullets={array("Bullets", ["On The Road", "E.01"])}
           runtime={number("Video runtime", 129365)}
-          onClick={action("Watch this video later")}
+          mobile={boolean("Mobile", false)}
           imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
           href={text("URL", "#")}
+          layout={select("Layout", ["card", "tile"], "card")}
+          theme={select("Theme", ["light", "dark"], "light")}
+          spacing={select("Spacing", ["normal", "compact"], "normal")}
+          aspectRatio={select("Aspect ratio", ["video", "poster"], "video")}
         />
       </div>
     </StyleRoot>
@@ -835,6 +848,42 @@ storiesOf("Featured article", module)
     </StyleRoot>
   ));
 
+storiesOf("Featured video", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <div style={{ width: "600px", height: "350px" }}>
+        <FeaturedVideo
+          videoId={text("Video ID", "5363317250001")}
+          title={text("Title", "Introducing Italy")}
+          description={text("Description", "Welcome to <b>italy</b>. <i>Come explore</i>.")}
+          duration={number("Duration", 30000)}
+          image="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=430&h=250&fit=crop"
+          hoverEffects={boolean("Hover effects", false)}
+          mobile={boolean("Mobile", false)}
+          videoEmbed={{
+            previewStartTime: 10,
+            previewEndTime: 13,
+          }}
+        />
+      </div>
+    </StyleRoot>
+  ))
+  .add("Graphic", () => (
+    <StyleRoot>
+      <div style={{ width: "600px", height: "350px" }}>
+        <FeaturedVideo
+          videoId={text("Video ID", "5363317250001")}
+          title={text("Title", "Introducing Italy")}
+          image="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=430&h=250&fit=crop"
+          graphic="https://lonelyplanetstatic.imgix.net/op-video-sync/assets/logo_bestintravel.svg"
+          hoverEffects={boolean("Hover effects", false)}
+          mobile={boolean("Mobile", false)}
+        />
+      </div>
+    </StyleRoot>
+  ));
+
 storiesOf("Flag", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -984,7 +1033,11 @@ storiesOf("Icon button", module)
           "BookmarkActive",
           "BookmarkAlt",
           "BookmarkAltActive",
+          "ChevronLeft",
+          "ChevronRight",
+          "ClockOutline",
           "Ellipsis",
+          "Play",
           "Share",
         ], "Share")}
         label={text("Label", "Share this")}
@@ -995,9 +1048,13 @@ storiesOf("Icon button", module)
         size={select("Size", [32, 40, 56], 32)}
         owns={text("Aria owns", null)}
         backgroundColor={text("Background color", null)}
+        hoverBackgroundColor={text("Hover background color", null)}
+        hoverBackgroundScale={number("Hover background scale", null)}
         color={text("Color", null)}
+        hoverColor={text("Hover color", null)}
         border={boolean("Border", false)}
         shadow={boolean("Shadow", false)}
+        transitionDuration={text("Transition duration", "400ms")}
       />
     </Center>
   ));
@@ -2230,6 +2287,59 @@ storiesOf("Setting Block", module)
     </div>
   ));
 
+storiesOf("Slider", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => {
+    const styles = {
+      container: {
+        padding: "20px",
+      },
+      arrow: {
+        default: {
+          backgroundColor: "#1e7bcc",
+          color: "white",
+          paddingLeft: "6px",
+          position: "relative",
+          width: "20px",
+        },
+        next: {
+          right: "20px",
+        },
+      },
+      slide: {
+        backgroundColor: "black",
+        color: "white",
+      },
+    };
+    return (
+      <StyleRoot>
+        <div style={styles.container}>
+          <Slider
+            slidesToShow={number("Slides to show", 4, {
+               range: true,
+               min: 1,
+               max: 4,
+               step: 1,
+            })}
+            coverupColor={text("Coverup color", "transparent")}
+            infinite={boolean("Infinite", false)}
+            autoplay={boolean("Autoplay", false)}
+            autoplaySpeed={number("Autoplay speed", 5000)}
+            pauseOnHover={boolean("Pause on hover", true)}
+            arrows={boolean("Arrows", true)}
+          >
+            <div key="1" style={styles.slide}>Slide 1</div>
+            <div key="2" style={styles.slide}>Slide 2</div>
+            <div key="3" style={styles.slide}>Slide 3</div>
+            <div key="4" style={styles.slide}>Slide 4</div>
+            <div key="5" style={styles.slide}>Slide 5</div>
+            <div key="6" style={styles.slide}>Slide 6</div>
+          </Slider>
+        </div>
+      </StyleRoot>
+    );
+  });
+
 storiesOf("Sights List Item", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -2262,112 +2372,6 @@ storiesOf("Share menu", module)
         {ShareMenu}
       </SocialShareContainer>
     </div>
-  ));
-
-storiesOf("Video card shelf", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <div style={{ padding: "32px" }}>
-        <CardShelfVideo heading="Food and drink" href="/">
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-            href={text("URL", "#")}
-            layout={select("Layout", ["card", "tile"], "card")}
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout={select("Layout", ["card", "tile"], "card")}
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout={select("Layout", ["card", "tile"], "card")}
-          />
-        </CardShelfVideo>
-      </div>
-    </StyleRoot>
-  )).add("Swiper", () => (
-    <StyleRoot>
-      <div style={{ padding: "32px" }}>
-        <CardShelfVideoSwiper heading="Food and drink" href="/">
-          <CardVideo
-            heading={text("Heading", "High Sierra ")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-            href={text("URL", "#")}
-            layout="card"
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="card"
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="card"
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="card"
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="card"
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="card"
-          />
-        </CardShelfVideoSwiper>
-      </div>
-    </StyleRoot>
   ));
 
 storiesOf("Social icon button", module)
@@ -2535,12 +2539,12 @@ storiesOf("Spotlight zone", module)
     <StyleRoot>
       <SpotlightZone
         zone={text("Zone", "Series spotlight")}
-        category={text("Category", "On The Road")}
         title={text("Title", "Gaudi, Part 1")}
         paragraph={text("Paragraph", "Explore the architecture capital of Varcelona with Christa Larwood and witness Antoni Gaudi's beautiful work.")}
-        href={text("Href", "http://www.google.com")}
-        imageUrl={text("Image URL", "https://s3.amazonaws.com/op-video-sync-dev/poster-5299039063001-a-gorgeous-day-in-the-life-of-cuba-20170130-182935.jpg")}
         backgroundImageUrl={text("Background Image URL", "https://s3.amazonaws.com/op-video-sync-dev/poster-5299039063001-a-gorgeous-day-in-the-life-of-cuba-20170130-182935.jpg")}
+        videoEmbed={{
+          videoId: "5615400588001",
+        }}
       />
     </StyleRoot>
   ));
@@ -2750,26 +2754,85 @@ storiesOf("Textarea", module)
     </Center>
   ));
 
+storiesOf("Thumbnail list", module)
+  .addDecorator(withKnobs)
+  .add("Light", () => (
+    <StyleRoot>
+      <ThumbnailList
+        heading={text("Title", "Featured videos")}
+        theme="light"
+      >
+        <ThumbnailListItem
+          title="List item 1"
+          theme="light"
+          imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+        />
+        <ThumbnailListItem
+          title="List item 2"
+          theme="light"
+          imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+        />
+        <ThumbnailListItem
+          title="List item 3"
+          theme="light"
+          imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+        />
+      </ThumbnailList>
+    </StyleRoot>
+  ))
+  .add("Dark", () => (
+    <StyleRoot>
+      <div style={{ backgroundColor: "#1f1f1f" }}>
+        <ThumbnailList
+          heading={text("Title", "Featured videos")}
+          theme="dark"
+        >
+          <ThumbnailListItem
+            title="List item 1"
+            theme="dark"
+            imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+          />
+          <ThumbnailListItem
+            title="List item 2"
+            theme="dark"
+            imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+          />
+          <ThumbnailListItem
+            title="List item 3"
+            theme="dark"
+            imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+          />
+        </ThumbnailList>
+      </div>
+    </StyleRoot>
+  ));
+
 storiesOf("Thumbnail list item", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <ThumbnailListItem
-      title={text("Title", "The shop")}
-      runtime={number("Video runtime", 129365)}
-      imagePath={text("Image path", "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FYXJ0YW5kY3VsdHVyZS5qcGdTYXQgRGVjIDE3IDIwMTYgMjE6MDA6MDUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=60&sharp=10&fit=crop&w=180")}
-      description={array("Description", ["Item 1", "Item 2"])}
-      descriptionIcon={text("Icon name", "Clock")}
-      descriptionIconLabel={text("Icon name", "Watch later")}
-      onDescriptionIconClick={action("Action for icon")}
-      theme={select("Theme", ["light", "dark"], "light")}
-    />
+    <StyleRoot>
+      <ThumbnailListItem
+        title={text("Title", "The shop")}
+        subtitle={array("Subtitle", ["Item 3", "Item 4"])}
+        runtime={number("Video runtime", 129365)}
+        imagePath={text("Image path", "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FYXJ0YW5kY3VsdHVyZS5qcGdTYXQgRGVjIDE3IDIwMTYgMjE6MDA6MDUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=60&sharp=10&fit=crop&w=180")}
+        status={text("Status", "Status")}
+        description={array("Description", ["Item 1", "Item 2"])}
+        descriptionIcon={text("Description icon", "Clock")}
+        descriptionIconLabel={text("Description icon label", "Watch later")}
+        onDescriptionIconClick={action("Action for icon")}
+        imageIcon={text("Image icon", "Play")}
+        imageIconLabel={text("Image icon label", "Play")}
+        theme={select("Theme", ["light", "dark"], "light")}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Tiles", module)
   .addDecorator(withKnobs)
   .add("Video tile", () => (
     <StyleRoot>
-      <div style={{ padding: "32px" }}>
+      <div style={{ padding: "32px", width: "400px" }}>
         <TileVideo
           heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
           bullets={array("Bullets", ["On The Road", "E.01"])}
@@ -3079,13 +3142,501 @@ storiesOf("Type selector", module)
     </StyleRoot>
   ));
 
+storiesOf("Video card shelf", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardShelfVideo heading="Food and drink" href="/">
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            layout={select("Layout", ["card", "tile"], "card")}
+            style={{width: "400px"}}
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout={select("Layout", ["card", "tile"], "card")}
+            style={{width: "400px"}}
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout={select("Layout", ["card", "tile"], "card")}
+            style={{width: "400px"}}
+          />
+        </CardShelfVideo>
+      </div>
+    </StyleRoot>
+  )).add("Swiper", () => (
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardShelfVideoSwiper heading="Food and drink" href="/">
+          <CardVideo
+            heading={text("Heading", "High Sierra ")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            layout="card"
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="card"
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="card"
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="card"
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="card"
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="card"
+          />
+        </CardShelfVideoSwiper>
+      </div>
+    </StyleRoot>
+  )).add("Slider", () => (
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardShelfVideoSlider
+          heading="Food and drink"
+          href="/"
+          theme={select("Theme", ["light", "dark"], "light")}
+          spacing={select("Spacing", ["normal", "compact"], "compact")}
+          sliderCoverupColor={select("Slider coverup color", ["transparent", "white", "#1f1f1f"], "transparent")}
+        >
+          <CardVideo
+            heading={text("Heading", "High Sierra ")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            layout="tile"
+            theme={select("Theme", ["light", "dark"], "light")}
+            spacing={select("Spacing", ["normal", "compact"], "compact")}
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="tile"
+            theme={select("Theme", ["light", "dark"], "light")}
+            spacing={select("Spacing", ["normal", "compact"], "compact")}
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="tile"
+            theme={select("Theme", ["light", "dark"], "light")}
+            spacing={select("Spacing", ["normal", "compact"], "compact")}
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="tile"
+            theme={select("Theme", ["light", "dark"], "light")}
+            spacing={select("Spacing", ["normal", "compact"], "compact")}
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="tile"
+            theme={select("Theme", ["light", "dark"], "light")}
+            spacing={select("Spacing", ["normal", "compact"], "compact")}
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="tile"
+            theme={select("Theme", ["light", "dark"], "light")}
+            spacing={select("Spacing", ["normal", "compact"], "compact")}
+          />
+        </CardShelfVideoSlider>
+      </div>
+    </StyleRoot>
+  ));
+
 storiesOf("Video embed", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
-      <VideoEmbed
-        videoId={select("Video ID", ["5363317250001", "5184494924001", "5615400588001"], "5363317250001")}
+      <div style={{ maxHeight: "100%", height: "400px" }}>
+        <VideoEmbed
+          videoId={select("Video ID", [
+            "5363317250001",
+            "5184494924001",
+            "5615400588001"],
+            "5363317250001")
+          }
+          playerName={select("Player name", [
+            "default",
+            "background",
+            "bestintravel",
+            "destination"],
+            "default")
+          }
+          autoplay={boolean("Autoplay", false)}
+          cover={boolean("Cover", false)}
+          controls={boolean("Controls", true)}
+          muted={boolean("Muted", false)}
+          loop={boolean("Loop", false)}
+          visible={boolean("Visible", true)}
+          visibleWhileNotPlaying={boolean("Visible while not playing", true)}
+          previewMode={boolean("Preview mode", false)}
+          previewStartTime={number("Preview start time", 0)}
+          previewEndTime={number("Preview end time", 100)}
+        />
+      </div>
+    </StyleRoot>
+  ))
+  .add("Play when in view", () => (
+    <StyleRoot>
+      <div style={{height: "2000px"}}>
+        <i style={{position: "fixed", fontSize: "12px"}}>
+          scroll down to see state changes
+        </i>
+        <VideoEmbed
+          style={{position: "relative", top: "800px", height: "300px"}}
+          videoId="5363317250001"
+          playWhenInView
+        />
+      </div>
+    </StyleRoot>
+  ));
+
+storiesOf("Video info", module)
+  .addDecorator(withKnobs)
+  .add("Light", () => (
+    <StyleRoot>
+      <VideoInfo
+        visible={boolean("Visible", true)}
+        theme="light"
+        mobile={boolean("Mobile", false)}
+        headingLevel={number("Heading level", 2)}
+        video={{
+          name: "Ask Lonely Planet: how to escape the Middle East?",
+          description: "Want to see the Syria wilderness?<br /><i>Ready to go? Check out <a href=\"http://shop.lonelyplanet.com/iceland/icelands-ring-road-trips-1/\">Ring Road road trips</a>.</i>",
+          url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+          host: "Tom Hall and Oliver Smith",
+          director: "Macca Sheriffi",
+          year: "2017",
+          relatedChannels: [
+            {
+              name: "Adventure Travel",
+              url: "https://www.lonelyplanet.com/video/adventure/v/cha/1",
+            },
+            {
+              name: "Best in Travel 2018",
+              url: "https://www.lonelyplanet.com/video/best-in-travel-2018/v/cha/10",
+            },
+          ]
+        }}
+      />
+    </StyleRoot>
+  ))
+  .add("Dark", () => (
+    <StyleRoot>
+      <div style={{ backgroundColor: "#1f1f1f" }}>
+        <VideoInfo
+          visible={boolean("Visible", true)}
+          theme="dark"
+          mobile={boolean("Mobile", false)}
+          headingLevel={number("Heading level", 2)}
+          video={{
+            name: "Ask Lonely Planet: how to escape the Middle East?",
+            description: "Want to see the Syria wilderness?<br /><i>Ready to go? Check out <a href=\"http://shop.lonelyplanet.com/iceland/icelands-ring-road-trips-1/\">Ring Road road trips</a>.</i>",
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith",
+            director: "Macca Sheriffi",
+            year: "2017",
+            relatedChannels: [
+              {
+                name: "Adventure Travel",
+                url: "https://www.lonelyplanet.com/video/adventure/v/cha/1",
+              },
+              {
+                name: "Best in Travel 2018",
+                url: "https://www.lonelyplanet.com/video/best-in-travel-2018/v/cha/10",
+              },
+            ]
+          }}
+        />
+      </div>
+    </StyleRoot>
+  ));
+
+storiesOf("Video playlist", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <VideoPlaylist
+        heading={text("Heading", "Featured videos")}
         autoplay={boolean("Autoplay", false)}
+        mobile={boolean("Mobile", false)}
+        videos={[
+          {
+            id: "5615400608001",
+            name: "Video name 1",
+            description: "Video description 1",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 10000,
+          },
+          {
+            id: "5615400604001",
+            name: "Video name 2",
+            description: "Video description 2",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 20000,
+          },
+          {
+            id: "5615377178001",
+            name: "Video name 3",
+            description: "Video description 3",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 30000,
+          },
+          {
+            id: "5615348695001",
+            name: "Video name 4",
+            description: "Video description 4",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 40000,
+          },
+          {
+            id: "5615400596001",
+            name: "Video name 5",
+            description: "Video description 5",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 50000,
+          },
+          {
+            id: "5615409475001",
+            name: "Video name 6",
+            description: "Video description 6",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 60000,
+          },
+        ]}
+      />
+    </StyleRoot>
+  ))
+  .add("With Slider", () => (
+    <StyleRoot>
+      <VideoPlaylistWithSlider
+        heading={text("Heading", "Featured videos")}
+        sliderHeading={text("Slider heading", "Featured")}
+        visibleVideosDesktop={number("Visible videos (desktop)", 6)}
+        visibleVideosMobile={number("Visible videos (mobile)", 4)}
+        autoplay={boolean("Autoplay", false)}
+        showVideoInfo={boolean("Show video info", true)}
+        mobile={boolean("Mobile", false)}
+        videos={[
+          {
+            id: "5615400608001",
+            name: "Video name 1",
+            description: "Video description 1",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 10000,
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith 1",
+            director: "Macca Sheriffi 1",
+            year: "2017",
+            cardActionIcon: "ClockOutline",
+          },
+          {
+            id: "5615400604001",
+            name: "Video name 2",
+            description: "Video description 2",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 20000,
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith 2",
+            director: "Macca Sheriffi 2",
+            year: "2017",
+            cardActionIcon: "ClockOutline",
+          },
+          {
+            id: "5615377178001",
+            name: "Video name 3",
+            description: "Video description 3",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 30000,
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith 3",
+            director: "Macca Sheriffi 3",
+            year: "2017",
+            cardActionIcon: "ClockOutline",
+          },
+          {
+            id: "5615348695001",
+            name: "Video name 4",
+            description: "Video description 4",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 40000,
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith 4",
+            director: "Macca Sheriffi 4",
+            year: "2017",
+            cardActionIcon: "ClockOutline",
+          },
+          {
+            id: "5615400596001",
+            name: "Video name 5",
+            description: "Video description 5",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 50000,
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith 5",
+            director: "Macca Sheriffi 5",
+            year: "2017",
+            cardActionIcon: "ClockOutline",
+          },
+          {
+            id: "5615409475001",
+            name: "Video name 6",
+            description: "Video description 6",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 60000,
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith 6",
+            director: "Macca Sheriffi 6",
+            year: "2017",
+            cardActionIcon: "ClockOutline",
+          },
+        ]}
+      />
+    </StyleRoot>
+  ));
+
+
+
+storiesOf("Video popout", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <div style={{height: "2000px"}}>
+        <i style={{position: "fixed", fontSize: "12px"}}>
+          scroll down to see state changes
+        </i>
+        <VideoPopout
+          style={{position: "relative", top: "800px", height: "300px"}}
+          videoEmbed={{
+            videoId: "5363317250001",
+            autoplay: true,
+            muted: true,
+            loop: true,
+          }}
+        />
+      </div>
+    </StyleRoot>
+  ));
+
+storiesOf("Video up next", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <VideoUpNext
+        title={text("Title", "Lonely Planet's best destinations to visit in 2018")}
+        image="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=430&h=250&fit=crop"
+        href="https://www.lonelyplanet.com/video/lonely-planets-best-destinations-to-visit-in-2018/v/vid/542"
+        visible={boolean("Visible", true)}
       />
     </StyleRoot>
   ));
