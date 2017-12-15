@@ -1,5 +1,5 @@
-export AuthSocialButtons from "./authSocialButtons";
-export AuthContainer from "./authContainer";
-export AuthDisclaimer from "./authDisclaimer";
-export AuthEmailLink from "./authEmailLink";
-export AuthMessage from "./authMessage";
+export { default as AuthSocialButtons } from "./authSocialButtons";
+export { default as AuthContainer } from "./authContainer";
+export { default as AuthDisclaimer } from "./authDisclaimer";
+export { default as AuthEmailLink } from "./authEmailLink";
+export { default as AuthMessage } from "./authMessage";

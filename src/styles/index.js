@@ -1,8 +1,11 @@
-export colors from "./colors";
-export * as fonts from "./fonts";
-export dimensions from "./dimensions";
-export mq from "./mq";
-export spacing from "./spacing";
-export timing from "./timing";
-export * as typography from "./typography";
-export zIndex from "./zIndex";
+import * as fonts from "./fonts";
+import * as typography from "./typography";
+
+export { fonts, typography };
+
+export { default as colors } from "./colors";
+export { default as dimensions } from "./dimensions";
+export { default as mq } from "./mq";
+export { default as spacing } from "./spacing";
+export { default as timing } from "./timing";
+export { default as zIndex } from "./zIndex";

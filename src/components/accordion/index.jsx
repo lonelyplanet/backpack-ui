@@ -1,4 +1,3 @@
-export Accordion from "./accordion";
-export AccordionItem from "./accordionItem";
-
-export default from "./accordion";
+export { default as Accordion } from "./accordion";
+export { default as AccordionItem } from "./accordionItem";
+export { default } from "./accordion";

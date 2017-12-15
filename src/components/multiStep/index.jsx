@@ -1,2 +1,2 @@
-export MultiStep from "./multiStep";
-export MultiStepWrapper from "./multiStepWrapper";
+export { default as MultiStep } from "./multiStep";
+export { default as MultiStepWrapper } from "./multiStepWrapper";

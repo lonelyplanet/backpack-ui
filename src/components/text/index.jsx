@@ -1,8 +1,8 @@
-export Heading from "./textHeading";
-export TextAccent from "./textAccent";
-export TextBodyArticle from "./textBodyArticle";
-export TextBodyArticleSmall from "./textBodyArticleSmall";
-export TextBodySmall from "./textBodySmall";
-export TextHeading from "./textHeading";
-export TextSuper from "./textSuper";
-export TextUppercase from "./textUppercase";
+export { default as Heading } from "./textHeading";
+export { default as TextAccent } from "./textAccent";
+export { default as TextBodyArticle } from "./textBodyArticle";
+export { default as TextBodyArticleSmall } from "./textBodyArticleSmall";
+export { default as TextBodySmall } from "./textBodySmall";
+export { default as TextHeading } from "./textHeading";
+export { default as TextSuper } from "./textSuper";
+export { default as TextUppercase } from "./textUppercase";

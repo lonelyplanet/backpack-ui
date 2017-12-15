@@ -1,2 +1,2 @@
-export Typeahead from "./typeahead";
-export TypeaheadTokenizer from "./typeaheadTokenizer";
+export { default as Typeahead } from "./typeahead";
+export { default as TypeaheadTokenizer } from "./typeaheadTokenizer";

@@ -7,7 +7,7 @@ class ModalWrapper extends React.Component {
     if (typeof window !== "undefined") {
       window.scrollTo(x, y);
     }
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -24,8 +24,10 @@ class ModalWrapper extends React.Component {
   componentDidMount() {
     window.onbeforeunload = this.handleNavigateAway;
 
-    if (typeof window !== "undefined" && window.location.hash === this.props.hash) {
-      this.toggleOpen();
+    if (this.props.hash) {
+      if (typeof window !== "undefined" && window.location.hash === this.props.hash) {
+        this.toggleOpen();
+      }
     }
   }
 
@@ -34,24 +36,31 @@ class ModalWrapper extends React.Component {
   }
 
   toggleOpen() {
-    this.setState({
-      open: !this.state.open,
-    }, () => {
-      if (this.state.open) {
-        noScroll.on();
-        ModalWrapper.scrollTo(0, 0);
-        this.setState({
-          scrollPosition: parseInt(document.documentElement.style.top.replace("px", ""), 10) * -1,
-        });
-      } else {
-        noScroll.off();
-        ModalWrapper.scrollTo(0, this.state.scrollPosition);
+    this.setState(
+      {
+        open: !this.state.open,
+      },
+      () => {
+        if (this.state.open) {
+          noScroll.on();
+          ModalWrapper.scrollTo(0, 0);
+          this.setState({
+            scrollPosition: parseInt(document.documentElement.style.top.replace("px", ""), 10) * -1,
+          });
+        } else {
+          noScroll.off();
+          ModalWrapper.scrollTo(0, this.state.scrollPosition);
 
-        if (typeof window !== "undefined" && window.location.hash === this.props.hash && history.pushState) {
-          history.pushState("", "", window.location.pathname);
+          if (
+            typeof window !== "undefined" &&
+            window.location.hash === this.props.hash &&
+            history.pushState
+          ) {
+            history.pushState("", "", window.location.pathname);
+          }
         }
       }
-    });
+    );
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -70,7 +79,7 @@ ModalWrapper.propTypes = {
 };
 
 ModalWrapper.defaultProps = {
-  hash: "",
+  hash: null,
 };
 
 export default ModalWrapper;

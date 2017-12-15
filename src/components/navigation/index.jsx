@@ -1,2 +1,2 @@
-export Navigation from "./navigation";
-export NavigationTab from "./navigationTab";
+export { default as Navigation } from "./navigation";
+export { default as NavigationTab } from "./navigationTab";

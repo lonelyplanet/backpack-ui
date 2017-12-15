@@ -1,3 +1,3 @@
-export Tab from "./tab";
-export TabPanel from "./tabPanel";
-export Tabs from "./tabs";
+export { default as Tab } from "./tab";
+export { default as TabPanel } from "./tabPanel";
+export { default as Tabs } from "./tabs";
