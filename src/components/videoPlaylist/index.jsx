@@ -262,7 +262,6 @@ class VideoPlaylist extends Component {
         {video && videos && videos.length > 0 &&
           <div style={styles.playlistVideoContainer}>
             <div style={styles.playlistVideo}>
-              {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
               <div
                 role="button"
                 ref={(ref) => { this.featuredVideoContainer = ref; }}
