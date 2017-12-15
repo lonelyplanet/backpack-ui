@@ -21,6 +21,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+import IconButton from "../iconButton";
 import media from "../../styles/mq";
 import timing from "../../styles/timing";
 
@@ -115,6 +116,25 @@ const styles = {
     width: "0px",
   },
 
+  arrow: {
+    default: {
+      position: "relative",
+      width: "4.4444em",
+      height: "4.4444em",
+      fontSize: "9px",
+      cursor: "inherit",
+      ":focus": {
+        outline: 0,
+      },
+    },
+    next: {
+      right: "2.2222em",
+    },
+    prev: {
+      left: "-2.2222em",
+    },
+  },
+
   coverUp: {
     position: "absolute",
     top: 0,
@@ -173,7 +193,7 @@ class Slider extends React.Component {
   }
 
   onAutoplayInterval() {
-    if (!this.hovering) {
+    if (!this.props.pauseOnHover || !this.hovering) {
       this.next();
     }
   }
@@ -197,9 +217,11 @@ class Slider extends React.Component {
     if (width === null || width > 960) {
       return slidesToShow;
     } else if (width > 720) {
-      return slidesToShow === 1 ? 1 : 3;
+      return slidesToShow < 3 ? slidesToShow : 3;
+    } else if (width > 360) {
+      return slidesToShow < 2 ? slidesToShow : 2;
     }
-    return slidesToShow === 1 ? 1 : 2;
+    return 1;
   }
 
   setAutoplayInterval() {
@@ -213,10 +235,7 @@ class Slider extends React.Component {
   }
 
   prev() {
-    const { infinite, pauseOnHover } = this.props;
-    if (pauseOnHover && this.hovering) {
-      return;
-    }
+    const { infinite } = this.props;
     const { index } = this.state;
     const frameCount = this.getFrameCount();
     const endValue = infinite ? frameCount - 1 : index;
@@ -225,10 +244,7 @@ class Slider extends React.Component {
   }
 
   next() {
-    const { infinite, pauseOnHover } = this.props;
-    if (pauseOnHover && this.hovering) {
-      return;
-    }
+    const { infinite } = this.props;
     const { index } = this.state;
     const frameCount = this.getFrameCount();
     const endValue = infinite ? 0 : index;
@@ -239,11 +255,11 @@ class Slider extends React.Component {
   render() {
     const {
       children,
-      nextArrow,
-      prevArrow,
       slidesToShow,
       coverupColor,
       infinite,
+      arrows,
+      arrowProps,
     } = this.props;
 
     const { index } = this.state;
@@ -260,7 +276,7 @@ class Slider extends React.Component {
         onMouseLeave={this.onMouseLeave}
         style={styles.container}
       >
-        {prevArrow &&
+        {arrows &&
           <div
             style={[
               styles.arrowContainer,
@@ -268,18 +284,22 @@ class Slider extends React.Component {
               { opacity: showPrevArrow ? 1 : 0 },
             ]}
           >
-            <button
-              style={[
-                { position: "relative", right: 0 },
-                { cursor: showPrevArrow ? "pointer" : "default" },
-              ]}
+            <IconButton
+              shadow
+              {...arrowProps}
+              iconName="ChevronLeft"
+              label="Previous"
               onClick={this.onClickPrevArrow}
-            >
-              { prevArrow }
-            </button>
+              style={[
+                styles.arrow.default,
+                styles.arrow.prev,
+                { cursor: showPrevArrow ? "pointer" : "default" },
+                arrowProps.style,
+              ]}
+            />
           </div>
         }
-        {nextArrow &&
+        {arrows &&
           <div
             style={[
               styles.arrowContainer,
@@ -287,15 +307,19 @@ class Slider extends React.Component {
               { opacity: showNextArrow ? 1 : 0 },
             ]}
           >
-            <button
-              style={[
-                { position: "relative", left: 0 },
-                { cursor: showNextArrow ? "pointer" : "default" },
-              ]}
+            <IconButton
+              shadow
+              {...arrowProps}
+              iconName="ChevronRight"
+              label="Next"
               onClick={this.onClickNextArrow}
-            >
-              { nextArrow }
-            </button>
+              style={[
+                styles.arrow.default,
+                styles.arrow.next,
+                { cursor: showNextArrow ? "pointer" : "default" },
+                arrowProps.style,
+              ]}
+            />
           </div>
         }
         <div style={styles.slider}>
@@ -329,8 +353,12 @@ Slider.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
   slidesToShow: PropTypes.oneOf([1, 2, 3, 4]).isRequired,
   coverupColor: PropTypes.string.isRequired,
-  nextArrow: PropTypes.element,
-  prevArrow: PropTypes.element,
+  arrows: PropTypes.bool,
+  arrowProps: PropTypes.shape({
+    ...IconButton.propTypes,
+    iconName: PropTypes.string,
+    label: PropTypes.string,
+  }),
   infinite: PropTypes.bool,
   autoplay: PropTypes.bool,
   autoplaySpeed: PropTypes.number.isRequired,
@@ -342,6 +370,8 @@ Slider.defaultProps = {
   coverupColor: "transparent",
   autoplaySpeed: 5000,
   pauseOnHover: true,
+  arrows: true,
+  arrowProps: {},
 };
 
 export default radium(Slider);

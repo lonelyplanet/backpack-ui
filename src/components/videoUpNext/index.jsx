@@ -28,6 +28,7 @@ const styles = {
     color: colors.textOverlay,
     padding: "6px",
     display: "inline-block",
+    width: "100%",
   },
 
   imageContainer: {

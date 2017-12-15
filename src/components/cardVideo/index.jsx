@@ -20,6 +20,7 @@ import propTypes from "../../utils/propTypes";
 const styles = {
   container: {
     maxWidth: "100%",
+    minWidth: "0px",
   },
 
   image: {
@@ -262,6 +263,7 @@ CardVideo.propTypes = {
 CardVideo.defaultProps = {
   aspectRatio: "video",
   actionIcon: "ClockOutline",
+  actionIconLabel: "Watch Later",
   layout: "card",
   theme: "light",
   spacing: "normal",

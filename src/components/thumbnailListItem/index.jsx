@@ -94,13 +94,15 @@ const styles = {
       overflow: "hidden",
       textOverflow: "ellipsis",
       WebkitBoxOrient: "vertical",
-      WebkitLineClamp: 1,
       transition: `color ${timing.default} ease`,
 
       [`@media (max-width: ${media.max["480"]})`]: {
         fontSize: "14px",
         lineHeight: "20px",
       },
+    },
+    lineClamp: {
+      WebkitLineClamp: 1,
     },
     light: {
       color: colors.textPrimary,
@@ -170,11 +172,12 @@ const ThumbnailListItem = ({
   onDescriptionIconClick,
   runtime,
   status,
+  lineClamp,
   theme,
   style,
 }) => (
   <div
-    className="ListItem-thumbnail"
+    className={`ListItem-thumbnail ListItem-thumbnail--${theme}`}
     style={[
       styles.container,
       style,
@@ -182,10 +185,12 @@ const ThumbnailListItem = ({
   >
     <Style
       scopeSelector=".ListItem-thumbnail:hover"
-      rules={{
-        ...hoverStyles.default,
-        ...hoverStyles[theme],
-      }}
+      rules={hoverStyles.default}
+    />
+
+    <Style
+      scopeSelector=".ListItem-thumbnail--light:hover"
+      rules={hoverStyles.light}
     />
 
     <div style={styles.image}>
@@ -244,6 +249,7 @@ const ThumbnailListItem = ({
             override={{
               ...styles.title.default,
               ...styles.title[theme],
+              ...(lineClamp ? styles.title.lineClamp : {}),
             }}
           >
             {title}
@@ -270,7 +276,7 @@ const ThumbnailListItem = ({
 ThumbnailListItem.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.arrayOf(PropTypes.string),
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
   onClick: PropTypes.func,
   imagePath: PropTypes.string,
   imageIcon: PropTypes.oneOf(Object.keys(Icon)),
@@ -281,13 +287,14 @@ ThumbnailListItem.propTypes = {
   descriptionIconLabel: PropTypes.string,
   onDescriptionIconClick: PropTypes.func,
   status: PropTypes.string,
+  lineClamp: PropTypes.bool,
   theme: PropTypes.oneOf(["light", "dark"]),
   style: propTypes.style,
 };
 
 ThumbnailListItem.defaultProps = {
   theme: "light",
-  href: "#",
+  lineClamp: true,
 };
 
 export default radium(ThumbnailListItem);

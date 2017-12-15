@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
+import { color } from "../../../settings.json";
 import VideoEmbed from "../videoEmbed";
 import ThumbnailListItem from "../thumbnailListItem";
 import VideoPopout from "../videoPopout";
@@ -13,7 +14,6 @@ import propTypes from "../../utils/propTypes";
 
 const darkBackgroundColor = "#1f1f1f";
 const darkBorderColor = "#2b2b2b";
-const blue = "#2973ad";
 
 const styles = {
   container: {
@@ -107,8 +107,8 @@ const styles = {
       transition: `background-color ${timing.fast} linear, border-color ${timing.fast} linear`,
     },
     active: {
-      backgroundColor: blue,
-      borderColor: blue,
+      backgroundColor: color.blue,
+      borderColor: color.blue,
     },
   },
 };
@@ -127,13 +127,14 @@ class VideoPlaylist extends Component {
     this.videoPopout = null;
     this.featuredVideoContainer = null;
     this.childContainer = null;
-    this.children = {};
+    this.childRefs = {};
 
     this.onPlaySuccess = this.onPlaySuccess.bind(this);
     this.onEnded = this.onEnded.bind(this);
     this.onClickFeaturedVideo = this.onClickFeaturedVideo.bind(this);
     this.onScroll = this.onScroll.bind(this);
     this.onWindowResize = this.onWindowResize.bind(this);
+    this.loadVideo = this.loadVideo.bind(this);
   }
 
   componentDidMount() {
@@ -200,8 +201,8 @@ class VideoPlaylist extends Component {
     const playlistHeight = this.childContainer.clientHeight;
 
     const childStyles = {};
-    Object.keys(this.children).forEach((key) => {
-      const ref = this.children[key];
+    Object.keys(this.childRefs).forEach((key) => {
+      const ref = this.childRefs[key];
       const refTop = ref.getBoundingClientRect().top;
       const refHeight = ref.clientHeight;
 
@@ -261,7 +262,8 @@ class VideoPlaylist extends Component {
         {video && videos && videos.length > 0 &&
           <div style={styles.playlistVideoContainer}>
             <div style={styles.playlistVideo}>
-              <button
+              <div
+                role="button"
                 ref={(ref) => { this.featuredVideoContainer = ref; }}
                 style={styles.featuredVideoContainer}
                 onClick={this.onClickFeaturedVideo}
@@ -275,7 +277,7 @@ class VideoPlaylist extends Component {
                     mobile={mobile}
                   />
                 }
-              </button>
+              </div>
               <VideoPopout
                 ref={(videoPopout) => { this.videoPopout = videoPopout; }}
                 videoEmbed={{
@@ -314,7 +316,7 @@ class VideoPlaylist extends Component {
                   {videos.slice(0, visibleVideos || videos.length).map((v, i) => (
                     <div
                       key={v.id}
-                      ref={(ref) => { this.children[v.id] = ref; }}
+                      ref={(ref) => { this.childRefs[v.id] = ref; }}
                     >
                       <ThumbnailListItem
                         title={v.name}
@@ -326,6 +328,7 @@ class VideoPlaylist extends Component {
                         theme="dark"
                         imageIcon={(v.id === video.id && "Play") || null}
                         imageIconLabel="Play"
+                        lineClamp={false}
                         style={[
                           styles.thumbnailListItem.default,
                           v.id === video.id ? styles.thumbnailListItem.active : {},

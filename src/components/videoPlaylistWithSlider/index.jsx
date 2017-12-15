@@ -107,6 +107,7 @@ class VideoPlaylistWithSlider extends React.Component {
                 <CardShelfVideoSlider
                   heading={sliderHeading || heading}
                   mobile={mobile}
+                  spacing="compact"
                 >
                   {videos.slice(0, visibleVideosDesktop).map((video) => (
                     <CardVideo
@@ -135,6 +136,7 @@ class VideoPlaylistWithSlider extends React.Component {
                       href={video.url}
                       imagePath={video.thumbnailImage}
                       subtitle={[duration(video.duration)]}
+                      lineClamp={false}
                     />
                   ))}
                 </ThumbnailList>

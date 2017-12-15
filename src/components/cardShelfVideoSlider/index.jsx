@@ -10,7 +10,6 @@ import { fontSizeHeading6, fontWeightRegular } from "../../styles/typography";
 import timing from "../../styles/timing";
 import { lighten } from "../../utils/color";
 import colors from "../../styles/colors";
-import IconButton from "../iconButton";
 import Slider from "../slider";
 import propTypes from "../../utils/propTypes";
 
@@ -60,18 +59,8 @@ const styles = {
     },
   },
 
-  paginatorButton: {
+  arrow: {
     default: {
-      position: "relative",
-      top: "-30px",
-      width: "4.4444em",
-      height: "4.4444em",
-      fontSize: "9px",
-      cursor: "inherit",
-      ":focus": {
-        outline: 0,
-      },
-
       [`@media (max-width: ${media.max["480"]})`]: {
         display: "none",
       },
@@ -82,11 +71,19 @@ const styles = {
     dark: {
       color: "rgb(228, 228, 228)",
     },
-    next: {
-      right: "2.2222em",
+    normal: {
+      top: "-74px",
+
+      [`@media (max-width: ${media.max["768"]})`]: {
+        top: "-44px",
+      },
     },
-    prev: {
-      left: "-2.2222em",
+    compact: {
+      top: "-34px",
+
+      [`@media (max-width: ${media.max["768"]})`]: {
+        top: "-26px",
+      },
     },
   },
 
@@ -105,10 +102,7 @@ const styles = {
     backgroundColor: colors.linkPrimary,
     color: colors.textOverlay,
     fontWeight: 400,
-    paddingBottom: "1.2em",
-    paddingTop: "1.3em",
-    paddingRight: "2em",
-    paddingLeft: "2em",
+    padding: "1.3em 2em 1.2em",
     borderRadius: "100px",
     transition: `background-color ${timing.default} ease-in-out`,
 
@@ -130,7 +124,6 @@ const styles = {
     [`@media (max-width: ${media.max["720"]})`]: {
       display: "inline-block",
     },
-
   },
 
   adSlot: {
@@ -169,6 +162,7 @@ class CardShelfVideoSlider extends React.Component {
       href,
       adSlot,
       theme,
+      spacing,
       sliderCoverupColor,
       style,
     } = this.props;
@@ -181,7 +175,6 @@ class CardShelfVideoSlider extends React.Component {
           style,
         ]}
       >
-
         <header style={styles.header}>
           {heading && href &&
             <Link to={href}>{this.getHeadingComponent()}</Link>
@@ -207,43 +200,20 @@ class CardShelfVideoSlider extends React.Component {
           }
         </header>
 
-        <div
-          style={[
-            styles.slider,
-          ]}
-        >
+        <div style={styles.slider}>
           <Slider
             coverupColor={sliderCoverupColor}
             slidesToShow={4}
             infinite={false}
-            nextArrow={
-              <IconButton
-                iconName="ChevronRight"
-                label="Next"
-                shadow
-                style={[
-                  styles.paginatorButton.default,
-                  styles.paginatorButton[theme],
-                  styles.paginatorButton.next,
-                  { display: mobile ? "none" : "flex" },
-                ]}
-                backgroundColor={arrowBackgroundColor[theme]}
-              />
-            }
-            prevArrow={
-              <IconButton
-                iconName="ChevronLeft"
-                label="Previous"
-                shadow
-                style={[
-                  styles.paginatorButton.default,
-                  styles.paginatorButton[theme],
-                  styles.paginatorButton.prev,
-                  { display: mobile ? "none" : "flex" },
-                ]}
-                backgroundColor={arrowBackgroundColor[theme]}
-              />
-            }
+            arrows={!mobile}
+            arrowProps={{
+              backgroundColor: arrowBackgroundColor[theme],
+              style: [
+                styles.arrow.default,
+                styles.arrow[theme],
+                styles.arrow[spacing],
+              ],
+            }}
           >
             {React.Children.map(children.slice(0, mobile ? 4 : children.length), (child, i) => (
               <div key={i}>
@@ -251,7 +221,6 @@ class CardShelfVideoSlider extends React.Component {
               </div>
             ))}
           </Slider>
-
         </div>
 
         {href &&
@@ -265,7 +234,6 @@ class CardShelfVideoSlider extends React.Component {
             </MoreLink>
           </Link>
         }
-
       </CardShelf>
     );
   }
@@ -281,12 +249,17 @@ CardShelfVideoSlider.propTypes = {
     "light",
     "dark",
   ]),
+  spacing: PropTypes.oneOf([
+    "normal",
+    "compact",
+  ]),
   sliderCoverupColor: PropTypes.string.isRequired,
   style: propTypes.style,
 };
 
 CardShelfVideoSlider.defaultProps = {
   theme: "light",
+  spacing: "normal",
   sliderCoverupColor: colors.bgPrimary,
 };
 

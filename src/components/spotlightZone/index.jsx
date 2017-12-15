@@ -205,7 +205,7 @@ const SpotlightZone = ({
       </div>
 
       <div style={styles.rightContent}>
-        <VideoPopout videoEmbed={videoEmbed} />
+        <VideoPopout videoEmbed={videoEmbed} style={{ height: "auto" }} />
       </div>
     </Container>
 
