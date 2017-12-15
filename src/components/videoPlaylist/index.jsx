@@ -251,6 +251,7 @@ class VideoPlaylist extends Component {
 
     const initialVideo = this.getInitialVideo();
 
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     return (
       <div
         className="VideoPlaylist"
