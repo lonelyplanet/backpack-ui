@@ -266,6 +266,7 @@ class VideoPlaylist extends Component {
                 role="button"
                 ref={(ref) => { this.featuredVideoContainer = ref; }}
                 style={styles.featuredVideoContainer}
+                // eslint-disable-next-line jsx-a11y/no-static-element-interactions
                 onClick={this.onClickFeaturedVideo}
               >
                 {initialVideo &&
