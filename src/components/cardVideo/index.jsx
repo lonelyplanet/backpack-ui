@@ -43,9 +43,6 @@ const styles = {
       backgroundColor: "rgba(0, 0, 0, 0.25)",
       opacity: 0,
       transition: `opacity ${timing.fast} ease`,
-      ":hover": {
-        opacity: 1,
-      },
     },
     mobile: {
       backgroundImage: "linear-gradient(-180deg, rgba(0, 0, 0, 0) 53%, rgba(0, 0, 0, 0.8) 99%)",
@@ -161,8 +158,11 @@ const CardVideo = ({
         ]}
       >
         <Style
-          scopeSelector=".Card--video--overlay:hover"
+          scopeSelector=".Card--video:hover"
           rules={{
+            ".Card--video--overlay": {
+              opacity: "1 !important",
+            },
             ".Card--video--overlaycontent": {
               top: "0px !important",
             },
