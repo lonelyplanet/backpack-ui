@@ -42,14 +42,18 @@ class ModalWrapper extends React.Component {
       },
       () => {
         if (this.state.open) {
-          noScroll.on();
-          ModalWrapper.scrollTo(0, 0);
-          this.setState({
-            scrollPosition: parseInt(document.documentElement.style.top.replace("px", ""), 10) * -1,
-          });
+          if (!this.props.enableWindowScrolling) {
+            noScroll.on();
+            ModalWrapper.scrollTo(0, 0);
+            this.setState({
+              scrollPosition: parseInt(document.documentElement.style.top.replace("px", ""), 10) * -1,
+            });
+          }
         } else {
-          noScroll.off();
-          ModalWrapper.scrollTo(0, this.state.scrollPosition);
+          if (!this.props.enableWindowScrolling) {
+            noScroll.off();
+            ModalWrapper.scrollTo(0, this.state.scrollPosition);
+          }
 
           if (
             typeof window !== "undefined" &&
@@ -65,7 +69,9 @@ class ModalWrapper extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   handleNavigateAway() {
-    noScroll.off();
+    if (!this.props.enableWindowScrolling) {
+      noScroll.off();
+    }
   }
 
   render() {
@@ -75,10 +81,12 @@ class ModalWrapper extends React.Component {
 
 ModalWrapper.propTypes = {
   children: PropTypes.func.isRequired,
+  enableWindowScrolling: PropTypes.bool,
   hash: PropTypes.string,
 };
 
 ModalWrapper.defaultProps = {
+  enableWindowScrolling: false,
   hash: null,
 };
 
