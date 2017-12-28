@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import { Style } from "radium";
 
 import colors from "../../styles/colors";
-import { media } from "../../../settings.json";
+import mq from "../../styles/mq";
 import { rgb } from "../../utils/color";
 import { gutter, span, add, percentage } from "../../utils/grid";
 import ArticleAuthor from "../articleAuthor";
 import ContentBlock from "../contentBlock";
 import Icon from "../icon";
 
-const mq = `${667 * 0.0625}em`;
+const mqSmall = `${667 * 0.0625}em`;
 
 const maxWidth = add([span(7, "static"), gutter("static")], "static");
 
@@ -20,13 +20,13 @@ const scopedStyles = {
   },
 
   mediaQueries: {
-    [`(min-width: ${mq})`]: {
+    [`(min-width: ${mqSmall})`]: {
       ".Icon": {
         fontSize: "4rem",
       },
     },
 
-    [`(max-width: ${media.max["768"]})`]: {
+    [`(max-width: ${mq.max["768"]})`]: {
       ".Narrative-content": {
         borderTop: `1px solid ${colors.borderPrimary}`,
         marginTop: "2rem",
@@ -43,7 +43,7 @@ const scopedStyles = {
       },
     },
 
-    [`(min-width: ${media.min["768"]})`]: {
+    [`(min-width: ${mq.min["768"]})`]: {
       ".Narrative-content": {
         borderLeft: `2px solid rgba(${rgb(colors.linkPrimary)}, .4)`,
         float: "left",

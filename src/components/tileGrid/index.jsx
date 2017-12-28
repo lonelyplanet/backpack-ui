@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import cn from "classnames";
-import { grid, media } from "../../../settings.json";
+
+import { grid } from "../../../settings.json";
+import mq from "../../styles/mq";
 import { percentage } from "../../utils/grid";
 import propTypes from "../../utils/propTypes";
 
@@ -22,13 +24,13 @@ const scopedStyles = {
   },
 
   mediaQueries: {
-    [`(min-width: ${media.min["480"]})`]: {
+    [`(min-width: ${mq.min["480"]})`]: {
       ".Tile": {
         width: "calc(50% - 15px)",
       },
     },
 
-    [`(min-width: ${media.min["840"]})`]: {
+    [`(min-width: ${mq.min["840"]})`]: {
       ".Tile": {
         width: percentage("410px", grid.container),
       },

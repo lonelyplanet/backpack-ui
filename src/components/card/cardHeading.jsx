@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import Heading from "../heading";
-import { media, timing } from "../../../settings.json";
-import propTypes from "../../utils/propTypes";
 
-const mq = `@media (max-width: ${media.max["768"]})`;
+import { timing } from "../../../settings.json";
+import mq from "../../styles/mq";
+import propTypes from "../../utils/propTypes";
+import Heading from "../heading";
 
 const styles = {
   display: "-webkit-box",
@@ -18,7 +18,7 @@ const styles = {
   WebkitBoxOrient: "vertical",
   WebkitLineClamp: 2,
 
-  [mq]: {
+  [`@media (max-width: ${mq.max["768"]})`]: {
     fontSize: "14px",
     lineHeight: (18 / 14),
     maxHeight: "36px",

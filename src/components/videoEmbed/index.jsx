@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import get from "lodash/get";
 import uniqueId from "lodash/uniqueId";
-import { media } from "../../../settings.json";
+
+import mq from "../../styles/mq";
 
 const _ = { get, uniqueId };
 
@@ -78,7 +79,7 @@ const scopedStyles = {
     display: "none",
   },
   mediaQueries: {
-    [`(max-width: ${media.max["480"]})`]: {
+    [`(max-width: ${mq.max["480"]})`]: {
       ".vjs-big-play-button": {
         transform: "scale(.7)",
       },

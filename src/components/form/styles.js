@@ -1,10 +1,9 @@
+import { timing } from "../../../settings.json";
 import colors from "../../styles/colors";
-import { media, timing } from "../../../settings.json";
+import mq from "../../styles/mq";
+import { fontWeightLight } from "../../styles/typography";
 import { lighten, darken, rgb } from "../../utils/color";
 import { outline } from "../../utils/mixins";
-import {
-  fontWeightLight,
-} from "../../styles/typography";
 
 const icons = {
   triangle: {
@@ -137,7 +136,7 @@ const styles = {
           paddingLeft: "2rem",
           paddingRight: "2rem",
           paddingBottom: "1.3rem",
-          [`@media (min-width: ${media.min["768"]})`]: {
+          [`@media (min-width: ${mq.min["768"]})`]: {
             paddingTop: "3.5rem",
             paddingLeft: "1.5rem",
             paddingRight: "1.5rem",
@@ -224,7 +223,7 @@ const styles = {
           paddingRight: "2rem",
           paddingBottom: "1.3rem",
 
-          [`@media (min-width: ${media.min["768"]})`]: {
+          [`@media (min-width: ${mq.min["768"]})`]: {
             backgroundPosition: "calc(100% - 2rem) 3.5rem",
             paddingTop: "3.5rem",
             paddingLeft: "1.5rem",

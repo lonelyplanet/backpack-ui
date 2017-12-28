@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import { media } from "../../../settings.json";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import font from "../../utils/font";
 import Heading from "../heading";
 
@@ -21,7 +21,7 @@ const styles = {
     fontSize: "10px",
     lineHeight: 1,
 
-    [`@media (min-width: ${media.min["720"]})`]: {
+    [`@media (min-width: ${mq.min["720"]})`]: {
       fontSize: "12px",
     },
   },

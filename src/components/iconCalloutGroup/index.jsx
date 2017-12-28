@@ -1,8 +1,9 @@
 import React from "react";
 import radium, { Style } from "radium";
 
-import { grid, media } from "../../../settings.json";
+import { grid } from "../../../settings.json";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import { gutter } from "../../utils/grid";
 import IconCallout from "../iconCallout";
 
@@ -13,7 +14,7 @@ const styles = {
     justifyContent: "space-between",
     maxWidth: grid.container,
 
-    [`@media (max-width: ${media.max["960"]})`]: {
+    [`@media (max-width: ${mq.max["960"]})`]: {
       flexWrap: "wrap",
     },
   },
@@ -21,7 +22,7 @@ const styles = {
 
 const scopedStyles = {
   mediaQueries: {
-    [`(max-width: ${media.max["480"]})`]: {
+    [`(max-width: ${mq.max["480"]})`]: {
       ".IconCallout-icon": {
         fontSize: "71px !important",
       },
@@ -40,19 +41,19 @@ const scopedStyles = {
       },
     },
 
-    [`(min-width: ${media.min["480"]}) and (max-width: ${media.max["960"]})`]: {
+    [`(min-width: ${mq.min["480"]}) and (max-width: ${mq.max["960"]})`]: {
       ".IconCallout-icon": {
         fontSize: "80px !important",
       },
     },
 
-    [`(min-width: ${media.min["480"]}) and (max-width: ${media.max["960"]})`]: {
+    [`(min-width: ${mq.min["480"]}) and (max-width: ${mq.max["960"]})`]: {
       ".IconCallout a": {
         width: "80% !important",
       },
     },
 
-    [`(max-width: ${media.max["960"]})`]: {
+    [`(max-width: ${mq.max["960"]})`]: {
       ".IconCallout": {
         flex: "1 1 calc(100% / 2)",
         maxWidth: "none !important",
@@ -67,7 +68,7 @@ const scopedStyles = {
       },
     },
 
-    [`(min-width: ${media.min["960"]})`]: {
+    [`(min-width: ${mq.min["960"]})`]: {
       ".IconCallout": {
         marginLeft: `calc(${gutter("static")} / 2) !important`,
         marginRight: `calc(${gutter("static")} / 2) !important`,

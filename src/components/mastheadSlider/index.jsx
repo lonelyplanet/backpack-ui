@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Slider from "react-slick";
 
-import { media, zIndex } from "../../../settings.json";
+import { zIndex } from "../../../settings.json";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import { rgb } from "../../utils/color";
 
 export const rules = {
@@ -71,7 +72,7 @@ const styles = {
   slideContainer: {
     overflowY: "hidden",
     minHeight: "370px",
-    [`@media (min-width: ${media.min["720"]})`]: {
+    [`@media (min-width: ${mq.min["720"]})`]: {
       minHeight: "650px",
     },
   },
@@ -79,14 +80,14 @@ const styles = {
     width: "100%",
     position: "absolute",
     minHeight: "370px",
-    [`@media (min-width: ${media.min["720"]})`]: {
+    [`@media (min-width: ${mq.min["720"]})`]: {
       minHeight: "650px",
     },
   },
   // REM units being used to match what is currently in rizz-next
   isUnderGlobalHeader: {
     marginTop: "-5rem",
-    [`@media (min-width: ${media.min["720"]})`]: {
+    [`@media (min-width: ${mq.min["720"]})`]: {
       marginTop: "-13rem",
     },
   },

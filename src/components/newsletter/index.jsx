@@ -4,8 +4,8 @@ import radium, { Style } from "radium";
 import axios from "axios";
 import Recaptcha from "react-recaptcha";
 
-import { media } from "../../../settings.json";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import { fontWeightLight } from "../../styles/typography";
 import font from "../../utils/font";
 import { outline } from "../../utils/mixins";
@@ -42,7 +42,7 @@ const styles = {
     letterSpacing: "-.3px",
     lineHeight: 32 / 20,
 
-    [`@media (min-width: ${media.min["480"]})`]: {
+    [`@media (min-width: ${mq.min["480"]})`]: {
       fontSize: "24px",
       letterSpacing: "-.4px",
       lineHeight: 32 / 28,
@@ -70,7 +70,7 @@ const styles = {
     marginRight: "auto",
     maxWidth: "386px",
 
-    [`@media (min-width: ${media.min["480"]})`]: {
+    [`@media (min-width: ${mq.min["480"]})`]: {
       letterSpacing: ".4px",
       lineHeight: 32 / 18,
     },

@@ -4,8 +4,9 @@ import radium, { Style } from "radium";
 import Sticky from "react-stickynode";
 import { Link } from "react-scroll";
 
-import settings, { media, zIndex, timing } from "../../../settings.json";
+import settings, { zIndex, timing } from "../../../settings.json";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
 
@@ -27,7 +28,7 @@ const styles = {
     transition: `opacity ${timing.default}, visibility ${timing.default}`,
     zIndex: zIndex.globalHeader,
 
-    [`@media (min-width: ${media.min["768"]})`]: {
+    [`@media (min-width: ${mq.min["768"]})`]: {
       height: navigationSubHeight,
     },
   },
@@ -36,7 +37,7 @@ const styles = {
     height: navigationSubHeightMobile,
     overflow: "hidden",
 
-    [`@media (min-width: ${media.min["768"]})`]: {
+    [`@media (min-width: ${mq.min["768"]})`]: {
       height: navigationSubHeight,
     },
   },
@@ -54,11 +55,11 @@ const styles = {
     whiteSpace: "nowrap",
     width: "100%",
 
-    [`@media (min-width: ${media.min["480"]})`]: {
+    [`@media (min-width: ${mq.min["480"]})`]: {
       animation: "none",
     },
 
-    [`@media (min-width: ${media.min["768"]})`]: {
+    [`@media (min-width: ${mq.min["768"]})`]: {
       height: navigationSubHeight,
     },
   },
@@ -69,7 +70,7 @@ const styles = {
     margin: 0,
     padding: 0,
 
-    [`@media (min-width: ${media.min["768"]})`]: {
+    [`@media (min-width: ${mq.min["768"]})`]: {
       height: "100%",
       lineHeight: navigationSubHeight,
     },
@@ -100,7 +101,7 @@ const styles = {
       cursor: "pointer",
     },
     mediaQueries: {
-      [`(min-width: ${media.min["768"]})`]: {
+      [`(min-width: ${mq.min["768"]})`]: {
         a: {
           fontSize: "12px",
           height: "100%",

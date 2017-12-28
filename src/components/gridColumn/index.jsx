@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import cn from "classnames";
-import { media } from "../../../settings.json";
+
+import mq from "../../styles/mq";
 import { add, gutter, span } from "../../utils/grid";
 
 function outputStyles({
@@ -11,10 +12,10 @@ function outputStyles({
   fluid,
   includeGutter,
   gutterPosition,
-  mq,
+  mqSize,
 }) {
   const math = fluid ? "fluid" : "static";
-  const query = `@media (min-width: ${media.min[mq]})`;
+  const query = `@media (min-width: ${mq.min[mqSize]})`;
   const valuesToAdd = shift ? [span(shift, math), gutter(math)] : [];
   const shouldIncludeGutter = columns !== 12;
   const includeGutterBefore = shouldIncludeGutter && (includeGutter && gutterPosition === "before");
@@ -74,7 +75,7 @@ function GridColumn({
       fluid,
       includeGutter,
       gutterPosition,
-      mq: "480",
+      mqSize: "480",
     }),
 
     md: outputStyles({
@@ -83,7 +84,7 @@ function GridColumn({
       fluid,
       includeGutter,
       gutterPosition,
-      mq: "768",
+      mqSize: "768",
     }),
 
     lg: outputStyles({
@@ -92,7 +93,7 @@ function GridColumn({
       fluid,
       includeGutter,
       gutterPosition,
-      mq: "1024",
+      mqSize: "1024",
     }),
   };
 

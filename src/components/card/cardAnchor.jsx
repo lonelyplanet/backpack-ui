@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import Link from "../link";
-import { media } from "../../../settings.json";
-import propTypes from "../../utils/propTypes";
 
-const mq = `@media (max-width: ${media.max["768"]})`;
+import mq from "../../styles/mq";
+import propTypes from "../../utils/propTypes";
+import Link from "../link";
+
+const mqSmall = `@media (max-width: ${mq.max["768"]})`;
 
 const styles = {
   default: {
@@ -15,7 +16,7 @@ const styles = {
     paddingRight: "60px",
     paddingTop: "32px",
 
-    [mq]: {
+    [mqSmall]: {
       paddingBottom: "11px",
       paddingRight: "40px",
       paddingTop: "19px",
@@ -25,7 +26,7 @@ const styles = {
   card: {
     paddingLeft: "22px",
 
-    [mq]: {
+    [mqSmall]: {
       paddingLeft: "11px",
     },
   },

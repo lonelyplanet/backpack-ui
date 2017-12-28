@@ -3,10 +3,8 @@ import PropTypes from "prop-types";
 import radium from "radium";
 
 import colors from "../../styles/colors";
-import { media } from "../../../settings.json";
+import mq from "../../styles/mq";
 import propTypes from "../../utils/propTypes";
-
-const mq = `@media (max-width: ${media.max["768"]})`;
 
 const styles = {
   color: colors.textSecondary,
@@ -15,7 +13,7 @@ const styles = {
   marginBottom: 0,
   marginTop: "12px",
 
-  [mq]: {
+  [`@media (max-width: ${mq.max["768"]})`]: {
     fontSize: "12px",
   },
 };

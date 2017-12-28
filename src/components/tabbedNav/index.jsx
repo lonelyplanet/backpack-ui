@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Sticky from "react-stickynode";
 
-import settings, { media, zIndex, timing } from "../../../settings.json";
+import settings, { zIndex, timing } from "../../../settings.json";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
 
@@ -45,7 +46,7 @@ const styles = {
     width: "100%",
     borderBottom: `1px solid ${colors.accentGray}`,
 
-    [`@media (min-width: ${media.min["480"]})`]: {
+    [`@media (min-width: ${mq.min["480"]})`]: {
       animation: "none",
     },
   },

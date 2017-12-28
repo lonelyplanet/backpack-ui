@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import { media } from "../../../settings.json";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
 import { span, gutter } from "../../utils/grid";
@@ -20,7 +20,7 @@ const styles = {
     padding: gutter("static", 12, 0.5),
     textDecoration: "none",
 
-    [`@media (min-width: ${media.min["600"]})`]: {
+    [`@media (min-width: ${mq.min["600"]})`]: {
       padding: "28px 34px",
     },
   },
@@ -30,7 +30,7 @@ const styles = {
     display: "block",
     width: "64px",
 
-    [`@media (min-width: ${media.min["600"]})`]: {
+    [`@media (min-width: ${mq.min["600"]})`]: {
       width: "124px",
     },
   },
@@ -40,16 +40,16 @@ const styles = {
     marginLeft: gutter("static", 12, 0.5),
     marginRight: gutter("static", 12, 0.5),
 
-    [`@media (min-width: ${media.min["480"]})`]: {
+    [`@media (min-width: ${mq.min["480"]})`]: {
       maxWidth: "360px",
     },
 
-    [`@media (min-width: ${media.min["600"]})`]: {
+    [`@media (min-width: ${mq.min["600"]})`]: {
       marginLeft: gutter("static"),
       marginRight: gutter("static"),
     },
 
-    [`@media (min-width: ${media.min["720"]})`]: {
+    [`@media (min-width: ${mq.min["720"]})`]: {
       maxWidth: "none",
     },
   },
@@ -59,7 +59,7 @@ const styles = {
     lineHeight: (22 / 18),
     marginTop: "2px",
 
-    [`@media (min-width: ${media.min["600"]})`]: {
+    [`@media (min-width: ${mq.min["600"]})`]: {
       fontSize: "20px",
       lineHeight: (24 / 20),
       margintop: "15px",
@@ -71,7 +71,7 @@ const styles = {
     lineHeight: 1,
     marginTop: "7px",
 
-    [`@media (min-width: ${media.min["600"]})`]: {
+    [`@media (min-width: ${mq.min["600"]})`]: {
       fontSize: "16px",
     },
   },
@@ -82,7 +82,7 @@ const styles = {
     marginBottom: "16px",
     marginTop: "12px",
 
-    [`@media (min-width: ${media.min["600"]})`]: {
+    [`@media (min-width: ${mq.min["600"]})`]: {
       fontSize: "14px",
       lineHeight: (22 / 14),
       marginBottom: "21px",
@@ -91,7 +91,7 @@ const styles = {
   },
 
   moreLink: {
-    [`@media (max-width: ${media.max["600"]})`]: {
+    [`@media (max-width: ${mq.max["600"]})`]: {
       fontSize: "11px",
     },
   },

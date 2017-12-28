@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
-import { media } from "../../../settings.json";
-import ArticlePaginationItem from "../articlePaginationItem";
+
+import mq from "../../styles/mq";
 import propTypes from "../../utils/propTypes";
+import ArticlePaginationItem from "../articlePaginationItem";
 
 const ArticlePaginationNav = ({ previousArticle, nextArticle, style }) => (
   <div
@@ -14,7 +15,7 @@ const ArticlePaginationNav = ({ previousArticle, nextArticle, style }) => (
       scopeSelector=".ArticlePaginationNav"
       rules={{
         mediaQueries: {
-          [`(min-width: ${media.min["768"]})`]: {
+          [`(min-width: ${mq.min["768"]})`]: {
             ".ArticlePaginationItem": {
               float: "left",
               width: "50%",

@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import { media } from "../../../settings.json";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import { rgb } from "../../utils/color";
 
 const styles = {
@@ -11,7 +11,7 @@ const styles = {
     default: {
       marginBottom: "88px",
       paddingBottom: "88px",
-      [`@media (min-width: ${media.min["720"]})`]: {
+      [`@media (min-width: ${mq.min["720"]})`]: {
         marginBottom: "128px",
         paddingBottom: "128px",
       },
@@ -19,7 +19,7 @@ const styles = {
     halfSpace: {
       marginBottom: "32px",
       paddingBottom: "32px",
-      [`@media (min-width: ${media.min["720"]})`]: {
+      [`@media (min-width: ${mq.min["720"]})`]: {
         marginBottom: "64px",
         paddingBottom: "64px",
       },

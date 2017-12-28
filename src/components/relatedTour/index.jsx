@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 
 import colors from "../../styles/colors";
-import { media } from "../../../settings.json";
+import mq from "../../styles/mq";
 import { span } from "../../utils/grid";
+import Bullet from "../bullet";
 import Heading from "../heading";
 import Price from "../price";
-import Bullet from "../bullet";
 
 const styles = {
   base: {},
@@ -39,20 +39,20 @@ const styles = {
         lineHeight: 1,
         textTransform: "uppercase",
 
-        [`@media (max-width: ${media.max["480"]})`]: {
+        [`@media (max-width: ${mq.max["480"]})`]: {
           display: "inline-block",
           color: colors.accentGray,
           marginTop: "14px",
           fontWeight: 600,
         },
 
-        [`@media (min-width: ${media.min["480"]})`]: {
+        [`@media (min-width: ${mq.min["480"]})`]: {
           marginTop: "1.4rem",
         },
       },
 
       list: {
-        [`@media (max-width: ${media.max["480"]})`]: {
+        [`@media (max-width: ${mq.max["480"]})`]: {
           display: "inline-block",
         },
       },
@@ -64,7 +64,7 @@ const styles = {
       bullet: {
         display: "inline-block",
 
-        [`@media (min-width: ${media.min["480"]})`]: {
+        [`@media (min-width: ${mq.min["480"]})`]: {
           display: "none",
         },
       },
@@ -132,7 +132,7 @@ function RelatedTour({
           },
 
           mediaQueries: {
-            [`(max-width: ${media.max["480"]})`]: {
+            [`(max-width: ${mq.max["480"]})`]: {
               ".Price": {
                 display: "block",
                 marginTop: "20px",
@@ -145,7 +145,7 @@ function RelatedTour({
               },
             },
 
-            [`(min-width: ${media.min["480"]})`]: {
+            [`(min-width: ${mq.min["480"]})`]: {
               ".Heading": {
                 maxWidth: "50rem",
                 width: "80%",

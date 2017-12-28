@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import { Link } from "react-router";
 
-import { media, timing, zIndex } from "../../../settings.json";
+import { timing, zIndex } from "../../../settings.json";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import Flyout from "../flyout";
 import Heading from "../heading";
 import PaginatorButton from "../paginatorButton";
@@ -24,7 +25,7 @@ const styles = {
       display: "inline-block",
       marginRight: "10px",
 
-      [`@media (min-width: ${media.min["600"]})`]: {
+      [`@media (min-width: ${mq.min["600"]})`]: {
         marginRight: "20px",
       },
     },

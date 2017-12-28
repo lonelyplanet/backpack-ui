@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 
 import colors from "../../styles/colors";
-import { media } from "../../../settings.json";
+import mq from "../../styles/mq";
 import { darken, rgb } from "../../utils/color";
 import Label from "../form/label";
 
@@ -69,7 +69,7 @@ function InputGroup({
           },
 
           mediaQueries: {
-            [`(min-width: ${media.min["768"]})`]: {
+            [`(min-width: ${mq.min["768"]})`]: {
               label: {
                 left: "1.5rem",
                 top: "1.4rem",

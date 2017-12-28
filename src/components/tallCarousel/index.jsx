@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Slider from "react-slick";
 
-import { typography, timing, media, zIndex } from "../../../settings.json";
+import { typography, timing, zIndex } from "../../../settings.json";
 import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 import { rgb } from "../../utils/color";
 import PaginatorButton from "../paginatorButton";
 import SlideTall from "../slideTall";
@@ -35,16 +36,16 @@ const styles = {
     overflow: "visible",
   },
   mediaQueries: {
-    [`(min-width: ${media.min["600"]})`]: {
+    [`(min-width: ${mq.min["600"]})`]: {
       marginLeft: " -10%",
       ".TallCarousel-slide": {
         height: "50vw",
       },
     },
-    [`(max-width: ${media.max["840"]})`]: {
+    [`(max-width: ${mq.max["840"]})`]: {
       overflow: "hidden",
     },
-    [`(min-width: ${media.min["840"]})`]: {
+    [`(min-width: ${mq.min["840"]})`]: {
       width: "100%",
       marginLeft: "0",
       ".TallCarousel-slide": {

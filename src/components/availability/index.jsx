@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
-import { media } from "../../../settings.json";
+
+import mq from "../../styles/mq";
+import { gutter } from "../../utils/grid";
 import Price from "../price";
 import Button from "../button";
-import { gutter } from "../../utils/grid";
 
 const styles = {
   price: {
@@ -39,13 +40,13 @@ function Availability({ price, url, buttonLabel, buttonClick }) {
           },
 
           mediaQueries: {
-            [`(max-width: ${media.max["768"]})`]: {
+            [`(max-width: ${mq.max["768"]})`]: {
               ".Price": {
                 textAlign: "center",
               },
             },
 
-            [`(min-width: ${media.min["768"]})`]: {
+            [`(min-width: ${mq.min["768"]})`]: {
               ".Price-rate": {
                 bottom: ".6rem",
                 position: "absolute",
@@ -114,11 +115,8 @@ Availability.propTypes = {
 
 Availability.defaultProps = {
   price: {},
-
   url: "",
-
   buttonLabel: "Check prices and availability",
-
   buttonClick: null,
 };
 

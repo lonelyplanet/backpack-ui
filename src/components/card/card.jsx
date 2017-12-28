@@ -4,7 +4,7 @@ import radium, { Style } from "radium";
 import cn from "classnames";
 
 import colors from "../../styles/colors";
-import { media } from "../../../settings.json";
+import mq from "../../styles/mq";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 
@@ -29,7 +29,7 @@ const styles = {
   card: {
     boxShadow: `0 0 20px ${rgba(colors.shadowPrimary, 0.12)}`,
 
-    [`@media (min-width: ${media.min["768"]})`]: {
+    [`@media (min-width: ${mq.min["768"]})`]: {
       boxShadow: `0 12px 34px ${rgba(colors.shadowPrimary, 0.12)}`,
     },
   },

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import cn from "classnames";
-import { media } from "../../../settings.json";
+import mq from "../../styles/mq";
 
 // @TODO: Replace grid settings with unitless values in settings.json
 const containerWidth = 1290;
@@ -25,21 +25,21 @@ const styles = `
     clear: both;
   }
 
-  @media (max-width: ${media.max[480]}) {
+  @media (max-width: ${mq.max[480]}) {
     .container {
       padding-left: ${(gutterWidth / 2)}px;
       padding-right: ${(gutterWidth / 2)}px;
     }
   }
 
-  @media (min-width: ${media.min[480]}) {
+  @media (min-width: ${mq.min[480]}) {
     .container {
       margin-left: ${gutterWidth}px;
       margin-right: ${gutterWidth}px;
     }
   }
 
-  @media (min-width: ${media.min[1080]}) {
+  @media (min-width: ${mq.min[1080]}) {
     .container {
       margin-left: ${(gutterWidth * 2)}px;
       margin-right: ${(gutterWidth * 2)}px;
