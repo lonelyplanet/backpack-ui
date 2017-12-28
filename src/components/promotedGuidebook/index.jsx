@@ -1,17 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, media } from "../../../settings.json";
-import { span, gutter } from "../../utils/grid";
+
+import { media } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
+import { span, gutter } from "../../utils/grid";
 import Heading from "../heading";
 import MoreLink from "../moreLink";
 
 const styles = {
   container: {
-    color: color.darkGray,
-    boxShadow: `0 3px 29px 0 rgba(${rgb(color.black)}, .08)`,
+    color: colors.textPrimary,
+    boxShadow: `0 3px 29px 0 rgba(${rgb(colors.shadowPrimary)}, .08)`,
     display: "flex",
     fontFamily: font("benton"),
     maxWidth: span(6, "static"),

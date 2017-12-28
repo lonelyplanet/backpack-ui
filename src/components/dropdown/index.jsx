@@ -2,12 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
-import { color, timing } from "../../../settings.json";
+
+import { timing } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { outline } from "../../utils/mixins";
 
 const icons = {
   chevron: {
-    base: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${color.darkGray}"><path d="M28.8 6.2l-12.8 12.8-12.8-12.8-3.2 3.2 16 16.4 16-16.4z"></path></svg>`),
+    base: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${colors.textPrimary}"><path d="M28.8 6.2l-12.8 12.8-12.8-12.8-3.2 3.2 16 16.4 16-16.4z"></path></svg>`),
   },
 };
 
@@ -18,13 +20,13 @@ const hoverStyles = {
 const styles = {
   container: {
     base: {
-      backgroundColor: color.white,
+      backgroundColor: colors.bgPrimary,
       backgroundRepeat: "no-repeat",
       backgroundImage: `url("data:image/svg+xml;charset=UTF-8,${icons.chevron.base}")`,
       backgroundSize: `${7 / 13}em`,
       backgroundPosition: `calc(100% - ${1 / 13}em) 50%`,
       border: 0,
-      color: color.darkGray,
+      color: colors.textPrimary,
       cursor: "pointer",
       fontSize: "13px",
       lineHeight: 1,
@@ -89,11 +91,8 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   options: [],
-
   defaultValue: "",
-
   onChange: null,
-
   size: "",
 };
 

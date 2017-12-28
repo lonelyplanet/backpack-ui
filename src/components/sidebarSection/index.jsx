@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import cn from "classnames";
 import assign from "object-assign";
-import { color } from "../../../settings.json";
+import colors from "../../styles/colors";
 import Heading from "../heading";
 import Icon from "../icon";
 
@@ -47,7 +47,7 @@ class SidebarSection extends React.Component {
           paddingBottom: "35px",
           position: "relative",
         }, !first && {
-          borderTop: `1px solid ${color.gray}`,
+          borderTop: `1px solid ${colors.borderPrimary}`,
           paddingTop: "20px",
         }),
 
@@ -140,7 +140,7 @@ class SidebarSection extends React.Component {
       toggleIcon: {
         base: {
           backgroundColor: "transparent",
-          color: color.blue,
+          color: colors.linkPrimary,
           fontSize: "9px",
           marginTop: "-3px",
           position: "absolute",

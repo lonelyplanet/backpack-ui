@@ -1,9 +1,9 @@
-import { color } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
 
 export default `
   .pswp__bg {
-    background-color: ${color.white};
+    background-color: ${colors.bgPrimary};
   }
 
   .pswp__button--close {
@@ -68,7 +68,7 @@ export default `
 
   .pswp__caption small {
     font-size: 12px;
-    color: ${color.footerCopyright};
+    color: ${colors.accentGray};
   }
 
   .pswp__caption__center {
@@ -77,7 +77,7 @@ export default `
     font-size: 12px;
     padding: 20px;
     line-height: ${(20 / 12)};
-    color: ${rgba(color.darkGray, 0.8)};
+    color: ${rgba(colors.textPrimary, 0.8)};
     letter-spacing: -.2px;
   }
 
@@ -89,7 +89,7 @@ export default `
   }
 
   .pswp__caption__center a {
-    color: ${rgba(color.darkGray, 0.8)};
+    color: ${rgba(colors.textPrimary, 0.8)};
     text-decoration: underline;
   }
 

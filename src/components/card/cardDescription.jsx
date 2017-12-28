@@ -1,13 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, media } from "../../../settings.json";
+
+import colors from "../../styles/colors";
+import { media } from "../../../settings.json";
 import propTypes from "../../utils/propTypes";
 
 const mq = `@media (max-width: ${media.max["768"]})`;
 
 const styles = {
-  color: color.featureCopy,
+  color: colors.textSecondary,
   fontSize: "16px",
   lineHeight: 1,
   marginBottom: 0,

@@ -2,12 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import assign from "object-assign";
-import { color, timing } from "../../../settings.json";
-import { rgb } from "../../utils/color";
-import { blueLink, outline } from "../../utils/mixins";
-import font from "../../utils/font";
-import { ChevronRight } from "../icon";
+
+import { timing } from "../../../settings.json";
 import colors from "../../styles/colors";
+import { rgb } from "../../utils/color";
+import font from "../../utils/font";
+import { blueLink, outline } from "../../utils/mixins";
+import { ChevronRight } from "../icon";
 
 const styles = {
   container: {
@@ -33,11 +34,11 @@ const styles = {
   }),
 
   linkWhite: {
-    color: `rgba(${rgb(color.white)}, 0.87)`,
+    color: `rgba(${rgb(colors.bgPrimary)}, 0.87)`,
 
-    ":hover": { color: color.white },
-    ":active": { color: color.white },
-    ":focus": assign({}, outline(), { color: color.white }),
+    ":hover": { color: colors.bgPrimary },
+    ":active": { color: colors.bgPrimary },
+    ":focus": assign({}, outline(), { color: colors.bgPrimary }),
   },
 
   icon: {

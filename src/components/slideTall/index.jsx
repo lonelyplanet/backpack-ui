@@ -1,13 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "../link";
-import { color, zIndex } from "../../../settings.json";
-import HeroImageContainer from "../heroImageContainer";
+
+import { zIndex } from "../../../settings.json";
+import colors from "../../styles/colors";
 import GradientOverlay from "../gradientOverlay";
+import HeroImageContainer from "../heroImageContainer";
 
 const styles = {
   title: {
-    color: color.white,
+    color: colors.bgPrimary,
     zIndex: zIndex.middle,
   },
 };

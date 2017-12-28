@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import settings from "../../../settings.json";
+
+import colors from "../../styles/colors";
 import font from "../../utils/font";
 
 const styles = {
   container: {
     base: {
-      color: settings.color.lightText,
+      color: colors.textSecondary,
       fontFamily: font("miller"),
       fontSize: "1.6rem",
       fontStyle: "italic",

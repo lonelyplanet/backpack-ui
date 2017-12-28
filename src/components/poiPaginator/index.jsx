@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color } from "../../../settings.json";
+
+import colors from "../../styles/colors";
 import Heading from "../heading";
-import Strapline from "../strapline";
 import PaginatorButton from "../paginatorButton";
+import Strapline from "../strapline";
 
 const styles = {
   container: {
@@ -17,7 +18,7 @@ const styles = {
 
   title: {
     base: {
-      color: color.blue,
+      color: colors.linkPrimary,
       fontWeight: "inherit",
     },
   },
@@ -151,15 +152,10 @@ PoiPaginator.propTypes = {
 
 PoiPaginator.defaultProps = {
   title: "",
-
   topChoice: false,
-
   type: "",
-
   neighborhood: "",
-
   place: "",
-
   onClick: null,
 };
 

@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import assign from "object-assign";
-import { color } from "../../../settings.json";
+
+import colors from "../../styles/colors";
 import font from "../../utils/font";
 import CategoryLabelLink from "../categoryLabelLink";
 import Heading from "../heading";
@@ -12,7 +13,7 @@ function ArticlePreview({ title, paragraph, image, href, category, categoryHref 
   const styles = {
     container: {
       fontFamily: font("benton"),
-      color: color.titleGray,
+      color: colors.textPrimary,
       maxWidth: "410px",
     },
 

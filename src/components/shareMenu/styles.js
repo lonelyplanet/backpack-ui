@@ -1,4 +1,5 @@
-import settings from "../../../settings.json";
+import colors from "../../styles/colors";
+import { timing } from "../../../settings.json";
 import font from "../../utils/font";
 
 const styles = {
@@ -21,9 +22,9 @@ const styles = {
       backfaceVisibility: "hidden",
       display: "inline-block",
       position: "absolute",
-      transition: `opacity ${settings.timing.default},
-        transform ${settings.timing.default},
-        visibility ${settings.timing.default}`,
+      transition: `opacity ${timing.default},
+        transform ${timing.default},
+        visibility ${timing.default}`,
       width: "200px",
     },
 
@@ -96,7 +97,7 @@ const styles = {
   item: {
     base: {
       backgroundColor: "transparent",
-      color: settings.color.text,
+      color: colors.textPrimary,
       display: "block",
       fontSize: "13px",
       paddingBottom: "4px",

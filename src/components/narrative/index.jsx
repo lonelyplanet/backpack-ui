@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Style } from "radium";
-import { color, media } from "../../../settings.json";
-import ContentBlock from "../contentBlock";
-import Icon from "../icon";
-import ArticleAuthor from "../articleAuthor";
+
+import colors from "../../styles/colors";
+import { media } from "../../../settings.json";
 import { rgb } from "../../utils/color";
 import { gutter, span, add, percentage } from "../../utils/grid";
+import ArticleAuthor from "../articleAuthor";
+import ContentBlock from "../contentBlock";
+import Icon from "../icon";
 
 const mq = `${667 * 0.0625}em`;
 
@@ -26,7 +28,7 @@ const scopedStyles = {
 
     [`(max-width: ${media.max["768"]})`]: {
       ".Narrative-content": {
-        borderTop: `1px solid ${color.gray}`,
+        borderTop: `1px solid ${colors.borderPrimary}`,
         marginTop: "2rem",
         paddingTop: "2.5rem",
       },
@@ -36,14 +38,14 @@ const scopedStyles = {
       },
 
       ".Narrative-profile": {
-        borderBottom: `1px solid ${color.gray}`,
+        borderBottom: `1px solid ${colors.borderPrimary}`,
         paddingBottom: gutter("static"),
       },
     },
 
     [`(min-width: ${media.min["768"]})`]: {
       ".Narrative-content": {
-        borderLeft: `2px solid rgba(${rgb(color.blue)}, .4)`,
+        borderLeft: `2px solid rgba(${rgb(colors.linkPrimary)}, .4)`,
         float: "left",
         paddingLeft: gutter("static"),
         width: percentage(add([span(6, "static"), gutter("static")], "static"), maxWidth),
@@ -55,7 +57,7 @@ const scopedStyles = {
       },
 
       ".Narrative-profile": {
-        borderTop: `1px solid ${color.gray}`,
+        borderTop: `1px solid ${colors.borderPrimary}`,
         clear: "left",
         marginTop: "4.2rem",
         position: "relative",
@@ -63,7 +65,7 @@ const scopedStyles = {
       },
 
       ".Narrative-profile::before": {
-        backgroundColor: color.white,
+        backgroundColor: colors.bgPrimary,
         content: "''",
         display: "block",
         height: "calc(100% + 2.2rem)",
@@ -88,7 +90,7 @@ function Narrative({ heading, htmlContent, author }) {
       />
 
       <aside className="Narrative-aside">
-        <Icon.DiamondLogo fill={color.blue} />
+        <Icon.DiamondLogo fill={colors.linkPrimary} />
       </aside>
 
       <div className="Narrative-content">
@@ -136,9 +138,7 @@ Narrative.propTypes = {
 
 Narrative.defaultProps = {
   heading: "",
-
   htmlContent: "",
-
   author: null,
 };
 

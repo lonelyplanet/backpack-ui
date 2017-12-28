@@ -3,26 +3,28 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
 import upperFirst from "lodash/upperFirst";
+
 import settings from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
-import { outline } from "../../utils/mixins";
 import iconFromString from "../../utils/icon";
+import { outline } from "../../utils/mixins";
 
 const _ = { upperFirst };
 
 const hoverStyles = {
   base: {
-    color: settings.color.blue,
+    color: colors.linkPrimary,
   },
   blue: {
-    color: settings.color.blue,
+    color: colors.linkPrimary,
   },
 };
 
 const styles = {
   base: {
     appearance: "none",
-    backgroundColor: settings.color.white,
+    backgroundColor: colors.bgPrimary,
     border: 0,
     borderRadius: "50%",
     cursor: "pointer",
@@ -50,16 +52,16 @@ const styles = {
 
   shadow: {
     loose: {
-      boxShadow: `0 ${2 / 9}em ${8 / 9}em rgba(${rgb(settings.color.black)}, .1)`,
+      boxShadow: `0 ${2 / 9}em ${8 / 9}em rgba(${rgb(colors.shadowPrimary)}, .1)`,
     },
     tight: {
-      boxShadow: `0 0 ${4 / 9}em rgba(${rgb(settings.color.black)}, .16)`,
+      boxShadow: `0 0 ${4 / 9}em rgba(${rgb(colors.shadowPrimary)}, .16)`,
     },
   },
 
   color: {
     blue: {
-      color: settings.color.blue,
+      color: colors.linkPrimary,
 
       ":hover": hoverStyles.blue,
       ":active": hoverStyles.blue,
@@ -278,23 +280,14 @@ PaginatorButton.propTypes = {
 
 PaginatorButton.defaultProps = {
   direction: "up",
-
   size: "medium",
-
   shadow: "loose",
-
   arrow: "chevron",
-
   color: "",
-
   align: "",
-
   offset: false,
-
   onClick: null,
-
   iconLabel: "",
-
   owns: "",
 };
 

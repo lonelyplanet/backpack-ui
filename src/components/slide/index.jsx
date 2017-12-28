@@ -1,17 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import Link from "../link";
-import Container from "../container";
-import Heading from "../heading";
-import HeroImageContainer from "../heroImageContainer";
-import GradientOverlay from "../gradientOverlay";
+
+import { media, typography, zIndex } from "../../../settings.json";
+import colors from "../../styles/colors";
+import { rgb } from "../../utils/color";
+import iconFromString from "../../utils/icon";
+import propTypes from "../../utils/propTypes";
 import BulletDescription from "../bulletDescription";
 import Button from "../button";
-import iconFromString from "../../utils/icon";
-import { rgb } from "../../utils/color";
-import propTypes from "../../utils/propTypes";
-import { color, media, typography, zIndex } from "../../../settings.json";
+import Container from "../container";
+import GradientOverlay from "../gradientOverlay";
+import Heading from "../heading";
+import HeroImageContainer from "../heroImageContainer";
+import Link from "../link";
 
 const styles = {
   base: {
@@ -20,11 +22,11 @@ const styles = {
     transform: "translateZ(0)",
   },
   link: {
-    color: color.white,
+    color: colors.bgPrimary,
     cursor: "pointer",
   },
   bullets: {
-    color: color.white,
+    color: colors.bgPrimary,
     fontSize: "14px",
     marginBottom: "24px",
     fontWeight: typography.fontWeightBold,
@@ -36,7 +38,7 @@ const styles = {
     marginBottom: "20px",
   },
   heading: {
-    color: color.white,
+    color: colors.bgPrimary,
     fontSize: "32px",
     letterSpacing: "0",
     marginBottom: "16px",
@@ -76,7 +78,7 @@ const styles = {
     right: 0,
     top: 0,
     bottom: 0,
-    backgroundColor: `rgba(${rgb(color.black)}, 0.3)`,
+    backgroundColor: `rgba(${rgb(colors.bgOverlay)}, 0.3)`,
   },
   position: {
     center: {
@@ -230,7 +232,7 @@ Slide.propTypes = {
 
 Slide.defaultProps = {
   description: [],
-  gradientColor: color.black,
+  gradientColor: colors.bgOverlay,
   position: "center",
 };
 

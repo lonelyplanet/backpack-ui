@@ -1,20 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, timing } from "../../../settings.json";
+
+import colors from "../../styles/colors";
+import { timing } from "../../../settings.json";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
   backgroundColor: "transparent",
-  color: color.detailHeaderSmall,
+  color: colors.accentGray,
   cursor: "pointer",
   fontSize: "18px",
   padding: "5px",
   transition: `color ${timing.default} ease-in-out`,
 
-  ":hover": { color: color.blue },
-  ":active": { color: color.blue },
-  ":focus": { color: color.blue },
+  ":hover": { color: colors.linkPrimary },
+  ":active": { color: colors.linkPrimary },
+  ":focus": { color: colors.linkPrimary },
 };
 
 const CardActionIcon = ({ children, onClick, style }) => (

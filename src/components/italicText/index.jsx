@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+
+import colors from "../../styles/colors";
 import font from "../../utils/font";
 import propTypes from "../../utils/propTypes";
-import { color } from "../../../settings.json";
 
 const styles = {
-  color: color.subtitleGray,
+  color: colors.accentGray,
   fontFamily: font("miller"),
   fontSize: "14px",
   fontStyle: "italic",

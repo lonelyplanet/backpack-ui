@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import AccordionItem from "./accordionItem";
+
+import { grid } from "../../../settings.json";
+import colors from "../../styles/colors";
 import propTypes from "../../utils/propTypes";
-import { color, grid } from "../../../settings.json";
+import AccordionItem from "./accordionItem";
 
 const styles = {
   container: {
-    borderTop: `1px solid ${color.gray}`,
+    borderTop: `1px solid ${colors.borderPrimary}`,
     maxWidth: grid.container,
   },
 };

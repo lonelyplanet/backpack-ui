@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, media, timing, zIndex } from "../../../settings.json";
-import font from "../../utils/font";
+
+import { media, timing, zIndex } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
+import font from "../../utils/font";
 import CategoryLabel from "../categoryLabel";
 import Heading from "../heading";
 import { ArrowLeftAlternate, ArrowRightAlternate } from "../icon";
@@ -12,7 +14,7 @@ const styles = {
   anchor: {
     alignItems: "center",
     backgroundColor: "#1f1f1f",
-    color: color.white,
+    color: colors.bgPrimary,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -41,7 +43,7 @@ const styles = {
   },
 
   fauxButton: {
-    border: `1px solid rgba(${rgb(color.white)}, .3)`,
+    border: `1px solid rgba(${rgb(colors.bgPrimary)}, .3)`,
     borderRadius: "32px",
     display: "inline-block",
     fontFamily: font("benton"),
@@ -105,7 +107,7 @@ const ArticlePaginationItem = ({ title, href, image, imageAlt, category, page, s
 
     <div style={styles.container}>
       {category &&
-        <CategoryLabel style={{ color: color.white }}>
+        <CategoryLabel style={{ color: colors.bgPrimary }}>
           {category}
         </CategoryLabel>
       }
@@ -115,7 +117,7 @@ const ArticlePaginationItem = ({ title, href, image, imageAlt, category, page, s
         tracking="tight"
         weight="thick"
         override={{
-          color: color.white,
+          color: colors.bgPrimary,
           fontSize: "20px",
           lineHeight: (28 / 20),
           marginTop: "2px",

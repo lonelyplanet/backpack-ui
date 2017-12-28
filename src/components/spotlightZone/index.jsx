@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+
 import settings from "../../../settings.json";
+import colors from "../../styles/colors";
+import { rgba } from "../../utils/color";
+import font from "../../utils/font";
 import { gutter, percentage } from "../../utils/grid";
 import Link from "../link";
-import font from "../../utils/font";
-import { rgba } from "../../utils/color";
 import Heading from "../heading";
 import { Play } from "../icon";
 import Container from "../container";
@@ -14,8 +16,8 @@ const styles = {
   container: {
     fontFamily: font("benton"),
     position: "relative",
-    backgroundColor: settings.color.black,
-    color: settings.color.white,
+    backgroundColor: colors.bgOverlay,
+    color: colors.bgPrimary,
 
     [`@media (min-width: ${settings.media.min["960"]})`]: {
       display: "flex",
@@ -39,7 +41,7 @@ const styles = {
   },
 
   backgroundOverlay: {
-    backgroundColor: rgba(settings.color.black, 0.38),
+    backgroundColor: rgba(colors.bgOverlay, 0.38),
     bottom: 0,
     height: "100%",
     left: 0,
@@ -88,7 +90,7 @@ const styles = {
     },
 
     [`@media (max-width: ${settings.media.max["960"]})`]: {
-      backgroundColor: rgba(settings.color.black, 0.38),
+      backgroundColor: rgba(colors.bgOverlay, 0.38),
     },
 
     [`@media (min-width: ${settings.media.min["960"]})`]: {
@@ -133,7 +135,7 @@ const styles = {
   },
 
   title: {
-    color: settings.color.white,
+    color: colors.bgPrimary,
     fontSize: "20px",
     lineHeight: (24 / 20),
 
@@ -149,7 +151,7 @@ const styles = {
   },
 
   category: {
-    color: settings.color.white,
+    color: colors.bgPrimary,
     fontSize: "11px",
     lineHeight: 1,
 
@@ -185,7 +187,7 @@ const styles = {
   },
 
   divider: {
-    borderColor: rgba(settings.color.subtitleGray, 0.27),
+    borderColor: rgba(colors.accentGray, 0.27),
     width: "50%",
     display: "inline-block",
     borderStyle: "solid",
@@ -207,13 +209,13 @@ const styles = {
     display: "block",
     maxWidth: "100%",
     maxHeight: "100%",
-    boxShadow: `0 12px 34px 0 ${rgba(settings.color.black, 0.12)},
-      inset 0 1px 3px 0 ${rgba(settings.color.black, 0.5)}`,
-    border: `1px solid ${rgba(settings.color.white, 0.2)}`,
+    boxShadow: `0 12px 34px 0 ${rgba(colors.shadowPrimary, 0.12)},
+      inset 0 1px 3px 0 ${rgba(colors.shadowPrimary, 0.5)}`,
+    border: `1px solid ${rgba(colors.bgPrimary, 0.2)}`,
   },
 
   imageOverlay: {
-    backgroundColor: rgba(settings.color.black, 0.16),
+    backgroundColor: rgba(colors.bgOverlay, 0.16),
     position: "absolute",
     top: 0,
     width: "100%",
@@ -225,7 +227,7 @@ const styles = {
   },
 
   playIcon: {
-    color: settings.color.white,
+    color: colors.bgPrimary,
     height: "21px",
     width: "21px",
   },
@@ -233,7 +235,7 @@ const styles = {
 
 const css = `
   .SpotlightZone a:hover .SpotlightZone-imageOverlay {
-    background-color: ${rgba(settings.color.black, 0.06)} !important;
+    background-color: ${rgba(colors.bgOverlay, 0.06)} !important;
   }
 `;
 

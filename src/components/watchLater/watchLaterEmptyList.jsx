@@ -1,13 +1,13 @@
 import React from "react";
 import radium from "radium";
+
+import colors from "../../styles/colors";
+import { media } from "../../../settings.json";
+import propTypes from "../../utils/propTypes";
 import Heading from "../heading";
 import Button from "../button";
 import Link from "../link";
 import { ClockOutline } from "../icon";
-import { color, media } from "../../../settings.json";
-import propTypes from "../../utils/propTypes";
-
-const largeMQ = `(min-width: ${media.min["768"]})`;
 
 const styles = {
   container: {
@@ -20,13 +20,13 @@ const styles = {
     right: 0,
     top: "50%",
     transform: "translateY(-50%)",
-    [`@media ${largeMQ}`]: {
+    [`@media (min-width: ${media.min["768"]})`]: {
       position: "relative",
       transform: "translateY(0)",
     },
   },
   icon: {
-    color: color.detailHeaderSmall,
+    color: colors.accentGray,
     marginBottom: "16px",
     fontSize: "34px",
   },
@@ -39,7 +39,7 @@ const styles = {
   },
   text: {
     fontSize: "14px",
-    color: color.articlesBlurb,
+    color: colors.textSecondary,
     marginBottom: "72px",
   },
 };
@@ -57,8 +57,14 @@ const WatchLaterEmptyList = ({ style }) => (
       >
         Add some videos
       </Heading>
-      <p style={styles.text}>Find interesting videos and save them for later.</p>
-      <Link to={"/video/v"}><Button rounded>Browse Channels</Button></Link>
+
+      <p style={styles.text}>
+        Find interesting videos and save them for later.
+      </p>
+
+      <Link to={"/video/v"}>
+        <Button rounded>Browse Channels</Button>
+      </Link>
     </div>
   </div>
 );

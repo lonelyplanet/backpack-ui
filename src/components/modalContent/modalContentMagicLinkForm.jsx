@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Validate from "react-validate-form";
+
+import colors from "../../styles/colors";
 import ErrorMessages from "../form/errorMessages";
 import Input from "../form/input";
 import Button from "../button";
-import color from "../../styles/colors";
 
 const styles = {
   container: {
@@ -16,7 +17,7 @@ const styles = {
     marginBottom: "24px",
   },
   input: {
-    borderBottom: `1px solid ${color.borderPrimary}`,
+    borderBottom: `1px solid ${colors.borderPrimary}`,
   },
 };
 

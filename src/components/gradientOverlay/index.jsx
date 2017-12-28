@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
+
 import settings from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
 
 const GradientOverlay = ({ children, gradientType, color, style }) => {
@@ -62,7 +64,7 @@ GradientOverlay.propTypes = {
 };
 
 GradientOverlay.defaultProps = {
-  color: settings.color.black,
+  color: colors.bgOverlay,
   gradientType: "linear",
 };
 

@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color } from "../../../settings.json";
-import { span } from "../../utils/grid";
+
+import colors from "../../styles/colors";
 import font from "../../utils/font";
+import { span } from "../../utils/grid";
 
 const baseFontSize = 13;
 
@@ -37,7 +38,7 @@ const styles = {
 
   item: {
     base: {
-      color: color.darkGray,
+      color: colors.textPrimary,
     },
 
     grouped: {
@@ -54,7 +55,7 @@ const styles = {
 
   heading: {
     base: {
-      color: color.titleGray,
+      color: colors.textPrimary,
       fontSize: `${14 / baseFontSize}em`,
       fontWeight: 600,
       lineHeight: (24 / 14),
@@ -177,9 +178,7 @@ Amenities.propTypes = {
 
 Amenities.defaultProps = {
   items: [],
-
   columns: 1,
-
   listType: "single",
 };
 

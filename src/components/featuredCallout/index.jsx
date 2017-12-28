@@ -1,17 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, timing, media, zIndex } from "../../../settings.json";
+
+import { timing, media, zIndex } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
-import Heading from "../heading";
 import CalloutLink from "../calloutLink";
-import HideAtBreakpoint from "../hideAtBreakpoint";
 import CategoryLabel from "../categoryLabel";
+import Heading from "../heading";
+import HideAtBreakpoint from "../hideAtBreakpoint";
 
 const styles = {
   container: {
-    color: color.white,
+    color: colors.bgPrimary,
     fontFamily: font("benton"),
     position: "relative",
     width: "70%",
@@ -39,13 +41,13 @@ const styles = {
   },
 
   title: {
-    color: color.white,
+    color: colors.bgPrimary,
     fontSize: "28px",
     fontWeight: 600,
     letterSpacing: "-0.75px",
     lineHeight: (34 / 28),
     marginTop: "5px",
-    textShadow: `0 0 130px rgba(${rgb(color.black)}, 0.5)`,
+    textShadow: `0 0 130px rgba(${rgb(colors.shadowPrimary)}, 0.5)`,
 
     [`@media (min-width: ${media.min["720"]})`]: {
       fontSize: "calc(11px + 3vw)",
@@ -111,7 +113,7 @@ const FeaturedCallout = ({
     ]}
   >
     {category &&
-      <CategoryLabel style={{ color: color.white }}>{category}</CategoryLabel>
+      <CategoryLabel style={{ color: colors.bgPrimary }}>{category}</CategoryLabel>
     }
 
     <Heading

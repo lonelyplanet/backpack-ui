@@ -1,18 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+
+import { timing, typography } from "../../../settings.json";
+import colors from "../../styles/colors";
 import NumberMarker from "../numberMarker/";
-import { color, timing, typography } from "../../../settings.json";
 
 const styles = {
   linkContainer: {
     display: "flex",
-    color: color.titleGray,
+    color: colors.textPrimary,
     alignItems: "stretch",
     textDecoration: "none",
     transition: `color ${timing.fast} ease`,
     ":hover": {
-      color: color.lpBlue,
+      color: colors.linkPrimary,
     },
   },
   imageContainer: {
@@ -24,7 +26,7 @@ const styles = {
     width: "80px",
     height: "50px",
     backgroundSize: "cover",
-    backgroundColor: color.subtitleGray,
+    backgroundColor: colors.accentGray,
     backgroundRepeat: "no-repeat",
   },
   textContainer: {
@@ -47,7 +49,7 @@ const styles = {
   subtitle: {
     marginTop: "8px",
     fontWeight: typography.fontWeightBold,
-    color: color.subtitleGray,
+    color: colors.accentGray,
     textTransform: "uppercase",
     fontSize: "11px",
   },

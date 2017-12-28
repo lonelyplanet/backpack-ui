@@ -1,15 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, media, zIndex } from "../../../settings.json";
 
+import { media, zIndex } from "../../../settings.json";
+import colors from "../../styles/colors";
 
 const styles = {
   base: {
     width: "100%",
     height: "100%",
-    backgroundColor: color.titleGray,
-    color: color.white,
+    backgroundColor: colors.textPrimary,
+    color: colors.bgPrimary,
     left: 0,
     overflow: "hidden",
     position: "relative",

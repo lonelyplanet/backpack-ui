@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import assign from "object-assign";
-import { color } from "../../../settings.json";
+
+import colors from "../../styles/colors";
 
 const styles = {
   image: {
-    backgroundColor: color.titleGray,
+    backgroundColor: colors.textPrimary,
     backgroundPosition: "50%",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",

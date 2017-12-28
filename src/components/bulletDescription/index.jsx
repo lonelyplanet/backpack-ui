@@ -1,14 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color } from "../../../settings.json";
+
+import colors from "../../styles/colors";
 import Bullet from "../bullet";
 
 
 const styles = {
+  color: colors.accentGray,
   fontSize: "11px",
   letterSpacing: "0.4px",
-  color: color.detailHeaderSmall,
   textTransform: "uppercase",
 };
 

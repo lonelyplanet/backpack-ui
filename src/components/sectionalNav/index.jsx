@@ -3,17 +3,19 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Sticky from "react-stickynode";
 import { Link } from "react-scroll";
-import settings, { color, media, zIndex, timing } from "../../../settings.json";
-import font from "../../utils/font";
+
+import settings, { media, zIndex, timing } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
+import font from "../../utils/font";
 
 const navigationSubHeight = "80px";
 const navigationSubHeightMobile = settings.components.header.heightMobile;
 
 const styles = {
   container: {
-    backgroundColor: color.white,
-    borderTop: `1px solid rgba(${rgb(color.lightBlue)}, 0.45)`,
+    backgroundColor: colors.bgPrimary,
+    borderTop: `1px solid rgba(${rgb(colors.accentGray)}, 0.45)`,
     fontFamily: font("benton"),
     fontSize: 0,
     height: navigationSubHeightMobile,
@@ -40,7 +42,7 @@ const styles = {
   },
 
   list: {
-    animation: `fly-in ${settings.timing.default}`,
+    animation: `fly-in ${timing.default}`,
     height: (navigationSubHeightMobile + 2), // to push horizontal scrollbar out of view
     margin: 0,
     "-webkit-overflow-scrolling": "touch",
@@ -48,7 +50,7 @@ const styles = {
     overflowY: "hidden",
     padding: 0,
     textAlign: "center",
-    transition: `opacity ${settings.timing.default}`,
+    transition: `opacity ${timing.default}`,
     whiteSpace: "nowrap",
     width: "100%",
 
@@ -73,7 +75,7 @@ const styles = {
     },
 
     active: {
-      borderBottom: `5px solid ${color.lpBlue}`,
+      borderBottom: `5px solid ${colors.linkPrimary}`,
     },
   },
 
@@ -85,10 +87,10 @@ const styles = {
       width: "100% !important",
     },
     ".active nav ul": {
-      borderBottom: `1px solid rgba(${rgb(color.lightBlue)}, 0.45)`,
+      borderBottom: `1px solid rgba(${rgb(colors.accentGray)}, 0.45)`,
     },
     a: {
-      color: color.titleGray,
+      color: colors.textPrimary,
       display: "block",
       fontSize: "11px",
       fontWeight: 600,

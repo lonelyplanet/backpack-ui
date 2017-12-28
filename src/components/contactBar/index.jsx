@@ -2,16 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
-import { color, timing } from "../../../settings.json";
-import Icon from "../icon";
+
+import { timing } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { outline } from "../../utils/mixins";
+import Icon from "../icon";
 
 const baseFontSize = 11;
 
 const styles = {
   container: {
     base: {
-      color: color.darkGray,
+      color: colors.textPrimary,
       display: "flex",
       fontSize: `${baseFontSize}px`,
       lineHeight: 1,
@@ -28,9 +30,9 @@ const styles = {
       paddingTop: `${20 / baseFontSize}em`,
       transition: `color ${timing.fast} ease-in-out`,
 
-      ":hover": { color: color.blue },
-      ":active": { color: color.blue },
-      ":focus": assign({}, outline(), { color: color.blue }),
+      ":hover": { color: colors.linkPrimary },
+      ":active": { color: colors.linkPrimary },
+      ":focus": assign({}, outline(), { color: colors.linkPrimary }),
     },
 
     call: {
@@ -58,7 +60,7 @@ const styles = {
     },
 
     strong: {
-      color: color.blue,
+      color: colors.linkPrimary,
       display: "block",
       fontWeight: 400,
       marginTop: `${4 / baseFontSize}em`,
@@ -135,7 +137,6 @@ ContactBar.propTypes = {
 
 ContactBar.defaultProps = {
   phone: "",
-
   website: "",
 };
 

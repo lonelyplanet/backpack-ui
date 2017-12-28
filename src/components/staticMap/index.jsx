@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, timing } from "../../../settings.json";
+
+import { timing } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { span, percentage } from "../../utils/grid";
 
 const styles = {
@@ -32,7 +34,7 @@ const styles = {
 
   attribution: {
     base: {
-      color: color.lightText,
+      color: colors.textSecondary,
       display: "inline-block",
       fontSize: `${9 / 10}em`,
       letterSpacing: ".1px",
@@ -145,17 +147,11 @@ const token = "pk.eyJ1IjoibG9uZWx5cGxhbmV0IiwiYSI6Imh1ODUtdUEifQ.OLLon0V6rcoTyay
 
 StaticMap.defaultProps = {
   token,
-
   location: "",
-
   size: "640x480",
-
   sidebar: false,
-
   hideAttribution: false,
-
   name: "",
-
   url: "",
 };
 

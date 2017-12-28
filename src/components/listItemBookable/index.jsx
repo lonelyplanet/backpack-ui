@@ -4,7 +4,12 @@ import radium from "radium";
 import truncate from "truncate";
 import upperFirst from "lodash/upperFirst";
 import { Link } from "react-router";
-import { color, media } from "../../../settings.json";
+
+import { media } from "../../../settings.json";
+import colors from "../../styles/colors";
+import font from "../../utils/font";
+import { add, subtract, gutter, span, percentage } from "../../utils/grid";
+import svgDataUri from "../../utils/svgDataUri";
 import Button from "../button";
 import Price from "../price";
 import BookmarkButton from "../bookmarkButton";
@@ -12,9 +17,6 @@ import Bullet from "../bullet";
 import Icon from "../icon";
 import Tooltip from "../tooltip";
 import ListItemImage from "../listItemImage";
-import { add, subtract, gutter, span, percentage } from "../../utils/grid";
-import font from "../../utils/font";
-import svgDataUri from "../../utils/svgDataUri";
 
 const _ = { upperFirst };
 
@@ -26,7 +28,7 @@ const infoWidth = subtract([span(6, "static"), gutter("static"), "1.8rem"], "sta
 const priceWidth = add([span(1, "static"), gutter("static")], "static");
 
 const icons = {
-  checkmark: `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${color.featureCopy}"><path d="M32,4L12,32L0,20l4-4l8,8L28,0L32,4z"></path></svg>`,
+  checkmark: `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${colors.textSecondary}"><path d="M32,4L12,32L0,20l4-4l8,8L28,0L32,4z"></path></svg>`,
 };
 
 const styles = {
@@ -98,7 +100,7 @@ const styles = {
 
   category: {
     base: {
-      color: color.detailHeaderSmall,
+      color: colors.accentGray,
       fontSize: "1rem",
       lineHeight: 1,
       marginBottom: ".5rem",
@@ -116,11 +118,11 @@ const styles = {
     },
 
     sponsored: {
-      color: color.orange,
+      color: colors.accentYellow,
     },
 
     topChoice: {
-      color: color.red,
+      color: colors.accentRed,
       fontWeight: 600,
     },
 
@@ -133,7 +135,7 @@ const styles = {
 
   title: {
     base: {
-      color: color.darkGray,
+      color: colors.textPrimary,
       float: "left",
       fontSize: "2rem",
       fontWeight: 600,
@@ -167,7 +169,7 @@ const styles = {
 
   largeText: {
     base: {
-      color: color.featureCopy,
+      color: colors.textSecondary,
       fontSize: "12px",
       lineHeight: (15.6 / 12),
       marginTop: `${9 / 12}em`,
@@ -194,7 +196,7 @@ const styles = {
         backgroundPosition: "0 2px",
         backgroundRepeat: "no-repeat",
         backgroundSize: "8px 8px",
-        color: color.featureCopy,
+        color: colors.textSecondary,
         fontFamily: font("miller"),
         fontSize: "1.2rem",
         fontStyle: "italic",
@@ -208,7 +210,7 @@ const styles = {
 
   description: {
     base: {
-      color: color.titleGray,
+      color: colors.textPrimary,
       fontSize: "1.4rem",
       lineHeight: (24 / 14),
       marginBottom: "2.7rem",
@@ -406,7 +408,7 @@ function ListItemBookable({
                 <li style={styles.largeText.item} key={i}>
                   {_.upperFirst(item)}
                   {i !== features.length - 1 &&
-                    <Bullet space="both" color={color.detailHeaderSmall} />
+                    <Bullet space="both" color={colors.accentGray} />
                   }
                 </li>
               ))}
@@ -674,59 +676,32 @@ ListItemBookable.propTypes = {
 
 ListItemBookable.defaultProps = {
   title: "",
-
   slug: "",
-
   type: "",
-
   subtype: "",
-
   place: {},
-
   price: {},
-
   features: [],
-
   image: {},
-
   description: "",
-
   sponsored: false,
-
   topChoice: false,
-
   reviewed: false,
-
   bookmark: false,
-
   bookmarkSize: "small",
-
   id: "",
-
   duration: "",
-
   difficulty: "",
-
   groupSize: {},
-
   showTourDestinations: false,
-
   tourStart: "",
-
   tourEnd: "",
-
   tourMap: "",
-
   bookingUrl: "",
-
   activityType: "",
-
   durationInfo: "",
-
   mobile: false,
-
   hidePrice: false,
-
   onShowPrices: null,
 };
 

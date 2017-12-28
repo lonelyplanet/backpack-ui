@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Slider from "react-slick";
-import { color, media, zIndex } from "../../../settings.json";
+
+import { media, zIndex } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
 
 export const rules = {
@@ -40,11 +42,11 @@ export const rules = {
   ".slick-dots button:before": {
     opacity: 1,
     fontSize: "10px",
-    color: `rgba(${rgb(color.white)}, 0.37)`,
+    color: `rgba(${rgb(colors.bgPrimary)}, 0.37)`,
   },
   ".slick-dots .slick-active button:before": {
     opacity: 1,
-    color: `rgba(${rgb(color.white)}, 1)`,
+    color: `rgba(${rgb(colors.bgPrimary)}, 1)`,
   },
   ".slick-prev": {
     left: "52px",

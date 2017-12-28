@@ -1,4 +1,5 @@
-import { color, media, timing } from "../../../settings.json";
+import colors from "../../styles/colors";
+import { media, timing } from "../../../settings.json";
 import { lighten, darken, rgb } from "../../utils/color";
 import { outline } from "../../utils/mixins";
 import {
@@ -7,8 +8,8 @@ import {
 
 const icons = {
   triangle: {
-    base: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${color.darkGray}"><path d="M32 6.857h-32l16 18.286z"></path></svg>`),
-    light: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${color.white}"><path d="M32 6.857h-32l16 18.286z"></path></svg>`),
+    base: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${colors.textPrimary}"><path d="M32 6.857h-32l16 18.286z"></path></svg>`),
+    light: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${colors.bgPrimary}"><path d="M32 6.857h-32l16 18.286z"></path></svg>`),
   },
 };
 
@@ -65,41 +66,41 @@ const styles = {
 
   theme: {
     base: {
-      backgroundColor: color.white,
-      borderColor: darken(color.white, 17),
-      color: color.darkGray,
+      backgroundColor: colors.bgPrimary,
+      borderColor: darken(colors.bgPrimary, 17),
+      color: colors.textPrimary,
 
       ":focus": {
-        borderColor: darken(color.gray, 20),
+        borderColor: darken(colors.borderPrimary, 20),
       },
     },
     light: {
       backgroundColor: "transparent",
-      borderColor: `rgba(${rgb(color.white)}, .44)`,
-      color: color.white,
+      borderColor: `rgba(${rgb(colors.bgPrimary)}, .44)`,
+      color: colors.bgPrimary,
 
       ":focus": {
-        borderColor: `rgba(${rgb(color.white)}, .66)`,
+        borderColor: `rgba(${rgb(colors.bgPrimary)}, .66)`,
       },
     },
     dark: {
-      backgroundColor: color.white,
-      borderColor: darken(color.white, 17),
-      color: `rgba(${rgb(color.titleGray)}, .72)`,
+      backgroundColor: colors.bgPrimary,
+      borderColor: darken(colors.bgPrimary, 17),
+      color: `rgba(${rgb(colors.textPrimary)}, .72)`,
 
       ":focus": {
-        borderColor: darken(color.gray, 20),
+        borderColor: darken(colors.borderPrimary, 20),
       },
     },
     inputGroup: {
-      backgroundColor: color.white,
+      backgroundColor: colors.bgPrimary,
       borderColor: "transparent",
       borderRadius: 0,
       borderWidth: 0,
-      color: color.darkGray,
+      color: colors.textPrimary,
 
       ":focus": {
-        borderColor: color.white,
+        borderColor: colors.bgPrimary,
       },
     },
     float: {
@@ -152,23 +153,23 @@ const styles = {
 
         ":focus": {
           borderColor: "currentColor",
-          color: color.blue,
+          color: colors.linkPrimary,
         },
       },
       theme: {
         base: {
           ":focus": {
-            borderColor: darken(color.white, 17),
+            borderColor: darken(colors.bgPrimary, 17),
           },
         },
         light: {
           ":focus": {
-            borderColor: `rgba(${rgb(color.white)}, .44)`,
+            borderColor: `rgba(${rgb(colors.bgPrimary)}, .44)`,
           },
         },
         dark: {
           ":focus": {
-            borderColor: darken(color.white, 17),
+            borderColor: darken(colors.bgPrimary, 17),
           },
         },
         inputGroup: {
@@ -261,10 +262,10 @@ const styles = {
 
       button: {
         base: {
-          backgroundColor: color.white,
+          backgroundColor: colors.bgPrimary,
           borderLeft: ".1rem solid",
-          borderLeftColor: darken(color.white, 17),
-          color: color.blue,
+          borderLeftColor: darken(colors.bgPrimary, 17),
+          color: colors.linkPrimary,
           display: "block",
           height: "calc(100% - .2rem)",
           position: "absolute",
@@ -272,13 +273,13 @@ const styles = {
           transition: `color ${timing.default}`,
 
           ":hover": {
-            color: lighten(color.blue, 7),
+            color: lighten(colors.linkPrimary, 7),
           },
           ":focus": {
-            color: lighten(color.blue, 7),
+            color: lighten(colors.linkPrimary, 7),
           },
           ":active": {
-            color: lighten(color.blue, 7),
+            color: lighten(colors.linkPrimary, 7),
           },
         },
 

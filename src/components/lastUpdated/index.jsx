@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import settings from "../../../settings.json";
+import colors from "../../styles/colors";
 
 const styles = {
   base: {
-    color: settings.color.lightText,
+    color: colors.textSecondary,
     fontFamily: settings.font.family.miller,
     fontSize: "1.6rem",
     fontStyle: "italic",

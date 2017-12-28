@@ -1,16 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
+
 import settings from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
-import { add, gutter, span } from "../../utils/grid";
 import font from "../../utils/font";
+import { add, gutter, span } from "../../utils/grid";
 import propTypes from "../../utils/propTypes";
 import Container from "../container";
-import HeroImageContainer from "../heroImageContainer";
-import GradientOverlay from "../gradientOverlay";
 import FeaturedCallout from "../featuredCallout";
 import FeaturedSectionHeading from "../featuredSectionHeading";
+import GradientOverlay from "../gradientOverlay";
+import HeroImageContainer from "../heroImageContainer";
 
 const styles = {
   container: {
@@ -40,7 +42,7 @@ const styles = {
 
   sectionHeading: {
     marginTop: "56px",
-    textShadow: `0 0 130px rgba(${rgb(settings.color.black)}, .5)`,
+    textShadow: `0 0 130px rgba(${rgb(colors.shadowPrimary)}, .5)`,
   },
 
   callout: {

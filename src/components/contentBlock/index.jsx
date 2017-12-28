@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
-import { color } from "../../../settings.json";
-import Heading from "../heading";
+
+import colors from "../../styles/colors";
 import font from "../../utils/font";
 import { blueLink, underlinedLink } from "../../utils/mixins";
+import Heading from "../heading";
 
 const baseFontSize = 20;
 const pMargin = `${28 / baseFontSize}em`;
@@ -13,9 +14,9 @@ const ulMargin = `${60 / baseFontSize}em`;
 const scopedStyles = {
   "ContentBlock-text": {
     a: underlinedLink(),
-    "a:hover": underlinedLink(color.blue),
-    "a:active": underlinedLink(color.blue),
-    "a:focus": underlinedLink(color.blue),
+    "a:hover": underlinedLink(colors.linkPrimary),
+    "a:active": underlinedLink(colors.linkPrimary),
+    "a:focus": underlinedLink(colors.linkPrimary),
 
     strong: {
       fontWeight: "normal",

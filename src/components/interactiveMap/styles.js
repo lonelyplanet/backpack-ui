@@ -1,4 +1,5 @@
-import { color, components, timing, zIndex } from "../../../settings.json";
+import colors from "../../styles/colors";
+import { components, timing, zIndex } from "../../../settings.json";
 import Flyout from "../flyout";
 import { rgb } from "../../utils/color";
 
@@ -28,7 +29,7 @@ const styles = {
   popupBanner: {
     container: {
       base: {
-        backgroundColor: color.white,
+        backgroundColor: colors.bgPrimary,
         fontSize: "16px",
         height: "80px",
         left: 0,
@@ -46,8 +47,8 @@ const styles = {
       },
 
       visible: {
-        boxShadow: `40px 2px 20px rgba(${rgb(color.black)}, 0.1),
-          -40px 2px 20px rgba(${rgb(color.black)}, 0.1)`,
+        boxShadow: `40px 2px 20px rgba(${rgb(colors.shadowPrimary)}, 0.1),
+          -40px 2px 20px rgba(${rgb(colors.shadowPrimary)}, 0.1)`,
         transform: "translateY(-50px)",
       },
     },
@@ -60,7 +61,7 @@ const styles = {
 
     name: {
       base: {
-        color: color.darkGray,
+        color: colors.textPrimary,
         fontSize: "1em",
         fontWeight: 600,
       },
@@ -68,7 +69,7 @@ const styles = {
 
     subtype: {
       base: {
-        color: color.subtitleGray,
+        color: colors.accentGray,
         fontSize: `${12 / 16}em`,
         fontWeight: 600,
         marginTop: `${4 / 16}em`,
@@ -90,7 +91,7 @@ const styles = {
     button: {
       base: {
         backgroundColor: "transparent",
-        color: color.featureCopy,
+        color: colors.textSecondary,
         fontSize: "1em",
         fontWeight: 600,
         textDecoration: "underline",
@@ -99,7 +100,7 @@ const styles = {
 
     content: {
       base: {
-        backgroundColor: `rgba(${rgb(color.white)}, .8)`,
+        backgroundColor: `rgba(${rgb(colors.bgPrimary)}, .8)`,
         bottom: `${20 / 9}em`,
         fontSize: `${9 / 10}em`,
         padding: `${5 / 9}em ${5 / 9}em ${3 / 9}em`,
@@ -156,7 +157,7 @@ const scopedStyles = {
     transform: "translateY(-50%)",
     verticalAlign: "top",
     display: "inline-block",
-    fill: color.white,
+    fill: colors.bgPrimary,
     height: "1em",
     width: "1em",
   },
@@ -171,9 +172,9 @@ const markerStyles = {};
 function markerStylesMixin(markerColor, mode, state) {
   if (state === "active") {
     return {
-      backgroundColor: color.white,
-      borderColor: color.white,
-      boxShadow: `0 0 5px rgba(${rgb(color.black)}, .25)`,
+      backgroundColor: colors.bgPrimary,
+      borderColor: colors.bgPrimary,
+      boxShadow: `0 0 5px rgba(${rgb(colors.shadowPrimary)}, .25)`,
       color: markerColor,
       fontSize: "32px",
     };
@@ -181,26 +182,26 @@ function markerStylesMixin(markerColor, mode, state) {
 
   return {
     backgroundColor: markerColor,
-    borderColor: `rgba(${rgb(color.black)}, .12)`,
+    borderColor: `rgba(${rgb(colors.shadowPrimary)}, .12)`,
     borderStyle: "solid",
     borderWidth: mode === "explore" ? "2px" : "1px",
-    boxShadow: `0 1px 5px rgba(${rgb(color.black)}, .25)`,
-    color: color.white,
+    boxShadow: `0 1px 5px rgba(${rgb(colors.shadowPrimary)}, .25)`,
+    color: colors.bgPrimary,
     fontSize: mode === "explore" ? "16px" : "12px",
     lineHeight: 1,
   };
 }
 
 const markerColors = {
-  eat: color.poiEat,
-  drink: color.poiDrink,
-  play: color.poiPlay,
-  see: color.poiSee,
-  shop: color.poiShop,
-  sleep: color.poiSleep,
-  transport: color.poiTransport,
-  default: color.poiDefault,
-  center: color.blue,
+  eat: colors.poiEat,
+  drink: colors.accentBlue,
+  play: colors.poiPlay,
+  see: colors.poiSee,
+  shop: colors.accentPink,
+  sleep: colors.accentPurple,
+  transport: colors.accentGray,
+  default: colors.poiDefault,
+  center: colors.linkPrimary,
 };
 
 export {

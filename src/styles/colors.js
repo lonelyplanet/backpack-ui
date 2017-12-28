@@ -34,6 +34,18 @@ const accentYellow = "#ffc83f";
 // UI colors
 const uiGreen = "#44db5e";
 
+// Social colors
+const socialFacebook = "#3a5999";
+const socialFacebookMessenger = "#1472fb";
+const socialPinterest = "#cb2027";
+const socialGoogleBlue = "#557ebf";
+const socialGoogleGreen = "#36a852";
+const socialGoogleYellow = "#f9bc15";
+const socialGoogleRed = "#ea4535";
+const socialReddit = "#fc4220";
+const socialTwitter = "#1da1f2";
+const socialWhatsapp = "#28eb76";
+
 // POI colors
 // These are deprecated and will be removed in the next major release
 const poiGreen = accentGreen;
@@ -47,18 +59,6 @@ const poiDefault = "#a8a9ae";
 const poiEat = "#00ca8b";
 const poiPlay = "#ffc92a";
 const poiSee = "#f8324d";
-
-// Social colors
-const socialFacebook = "#3a5999";
-const socialFacebookMessenger = "#1472fb";
-const socialPinterest = "#cb2027";
-const socialGoogleBlue = "#557ebf";
-const socialGoogleGreen = "#36a852";
-const socialGoogleYellow = "#f9bc15";
-const socialGoogleRed = "#ea4535";
-const socialReddit = "#fc4220";
-const socialTwitter = "#1da1f2";
-const socialWhatsapp = "#28eb76";
 
 export default {
   bgPrimary,

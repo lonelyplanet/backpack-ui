@@ -2,16 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Sticky from "react-stickynode";
-import settings, { color, media, zIndex, timing } from "../../../settings.json";
-import font from "../../utils/font";
+
+import settings, { media, zIndex, timing } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
+import font from "../../utils/font";
 
 const navigationSubHeight = "80px";
 
 const styles = {
   container: {
-    backgroundColor: color.white,
-    borderTop: `1px solid rgba(${rgb(color.lightBlue)}, 0.45)`,
+    backgroundColor: colors.bgPrimary,
+    borderTop: `1px solid rgba(${rgb(colors.accentGray)}, 0.45)`,
     fontFamily: font("benton"),
     fontSize: 0,
     height: navigationSubHeight,
@@ -41,7 +43,7 @@ const styles = {
     transition: `opacity ${settings.timing.default}`,
     whiteSpace: "nowrap",
     width: "100%",
-    borderBottom: `1px solid ${color.detailHeaderSmall}`,
+    borderBottom: `1px solid ${colors.accentGray}`,
 
     [`@media (min-width: ${media.min["480"]})`]: {
       animation: "none",
@@ -56,7 +58,7 @@ const styles = {
     height: "calc(100% - 2px)",
 
     active: {
-      borderBottom: `5px solid ${color.red}`,
+      borderBottom: `5px solid ${colors.accentRed}`,
     },
   },
 
@@ -68,12 +70,12 @@ const styles = {
       width: "100% !important",
     },
     ".active nav ul": {
-      borderBottom: `1px solid rgba(${rgb(color.lightBlue)}, 0.45)`,
+      borderBottom: `1px solid rgba(${rgb(colors.accentGray)}, 0.45)`,
     },
     button: {
       backgroundColor: "transparent",
       border: 0,
-      color: color.darkGray,
+      color: colors.textPrimary,
       display: "block",
       fontSize: "16px",
       fontWeight: 500,

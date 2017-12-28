@@ -2,11 +2,12 @@
 import React from "react";
 import Validate from "react-validate-form";
 import PropTypes from "prop-types";
+
+import colors from "../../styles/colors";
+import { emailValidation } from "../../utils/validations";
 import Input from "../form/input";
 import Button from "../button";
 import ErrorMessages from "../form/errorMessages";
-import color from "../../styles/colors";
-import { emailValidation } from "../../utils/validations";
 
 const styles = {
   container: {
@@ -16,7 +17,7 @@ const styles = {
     marginBottom: "23px",
   },
   input: {
-    borderBottom: `1px solid ${color.borderPrimary}`,
+    borderBottom: `1px solid ${colors.borderPrimary}`,
   },
 };
 

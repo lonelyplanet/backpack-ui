@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { color, timing } from "../../../settings.json";
+
+import { timing } from "../../../settings.json";
+import colors from "../../styles/colors";
 import font from "../../utils/font";
 import { add, span, gutter } from "../../utils/grid";
 import iconFromString from "../../utils/icon";
@@ -25,7 +27,7 @@ const styles = {
   },
 
   icon: {
-    color: color.blue,
+    color: colors.linkPrimary,
     fontSize: "96px",
     transition: `transform ${timing.default} ease-in-out`,
   },
@@ -37,7 +39,7 @@ const styles = {
   },
 
   copy: {
-    color: color.lightText,
+    color: colors.textSecondary,
     fontSize: "16px",
     lineHeight: (24 / 16),
     marginBottom: "23px",

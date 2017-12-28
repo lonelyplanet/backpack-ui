@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color } from "../../../settings.json";
+
+import colors from "../../styles/colors";
 import CategoryLabel from "../categoryLabel";
 
 const SponsorLabel = ({ style }) => (
-  <CategoryLabel style={[style, { color: color.crusta }]}>
+  <CategoryLabel style={[style, { color: colors.accentOrange }]}>
     Sponsored
   </CategoryLabel>
 );

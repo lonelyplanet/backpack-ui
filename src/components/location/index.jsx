@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color } from "../../../settings.json";
-import MoreLink from "../moreLink";
-import StaticMap from "../staticMap";
+
+import colors from "../../styles/colors";
 import { blueLink } from "../../utils/mixins";
 import schema from "../../utils/schema";
+import MoreLink from "../moreLink";
+import StaticMap from "../staticMap";
 
 function Location({ name, street, place, coordinates, mobile }) {
   const styles = {
@@ -21,7 +22,7 @@ function Location({ name, street, place, coordinates, mobile }) {
 
     directionsLink: {
       base: {
-        borderTop: `1px solid ${color.gray}`,
+        borderTop: `1px solid ${colors.borderPrimary}`,
         display: "inline-block",
         marginTop: "10px",
         paddingRight: "13px",
@@ -138,13 +139,9 @@ Location.propTypes = {
 
 Location.defaultProps = {
   name: "",
-
   street: "",
-
   place: null,
-
   coordinates: null,
-
   mobile: false,
 };
 

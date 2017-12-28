@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, media } from "../../../settings.json";
+
+import { media } from "../../../settings.json";
+import colors from "../../styles/colors";
 import Icon from "../icon";
 
 const styles = {
@@ -28,7 +30,7 @@ const styles = {
     parent: {
       listItem: {
         bottom: "10px",
-        color: color.white,
+        color: colors.bgPrimary,
         position: "absolute",
 
         [`@media (max-width: ${media.max["768"]})`]: {
@@ -99,7 +101,6 @@ ReviewedBadge.propTypes = {
 
 ReviewedBadge.defaultProps = {
   size: "small",
-
   parent: "",
 };
 

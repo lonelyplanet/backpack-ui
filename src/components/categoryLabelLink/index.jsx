@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color } from "../../../settings.json";
+import colors from "../../styles/colors";
 import CategoryLabel from "../categoryLabel";
 
 const styles = {
-  color: color.blue,
+  color: colors.linkPrimary,
   display: "block",
   textDecoration: "none",
 };

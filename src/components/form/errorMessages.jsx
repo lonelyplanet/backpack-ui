@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color } from "../../../settings.json";
+
+import colors from "../../styles/colors";
 
 const styles = {
   base: {
-    color: color.red,
+    color: colors.accentRed,
     marginTop: "16px",
     fontSize: "12px",
     textAlign: "center",

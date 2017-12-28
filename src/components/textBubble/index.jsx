@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color } from "../../../settings.json";
+
+import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
 
 const styles = {
-  backgroundColor: rgba(color.black, 0.24),
+  backgroundColor: rgba(colors.bgOverlay, 0.24),
   borderRadius: "30px",
-  color: color.white,
+  color: colors.bgPrimary,
   display: "inline-block",
   fontSize: "14px",
   fontWeight: 600,

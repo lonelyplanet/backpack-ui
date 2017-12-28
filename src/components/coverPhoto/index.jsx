@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color } from "../../../settings.json";
+import colors from "../../styles/colors";
 
 const CoverPhoto = ({ src, width, height, alt, style }) => (
   <div
@@ -9,7 +9,7 @@ const CoverPhoto = ({ src, width, height, alt, style }) => (
     aria-label={alt}
     style={[
       {
-        backgroundColor: color.gray,
+        backgroundColor: colors.borderPrimary,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",

@@ -15,6 +15,7 @@ import DesignTokens from "./designTokens";
 import Fonts from "./fonts";
 import Typography from "./typography";
 import { Accordion, AccordionItem } from "../src/components/accordion";
+import Ad from "../src/components/ad";
 import AlbumThumbnailImage from "../src/components/albumThumbnailImage";
 import Amenities from "../src/components/amenities";
 import ArticleAuthor from "../src/components/articleAuthor";
@@ -274,6 +275,20 @@ storiesOf("Accordion", module)
           }
         />
       </Accordion>
+    </StyleRoot>
+  ));
+
+storiesOf("Ad", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <Center>
+        <Ad
+          id={text("ID", "backpackAdIdentifier")}
+          framed={boolean("Framed", false)}
+          className={text("Class Name", "")}
+        />
+      </Center>
     </StyleRoot>
   ));
 

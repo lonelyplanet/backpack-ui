@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+
+import colors from "../../styles/colors";
+import propTypes from "../../utils/propTypes";
 import Button from "../button";
 import TileGrid from "../tileGrid";
 import TileVideo from "../tileVideo";
 import CardVideo from "../cardVideo";
-import { color } from "../../../settings.json";
-import propTypes from "../../utils/propTypes";
 
 const styles = {
   buttonWrapper: {
@@ -14,7 +15,7 @@ const styles = {
     textAlign: "center",
   },
   button: {
-    color: color.red,
+    color: colors.accentRed,
   },
 };
 

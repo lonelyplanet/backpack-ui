@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color } from "../../../settings.json";
+
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
 import iconFromString from "../../utils/icon";
 import Icon from "../icon";
@@ -10,51 +11,51 @@ function mapMarker({ poiType, size, hideShadow, inverse }) {
   const types = {
     sleeping: {
       icon: "Sleep",
-      color: color.poiSleep,
+      color: colors.accentPurple,
     },
     drinking_nightlife: {
       icon: "Drink",
-      color: color.poiDrink,
+      color: colors.accentBlue,
     },
     transport: {
       icon: "Transport",
-      color: color.poiTransport,
+      color: colors.accentGray,
     },
     activities: {
       icon: "See",
-      color: color.poiSee,
+      color: colors.poiSee,
     },
     tours: {
       icon: "See",
-      color: color.poiSee,
+      color: colors.poiSee,
     },
     entertainment: {
       icon: "Play",
-      color: color.poiPlay,
+      color: colors.poiPlay,
     },
     shopping: {
       icon: "Shop",
-      color: color.poiShop,
+      color: colors.accentPink,
     },
     eating: {
       icon: "Eat",
-      color: color.poiEat,
+      color: colors.poiEat,
     },
     restaurants: {
       icon: "Eat",
-      color: color.poiEat,
+      color: colors.poiEat,
     },
     sights: {
       icon: "See",
-      color: color.poiSee,
+      color: colors.poiSee,
     },
     info: {
       icon: "Default",
-      color: color.poiDefault,
+      color: colors.poiDefault,
     },
     festivals_events: {
       icon: "Play",
-      color: color.poiPlay,
+      color: colors.poiPlay,
     },
   };
 
@@ -88,10 +89,10 @@ function mapMarker({ poiType, size, hideShadow, inverse }) {
       base: {
         borderRadius: "100%",
         backgroundColor: poiType === "center" ?
-          color.blue :
+          colors.linkPrimary :
           types[poiType].color,
-        color: color.white,
-        borderColor: `rgba(${rgb(color.black)}, .12)`,
+        color: colors.bgPrimary,
+        borderColor: `rgba(${rgb(colors.shadowPrimary)}, .12)`,
         borderStyle: "solid",
         borderWidth: `${borderWidth / fontSize}em`,
         display: "inline-block",
@@ -105,17 +106,17 @@ function mapMarker({ poiType, size, hideShadow, inverse }) {
       shadow: {
         boxShadow: `0 ${getSize(1) / fontSize}em
           ${getSize(5) / fontSize}em
-          rgba(${rgb(color.black)}, .25)`,
+          rgba(${rgb(colors.shadowPrimary)}, .25)`,
       },
 
       inverse: {
-        backgroundColor: color.white,
+        backgroundColor: colors.bgPrimary,
         borderColor: "transparent",
         borderWidth: 0,
         boxShadow: `0 0 ${getSize(5) / fontSize}em
-          rgba(${rgb(color.black)}, .25)`,
+          rgba(${rgb(colors.shadowPrimary)}, .25)`,
         color: poiType === "center" ?
-          color.blue :
+          colors.linkPrimary :
           types[poiType].color,
       },
     },
@@ -132,7 +133,7 @@ function mapMarker({ poiType, size, hideShadow, inverse }) {
 
   const MarkerIcon = iconFromString(`Map${types[poiType].icon}`, {
     style: styles.icon.base,
-    fill: inverse ? types[poiType].color : color.white,
+    fill: inverse ? types[poiType].color : colors.bgPrimary,
   });
 
   return (
@@ -189,11 +190,8 @@ mapMarker.propTypes = {
 
 mapMarker.defaultProps = {
   poiType: "center",
-
   size: 20,
-
   hideShadow: false,
-
   inverse: false,
 };
 

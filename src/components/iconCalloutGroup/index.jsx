@@ -1,6 +1,8 @@
 import React from "react";
 import radium, { Style } from "radium";
-import { color, grid, media } from "../../../settings.json";
+
+import { grid, media } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { gutter } from "../../utils/grid";
 import IconCallout from "../iconCallout";
 
@@ -81,7 +83,7 @@ const scopedStyles = {
   },
 
   ".IconCallout a:hover .Heading": {
-    color: `${color.blue} !important`,
+    color: `${colors.linkPrimary} !important`,
   },
 };
 

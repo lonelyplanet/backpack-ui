@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, media } from "../../../settings.json";
+
+import { media } from "../../../settings.json";
+import colors from "../../styles/colors";
 import Bullet from "../bullet";
 
 const styles = {
@@ -27,8 +29,8 @@ const styles = {
     },
 
     tag: {
-      backgroundColor: color.red,
-      color: color.white,
+      backgroundColor: colors.accentRed,
+      color: colors.bgPrimary,
       display: "inline-block",
       fontSize: "12px",
       padding: `${6 / 12}em ${8 / 12}em ${4 / 12}em`,
@@ -49,7 +51,7 @@ const styles = {
     },
 
     emphasized: {
-      color: color.red,
+      color: colors.accentRed,
       fontWeight: 300,
     },
 
@@ -118,7 +120,7 @@ const styles = {
       },
 
       [`@media (min-width: ${media.min["768"]})`]: {
-        borderLeft: `1px solid ${color.gray}`,
+        borderLeft: `1px solid ${colors.borderPrimary}`,
         float: "right",
         fontWeight: 400,
         padding: "2px 0 2px 14px",
@@ -127,20 +129,20 @@ const styles = {
     },
 
     label: {
-      color: color.footerCopyright,
+      color: colors.accentGray,
       fontWeight: 400,
       marginBottom: "7px",
     },
 
     oldPrice: {
-      color: color.footerCopyright,
+      color: colors.accentGray,
       paddingTop: "4px",
     },
   },
 
   card: {
     salePrice: {
-      color: color.subtitleGray,
+      color: colors.accentGray,
       fontSize: "11px",
       marginBottom: "8px",
       marginLeft: "5px",
@@ -262,7 +264,7 @@ function Price({
               style={styles.bullet.base}
               aria-hidden="true"
             >
-              <Bullet space="both" color={color.gray} />
+              <Bullet space="both" color={colors.borderPrimary} />
             </span>
           }
 
@@ -349,21 +351,13 @@ Price.propTypes = {
 
 Price.defaultProps = {
   amount: 0,
-
   discountedAmount: 0,
-
   rate: "",
-
   currency: "USD",
-
   emphasized: false,
-
   thin: false,
-
   tag: false,
-
   parent: "",
-
   poiType: "",
 };
 

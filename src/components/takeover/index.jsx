@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 import Portal from "react-portal";
 import radium from "radium";
 import noScroll from "no-scroll";
-import { color, components, spacing, timing, zIndex } from "../../../settings.json";
-import Icon from "../icon";
-import Overlay from "../overlay";
+
+import { components, spacing, timing, zIndex } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
 import { gutter } from "../../utils/grid";
+import Icon from "../icon";
+import Overlay from "../overlay";
 
 class Takeover extends Component {
   constructor(props) {
@@ -112,8 +114,8 @@ class Takeover extends Component {
       takeover: {
         container: {
           base: {
-            backgroundColor: color.white,
-            boxShadow: `0 5px 50px rgba(${rgb(color.black)}, 0.5)`,
+            backgroundColor: colors.bgPrimary,
+            boxShadow: `0 5px 50px rgba(${rgb(colors.shadowPrimary)}, 0.5)`,
             left: 0,
             opacity: 0,
             position: "fixed",
@@ -144,7 +146,7 @@ class Takeover extends Component {
 
         header: {
           base: {
-            backgroundColor: color.white,
+            backgroundColor: colors.bgPrimary,
             height: components.header.heightMobile,
             position: "relative",
             textAlign: "center",
@@ -152,12 +154,12 @@ class Takeover extends Component {
           },
 
           shadow: {
-            boxShadow: `40px 2px 20px rgba(${rgb(color.black)}, 0.05),
-              -40px 2px 20px rgba(${rgb(color.black)}, 0.05)`,
+            boxShadow: `40px 2px 20px rgba(${rgb(colors.shadowPrimary)}, 0.05),
+              -40px 2px 20px rgba(${rgb(colors.shadowPrimary)}, 0.05)`,
           },
 
           border: {
-            borderBottom: `1px solid ${color.gray}`,
+            borderBottom: `1px solid ${colors.borderPrimary}`,
           },
 
           mobile: {
@@ -183,7 +185,7 @@ class Takeover extends Component {
         close: {
           base: {
             backgroundColor: "transparent",
-            color: color.darkGray,
+            color: colors.textPrimary,
             fontSize: "16px",
             height: components.header.heightMobile,
             width: components.header.heightMobile,

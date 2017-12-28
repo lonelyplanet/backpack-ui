@@ -2,12 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import cn from "classnames";
-import { color, media } from "../../../settings.json";
+
+import colors from "../../styles/colors";
+import mq from "../../styles/mq";
 
 const styles = {
   ad: {
     default: {
-      backgroundColor: color.darkGray,
+      backgroundColor: colors.textPrimary,
       marginLeft: "auto",
       marginRight: "auto",
       position: "relative",
@@ -15,11 +17,11 @@ const styles = {
     },
 
     framed: {
-      backgroundColor: "#f6f6f6",
+      backgroundColor: colors.borderPrimary,
       paddingBottom: "24px",
       paddingTop: "24px",
 
-      [`@media (min-width: ${media.min["960"]})`]: {
+      [`@media (min-width: ${mq.min["960"]})`]: {
         paddingTop: "30px",
       },
     },
@@ -27,7 +29,7 @@ const styles = {
 
   label: {
     default: {
-      color: "#586575",
+      color: colors.textSecondary,
       content: "'Advertisement'",
       display: "block",
       fontSize: "8px",
@@ -63,14 +65,14 @@ function Ad({ id, framed, className, style }) {
 
   if (framed) {
     return (
-      <div className="Ad-wrap clearfix">
+      <article className="Ad-wrap clearfix">
         <Style
           scopeSelector=".Ad-wrap"
           rules={{
             [`#${id}:before`]: styles.label.default,
 
             mediaQueries: {
-              [`(min-width: ${media.min["960"]})`]: {
+              [`(min-width: ${mq.min["960"]})`]: {
                 [`#${id}:before`]: styles.label.desktop,
               },
             },
@@ -78,7 +80,7 @@ function Ad({ id, framed, className, style }) {
         />
 
         {AdUnit}
-      </div>
+      </article>
     );
   }
 

@@ -1,18 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
-import { color, media } from "../../../settings.json";
+
+import colors from "../../styles/colors";
+import { media } from "../../../settings.json";
 import { darken, rgb } from "../../utils/color";
 import Label from "../form/label";
 
 const styles = {
   container: {
     base: {
-      backgroundColor: color.white,
-      borderColor: darken(color.white, 17),
+      backgroundColor: colors.bgPrimary,
+      borderColor: darken(colors.bgPrimary, 17),
       borderStyle: "solid",
       borderWidth: ".1rem",
-      color: `rgba(${rgb(color.titleGray)}, .72)`,
+      color: `rgba(${rgb(colors.textPrimary)}, .72)`,
       position: "relative",
     },
 
@@ -123,25 +125,15 @@ InputGroup.propTypes = {
 
 InputGroup.defaultProps = {
   label: "",
-
   type: "text",
-
   id: "",
-
   name: "",
-
   defaultValue: "",
-
   min: "",
-
   max: "",
-
   placeholder: "",
-
   required: false,
-
   size: "full",
-
   removeBorder: false,
 };
 

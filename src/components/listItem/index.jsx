@@ -4,10 +4,16 @@ import radium from "radium";
 import truncate from "truncate";
 import moment from "moment";
 import { Link } from "react-router";
-import { color, media } from "../../../settings.json";
+
+import { media } from "../../../settings.json";
+import colors from "../../styles/colors";
+import {
+  gutter,
+  percentage,
+  span,
+} from "../../utils/grid";
 import BookmarkButton from "../bookmarkButton";
 import MoreLink from "../moreLink";
-import { gutter, span, percentage } from "../../utils/grid";
 
 const containerWidth = span(8, "static");
 const imageWidth = span(2, "static");
@@ -63,7 +69,7 @@ const styles = {
 
   category: {
     base: {
-      color: color.detailHeaderSmall,
+      color: colors.accentGray,
       fontSize: "1rem",
       lineHeight: 1,
       marginBottom: ".5rem",
@@ -81,12 +87,12 @@ const styles = {
     },
 
     sponsored: {
-      color: color.orange,
+      color: colors.accentYellow,
       fontWeight: 600,
     },
 
     topChoice: {
-      color: color.red,
+      color: colors.accentRed,
       fontWeight: 600,
     },
 
@@ -99,7 +105,7 @@ const styles = {
 
   title: {
     base: {
-      color: color.darkGray,
+      color: colors.textPrimary,
       float: "left",
       fontSize: "2rem",
       fontWeight: 600,
@@ -137,7 +143,7 @@ const styles = {
 
   description: {
     base: {
-      color: color.titleGray,
+      color: colors.textPrimary,
       float: "left",
       fontSize: "1.4rem",
       lineHeight: (24 / 14),
@@ -411,33 +417,19 @@ ListItem.propTypes = {
 
 ListItem.defaultProps = {
   title: "",
-
   slug: "",
-
   type: "",
-
   subtype: "",
-
   place: {},
-
   image: {},
-
   link: {},
-
   description: "",
-
   sponsored: false,
-
   topChoice: false,
-
   bookmark: false,
-
   bookmarkSize: "small",
-
   ad: "",
-
   date: "",
-
   id: "",
 };
 

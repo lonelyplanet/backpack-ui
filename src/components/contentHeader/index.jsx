@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
-import settings from "../../../settings.json";
+import colors from "../../styles/colors";
 import Heading from "../heading";
 import MoreLink from "../moreLink";
 import { gutter } from "../../utils/grid";
@@ -13,13 +13,13 @@ const styles = {
 
     border: {
       bottom: {
-        borderBottom: `.1rem solid ${settings.color.gray}`,
+        borderBottom: `.1rem solid ${colors.borderPrimary}`,
         paddingBottom: ".7rem",
         marginBottom: gutter("static"),
       },
 
       top: {
-        borderTop: `.1rem solid ${settings.color.gray}`,
+        borderTop: `.1rem solid ${colors.borderPrimary}`,
         paddingTop: ".7rem",
         marginTop: gutter("static"),
       },

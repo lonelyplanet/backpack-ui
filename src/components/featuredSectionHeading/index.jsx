@@ -1,13 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, media } from "../../../settings.json";
+
+import { media } from "../../../settings.json";
+import colors from "../../styles/colors";
 import font from "../../utils/font";
 import Heading from "../heading";
 
 const styles = {
   container: {
-    color: color.white,
+    color: colors.bgPrimary,
     display: "inline-block",
     fontFamily: font("benton"),
     minWidth: "108px",
@@ -15,7 +17,7 @@ const styles = {
   },
 
   heading: {
-    color: color.white,
+    color: colors.bgPrimary,
     fontSize: "10px",
     lineHeight: 1,
 
@@ -25,7 +27,7 @@ const styles = {
   },
 
   underline: {
-    backgroundColor: color.white,
+    backgroundColor: colors.bgPrimary,
     height: "1px",
     marginLeft: "auto",
     marginRight: "auto",

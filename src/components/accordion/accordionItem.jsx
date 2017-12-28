@@ -1,19 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+
+import { media, timing } from "../../../settings.json";
+import colors from "../../styles/colors";
 import propTypes from "../../utils/propTypes";
-import { color, media, timing } from "../../../settings.json";
 import { Plus } from "../icon";
 
 const mq = `@media (min-width: ${media.min["768"]})`;
 
 const styles = {
   container: {
-    borderBottom: `1px solid ${color.gray}`,
+    borderBottom: `1px solid ${colors.borderPrimary}`,
   },
 
   heading: {
-    color: color.darkGray,
+    color: colors.textPrimary,
     backgroundColor: "transparent",
     display: "block",
     fontSize: "20px",
@@ -28,9 +30,9 @@ const styles = {
     transition: `color ${timing.fast} ease-in-out`,
     width: "100%",
 
-    ":hover": { color: color.blue },
-    ":active": { color: color.blue },
-    ":focus": { color: color.blue },
+    ":hover": { color: colors.linkPrimary },
+    ":active": { color: colors.linkPrimary },
+    ":focus": { color: colors.linkPrimary },
 
     [mq]: {
       fontSize: "28px",

@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import font from "../../utils/font";
-import { color } from "../../../settings.json";
+import colors from "../../styles/colors";
 
 const styles = {
-  color: color.subtitleGray,
+  color: colors.accentGray,
   fontFamily: font("benton"),
   fontSize: "11px",
   fontWeight: 600,

@@ -3,22 +3,23 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import axios from "axios";
 import Recaptcha from "react-recaptcha";
-import { color, media } from "../../../settings.json";
-import font from "../../utils/font";
-import { outline } from "../../utils/mixins";
+
+import { media } from "../../../settings.json";
 import colors from "../../styles/colors";
 import { fontWeightLight } from "../../styles/typography";
-import Heading from "../heading";
-import Input from "../input";
-import Checkbox from "../checkbox";
+import font from "../../utils/font";
+import { outline } from "../../utils/mixins";
 import Button from "../button";
-import MoreLink from "../moreLink";
-import Icon from "../icon";
+import Checkbox from "../checkbox";
 import Container from "../container";
+import Heading from "../heading";
+import Icon from "../icon";
+import Input from "../input";
+import MoreLink from "../moreLink";
 
 const styles = {
   wrap: {
-    backgroundColor: color.lightGrayBlue,
+    backgroundColor: colors.bgSecondary,
     display: "flex",
     justifyContent: "center",
     minHeight: "320px",
@@ -49,7 +50,7 @@ const styles = {
   },
 
   underline: {
-    backgroundColor: color.lightBlue,
+    backgroundColor: colors.accentGray,
     height: "2px",
     marginBottom: "16px",
     marginLeft: "auto",
@@ -59,7 +60,7 @@ const styles = {
   },
 
   copy: {
-    color: color.articlesBlurb,
+    color: colors.textSecondary,
     fontFamily: font("miller"),
     fontSize: "14px",
     fontStyle: "italic",
@@ -76,12 +77,12 @@ const styles = {
   },
 
   error: {
-    color: color.red,
+    color: colors.accentRed,
     fontSize: "14px",
   },
 
   email: {
-    color: color.titleGray,
+    color: colors.textPrimary,
   },
 
   form: {

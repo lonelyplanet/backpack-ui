@@ -2,6 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import cn from "classnames";
+
+import { media } from "../../../settings.json";
+import colors from "../../styles/colors";
+import iconFromString from "../../utils/icon";
+import propTypes from "../../utils/propTypes";
+import duration from "../../utils/time";
 import {
   Card,
   CardActionIcon,
@@ -13,17 +19,13 @@ import {
 } from "../card";
 import TextBubble from "../textBubble";
 import { Play as PlayIcon } from "../icon";
-import { color, media } from "../../../settings.json";
-import iconFromString from "../../utils/icon";
-import duration from "../../utils/time";
-import propTypes from "../../utils/propTypes";
 
 const mq = `@media (max-width: ${media.max["768"]})`;
 
 const styles = {
   playIcon: {
     bottom: "17px",
-    color: color.white,
+    color: colors.bgPrimary,
     fontSize: "20px",
     left: "24px",
     position: "absolute",

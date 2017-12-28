@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import settings from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
 
 const styles = {
@@ -32,7 +32,7 @@ const styles = {
   },
 
   uppercase: {
-    color: `rgba(${rgb(settings.color.darkGray)}, .4)`,
+    color: `rgba(${rgb(colors.textPrimary)}, .4)`,
     textTransform: "uppercase",
   },
 };

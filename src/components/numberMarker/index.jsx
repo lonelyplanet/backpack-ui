@@ -1,15 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, zIndex } from "../../../settings.json";
-import font from "../../utils/font";
+
+import { zIndex } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
+import font from "../../utils/font";
 
 const styles = {
   container: {
     base: {
       backfaceVisibility: "hidden",
-      color: color.titleGray,
+      color: colors.textPrimary,
       display: "inline-block",
       fontFamily: font("miller"),
       fontSize: "1em",
@@ -45,16 +47,16 @@ const styles = {
       transform: "translateY(-50%)",
     },
     transparent: {
-      color: color.white,
+      color: colors.bgPrimary,
     },
 
   },
 
   diamond: {
     base: {
-      backgroundColor: color.white,
+      backgroundColor: colors.bgPrimary,
       borderRadius: `${4 / 20}em`,
-      boxShadow: `2px 2px 2px rgba(${rgb(color.black)}, .18)`,
+      boxShadow: `2px 2px 2px rgba(${rgb(colors.shadowPrimary)}, .18)`,
       display: "block",
       height: "100%",
       marginTop: `-${36 / 20}em`,
@@ -83,7 +85,7 @@ const styles = {
 
     transparent: {
       backgroundColor: "transparent",
-      border: `1px solid ${color.white}`,
+      border: `1px solid ${colors.bgPrimary}`,
       opacity: "0.5",
     },
   },

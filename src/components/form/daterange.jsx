@@ -5,7 +5,9 @@ import assign from "object-assign";
 import radium, { Style } from "radium";
 import DateRangePicker from "react-dates/lib/components/DateRangePicker";
 import { END_DATE } from "react-dates/constants";
-import { color, timing, zIndex } from "../../../settings.json";
+
+import colors from "../../styles/colors";
+import { timing, zIndex } from "../../../settings.json";
 import { darken, rgb } from "../../utils/color";
 
 const styles = {
@@ -16,9 +18,9 @@ const styles = {
   },
 
   startEndDate: {
-    backgroundColor: color.blue,
+    backgroundColor: colors.linkPrimary,
     borderRadius: "100%",
-    color: color.white,
+    color: colors.bgPrimary,
     position: "relative",
   },
 
@@ -34,13 +36,13 @@ const styles = {
 
   daySpan: {
     backgroundColor: "#eaf2f8",
-    color: color.titleGray,
+    color: colors.textPrimary,
     position: "relative",
   },
 
   startEndDateHovered: {
-    backgroundColor: color.blue,
-    color: color.white,
+    backgroundColor: colors.linkPrimary,
+    color: colors.bgPrimary,
   },
 
   firstLastSelectedSpan: {
@@ -127,7 +129,7 @@ class DateRange extends React.Component {
               width: "100%",
               zIndex: zIndex.modal + 1,
             } : {
-              borderColor: soldOut ? color.red : darken(color.white, 17),
+              borderColor: soldOut ? colors.accentRed : darken(colors.bgPrimary, 17),
               position: "relative",
               transition: `border-color ${timing.fast} ease-in-out`,
               width: "100%",
@@ -154,7 +156,7 @@ class DateRange extends React.Component {
             },
 
             ".DateInput": {
-              color: color.darkGray,
+              color: colors.textPrimary,
               fontSize: "14px",
               padding: "18px 17px 16px",
               textAlign: "center",
@@ -172,8 +174,8 @@ class DateRange extends React.Component {
             },
 
             ".DateInput__display-text--focused": {
-              backgroundColor: color.white,
-              color: color.blue,
+              backgroundColor: colors.bgPrimary,
+              color: colors.linkPrimary,
             },
           }}
         />
@@ -191,9 +193,9 @@ class DateRange extends React.Component {
           rules={{
             fontSize: "14px",
             zIndex: zIndex.modal,
-            backgroundColor: color.white,
-            boxShadow: `0 ${39 / 14}em ${54 / 14}em rgba(${rgb(color.black)}, .16),
-              0 0 0 1px rgba(${rgb(color.black)}, .02)`,
+            backgroundColor: colors.bgPrimary,
+            boxShadow: `0 ${39 / 14}em ${54 / 14}em rgba(${rgb(colors.shadowPrimary)}, .16),
+              0 0 0 1px rgba(${rgb(colors.shadowPrimary)}, .02)`,
 
             ".DayPicker--horizontal": {
               borderRadius: 0,
@@ -201,11 +203,11 @@ class DateRange extends React.Component {
             },
 
             ".DayPicker--horizontal svg": {
-              fill: darken(color.white, 17),
+              fill: darken(colors.bgPrimary, 17),
             },
 
             ".DayPicker__week-header": {
-              color: color.darkGray,
+              color: colors.textPrimary,
               fontWeight: 600,
             },
 
@@ -219,7 +221,7 @@ class DateRange extends React.Component {
 
 
             ".CalendarMonth__caption strong": {
-              color: color.darkGray,
+              color: colors.textPrimary,
               fontWeight: 400,
             },
 
@@ -242,7 +244,7 @@ class DateRange extends React.Component {
             ".CalendarMonth__day--selected-end::before": endDateColorFillStyles,
 
             ".CalendarMonth__day--selected-start + .CalendarMonth__day--selected-end::before": {
-              backgroundColor: color.blue,
+              backgroundColor: colors.linkPrimary,
               left: "-50%",
               width: "100%",
             },
@@ -315,13 +317,9 @@ DateRange.propTypes = {
 
 DateRange.defaultProps = {
   noBorder: false,
-
   withFullScreenPortal: false,
-
   focusedInput: null,
-
   onFocusChange: "",
-
   soldOut: false,
 };
 

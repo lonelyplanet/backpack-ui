@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, media } from "../../../settings.json";
+
+import { media } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
 
 const styles = {
@@ -23,21 +25,21 @@ const styles = {
       },
     },
     hasBorder: {
-      borderBottom: `1px solid rgba(${rgb(color.lightBlue)}, 0.47)`,
+      borderBottom: `1px solid rgba(${rgb(colors.accentGray)}, 0.47)`,
     },
   },
 };
 
 export const breakpointBorder = (breakpoint, showAbove = false) => (
   showAbove ? {
-    borderBottom: `1px solid rgba(${rgb(color.lightBlue)}, 0.47)`,
+    borderBottom: `1px solid rgba(${rgb(colors.accentGray)}, 0.47)`,
     [`@media (max-width: ${breakpoint}px)`]: {
       borderBottom: 0,
     },
   } : {
     borderBottom: 0,
     [`@media (max-width: ${breakpoint}px)`]: {
-      borderBottom: `1px solid rgba(${rgb(color.lightBlue)}, 0.47)`,
+      borderBottom: `1px solid rgba(${rgb(colors.accentGray)}, 0.47)`,
     },
   }
 );

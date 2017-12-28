@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { Calendar as CalendarComponent, DateRange as DateRangeComponent } from "react-date-range";
 import moment from "moment";
 import radium, { Style } from "radium";
-import { color, timing } from "../../../settings.json";
+
+import { timing } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
 
 class Calendar extends Component {
@@ -31,14 +33,14 @@ class Calendar extends Component {
     } = this.props;
 
     const icons = {
-      chevron: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${color.blue}"><path class="path1" d="M28.8 6.2l-12.8 12.8-12.8-12.8-3.2 3.2 16 16.4 16-16.4z"></path></svg>`),
+      chevron: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${colors.linkPrimary}"><path class="path1" d="M28.8 6.2l-12.8 12.8-12.8-12.8-3.2 3.2 16 16.4 16-16.4z"></path></svg>`),
     };
 
     const theme = {
       Calendar: {
-        backgroundColor: color.white,
+        backgroundColor: colors.bgPrimary,
         borderRadius: 0,
-        boxShadow: `0 ${39 / 14}em ${54 / 14}em rgba(${rgb(color.black)}, .16)`,
+        boxShadow: `0 ${39 / 14}em ${54 / 14}em rgba(${rgb(colors.shadowPrimary)}, .16)`,
         color: "inherit",
         fontSize: "14px",
         padding: `${10 / 14}em`,
@@ -46,7 +48,7 @@ class Calendar extends Component {
         width: "391px",
       },
       MonthAndYear: {
-        color: color.blue,
+        color: colors.linkPrimary,
         fontSize: "1em",
         fontWeight: 600,
         height: "auto",
@@ -55,12 +57,12 @@ class Calendar extends Component {
         textTransform: "uppercase",
       },
       DateRange: {
-        backgroundColor: color.white,
+        backgroundColor: colors.bgPrimary,
         borderRadius: 0,
         display: "inline-block",
       },
       MonthButton: {
-        backgroundColor: color.white,
+        backgroundColor: colors.bgPrimary,
         border: 0,
         borderRadius: 0,
         display: "inline-block",
@@ -113,24 +115,24 @@ class Calendar extends Component {
         width: `${53 / 14}em`,
       },
       DayToday: {
-        color: color.red,
+        color: colors.accentRed,
       },
       DaySelected: {
-        backgroundColor: color.blue,
-        color: color.white,
+        backgroundColor: colors.linkPrimary,
+        color: colors.bgPrimary,
       },
       DayActive: {
-        backgroundColor: color.blue,
-        color: color.white,
+        backgroundColor: colors.linkPrimary,
+        color: colors.bgPrimary,
         transform: "none",
       },
       DayInRange: {
         backgroundColor: "#eaf2f8",
-        color: color.titleGray,
+        color: colors.textPrimary,
       },
       DayHover: {
-        backgroundColor: color.white,
-        color: color.blue,
+        backgroundColor: colors.bgPrimary,
+        color: colors.linkPrimary,
       },
       DayPassive: {
         cursor: "default",
@@ -139,7 +141,7 @@ class Calendar extends Component {
 
     const scopedStyles = {
       ".rdr-MonthAndYear": {
-        borderBottom: `1px solid ${color.gray}`,
+        borderBottom: `1px solid ${colors.borderPrimary}`,
         marginBottom: `${22 / 14}em`,
         marginLeft: `${-10 / 14}em`,
         marginRight: `${-10 / 14}em`,
@@ -153,7 +155,7 @@ class Calendar extends Component {
       },
 
       ".rdr-MonthAndYear-divider": {
-        color: color.white,
+        color: colors.bgPrimary,
         display: "inline-block",
         width: `${3 / 14}em`,
       },
@@ -174,7 +176,7 @@ class Calendar extends Component {
 
       ".rdr-Day.is-inRange:hover": {
         backgroundColor: "#eaf2f8 !important",
-        color: `${color.titleGray} !important`,
+        color: `${colors.textPrimary} !important`,
       },
     };
 

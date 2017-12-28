@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+
+import colors from "../../styles/colors";
 import Link from "../link";
 import CoverPhoto from "../coverPhoto";
-import { color, timing } from "../../../settings.json";
+import { timing } from "../../../settings.json";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
@@ -44,7 +46,7 @@ const CardImage = ({
     className="Card-image"
     style={[
       styles.container,
-      opacity && { backgroundColor: color.black },
+      opacity && { backgroundColor: colors.bgOverlay },
       style,
     ]}
   >

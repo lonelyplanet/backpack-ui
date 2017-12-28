@@ -2,17 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Slider from "react-slick";
+
+import { typography, timing, media, zIndex } from "../../../settings.json";
+import colors from "../../styles/colors";
+import { rgb } from "../../utils/color";
 import PaginatorButton from "../paginatorButton";
 import SlideTall from "../slideTall";
-import { color, typography, timing, media, zIndex } from "../../../settings.json";
-import { rgb } from "../../utils/color";
 
 const styles = {
   width: "120%",
   marginLeft: "-17%",
   ".TallCarousel-slide": {
     display: "block",
-    color: color.white,
+    color: colors.bgPrimary,
     maxHeight: "520px",
     height: "69vw",
     position: "relative",
@@ -74,7 +76,7 @@ const styles = {
       ".slick-slide:hover": {
         zIndex: zIndex.top - 1,
         transform: "scale(1.03)",
-        boxShadow: `0px 28px 81px -7px rgba(${rgb(color.black)}, 0.44)`,
+        boxShadow: `0px 28px 81px -7px rgba(${rgb(colors.shadowPrimary)}, 0.44)`,
       },
     },
   },

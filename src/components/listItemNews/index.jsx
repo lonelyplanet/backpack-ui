@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, media } from "../../../settings.json";
+
+import { media } from "../../../settings.json";
+import colors from "../../styles/colors";
 import font from "../../utils/font";
 import Heading from "../heading";
 import ListItemThumbnail from "../listItemThumbnail";
@@ -14,7 +16,7 @@ const styles = {
   },
 
   anchor: {
-    color: color.blue,
+    color: colors.linkPrimary,
     textDecoration: "none",
   },
 
@@ -23,7 +25,7 @@ const styles = {
   },
 
   category: {
-    color: color.blue,
+    color: colors.linkPrimary,
     fontSize: "11px",
     fontWeight: 600,
     letterSpacing: "-0.1px",
@@ -32,7 +34,7 @@ const styles = {
   },
 
   sponsored: {
-    color: color.crusta,
+    color: colors.accentOrange,
   },
 
   heading: {

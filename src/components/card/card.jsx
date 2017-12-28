@@ -2,15 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import cn from "classnames";
-import { rgba } from "../../utils/color";
-import { color, media } from "../../../settings.json";
-import propTypes from "../../utils/propTypes";
 
-const mq = `@media (min-width: ${media.min["768"]})`;
+import colors from "../../styles/colors";
+import { media } from "../../../settings.json";
+import { rgba } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
 
 const hoverStyles = {
   ".Heading": {
-    color: `${color.blue} !important`,
+    color: `${colors.linkPrimary} !important`,
   },
 
   ".CoverPhoto": {
@@ -27,10 +27,10 @@ const styles = {
   },
 
   card: {
-    boxShadow: `0 0 20px ${rgba(color.black, 0.12)}`,
+    boxShadow: `0 0 20px ${rgba(colors.shadowPrimary, 0.12)}`,
 
-    [mq]: {
-      boxShadow: `0 12px 34px ${rgba(color.black, 0.12)}`,
+    [`@media (min-width: ${media.min["768"]})`]: {
+      boxShadow: `0 12px 34px ${rgba(colors.shadowPrimary, 0.12)}`,
     },
   },
 };

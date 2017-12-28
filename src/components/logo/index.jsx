@@ -1,15 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import settings from "../../../settings.json";
+
+import colors from "../../styles/colors";
 import { darken } from "../../utils/color";
 import { Logo as Icon } from "../icon";
 
-const colors = {
-  blue: settings.color.blue,
-  gray: darken(settings.color.white, 20),
-  grey: darken(settings.color.white, 20),
-  white: settings.color.white,
+const colours = {
+  blue: colors.linkPrimary,
+  gray: darken(colors.bgPrimary, 20),
+  grey: darken(colors.bgPrimary, 20),
+  white: colors.bgPrimary,
 };
 
 const styles = {
@@ -33,7 +34,7 @@ const styles = {
 const Logo = ({ href, color, style }) => (
   <a
     className="Logo"
-    style={[styles.anchor, { color: colors[color] }, style]}
+    style={[styles.anchor, { color: colours[color] }, style]}
     href={href}
   >
     <Icon style={styles.icon} />

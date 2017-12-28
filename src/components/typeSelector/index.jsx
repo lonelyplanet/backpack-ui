@@ -2,9 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import { Link } from "react-router";
-import { color, media, timing, zIndex } from "../../../settings.json";
-import Heading from "../heading";
+
+import { media, timing, zIndex } from "../../../settings.json";
+import colors from "../../styles/colors";
 import Flyout from "../flyout";
+import Heading from "../heading";
 import PaginatorButton from "../paginatorButton";
 
 const styles = {
@@ -199,7 +201,7 @@ class TypeSelector extends React.Component {
                 },
 
                 ".TypeSelector-listItem--active .ActiveMarker": {
-                  backgroundColor: color.red,
+                  backgroundColor: colors.accentRed,
                   borderRadius: "100%",
                   bottom: 0,
                   display: "block",
@@ -276,11 +278,8 @@ TypeSelector.propTypes = {
 
 TypeSelector.defaultProps = {
   title: "",
-
   menuItems: [],
-
   onClick: null,
-
   mobile: false,
 };
 

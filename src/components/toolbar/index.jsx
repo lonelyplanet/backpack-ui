@@ -1,20 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, timing } from "../../../settings.json";
+import colors from "../../styles/colors";
+import { timing } from "../../../settings.json";
 import Icon from "../icon";
 
 const hover = {
-  color: color.blue,
+  color: colors.linkPrimary,
 };
 
 const styles = {
   container: {
     base: {
       alignItems: "center",
-      borderBottom: `${1 / 14}em solid ${color.gray}`,
-      borderTop: `${1 / 14}em solid ${color.gray}`,
-      color: color.darkGray,
+      borderBottom: `${1 / 14}em solid ${colors.borderPrimary}`,
+      borderTop: `${1 / 14}em solid ${colors.borderPrimary}`,
+      color: colors.textPrimary,
       display: "flex",
       fontSize: "14px",
       fontWeight: 600,

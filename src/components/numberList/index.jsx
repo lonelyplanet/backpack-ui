@@ -1,13 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { color, timing } from "../../../settings.json";
+
+import { timing } from "../../../settings.json";
+import colors from "../../styles/colors";
 import NumberMarker from "../numberMarker";
 
 const styles = {
   container: {
     base: {
-      color: color.darkGray,
+      color: colors.textPrimary,
       fontSize: "14px",
       lineHeight: (22 / 14),
     },
@@ -21,7 +23,7 @@ const styles = {
 
   item: {
     base: {
-      borderBottom: `${1 / 14}em solid ${color.gray}`,
+      borderBottom: `${1 / 14}em solid ${colors.borderPrimary}`,
       display: "flex",
       padding: `${13 / 14}em ${12 / 14}em ${13 / 14}em ${6 / 14}em`,
     },
@@ -50,13 +52,13 @@ const styles = {
       transition: `color ${timing.default}`,
 
       ":hover": {
-        color: color.blue,
+        color: colors.linkPrimary,
       },
       ":active": {
-        color: color.blue,
+        color: colors.linkPrimary,
       },
       ":focus": {
-        color: color.blue,
+        color: colors.linkPrimary,
       },
     },
   },

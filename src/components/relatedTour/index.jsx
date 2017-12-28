@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
+
+import colors from "../../styles/colors";
 import { media } from "../../../settings.json";
-import color from "../../styles/colors";
+import { span } from "../../utils/grid";
 import Heading from "../heading";
 import Price from "../price";
 import Bullet from "../bullet";
-import { span } from "../../utils/grid";
 
 const styles = {
   base: {},
@@ -33,14 +34,14 @@ const styles = {
 
     details: {
       base: {
-        color: color.textPrimary,
+        color: colors.textPrimary,
         fontSize: "1.1rem",
         lineHeight: 1,
         textTransform: "uppercase",
 
         [`@media (max-width: ${media.max["480"]})`]: {
           display: "inline-block",
-          color: color.accentGray,
+          color: colors.accentGray,
           marginTop: "14px",
           fontWeight: 600,
         },
@@ -126,7 +127,7 @@ function RelatedTour({
           },
 
           ".Price-amount": {
-            color: color.textPrimary,
+            color: colors.textPrimary,
             fontSize: "2.4rem !important",
           },
 
@@ -140,7 +141,7 @@ function RelatedTour({
 
               ".Price-amount": {
                 fontWeight: "300 !important",
-                color: color.accentRed,
+                color: colors.accentRed,
               },
             },
 
@@ -157,7 +158,7 @@ function RelatedTour({
               },
 
               ".Price-amount": {
-                color: color.textPrimary,
+                color: colors.textPrimary,
                 fontSize: "2.4rem",
               },
             },
@@ -254,17 +255,11 @@ RelatedTour.propTypes = {
 
 RelatedTour.defaultProps = {
   title: "",
-
   slug: "",
-
   image: "",
-
   price: {},
-
   tripLength: "",
-
   destination: "",
-
   reviews: 0,
 };
 

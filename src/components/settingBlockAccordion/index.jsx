@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+
+import { timing } from "../../../settings.json";
+import colors from "../../styles/colors";
+import iconFromString from "../../utils/icon";
 import {
   SettingBlockWrapper,
   SettingBlockDescription,
@@ -8,9 +12,6 @@ import {
   SettingBlockButtonWrapper,
   SettingBlockHeader,
 } from "../settingBlock";
-import color from "../../styles/colors";
-import { timing } from "../../../settings.json";
-import iconFromString from "../../utils/icon";
 
 const styles = {
   flexContainer: {
@@ -20,7 +21,7 @@ const styles = {
   },
 
   icon: {
-    fill: color.textPrimary,
+    fill: colors.textPrimary,
     height: "16px",
     width: "16px",
   },

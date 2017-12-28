@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import Carousel from "react-slick";
 import kebabCase from "lodash/kebabCase";
-import { color } from "../../../settings.json";
-import PaginatorButton from "../paginatorButton";
-import ExpandButton from "../expandButton";
+
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
+import ExpandButton from "../expandButton";
+import PaginatorButton from "../paginatorButton";
 
 
 const _ = { kebabCase };
@@ -99,7 +100,7 @@ const defaultProps = {
 const styles = {
   container: {
     base: {
-      backgroundColor: color.gray,
+      backgroundColor: colors.borderPrimary,
       position: "relative",
     },
   },
@@ -125,9 +126,9 @@ const styles = {
 
   paginationLabel: {
     base: {
-      backgroundColor: `rgba(${rgb(color.black)}, .6)`,
+      backgroundColor: `rgba(${rgb(colors.bgOverlay)}, .6)`,
       borderRadius: "1em",
-      color: color.white,
+      color: colors.bgPrimary,
       display: "block",
       fontSize: "8px",
       fontWeight: 600,

@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Slider from "rc-slider";
-import { color } from "../../../settings.json";
+
+import colors from "../../styles/colors";
 import { rgb } from "../../utils/color";
 import createUnitLabel from "../../utils/createUnitLabel";
 
@@ -17,7 +18,7 @@ const styles = {
 const scopedStyles = {
   ".rc-slider-handle": {
     border: 0,
-    boxShadow: `0 1px 3px rgba(${rgb(color.black)}, .36)`,
+    boxShadow: `0 1px 3px rgba(${rgb(colors.shadowPrimary)}, .36)`,
     height: "22px",
     marginLeft: "-11px",
     marginTop: "-9px",
@@ -29,7 +30,7 @@ const scopedStyles = {
   },
 
   ".rc-slider-track": {
-    backgroundColor: color.blue,
+    backgroundColor: colors.linkPrimary,
     height: "3px",
   },
 
@@ -39,7 +40,7 @@ const scopedStyles = {
   },
 
   ".rc-slider-mark-text": {
-    color: color.darkGray,
+    color: colors.textPrimary,
     lineHeight: 1,
     marginLeft: "0 !important",
     width: "50% !important",
@@ -195,17 +196,11 @@ Range.propTypes = {
 
 Range.defaultProps = {
   onAfterChange: null,
-
   defaultValue: [],
-
   min: 0,
-
   max: 100,
-
   label: "",
-
   price: false,
-
   time: false,
 };
 
