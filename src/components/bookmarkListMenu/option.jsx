@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import { fontSizeBodySmall } from "../../styles/typography";
-import propTypes from "../../utils/propTypes";
 import { outline } from "../../utils/mixins";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   backgroundColor: "transparent",

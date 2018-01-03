@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import { timing } from "../../../settings.json";
+import timing from "../../styles/timing";
 import mq from "../../styles/mq";
 import propTypes from "../../utils/propTypes";
 import Heading from "../heading";
@@ -18,7 +18,7 @@ const styles = {
   WebkitBoxOrient: "vertical",
   WebkitLineClamp: 2,
 
-  [`@media (max-width: ${mq.max["768"]})`]: {
+  [`@media (max-width: ${mq.max[768]})`]: {
     fontSize: "14px",
     lineHeight: (18 / 14),
     maxHeight: "36px",

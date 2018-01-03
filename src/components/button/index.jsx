@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
-import { timing } from "../../../settings.json";
-import { default as bpColor } from "../../styles/colors";
+
+import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import { lighten } from "../../utils/color";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
@@ -14,23 +15,23 @@ const hoverStyles = {
   },
 
   blue: {
-    backgroundColor: lighten(bpColor.linkPrimary, 7),
-    color: bpColor.bgPrimary,
+    backgroundColor: lighten(colors.linkPrimary, 7),
+    color: colors.bgPrimary,
   },
 
   white: {
-    backgroundColor: bpColor.bgPrimary,
-    color: lighten(bpColor.linkPrimary, 14),
+    backgroundColor: colors.bgPrimary,
+    color: lighten(colors.linkPrimary, 14),
   },
 
   gray: {
-    backgroundColor: bpColor.bgPrimary,
-    color: lighten(bpColor.textPrimary, 100),
+    backgroundColor: colors.bgPrimary,
+    color: lighten(colors.textPrimary, 100),
   },
 
   transparent: {
     backgroundColor: "transparent",
-    color: bpColor.textOverlay,
+    color: colors.textOverlay,
   },
 
 };
@@ -64,8 +65,8 @@ const styles = {
 
   color: {
     blue: {
-      backgroundColor: bpColor.linkPrimary,
-      color: bpColor.textOverlay,
+      backgroundColor: colors.linkPrimary,
+      color: colors.textOverlay,
       boxShadow: "none",
 
       ":hover": hoverStyles.blue,
@@ -75,8 +76,8 @@ const styles = {
 
     gray: {
       backgroundColor: "transparent",
-      color: bpColor.textPrimary,
-      boxShadow: `0 0 0 1px ${bpColor.borderPrimary} inset`,
+      color: colors.textPrimary,
+      boxShadow: `0 0 0 1px ${colors.borderPrimary} inset`,
 
       ":hover": hoverStyles.gray,
       ":focus": hoverStyles.gray,
@@ -84,9 +85,9 @@ const styles = {
     },
 
     white: {
-      backgroundColor: bpColor.bgPrimary,
-      color: bpColor.linkPrimary,
-      boxShadow: `0 0 0 1px ${bpColor.linkPrimary} inset`,
+      backgroundColor: colors.bgPrimary,
+      color: colors.linkPrimary,
+      boxShadow: `0 0 0 1px ${colors.linkPrimary} inset`,
 
       ":hover": hoverStyles.white,
       ":focus": hoverStyles.white,
@@ -95,8 +96,8 @@ const styles = {
 
     transparent: {
       backgroundColor: "transparent",
-      color: bpColor.textOverlay,
-      boxShadow: `0 0 0 1px ${bpColor.bgPrimary} inset`,
+      color: colors.textOverlay,
+      boxShadow: `0 0 0 1px ${colors.bgPrimary} inset`,
 
       ":hover": hoverStyles.transparent,
       ":focus": hoverStyles.transparent,
@@ -296,23 +297,14 @@ Button.propTypes = {
 
 Button.defaultProps = {
   href: null,
-
   onClick: null,
-
   color: "blue",
-
   size: "medium",
-
   rounded: false,
-
   full: false,
-
   border: false,
-
   children: "Button",
-
   disabled: false,
-
   customStyles: null,
 };
 

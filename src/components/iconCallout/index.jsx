@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { timing } from "../../../settings.json";
 import colors from "../../styles/colors";
 import font from "../../utils/font";
+import timing from "../../styles/timing";
 import { add, span, gutter } from "../../utils/grid";
 import iconFromString from "../../utils/icon";
 import Icon from "../icon";

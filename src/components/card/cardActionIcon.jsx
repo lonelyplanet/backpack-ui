@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import radium from "radium";
 
 import colors from "../../styles/colors";
-import { timing } from "../../../settings.json";
+import timing from "../../styles/timing";
 import propTypes from "../../utils/propTypes";
 
 const styles = {

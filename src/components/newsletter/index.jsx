@@ -42,7 +42,7 @@ const styles = {
     letterSpacing: "-.3px",
     lineHeight: 32 / 20,
 
-    [`@media (min-width: ${mq.min["480"]})`]: {
+    [`@media (min-width: ${mq.min[480]})`]: {
       fontSize: "24px",
       letterSpacing: "-.4px",
       lineHeight: 32 / 28,
@@ -70,7 +70,7 @@ const styles = {
     marginRight: "auto",
     maxWidth: "386px",
 
-    [`@media (min-width: ${mq.min["480"]})`]: {
+    [`@media (min-width: ${mq.min[480]})`]: {
       letterSpacing: ".4px",
       lineHeight: 32 / 18,
     },

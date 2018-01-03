@@ -39,20 +39,20 @@ const styles = {
         lineHeight: 1,
         textTransform: "uppercase",
 
-        [`@media (max-width: ${mq.max["480"]})`]: {
+        [`@media (max-width: ${mq.max[480]})`]: {
           display: "inline-block",
           color: colors.accentGray,
           marginTop: "14px",
           fontWeight: 600,
         },
 
-        [`@media (min-width: ${mq.min["480"]})`]: {
+        [`@media (min-width: ${mq.min[480]})`]: {
           marginTop: "1.4rem",
         },
       },
 
       list: {
-        [`@media (max-width: ${mq.max["480"]})`]: {
+        [`@media (max-width: ${mq.max[480]})`]: {
           display: "inline-block",
         },
       },
@@ -64,7 +64,7 @@ const styles = {
       bullet: {
         display: "inline-block",
 
-        [`@media (min-width: ${mq.min["480"]})`]: {
+        [`@media (min-width: ${mq.min[480]})`]: {
           display: "none",
         },
       },
@@ -132,7 +132,7 @@ function RelatedTour({
           },
 
           mediaQueries: {
-            [`(max-width: ${mq.max["480"]})`]: {
+            [`(max-width: ${mq.max[480]})`]: {
               ".Price": {
                 display: "block",
                 marginTop: "20px",
@@ -145,7 +145,7 @@ function RelatedTour({
               },
             },
 
-            [`(min-width: ${mq.min["480"]})`]: {
+            [`(min-width: ${mq.min[480]})`]: {
               ".Heading": {
                 maxWidth: "50rem",
                 width: "80%",

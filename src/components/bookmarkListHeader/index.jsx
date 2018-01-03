@@ -21,7 +21,7 @@ const styles = {
     display: "flex",
     flexWrap: "wrap",
 
-    [`@media (max-width: ${mq.max["768"]})`]: {
+    [`@media (max-width: ${mq.max[768]})`]: {
       flexDirection: "column",
     },
   },
@@ -34,7 +34,7 @@ const styles = {
       order: 1,
       textTransform: "uppercase",
 
-      [`@media (min-width: ${mq.min["768"]})`]: {
+      [`@media (min-width: ${mq.min[768]})`]: {
         fontSize: `${fontSizeBodySmall}px`,
         marginBottom: 0,
         order: 3,
@@ -53,13 +53,13 @@ const styles = {
   name: {
     order: 2,
 
-    [`@media (max-width: ${mq.max["768"]})`]: {
+    [`@media (max-width: ${mq.max[768]})`]: {
       marginBottom: "6px",
       fontSize: `${fontSizeHeading4}px`,
       lineHeight: lineHeightHeading4,
     },
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
+    [`@media (min-width: ${mq.min[768]})`]: {
       width: "100%",
     },
   },
@@ -69,7 +69,7 @@ const styles = {
     letterSpacing: ".4px",
     order: 2,
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
+    [`@media (min-width: ${mq.min[768]})`]: {
       fontSize: `${fontSizeBodyArticle}px`,
       letterSpacing: ".5px",
       marginRight: "24px",

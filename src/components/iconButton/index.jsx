@@ -3,12 +3,13 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import upperFirst from "lodash/upperFirst";
 import cn from "classnames";
+
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import { lineHeightReset } from "../../styles/typography";
 import { darken, rgba } from "../../utils/color";
-import { outline } from "../../utils/mixins";
 import iconFromString from "../../utils/icon";
+import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 
 const _ = { upperFirst };

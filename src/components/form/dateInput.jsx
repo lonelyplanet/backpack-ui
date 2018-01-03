@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import moment from "moment";
 import TetherComponent from "react-tether";
-import { zIndex } from "../../../settings.json";
+
+import zIndex from "../../styles/zIndex";
 import Select from "./select";
 import styles from "./styles";
 import Calendar from "../calendar";

@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
-import { rgba } from "../../utils/color";
 import { fontSizeBodySmall, fontWeightMedium } from "../../styles/typography";
-import { textBodySmall } from "../../utils/typography";
-import propTypes from "../../utils/propTypes";
+import { rgba } from "../../utils/color";
 import { outline } from "../../utils/mixins";
+import propTypes from "../../utils/propTypes";
+import { textBodySmall } from "../../utils/typography";
 
 const fontSize = fontSizeBodySmall;
 

@@ -34,7 +34,7 @@ const styles = {
   heading: {
     base: {
       letterSpacing: "-1px",
-      [`@media (max-width: ${mq.max["600"]})`]: {
+      [`@media (max-width: ${mq.max[600]})`]: {
         fontSize: `${fontSizeHeading3}px`,
         lineHeight: lineHeightHeading3,
       },
@@ -46,11 +46,11 @@ const styles = {
       color: colors.accentRed,
       marginBottom: "14px",
 
-      [`@media (min-width: ${mq.min["560"]})`]: {
+      [`@media (min-width: ${mq.min[560]})`]: {
         display: "inline-block",
       },
 
-      [`@media (min-width: ${mq.min["600"]})`]: {
+      [`@media (min-width: ${mq.min[600]})`]: {
         marginBottom: "21px",
       },
     },
@@ -66,12 +66,12 @@ const styles = {
     base: {
       marginTop: "13px",
 
-      [`@media (max-width: ${mq.max["600"]})`]: {
+      [`@media (max-width: ${mq.max[600]})`]: {
         paddingLeft: gutter("static"),
         paddingRight: gutter("static"),
       },
 
-      [`@media (min-width: ${mq.min["600"]})`]: {
+      [`@media (min-width: ${mq.min[600]})`]: {
         marginTop: "14px",
       },
     },

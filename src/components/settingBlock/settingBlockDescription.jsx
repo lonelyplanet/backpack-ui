@@ -1,14 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import * as typography from "../../styles/typography";
+import { fontSizeHeading7, fontWeightLight } from "../../styles/typography";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
   container: {
-    fontSize: `${typography.fontSizeHeading7}`,
-    fontWeight: typography.fontWeightLight,
-    // lineHeight: typography.lineHeightReset,
+    fontSize: `${fontSizeHeading7}px`,
+    fontWeight: fontWeightLight,
     marginTop: "8px",
   },
 };

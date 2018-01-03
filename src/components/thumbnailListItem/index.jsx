@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 
 import colors from "../../styles/colors";
-import { timing, typography, zIndex } from "../../../settings.json";
+import timing from "../../styles/timing";
+import { fontWeightRegular } from "../../styles/typography";
+import zIndex from "../../styles/zIndex";
 import { rgba } from "../../utils/color";
 import font from "../../utils/font";
 import iconFromString from "../../utils/icon";
@@ -47,7 +49,7 @@ const styles = {
   imageText: {
     bottom: "3px",
     fontSize: "11px",
-    fontWeight: typography.fontWeightMedium,
+    fontWeight: fontWeightRegular,
     position: "absolute",
     right: "3px",
     zIndex: zIndex.default,

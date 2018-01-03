@@ -2,13 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import cn from "classnames";
-import Flyout from "../flyout";
-import IconButton from "../iconButton";
-import IconRevealButton from "../iconRevealButton";
+
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import iconFromString from "../../utils/icon";
 import propTypes from "../../utils/propTypes";
+import Flyout from "../flyout";
+import IconButton from "../iconButton";
+import IconRevealButton from "../iconRevealButton";
 import clickOutside from "../../hoc/clickOutside";
 
 const styles = {

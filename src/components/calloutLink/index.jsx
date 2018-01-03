@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import assign from "object-assign";
 
-import { timing } from "../../../settings.json";
 import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
 import { blueLink, outline } from "../../utils/mixins";

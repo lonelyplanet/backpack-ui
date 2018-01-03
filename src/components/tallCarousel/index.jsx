@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Slider from "react-slick";
 
-import { typography, timing, zIndex } from "../../../settings.json";
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
+import timing from "../../styles/timing";
+import { fontWeightMedium } from "../../styles/typography";
+import zIndex from "../../styles/zIndex";
 import { rgb } from "../../utils/color";
 import PaginatorButton from "../paginatorButton";
 import SlideTall from "../slideTall";
@@ -26,7 +28,7 @@ const styles = {
   },
   ".TallCarousel-slide p": {
     position: "absolute",
-    fontWeight: typography.fontWeightBold,
+    fontWeight: fontWeightMedium,
     letterSpacing: "-0.08px",
     fontSize: "12px",
     bottom: "16px",
@@ -36,16 +38,16 @@ const styles = {
     overflow: "visible",
   },
   mediaQueries: {
-    [`(min-width: ${mq.min["600"]})`]: {
+    [`(min-width: ${mq.min[600]})`]: {
       marginLeft: " -10%",
       ".TallCarousel-slide": {
         height: "50vw",
       },
     },
-    [`(max-width: ${mq.max["840"]})`]: {
+    [`(max-width: ${mq.max[840]})`]: {
       overflow: "hidden",
     },
-    [`(min-width: ${mq.min["840"]})`]: {
+    [`(min-width: ${mq.min[840]})`]: {
       width: "100%",
       marginLeft: "0",
       ".TallCarousel-slide": {

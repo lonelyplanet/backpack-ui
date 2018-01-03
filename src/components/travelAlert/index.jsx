@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
-import Container from "../container";
+
 import colors from "../../styles/colors";
-import { fontSizeHeading7, lineHeightHeading7 } from "../../styles/typography";
 import timing from "../../styles/timing";
+import { fontSizeHeading7, lineHeightHeading7 } from "../../styles/typography";
 import font from "../../utils/font";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
+import Container from "../container";
 
 const styles = {
   backgroundColor: colors.accentYellow,

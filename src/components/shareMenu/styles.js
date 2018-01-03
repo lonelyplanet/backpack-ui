@@ -1,5 +1,5 @@
 import colors from "../../styles/colors";
-import { timing } from "../../../settings.json";
+import timing from "../../styles/timing";
 import font from "../../utils/font";
 
 const styles = {

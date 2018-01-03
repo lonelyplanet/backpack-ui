@@ -9,7 +9,7 @@ import BulletDescription from "../bulletDescription";
 const styles = {
   marginBottom: "9px",
 
-  [`@media (max-width: ${mq.max["768"]})`]: {
+  [`@media (max-width: ${mq.max[768]})`]: {
     fontSize: "9px",
     marginBottom: "6px",
   },

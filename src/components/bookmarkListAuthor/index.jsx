@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import AuthorName from "../authorName";
-import Avatar from "../avatar";
+
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
-import propTypes from "../../utils/propTypes";
 import { outline } from "../../utils/mixins";
+import propTypes from "../../utils/propTypes";
+import AuthorName from "../authorName";
+import Avatar from "../avatar";
 
 const styles = {
   container: {

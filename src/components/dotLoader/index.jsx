@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { timing } from "../../../settings.json";
+
+import timing from "../../styles/timing";
 import { bookingLoaderFade } from "../../utils/keyframes";
 
 const styles = {

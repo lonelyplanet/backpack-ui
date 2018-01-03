@@ -51,7 +51,7 @@ const styles = {
         fontSize: "16px",
         lineHeight: (24 / 16),
 
-        [`@media (min-width: ${mq.min["560"]})`]: {
+        [`@media (min-width: ${mq.min[560]})`]: {
           fontSize: "20px",
           lineHeight: 1.6,
         },

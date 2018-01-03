@@ -13,7 +13,7 @@ const styles = {
   },
 
   mediaQueries: {
-    [`(min-width: ${mq.min["720"]})`]: {
+    [`(min-width: ${mq.min[720]})`]: {
       ".ListItemContainer:not(:last-of-type)": {
         marginBottom: "48px",
         paddingBottom: "48px",

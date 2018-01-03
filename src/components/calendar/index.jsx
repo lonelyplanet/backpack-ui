@@ -4,8 +4,8 @@ import { Calendar as CalendarComponent, DateRange as DateRangeComponent } from "
 import moment from "moment";
 import radium, { Style } from "radium";
 
-import { timing } from "../../../settings.json";
 import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import { rgb } from "../../utils/color";
 
 class Calendar extends Component {

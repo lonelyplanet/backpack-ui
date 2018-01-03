@@ -2,18 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import cn from "classnames";
-import Icon from "../icon";
+
 import colors from "../../styles/colors";
 import dimensions from "../../styles/dimensions";
+import { benton } from "../../styles/fonts";
 import timing from "../../styles/timing";
 import { fontWeightMedium, fontSizeUppercase } from "../../styles/typography";
-import { benton } from "../../styles/fonts";
 import zIndex from "../../styles/zIndex";
-import { span } from "../../utils/grid";
-import { outline } from "../../utils/mixins";
 import { rgba } from "../../utils/color";
-import propTypes from "../../utils/propTypes";
+import { span } from "../../utils/grid";
 import iconFromString from "../../utils/icon";
+import { outline } from "../../utils/mixins";
+import propTypes from "../../utils/propTypes";
+import Icon from "../icon";
 
 const height = 56;
 const padding = 16;

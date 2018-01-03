@@ -20,7 +20,7 @@ const styles = {
   },
 
   articles: {
-    [`@media (min-width: ${mq.min["600"]})`]: {
+    [`@media (min-width: ${mq.min[600]})`]: {
       display: "flex",
     },
   },
@@ -36,13 +36,13 @@ const RecommendedArticles = ({ articles, heading, calloutHref, calloutLabel, sty
       scopeSelector=".RecommendedArticles"
       rules={{
         mediaQueries: {
-          [`(max-width: ${mq.max["600"]})`]: {
+          [`(max-width: ${mq.max[600]})`]: {
             ".ArticlePreview + .ArticlePreview": {
               marginTop: gutter("static"),
             },
           },
 
-          [`(min-width: ${mq.min["600"]})`]: {
+          [`(min-width: ${mq.min[600]})`]: {
             ".ArticlePreview + .ArticlePreview": {
               marginLeft: gutter("static"),
             },

@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
-import Avatar from "../avatar";
+
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
-import propTypes from "../../utils/propTypes";
 import { lighten } from "../../utils/color";
-import { textHeading7 } from "../../utils/typography";
 import { outline } from "../../utils/mixins";
+import propTypes from "../../utils/propTypes";
+import { textHeading7 } from "../../utils/typography";
+import Avatar from "../avatar";
 
 const styles = {
   container: {

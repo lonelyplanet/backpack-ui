@@ -79,7 +79,7 @@ const scopedStyles = {
     display: "none",
   },
   mediaQueries: {
-    [`(max-width: ${mq.max["480"]})`]: {
+    [`(max-width: ${mq.max[480]})`]: {
       ".vjs-big-play-button": {
         transform: "scale(.7)",
       },

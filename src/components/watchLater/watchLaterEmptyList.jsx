@@ -20,7 +20,7 @@ const styles = {
     right: 0,
     top: "50%",
     transform: "translateY(-50%)",
-    [`@media (min-width: ${mq.min["768"]})`]: {
+    [`@media (min-width: ${mq.min[768]})`]: {
       position: "relative",
       transform: "translateY(0)",
     },

@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
 
-import settings from "../../../settings.json";
 import colors from "../../styles/colors";
+import zIndex from "../../styles/zIndex";
 import { rgb } from "../../utils/color";
 
 const GradientOverlay = ({ children, gradientType, color, style }) => {
@@ -16,7 +16,7 @@ const GradientOverlay = ({ children, gradientType, color, style }) => {
       position: "absolute",
       right: 0,
       top: 0,
-      zIndex: settings.zIndex.default,
+      zIndex: zIndex.default,
     },
 
     type: {

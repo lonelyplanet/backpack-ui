@@ -2,8 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 
-import settings from "../../../settings.json";
 import colors from "../../styles/colors";
+import dimensions from "../../styles/dimensions";
+import mq from "../../styles/mq";
+import spacing from "../../styles/spacing";
+import zIndex from "../../styles/zIndex";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
 import { add, gutter, span } from "../../utils/grid";
@@ -23,7 +26,7 @@ const styles = {
       marginRight: "auto",
       position: "relative",
 
-      [`@media (max-width: ${settings.media.max["720"]})`]: {
+      [`@media (max-width: ${mq.max[720]})`]: {
         maxHeight: "592px",
       },
     },
@@ -31,10 +34,10 @@ const styles = {
     constrained: {
       height: "80vh",
       maxHeight: "720px",
-      maxWidth: settings.default.maxWidth,
+      maxWidth: `${dimensions.maxWidth}px`,
       minHeight: "592px",
 
-      [`@media (max-width: ${settings.media.max["720"]})`]: {
+      [`@media (max-width: ${mq.max[720]})`]: {
         maxHeight: "none",
       },
     },
@@ -52,12 +55,12 @@ const styles = {
     right: 0,
     width: "100%",
 
-    [`@media (max-width: ${settings.media.max["480"]})`]: {
-      paddingLeft: settings.default.spacing,
-      paddingRight: settings.default.spacing,
+    [`@media (max-width: ${mq.max[480]})`]: {
+      paddingLeft: `${spacing.gutterHalf}px`,
+      paddingRight: `${spacing.gutterHalf}px`,
     },
 
-    [`@media (min-width: ${settings.media.min["1024"]})`]: {
+    [`@media (min-width: ${mq.min[1024]})`]: {
       marginLeft: add([span(1), gutter()]),
       marginRight: add([span(1), gutter()]),
       width: span(10),
@@ -73,7 +76,7 @@ const styles = {
     },
 
     mediaQueries: {
-      [`(min-width: ${settings.media.min["720"]})`]: {
+      [`(min-width: ${mq.min[720]})`]: {
         ".FeaturedSectionHeading": {
           top: "56px",
         },
@@ -101,7 +104,7 @@ const FeaturedArticle = ({ article, constrained, style }) => (
         style={{
           height: "100%",
           position: "relative",
-          zIndex: (settings.zIndex.default + 1),
+          zIndex: (zIndex.default + 1),
         }}
       >
         {article.sectionHeading &&

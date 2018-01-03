@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import { timing, zIndex } from "../../../settings.json";
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
+import timing from "../../styles/timing";
+import zIndex from "../../styles/zIndex";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
 import CategoryLabel from "../categoryLabel";
@@ -27,7 +28,7 @@ const styles = {
     textAlign: "center",
     textDecoration: "none",
 
-    [`@media (min-width: ${mq.min["960"]})`]: {
+    [`@media (min-width: ${mq.min[960]})`]: {
       minHeight: "420px",
     },
 
@@ -55,7 +56,7 @@ const styles = {
     padding: "10px 16px 9px",
     textTransform: "uppercase",
 
-    [`@media (min-width: ${mq.min["480"]})`]: {
+    [`@media (min-width: ${mq.min[480]})`]: {
       marginTop: "23px",
     },
   },
@@ -87,7 +88,7 @@ const css = `
     font-size: 32px !important;
   }
 
-  @media (min-width: ${mq.min["960"]}) {
+  @media (min-width: ${mq.min[960]}) {
     .ArticlePaginationItem .Heading {
       font-size: 40px !important;
       line-height: ${(46 / 40)} !important;

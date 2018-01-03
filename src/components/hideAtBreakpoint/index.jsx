@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import { media } from "../../../settings.json";
+import mq from "../../styles/mq";
 
 function HideAtBreakpoint({ breakpoint, children, useMaxWidth }) {
   const style = useMaxWidth ? {
@@ -33,7 +33,7 @@ HideAtBreakpoint.propTypes = {
 };
 
 HideAtBreakpoint.defaultProps = {
-  breakpoint: media.max["767"],
+  breakpoint: mq.max[767],
   useMaxWidth: false,
 };
 

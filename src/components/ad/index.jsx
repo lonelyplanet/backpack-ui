@@ -21,7 +21,7 @@ const styles = {
       paddingBottom: "24px",
       paddingTop: "24px",
 
-      [`@media (min-width: ${mq.min["960"]})`]: {
+      [`@media (min-width: ${mq.min[960]})`]: {
         paddingTop: "30px",
       },
     },
@@ -72,7 +72,7 @@ function Ad({ id, framed, className, style }) {
             [`#${id}:before`]: styles.label.default,
 
             mediaQueries: {
-              [`(min-width: ${mq.min["960"]})`]: {
+              [`(min-width: ${mq.min[960]})`]: {
                 [`#${id}:before`]: styles.label.desktop,
               },
             },

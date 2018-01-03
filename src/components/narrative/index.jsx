@@ -10,7 +10,7 @@ import ArticleAuthor from "../articleAuthor";
 import ContentBlock from "../contentBlock";
 import Icon from "../icon";
 
-const mqSmall = `${667 * 0.0625}em`;
+const mediaQuery = `${667 * 0.0625}em`;
 
 const maxWidth = add([span(7, "static"), gutter("static")], "static");
 
@@ -20,13 +20,13 @@ const scopedStyles = {
   },
 
   mediaQueries: {
-    [`(min-width: ${mqSmall})`]: {
+    [`(min-width: ${mediaQuery})`]: {
       ".Icon": {
         fontSize: "4rem",
       },
     },
 
-    [`(max-width: ${mq.max["768"]})`]: {
+    [`(max-width: ${mq.max[768]})`]: {
       ".Narrative-content": {
         borderTop: `1px solid ${colors.borderPrimary}`,
         marginTop: "2rem",
@@ -43,7 +43,7 @@ const scopedStyles = {
       },
     },
 
-    [`(min-width: ${mq.min["768"]})`]: {
+    [`(min-width: ${mq.min[768]})`]: {
       ".Narrative-content": {
         borderLeft: `2px solid rgba(${rgb(colors.linkPrimary)}, .4)`,
         float: "left",

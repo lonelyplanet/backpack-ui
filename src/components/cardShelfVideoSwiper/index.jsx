@@ -3,26 +3,25 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import Slider from "react-slick";
 
-import { grid, timing, zIndex } from "../../../settings.json";
+import dimensions from "../../styles/dimensions";
 import mq from "../../styles/mq";
+import timing from "../../styles/timing";
+import zIndex from "../../styles/zIndex";
 import { percentage } from "../../utils/grid";
 import propTypes from "../../utils/propTypes";
-import {
-  CardShelf,
-  CardShelfHeader,
-} from "../cardShelf";
+import { CardShelf, CardShelfHeader } from "../cardShelf";
 import PaginatorButton from "../paginatorButton";
 
 const styles = {
   slider: {
-    [`@media (max-width: ${mq.max["768"]})`]: {
+    [`@media (max-width: ${mq.max[768]})`]: {
       marginBottom: "-30px",
       marginTop: "-15px",
       paddingBottom: "30px",
       paddingTop: "15px",
     },
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
+    [`@media (min-width: ${mq.min[768]})`]: {
       width: "calc(100% + 100px)",
       padding: "30px 50px 80px",
       marginTop: "-30px",
@@ -35,13 +34,13 @@ const styles = {
 
   sliderOuter: {
     default: {
-      [`@media (max-width: ${mq.max["480"]})`]: {
+      [`@media (max-width: ${mq.max[480]})`]: {
         marginLeft: "-15px",
         marginRight: "-15px",
         width: "calc(100% + 15px + 15px)",
       },
 
-      [`@media (min-width: ${mq.min["480"]}) and (max-width: ${mq.max["768"]})`]: {
+      [`@media (min-width: ${mq.min[480]}) and (max-width: ${mq.max[768]})`]: {
         marginLeft: "-30px",
         marginRight: "-30px",
         width: "calc(100% + 30px + 30px)",
@@ -49,14 +48,14 @@ const styles = {
     },
 
     threeSlides: {
-      [`@media (max-width: ${mq.max["768"]})`]: {
+      [`@media (max-width: ${mq.max[768]})`]: {
         height: "252px",
         overflow: "hidden",
       },
     },
 
     fourSlides: {
-      [`@media (max-width: ${mq.max["768"]})`]: {
+      [`@media (max-width: ${mq.max[768]})`]: {
         height: "400px",
         overflow: "hidden",
       },
@@ -64,17 +63,17 @@ const styles = {
   },
 
   sliderInner: {
-    [`@media (max-width: ${mq.max["480"]})`]: {
+    [`@media (max-width: ${mq.max[480]})`]: {
       paddingLeft: "15px",
       paddingRight: "15px",
     },
 
-    [`@media (min-width: ${mq.min["480"]}) and (max-width: ${mq.max["768"]})`]: {
+    [`@media (min-width: ${mq.min[480]}) and (max-width: ${mq.max[768]})`]: {
       paddingLeft: "30px",
       paddingRight: "30px",
     },
 
-    [`@media (max-width: ${mq.max["768"]})`]: {
+    [`@media (max-width: ${mq.max[768]})`]: {
       overflowX: "auto",
       overflowY: "hidden",
       "-webkit-overflow-scrolling": "touch",
@@ -87,7 +86,7 @@ const scopedStyles = {
     overflow: "visible",
     position: "relative",
     width: "100%",
-    maxWidth: grid.container,
+    maxWidth: `${dimensions.maxWidth}px`,
   },
 
   ".slick-track": {
@@ -99,7 +98,7 @@ const scopedStyles = {
     transition: `opacity ${timing.default} ease`,
     float: "none !important",
     height: "auto",
-    width: `${percentage("410px", grid.container)} !important`,
+    width: `${percentage("410px", `${dimensions.maxWidth}px`)} !important`,
     maxWidth: "410px",
     minWidth: "216px",
     flex: "1 0 auto",
@@ -129,7 +128,7 @@ const scopedStyles = {
   },
 
   mediaQueries: {
-    [`(max-width: ${mq.max["768"]})`]: {
+    [`(max-width: ${mq.max[768]})`]: {
       ".slick-slide + .slick-slide": {
         marginLeft: "15px",
       },
@@ -139,20 +138,20 @@ const scopedStyles = {
       },
     },
 
-    [`(min-width: ${mq.min["768"]})`]: {
+    [`(min-width: ${mq.min[768]})`]: {
       ".slick-slide:not(.slick-active)": {
         opacity: 0,
         pointerEvents: "none",
       },
     },
 
-    [`(min-width: ${mq.min["768"]}) and (max-width: ${mq.max["1410"]})`]: {
+    [`(min-width: ${mq.min[768]}) and (max-width: ${mq.max[1410]})`]: {
       ".slick-slide + .slick-slide": {
-        marginLeft: percentage("30px", grid.container),
+        marginLeft: percentage("30px", `${dimensions.maxWidth}px`),
       },
     },
 
-    [`(min-width: ${mq.min["1410"]})`]: {
+    [`(min-width: ${mq.min[1410]})`]: {
       ".slick-slide + .slick-slide": {
         marginLeft: "30px",
       },
@@ -162,7 +161,7 @@ const scopedStyles = {
 
 const threeSlides = {
   ".slick-slide": {
-    width: `${percentage("410px", grid.container)} !important`,
+    width: `${percentage("410px", `${dimensions.maxWidth}px`)} !important`,
     maxWidth: "410px",
   },
 
@@ -173,7 +172,7 @@ const threeSlides = {
 
 const fourSlides = {
   ".slick-slide": {
-    width: `${percentage("300px", grid.container)} !important`,
+    width: `${percentage("300px", `${dimensions.maxWidth}px`)} !important`,
     maxWidth: "300px",
   },
 

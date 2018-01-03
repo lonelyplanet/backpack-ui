@@ -4,14 +4,16 @@ import radium, { Style } from "radium";
 import Sticky from "react-stickynode";
 import { Link } from "react-scroll";
 
-import settings, { zIndex, timing } from "../../../settings.json";
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
+import spacing from "../../styles/spacing";
+import timing from "../../styles/timing";
+import zIndex from "../../styles/zIndex";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
 
 const navigationSubHeight = "80px";
-const navigationSubHeightMobile = settings.components.header.heightMobile;
+const navigationSubHeightMobile = "50px";
 
 const styles = {
   container: {
@@ -28,7 +30,7 @@ const styles = {
     transition: `opacity ${timing.default}, visibility ${timing.default}`,
     zIndex: zIndex.globalHeader,
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
+    [`@media (min-width: ${mq.min[768]})`]: {
       height: navigationSubHeight,
     },
   },
@@ -37,7 +39,7 @@ const styles = {
     height: navigationSubHeightMobile,
     overflow: "hidden",
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
+    [`@media (min-width: ${mq.min[768]})`]: {
       height: navigationSubHeight,
     },
   },
@@ -55,11 +57,11 @@ const styles = {
     whiteSpace: "nowrap",
     width: "100%",
 
-    [`@media (min-width: ${mq.min["480"]})`]: {
+    [`@media (min-width: ${mq.min[480]})`]: {
       animation: "none",
     },
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
+    [`@media (min-width: ${mq.min[768]})`]: {
       height: navigationSubHeight,
     },
   },
@@ -70,7 +72,7 @@ const styles = {
     margin: 0,
     padding: 0,
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
+    [`@media (min-width: ${mq.min[768]})`]: {
       height: "100%",
       lineHeight: navigationSubHeight,
     },
@@ -95,13 +97,13 @@ const styles = {
       display: "block",
       fontSize: "11px",
       fontWeight: 600,
-      padding: `2px calc(${settings.default.gutter} / 2) 0`,
+      padding: `2px calc(${spacing.gutter}px / 2) 0`,
       textTransform: "uppercase",
       transition: "300ms color ease-in",
       cursor: "pointer",
     },
     mediaQueries: {
-      [`(min-width: ${mq.min["768"]})`]: {
+      [`(min-width: ${mq.min[768]})`]: {
         a: {
           fontSize: "12px",
           height: "100%",

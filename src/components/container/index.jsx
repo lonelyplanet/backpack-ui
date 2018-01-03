@@ -2,18 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import cn from "classnames";
-import mq from "../../styles/mq";
 
-// @TODO: Replace grid settings with unitless values in settings.json
-const containerWidth = 1290;
-const gutterWidth = 30;
-const maxWidth = (containerWidth + (gutterWidth * 4));
+import dimensions from "../../styles/dimensions";
+import mq from "../../styles/mq";
+import spacing from "../../styles/spacing";
+
+const maxWidth = dimensions.maxWidth + (spacing.gutter * 4);
 const mediaQuery = `${(maxWidth * 0.0625)}em`;
 
 const styles = `
   .container {
     box-sizing: border-box;
-    max-width: ${containerWidth}px;
+    max-width: ${dimensions.maxWidth}px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -27,22 +27,22 @@ const styles = `
 
   @media (max-width: ${mq.max[480]}) {
     .container {
-      padding-left: ${(gutterWidth / 2)}px;
-      padding-right: ${(gutterWidth / 2)}px;
+      padding-left: ${(spacing.gutter / 2)}px;
+      padding-right: ${(spacing.gutter / 2)}px;
     }
   }
 
   @media (min-width: ${mq.min[480]}) {
     .container {
-      margin-left: ${gutterWidth}px;
-      margin-right: ${gutterWidth}px;
+      margin-left: ${spacing.gutter}px;
+      margin-right: ${spacing.gutter}px;
     }
   }
 
   @media (min-width: ${mq.min[1080]}) {
     .container {
-      margin-left: ${(gutterWidth * 2)}px;
-      margin-right: ${(gutterWidth * 2)}px;
+      margin-left: ${(spacing.gutter * 2)}px;
+      margin-right: ${(spacing.gutter * 2)}px;
     }
   }
 

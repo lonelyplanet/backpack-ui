@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import { timing } from "../../../settings.json";
 import mq from "../../styles/mq";
+import timing from "../../styles/timing";
 import propTypes from "../../utils/propTypes";
 import {
   Card,
@@ -14,7 +14,7 @@ import {
 } from "../card";
 import Heading from "../heading";
 
-const mqSmall = `@media (max-width: ${mq.max["768"]})`;
+const mediaQuery = `@media (max-width: ${mq.max[768]})`;
 
 const styles = {
   container: {
@@ -25,7 +25,7 @@ const styles = {
     paddingBottom: "4px",
     paddingTop: "27px",
 
-    [mqSmall]: {
+    [mediaQuery]: {
       paddingBottom: "4px",
       paddingTop: "19px",
     },
@@ -42,7 +42,7 @@ const styles = {
     WebkitBoxOrient: "vertical",
     WebkitLineClamp: 2,
 
-    [mqSmall]: {
+    [mediaQuery]: {
       fontSize: "14px",
       lineHeight: (18 / 14),
       maxHeight: "36px",

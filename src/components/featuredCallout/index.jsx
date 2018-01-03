@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import { timing, zIndex } from "../../../settings.json";
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
+import timing from "../../styles/timing";
+import zIndex from "../../styles/zIndex";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
 import CalloutLink from "../calloutLink";
@@ -20,7 +21,7 @@ const styles = {
     width: "70%",
     zIndex: zIndex.slideshowSlide,
 
-    [`@media (min-width: ${mq.min["720"]})`]: {
+    [`@media (min-width: ${mq.min[720]})`]: {
       width: "65%",
     },
   },
@@ -36,7 +37,7 @@ const styles = {
     paddingBottom: "8px",
     transition: `padding-bottom ${timing.fast} ease-in-out`,
 
-    [`@media (min-width: ${mq.min["480"]})`]: {
+    [`@media (min-width: ${mq.min[480]})`]: {
       paddingBottom: "16px",
     },
   },
@@ -50,12 +51,12 @@ const styles = {
     marginTop: "5px",
     textShadow: `0 0 130px rgba(${rgb(colors.shadowPrimary)}, 0.5)`,
 
-    [`@media (min-width: ${mq.min["720"]})`]: {
+    [`@media (min-width: ${mq.min[720]})`]: {
       fontSize: "calc(11px + 3vw)",
       marginBottom: "42px",
     },
 
-    [`@media (min-width: ${mq.min["1200"]})`]: {
+    [`@media (min-width: ${mq.min[1200]})`]: {
       fontSize: "56px",
       lineHeight: (64 / 56),
     },
@@ -71,7 +72,7 @@ const styles = {
       bottom: "56px",
       width: "90%",
 
-      [`@media (min-width: ${mq.min["720"]})`]: {
+      [`@media (min-width: ${mq.min[720]})`]: {
         width: "70%",
       },
     },
@@ -82,12 +83,12 @@ const styles = {
       lineHeight: (36 / 24),
       paddingBottom: 0,
 
-      [`@media (min-width: ${mq.min["480"]})`]: {
+      [`@media (min-width: ${mq.min[480]})`]: {
         fontSize: "calc(20px + 1vw)",
         lineHeight: 1.2,
       },
 
-      [`@media (min-width: ${mq.min["1200"]})`]: {
+      [`@media (min-width: ${mq.min[1200]})`]: {
         fontSize: "32px",
         lineHeight: (40 / 32),
       },

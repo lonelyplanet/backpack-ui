@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "../link";
 
-import { zIndex } from "../../../settings.json";
 import colors from "../../styles/colors";
+import zIndex from "../../styles/zIndex";
 import GradientOverlay from "../gradientOverlay";
 import HeroImageContainer from "../heroImageContainer";
 

@@ -15,7 +15,7 @@ const ArticlePaginationNav = ({ previousArticle, nextArticle, style }) => (
       scopeSelector=".ArticlePaginationNav"
       rules={{
         mediaQueries: {
-          [`(min-width: ${mq.min["768"]})`]: {
+          [`(min-width: ${mq.min[768]})`]: {
             ".ArticlePaginationItem": {
               float: "left",
               width: "50%",

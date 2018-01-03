@@ -69,7 +69,7 @@ function InputGroup({
           },
 
           mediaQueries: {
-            [`(min-width: ${mq.min["768"]})`]: {
+            [`(min-width: ${mq.min[768]})`]: {
               label: {
                 left: "1.5rem",
                 top: "1.4rem",

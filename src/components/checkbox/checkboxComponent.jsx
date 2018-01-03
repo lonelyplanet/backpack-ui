@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import kebabCase from "lodash/kebabCase";
-import { timing, zIndex } from "../../../settings.json";
+
 import colors from "../../styles/colors";
+import timing from "../../styles/timing";
+import zIndex from "../../styles/zIndex";
 import font from "../../utils/font";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";

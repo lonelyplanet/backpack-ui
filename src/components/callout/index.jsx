@@ -20,7 +20,7 @@ const styles = {
       boxShadow: `0 0 20px rgba(${rgb(colors.shadowPrimary)}, .05)`,
       overflow: "hidden",
 
-      [`@media (min-width: ${mq.min["600"]})`]: {
+      [`@media (min-width: ${mq.min[600]})`]: {
         padding: `${(30 / 630) * 100}%`,
       },
     },
@@ -28,11 +28,11 @@ const styles = {
 
   content: {
     base: {
-      [`@media (max-width: ${mq.max["600"]})`]: {
+      [`@media (max-width: ${mq.max[600]})`]: {
         padding: "25px",
       },
 
-      [`@media (min-width: ${mq.min["600"]})`]: {
+      [`@media (min-width: ${mq.min[600]})`]: {
         float: "right",
       },
     },
@@ -45,12 +45,12 @@ const styles = {
 
     type: {
       activity: {
-        [`@media (min-width: ${mq.min["600"]})`]: {
+        [`@media (min-width: ${mq.min[600]})`]: {
           width: calculateContentWidth(300),
         },
       },
       book: {
-        [`@media (min-width: ${mq.min["600"]})`]: {
+        [`@media (min-width: ${mq.min[600]})`]: {
           width: calculateContentWidth(80),
         },
       },
@@ -76,7 +76,7 @@ const styles = {
 
   image: {
     base: {
-      [`@media (min-width: ${mq.min["600"]})`]: {
+      [`@media (min-width: ${mq.min[600]})`]: {
         float: "left",
         marginRight: `${(30 / 630) * 100}%`,
       },
@@ -84,13 +84,13 @@ const styles = {
 
     type: {
       activity: {
-        [`@media (min-width: ${mq.min["600"]})`]: {
+        [`@media (min-width: ${mq.min[600]})`]: {
           width: `${(300 / (630 - 60)) * 100}%`,
         },
       },
 
       book: {
-        [`@media (min-width: ${mq.min["600"]})`]: {
+        [`@media (min-width: ${mq.min[600]})`]: {
           width: `${(80 / (630 - 60)) * 100}%`,
         },
       },

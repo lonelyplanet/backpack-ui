@@ -33,12 +33,12 @@ const styles = {
         color: colors.bgPrimary,
         position: "absolute",
 
-        [`@media (max-width: ${mq.max["768"]})`]: {
+        [`@media (max-width: ${mq.max[768]})`]: {
           textAlign: "center",
           width: "100%",
         },
 
-        [`@media (min-width: ${mq.min["768"]})`]: {
+        [`@media (min-width: ${mq.min[768]})`]: {
           left: "10px",
         },
       },
@@ -55,7 +55,7 @@ const styles = {
 
     parent: {
       listItem: {
-        [`@media (max-width: ${mq.max["768"]})`]: {
+        [`@media (max-width: ${mq.max[768]})`]: {
           display: "none",
         },
       },

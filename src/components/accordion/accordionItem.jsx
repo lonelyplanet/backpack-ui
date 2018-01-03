@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import { timing } from "../../../settings.json";
 import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import mq from "../../styles/mq";
 import propTypes from "../../utils/propTypes";
 import { Plus } from "../icon";
 
-const mqSmall = `@media (min-width: ${mq.min["768"]})`;
+const mediaQuery = `@media (min-width: ${mq.min[768]})`;
 
 const styles = {
   container: {
@@ -35,7 +35,7 @@ const styles = {
     ":active": { color: colors.linkPrimary },
     ":focus": { color: colors.linkPrimary },
 
-    [mqSmall]: {
+    [mediaQuery]: {
       fontSize: "28px",
       lineHeight: (34 / 28),
       paddingBottom: "39px",
@@ -49,7 +49,7 @@ const styles = {
     marginRight: "8px",
     marginTop: "4px",
 
-    [mqSmall]: {
+    [mediaQuery]: {
       fontSize: "22px",
       marginRight: "30px",
       marginTop: "10px",
@@ -64,7 +64,7 @@ const styles = {
   contentPadding: {
     paddingBottom: "32px",
 
-    [mqSmall]: {
+    [mediaQuery]: {
       paddingBottom: "48px",
     },
   },

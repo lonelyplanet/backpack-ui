@@ -7,7 +7,8 @@ import DateRangePicker from "react-dates/lib/components/DateRangePicker";
 import { END_DATE } from "react-dates/constants";
 
 import colors from "../../styles/colors";
-import { timing, zIndex } from "../../../settings.json";
+import timing from "../../styles/timing";
+import zIndex from "../../styles/zIndex";
 import { darken, rgb } from "../../utils/color";
 
 const styles = {

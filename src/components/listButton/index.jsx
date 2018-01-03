@@ -2,13 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import cn from "classnames";
-import { fontSizeHeading5 } from "../../styles/typography";
+
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
+import { fontSizeHeading5 } from "../../styles/typography";
 import { rgba } from "../../utils/color";
-import propTypes from "../../utils/propTypes";
 import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   alignItems: "center",

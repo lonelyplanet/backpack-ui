@@ -2,9 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import cn from "classnames";
+
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
-import { fontSizeHeading7, fontSizeUppercase, lineHeightReset } from "../../styles/typography";
+import {
+  fontSizeHeading7,
+  fontSizeUppercase,
+  lineHeightReset,
+} from "../../styles/typography";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 

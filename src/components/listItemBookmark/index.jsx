@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+
+import colors from "../../styles/colors";
+import mq from "../../styles/mq";
+import timing from "../../styles/timing";
 import {
   fontSizeBodySmall,
   fontSizeHeading5,
@@ -10,15 +14,12 @@ import {
   lineHeightBodySmall,
   lineHeightHeading6,
 } from "../../styles/typography";
-import colors from "../../styles/colors";
-import mq from "../../styles/mq";
-import timing from "../../styles/timing";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
-import { Heading } from "../../components/text";
 import AlbumThumbnailImage from "../albumThumbnailImage";
-import CheckboxComponent from "../checkbox";
 import CategoryLabel from "../categoryLabel";
+import CheckboxComponent from "../checkbox";
+import { Heading } from "../text";
 
 const styles = {
   container: {
@@ -33,7 +34,7 @@ const styles = {
     },
 
     large: {
-      [`@media (min-width: ${mq.min["720"]})`]: {
+      [`@media (min-width: ${mq.min[720]})`]: {
         paddingBottom: "24px",
         paddingTop: "24px",
       },
@@ -47,7 +48,7 @@ const styles = {
     },
 
     large: {
-      [`@media (min-width: ${mq.min["720"]})`]: {
+      [`@media (min-width: ${mq.min[720]})`]: {
         fontSize: `${fontSizeHeading5}px`,
       },
     },
@@ -61,7 +62,7 @@ const styles = {
     },
 
     large: {
-      [`@media (min-width: ${mq.min["720"]})`]: {
+      [`@media (min-width: ${mq.min[720]})`]: {
         marginLeft: "32px",
       },
     },
@@ -79,7 +80,7 @@ const styles = {
     },
 
     large: {
-      [`@media (min-width: ${mq.min["720"]})`]: {
+      [`@media (min-width: ${mq.min[720]})`]: {
         fontSize: `${fontSizeHeading6}px`,
         lineHeight: lineHeightHeading6,
         maxHeight: "56px",
@@ -99,7 +100,7 @@ const styles = {
     },
 
     large: {
-      [`@media (min-width: ${mq.min["720"]})`]: {
+      [`@media (min-width: ${mq.min[720]})`]: {
         fontSize: `${fontSizeBodySmall}px`,
         lineHeight: lineHeightBodySmall,
       },

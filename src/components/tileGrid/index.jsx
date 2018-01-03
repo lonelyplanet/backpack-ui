@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import cn from "classnames";
 
-import { grid } from "../../../settings.json";
+import dimensions from "../../styles/dimensions";
 import mq from "../../styles/mq";
 import { percentage } from "../../utils/grid";
 import propTypes from "../../utils/propTypes";
@@ -13,7 +13,7 @@ const styles = {
   display: "flex",
   flexWrap: "wrap",
   justifyContent: "space-between",
-  maxWidth: grid.container,
+  maxWidth: `${dimensions.maxWidth}px`,
   width: "100%",
 };
 
@@ -24,15 +24,15 @@ const scopedStyles = {
   },
 
   mediaQueries: {
-    [`(min-width: ${mq.min["480"]})`]: {
+    [`(min-width: ${mq.min[480]})`]: {
       ".Tile": {
         width: "calc(50% - 15px)",
       },
     },
 
-    [`(min-width: ${mq.min["840"]})`]: {
+    [`(min-width: ${mq.min[840]})`]: {
       ".Tile": {
-        width: percentage("410px", grid.container),
+        width: percentage("410px", `${dimensions.maxWidth}px`),
       },
     },
   },

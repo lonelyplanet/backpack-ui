@@ -11,7 +11,7 @@ const styles = {
     default: {
       marginBottom: "88px",
       paddingBottom: "88px",
-      [`@media (min-width: ${mq.min["720"]})`]: {
+      [`@media (min-width: ${mq.min[720]})`]: {
         marginBottom: "128px",
         paddingBottom: "128px",
       },
@@ -19,7 +19,7 @@ const styles = {
     halfSpace: {
       marginBottom: "32px",
       paddingBottom: "32px",
-      [`@media (min-width: ${mq.min["720"]})`]: {
+      [`@media (min-width: ${mq.min[720]})`]: {
         marginBottom: "64px",
         paddingBottom: "64px",
       },

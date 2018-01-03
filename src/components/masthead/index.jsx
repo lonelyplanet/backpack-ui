@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import { zIndex } from "../../../settings.json";
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
+import zIndex from "../../styles/zIndex";
 
 const styles = {
   base: {
@@ -22,7 +22,7 @@ const styles = {
   // REM units being used to match what is currently in rizz-next
   isUnderGlobalHeader: {
     marginTop: "-5rem",
-    [`@media (min-width: ${mq.min["720"]})`]: {
+    [`@media (min-width: ${mq.min[720]})`]: {
       marginTop: "-13rem",
     },
   },

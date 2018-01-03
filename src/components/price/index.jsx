@@ -21,7 +21,7 @@ const styles = {
 
       parent: {
         listItem: {
-          [`@media (max-width: ${mq.max["768"]})`]: {
+          [`@media (max-width: ${mq.max[768]})`]: {
             fontSize: "22px",
           },
         },
@@ -73,14 +73,14 @@ const styles = {
 
     parent: {
       listItem: {
-        [`@media (max-width: ${mq.max["768"]})`]: {
+        [`@media (max-width: ${mq.max[768]})`]: {
           display: "inline-block",
           fontSize: "9px",
           fontWeight: 400,
           lineHeight: (16 / 9),
         },
 
-        [`@media (min-width: ${mq.min["768"]})`]: {
+        [`@media (min-width: ${mq.min[768]})`]: {
           marginTop: `${(3 / 14)}em`,
         },
       },
@@ -106,7 +106,7 @@ const styles = {
 
   bullet: {
     base: {
-      [`@media (min-width: ${mq.min["768"]})`]: {
+      [`@media (min-width: ${mq.min[768]})`]: {
         display: "none",
       },
     },
@@ -114,12 +114,12 @@ const styles = {
 
   onSale: {
     container: {
-      [`@media (max-width: ${mq.max["768"]})`]: {
+      [`@media (max-width: ${mq.max[768]})`]: {
         paddingTop: "14px",
         textAlign: "center",
       },
 
-      [`@media (min-width: ${mq.min["768"]})`]: {
+      [`@media (min-width: ${mq.min[768]})`]: {
         borderLeft: `1px solid ${colors.borderPrimary}`,
         float: "right",
         fontWeight: 400,

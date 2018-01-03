@@ -21,7 +21,7 @@ const styles = {
     fontSize: "10px",
     lineHeight: 1,
 
-    [`@media (min-width: ${mq.min["720"]})`]: {
+    [`@media (min-width: ${mq.min[720]})`]: {
       fontSize: "12px",
     },
   },

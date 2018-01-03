@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Portal from "react-portal";
 import radium from "radium";
+
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import zIndexDefault from "../../styles/zIndex";

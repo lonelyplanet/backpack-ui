@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+
+import colors from "../../styles/colors";
+import mq from "../../styles/mq";
+import timing from "../../styles/timing";
 import {
   fontSizeHeading6,
   fontSizeHeading7,
@@ -11,14 +15,11 @@ import {
   lineHeightHeading6,
   lineHeightHeading7,
 } from "../../styles/typography";
-import mq from "../../styles/mq";
-import timing from "../../styles/timing";
-import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
-import PriceRangeLabel from "../priceRangeLabel";
-import { Heading, TextAccent } from "../../components/text";
 import CategoryLabel from "../categoryLabel";
+import PriceRangeLabel from "../priceRangeLabel";
+import { Heading, TextAccent } from "../text";
 
 const styles = {
   container: {
@@ -28,7 +29,7 @@ const styles = {
     },
 
     large: {
-      [`@media (min-width: ${mq.min["720"]})`]: {
+      [`@media (min-width: ${mq.min[720]})`]: {
         paddingBottom: "24px",
         paddingTop: "24px",
       },
@@ -42,7 +43,7 @@ const styles = {
     },
 
     large: {
-      [`@media (min-width: ${mq.min["720"]})`]: {
+      [`@media (min-width: ${mq.min[720]})`]: {
         fontSize: `${fontSizeHeading6}px`,
         lineHeight: lineHeightHeading6,
       },
@@ -58,7 +59,7 @@ const styles = {
     },
 
     large: {
-      [`@media (min-width: ${mq.min["720"]})`]: {
+      [`@media (min-width: ${mq.min[720]})`]: {
         fontSize: `${fontSizeBodySmall}px`,
         marginTop: "8px",
       },
@@ -80,7 +81,7 @@ const styles = {
     },
 
     large: {
-      [`@media (min-width: ${mq.min["720"]})`]: {
+      [`@media (min-width: ${mq.min[720]})`]: {
         fontSize: `${fontSizeBodyArticle}px`,
         lineHeight: lineHeightBodyArticle,
       },

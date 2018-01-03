@@ -21,7 +21,7 @@ const styles = {
     lineHeight: lineHeightReset,
     opacity: 0.5,
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
+    [`@media (min-width: ${mq.min[768]})`]: {
       fontSize: `${fontSizeBodySmall}px`,
     },
   },

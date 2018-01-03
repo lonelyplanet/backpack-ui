@@ -20,7 +20,7 @@ import {
 import TextBubble from "../textBubble";
 import { Play as PlayIcon } from "../icon";
 
-const mqSmall = `@media (max-width: ${mq.max["768"]})`;
+const mediaQuery = `@media (max-width: ${mq.max[768]})`;
 
 const styles = {
   playIcon: {
@@ -30,7 +30,7 @@ const styles = {
     left: "24px",
     position: "absolute",
 
-    [mqSmall]: {
+    [mediaQuery]: {
       bottom: "12px",
       fontSize: "12px",
       left: "11px",
@@ -47,7 +47,7 @@ const styles = {
     position: "absolute",
     right: "10px",
 
-    [mqSmall]: {
+    [mediaQuery]: {
       bottom: "6px",
       fontSize: "9px",
       minWidth: "53px",
@@ -64,7 +64,7 @@ const styles = {
     right: "22px",
     top: "25px",
 
-    [mqSmall]: {
+    [mediaQuery]: {
       fontSize: "12px",
       right: "9px",
       top: "12px",

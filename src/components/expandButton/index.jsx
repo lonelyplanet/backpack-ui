@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import settings from "../../../settings.json";
 import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
 import Icon from "../icon";
@@ -27,7 +27,7 @@ const styles = {
       fontSize: `${baseFontSize}px`,
       lineHeight: 1,
       padding: `${5 / baseFontSize}em ${4 / baseFontSize}em ${4 / baseFontSize}em ${7 / baseFontSize}em`,
-      transition: `background-color ${settings.timing.default}`,
+      transition: `background-color ${timing.default}`,
       verticalAlign: "baseline",
       width: "auto",
 

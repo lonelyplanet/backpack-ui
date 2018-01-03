@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
-import CategoryLabel from "../categoryLabel";
+
 import colors from "../../styles/colors";
-import * as typography from "../../styles/typography";
-import propTypes from "../../utils/propTypes";
+import { fontWeightMedium } from "../../styles/typography";
 import { rgba } from "../../utils/color";
+import propTypes from "../../utils/propTypes";
+import CategoryLabel from "../categoryLabel";
 
 
 const styles = {
@@ -15,7 +16,7 @@ const styles = {
 
   sectionHeading: {
     color: colors.textSecondary,
-    fontWeight: typography.fontWeightBold,
+    fontWeight: fontWeightMedium,
     paddingBottom: "16px",
     verticalAlign: "bottom",
   },

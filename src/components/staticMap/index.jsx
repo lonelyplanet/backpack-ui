@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import { timing } from "../../../settings.json";
 import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import { span, percentage } from "../../utils/grid";
 
 const styles = {

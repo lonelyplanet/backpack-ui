@@ -46,7 +46,7 @@ const styles = {
       position: "relative",
       width: percentage("78px", "335px"),
 
-      [`@media (min-width: ${mq.min["768"]})`]: {
+      [`@media (min-width: ${mq.min[768]})`]: {
         marginRight: gutter("fluid", 8),
         width: percentage(imageWidth, containerWidth),
       },
@@ -64,11 +64,11 @@ const styles = {
       position: "relative",
       width: percentage("242px", "335px"),
 
-      [`@media (min-width: ${mq.min["768"]})`]: {
+      [`@media (min-width: ${mq.min[768]})`]: {
         width: percentage(contentWidth, containerWidth),
       },
 
-      [`@media (min-width: ${mq.min["1024"]})`]: {
+      [`@media (min-width: ${mq.min[1024]})`]: {
         display: "flex",
       },
     },
@@ -76,7 +76,7 @@ const styles = {
 
   info: {
     base: {
-      [`@media (min-width: ${mq.min["1024"]})`]: {
+      [`@media (min-width: ${mq.min[1024]})`]: {
         float: "left",
         paddingRight: percentage(span(1, "static"), contentWidth),
         width: percentage(infoWidth, contentWidth),
@@ -84,7 +84,7 @@ const styles = {
     },
 
     noFlexbox: {
-      [`@media (min-width: ${mq.min["1024"]}) and (max-width: ${1365 * 0.0625}em)`]: {
+      [`@media (min-width: ${mq.min[1024]}) and (max-width: ${1365 * 0.0625}em)`]: {
         float: "none",
         paddingRight: 0,
         width: "100%",
@@ -106,12 +106,12 @@ const styles = {
       marginBottom: ".5rem",
       textTransform: "uppercase",
 
-      [`@media (max-width: ${mq.max["768"]})`]: {
+      [`@media (max-width: ${mq.max[768]})`]: {
         letterSpacing: ".4px",
         marginTop: ".1rem",
       },
 
-      [`@media (min-width: ${mq.min["768"]})`]: {
+      [`@media (min-width: ${mq.min[768]})`]: {
         fontSize: "1.2rem",
         marginBottom: "1.3rem",
       },
@@ -127,7 +127,7 @@ const styles = {
     },
 
     location: {
-      [`@media (max-width: ${mq.max["768"]})`]: {
+      [`@media (max-width: ${mq.max[768]})`]: {
         display: "none",
       },
     },
@@ -144,7 +144,7 @@ const styles = {
       margin: 0,
       maxWidth: "90%",
 
-      [`@media (min-width: ${mq.min["768"]})`]: {
+      [`@media (min-width: ${mq.min[768]})`]: {
         fontSize: "2.8rem",
         lineHeight: (34 / 28),
       },
@@ -153,13 +153,13 @@ const styles = {
 
   bookmark: {
     base: {
-      [`@media (max-width: ${mq.max["768"]})`]: {
+      [`@media (max-width: ${mq.max[768]})`]: {
         bottom: "-2rem",
         position: "absolute",
         right: "-.4rem",
       },
 
-      [`@media (min-width: ${mq.min["768"]})`]: {
+      [`@media (min-width: ${mq.min[768]})`]: {
         display: "inline-block",
         marginLeft: ".5rem",
         marginTop: ".3rem",
@@ -174,7 +174,7 @@ const styles = {
       lineHeight: (15.6 / 12),
       marginTop: `${9 / 12}em`,
 
-      [`@media (min-width: ${mq.min["768"]})`]: {
+      [`@media (min-width: ${mq.min[768]})`]: {
         fontSize: "18px",
         marginTop: `${9 / 18}em`,
       },
@@ -187,11 +187,11 @@ const styles = {
 
   reviewedText: {
     base: {
-      [`@media (max-width: ${mq.max["768"]})`]: {
+      [`@media (max-width: ${mq.max[768]})`]: {
         display: "none",
       },
 
-      [`@media (min-width: ${mq.min["768"]})`]: {
+      [`@media (min-width: ${mq.min[768]})`]: {
         backgroundImage: `url("${svgDataUri(icons.checkmark)}")`,
         backgroundPosition: "0 2px",
         backgroundRepeat: "no-repeat",
@@ -216,7 +216,7 @@ const styles = {
       marginBottom: "2.7rem",
       marginTop: ".9rem",
 
-      [`@media (min-width: ${mq.min["768"]})`]: {
+      [`@media (min-width: ${mq.min[768]})`]: {
         fontSize: "1.8rem",
         lineHeight: (32 / 18),
         marginTop: "1.4rem",
@@ -236,15 +236,15 @@ const styles = {
     base: {
       marginTop: "1.1rem",
 
-      [`@media (max-width: ${mq.max["768"]})`]: {
+      [`@media (max-width: ${mq.max[768]})`]: {
         display: "inline-block",
       },
 
-      [`@media (min-width: ${mq.min["768"]})`]: {
+      [`@media (min-width: ${mq.min[768]})`]: {
         marginTop: "2.5rem",
       },
 
-      [`@media (min-width: ${mq.min["1024"]})`]: {
+      [`@media (min-width: ${mq.min[1024]})`]: {
         float: "left",
         textAlign: "right",
         width: priceWidth,
@@ -252,7 +252,7 @@ const styles = {
     },
 
     noFlexbox: {
-      [`@media (min-width: ${mq.min["1024"]}) and (max-width: ${1365 * 0.0625}em)`]: {
+      [`@media (min-width: ${mq.min[1024]}) and (max-width: ${1365 * 0.0625}em)`]: {
         float: "none",
         textAlign: "left",
         width: "100%",

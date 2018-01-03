@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import { spacing } from "../../../settings.json";
 import colors from "../../styles/colors";
 import Icon from "../icon";
 
@@ -46,7 +45,7 @@ const styles = {
     },
 
     lastChild: {
-      paddingRight: spacing.mobile,
+      paddingRight: "16px",
     },
   },
 
@@ -54,7 +53,7 @@ const styles = {
     base: {
       display: "block",
       overflow: "hidden",
-      padding: `23px ${spacing.mobile} 20px`,
+      padding: "23px 16px 20px",
       textOverflow: "ellipsis",
       whiteSpace: "nowrap",
       width: "100%",

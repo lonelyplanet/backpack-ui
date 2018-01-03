@@ -34,7 +34,7 @@ const styles = {
     small: {
       fontSize: `${fontSizeUppercase}px`,
 
-      [`@media (min-width: ${mq.min["600"]})`]: {
+      [`@media (min-width: ${mq.min[600]})`]: {
         fontSize: `${(fontSizeUppercase + 2)}px`,
       },
     },
@@ -45,7 +45,7 @@ const styles = {
     large: {
       fontSize: `${(fontSizeHeading2 - 8)}px`,
 
-      [`@media (min-width: ${mq.min["600"]})`]: {
+      [`@media (min-width: ${mq.min[600]})`]: {
         fontSize: `${(fontSizeHeading2 - 3)}px`,
       },
     },
@@ -54,7 +54,7 @@ const styles = {
       letterSpacing: "-1px",
       lineHeight: (36 / 30),
 
-      [`@media (min-width: ${mq.min["600"]})`]: {
+      [`@media (min-width: ${mq.min[600]})`]: {
         fontSize: `${fontSizeHeading1}px`,
         lineHeight: (70 / 64),
       },

@@ -13,7 +13,7 @@ const styles = {
   marginBottom: 0,
   marginTop: "12px",
 
-  [`@media (max-width: ${mq.max["768"]})`]: {
+  [`@media (max-width: ${mq.max[768]})`]: {
     fontSize: "12px",
   },
 };

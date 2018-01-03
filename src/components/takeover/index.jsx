@@ -4,8 +4,9 @@ import Portal from "react-portal";
 import radium from "radium";
 import noScroll from "no-scroll";
 
-import { components, spacing, timing, zIndex } from "../../../settings.json";
 import colors from "../../styles/colors";
+import timing from "../../styles/timing";
+import zIndex from "../../styles/zIndex";
 import { rgb } from "../../utils/color";
 import { gutter } from "../../utils/grid";
 import Icon from "../icon";
@@ -147,7 +148,7 @@ class Takeover extends Component {
         header: {
           base: {
             backgroundColor: colors.bgPrimary,
-            height: components.header.heightMobile,
+            height: "50px",
             position: "relative",
             textAlign: "center",
             zIndex: zIndex.modal,
@@ -163,8 +164,8 @@ class Takeover extends Component {
           },
 
           mobile: {
-            paddingLeft: spacing.mobile,
-            paddingRight: spacing.mobile,
+            paddingLeft: "16px",
+            paddingRight: "16px",
           },
         },
 
@@ -187,8 +188,8 @@ class Takeover extends Component {
             backgroundColor: "transparent",
             color: colors.textPrimary,
             fontSize: "16px",
-            height: components.header.heightMobile,
-            width: components.header.heightMobile,
+            height: "50px",
+            width: "50px",
             position: "absolute",
             right: `${3 / 16}em`,
             top: 0,
@@ -200,7 +201,7 @@ class Takeover extends Component {
           },
 
           cover: {
-            height: `calc(100vh - ${components.header.heightMobile})`,
+            height: `calc(100vh - ${"50px"})`,
           },
         },
       },
@@ -261,7 +262,7 @@ class Takeover extends Component {
             >
               <div
                 style={[
-                  mobile && !contentFill && { padding: `40px ${spacing.mobile}` },
+                  mobile && !contentFill && { padding: "40px 16px" },
                   !mobile && !contentFill && { padding: gutter() },
                   cover && !scroll && { height: "100%" },
                 ]}

@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import { timing, typography } from "../../../settings.json";
+import { fontWeightMedium } from "../../styles/typography";
 import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import NumberMarker from "../numberMarker/";
 
 const styles = {
@@ -44,11 +45,11 @@ const styles = {
   },
   title: {
     fontSize: "16px",
-    fontWeight: typography.fontWeightBold,
+    fontWeight: fontWeightMedium,
   },
   subtitle: {
     marginTop: "8px",
-    fontWeight: typography.fontWeightBold,
+    fontWeight: fontWeightMedium,
     color: colors.accentGray,
     textTransform: "uppercase",
     fontSize: "11px",

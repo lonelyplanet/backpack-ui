@@ -1,5 +1,6 @@
 import colors from "../../styles/colors";
-import { components, timing, zIndex } from "../../../settings.json";
+import timing from "../../styles/timing";
+import zIndex from "../../styles/zIndex";
 import Flyout from "../flyout";
 import { rgb } from "../../utils/color";
 
@@ -36,7 +37,7 @@ const styles = {
         paddingTop: `${17 / 16}em`,
         position: "absolute",
         textAlign: "center",
-        top: components.header.heightMobile,
+        top: "50px",
         transition: `transform ${timing.fast}`,
         width: "100%",
         zIndex: zIndex.videoOverlayClose + 1,

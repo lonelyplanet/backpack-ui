@@ -40,13 +40,13 @@ function Availability({ price, url, buttonLabel, buttonClick }) {
           },
 
           mediaQueries: {
-            [`(max-width: ${mq.max["768"]})`]: {
+            [`(max-width: ${mq.max[768]})`]: {
               ".Price": {
                 textAlign: "center",
               },
             },
 
-            [`(min-width: ${mq.min["768"]})`]: {
+            [`(min-width: ${mq.min[768]})`]: {
               ".Price-rate": {
                 bottom: ".6rem",
                 position: "absolute",

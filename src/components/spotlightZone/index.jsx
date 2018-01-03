@@ -2,8 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 
-import settings from "../../../settings.json";
 import colors from "../../styles/colors";
+import dimensions from "../../styles/dimensions";
+import mq from "../../styles/mq";
+import timing from "../../styles/timing";
+import { fontWeightMedium } from "../../styles/typography";
+import zIndex from "../../styles/zIndex";
 import { rgba } from "../../utils/color";
 import font from "../../utils/font";
 import { gutter, percentage } from "../../utils/grid";
@@ -19,7 +23,7 @@ const styles = {
     backgroundColor: colors.bgOverlay,
     color: colors.bgPrimary,
 
-    [`@media (min-width: ${settings.media.min["960"]})`]: {
+    [`@media (min-width: ${mq.min[960]})`]: {
       display: "flex",
       maxHeight: "100vh",
       minHeight: "665px",
@@ -34,7 +38,7 @@ const styles = {
     width: "100%",
     height: "100%",
     opacity: 0.4,
-    zIndex: settings.zIndex.default,
+    zIndex: zIndex.default,
     top: 0,
     left: 0,
     right: 0,
@@ -48,52 +52,52 @@ const styles = {
     position: "absolute",
     top: 0,
     width: percentage("598px", "1510px"),
-    zIndex: settings.zIndex.default,
+    zIndex: zIndex.default,
 
-    [`@media (max-width: ${settings.media.max["960"]})`]: {
+    [`@media (max-width: ${mq.max[960]})`]: {
       display: "none",
     },
   },
 
   content: {
-    zIndex: (settings.zIndex.default + 1),
+    zIndex: (zIndex.default + 1),
 
-    [`@media (min-width: ${settings.media.min["960"]})`]: {
+    [`@media (min-width: ${mq.min[960]})`]: {
       display: "flex",
       alignItems: "center",
     },
   },
 
   leftContent: {
-    [`@media (max-width: ${settings.media.max["480"]})`]: {
+    [`@media (max-width: ${mq.max[480]})`]: {
       marginLeft: `-${gutter("static", 1, 0.5)}`,
       marginRight: `-${gutter("static", 1, 0.5)}`,
       paddingLeft: gutter("static", 1, 0.5),
       paddingRight: gutter("static", 1, 0.5),
     },
 
-    [`@media (min-width: ${settings.media.min["480"]}) and (max-width: ${settings.media.max["960"]})`]: {
+    [`@media (min-width: ${mq.min[480]}) and (max-width: ${mq.max[960]})`]: {
       marginLeft: `-${gutter("static")}`,
       marginRight: `-${gutter("static")}`,
       paddingLeft: gutter("static"),
       paddingRight: gutter("static"),
     },
 
-    [`@media (max-width: ${settings.media.max["600"]})`]: {
+    [`@media (max-width: ${mq.max[600]})`]: {
       paddingBottom: "32px",
       paddingTop: "34px",
     },
 
-    [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
+    [`@media (min-width: ${mq.min[600]}) and (max-width: ${mq.max[960]})`]: {
       paddingBottom: "82px",
       paddingTop: "84px",
     },
 
-    [`@media (max-width: ${settings.media.max["960"]})`]: {
+    [`@media (max-width: ${mq.max[960]})`]: {
       backgroundColor: rgba(colors.bgOverlay, 0.38),
     },
 
-    [`@media (min-width: ${settings.media.min["960"]})`]: {
+    [`@media (min-width: ${mq.min[960]})`]: {
       marginRight: "84px",
       marginTop: "25px",
       paddingRight: "50px",
@@ -101,19 +105,19 @@ const styles = {
   },
 
   rightContent: {
-    [`@media (max-width: ${settings.media.max["600"]})`]: {
+    [`@media (max-width: ${mq.max[600]})`]: {
       paddingBottom: "38px",
       paddingTop: "32px",
     },
 
-    [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
+    [`@media (min-width: ${mq.min[600]}) and (max-width: ${mq.max[960]})`]: {
       paddingBottom: "88px",
       paddingTop: "82px",
     },
 
-    [`@media (min-width: ${settings.media.min["960"]})`]: {
+    [`@media (min-width: ${mq.min[960]})`]: {
       flex: "0 0 auto",
-      width: percentage("718px", settings.grid.container),
+      width: percentage("718px", `${dimensions.maxWidth}px`),
     },
   },
 
@@ -121,15 +125,15 @@ const styles = {
     fontSize: "16px",
     top: "32px",
     position: "absolute",
-    fontWeight: settings.typography.fontWeightSemibold,
+    fontWeight: fontWeightMedium,
     lineHeight: 1,
 
-    [`@media (min-width: ${settings.media.min["600"]})`]: {
+    [`@media (min-width: ${mq.min[600]})`]: {
       fontSize: "24px",
       top: "64px",
     },
 
-    [`@media (min-width: ${settings.media.min["960"]})`]: {
+    [`@media (min-width: ${mq.min[960]})`]: {
       top: "80px",
     },
   },
@@ -139,11 +143,11 @@ const styles = {
     fontSize: "20px",
     lineHeight: (24 / 20),
 
-    [`@media (max-width: ${settings.media.max["600"]})`]: {
+    [`@media (max-width: ${mq.max[600]})`]: {
       marginTop: "8px",
     },
 
-    [`@media (min-width: ${settings.media.min["600"]})`]: {
+    [`@media (min-width: ${mq.min[600]})`]: {
       fontSize: "40px",
       lineHeight: (48 / 40),
       marginTop: "10px",
@@ -155,15 +159,15 @@ const styles = {
     fontSize: "11px",
     lineHeight: 1,
 
-    [`@media (max-width: ${settings.media.max["600"]})`]: {
+    [`@media (max-width: ${mq.max[600]})`]: {
       marginTop: "76px",
     },
 
-    [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
+    [`@media (min-width: ${mq.min[600]}) and (max-width: ${mq.max[960]})`]: {
       marginTop: "147px",
     },
 
-    [`@media (min-width: ${settings.media.min["600"]})`]: {
+    [`@media (min-width: ${mq.min[600]})`]: {
       fontSize: "16px",
     },
   },
@@ -175,11 +179,11 @@ const styles = {
     marginBottom: 0,
     marginTop: 0,
 
-    [`@media (max-width: ${settings.media.max["600"]})`]: {
+    [`@media (max-width: ${mq.max[600]})`]: {
       marginTop: "18px",
     },
 
-    [`@media (min-width: ${settings.media.min["600"]})`]: {
+    [`@media (min-width: ${mq.min[600]})`]: {
       fontSize: "16px",
       lineHeight: (28 / 16),
       marginTop: "25px",
@@ -195,7 +199,7 @@ const styles = {
     marginBottom: "25px",
     marginTop: "32px",
 
-    [`@media (min-width: ${settings.media.min["600"]})`]: {
+    [`@media (min-width: ${mq.min[600]})`]: {
       marginTop: "27px",
     },
   },
@@ -223,7 +227,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    transition: `background-color ${settings.timing.default} ease`,
+    transition: `background-color ${timing.default} ease`,
   },
 
   playIcon: {

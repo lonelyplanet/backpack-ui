@@ -4,8 +4,8 @@ import radium from "radium";
 import assign from "object-assign";
 import upperFirst from "lodash/upperFirst";
 
-import settings from "../../../settings.json";
 import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import { rgb } from "../../utils/color";
 import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
@@ -31,8 +31,8 @@ const styles = {
     display: "inline-block",
     fontSize: "9px",
     lineHeight: 1,
-    transition: `color ${settings.timing.default},
-      box-shadow ${settings.timing.default}`,
+    transition: `color ${timing.default},
+      box-shadow ${timing.default}`,
 
     ":hover": hoverStyles.base,
     ":active": hoverStyles.base,

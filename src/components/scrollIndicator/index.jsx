@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import Icon from "../icon";
-import { color as bpColor } from "../../../settings.json";
+import colors from "../../styles/colors";
 
 const styles = {
   container: {
@@ -50,7 +50,7 @@ ScrollIndicator.propTypes = {
 };
 
 ScrollIndicator.defaultProps = {
-  color: bpColor.black,
+  color: colors.bgOverlay,
 };
 
 export default radium(ScrollIndicator);

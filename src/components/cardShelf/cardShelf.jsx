@@ -2,12 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import cn from "classnames";
-import { grid } from "../../../settings.json";
+
+import dimensions from "../../styles/dimensions";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
   boxSizing: "border-box",
-  maxWidth: grid.container,
+  maxWidth: `${dimensions.maxWidth}px`,
 };
 
 function CardShelf({ children, className, style }) {

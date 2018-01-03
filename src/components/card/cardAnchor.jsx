@@ -6,7 +6,7 @@ import mq from "../../styles/mq";
 import propTypes from "../../utils/propTypes";
 import Link from "../link";
 
-const mqSmall = `@media (max-width: ${mq.max["768"]})`;
+const mediaQuery = `@media (max-width: ${mq.max[768]})`;
 
 const styles = {
   default: {
@@ -16,7 +16,7 @@ const styles = {
     paddingRight: "60px",
     paddingTop: "32px",
 
-    [mqSmall]: {
+    [mediaQuery]: {
       paddingBottom: "11px",
       paddingRight: "40px",
       paddingTop: "19px",
@@ -26,7 +26,7 @@ const styles = {
   card: {
     paddingLeft: "22px",
 
-    [mqSmall]: {
+    [mediaQuery]: {
       paddingLeft: "11px",
     },
   },
