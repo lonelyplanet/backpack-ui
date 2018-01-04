@@ -1,4 +1,5 @@
 import colors from "../../styles/colors";
+import dimensions from "../../styles/dimensions";
 import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
 import Flyout from "../flyout";
@@ -37,7 +38,7 @@ const styles = {
         paddingTop: `${17 / 16}em`,
         position: "absolute",
         textAlign: "center",
-        top: "50px",
+        top: `${dimensions.headerHeightMobile}px`,
         transition: `transform ${timing.fast}`,
         width: "100%",
         zIndex: zIndex.videoOverlayClose + 1,

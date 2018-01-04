@@ -17,7 +17,7 @@ const styles = {
     },
 
     framed: {
-      backgroundColor: colors.borderPrimary,
+      backgroundColor: "#f6f6f6",
       paddingBottom: "24px",
       paddingTop: "24px",
 
@@ -65,7 +65,7 @@ function Ad({ id, framed, className, style }) {
 
   if (framed) {
     return (
-      <article className="Ad-wrap clearfix">
+      <div className="Ad-wrap clearfix">
         <Style
           scopeSelector=".Ad-wrap"
           rules={{
@@ -80,7 +80,7 @@ function Ad({ id, framed, className, style }) {
         />
 
         {AdUnit}
-      </article>
+      </div>
     );
   }
 

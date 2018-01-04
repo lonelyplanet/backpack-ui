@@ -5,6 +5,7 @@ import Sticky from "react-stickynode";
 import { Link } from "react-scroll";
 
 import colors from "../../styles/colors";
+import dimensions from "../../styles/dimensions";
 import mq from "../../styles/mq";
 import spacing from "../../styles/spacing";
 import timing from "../../styles/timing";
@@ -13,7 +14,7 @@ import { rgb } from "../../utils/color";
 import font from "../../utils/font";
 
 const navigationSubHeight = "80px";
-const navigationSubHeightMobile = "50px";
+const navigationSubHeightMobile = `${dimensions.headerHeightMobile}px`;
 
 const styles = {
   container: {

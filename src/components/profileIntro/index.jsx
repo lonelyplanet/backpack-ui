@@ -155,7 +155,7 @@ ProfileHeaderIntro.propTypes = {
 
 ProfileHeaderIntro.defaultProps = {
   maxLines: 3,
-  fontSize: fontSizeBodySmall,
+  fontSize: `${fontSizeBodySmall}px`,
   lineHeight: 24,
   style: null,
 };

@@ -14,7 +14,7 @@ const styles = {
     alignItems: "center",
     color: "inherit",
     display: "inline-flex",
-    fontSize: fontSizeHeading6,
+    fontSize: `${fontSizeHeading6}px`,
     lineHeight: 1,
     textDecoration: "none",
     transition: `color ${timing.fast} ease-in-out`,

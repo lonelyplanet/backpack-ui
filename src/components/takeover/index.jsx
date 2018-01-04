@@ -5,6 +5,7 @@ import radium from "radium";
 import noScroll from "no-scroll";
 
 import colors from "../../styles/colors";
+import dimensions from "../../styles/dimensions";
 import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
 import { rgb } from "../../utils/color";
@@ -148,7 +149,7 @@ class Takeover extends Component {
         header: {
           base: {
             backgroundColor: colors.bgPrimary,
-            height: "50px",
+            height:`${dimensions.headerHeightMobile}px`,
             position: "relative",
             textAlign: "center",
             zIndex: zIndex.modal,
@@ -201,7 +202,7 @@ class Takeover extends Component {
           },
 
           cover: {
-            height: `calc(100vh - ${"50px"})`,
+            height: `calc(100vh - ${dimensions.headerHeightMobile}px)`,
           },
         },
       },

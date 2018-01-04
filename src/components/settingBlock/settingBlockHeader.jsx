@@ -21,7 +21,7 @@ const styles = {
 
   subtitle: {
     color: colors.textSecondary,
-    fontSize: fontSizeUppercase,
+    fontSize: `${fontSizeUppercase}px`,
     fontWeight: fontWeightLight,
     marginTop: "4px",
   },
