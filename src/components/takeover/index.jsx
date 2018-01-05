@@ -149,7 +149,7 @@ class Takeover extends Component {
         header: {
           base: {
             backgroundColor: colors.bgPrimary,
-            height:`${dimensions.headerHeightMobile}px`,
+            height: `${dimensions.headerHeightMobile}px`,
             position: "relative",
             textAlign: "center",
             zIndex: zIndex.modal,
