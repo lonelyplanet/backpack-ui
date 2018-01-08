@@ -1,25 +1,42 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
-
+import cn from "classnames";
+import Link from "../link";
+import Icon from "../icon";
+import BulletDescription from "../bulletDescription";
+import TextBubble from "../textBubble";
+import Heading from "../heading";
+import CoverPhoto from "../coverPhoto";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
-import { fontWeightRegular } from "../../styles/typography";
+import {
+  fontWeightMedium,
+  fontSizeUppercase,
+  fontSizeHeading6,
+  fontSizeHeading7,
+  lineHeightHeading7,
+  fontSizeHeading8,
+  lineHeightHeading8,
+} from "../../styles/typography";
 import zIndex from "../../styles/zIndex";
-import { rgba } from "../../utils/color";
 import font from "../../utils/font";
-import iconFromString from "../../utils/icon";
+import { rgba } from "../../utils/color";
 import duration from "../../utils/time";
-import BulletDescription from "../bulletDescription";
-import CoverPhoto from "../coverPhoto";
-import Heading from "../heading";
-import Icon from "../icon";
-import Link from "../link";
-import TextBubble from "../textBubble";
+import iconFromString from "../../utils/icon";
+import propTypes from "../../utils/propTypes";
 
 const hoverStyles = {
-  ".CoverPhoto": {
-    transform: "scale(1.03) !important",
+  default: {
+    ".CoverPhoto": {
+      transform: "scale(1.03) !important",
+    },
+  },
+
+  light: {
+    ".Heading": {
+      color: `${colors.linkPrimary} !important`,
+    },
   },
 };
 
@@ -42,14 +59,28 @@ const styles = {
   },
 
   coverPhoto: {
-    opacity: 0.88,
     transition: `transform ${timing.slow} ease-in-out`,
+  },
+
+  iconContainer: {
+    alignItems: "center",
+    backgroundColor: rgba(colors.bgOverlay, 0.15),
+    color: colors.textOverlay,
+    display: "flex",
+    fontSize: `${fontSizeHeading6}px`,
+    height: "100%",
+    justifyContent: "center",
+    left: 0,
+    position: "absolute",
+    top: 0,
+    transition: `opacity ${timing.default} ease`,
+    width: "100%",
   },
 
   imageText: {
     bottom: "3px",
-    fontSize: "11px",
-    fontWeight: fontWeightRegular,
+    fontSize: `${fontSizeUppercase}px`,
+    fontWeight: fontWeightMedium,
     position: "absolute",
     right: "3px",
     zIndex: zIndex.default,
@@ -63,14 +94,27 @@ const styles = {
   },
 
   title: {
-    display: "-webkit-box",
-    fontSize: "16px",
-    lineHeight: (19 / 16),
-    marginTop: "4px",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    WebkitBoxOrient: "vertical",
-    WebkitLineClamp: 1,
+    default: {
+      display: "-webkit-box",
+      fontSize: `${fontSizeHeading7}px`,
+      lineHeight: lineHeightHeading7,
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      transition: `color ${timing.default} ease`,
+      WebkitBoxOrient: "vertical",
+    },
+
+    lineClamp: {
+      WebkitLineClamp: 1,
+    },
+
+    light: {
+      color: colors.textPrimary,
+    },
+
+    dark: {
+      color: colors.textOverlay,
+    },
   },
 
   textContainer: {
@@ -80,16 +124,26 @@ const styles = {
 
   textAnchor: {
     display: "block",
-    paddingLeft: "15px",
+    paddingLeft: "16px",
     width: "100%",
   },
 
   status: {
-    color: colors.bgPrimary,
-    fontFamily: font("miller"),
-    fontSize: "12px",
-    fontStyle: "italic",
-    marginBottom: "5px",
+    default: {
+      color: colors.textOverlay,
+      fontFamily: font("miller"),
+      fontSize: `${fontSizeHeading8}px`,
+      fontStyle: "italic",
+      lineHeight: lineHeightHeading8,
+    },
+
+    light: {
+      color: colors.textPrimary,
+    },
+
+    dark: {
+      color: colors.textOverlay,
+    },
   },
 
   descriptionIcon: {
@@ -97,7 +151,7 @@ const styles = {
     border: 0,
     color: colors.accentGray,
     cursor: "pointer",
-    fontSize: "16px",
+    fontSize: `${fontSizeHeading7}px`,
     padding: 0,
     transition: `color ${timing.default} ease-in-out`,
 
@@ -117,30 +171,40 @@ const styles = {
 
 const ThumbnailListItem = ({
   title,
+  subtitle,
   href,
   onClick,
   imagePath,
+  imageIcon,
+  imageIconLabel,
   description,
   descriptionIcon,
   descriptionIconLabel,
   onDescriptionIconClick,
   runtime,
   status,
+  lineClamp,
   theme,
   style,
 }) => (
   <div
-    className="ListItem-thumbnail"
+    className={cn("ListItem-thumbnail", theme && `ListItem-thumbnail--${theme}`)}
     style={[
       styles.container,
-      theme === "dark" && { backgroundColor: "transparent" },
       style,
     ]}
   >
     <Style
       scopeSelector=".ListItem-thumbnail:hover"
-      rules={hoverStyles}
+      rules={hoverStyles.default}
     />
+
+    {theme === "light" &&
+      <Style
+        scopeSelector=".ListItem-thumbnail--light:hover"
+        rules={hoverStyles.light}
+      />
+    }
 
     <div style={styles.image}>
       <Link
@@ -154,6 +218,15 @@ const ThumbnailListItem = ({
           height={64}
           style={styles.coverPhoto}
         />
+
+        <div
+          style={[
+            styles.iconContainer,
+            { opacity: imageIcon ? 1 : 0 },
+          ]}
+        >
+          {imageIcon && iconFromString(imageIcon, { label: imageIconLabel })}
+        </div>
 
         {typeof runtime === "number" &&
           <TextBubble style={styles.imageText}>
@@ -171,7 +244,12 @@ const ThumbnailListItem = ({
           style={styles.textAnchor}
         >
           {status &&
-            <div style={styles.status}>
+            <div
+              style={[
+                styles.status.default,
+                styles.status[theme],
+              ]}
+            >
               {status}
             </div>
           }
@@ -183,13 +261,18 @@ const ThumbnailListItem = ({
           <Heading
             level={5}
             weight="thin"
-            override={[
-              styles.title,
-              (theme === "dark") && { color: colors.bgPrimary },
-            ]}
+            override={{
+              ...styles.title.default,
+              ...styles.title[theme],
+              ...(lineClamp ? styles.title.lineClamp : {}),
+            }}
           >
             {title}
           </Heading>
+
+          {subtitle &&
+            <BulletDescription description={subtitle} />
+          }
         </Link>
       </div>
 
@@ -207,27 +290,26 @@ const ThumbnailListItem = ({
 
 ThumbnailListItem.propTypes = {
   title: PropTypes.string,
+  subtitle: PropTypes.arrayOf(PropTypes.string),
   href: PropTypes.string,
   onClick: PropTypes.func,
   imagePath: PropTypes.string,
+  imageIcon: PropTypes.oneOf(Object.keys(Icon)),
+  imageIconLabel: PropTypes.string,
   runtime: PropTypes.number,
   description: PropTypes.arrayOf(PropTypes.string),
   descriptionIcon: PropTypes.oneOf(Object.keys(Icon)),
   descriptionIconLabel: PropTypes.string,
   onDescriptionIconClick: PropTypes.func,
   status: PropTypes.string,
+  lineClamp: PropTypes.bool,
   theme: PropTypes.oneOf(["light", "dark"]),
-  style: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
+  style: propTypes.style,
 };
 
 ThumbnailListItem.defaultProps = {
   theme: "light",
+  lineClamp: true,
 };
 
 export default radium(ThumbnailListItem);
