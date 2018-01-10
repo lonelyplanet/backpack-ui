@@ -51,7 +51,7 @@ const styles = {
 
   playlistContainer: {
     flexShrink: 0,
-    height: "100%",
+    height: "auto",
     position: "relative",
     right: 0,
     top: 0,
