@@ -13,11 +13,15 @@ import propTypes from "../../utils/propTypes";
 const _ = { get, uniqueId };
 
 const bcPlayerIds = {
+  adventuretravel: "ryW7OZBEM",
+  artandculture: "B1oEOZH4M",
   default: "default",
   background: "BJputewob",
   bestintravel: "HkJcclwoZ",
   destination: "HkPdqeDiZ",
   eed: "rJtMIpi7M",
+  foodanddrink: "H1pZdWHNG",
+  home: "HJe5vuWSVG",
 };
 
 const cueDuration = 15;
