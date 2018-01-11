@@ -978,11 +978,15 @@ class VideoEmbed extends Component {
 VideoEmbed.propTypes = {
   videoId: PropTypes.string.isRequired,
   playerName: PropTypes.oneOf([
+    "adventuretravel",
+    "artandculture",
     "default",
     "background",
     "bestintravel",
     "destination",
     "eed",
+    "foodanddrink",
+    "home",
   ]),
   nextVideo: PropTypes.shape({
     title: PropTypes.string,
