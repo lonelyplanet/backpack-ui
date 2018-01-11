@@ -151,7 +151,10 @@ class VideoPlaylist extends Component {
     const nextVideoId = nextProps.video && nextProps.video.id;
 
     if (nextVideoId && videoId !== nextVideoId) {
-      this.loadVideo(nextProps.video, false);
+      this.loadVideo({
+        video: nextProps.video,
+        play: this.state.play,
+      });
     }
   }
 
