@@ -89,7 +89,7 @@ const styles = {
 
   description: {
     fontSize: `${fontSizeHeading7}px`,
-    marginBottom: "224px",
+    marginBottom: "24px",
     overflow: "hidden",
 
     [`@media (max-width: ${mq.max["840"]})`]: {
