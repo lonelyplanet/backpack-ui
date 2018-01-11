@@ -151,7 +151,7 @@ class VideoPlaylist extends Component {
     const nextVideoId = nextProps.video && nextProps.video.id;
 
     if (nextVideoId && videoId !== nextVideoId) {
-      this.loadVideo(nextProps.video);
+      this.loadVideo(nextProps.video, false);
     }
   }
 
@@ -176,7 +176,10 @@ class VideoPlaylist extends Component {
       videoEmbed.onEnded();
     }
 
-    this.loadVideo(this.getNextVideo());
+    this.loadVideo({
+      video: this.getNextVideo(),
+      play: true,
+    });
   }
 
   onPlaySuccess = () => {
@@ -190,6 +193,15 @@ class VideoPlaylist extends Component {
     this.setState({
       play: true,
     });
+  }
+
+  onClickThumbnailVideo = (video) => {
+    if (video.id !== this.state.video.id) {
+      this.loadVideo({
+        video,
+        play: true,
+      });
+    }
   }
 
   getInitialVideo() {
@@ -250,11 +262,16 @@ class VideoPlaylist extends Component {
     }, 400);
   }
 
-  loadVideo = (video) => {
+  loadVideo = ({ video, play }) => {
     this.hideFeaturedVideo();
 
     this.setState({
       video,
+      play,
+    }, () => {
+      if (play) {
+        this.videoPopout.play();
+      }
     });
 
     if (this.props.onLoadVideo) {
@@ -350,9 +367,7 @@ class VideoPlaylist extends Component {
                     >
                       <ThumbnailListItem
                         title={v.name}
-                        onClick={
-                          video && v.id !== video.id ? () => this.loadVideo(videos[i]) : () => {}
-                        }
+                        onClick={() => this.onClickThumbnailVideo(v)}
                         imagePath={v.thumbnailImage}
                         subtitle={[duration(v.duration)]}
                         theme="dark"
