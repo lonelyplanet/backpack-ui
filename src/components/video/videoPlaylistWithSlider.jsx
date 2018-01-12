@@ -73,10 +73,8 @@ class VideoPlaylistWithSlider extends React.Component {
   onLoadVideo = (video) => {
     this.setState({ video });
     if (!this.newPlaylist) {
-      console.log("this isn't a new playlist, so lets enable video info");
       this.setState({ enableVideoInfo: true });
     }
-    console.log("noting that this isn't a new playlist anymore");
     this.newPlaylist = false;
   }
 
@@ -100,8 +98,6 @@ class VideoPlaylistWithSlider extends React.Component {
     } = this.props;
 
     const { video, enableVideoInfo } = this.state;
-
-    console.log("rendering");
 
     return (
       <div className="VideoPlaylistWithSlider" style={style}>
