@@ -318,7 +318,7 @@ class VideoPlaylist extends Component {
                   <VideoFeatured
                     title={initialVideo.name}
                     description={initialVideo.description}
-                    runtime={initialVideo.duration}
+                    duration={initialVideo.duration}
                     image={initialVideo.image}
                     mobile={mobile}
                   />

@@ -121,14 +121,15 @@ const styles = {
 
 const CardVideo = ({
   href,
+  onClick,
   imageSrc,
   aspectRatio,
   actionIcon,
   actionIconLabel,
+  onClickActionIcon,
   runtime,
   heading,
   bullets,
-  onClick,
   layout,
   theme,
   spacing,
@@ -147,6 +148,7 @@ const CardVideo = ({
   >
     <CardImage
       href={href}
+      onClick={onClick}
       src={imageSrc}
       aspectRatio={aspectRatio}
       opacity={1}
@@ -190,13 +192,13 @@ const CardVideo = ({
             transitionDuration={timing.fast}
           />
 
-          {onClick &&
+          {onClickActionIcon &&
             <IconButton
               hoverBackgroundScale={1.2}
               shadow
               iconName={actionIcon}
               label={actionIconLabel}
-              onClick={onClick}
+              onClick={onClickActionIcon}
               style={[styles.button, styles.actionButton]}
               size={32}
               hoverColor={colors.textOverlay}
@@ -209,7 +211,7 @@ const CardVideo = ({
             <div
               style={[
                 styles.duration.default,
-                styles.duration[mobile || !onClick ? "bottomAligned" : "topAligned"],
+                styles.duration[mobile || !onClickActionIcon ? "bottomAligned" : "topAligned"],
               ]}
             >
               {duration(runtime)}
@@ -222,6 +224,7 @@ const CardVideo = ({
     <CardText>
       <CardAnchor
         href={href}
+        onClick={onClick}
         layout={layout}
         spacing={spacing}
       >
@@ -248,7 +251,8 @@ const CardVideo = ({
 );
 
 CardVideo.propTypes = {
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  onClick: PropTypes.func,
   imageSrc: PropTypes.string.isRequired,
   aspectRatio: PropTypes.oneOf([
     "video",
@@ -271,7 +275,7 @@ CardVideo.propTypes = {
   ]),
   actionIcon: PropTypes.string,
   actionIconLabel: PropTypes.string,
-  onClick: PropTypes.func,
+  onClickActionIcon: PropTypes.func,
   className: PropTypes.string,
   mobile: PropTypes.bool,
   style: propTypes.style,

@@ -42,6 +42,7 @@ const styles = {
 const CardAnchor = ({
   children,
   href,
+  onClick,
   tabIndex,
   layout,
   spacing,
@@ -49,6 +50,7 @@ const CardAnchor = ({
 }) => (
   <Link
     to={href}
+    onClick={onClick}
     className="Card-anchor"
     tabIndex={tabIndex}
   >
@@ -67,7 +69,8 @@ const CardAnchor = ({
 
 CardAnchor.propTypes = {
   children: PropTypes.node.isRequired,
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  onClick: PropTypes.func,
   tabIndex: PropTypes.number,
   layout: PropTypes.oneOf(["tile", "card"]),
   spacing: PropTypes.oneOf(["normal", "compact"]),

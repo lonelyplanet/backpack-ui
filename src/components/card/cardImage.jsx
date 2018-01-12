@@ -36,6 +36,7 @@ const imageSizes = {
 
 const CardImage = ({
   href,
+  onClick,
   src,
   aspectRatio,
   children,
@@ -52,6 +53,7 @@ const CardImage = ({
   >
     <Link
       to={href}
+      onClick={onClick}
       tabIndex={-1}
       style={styles.anchor}
     >
@@ -73,7 +75,8 @@ const CardImage = ({
 );
 
 CardImage.propTypes = {
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  onClick: PropTypes.func,
   src: PropTypes.string.isRequired,
   aspectRatio: PropTypes.oneOf([
     "video",

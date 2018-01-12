@@ -870,7 +870,7 @@ storiesOf("Featured video", module)
   .add("Default", () => (
     <StyleRoot>
       <div style={{ width: "600px", height: "350px" }}>
-        <FeaturedVideo
+        <VideoFeatured
           videoId={text("Video ID", "5363317250001")}
           title={text("Title", "Introducing Italy")}
           description={text("Description", "Welcome to <b>italy</b>. <i>Come explore</i>.")}
@@ -889,7 +889,7 @@ storiesOf("Featured video", module)
   .add("Graphic", () => (
     <StyleRoot>
       <div style={{ width: "600px", height: "350px" }}>
-        <FeaturedVideo
+        <VideoFeatured
           videoId={text("Video ID", "5363317250001")}
           title={text("Title", "Introducing Italy")}
           image="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=430&h=250&fit=crop"

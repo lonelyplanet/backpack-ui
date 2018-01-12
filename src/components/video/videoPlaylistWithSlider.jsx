@@ -47,11 +47,8 @@ class VideoPlaylistWithSlider extends React.Component {
     super(props);
 
     this.state = {
-      /**
-       * Initial video is not set as "active" so that the VideoInfo component
-       * doesn't initially render -- this is as designed.
-       */
-      activeVideo: null,
+      video: props.video,
+      enableVideoInfo: false,
     };
 
     this.newPlaylist = true;
@@ -66,26 +63,28 @@ class VideoPlaylistWithSlider extends React.Component {
     ) {
       // Assume a new playlist has been loaded and state should reset
       this.setState({
-        activeVideo: null,
+        video: nextProps.video,
+        enableVideoInfo: false,
       });
-
       this.newPlaylist = true;
     }
   }
 
   onLoadVideo = (video) => {
+    this.setState({ video });
     if (!this.newPlaylist) {
-      this.setState({
-        activeVideo: video,
-      });
+      this.setState({ enableVideoInfo: true });
     }
 
     this.newPlaylist = false;
   }
 
+  onClickVideo = (video) => {
+    this.setState({ video });
+  }
+
   render() {
     const {
-      video,
       videos,
       visibleVideosDesktop,
       visibleVideosMobile,
@@ -95,10 +94,11 @@ class VideoPlaylistWithSlider extends React.Component {
       sliderHeading,
       mobile,
       showVideoInfo,
+      followVideoUrls,
       style,
     } = this.props;
 
-    const { activeVideo } = this.state;
+    const { video, enableVideoInfo } = this.state;
 
     return (
       <div className="VideoPlaylistWithSlider" style={style}>
@@ -117,11 +117,10 @@ class VideoPlaylistWithSlider extends React.Component {
               />
             </Container>
 
-            {showVideoInfo && activeVideo &&
+            {showVideoInfo && enableVideoInfo &&
               <Container>
                 <VideoInfo
-                  visible={activeVideo}
-                  video={activeVideo}
+                  video={video}
                   fadeIn
                 />
               </Container>
@@ -140,12 +139,13 @@ class VideoPlaylistWithSlider extends React.Component {
                       heading={v.name}
                       runtime={v.duration}
                       imageSrc={v.cardImage}
-                      href={v.url}
+                      href={followVideoUrls && v.url}
+                      onClick={!followVideoUrls && (() => this.onClickVideo(v))}
                       layout="tile"
                       spacing="compact"
                       mobile={mobile}
                       actionIcon={v.cardActionIcon}
-                      onClick={v.cardOnClick}
+                      onClickActionIcon={v.cardOnClickActionIcon}
                     />
                   ))}
                 </CardShelfVideoSlider>
@@ -159,7 +159,8 @@ class VideoPlaylistWithSlider extends React.Component {
                     <ThumbnailListItem
                       key={v.id}
                       title={v.name}
-                      href={v.url}
+                      href={followVideoUrls && v.url}
+                      onClick={!followVideoUrls && (() => this.onClickVideo(v))}
                       imagePath={v.thumbnailImage}
                       subtitle={[duration(v.duration)]}
                       lineClamp={false}
@@ -188,7 +189,7 @@ const videoShape = {
   cardImage: PropTypes.string, // recommended dimensions: 430x250
   thumbnailImage: PropTypes.string, // recommended dimensions: 160x90
   cardActionIcon: PropTypes.string,
-  cardOnClick: PropTypes.func,
+  cardOnClickActionIcon: PropTypes.func,
 };
 
 VideoPlaylistWithSlider.propTypes = {
@@ -205,6 +206,7 @@ VideoPlaylistWithSlider.propTypes = {
   }),
   mobile: PropTypes.bool,
   showVideoInfo: PropTypes.bool,
+  followVideoUrls: PropTypes.bool,
   style: propTypes.style,
 };
 

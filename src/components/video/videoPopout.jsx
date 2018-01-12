@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
-import VideoEmbed from "../videoEmbed";
+import VideoEmbed from "./videoEmbed";
 import { Close } from "../icon";
 import colors from "../../styles/colors";
 import zIndex from "../../styles/zIndex";
