@@ -199,6 +199,7 @@ class VideoPlaylist extends Component {
   }
 
   onClickThumbnailVideo = (video) => {
+    this.hideFeaturedVideo();
     if (video.id !== this.state.video.id) {
       this.loadVideo({
         video,
@@ -266,8 +267,6 @@ class VideoPlaylist extends Component {
   }
 
   loadVideo = ({ video, play }) => {
-    this.hideFeaturedVideo();
-
     this.setState({
       video,
       play,
