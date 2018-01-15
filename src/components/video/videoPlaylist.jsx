@@ -123,11 +123,10 @@ class VideoPlaylist extends Component {
 
     this.state = {
       video: this.getInitialVideo(),
-      play: props.autoplay,
+      autoplay: props.autoplay,
       childStyles: {},
     };
 
-    this.videoPopout = null;
     this.featuredVideoContainer = null;
     this.childContainer = null;
     this.childRefs = {};
@@ -147,15 +146,11 @@ class VideoPlaylist extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const videoId = this.props.video && this.props.video.id;
-    const nextVideoId = nextProps.video && nextProps.video.id;
-
-    if (nextVideoId && videoId !== nextVideoId) {
-      this.loadVideo({
-        video: nextProps.video,
-        play: this.state.play,
-      });
-    }
+    const { video, videos } = nextProps;
+    this.setState({
+      video: !video && videos && videos.length ? videos[0] : video,
+      autoplay: nextProps.autoplay,
+    });
   }
 
   componentWillUnmount() {
@@ -181,7 +176,7 @@ class VideoPlaylist extends Component {
 
     this.loadVideo({
       video: this.getNextVideo(),
-      play: true,
+      autoplay: true,
     });
   }
 
@@ -191,21 +186,18 @@ class VideoPlaylist extends Component {
 
   onClickFeaturedVideo = () => {
     this.hideFeaturedVideo();
-    this.videoPopout.play();
-
-    this.setState({
-      play: true,
+    this.loadVideo({
+      video: this.props.video,
+      autoplay: true,
     });
   }
 
   onClickThumbnailVideo = (video) => {
     this.hideFeaturedVideo();
-    if (video.id !== this.state.video.id) {
-      this.loadVideo({
-        video,
-        play: true,
-      });
-    }
+    this.loadVideo({
+      video,
+      autoplay: true,
+    });
   }
 
   getInitialVideo() {
@@ -238,8 +230,8 @@ class VideoPlaylist extends Component {
 
     Object.keys(this.childRefs).forEach((key) => {
       const ref = this.childRefs[key];
-      const refTop = ref.getBoundingClientRect().top;
-      const refHeight = ref.clientHeight;
+      const refTop = ref ? ref.getBoundingClientRect().top : 0;
+      const refHeight = ref ? ref.clientHeight : 0;
 
       if (!Object.keys(childStyles).includes(key)) {
         childStyles[key] = {};
@@ -266,19 +258,15 @@ class VideoPlaylist extends Component {
     }, 400);
   }
 
-  loadVideo = ({ video, play }) => {
+  loadVideo = ({ video, autoplay }) => {
     this.setState({
       video,
-      play,
+      autoplay,
     }, () => {
-      if (play) {
-        this.videoPopout.play();
+      if (this.props.onLoadVideo) {
+        this.props.onLoadVideo(video);
       }
     });
-
-    if (this.props.onLoadVideo) {
-      this.props.onLoadVideo(video);
-    }
   }
 
   render() {
@@ -291,9 +279,9 @@ class VideoPlaylist extends Component {
       style,
     } = this.props;
 
-    const { video, play, childStyles } = this.state;
-
+    const { autoplay, childStyles } = this.state;
     const initialVideo = this.getInitialVideo();
+    const video = this.state.video || initialVideo;
 
     /* eslint-disable jsx-a11y/no-static-element-interactions */
     return (
@@ -325,11 +313,10 @@ class VideoPlaylist extends Component {
               </div>
 
               <VideoPopout
-                ref={(videoPopout) => { this.videoPopout = videoPopout; }}
                 videoEmbed={{
                   videoId: video.id,
                   ...videoEmbed,
-                  autoplay: play,
+                  autoplay,
                   onEnded: this.onEnded,
                   mobile,
                   onPlaySuccess: this.onPlaySuccess,

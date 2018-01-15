@@ -243,11 +243,13 @@ class VideoEmbed extends Component {
     this.setupPlayer();
   }
 
-  componentWillReceiveProps(nextProps) {
-    const nextVideoId = _.get(nextProps, "videoId", this.props.videoId);
-
-    if (nextVideoId !== this.props.videoId && !this.isAdRunning()) {
-      this.loadVideo(nextVideoId);
+  componentDidUpdate(prevProps) {
+    if (
+      ((prevProps.videoId !== this.props.videoId) ||
+      (!prevProps.autoplay && this.props.autoplay)) &&
+      (!this.isAdRunning())
+    ) {
+      this.loadVideo(this.props.videoId);
     }
   }
 

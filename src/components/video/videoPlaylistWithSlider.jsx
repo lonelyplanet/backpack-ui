@@ -48,10 +48,9 @@ class VideoPlaylistWithSlider extends React.Component {
 
     this.state = {
       video: props.video,
+      autoplay: props.autoplay,
       enableVideoInfo: false,
     };
-
-    this.newPlaylist = true;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -66,20 +65,30 @@ class VideoPlaylistWithSlider extends React.Component {
         video: nextProps.video,
         enableVideoInfo: false,
       });
-      this.newPlaylist = true;
     }
   }
 
   onLoadVideo = (video) => {
-    this.setState({ video });
-    if (!this.newPlaylist) {
-      this.setState({ enableVideoInfo: true });
-    }
-    this.newPlaylist = false;
+    this.play(video);
   }
 
   onClickVideo = (video) => {
-    this.setState({ video });
+    this.play(video);
+  }
+
+  getInitialVideo = () => {
+    const { video, videos } = this.props;
+    return videos && videos.length > 0 ? videos[0] : video;
+  }
+
+  play = (video) => {
+    const isInitialVideo = video.id === this.getInitialVideo().id;
+
+    this.setState({
+      video,
+      autoplay: !isInitialVideo ? true : this.state.autoplay,
+      enableVideoInfo: !isInitialVideo ? true : this.state.enableVideoInfo,
+    });
   }
 
   render() {
@@ -87,7 +96,6 @@ class VideoPlaylistWithSlider extends React.Component {
       videos,
       visibleVideosDesktop,
       visibleVideosMobile,
-      autoplay,
       videoEmbed,
       heading,
       sliderHeading,
@@ -97,7 +105,7 @@ class VideoPlaylistWithSlider extends React.Component {
       style,
     } = this.props;
 
-    const { video, enableVideoInfo } = this.state;
+    const { video, autoplay, enableVideoInfo } = this.state;
 
     return (
       <div className="VideoPlaylistWithSlider" style={style}>
