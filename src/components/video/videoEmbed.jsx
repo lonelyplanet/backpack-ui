@@ -22,6 +22,7 @@ const bcPlayerIds = {
   eed: "rJtMIpi7M",
   foodanddrink: "H1pZdWHNG",
   home: "HJe5vuWSVG",
+  interest: "S1gCMqoEG",
 };
 
 const cueDuration = 15;
@@ -989,6 +990,7 @@ VideoEmbed.propTypes = {
     "eed",
     "foodanddrink",
     "home",
+    "interest",
   ]),
   nextVideo: PropTypes.shape({
     title: PropTypes.string,
