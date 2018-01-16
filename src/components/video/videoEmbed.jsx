@@ -13,14 +13,11 @@ import propTypes from "../../utils/propTypes";
 const _ = { get, uniqueId };
 
 const bcPlayerIds = {
-  adventuretravel: "ryW7OZBEM",
-  artandculture: "B1oEOZH4M",
   default: "default",
   background: "BJputewob",
   bestintravel: "HkJcclwoZ",
   destination: "HkPdqeDiZ",
   eed: "rJtMIpi7M",
-  foodanddrink: "H1pZdWHNG",
   home: "HJe5vuWSVG",
   interest: "S1gCMqoEG",
 };
@@ -981,14 +978,11 @@ class VideoEmbed extends Component {
 VideoEmbed.propTypes = {
   videoId: PropTypes.string.isRequired,
   playerName: PropTypes.oneOf([
-    "adventuretravel",
-    "artandculture",
     "default",
     "background",
     "bestintravel",
     "destination",
     "eed",
-    "foodanddrink",
     "home",
     "interest",
   ]),
