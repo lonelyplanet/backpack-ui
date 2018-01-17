@@ -169,7 +169,6 @@ class CardShelfVideoSlider extends React.Component {
       adSlot,
       theme,
       spacing,
-      sliderCoverupColor,
       style,
     } = this.props;
 
@@ -211,7 +210,6 @@ class CardShelfVideoSlider extends React.Component {
 
         <div style={styles.slider}>
           <VideoSlider
-            coverupColor={sliderCoverupColor}
             slidesToShow={4}
             infinite={false}
             arrows={!mobile}
@@ -262,14 +260,12 @@ CardShelfVideoSlider.propTypes = {
     "normal",
     "compact",
   ]),
-  sliderCoverupColor: PropTypes.string.isRequired,
   style: propTypes.style,
 };
 
 CardShelfVideoSlider.defaultProps = {
   theme: "light",
   spacing: "normal",
-  sliderCoverupColor: colors.bgPrimary,
 };
 
 export default radium(CardShelfVideoSlider);

@@ -5,6 +5,7 @@ import IconButton from "../iconButton";
 import mq from "../../styles/mq";
 import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   container: {
@@ -111,19 +112,6 @@ const styles = {
 
     prev: {
       left: "-2.2222em",
-    },
-  },
-
-  coverUp: {
-    height: "100%",
-    position: "absolute",
-    right: "-20px",
-    top: 0,
-    width: "20px",
-
-    [`@media (max-width: ${mq.max["480"]})`]: {
-      right: "-12px",
-      width: "12px",
     },
   },
 };
@@ -238,10 +226,10 @@ class VideoSlider extends React.Component {
     const {
       children,
       slidesToShow,
-      coverUpColor,
       infinite,
-      showArrows,
+      arrows,
       arrowProps,
+      style,
     } = this.props;
 
     const { index } = this.state;
@@ -257,9 +245,12 @@ class VideoSlider extends React.Component {
         className="VideoSlider"
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
-        style={styles.container}
+        style={[
+          styles.container,
+          style,
+        ]}
       >
-        {showArrows &&
+        {arrows &&
           <div
             style={[
               styles.arrowContainer,
@@ -283,7 +274,7 @@ class VideoSlider extends React.Component {
           </div>
         }
 
-        {showArrows &&
+        {arrows &&
           <div
             style={[
               styles.arrowContainer,
@@ -324,12 +315,6 @@ class VideoSlider extends React.Component {
           </div>
         </div>
 
-        <div
-          style={[
-            styles.coverUp,
-            { backgroundColor: coverUpColor },
-          ]}
-        />
       </div>
     );
   }
@@ -338,8 +323,7 @@ class VideoSlider extends React.Component {
 VideoSlider.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
   slidesToShow: PropTypes.oneOf([1, 2, 3, 4]),
-  coverUpColor: PropTypes.string,
-  showArrows: PropTypes.bool,
+  arrows: PropTypes.bool,
   arrowProps: PropTypes.shape({
     ...IconButton.propTypes,
     iconName: PropTypes.string,
@@ -349,14 +333,14 @@ VideoSlider.propTypes = {
   autoplay: PropTypes.bool,
   autoplaySpeed: PropTypes.number,
   pauseOnHover: PropTypes.bool,
+  style: propTypes.style,
 };
 
 VideoSlider.defaultProps = {
   slidesToShow: 4,
-  coverUpColor: "transparent",
   autoplaySpeed: 5000,
   pauseOnHover: true,
-  showArrows: true,
+  arrows: true,
   arrowProps: {},
 };
 

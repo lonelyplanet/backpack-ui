@@ -2304,59 +2304,6 @@ storiesOf("Setting Block", module)
     </div>
   ));
 
-storiesOf("Slider", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => {
-    const styles = {
-      container: {
-        padding: "20px",
-      },
-      arrow: {
-        default: {
-          backgroundColor: "#1e7bcc",
-          color: "white",
-          paddingLeft: "6px",
-          position: "relative",
-          width: "20px",
-        },
-        next: {
-          right: "20px",
-        },
-      },
-      slide: {
-        backgroundColor: "black",
-        color: "white",
-      },
-    };
-    return (
-      <StyleRoot>
-        <div style={styles.container}>
-          <Slider
-            slidesToShow={number("Slides to show", 4, {
-               range: true,
-               min: 1,
-               max: 4,
-               step: 1,
-            })}
-            coverupColor={text("Coverup color", "transparent")}
-            infinite={boolean("Infinite", false)}
-            autoplay={boolean("Autoplay", false)}
-            autoplaySpeed={number("Autoplay speed", 5000)}
-            pauseOnHover={boolean("Pause on hover", true)}
-            arrows={boolean("Arrows", true)}
-          >
-            <div key="1" style={styles.slide}>Slide 1</div>
-            <div key="2" style={styles.slide}>Slide 2</div>
-            <div key="3" style={styles.slide}>Slide 3</div>
-            <div key="4" style={styles.slide}>Slide 4</div>
-            <div key="5" style={styles.slide}>Slide 5</div>
-            <div key="6" style={styles.slide}>Slide 6</div>
-          </Slider>
-        </div>
-      </StyleRoot>
-    );
-  });
-
 storiesOf("Sights List Item", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -3274,7 +3221,6 @@ storiesOf("Video card shelf", module)
           href="/"
           theme={select("Theme", ["light", "dark"], "light")}
           spacing={select("Spacing", ["normal", "compact"], "compact")}
-          sliderCoverupColor={select("Slider coverup color", ["transparent", "white", "#1f1f1f"], "transparent")}
         >
           <CardVideo
             heading={text("Heading", "High Sierra ")}
@@ -3622,7 +3568,57 @@ storiesOf("Video playlist", module)
     </StyleRoot>
   ));
 
-
+  storiesOf("Video Slider", module)
+    .addDecorator(withKnobs)
+    .add("Default", () => {
+      const styles = {
+        container: {
+          padding: "20px",
+        },
+        arrow: {
+          default: {
+            backgroundColor: "#1e7bcc",
+            color: "white",
+            paddingLeft: "6px",
+            position: "relative",
+            width: "20px",
+          },
+          next: {
+            right: "20px",
+          },
+        },
+        slide: {
+          backgroundColor: "black",
+          color: "white",
+        },
+      };
+      return (
+        <StyleRoot>
+          <div style={styles.container}>
+            <VideoSlider
+              slidesToShow={number("Slides to show", 4, {
+                 range: true,
+                 min: 1,
+                 max: 4,
+                 step: 1,
+              })}
+              infinite={boolean("Infinite", false)}
+              autoplay={boolean("Autoplay", false)}
+              autoplaySpeed={number("Autoplay speed", 5000)}
+              pauseOnHover={boolean("Pause on hover", true)}
+              arrows={boolean("Arrows", true)}
+            >
+              <div key="1" style={styles.slide}>Slide 1</div>
+              <div key="2" style={styles.slide}>Slide 2</div>
+              <div key="3" style={styles.slide}>Slide 3</div>
+              <div key="4" style={styles.slide}>Slide 4</div>
+              <div key="5" style={styles.slide}>Slide 5</div>
+              <div key="6" style={styles.slide}>Slide 6</div>
+            </VideoSlider>
+          </div>
+        </StyleRoot>
+      );
+    });
 
 storiesOf("Video popout", module)
   .addDecorator(withKnobs)
