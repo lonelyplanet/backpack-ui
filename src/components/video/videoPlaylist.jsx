@@ -313,6 +313,7 @@ class VideoPlaylist extends Component {
               </div>
 
               <VideoPopout
+                mobile={mobile}
                 videoEmbed={{
                   videoId: video.id,
                   ...videoEmbed,

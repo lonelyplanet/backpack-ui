@@ -770,7 +770,6 @@ class VideoEmbed extends Component {
 
     const controls = this.player.controls();
     const enableCaptionsButton = this.container.querySelector(".vjs-captions-menu-item");
-
     if (enableCaptionsButton) {
       if (controls) {
         this.player.controls(false);
@@ -791,11 +790,10 @@ class VideoEmbed extends Component {
 
     const controls = this.player.controls();
     const enableCaptionsButton = this.container.querySelector(".vjs-captions-menu-item");
+    if (enableCaptionsButton) {
+      const disableCaptionsButton = enableCaptionsButton.previousElementSibling;
 
-    if (enableCaptionsButton.length) {
-      const disableCaptionsButton = enableCaptionsButton.prev();
-
-      if (disableCaptionsButton.length) {
+      if (disableCaptionsButton) {
         if (controls) {
           this.player.controls(false);
         }

@@ -274,6 +274,7 @@ class VideoPopout extends Component {
   render() {
     const {
       videoEmbed,
+      mobile,
       style,
     } = this.props;
 
@@ -317,7 +318,7 @@ class VideoPopout extends Component {
               styles.overlay,
               (
               poppedOut &&
-              hover &&
+              (hover || mobile) &&
               !adIsPlaying &&
               !mutedOverlayVisible ? { opacity: 1, top: 0 } : {}
               ),
@@ -334,6 +335,7 @@ class VideoPopout extends Component {
           <VideoEmbed
             ref={(ref) => { this.videoEmbed = ref; }}
             {...videoEmbed}
+            mobile={mobile}
             onPlaying={this.onVideoEmbedPlaying}
             onPause={this.onVideoEmbedPause}
             onAdStarted={this.onVideoEmbedAdStarted}
@@ -357,6 +359,7 @@ VideoPopout.propTypes = {
     ...VideoEmbed.propTypes,
     videoId: PropTypes.string,
   }),
+  mobile: PropTypes.bool,
   style: propTypes.style,
 };
 

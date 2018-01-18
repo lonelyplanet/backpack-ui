@@ -3326,7 +3326,7 @@ storiesOf("Video embed", module)
           visibleWhileNotPlaying={boolean("Visible while not playing", true)}
           previewMode={boolean("Preview mode", false)}
           previewStartTime={number("Preview start time", 0)}
-          previewEndTime={number("Preview end time", 100)}
+          previewEndTime={number("Preview end time", 5)}
         />
       </div>
     </StyleRoot>
@@ -3630,8 +3630,9 @@ storiesOf("Video popout", module)
         </i>
         <VideoPopout
           style={{position: "relative", top: "800px", height: "300px"}}
+          mobile={boolean("Mobile", false)}
           videoEmbed={{
-            videoId: "5363317250001",
+            videoId: "5615445675001",
             autoplay: true,
             muted: true,
             loop: true,
