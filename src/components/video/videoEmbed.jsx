@@ -314,7 +314,7 @@ class VideoEmbed extends Component {
   }
 
   onPlayerLoadStart() {
-    this.player.textTracks().tracks_.forEach((tt) => {
+    this.getTextTracks().forEach((tt) => {
       tt.oncuechange = this.onPlayerCueChange.bind(this);
     });
 
@@ -578,12 +578,21 @@ class VideoEmbed extends Component {
     this.play();
   }
 
+  getTextTracks() {
+    if (!this.player) {
+      return [];
+    }
+
+    const textTracks = this.player.textTracks();
+    return [...Array(textTracks.length).keys()].map(i => textTracks[i]);
+  }
+
   getActiveCues() {
     const activeCues = [];
 
-    this.player.textTracks().tracks_.forEach((tt) => {
-      tt.activeCues_.forEach((c) => {
-        activeCues.push(c);
+    this.getTextTracks().forEach((tt) => {
+      [...Array(tt.activeCues.length).keys()].forEach((j) => {
+        activeCues.push(tt.activeCues[j]);
       });
     });
 
