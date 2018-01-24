@@ -232,14 +232,16 @@ const Toast = ({
         </button>
       }
 
-      <Element
-        href={url}
-        onClick={onClose}
-        style={[styles.button, url ? styles.onClickButton : styles.onCloseButton]}
-        title="Close"
-      >
-        {url ? buttonLabel : <Icon.Close title="Close" style={styles.onCloseIcon} />}
-      </Element>
+      {!onClick &&
+        <Element
+          href={url}
+          onClick={onClose}
+          style={[styles.button, url ? styles.onClickButton : styles.onCloseButton]}
+          title="Close"
+        >
+          {url ? buttonLabel : <Icon.Close title="Close" style={styles.onCloseIcon} />}
+        </Element>
+      }
     </div>
   );
 };
