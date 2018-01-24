@@ -10,13 +10,14 @@ const styles = {
   textDecoration: "none",
 };
 
-const CategoryLabelLink = ({ href, children, style }) => (
-  <CategoryLabel style={style}>
+const CategoryLabelLink = (props) => (
+  <CategoryLabel style={props.style}>
     <a
       style={styles}
-      href={href}
+      href={props.href}
+      {...props}
     >
-      {children}
+      {props.children}
     </a>
   </CategoryLabel>
 );
