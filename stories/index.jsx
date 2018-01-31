@@ -6,7 +6,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-photoswipe/lib/photoswipe.css";
 import { storiesOf } from "@storybook/react";
-import { withKnobs, text, boolean, number, array, object, select, color } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  boolean,
+  number,
+  array,
+  object,
+  select,
+  color,
+} from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 import data from "./data.json";
 import Center from "./center";
@@ -14,7 +23,10 @@ import Colors from "./Colors";
 import DesignTokens from "./designTokens";
 import Fonts from "./fonts";
 import Typography from "./typography";
-import { Accordion, AccordionItem } from "../src/components/accordion";
+import {
+  Accordion,
+  AccordionItem,
+} from "../src/components/accordion";
 import Ad from "../src/components/ad";
 import AlbumThumbnailImage from "../src/components/albumThumbnailImage";
 import Amenities from "../src/components/amenities";
@@ -27,7 +39,6 @@ import AuthorName from "../src/components/authorName";
 import Avatar from "../src/components/avatar";
 import AvatarMarker from "../src/components/avatarMarker";
 import AvatarUpload from "../src/components/avatarUpload";
-// Availability
 import BookmarkButton from "../src/components/bookmarkButton";
 import BookmarkButtonAlt from "../src/components/bookmarkButtonAlt";
 import BookmarkListAuthor from "../src/components/bookmarkListAuthor";
@@ -50,11 +61,7 @@ import CategoryLabel from "../src/components/categoryLabel";
 import CategoryLabelLink from "../src/components/categoryLabelLink";
 import Checkbox from "../src/components/checkbox";
 import Container from "../src/components/container";
-// ContactBar
-// ContentBlock
 import ContentHeader from "../src/components/contentHeader";
-// ContentSectionList
-// Decoration
 import Dialog from "../src/components/dialog";
 import DisclaimerText from "../src/components/disclaimerText";
 import DotLoader from "../src/components/dotLoader";
@@ -75,51 +82,47 @@ import IconButton from "../src/components/iconButton";
 import IconCallout from "../src/components/iconCallout";
 import IconCalloutGroup from "../src/components/iconCalloutGroup";
 import ImageCarousel from "../src/components/imageCarousel";
-// ImageGallery
 import ImageHero from "../src/components/imageHero";
 import Input from "../src/components/input";
 import FormInput from "../src/components/form/input";
 import IconRevealButton from "../src/components/iconRevealButton";
 import InteractiveMap from "../src/components/interactiveMap";
 import ItalicText from "../src/components/italicText";
-// LastUpdated
 import Lede from "../src/components/lede";
-// ListItem
-// ListItemBookable
-// ListItemImage
 import ListButton from "../src/components/listButton";
 import ListItemBookmark from "../src/components/listItemBookmark";
 import ListItemBookmarkEntry from "../src/components/listItemBookmarkEntry";
 import ListItemNews from "../src/components/listItemNews";
-// ListItemWireframe
 import Loading from "../src/components/loading";
-// Location
 import LocationLabel from "../src/components/locationLabel";
 import Logo from "../src/components/logo";
 import MapMarker from "../src/components/mapMarker";
 import Masthead from "../src/components/masthead";
 import MastheadSlider from "../src/components/mastheadSlider";
-// MobileToolbar
 import Modal from "../src/components/modal";
 import ModalLogIn from "../src/components/modalLogIn";
 import MoreLink from "../src/components/moreLink";
-import { MultiStep, MultiStepWrapper } from "../src/components/multiStep";
+import {
+  MultiStep,
+  MultiStepWrapper,
+} from "../src/components/multiStep";
 import MultiStepLogin from "../src/components/multiStep/multiStepLogin";
 import Narrative from "../src/components/narrative";
-import { Navigation, NavigationTab } from "../src/components/navigation";
+import {
+  Navigation,
+  NavigationTab,
+} from "../src/components/navigation";
 import NewsArticleAuthor from "../src/components/newsArticleAuthor";
 import NewsList from "../src/components/newsList";
 import Newsletter from "../src/components/newsletter";
 import NoResults from "../src/components/noResults";
 import NumberList from "../src/components/numberList";
 import NumberMarker from "../src/components/numberMarker";
-// Overlay
 import PageHeader from "../src/components/pageHeader";
 import PaginatorButton from "../src/components/paginatorButton";
 import PhotoGallery from "../src/components/photoGallery";
 import Placeholder from "../src/components/placeholder";
 import PoiPaginator from "../src/components/poiPaginator";
-// Price
 import PriceRangeLabel from "../src/components/priceRangeLabel";
 import ProfileHeader from "../src/components/profileHeader";
 import PromotedGuidebook from "../src/components/promotedGuidebook";
@@ -133,9 +136,9 @@ import SectionalNav from "../src/components/sectionalNav";
 import SectionHeader from "../src/components/sectionHeader";
 import Select from "../src/components/form/select";
 import {
-    SettingBlockSection,
-    SettingBlockListItemWrapper,
-  } from "../src/components/settingBlock";
+  SettingBlockSection,
+  SettingBlockListItemWrapper,
+} from "../src/components/settingBlock";
 import SettingBlockCheckbox from "../src/components/settingBlockCheckbox";
 import SettingBlockAction from "../src/components/settingBlockAction";
 import SettingBlockAccordion from "../src/components/settingBlockAccordion";
@@ -150,8 +153,6 @@ import SocialIconButton from "../src/components/socialIconButton";
 import SocialLoginButton from "../src/components/socialLoginButton";
 import SocialShare from "../src/components/socialShare";
 import SocialShareContainer from "../src/components/socialShareContainer";
-
-// SidebarSection
 import SightsListItem from "../src/components/sightsListItem";
 import SponsorLabel from "../src/components/sponsorLabel";
 import SpotlightZone from "../src/components/spotlightZone";
@@ -159,12 +160,21 @@ import StaticMap from "../src/components/staticMap";
 import Strapline from "../src/components/strapline";
 import Switch from "../src/components/switch";
 import TabbedNav from "../src/components/tabbedNav";
-import { Tabs, Tab } from "../src/components/tabs";
+import {
+  Tabs,
+  Tab,
+} from "../src/components/tabs";
 import Tag from "../src/components/tag";
 import TagList from "../src/components/tagList";
-// Takeover
 import TallCarousel from "../src/components/tallCarousel";
-import { TextAccent, TextBodyArticle, TextBodySmall, TextHeading, TextSuper, TextUppercase } from "../src/components/text";
+import {
+  TextAccent,
+  TextBodyArticle,
+  TextBodySmall,
+  TextHeading,
+  TextSuper,
+  TextUppercase,
+} from "../src/components/text";
 import TextBubble from "../src/components/textBubble";
 import Textarea from "../src/components/textarea";
 import ThumbnailList from "../src/components/thumbnailList";
@@ -177,7 +187,10 @@ import Toast from "../src/components/toast";
 import Tooltip from "../src/components/tooltip";
 import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
-import { Typeahead, TypeaheadTokenizer } from "../src/components/typeahead";
+import {
+  Typeahead,
+  TypeaheadTokenizer,
+} from "../src/components/typeahead";
 import TypeSelector from "../src/components/typeSelector";
 import {
   VideoEmbed,
@@ -192,6 +205,24 @@ import {
 import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 import colorTokens from "../src/styles/colors";
 
+class ModalWrapper extends React.Component {
+  static propTypes = {
+    children: PropTypes.function,
+  }
+
+  state = {
+    open: true,
+  }
+
+  toggleOpen() {
+    this.setState({ open: !this.state.open });
+  }
+
+  render() {
+    return this.props.children(this.state.open, this.toggleOpen.bind(this));
+  }
+}
+
 storiesOf("Styles", module)
   .addDecorator(withKnobs)
   .add("Design tokens", () => (
@@ -205,17 +236,842 @@ storiesOf("Styles", module)
   ))
   .add("Typography", () => (
     <Typography />
-  ));
-
-storiesOf("Iconography", module)
-  .addDecorator(withKnobs)
+  ))
   .add("Icons", () => (
     <Icons />
   ));
 
-storiesOf("Accordion", module)
+storiesOf("Ads", module)
   .addDecorator(withKnobs)
-  .add("Default", () => (
+  .add("Ad", () => (
+    <StyleRoot>
+      <Center>
+        <Ad
+          id={text("ID", "backpackAdIdentifier")}
+          framed={boolean("Framed", false)}
+          className={text("Class Name", "")}
+        />
+      </Center>
+    </StyleRoot>
+  ));
+
+storiesOf("Authors", module)
+  .addDecorator(withKnobs)
+  .add("Article author", () => (
+    <ArticleAuthor
+      name={text("Name", "Alex Butler")}
+      title={text("Title", "Global news reporter")}
+      avatarSrc={text("Avatar image URL", data.avatar.default)}
+      orientation={select("Orientation", {
+        vertical: "Vertical",
+        horizontal: "Horizontal",
+      }, "vertical")}
+    />
+  ))
+  .add("Author", () => (
+    <Author
+      name={text("Name", "Alex Butler")}
+      title={text("Title", "Global news reporter")}
+      alignment={select("Alignment", ["left", "center", "right"], "left")}
+    />
+  ))
+  .add("Bookmark list author", () => (
+    <BookmarkListAuthor
+      href={text("URL", "/")}
+      imageSrc={text("Image source", data.avatar.default)}
+    >
+      {text("Name", "Alex Butler")}
+    </BookmarkListAuthor>
+  ))
+  .add("News article author", () => (
+    <NewsArticleAuthor
+      name={text("Name", "Alex Butler")}
+      title={text("Title", "Global news reporter")}
+      absoluteTime={text("Absolute time", "2017-01-17")}
+      relativeTime={text("Relative time", "3 days ago")}
+      theme={select("Theme", ["light", "dark"], "light")}
+    />
+  ));
+
+storiesOf("Avatars", module)
+  .addDecorator(withKnobs)
+  .add("Avatar", () => (
+    <Avatar
+      src={text("Image source", data.avatar.rizzo)}
+      alt={text("Alternate text", "Rizzo")}
+      size={select("Size", [24, 40, 48, 80, 104], 80)}
+      href={text("URL", "")}
+    />
+  ))
+  .add("Avatar marker (similar to bookmark list author)", () => (
+    <AvatarMarker
+      href={text("URL", "/profile")}
+      src={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+      username={text("Username", "Rizzo the Rat")}
+    />
+  ));
+
+storiesOf("Buttons", module)
+  .addDecorator(withKnobs)
+
+  // Button
+  .add("Button - primary", () => (
+    <Button
+      color={select("Color", ["blue", "white", "gray", "transparent"], "blue")}
+      size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
+      border={boolean("Border", true)}
+      disabled={boolean("Disabled", false)}
+      full={boolean("Full width", false)}
+      rounded={boolean("Rounded", false)}
+      onClick={action("clicked")}
+    >
+      {text("Text", "Hello Button")}
+    </Button>
+  ))
+  .add("Button - secondary", () => (
+    <Button
+      color="white"
+      size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
+      border={boolean("Border", true)}
+      disabled={boolean("Disabled", false)}
+      full={boolean("Full width", false)}
+      rounded={boolean("Rounded", false)}
+      onClick={action("clicked")}
+    >
+      {text("Text", "Hello Button")}
+    </Button>
+  ))
+
+  // Bookmark button
+  .add("Bookmark button - default", () => (
+    <Center>
+      <BookmarkButton
+        id={text("ID", null)}
+        className={text("Classname", null)}
+        onClick={action("Bookmark clicked")}
+        marked={boolean("Marked", false)}
+      />
+    </Center>
+  ))
+  .add("Bookmark button - alternate", () => (
+    <Center>
+      <BookmarkButtonAlt
+        id={text("ID", null)}
+        className={text("Classname", null)}
+        onClick={action("Bookmark clicked")}
+        marked={boolean("Marked", false)}
+      />
+    </Center>
+  ))
+
+  // Expand button
+  .add("Expand button", () => (
+    <ExpandButton label={text("Label", "Open")} />
+  ))
+
+  //  Icon button
+  .add("Icon button", () => (
+    <Center backgroundColor="white">
+      <IconButton
+        iconName={select("Icon name", [
+          "Bookmark",
+          "BookmarkActive",
+          "BookmarkAlt",
+          "BookmarkAltActive",
+          "ChevronLeft",
+          "ChevronRight",
+          "ClockOutline",
+          "Ellipsis",
+          "Play",
+          "Share",
+        ], "Share")}
+        label={text("Label", "Share this")}
+        id={text("ID", null)}
+        className={text("Classname", null)}
+        href={text("href", null)}
+        onClick={action("onClick action")}
+        size={select("Size", [32, 40, 56], 32)}
+        owns={text("Aria owns", null)}
+        backgroundColor={text("Background color", null)}
+        hoverBackgroundColor={text("Hover background color", null)}
+        hoverBackgroundScale={number("Hover background scale", null)}
+        color={text("Color", null)}
+        hoverColor={text("Hover color", null)}
+        border={boolean("Border", false)}
+        shadow={boolean("Shadow", false)}
+        transitionDuration={text("Transition duration", "400ms")}
+      />
+    </Center>
+  ))
+
+  // Icon reveal button
+  .add("Icon reveal button", () => (
+    <StyleRoot>
+      <Center>
+        <IconRevealButton
+          id={text("ID", null)}
+          icon={<Icon.Share />}
+          label={text("Label", "Label")}
+          className={text("Classname", null)}
+          onClick={action("Bookmark clicked")}
+        />
+      </Center>
+    </StyleRoot>
+  ))
+
+  // List button
+  .add("List button", () => (
+    <Center>
+      <ListButton
+        id={text("ID", null)}
+        className={text("Classname", null)}
+        onClick={action("List Button clicked")}
+        icon={select("Icon", [
+          "Bookmark",
+          "BookmarkActive",
+          "BookmarkAlt",
+          "BookmarkAltActive",
+          "Ellipsis",
+        ], "Ellipsis")}
+      />
+    </Center>
+  ))
+
+  // Paginator button
+  .add("Paginator button", () => (
+    <PaginatorButton
+      direction={select("Arrow direction", ["up", "down", "left", "right"], "up")}
+      arrow={select("Arrow style", ["chevron", "triangle"], "chevron")}
+      size={select("Size", ["medium", "small"], "medium")}
+      shadow={select("Shadow", ["loose", "tight"], "loose")}
+      color={select("Color", ["", "blue"], "")}
+      onClick={action("PaginatorButton clicked")}
+    />
+  ))
+
+  // Social icon button
+  .add("Social icon button - Email", () => (
+    <SocialIconButton
+      href="mailto:?subject=&body="
+      onClick={action("Email clicked")}
+      network="email"
+    />
+  ))
+  .add("Social icon button - Facebook", () => (
+    <SocialIconButton
+      href="https://www.facebook.com/sharer/sharer.php?u="
+      onClick={action("Facebook clicked")}
+      network="facebook"
+    />
+  ))
+  .add("Social icon button - Facebook Messenger", () => (
+    <SocialIconButton
+      href="fb-messenger://share/?link="
+      onClick={action("Facebook Messenger clicked")}
+      network="facebookMessenger"
+    />
+  ))
+  .add("Social icon button - Reddit", () => (
+    <SocialIconButton
+      href="http://www.reddit.com/submit/?url="
+      onClick={action("Reddit clicked")}
+      network="reddit"
+    />
+  ))
+  .add("Social icon button - Twitter", () => (
+    <SocialIconButton
+      href="https://twitter.com/intent/tweet?text=&url=&via="
+      onClick={action("Twitter clicked")}
+      network="twitter"
+    />
+  ))
+
+  // Social login button
+  .add("Social login button", () => (
+    <SocialLoginButton
+      iconName={select("Icon Name", [
+        "FacebookBlockColor",
+        "GoogleColor",
+        "TwitterColor",
+      ], "FacebookBlockColor")}
+      onClick={action("Handle Log In")}
+    >
+      {text("Text", "Continue with Facebook")}
+    </SocialLoginButton>
+  ))
+
+  // Tag
+  .add("Tag - anchor", () => (
+    <Tag
+      href={text("URL", "#")}
+      selected={boolean("Selected", false)}
+    >
+      {text("Text", "The Americas")}
+    </Tag>
+  ))
+  .add("Tag - button", () => (
+    <Tag
+      onClick={action("Tag clicked")}
+      selected={boolean("Selected", false)}
+    >
+      {text("Text", "The Americas")}
+    </Tag>
+  ))
+  .add("Tag - no click", () => (
+    <Tag selected={boolean("Selected", false)}>
+      {text("Text", "The Americas")}
+    </Tag>
+  ));
+
+storiesOf("Callouts", module)
+  .addDecorator(withKnobs)
+  .add("Callout - book", () => (
+    <StyleRoot>
+      <Callout
+        type="book"
+        align="center"
+        heading="Lonely Planet’s Best in Travel 2016"
+        slug="/"
+        price={{
+          currency: "USD",
+          amount: 21.99,
+        }}
+        description={`Be an in-the-know traveler this year with Lonely
+          Planet’s collection of the hottest trends, destinations,
+          journeys.`}
+        image="http://dummyimage.com/132x168/4d494d/686a82.gif"
+      />
+    </StyleRoot>
+  ))
+  .add("Callout - activity", () => (
+    <StyleRoot>
+      <Callout
+        type="activity"
+        heading="Cycle Linz to Vienna"
+        slug="/"
+        price={{
+          currency: "USD",
+          amount: 50,
+        }}
+        image="http://dummyimage.com/300x158/4d494d/686a82.gif"
+        category="Food and drink"
+      />
+    </StyleRoot>
+  ))
+  .add("Icon callout", () => (
+    <IconCallout
+      iconName={select("Icon name", {
+        SurvivalAirplane: "Airplane",
+        SurvivalBear: "Bear",
+        SurvivalBed: "Bed",
+        SurvivalBookPencil: "Book / pencil",
+        SurvivalCar: "Car",
+        SurvivalHealth: "Health",
+        SurvivalLamp: "Lamp",
+        SurvivalLgbt: "LGBT",
+        SurvivalMoney: "Money",
+        SurvivalPassport: "Passport",
+        SurvivalSafety: "Safety",
+        SurvivalSpeechBubbles: "Speech bubbles",
+        SurvivalSuitcase: "Suitcase",
+        SurvivalUmbrella: "Umbrella",
+        SurvivalVespa: "Vespa",
+        SurvivalVisa: "Visa",
+        SurvivalWheelchair: "Wheelchair",
+      }, "SurvivalMoney")}
+      title={text("Title", "Money and costs")}
+      copy={text("Copy", "Budgets, currency rates and on-the-ground costs")}
+    />
+  ));
+
+storiesOf("Cards", module)
+  .addDecorator(withKnobs)
+  .add("Card - basic", () => (
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardBasic
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["Card things", "More Card Things"])}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+        />
+      </div>
+    </StyleRoot>
+  ))
+  .add("Card - video", () => (
+    <StyleRoot>
+      <div style={{ width: "400px", padding: "32px" }}>
+        <CardVideo
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          mobile={boolean("Mobile", false)}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+          layout={select("Layout", ["card", "tile"], "card")}
+          theme={select("Theme", ["light", "dark"], "light")}
+          spacing={select("Spacing", ["normal", "compact"], "normal")}
+          aspectRatio={select("Aspect ratio", ["video", "poster"], "video")}
+        />
+      </div>
+    </StyleRoot>
+  ))
+  .add("Card - price", () => (
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardPrice
+          heading={text("Heading", "End of the Earth")}
+          bullets={array("Bullets", ["15 Days", "Buenos Aires to Buenos Aires"])}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+          price={{
+            regular: 3999,
+            sale: 3399,
+          }}
+        />
+      </div>
+    </StyleRoot>
+  ));
+
+storiesOf("Carousels", module)
+  .addDecorator(withKnobs)
+  .add("Image carousel", () => (
+    <ImageCarousel
+      images={[
+        "https://s3.amazonaws.com/static-asset/backpack-ui/scotland-1.770x430.jpg",
+        "https://s3.amazonaws.com/static-asset/backpack-ui/scotland-2.770x430.jpg",
+        "https://s3.amazonaws.com/static-asset/backpack-ui/scotland-3.770x430.jpg",
+      ]}
+      imageSize={[770, 430]}
+      index={null}
+    />
+  ))
+  .add("Masthead slider", () => {
+    const items = [{
+      adPosition: "",
+      image: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtNjA3Njk2MTAzX2Z1bGwuanBnV2VkIEZlYiAwMSAyMDE3IDA5OjAxOjU1IEdNVCswMDAwIChVVEMp.jpg?q=40&sharp=10&w=2500",
+      type: "Featured article",
+      headline: "Honeymoon hacks: a guide for newly-weds abroad",
+      description: ["Item 1", "Item 2"],
+      callToAction: {
+        text: "Happily Ever After",
+        icon: "Play",
+        link: "https://www.lonelyplanet.com/travel-tips-and-articles/honeymoon-survival-the-ultimate-guide-for-newlyweds-abroad",
+      },
+      id: 3,
+    }, {
+      adPosition: "",
+      tabTitle: "Sicily’s best coastal hikes",
+      image: "https://lonelyplanetstatic.imgix.net/copilot/images/R2V0dHlJbWFnZXMtNDY3NTY3MjI4X3N1cGVyLTc1YzEyMjJjOGNhOC5qcGdUdWUgSmFuIDMxIDIwMTcgMTA6NDA6MzUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=40&sharp=10&w=2500",
+      type: "FEATURED ARTICLE",
+      headline: "Sicily’s best coastal hikes",
+      description: "",
+      callToAction: {
+        text: "Isles for Miles",
+        icon: "Play",
+        link: "https://www.lonelyplanet.com/italy/sicily/aeolian-islands/travel-tips-and-articles/sicilys-best-coastal-hikes",
+      },
+      id: 1,
+    }, {
+      adPosition: "",
+      tabTitle: "Architecture for travellers: a novice's guide",
+      image: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtNTM0NzUzNjQ1X3N1cGVyLmpwZ01vbiBKYW4gMzAgMjAxNyAwOTo0MToyOSBHTVQrMDAwMCAoVVRDKQ%3D%3D.jpg?q=40&sharp=10&w=2500",
+      type: "FEATURED ARTICLE",
+      headline: "Architecture for travellers: a novice's guide",
+      graphic: "https://s3.amazonaws.com/static-asset/op-video-sync/assets/gopro_graphic_test.png",
+      description: "",
+      callToAction: {
+        text: "Play",
+        icon: "Play",
+        link: "https://www.lonelyplanet.com/travel-tips-and-articles/architecture-for-travellers-a-novices-guide",
+      },
+      id: 4,
+    }];
+    const slides = items.map((item, index) => <Slide key={index} {...item} />);
+    return (
+      <StyleRoot>
+        <MastheadSlider
+          height={text("Masthead Height", "100vh")}
+          slides={slides}
+        />
+      </StyleRoot>
+    );
+  })
+  .add("Tall Carousel", () => (
+    <TallCarousel
+      slides={[{
+        type: "Backpacking",
+        link: "/link/to/interests",
+        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/94232973a6a367b54ea29dbb3a708cff-europe.jpg?h=768&sharp=10&vib=20",
+      }, {
+        type: "Nature & wildlife",
+        link: "/link/to/interest",
+        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/a795bb0b47f601ea3538da736067452c-africa.jpg?h=768&sharp=10&vib=20",
+      }, {
+        type: "Romance",
+        link: "/link/to/interest",
+        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/35147e2699667519619575ba272f60e1-europe.jpg?h=768&sharp=10&vib=20",
+      }, {
+        type: "Adventure",
+        link: "/link/to/interest",
+        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/57c5143d7297c21181c522eee9e3b05e-europe.jpg?h=768&sharp=10&vib=20",
+      }]}
+    />
+  ));
+
+storiesOf("Controls", module)
+  .addDecorator(withKnobs)
+  .add("Avatar upload", () => (
+    <AvatarUpload
+      src={text("Image source", data.avatar.rizzo)}
+    />
+  ))
+  .add("Calendar", () => (
+    <Calendar />
+  ))
+  .add("Checkbox", () => (
+    <Checkbox
+      value={text("Value", "Some value")}
+      id={text("ID", "check")}
+      name={text("Name", "check")}
+      label={text("Label", "Checkbox")}
+      checked={boolean("Checked", true)}
+      rounded={boolean("Rounded", false)}
+      removeBorder={boolean("Remove border", false)}
+      size={select("Size", [16, 24, 32], 16)}
+      onClick={action(event)}
+    />
+  ))
+  .add("Dropdown", () => (
+    <Dropdown
+      options={array("Options", ["AUD", "EUR", "GBP", "USD"])}
+      defaultValue={text("Default value", "USD")}
+      onChange={action(event)}
+    />
+  ))
+  .add("Input", () => (
+    <Center backgroundColor="white">
+      <Input />
+    </Center>
+  ))
+  .add("Select", () => (
+    <Select options={array("Options", ["USA", "France", "Spain"])} />
+  ))
+  .add("Switch", () => (
+    <Center backgroundColor="white">
+      <Switch
+        id={text("ID", "privacy-control")}
+        name={text("Name", "privacy_control")}
+        className={text("Classname", null)}
+        value={text("Value", "private")}
+        checked={boolean("Checked", false)}
+        onClick={action("Switch toggled")}
+      />
+    </Center>
+  ))
+  .add("Textarea - default", () => (
+    <Center backgroundColor="white">
+      <Textarea />
+    </Center>
+  ))
+  .add("Textarea - autogrow", () => (
+    <Center backgroundColor="white">
+      <Textarea
+        maxLines={number("Maximum lines", 3)}
+        disableEnter={boolean("Disable enter", false)}
+        autogrow
+      />
+    </Center>
+  ))
+  .add("Typeahead - default", () => (
+    <Typeahead
+      options={data.typeaheadPlaces}
+      placeholder="Select a place to go"
+    />
+  ))
+  .add("Typeahead - tokenizer", () => (
+    <TypeaheadTokenizer
+      options={data.travelInterests}
+      placeholder="Select your travel interests"
+    />
+  ));
+
+storiesOf("Images", module)
+  .addDecorator(withKnobs)
+  .add("Album thumbnail image - default", () => (
+    <Center>
+      <AlbumThumbnailImage />
+    </Center>
+  ))
+  .add("Album thumbnail image - plus icon", () => (
+    <Center>
+      <AlbumThumbnailImage icon="Plus" />
+    </Center>
+  ))
+  .add("Album thumbnail image - image", () => (
+    <Center>
+      <AlbumThumbnailImage
+        src={text("Source", "https://lonelyplanetwp.imgix.net/2017/07/GettyImages-647005142_high_1-360ee8e327d5.jpg?crop=entropy&fit=crop&h=96&sharp=10&vib=20&w=104")}
+        alt={text("Alternate text", "")}
+      />
+    </Center>
+  ))
+  .add("Image hero", () => (
+    <ImageHero
+      image={text("Image URL", "https://s3.amazonaws.com/static-asset/backpack-ui/ImageHero.770x430.jpg")}
+      imageSize={array("Size", [770, 430])}
+    />
+  ))
+  .add("Placeholder", () => (
+    <Placeholder title={text("Title", "The best place in the world")} />
+  ));
+
+storiesOf("Links", module)
+  .addDecorator(withKnobs)
+  .add("Callout link - default", () => (
+    <CalloutLink href="/">
+      {text("Text", "More recommendations")}
+    </CalloutLink>
+  ))
+  .add("Callout link - overlay", () => (
+    <div style={{ backgroundColor: "#000", padding: "20px" }}>
+      <CalloutLink href="/" overlay>
+        {text("Text", "More recommendations")}
+      </CalloutLink>
+    </div>
+  ))
+  .add("Edit link", () => (
+    <EditLink url={text("URL", "/")} />
+  ))
+  .add("More link - anchor", () => (
+    <MoreLink
+      href={text("URL", "/")}
+      size={select("Size", ["", "small"], "")}
+      caps={boolean("Capitalized", false)}
+      hideIcon={boolean("Hide icon", false)}
+      arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
+    >
+      {text("Text", "View all tours")}
+    </MoreLink>
+  ))
+  .add("More link - button", () => (
+    <MoreLink
+      onClick={action("MoreLink clicked")}
+      size={select("Size", ["", "small"], "")}
+      caps={boolean("Capitalized", false)}
+      hideIcon={boolean("Hide icon", false)}
+      arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
+    >
+      {text("Text", "View all tours")}
+    </MoreLink>
+  ))
+  .add("More link - span", () => (
+    <MoreLink
+      isNested
+      size={select("Size", ["", "small"], "")}
+      caps={boolean("Capitalized", false)}
+      hideIcon={boolean("Hide icon", false)}
+      arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
+    >
+      {text("Text", "View all tours")}
+    </MoreLink>
+  ));
+
+storiesOf("List items", module)
+  .addDecorator(withKnobs)
+  .add("List item - bookmark - default", () => (
+    <StyleRoot>
+      <ListItemBookmark
+        name={text("Name", "Favorites")}
+        thumbnail={text("Thumbnail", "")}
+        entriesCount={5}
+        visibility={select("Visibility", ["Private", "Public"], "Private")}
+        large={boolean("Large", false)}
+        hideDetail={boolean("Hide details", false)}
+      />
+    </StyleRoot>
+  ))
+  .add("List item - bookmark - with onClick event", () => (
+    <StyleRoot>
+      <ListItemBookmark
+        name={text("Name", "Places to see in Nashville")}
+        onClick={action("List item clicked")}
+        checked={boolean("Checked", false)}
+        thumbnail={text("Thumbnail", "")}
+        entriesCount={5}
+        visibility={select("Visibility", ["Private", "Public"], "Private")}
+        large={boolean("Large", false)}
+        hideDetail={boolean("Hide details", false)}
+      />
+    </StyleRoot>
+  ))
+  .add("List item - bookmark - as “add item” button", () => (
+    <StyleRoot>
+      <ListItemBookmark
+        name={text("Name", "New item")}
+        onClick={action("Add item clicked")}
+        large={boolean("Large", false)}
+        hideDetail={boolean("Hide details", true)}
+        addItem={boolean("Add item UI", true)}
+      />
+    </StyleRoot>
+  ))
+  .add("List item - bookmark entry", () => (
+    <StyleRoot>
+      <ListItemBookmarkEntry
+        name={text("Name", "POI Name")}
+        category={text("Category", "Category")}
+        city={text("City", "City")}
+        priceRange={select("Range", ["$", "$$", "$$$"], "$")}
+        topChoice={boolean("Top choice", false)}
+        note={text("Note", "This is where a nice little note goes.")}
+        large={boolean("Large", false)}
+      />
+    </StyleRoot>
+  ))
+  .add("List item - news", () => (
+    <StyleRoot>
+      <ListItemNews
+        title={text("Title", "Ireland is set to have the world’s largest redwood forest outside of California")}
+        category={text("Category", "Europe")}
+        categoryLink={text("Category URL", "/")}
+        link={text("URL", "/")}
+        thumbnail={text("Image URL", "http://placehold.it/110x110")}
+        size={select("Size", ["small", "medium"], "medium")}
+        isSponsored={boolean("Sponsored", false)}
+      />
+    </StyleRoot>
+  ))
+  .add("Sights list item - default", () => (
+    <SightsListItem
+      slug="/path/to/item"
+      title="Zimbabwe"
+      subtitle="Southern Africa"
+      markerNumber={1}
+    />
+  ))
+  .add("Sights list item - with Image", () => (
+    <SightsListItem
+      slug="/path/to/item"
+      title="Zimbabwe"
+      subtitle="Southern Africa"
+      imgPath="https://s3.amazonaws.com/static-asset/backpack-ui/south-pole.80x60.jpg"
+      markerNumber={1}
+    />
+  ));
+
+storiesOf("Lists", module)
+  .addDecorator(withKnobs)
+  .add("News list - default", () => (
+    <StyleRoot>
+      <NewsList
+        newsItems={[{
+          title: "Whales migration patterns passed down from mother to child",
+          category: "The World",
+          categoryLink: "/path/to/category",
+          description: `Life has a languid quality in the stunning landscapes of
+            the Upper Peninsula (called the UP by visitors, and its residents are
+            known as Yoopers). Americans`,
+          link: "/path/to/full/article",
+          thumbnail: "https://lonelyplanetwp.imgix.net/2016/08/Hubud-657aa84af2b1.jpg?w=110&h=110&fit=crop&q=50&auto=enhance&crop=entropy",
+        }, {
+          title: `Watch this adorable Kangaroo invade a family's campervan and
+            then return with her friends`,
+          category: "Asia & the pacific",
+          categoryLink: "/path/to/category",
+          description: `Life has a languid quality in the stunning landscapes of
+            the Upper Peninsula (called the UP by visitors, and its residents are
+            known as Yoopers). Americans`,
+          link: "/path/to/full/article",
+          thumbnail: "https://lonelyplanetwp.imgix.net/2016/08/Hubud-657aa84af2b1.jpg?w=110&h=110&fit=crop&q=50&auto=enhance&crop=entropy",
+        }]}
+      />
+    </StyleRoot>
+  ))
+  .add("News list - small list items", () => (
+    <StyleRoot>
+      <NewsList
+        newsItems={[{
+          title: "Whales migration patterns passed down from mother to child",
+          category: "The World",
+          categoryLink: "/path/to/category",
+          description: `Life has a languid quality in the stunning landscapes of
+            the Upper Peninsula (called the UP by visitors, and its residents are
+            known as Yoopers). Americans`,
+          link: "/path/to/full/article",
+          thumbnail: "https://lonelyplanetwp.imgix.net/2016/08/Hubud-657aa84af2b1.jpg?w=110&h=110&fit=crop&q=50&auto=enhance&crop=entropy",
+          size: "small",
+        }, {
+          title: `Watch this adorable Kangaroo invade a family's campervan and
+            then return with her friends`,
+          category: "Asia & the pacific",
+          categoryLink: "/path/to/category",
+          description: `Life has a languid quality in the stunning landscapes of
+            the Upper Peninsula (called the UP by visitors, and its residents are
+            known as Yoopers). Americans`,
+          link: "/path/to/full/article",
+          thumbnail: "https://lonelyplanetwp.imgix.net/2016/08/Hubud-657aa84af2b1.jpg?w=110&h=110&fit=crop&q=50&auto=enhance&crop=entropy",
+          size: "small",
+        }]}
+      />
+    </StyleRoot>
+  ))
+  .add("Number list", () => (
+    <NumberList list={data.numberList} />
+  ));
+
+storiesOf("Labels", module)
+  .addDecorator(withKnobs)
+  .add("Category label - default", () => (
+    <CategoryLabel
+      light={boolean("Light", false)}
+    >
+      {text("Text", "Art and culture")}
+    </CategoryLabel>
+  ))
+  .add("Category label - link", () => (
+    <CategoryLabelLink href={text("URL", "/")}>
+      {text("Text", "Art and culture")}
+    </CategoryLabelLink>
+  ))
+  .add("Flag", () => (
+    <Flag>{text("Text", "Private")}</Flag>
+  ))
+  .add("Location label", () => (
+    <LocationLabel>Ottawa, ON</LocationLabel>
+  ))
+  .add("Number marker", () => (
+    <NumberMarker number={number("Number", 4)} />
+  ))
+  .add("Sponsor label", () => (
+    <SponsorLabel>
+      {text("Text", "Sponsored")}
+    </SponsorLabel>
+  ))
+  .add("Text bubble", () => (
+    <TextBubble>{text("Text", "44 mins")}</TextBubble>
+  ));
+
+storiesOf("Loaders", module)
+  .addDecorator(withKnobs)
+  .add("Loading", () => (
+    <StyleRoot>
+      <Center backgroundColor="white">
+        <Loading />
+      </Center>
+    </StyleRoot>
+  ))
+  .add("Dot loader", () => (
+    <StyleRoot>
+      <Center backgroundColor="white">
+        <DotLoader inline={boolean("Inline", false)} />
+      </Center>
+    </StyleRoot>
+  ));
+
+storiesOf("Lockups", module)
+  .addDecorator(withKnobs)
+  .add("Accordion", () => (
     <StyleRoot>
       <Accordion id="storyAccordion">
         <AccordionItem
@@ -287,119 +1143,8 @@ storiesOf("Accordion", module)
         />
       </Accordion>
     </StyleRoot>
-  ));
-
-storiesOf("Ad", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <Center>
-        <Ad
-          id={text("ID", "backpackAdIdentifier")}
-          framed={boolean("Framed", false)}
-          className={text("Class Name", "")}
-        />
-      </Center>
-    </StyleRoot>
-  ));
-
-storiesOf("Album thumbnail image", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Center>
-      <AlbumThumbnailImage />
-    </Center>
   ))
-  .add("Plus icon", () => (
-    <Center>
-      <AlbumThumbnailImage icon="Plus" />
-    </Center>
-  ))
-  .add("Image", () => (
-    <Center>
-      <AlbumThumbnailImage
-        src={text("Source", "https://lonelyplanetwp.imgix.net/2017/07/GettyImages-647005142_high_1-360ee8e327d5.jpg?crop=entropy&fit=crop&h=96&sharp=10&vib=20&w=104")}
-        alt={text("Alternate text", "")}
-      />
-    </Center>
-  ));
-
-storiesOf("Amenities", module)
-  .addDecorator(withKnobs)
-  .add("2-column, single list", () => (
-    <Amenities
-      columns={number("Columns", 2)}
-      listType="single"
-      items={data.amenities.singleList}
-    />
-  ))
-  .add("3-column, grouped list", () => (
-    <Amenities
-      columns={number("Columns", 3)}
-      listType="grouped"
-      items={data.amenities.groupedList}
-    />
-  ));
-
-storiesOf("Article author", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <ArticleAuthor
-      name={text("Name", "Alex Butler")}
-      title={text("Title", "Global news reporter")}
-      avatarSrc={text("Avatar image URL", data.avatar.default)}
-      orientation={select("Orientation", {
-        vertical: "Vertical",
-        horizontal: "Horizontal",
-      }, "vertical")}
-    />
-  ));
-
-storiesOf("Article pagination item", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <ArticlePaginationItem
-        title={text("Title", "Ireland is set to have the world’s largest redwood forest outside of California")}
-        image={text("Image URL", "https://s3.amazonaws.com/static-asset/backpack-ui/article-image.jpg")}
-        imageAlt={text("Image alternate text", "Redwood forest in Ireland")}
-        href={text("URL", "/")}
-        category={text("Category name", "Wildlife and nature")}
-        page={select("Page", {
-          previous: "Previous",
-          next: "Next",
-        }, "previous")}
-        style={{ maxWidth: "50%" }}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Article pagination nav", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <ArticlePaginationNav
-        previousArticle={object("Previous article", {
-          title: "Ireland is set to have the world’s largest redwood forest outside of California",
-          image: "https://s3.amazonaws.com/static-asset/backpack-ui/article-image.jpg",
-          imageAlt: "Redwood forest in Ireland",
-          href: "/",
-          category: "Wildlife and nature",
-        })}
-        nextArticle={object("Next article", {
-          title: "See the gorgeous street art along Glasgow’s city centre mural center",
-          image: "https://s3.amazonaws.com/static-asset/backpack-ui/article-image-alt.jpg",
-          imageAlt: "Street art on the side of a building",
-          href: "/",
-          category: "Art and culture",
-        })}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Article preview", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
+  .add("Article preview", () => (
     <ArticlePreview
       title={text("Title", "New York’s most iconic buildings reimagined on deserted streets")}
       paragraph={text("Paragraph", "A new exhibition in New York of the city’s most &ldquo;iconic&rdquo; buildings shows them in a new light, with the bustle of modern life stripped out. Photographer")}
@@ -408,92 +1153,8 @@ storiesOf("Article preview", module)
       category={text("Category name", "Art and culture")}
       categoryHref={text("Category URL", "/")}
     />
-  ));
-
-storiesOf("Author", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Author
-      name={text("Name", "Alex Butler")}
-      title={text("Title", "Global news reporter")}
-      alignment={select("Alignment", ["left", "center", "right"], "left")}
-    />
-  ));
-
-storiesOf("Author name", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <AuthorName>
-      {text("Name", "Alex Butler")}
-    </AuthorName>
-  ));
-
-storiesOf("Avatar", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Avatar
-      src={text("Image source", data.avatar.rizzo)}
-      alt={text("Alternate text", "Rizzo")}
-      size={select("Size", [24, 40, 48, 80, 104], 80)}
-      href={text("URL", "")}
-    />
-  ));
-
-storiesOf("Avatar marker", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <AvatarMarker
-      href={text("URL", "/profile")}
-      src={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
-      username={text("Username", "Rizzo the Rat")}
-    />
-  ));
-
-storiesOf("Avatar upload", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <AvatarUpload
-      src={text("Image source", data.avatar.rizzo)}
-    />
-  ));
-
-storiesOf("Bookmark button", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Center>
-      <BookmarkButton
-        id={text("ID", null)}
-        className={text("Classname", null)}
-        onClick={action("Bookmark clicked")}
-        marked={boolean("Marked", false)}
-      />
-    </Center>
   ))
-  .add("Alternate", () => (
-    <Center>
-      <BookmarkButtonAlt
-        id={text("ID", null)}
-        className={text("Classname", null)}
-        onClick={action("Bookmark clicked")}
-        marked={boolean("Marked", false)}
-      />
-    </Center>
-  ));
-
-storiesOf("Bookmark list author", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <BookmarkListAuthor
-      href={text("URL", "/")}
-      imageSrc={text("Image source", data.avatar.default)}
-    >
-      {text("Name", "Alex Butler")}
-    </BookmarkListAuthor>
-  ));
-
-storiesOf("Bookmark list header", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
+  .add("Bookmark list header", () => (
     <StyleRoot>
       <BookmarkListHeader
         profileHref={text("Profile URL", "/profile")}
@@ -504,11 +1165,532 @@ storiesOf("Bookmark list header", module)
         visibility={select("Visibility", ["Private", "Public"], "Private")}
       />
     </StyleRoot>
+  ))
+  .add("Breadcrumbs", () => (
+    <Breadcrumbs
+      links={data.breadcrumbs.links}
+    />
+  ))
+  .add("Content header", () => (
+    <ContentHeader
+      title="Title"
+      border="bottom"
+    />
+  ))
+  .add("Featured article - default", () => (
+    <StyleRoot>
+      <FeaturedArticle
+        article={{
+          sectionHeading: "Tips and articles",
+          category: "Featured story",
+          image: "https://lonelyplanetimages.imgix.net/mastheads/48119366.jpg?sharp=10&vib=20&w=2000",
+          title: "Station to station: The best train journeys you’ve never heard of",
+          link: {
+            text: "Read article",
+            href: "/link/to/article",
+          },
+        }}
+      />
+    </StyleRoot>
+  ))
+  .add("Featured article - constrained", () => (
+    <StyleRoot>
+      <FeaturedArticle
+        constrained
+        article={{
+          category: "Featured story",
+          image: "https://lonelyplanetimages.imgix.net/mastheads/48119366.jpg?sharp=10&vib=20&w=2000",
+          title: "Station to station: The best train journeys you’ve never heard of",
+          link: {
+            text: "Read article",
+            href: "/link/to/article",
+          },
+        }}
+      />
+    </StyleRoot>
+  ))
+  .add("Flight search widget", () => (
+    <FlightSearchWidget
+      depart={{
+        airportCode: "BNA",
+        city: "Nashville",
+      }}
+      arrive={{
+        airportCode: "LAX",
+        city: "Los Angeles",
+      }}
+      price={{
+        amount: 600,
+        currency: "USD",
+      }}
+      onClick={action("Flight search widget")}
+    />
+  ))
+  .add("Icon callout group", () => (
+    <StyleRoot>
+      <IconCalloutGroup>
+        <IconCallout
+          iconName="SurvivalVisa"
+          title="Visas"
+          copy="Dull but essential passport paperwork and entry info"
+        />
+
+        <IconCallout
+          iconName="SurvivalUmbrella"
+          title="Best time to go"
+          copy="Hit the ground at the right time"
+        />
+
+        <IconCallout
+          iconName="SurvivalMoney"
+          title="Money and costs"
+          copy="Budgets, currency rates and on-the-ground costs"
+        />
+
+        <IconCallout
+          iconName="SurvivalHealth"
+          title="Health"
+          copy="Keep safe and well on the open road"
+        />
+      </IconCalloutGroup>
+    </StyleRoot>
+  ))
+  .add("Masthead", () => (
+    <StyleRoot>
+      <Masthead />
+    </StyleRoot>
+  ))
+  .add("Page header", () => (
+    <StyleRoot>
+      <PageHeader
+        heading={text("Title", "Ryman Auditorium")}
+        title={text("Category", "Nashville sights")}
+        titleHref={text("Category URL", "/")}
+        type={text("Type", "Historic building")}
+        place={text("Place", "Nashville")}
+        alignment={select("Alignment", ["", "center"], "center")}
+        topChoice={boolean("Top choice", false)}
+        contained={boolean("Contained", false)}
+        stars={number("Stars", 0)}
+      />
+    </StyleRoot>
+  ))
+  .add("POI paginator", () => (
+    <PoiPaginator
+      title={text("Title", "Bademiya")}
+      type={text("Type", "Fusion restaurant")}
+      neighborhood={text("Neighborhood", "Hofburg")}
+      place={text("Place", "Vienna")}
+      topChoice={boolean("Top choice", false)}
+    />
+  ))
+  .add("Profile header - default", () => (
+    <ProfileHeader
+      avatarSrc={text("Avatar URL", "https://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+      name={text("Name", "Rizzo the Rat")}
+      location={text("Location", "Ottawa, Ontario")}
+      website={text("Website URL", "https://www.lonelyplanet.com")}
+      intro={text("Introduction", `The very basic core of a woman’s living spirit is
+        her passion for adventure. The joy of life comes from our encounters with new
+        experiences, and hence there is no greater joy than to have an endlessly changing
+        horizon.`)}
+      interests={array("Interests", [
+        "Family",
+        "Shopping",
+        "Adventure",
+        "Art and architecture",
+        "Food",
+      ])}
+      alignment={select("Alignment", {
+        left: "Left",
+        center: "Center",
+      }, "center")}
+    />
+  ))
+  .add("Profile header - with Markdown", () => (
+    <ProfileHeader
+      avatarSrc={text("Avatar URL", "https://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+      name={text("Name", "Rizzo the Rat")}
+      location={text("Location", "Ottawa, Ontario")}
+      website={text("Website URL", "https://www.lonelyplanet.com")}
+      intro={text("Introduction", "# Heading \n* List item 1 \n* List item 2 \n* List item 3 \nThe very basic core of a woman’s living spirit is her passion for adventure. \n### Heading \nThe joy of life comes from our encounters with new experiences, and hence there is no greater joy than to have an endlessly changing horizon.")}
+      interests={array("Interests", [
+        "Family",
+        "Shopping",
+        "Adventure",
+        "Art and architecture",
+        "Food",
+      ])}
+      alignment={select("Alignment", {
+        left: "Left",
+        center: "Center",
+      }, "center")}
+    />
+  ))
+  .add("Promoted guidebook", () => (
+    <StyleRoot>
+      <PromotedGuidebook
+        title={text("Title", "Egypt travel guide")}
+        url={text("URL", "https://shop.lonelyplanet.com/egypt/egypt-travel-guide-12/")}
+        imageUrl={text("Image URL", "https://media.lonelyplanet.com/shop/images/9919-Egypt_travel_guide_-_12th_edition_Large.jpg")}
+        price={object("Price", {
+          usd: "27.99",
+        })}
+        description={text("Description", `In spite of political, financial and social
+          turmoil, Egyptians remain  proud and defiant and are as
+          welcoming as ever to visitors to their land.`)}
+      />
+    </StyleRoot>
+  ))
+  .add("Related tour", () => (
+    <StyleRoot>
+      <RelatedTour
+        title="Vienna City by Bike and Boat"
+        slug="/#"
+        image="http://dummyimage.com/630x284/4d494d/686a82.gif"
+        price={{
+          currency: "USD",
+          amount: 2595,
+        }}
+        tripLength="14 days"
+        destination="Kochi to Kolkata"
+        reviews={8}
+      />
+    </StyleRoot>
+  ))
+  .add("Section header - default", () => (
+    <Center grow>
+      <SectionHeader theme={select("Theme", ["default", "light"], "default")}>
+        {text("title", "Top experiences in Vietnam")}
+      </SectionHeader>
+    </Center>
+  ))
+  .add("Section header - light", () => (
+    <Center backgroundColor={colorTokens.textPrimary} grow>
+      <SectionHeader theme={select("Theme", ["default", "light"], "light")}>
+        {text("title", "Top experiences in Vietnam")}
+      </SectionHeader>
+    </Center>
+  ))
+  .add("Social share - using SocialShareContainer", () => (
+    <SocialShareContainer
+      text={text("Text", "Animal islands: seven places where creatures rule")}
+      url={text("URL", "https://www.lonelyplanet.com/asia/travel-tips-and-articles/animal-islands-seven-places-where-creatures-rule")}
+      headingText={text("Heading text", "Share this article:")}
+    >
+      {SocialShare}
+    </SocialShareContainer>
+  ))
+  .add("Social share - using ShareSettings", () => (
+    <Center backgroundColor="white">
+      <ShareSettings
+        shareContent={{
+          text: "Animal islands: seven places where creatures rule",
+          url: "https://www.lonelyplanet.com/asia/travel-tips-and-articles/animal-islands-seven-places-where-creatures-rule",
+          description: "Wildlife watching is a tricky business. Days can be spent fruitlessly scanning the savannah for lions or holed up in a hide hoping to catch a glimpse of a rare bird. But for travellers with limited time (or patience), there are places where animals are not just easy to spot, they are impossible to miss.",
+          twitterContent: "Wildlife watching is a tricky business @lonelyplanet http://lptravel.to",
+          image: "https://www.lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/01/GettyImages-467445351_medium-1.jpg",
+          via: "lonelyplanet",
+        }}
+      >
+        {(socialActions, socialUrls) => (
+          <div>
+            <SocialIconButton
+              network="twitter"
+              href={socialUrls.twitter}
+              onClick={(event) => {
+                socialActions.twitter();
+                event.preventDefault();
+              }}
+              style={{ margin: "0 8px" }}
+            />
+
+            <SocialIconButton
+              network="facebook"
+              href={socialUrls.facebook}
+              onClick={(event) => {
+                socialActions.facebook();
+                event.preventDefault();
+              }}
+              style={{ margin: "0 8px" }}
+            />
+
+            <SocialIconButton
+              network="pinterest"
+              href={socialUrls.pinterest}
+              onClick={(event) => {
+                socialActions.pinterest();
+                event.preventDefault();
+              }}
+              style={{ margin: "0 8px" }}
+            />
+
+            <SocialIconButton
+              network="reddit"
+              href={socialUrls.reddit}
+              onClick={(event) => {
+                socialActions.reddit();
+                event.preventDefault();
+              }}
+              style={{ margin: "0 8px" }}
+            />
+
+            <SocialIconButton
+              network="email"
+              href={socialUrls.email}
+              onClick={(event) => {
+                socialActions.email();
+                event.preventDefault();
+              }}
+              style={{ margin: "0 8px" }}
+            />
+
+            <SocialIconButton
+              network="facebookMessenger"
+              href={socialUrls.facebookMessenger}
+              onClick={(event) => {
+                socialActions.facebookMessenger();
+                event.preventDefault();
+              }}
+              style={{ margin: "0 8px" }}
+            />
+
+            <SocialIconButton
+              network="whatsapp"
+              href={socialUrls.whatsapp}
+              onClick={(event) => {
+                socialActions.whatsapp();
+                event.preventDefault();
+              }}
+              style={{ margin: "0 8px" }}
+            />
+          </div>
+        )}
+      </ShareSettings>
+    </Center>
+  ))
+  .add("Tag list", () => (
+    <TagList limit={number("Limit", 3)}>
+      <Tag href="#" selected>All</Tag>
+      <Tag href="#">The Americas</Tag>
+      <Tag href="#">World</Tag>
+      <Tag href="#">Asia & the Pacific</Tag>
+      <Tag href="#">Europe</Tag>
+      <Tag href="#">Middle East & Africa</Tag>
+    </TagList>
   ));
 
-storiesOf("Bookmark list menu", module)
+storiesOf("Logos", module)
   .addDecorator(withKnobs)
-  .add("Default", () => (
+  .add("Logo", () => (
+    <div style={{ display: "inline-block", padding: "20px" }}>
+      <Logo
+        color={select("Color", ["blue", "gray", "white"], "blue")}
+      />
+    </div>
+  ))
+  .add("Provider logo", () => (
+    <ProviderLogo
+      provider={select("Provider", {
+        bdc: "booking.com",
+        hostelworld: "Hostelworld",
+        opentable: "OpenTable",
+        gadventures: "G Adventures",
+        viator: "Viator",
+      }, "bdc")}
+    />
+  ));
+
+storiesOf("Maps", module)
+  .addDecorator(withKnobs)
+  .add("Interactive Map", () => (
+    <InteractiveMap
+      places={[
+        { title: "Zimbabwe", lat: -19.015438, long: 29.154857 },
+        { title: "Rio De Janeiro", lat: -22.906847, long: -43.172896 },
+        { title: "Wahiki Island", lat: -36.801924, long: 175.108015 },
+      ]}
+    />
+  ))
+  .add("Map marker", () => (
+    <MapMarker
+      poiType={select("Type", {
+        activities: "Activities",
+        drinking_nightlife: "Drinking and nightlife",
+        eating: "Eating",
+        entertainment: "Entertainment",
+        festivals_events: "Festivals and events",
+        info: "Information",
+        restaurants: "Restaurants",
+        shopping: "Shopping",
+        sights: "Sights",
+        sleeping: "Sleeping",
+        tours: "Tours",
+        transport: "Transportation",
+      },
+      "sights")}
+      size={number("Size", 128)}
+      hideShadow={boolean("Hide shadow", false)}
+      inverse={boolean("Inverse", false)}
+    />
+  ))
+  .add("Static map", () => (
+    <StaticMap
+      location="-86.8595257,35.93225029999999"
+      size="278x90"
+    />
+  ));
+
+storiesOf("Messaging", module)
+  .addDecorator(withKnobs)
+  .add("Error messages", () => (
+    <ErrorMessages
+      messages={array("List of Errors", ["This field is required"])}
+    />
+  ))
+  .add("Toast - default", () => (
+    <Center grow>
+      <Toast
+        type={select("Type", {
+          error: "Error",
+          info: "Info",
+          success: "Success",
+          warning: "Warning",
+        }, "success")}
+        direction={select("Animate from", {
+          bottom: "Bottom",
+          top: "Top",
+        }, "bottom")}
+        title={text("Title", "")}
+        visible={boolean("Visible", true)}
+        affixed={boolean("Affixed", false)}
+        onClose={action("Function to dismiss toast")}
+      >
+        {text("Message", "Toast message displayed here. It can span multiple lines.")}
+      </Toast>
+    </Center>
+  ))
+  .add("Toast - with onClick action", () => (
+    <Center grow>
+      <Toast
+        type={select("Type", {
+          error: "Error",
+          info: "Info",
+          success: "Success",
+          warning: "Warning",
+        }, "success")}
+        direction={select("Animate from", {
+          bottom: "Bottom",
+          top: "Top",
+        }, "bottom")}
+        title={text("Title", "")}
+        visible={boolean("Visible", true)}
+        affixed={boolean("Affixed", false)}
+        onClick={action("Some action")}
+        buttonLabel="Action"
+      >
+        {text("Message", "Toast message displayed here. It can span multiple lines.")}
+      </Toast>
+    </Center>
+  ))
+  .add("Toast - with URL link action", () => (
+    <Center grow>
+      <Toast
+        type={select("Type", {
+          error: "Error",
+          info: "Info",
+          success: "Success",
+          warning: "Warning",
+        }, "success")}
+        direction={select("Animate from", {
+          bottom: "Bottom",
+          top: "Top",
+        }, "bottom")}
+        title={text("Title", "")}
+        visible={boolean("Visible", true)}
+        affixed={boolean("Affixed", false)}
+        url={text("Link URL", "https://www.lonelyplanet.com")}
+        buttonLabel="Link Out"
+      >
+        {text("Message", "Toast message displayed here. It can span multiple lines.")}
+      </Toast>
+    </Center>
+  ))
+  .add("Travel alert", () => (
+    <TravelAlert>
+      {text("Text", "The US Center for Disease Control <a href=\"http://www.cdc.gov/zika/geo/active-countries.html\">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.")}
+    </TravelAlert>
+  ));
+
+storiesOf("Navigation", module)
+  .addDecorator(withKnobs)
+  .add("Navigation", () => (
+    <Navigation height={number("Height", 80)} sticky={boolean("Sticky", false)}>
+      <NavigationTab active={boolean("Active", true)} onClick={action("Experiences tab clicked")}>
+        {text("Text", "Experiences")}
+      </NavigationTab>
+      <NavigationTab onClick={action("Map tab clicked")}>Map</NavigationTab>
+      <NavigationTab onClick={action("Articles tab clicked")}>Articles</NavigationTab>
+      <NavigationTab onClick={action("Interests tab clicked")}>Interests</NavigationTab>
+      <NavigationTab onClick={action("Books tab clicked")}>Books</NavigationTab>
+      <NavigationTab onClick={action("Adventures tab clicked")}>Adventures</NavigationTab>
+    </Navigation>
+  ))
+  .add("Sectional nav", () => (
+    <StyleRoot>
+      <SectionalNav
+        items={[
+          "Experiences",
+          "Articles",
+          "Products",
+          "Destinations",
+          "Tours",
+          "Inspiration",
+          "Books",
+          "Adventures",
+          "Interests",
+        ]}
+        active="Articles"
+        linkToOffset={0}
+      />
+    </StyleRoot>
+  ))
+  .add("Tabbed nav", () => (
+    <StyleRoot>
+      <TabbedNav
+        items={[
+          "Latest",
+          "Europe",
+          "Asia",
+          "Australia & the Pacific",
+          "North America",
+          "Central & South America",
+          "Middle East & Africa",
+          "World",
+        ]}
+        active="Latest"
+        onClick={action("Tab clicked")}
+      />
+    </StyleRoot>
+  ))
+  .add("Tabs", () => (
+    <Tabs
+      id="tabbedNavigation"
+      navigationHeight={number("Navigation height", 80)}
+      navigationSticky={boolean("Sticky navigation", false)}
+    >
+      <Tab label="Experiences" active>Experiences tab content</Tab>
+      <Tab label="Map">Map tab content</Tab>
+      <Tab label="Articles">Articles tab content</Tab>
+      <Tab label="Interests">Interests tab content</Tab>
+      <Tab label="Books">Books tab content</Tab>
+      <Tab label="Adventures">Adventures tab content</Tab>
+    </Tabs>
+  ));
+
+storiesOf("Popovers", module)
+  .addDecorator(withKnobs)
+  .add("Bookmark list menu", () => (
     <Center>
       <BookmarkListMenu
         iconName={select("Icon name", ["Ellipsis", "Share"], "Ellipsis")}
@@ -523,205 +1705,8 @@ storiesOf("Bookmark list menu", module)
         <BookmarkListMenuOption onClick={action("Copy click")}>Copy link</BookmarkListMenuOption>
       </BookmarkListMenu>
     </Center>
-  ));
-
-storiesOf("Breadcrumbs", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Breadcrumbs
-      links={data.breadcrumbs.links}
-    />
-  ));
-
-storiesOf("Bullet Description", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <BulletDescription
-      description={["Item 1", "Item 2"]}
-    />
-  ));
-
-storiesOf("Button", module)
-  .addDecorator(withKnobs)
-  .add("Primary", () => (
-    <Button
-      color={select("Color", ["blue", "white", "gray", "transparent"], "blue")}
-      size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
-      border={boolean("Border", true)}
-      disabled={boolean("Disabled", false)}
-      full={boolean("Full width", false)}
-      rounded={boolean("Rounded", false)}
-      onClick={action("clicked")}
-    >
-      {text("Text", "Hello Button")}
-    </Button>
   ))
-  .add("Secondary", () => (
-    <Button
-      color="white"
-      size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
-      border={boolean("Border", true)}
-      disabled={boolean("Disabled", false)}
-      full={boolean("Full width", false)}
-      rounded={boolean("Rounded", false)}
-      onClick={action("clicked")}
-    >
-      {text("Text", "Hello Button")}
-    </Button>
-  ));
-
-storiesOf("Calendar", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Calendar />
-  ));
-
-storiesOf("Callout", module)
-  .addDecorator(withKnobs)
-  .add("Book", () => (
-    <StyleRoot>
-      <Callout
-        type="book"
-        align="center"
-        heading="Lonely Planet’s Best in Travel 2016"
-        slug="/"
-        price={{
-          currency: "USD",
-          amount: 21.99,
-        }}
-        description={`Be an in-the-know traveler this year with Lonely
-          Planet’s collection of the hottest trends, destinations,
-          journeys.`}
-        image="http://dummyimage.com/132x168/4d494d/686a82.gif"
-      />
-    </StyleRoot>
-  ))
-  .add("Activity", () => (
-    <StyleRoot>
-      <Callout
-        type="activity"
-        heading="Cycle Linz to Vienna"
-        slug="/"
-        price={{
-          currency: "USD",
-          amount: 50,
-        }}
-        image="http://dummyimage.com/300x158/4d494d/686a82.gif"
-        category="Food and drink"
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Callout link", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <CalloutLink href="/">
-      {text("Text", "More recommendations")}
-    </CalloutLink>
-  ))
-  .add("Overlay", () => (
-    <div style={{ backgroundColor: "#000", padding: "20px" }}>
-      <CalloutLink href="/" overlay>
-        {text("Text", "More recommendations")}
-      </CalloutLink>
-    </div>
-  ));
-
-storiesOf("Cards", module)
-  .addDecorator(withKnobs)
-  .add("Basic card", () => (
-    <StyleRoot>
-      <div style={{ padding: "32px" }}>
-        <CardBasic
-          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-          bullets={array("Bullets", ["Card things", "More Card Things"])}
-          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-          href={text("URL", "#")}
-        />
-      </div>
-    </StyleRoot>
-  ))
-  .add("Video card", () => (
-    <StyleRoot>
-      <div style={{ width: "400px", padding: "32px" }}>
-        <CardVideo
-          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-          bullets={array("Bullets", ["On The Road", "E.01"])}
-          runtime={number("Video runtime", 129365)}
-          mobile={boolean("Mobile", false)}
-          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-          href={text("URL", "#")}
-          layout={select("Layout", ["card", "tile"], "card")}
-          theme={select("Theme", ["light", "dark"], "light")}
-          spacing={select("Spacing", ["normal", "compact"], "normal")}
-          aspectRatio={select("Aspect ratio", ["video", "poster"], "video")}
-        />
-      </div>
-    </StyleRoot>
-  ))
-  .add("Price card", () => (
-    <StyleRoot>
-      <div style={{ padding: "32px" }}>
-        <CardPrice
-          heading={text("Heading", "End of the Earth")}
-          bullets={array("Bullets", ["15 Days", "Buenos Aires to Buenos Aires"])}
-          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-          href={text("URL", "#")}
-          price={{
-            regular: 3999,
-            sale: 3399,
-          }}
-        />
-      </div>
-    </StyleRoot>
-  ));
-
-storiesOf("Category label", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <CategoryLabel
-      light={boolean("Light", false)}
-    >
-      {text("Text", "Art and culture")}
-    </CategoryLabel>
-  ));
-
-storiesOf("Category label link", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <CategoryLabelLink href={text("URL", "/")}>
-      {text("Text", "Art and culture")}
-    </CategoryLabelLink>
-  ));
-
-storiesOf("Checkbox", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Checkbox
-      value={text("Value", "Some value")}
-      id={text("ID", "check")}
-      name={text("Name", "check")}
-      label={text("Label", "Checkbox")}
-      checked={boolean("Checked", true)}
-      rounded={boolean("Rounded", false)}
-      removeBorder={boolean("Remove border", false)}
-      size={select("Size", [16, 24, 32], 16)}
-      onClick={action(event)}
-    />
-  ));
-
-storiesOf("Content Header", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <ContentHeader
-      title="Title"
-      border="bottom"
-    />
-  ));
-
-storiesOf("Dialog", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
+  .add("Dialog", () => (
     <StyleRoot>
       <ModalWrapper>
         {(isOpen, toggle) => (
@@ -762,174 +1747,8 @@ storiesOf("Dialog", module)
         )}
       </ModalWrapper>
     </StyleRoot>
-  ));
-
-storiesOf("Disclaimer text", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <DisclaimerText>
-      {text("Text", `To use Lonely Planet you must have cookies enabled. If you
-        sign up with Twitter or Facebook, we’ll start you off with a network by
-        automatically importing profile imformation. Also, we’ll never post to
-        Twitter or Facebook without your permission. For more info, please see
-        <a href="/">FAQ</a>.`
-      )}
-    </DisclaimerText>
-  ));
-
-storiesOf("Dot loader", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <DotLoader inline={boolean("Inline", false)} />
-    </StyleRoot>
-  ));
-
-storiesOf("Dropdown", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Dropdown
-      options={array("Options", ["AUD", "EUR", "GBP", "USD"])}
-      defaultValue={text("Default value", "USD")}
-      onChange={action(event)}
-    />
-  ));
-
-storiesOf("Edit link", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <EditLink url={text("URL", "/")} />
-  ));
-
-storiesOf("Expand button", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <ExpandButton label={text("Label", "Open")} />
-  ));
-
-storiesOf("Form", module)
-  .addDecorator(withKnobs)
-  .add("Input", () => (
-    <FormInput
-      placeholder={text("Placeholder", "johndoe@gmail.com")}
-      error={boolean("Has Error", false)}
-      theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
-    />
   ))
-  .add("Textarea", () => (
-    <FormTextArea
-      placeholder={text("Placeholder", "johndoe@gmail.com")}
-      error={boolean("Has Error", false)}
-      theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
-      autogrow={boolean("Autogrow", false)}
-    />
-  ))
-  .add("ErrorMessages", () => (
-    <ErrorMessages
-      messages={array("List of Errors", ["This field is required"])}
-    />
-  ));
-
-storiesOf("Featured article", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <FeaturedArticle
-        article={{
-          sectionHeading: "Tips and articles",
-          category: "Featured story",
-          image: "https://lonelyplanetimages.imgix.net/mastheads/48119366.jpg?sharp=10&vib=20&w=2000",
-          title: "Station to station: The best train journeys you’ve never heard of",
-          link: {
-            text: "Read article",
-            href: "/link/to/article",
-          },
-        }}
-      />
-    </StyleRoot>
-  ))
-  .add("Constrained", () => (
-    <StyleRoot>
-      <FeaturedArticle
-        constrained
-        article={{
-          category: "Featured story",
-          image: "https://lonelyplanetimages.imgix.net/mastheads/48119366.jpg?sharp=10&vib=20&w=2000",
-          title: "Station to station: The best train journeys you’ve never heard of",
-          link: {
-            text: "Read article",
-            href: "/link/to/article",
-          },
-        }}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Featured video", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <div style={{ width: "600px", height: "350px" }}>
-        <VideoFeatured
-          videoId={text("Video ID", "5363317250001")}
-          title={text("Title", "Introducing Italy")}
-          description={text("Description", "Welcome to <b>italy</b>. <i>Come explore</i>.")}
-          duration={number("Duration", 30000)}
-          image="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=430&h=250&fit=crop"
-          hoverEffects={boolean("Hover effects", false)}
-          mobile={boolean("Mobile", false)}
-          videoEmbed={{
-            previewStartTime: 10,
-            previewEndTime: 13,
-          }}
-        />
-      </div>
-    </StyleRoot>
-  ))
-  .add("Graphic", () => (
-    <StyleRoot>
-      <div style={{ width: "600px", height: "350px" }}>
-        <VideoFeatured
-          videoId={text("Video ID", "5363317250001")}
-          title={text("Title", "Introducing Italy")}
-          image="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=430&h=250&fit=crop"
-          graphic="https://lonelyplanetstatic.imgix.net/op-video-sync/assets/logo_bestintravel.svg"
-          hoverEffects={boolean("Hover effects", false)}
-          mobile={boolean("Mobile", false)}
-        />
-      </div>
-    </StyleRoot>
-  ));
-
-storiesOf("Flag", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Flag>{text("Text", "Private")}</Flag>
-  ));
-
-storiesOf("Flight search widget", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <FlightSearchWidget
-      depart={{
-        airportCode: "BNA",
-        city: "Nashville",
-      }}
-      arrive={{
-        airportCode: "LAX",
-        city: "Los Angeles",
-      }}
-      price={{
-        amount: 600,
-        currency: "USD",
-      }}
-      onClick={action("Flight search widget")}
-    />
-  ));
-
-storiesOf("Flyout", module)
-  .addDecorator(withKnobs)
-  .add("Small", () => (
+  .add("Flyout", () => (
     <Flyout
       children={text("Text", "I believe I can fly…")}
       size={select("Size", ["small", "medium"], "small")}
@@ -939,522 +1758,8 @@ storiesOf("Flyout", module)
       removePadding={boolean("Remove padding", false)}
       fill={boolean("Fill", false)}
     />
-  ));
-
-storiesOf("Grid", module)
-  .addDecorator(withKnobs)
-  .add("12 column", () => (
-    <StyleRoot>
-      <Container>
-        <GridRow>
-          <GridColumn sm={1} style={{ backgroundColor: "#eee" }}>sm=1</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={2} style={{ backgroundColor: "#eee" }}>sm=2</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={3} style={{ backgroundColor: "#eee" }}>sm=3</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={4} style={{ backgroundColor: "#eee" }}>sm=4</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={5} style={{ backgroundColor: "#eee" }}>sm=5</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={6} style={{ backgroundColor: "#eee" }}>sm=6</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={7} style={{ backgroundColor: "#eee" }}>sm=7</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={8} style={{ backgroundColor: "#eee" }}>sm=8</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={9} style={{ backgroundColor: "#eee" }}>sm=9</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={10} style={{ backgroundColor: "#eee" }}>sm=10</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={11} style={{ backgroundColor: "#eee" }}>sm=11</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={12} style={{ backgroundColor: "#eee" }}>sm=12</GridColumn>
-        </GridRow>
-      </Container>
-      <br /><br />
-      <Container style={{ textAlign: "right" }}>
-        <GridRow>
-          <GridColumn sm={1} smShift={11} style={{ backgroundColor: "#eee" }}>sm=1, smShift=11</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={2} smShift={10} style={{ backgroundColor: "#eee" }}>sm=2, smShift=10</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={3} smShift={9} style={{ backgroundColor: "#eee" }}>sm=3, smShift=9</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={4} smShift={8} style={{ backgroundColor: "#eee" }}>sm=4, smShift=8</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={5} smShift={7} style={{ backgroundColor: "#eee" }}>sm=5, smShift=7</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={6} smShift={6} style={{ backgroundColor: "#eee" }}>sm=6, smShift=6</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={7} smShift={5} style={{ backgroundColor: "#eee" }}>sm=7, smShift=5</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={8} smShift={4} style={{ backgroundColor: "#eee" }}>sm=8, smShift=4</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={9} smShift={3} style={{ backgroundColor: "#eee" }}>sm=9, smShift=3</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={10} smShift={2} style={{ backgroundColor: "#eee" }}>sm=10, smShift=2</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={11} smShift={1} style={{ backgroundColor: "#eee" }}>sm=11, smShift=1</GridColumn>
-        </GridRow>
-        <GridRow>
-          <GridColumn sm={12} style={{ backgroundColor: "#eee" }}>sm=12</GridColumn>
-        </GridRow>
-      </Container>
-    </StyleRoot>
-  ));
-
-storiesOf("Heading", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Heading
-      level={select("Level", [1, 2, 3, 4, 5, 6], 2)}
-      size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
-      weight={select("Weight", ["thin", "normal", "thick"], "normal")}
-      importance={select("Importance", ["low", "normal", "high", "alert"], "normal")}
-      tracking={select("Tracking", ["loose", "normal", "tight"], "normal")}
-      caps={boolean("Capitalized", false)}
-    >
-      {text("Text", "Heading text")}
-    </Heading>
-  ));
-
-storiesOf("Icon button", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Center backgroundColor="white">
-      <IconButton
-        iconName={select("Icon name", [
-          "Bookmark",
-          "BookmarkActive",
-          "BookmarkAlt",
-          "BookmarkAltActive",
-          "ChevronLeft",
-          "ChevronRight",
-          "ClockOutline",
-          "Ellipsis",
-          "Play",
-          "Share",
-        ], "Share")}
-        label={text("Label", "Share this")}
-        id={text("ID", null)}
-        className={text("Classname", null)}
-        href={text("href", null)}
-        onClick={action("onClick action")}
-        size={select("Size", [32, 40, 56], 32)}
-        owns={text("Aria owns", null)}
-        backgroundColor={text("Background color", null)}
-        hoverBackgroundColor={text("Hover background color", null)}
-        hoverBackgroundScale={number("Hover background scale", null)}
-        color={text("Color", null)}
-        hoverColor={text("Hover color", null)}
-        border={boolean("Border", false)}
-        shadow={boolean("Shadow", false)}
-        transitionDuration={text("Transition duration", "400ms")}
-      />
-    </Center>
-  ));
-
-storiesOf("Icon callout", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <IconCallout
-      iconName={select("Icon name", {
-        SurvivalAirplane: "Airplane",
-        SurvivalBear: "Bear",
-        SurvivalBed: "Bed",
-        SurvivalBookPencil: "Book / pencil",
-        SurvivalCar: "Car",
-        SurvivalHealth: "Health",
-        SurvivalLamp: "Lamp",
-        SurvivalLgbt: "LGBT",
-        SurvivalMoney: "Money",
-        SurvivalPassport: "Passport",
-        SurvivalSafety: "Safety",
-        SurvivalSpeechBubbles: "Speech bubbles",
-        SurvivalSuitcase: "Suitcase",
-        SurvivalUmbrella: "Umbrella",
-        SurvivalVespa: "Vespa",
-        SurvivalVisa: "Visa",
-        SurvivalWheelchair: "Wheelchair",
-      }, "SurvivalMoney")}
-      title={text("Title", "Money and costs")}
-      copy={text("Copy", "Budgets, currency rates and on-the-ground costs")}
-    />
-  ));
-
-storiesOf("Icon callout group", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <IconCalloutGroup>
-        <IconCallout
-          iconName="SurvivalVisa"
-          title="Visas"
-          copy="Dull but essential passport paperwork and entry info"
-        />
-
-        <IconCallout
-          iconName="SurvivalUmbrella"
-          title="Best time to go"
-          copy="Hit the ground at the right time"
-        />
-
-        <IconCallout
-          iconName="SurvivalMoney"
-          title="Money and costs"
-          copy="Budgets, currency rates and on-the-ground costs"
-        />
-
-        <IconCallout
-          iconName="SurvivalHealth"
-          title="Health"
-          copy="Keep safe and well on the open road"
-        />
-      </IconCalloutGroup>
-    </StyleRoot>
-  ));
-
-storiesOf("Icon Reveal Button", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <Center>
-        <IconRevealButton
-          id={text("ID", null)}
-          icon={<Icon.Share />}
-          label={text("Label", "Label")}
-          className={text("Classname", null)}
-          onClick={action("Bookmark clicked")}
-        />
-      </Center>
-    </StyleRoot>
-  ));
-
-storiesOf("Image carousel", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <ImageCarousel
-      images={[
-        "https://s3.amazonaws.com/static-asset/backpack-ui/scotland-1.770x430.jpg",
-        "https://s3.amazonaws.com/static-asset/backpack-ui/scotland-2.770x430.jpg",
-        "https://s3.amazonaws.com/static-asset/backpack-ui/scotland-3.770x430.jpg",
-      ]}
-      imageSize={[770, 430]}
-      index={null}
-    />
-  ));
-
-storiesOf("Image hero", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <ImageHero
-      image={text("Image URL", "https://s3.amazonaws.com/static-asset/backpack-ui/ImageHero.770x430.jpg")}
-      imageSize={array("Size", [770, 430])}
-    />
-  ));
-
-storiesOf("Input", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Center backgroundColor="white">
-      <Input />
-    </Center>
-  ));
-
-storiesOf("Interactive Map", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <InteractiveMap
-      places={[
-        {
-          title: "Zimbabwe",
-          lat: -19.015438,
-          long: 29.154857,
-        },
-        {
-          title: "Rio De Janeiro",
-          lat: -22.906847,
-          long: -43.172896,
-        },
-        {
-          title: "Wahiki Island",
-          lat: -36.801924,
-          long: 175.108015,
-        },
-      ]
-      }
-    />
-  ));
-
-storiesOf("Italic text", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <ItalicText>{text("Text", "Global news reporter")}</ItalicText>
-  ));
-
-storiesOf("Lede", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Lede
-      content={text("Text", `Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt
-        ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris
-        nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit
-        esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident,
-        sunt in culpa qui officia deserunt mollit anim id
-        est laborum`)}
-    />
-  ));
-
-storiesOf("List Button", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Center>
-      <ListButton
-        id={text("ID", null)}
-        className={text("Classname", null)}
-        onClick={action("List Button clicked")}
-        icon={select("Icon", [
-          "Bookmark",
-          "BookmarkActive",
-          "BookmarkAlt",
-          "BookmarkAltActive",
-          "Ellipsis",
-        ], "Ellipsis")}
-      />
-    </Center>
-  ));
-
-storiesOf("List item (bookmark)", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <ListItemBookmark
-        name={text("Name", "Favorites")}
-        thumbnail={text("Thumbnail", "")}
-        entriesCount={5}
-        visibility={select("Visibility", ["Private", "Public"], "Private")}
-        large={boolean("Large", false)}
-        hideDetail={boolean("Hide details", false)}
-      />
-    </StyleRoot>
   ))
-  .add("With onClick event", () => (
-    <StyleRoot>
-      <ListItemBookmark
-        name={text("Name", "Places to see in Nashville")}
-        onClick={action("List item clicked")}
-        checked={boolean("Checked", false)}
-        thumbnail={text("Thumbnail", "")}
-        entriesCount={5}
-        visibility={select("Visibility", ["Private", "Public"], "Private")}
-        large={boolean("Large", false)}
-        hideDetail={boolean("Hide details", false)}
-      />
-    </StyleRoot>
-  ))
-  .add("As “add item” button", () => (
-    <StyleRoot>
-      <ListItemBookmark
-        name={text("Name", "New item")}
-        onClick={action("Add item clicked")}
-        large={boolean("Large", false)}
-        hideDetail={boolean("Hide details", true)}
-        addItem={boolean("Add item UI", true)}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("List item (bookmark entry)", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <ListItemBookmarkEntry
-        name={text("Name", "POI Name")}
-        category={text("Category", "Category")}
-        city={text("City", "City")}
-        priceRange={select("Range", ["$", "$$", "$$$"], "$")}
-        topChoice={boolean("Top choice", false)}
-        note={text("Note", "This is where a nice little note goes.")}
-        large={boolean("Large", false)}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("List item (news)", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <ListItemNews
-        title={text("Title", "Ireland is set to have the world’s largest redwood forest outside of California")}
-        category={text("Category", "Europe")}
-        categoryLink={text("Category URL", "/")}
-        link={text("URL", "/")}
-        thumbnail={text("Image URL", "http://placehold.it/110x110")}
-        size={select("Size", ["small", "medium"], "medium")}
-        isSponsored={boolean("Sponsored", false)}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Loading", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <Center backgroundColor="white">
-        <Loading />
-      </Center>
-    </StyleRoot>
-  ));
-
-storiesOf("Location label", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <LocationLabel>Ottawa, ON</LocationLabel>
-  ));
-
-storiesOf("Logo", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <div style={{ display: "inline-block", padding: "20px" }}>
-      <Logo
-        color={select("Color", ["blue", "gray", "white"], "blue")}
-      />
-    </div>
-  ));
-
-storiesOf("Map marker", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <MapMarker
-      poiType={select("Type", {
-        // center: "Center",
-        activities: "Activities",
-        drinking_nightlife: "Drinking and nightlife",
-        eating: "Eating",
-        entertainment: "Entertainment",
-        festivals_events: "Festivals and events",
-        info: "Information",
-        restaurants: "Restaurants",
-        shopping: "Shopping",
-        sights: "Sights",
-        sleeping: "Sleeping",
-        tours: "Tours",
-        transport: "Transportation",
-      },
-      "sights")}
-      size={number("Size", 128)}
-      hideShadow={boolean("Hide shadow", false)}
-      inverse={boolean("Inverse", false)}
-    />
-  ));
-
-storiesOf("Masthead", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <Masthead />
-    </StyleRoot>
-  ))
-  .add("With Slider", () => {
-    const items = [{
-      adPosition: "",
-      image: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtNjA3Njk2MTAzX2Z1bGwuanBnV2VkIEZlYiAwMSAyMDE3IDA5OjAxOjU1IEdNVCswMDAwIChVVEMp.jpg?q=40&sharp=10&w=2500",
-      type: "Featured article",
-      headline: "Honeymoon hacks: a guide for newly-weds abroad",
-      description: ["Item 1", "Item 2"],
-      callToAction: {
-        text: "Happily Ever After",
-        icon: "Play",
-        link: "https://www.lonelyplanet.com/travel-tips-and-articles/honeymoon-survival-the-ultimate-guide-for-newlyweds-abroad",
-      },
-      id: 3,
-    }, {
-      adPosition: "",
-      tabTitle: "Sicily’s best coastal hikes",
-      image: "https://lonelyplanetstatic.imgix.net/copilot/images/R2V0dHlJbWFnZXMtNDY3NTY3MjI4X3N1cGVyLTc1YzEyMjJjOGNhOC5qcGdUdWUgSmFuIDMxIDIwMTcgMTA6NDA6MzUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=40&sharp=10&w=2500",
-      type: "FEATURED ARTICLE",
-      headline: "Sicily’s best coastal hikes",
-      description: "",
-      callToAction: {
-        text: "Isles for Miles",
-        icon: "Play",
-        link: "https://www.lonelyplanet.com/italy/sicily/aeolian-islands/travel-tips-and-articles/sicilys-best-coastal-hikes",
-      },
-      id: 1,
-    }, {
-      adPosition: "",
-      tabTitle: "Architecture for travellers: a novice's guide",
-      image: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtNTM0NzUzNjQ1X3N1cGVyLmpwZ01vbiBKYW4gMzAgMjAxNyAwOTo0MToyOSBHTVQrMDAwMCAoVVRDKQ%3D%3D.jpg?q=40&sharp=10&w=2500",
-      type: "FEATURED ARTICLE",
-      headline: "Architecture for travellers: a novice's guide",
-      graphic: "https://s3.amazonaws.com/static-asset/op-video-sync/assets/gopro_graphic_test.png",
-      description: "",
-      callToAction: {
-        text: "Play",
-        icon: "Play",
-        link: "https://www.lonelyplanet.com/travel-tips-and-articles/architecture-for-travellers-a-novices-guide",
-      },
-      id: 4,
-    }];
-    const slides = items.map((item, index) => <Slide key={index} {...item} />);
-    return (
-      <StyleRoot>
-        <MastheadSlider
-          height={text("Masthead Height", "100vh")}
-          slides={slides}
-        />
-      </StyleRoot>
-    );
-  });
-
-
-class ModalWrapper extends React.Component {
-  static propTypes = {
-    children: PropTypes.function,
-  }
-
-  state = {
-    open: true,
-  }
-
-  toggleOpen() {
-    this.setState({ open: !this.state.open });
-  }
-
-  render() {
-    return this.props.children(this.state.open, this.toggleOpen.bind(this));
-  }
-}
-
-storiesOf("Modal", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
+  .add("Modal", () => (
     <StyleRoot>
       <ModalWrapper>
         {(isOpen, toggle) => (
@@ -1483,7 +1788,19 @@ storiesOf("Modal", module)
       </ModalWrapper>
     </StyleRoot>
   ))
-  .add("Watch Later", () => (
+  .add("Modal - log in", () => (
+    <StyleRoot>
+      <ModalWrapper>
+        {(isOpen, toggle) => (
+          <ModalLogIn
+            isOpen={isOpen}
+            onClose={toggle}
+          />
+        )}
+      </ModalWrapper>
+    </StyleRoot>
+  ))
+  .add("Modal - watch later", () => (
     <StyleRoot>
       <ModalWrapper>
         {(isOpen, toggle) => (
@@ -1499,74 +1816,956 @@ storiesOf("Modal", module)
       </ModalWrapper>
     </StyleRoot>
   ))
-  .add("Log in", () => (
+  .add("Share menu", () => (
+    <div style={{ padding: "100px 300px" }}>
+      <SocialShareContainer
+        text={text("Text", "Animal islands: seven places where creatures rule")}
+        url={text("URL", "https://www.lonelyplanet.com/asia/travel-tips-and-articles/animal-islands-seven-places-where-creatures-rule")}
+        menuPosition={select("Menu position", ["bottom", "left"], "bottom")}
+        hide={["facebookMessenger", "reddit"]}
+      >
+        {ShareMenu}
+      </SocialShareContainer>
+    </div>
+  ))
+  .add("Tooltip", () => (
+    <Tooltip
+      label="Mouseover me"
+      flyout={{
+        arrow: "down",
+        size: "medium",
+        removePadding: false,
+        shadow: "large",
+        style: {
+          bottom: "40px",
+          left: 0,
+          position: "absolute",
+        },
+      }}
+    >
+      Tooltip content
+    </Tooltip>
+  ))
+  .add("Type selector", () => (
     <StyleRoot>
-      <ModalWrapper>
-        {(isOpen, toggle) => (
-          <ModalLogIn
-            isOpen={isOpen}
-            onClose={toggle}
-          />
-        )}
-      </ModalWrapper>
+      <TypeSelector
+        title="Activities"
+        menuItems={[
+          { item: "Hotels", slug: "#" },
+          { item: "Restaurants", slug: "#" },
+          { item: "Sights", slug: "#" },
+          { item: "Entertainment", slug: "#" },
+          { item: "Activities", slug: "#" },
+          { item: "Tours", slug: "#" },
+          { item: "Articles", slug: "#" },
+          { item: "News", slug: "#" },
+        ]}
+      />
     </StyleRoot>
   ));
 
-storiesOf("More link", module)
+storiesOf("Text", module)
   .addDecorator(withKnobs)
-  .add("Anchor", () => (
-    <MoreLink
-      href={text("URL", "/")}
-      size={select("Size", ["", "small"], "")}
-      caps={boolean("Capitalized", false)}
-      hideIcon={boolean("Hide icon", false)}
-      arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
-    >
-      {text("Text", "View all tours")}
-    </MoreLink>
+  .add("Accent", () => (
+    <TextAccent>
+      {text("Text", "Lorem ipsum dolor sit amet")}
+    </TextAccent>
   ))
-  .add("Button", () => (
-    <MoreLink
-      onClick={action("MoreLink clicked")}
-      size={select("Size", ["", "small"], "")}
-      caps={boolean("Capitalized", false)}
-      hideIcon={boolean("Hide icon", false)}
-      arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
-    >
-      {text("Text", "View all tours")}
-    </MoreLink>
+  .add("Author name", () => (
+    <AuthorName>
+      {text("Name", "Alex Butler")}
+    </AuthorName>
   ))
-  .add("Span", () => (
-    <MoreLink
-      isNested
-      size={select("Size", ["", "small"], "")}
-      caps={boolean("Capitalized", false)}
-      hideIcon={boolean("Hide icon", false)}
-      arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
+  .add("Body article", () => (
+    <TextBodyArticle>
+      {text("Text", `Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Aenean sed
+        mauris sit amet massa interdum bibendum.
+        Ut ac ex leo. Cras blandit enim ut metus
+        feugiat, vitae pharetra massa aliquet.`)}
+    </TextBodyArticle>
+  ))
+  .add("Body small", () => (
+    <TextBodySmall>
+      {text("Text", `Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Aenean sed
+        mauris sit amet massa interdum bibendum.
+        Ut ac ex leo. Cras blandit enim ut metus
+        feugiat, vitae pharetra massa aliquet.`)}
+    </TextBodySmall>
+  ))
+  .add("Bullet description", () => (
+    <BulletDescription
+      description={["Item 1", "Item 2"]}
+    />
+  ))
+  .add("Disclaimer text", () => (
+    <DisclaimerText>
+      {text("Text", `To use Lonely Planet you must have cookies enabled. If you
+        sign up with Twitter or Facebook, we’ll start you off with a network by
+        automatically importing profile imformation. Also, we’ll never post to
+        Twitter or Facebook without your permission. For more info, please see
+        <a href="/">FAQ</a>.`
+      )}
+    </DisclaimerText>
+  ))
+  .add("Heading", () => (
+    <TextHeading
+      level={select("Level", [1, 2, 3, 4, 5, 6], 2)}
+      size={select("Size", [1, 2, 3, 4, 5, 6, 7, 8], 2)}
+      weight={select("Weight", {
+        light: "Light",
+        regular: "Regular",
+        medium: "Medium",
+      }, "regular")}
     >
-      {text("Text", "View all tours")}
-    </MoreLink>
+      {text("Text", "Lorem ipsum")}
+    </TextHeading>
+  ))
+  .add("Italic text", () => (
+    <ItalicText>{text("Text", "Global news reporter")}</ItalicText>
+  ))
+  .add("Lede", () => (
+    <Lede
+      content={text("Text", `Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. Duis aute
+        irure dolor in reprehenderit in voluptate velit
+        esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident,
+        sunt in culpa qui officia deserunt mollit anim id
+        est laborum`)}
+    />
+  ))
+  .add("Strapline", () => (
+    <Strapline>
+      {text("Text", "Strapline text")}
+    </Strapline>
+  ))
+  .add("Super", () => (
+    <TextSuper>
+      {text("Text", "Lorem ipsum")}
+    </TextSuper>
+  ))
+  .add("Timestamp", () => (
+    <Timestamp
+      dateTime={text("Absolute time", "2017-01-17")}
+    >
+      {text("Relative time", "3 days ago")}
+    </Timestamp>
+  ))
+  .add("Uppercase", () => (
+    <TextUppercase>
+      {text("Text", "Lorem ipsum")}
+    </TextUppercase>
   ));
 
-storiesOf("Navigation", module)
+storiesOf("Video components", module)
   .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Navigation height={number("Height", 80)} sticky={boolean("Sticky", false)}>
-      <NavigationTab active={boolean("Active", true)} onClick={action("Experiences tab clicked")}>
-        {text("Text", "Experiences")}
-      </NavigationTab>
+  .add("Featured video - default", () => (
+    <StyleRoot>
+      <div style={{ width: "600px", height: "350px" }}>
+        <VideoFeatured
+          videoId={text("Video ID", "5363317250001")}
+          title={text("Title", "Introducing Italy")}
+          description={text("Description", "Welcome to <b>italy</b>. <i>Come explore</i>.")}
+          duration={number("Duration", 30000)}
+          image="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=430&h=250&fit=crop"
+          hoverEffects={boolean("Hover effects", false)}
+          mobile={boolean("Mobile", false)}
+          videoEmbed={{
+            previewStartTime: 10,
+            previewEndTime: 13,
+          }}
+        />
+      </div>
+    </StyleRoot>
+  ))
+  .add("Featured video - graphic", () => (
+    <StyleRoot>
+      <div style={{ width: "600px", height: "350px" }}>
+        <VideoFeatured
+          videoId={text("Video ID", "5363317250001")}
+          title={text("Title", "Introducing Italy")}
+          image="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=430&h=250&fit=crop"
+          graphic="https://lonelyplanetstatic.imgix.net/op-video-sync/assets/logo_bestintravel.svg"
+          hoverEffects={boolean("Hover effects", false)}
+          mobile={boolean("Mobile", false)}
+        />
+      </div>
+    </StyleRoot>
+  ))
+  .add("Spotlight zone", () => (
+    <StyleRoot>
+      <SpotlightZone
+        zone={text("Zone", "Series spotlight")}
+        title={text("Title", "Gaudi, Part 1")}
+        paragraph={text("Paragraph", "Explore the architecture capital of Varcelona with Christa Larwood and witness Antoni Gaudi's beautiful work.")}
+        backgroundImageUrl={text("Background Image URL", "https://s3.amazonaws.com/op-video-sync-dev/poster-5299039063001-a-gorgeous-day-in-the-life-of-cuba-20170130-182935.jpg")}
+        videoEmbed={{
+          videoId: "5615400588001",
+        }}
+      />
+    </StyleRoot>
+  ))
+  .add("Thumbnail list - light", () => (
+    <StyleRoot>
+      <ThumbnailList
+        heading={text("Title", "Featured videos")}
+        theme="light"
+      >
+        <ThumbnailListItem
+          title="List item 1"
+          theme="light"
+          imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+        />
+        <ThumbnailListItem
+          title="List item 2"
+          theme="light"
+          imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+        />
+        <ThumbnailListItem
+          title="List item 3"
+          theme="light"
+          imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+        />
+      </ThumbnailList>
+    </StyleRoot>
+  ))
+  .add("Thumbnail list - dark", () => (
+    <StyleRoot>
+      <div style={{ backgroundColor: "#1f1f1f" }}>
+        <ThumbnailList
+          heading={text("Title", "Featured videos")}
+          theme="dark"
+        >
+          <ThumbnailListItem
+            title="List item 1"
+            theme="dark"
+            imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+          />
+          <ThumbnailListItem
+            title="List item 2"
+            theme="dark"
+            imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+          />
+          <ThumbnailListItem
+            title="List item 3"
+            theme="dark"
+            imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+          />
+        </ThumbnailList>
+      </div>
+    </StyleRoot>
+  ))
+  .add("Thumbnail list item", () => (
+    <StyleRoot>
+      <ThumbnailListItem
+        title={text("Title", "The shop")}
+        subtitle={array("Subtitle", ["Item 3", "Item 4"])}
+        runtime={number("Video runtime", 129365)}
+        imagePath={text("Image path", "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FYXJ0YW5kY3VsdHVyZS5qcGdTYXQgRGVjIDE3IDIwMTYgMjE6MDA6MDUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=60&sharp=10&fit=crop&w=180")}
+        status={text("Status", "Status")}
+        description={array("Description", ["Item 1", "Item 2"])}
+        descriptionIcon={text("Description icon", "Clock")}
+        descriptionIconLabel={text("Description icon label", "Watch later")}
+        onDescriptionIconClick={action("Action for icon")}
+        imageIcon={text("Image icon", "Play")}
+        imageIconLabel={text("Image icon label", "Play")}
+        theme={select("Theme", ["light", "dark"], "light")}
+      />
+    </StyleRoot>
+  ))
+  .add("Video card shelf - default", () => (
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardShelfVideo heading="Food and drink" href="/">
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            layout={select("Layout", ["card", "tile"], "card")}
+            style={{ width: "400px" }}
+          />
 
-      <NavigationTab onClick={action("Map tab clicked")}>Map</NavigationTab>
-      <NavigationTab onClick={action("Articles tab clicked")}>Articles</NavigationTab>
-      <NavigationTab onClick={action("Interests tab clicked")}>Interests</NavigationTab>
-      <NavigationTab onClick={action("Books tab clicked")}>Books</NavigationTab>
-      <NavigationTab onClick={action("Adventures tab clicked")}>Adventures</NavigationTab>
-    </Navigation>
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout={select("Layout", ["card", "tile"], "card")}
+            style={{ width: "400px" }}
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout={select("Layout", ["card", "tile"], "card")}
+            style={{ width: "400px" }}
+          />
+        </CardShelfVideo>
+      </div>
+    </StyleRoot>
+  ))
+  .add("Video card shelf - swiper", () => (
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardShelfVideoSwiper heading="Food and drink" href="/">
+          <CardVideo
+            heading={text("Heading", "High Sierra ")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            layout="card"
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="card"
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="card"
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="card"
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="card"
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="card"
+          />
+        </CardShelfVideoSwiper>
+      </div>
+    </StyleRoot>
+  ))
+  .add("Video card shelf - slider", () => (
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardShelfVideoSlider
+          heading="Food and drink"
+          href="/"
+          theme={select("Theme", ["light", "dark"], "light")}
+          spacing={select("Spacing", ["normal", "compact"], "compact")}
+        >
+          <CardVideo
+            heading={text("Heading", "High Sierra ")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            layout="tile"
+            theme={select("Theme", ["light", "dark"], "light")}
+            spacing={select("Spacing", ["normal", "compact"], "compact")}
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="tile"
+            theme={select("Theme", ["light", "dark"], "light")}
+            spacing={select("Spacing", ["normal", "compact"], "compact")}
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="tile"
+            theme={select("Theme", ["light", "dark"], "light")}
+            spacing={select("Spacing", ["normal", "compact"], "compact")}
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="tile"
+            theme={select("Theme", ["light", "dark"], "light")}
+            spacing={select("Spacing", ["normal", "compact"], "compact")}
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="tile"
+            theme={select("Theme", ["light", "dark"], "light")}
+            spacing={select("Spacing", ["normal", "compact"], "compact")}
+          />
+
+          <CardVideo
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            bullets={array("Bullets", ["On The Road", "E.01"])}
+            runtime={number("Video runtime", 129365)}
+            onClick={action("Watch this video later")}
+            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+            href={text("URL", "#")}
+            layout="tile"
+            theme={select("Theme", ["light", "dark"], "light")}
+            spacing={select("Spacing", ["normal", "compact"], "compact")}
+          />
+        </CardShelfVideoSlider>
+      </div>
+    </StyleRoot>
+  ))
+  .add("Video embed - default", () => (
+    <StyleRoot>
+      <div style={{ maxHeight: "100%", height: "400px" }}>
+        <VideoEmbed
+          videoId={select("Video ID", [
+            "5363317250001",
+            "5184494924001",
+            "5615400588001"],
+            "5363317250001")
+          }
+          playerName={select("Player name", [
+            "default",
+            "background",
+            "bestintravel",
+            "destination"],
+            "default")
+          }
+          autoplay={boolean("Autoplay", false)}
+          cover={boolean("Cover", false)}
+          controls={boolean("Controls", true)}
+          muted={boolean("Muted", false)}
+          loop={boolean("Loop", false)}
+          visible={boolean("Visible", true)}
+          visibleWhileNotPlaying={boolean("Visible while not playing", true)}
+          previewMode={boolean("Preview mode", false)}
+          previewStartTime={number("Preview start time", 0)}
+          previewEndTime={number("Preview end time", 5)}
+        />
+      </div>
+    </StyleRoot>
+  ))
+  .add("Video embed - play when in view", () => (
+    <StyleRoot>
+      <div style={{ height: "2000px" }}>
+        <i style={{ position: "fixed", fontSize: "12px" }}>
+          Scroll down to see state changes
+        </i>
+        <VideoEmbed
+          style={{ position: "relative", top: "800px", height: "300px" }}
+          videoId="5363317250001"
+          playWhenInView
+        />
+      </div>
+    </StyleRoot>
+  ))
+  .add("Video info - light", () => (
+    <StyleRoot>
+      <VideoInfo
+        fadeIn={boolean("Fade in", true)}
+        theme="light"
+        mobile={boolean("Mobile", false)}
+        headingLevel={number("Heading level", 2)}
+        video={{
+          name: "Ask Lonely Planet: how to escape the Middle East?",
+          description: "Want to see the Syria wilderness?<br /><i>Ready to go? Check out <a href=\"http://shop.lonelyplanet.com/iceland/icelands-ring-road-trips-1/\">Ring Road road trips</a>.</i>",
+          url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+          host: "Tom Hall and Oliver Smith",
+          director: "Macca Sheriffi",
+          year: "2017",
+          relatedChannels: [
+            {
+              name: "Adventure Travel",
+              url: "https://www.lonelyplanet.com/video/adventure/v/cha/1",
+            },
+            {
+              name: "Best in Travel 2018",
+              url: "https://www.lonelyplanet.com/video/best-in-travel-2018/v/cha/10",
+            },
+          ],
+        }}
+      />
+    </StyleRoot>
+  ))
+  .add("Video info - dark", () => (
+    <StyleRoot>
+      <div style={{ backgroundColor: "#1f1f1f" }}>
+        <VideoInfo
+          fadeIn={boolean("Fade in", true)}
+          theme="dark"
+          mobile={boolean("Mobile", false)}
+          headingLevel={number("Heading level", 2)}
+          video={{
+            name: "Ask Lonely Planet: how to escape the Middle East?",
+            description: "Want to see the Syria wilderness?<br /><i>Ready to go? Check out <a href=\"http://shop.lonelyplanet.com/iceland/icelands-ring-road-trips-1/\">Ring Road road trips</a>.</i>",
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith",
+            director: "Macca Sheriffi",
+            year: "2017",
+            relatedChannels: [
+              {
+                name: "Adventure Travel",
+                url: "https://www.lonelyplanet.com/video/adventure/v/cha/1",
+              },
+              {
+                name: "Best in Travel 2018",
+                url: "https://www.lonelyplanet.com/video/best-in-travel-2018/v/cha/10",
+              },
+            ],
+          }}
+        />
+      </div>
+    </StyleRoot>
+  ))
+  .add("Video playlist - default", () => (
+    <StyleRoot>
+      <VideoPlaylist
+        heading={text("Heading", "Featured videos")}
+        autoplay={boolean("Autoplay", false)}
+        mobile={boolean("Mobile", false)}
+        videos={[
+          {
+            id: "5615400608001",
+            name: "Video name 1",
+            description: "Video description 1",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 10000,
+          },
+          {
+            id: "5615400604001",
+            name: "Video name 2",
+            description: "Video description 2",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 20000,
+          },
+          {
+            id: "5615377178001",
+            name: "Video name 3",
+            description: "Video description 3",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 30000,
+          },
+          {
+            id: "5615348695001",
+            name: "Video name 4",
+            description: "Video description 4",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 40000,
+          },
+          {
+            id: "5615400596001",
+            name: "Video name 5",
+            description: "Video description 5",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 50000,
+          },
+          {
+            id: "5615409475001",
+            name: "Video name 6",
+            description: "Video description 6",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 60000,
+          },
+        ]}
+      />
+    </StyleRoot>
+  ))
+  .add("Video playlist - slider", () => (
+    <StyleRoot>
+      <VideoPlaylistWithSlider
+        heading={text("Heading", "Featured videos")}
+        sliderHeading={text("Slider heading", "Featured")}
+        visibleVideosDesktop={number("Visible videos (desktop)", 6)}
+        visibleVideosMobile={number("Visible videos (mobile)", 4)}
+        autoplay={boolean("Autoplay", false)}
+        showVideoInfo={boolean("Show video info", true)}
+        mobile={boolean("Mobile", false)}
+        videos={[
+          {
+            id: "5615400608001",
+            name: "Video name 1",
+            description: "Video description 1",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 10000,
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith 1",
+            director: "Macca Sheriffi 1",
+            year: "2017",
+            cardActionIcon: "ClockOutline",
+          },
+          {
+            id: "5615400604001",
+            name: "Video name 2",
+            description: "Video description 2",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 20000,
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith 2",
+            director: "Macca Sheriffi 2",
+            year: "2017",
+            cardActionIcon: "ClockOutline",
+          },
+          {
+            id: "5615377178001",
+            name: "Video name 3",
+            description: "Video description 3",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 30000,
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith 3",
+            director: "Macca Sheriffi 3",
+            year: "2017",
+            cardActionIcon: "ClockOutline",
+          },
+          {
+            id: "5615348695001",
+            name: "Video name 4",
+            description: "Video description 4",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 40000,
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith 4",
+            director: "Macca Sheriffi 4",
+            year: "2017",
+            cardActionIcon: "ClockOutline",
+          },
+          {
+            id: "5615400596001",
+            name: "Video name 5",
+            description: "Video description 5",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 50000,
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith 5",
+            director: "Macca Sheriffi 5",
+            year: "2017",
+            cardActionIcon: "ClockOutline",
+          },
+          {
+            id: "5615409475001",
+            name: "Video name 6",
+            description: "Video description 6",
+            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
+            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
+            duration: 60000,
+            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
+            host: "Tom Hall and Oliver Smith 6",
+            director: "Macca Sheriffi 6",
+            year: "2017",
+            cardActionIcon: "ClockOutline",
+          },
+        ]}
+      />
+    </StyleRoot>
+  ))
+  .add("Video popout", () => (
+    <StyleRoot>
+      <div style={{ height: "2000px" }}>
+        <i style={{ position: "fixed", fontSize: "12px" }}>
+          scroll down to see state changes
+        </i>
+        <VideoPopout
+          style={{ position: "relative", top: "800px", height: "300px" }}
+          mobile={boolean("Mobile", false)}
+          videoEmbed={{
+            videoId: "5615445675001",
+            autoplay: true,
+            muted: true,
+            loop: true,
+          }}
+        />
+      </div>
+    </StyleRoot>
+  ))
+  .add("Video slider", () => {
+    const styles = {
+      container: {
+        padding: "20px",
+      },
+      arrow: {
+        default: {
+          backgroundColor: "#1e7bcc",
+          color: "white",
+          paddingLeft: "6px",
+          position: "relative",
+          width: "20px",
+        },
+        next: {
+          right: "20px",
+        },
+      },
+      slide: {
+        backgroundColor: "black",
+        color: "white",
+      },
+    };
+    return (
+      <StyleRoot>
+        <div style={styles.container}>
+          <VideoSlider
+            slidesToShow={number("Slides to show", 4, {
+              range: true,
+              min: 1,
+              max: 4,
+              step: 1,
+            })}
+            infinite={boolean("Infinite", false)}
+            autoplay={boolean("Autoplay", false)}
+            autoplaySpeed={number("Autoplay speed", 5000)}
+            pauseOnHover={boolean("Pause on hover", true)}
+            arrows={boolean("Arrows", true)}
+          >
+            <div key="1" style={styles.slide}>Slide 1</div>
+            <div key="2" style={styles.slide}>Slide 2</div>
+            <div key="3" style={styles.slide}>Slide 3</div>
+            <div key="4" style={styles.slide}>Slide 4</div>
+            <div key="5" style={styles.slide}>Slide 5</div>
+            <div key="6" style={styles.slide}>Slide 6</div>
+          </VideoSlider>
+        </div>
+      </StyleRoot>
+    );
+  })
+  .add("Video tile", () => (
+    <StyleRoot>
+      <div style={{ padding: "32px", width: "400px" }}>
+        <TileVideo
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+        />
+      </div>
+    </StyleRoot>
+  ))
+  .add("Video poster tile", () => (
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <TileVideoPoster
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+          description={text("Year", "2016")}
+        />
+      </div>
+    </StyleRoot>
+  ))
+  .add("Video tile grid - default", () => (
+    <StyleRoot>
+      <TileGrid>
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+        />
+
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
+
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
+
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
+
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
+
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
+      </TileGrid>
+    </StyleRoot>
+  ))
+  .add("Video tile grid - swiper", () => (
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardShelfVideoSwiper heading="Food and drink" href="/" slidesVisible={4}>
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+
+          <TileVideoPoster
+            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+            href={text("URL", "#")}
+            description={text("Year", "2016")}
+          />
+        </CardShelfVideoSwiper>
+      </div>
+    </StyleRoot>
+  ))
+  .add("Video up next", () => (
+    <StyleRoot>
+      <VideoUpNext
+        title={text("Title", "Lonely Planet's best destinations to visit in 2018")}
+        image="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=430&h=250&fit=crop"
+        href="https://www.lonelyplanet.com/video/lonely-planets-best-destinations-to-visit-in-2018/v/vid/542"
+        visible={boolean("Visible", true)}
+      />
+    </StyleRoot>
   ));
 
-storiesOf("Multi-step", module)
+storiesOf("Widgets", module)
   .addDecorator(withKnobs)
-  .add("Default", () => (
+  .add("Multi-step", () => (
     <MultiStepWrapper totalSteps={4}>
       {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => (
         <MultiStep currentStep={currentStep}>
@@ -1596,120 +2795,8 @@ storiesOf("Multi-step", module)
         </MultiStep>
       )}
     </MultiStepWrapper>
-  ));
-
-storiesOf("MultiStep Login", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <MultiStepWrapper totalSteps={4}>
-      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => (
-        <MultiStepLogin
-          currentStep={currentStep}
-          setStep={setCurrentStep}
-          authActions={{}}
-          showLogo
-          doneAction={() => {}}
-        />
-      )}}
-    </MultiStepWrapper>
-  ));
-
-storiesOf("Narrative", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <Narrative
-        heading={text("Heading", "Walking into the Sacher is like turning back the clocks 100 years.")}
-        htmlContent={text("HTML content", `<p>The reception, with its dark-wood panelling, deep red shades
-          and heavy gold chandelier, is reminiscent of an expensive fin de siècle
-          bordello. The smallest rooms are surprisingly large and suites are truly
-          palatial. Junior suites/doubles cost from €480 to €1350.</p>
-          <p>As well as extras like original oil paintings throughout and a tiny
-          cube of the hotel’s famous Sacher Torte on arrival, there's a hi-tech
-          spa complex, with herbal sauna, ice fountain and fitness room.</p>`)}
-        author={object("Author", {
-          name: "Tim Plaum",
-          title: "Lonely Planet Editor",
-          avatarSrc: "",
-          href: "",
-        })}
-      />
-    </StyleRoot>
-  ));
-
-
-storiesOf("News article author", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <NewsArticleAuthor
-      name={text("Name", "Alex Butler")}
-      title={text("Title", "Global news reporter")}
-      absoluteTime={text("Absolute time", "2017-01-17")}
-      relativeTime={text("Relative time", "3 days ago")}
-      theme={select("Theme", ["light", "dark"], "light")}
-    />
-  ));
-
-storiesOf("News list", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <NewsList
-        newsItems={[{
-          title: "Whales migration patterns passed down from mother to child",
-          category: "The World",
-          categoryLink: "/path/to/category",
-          description: `Life has a languid quality in the stunning landscapes of
-            the Upper Peninsula (called the UP by visitors, and its residents are
-            known as Yoopers). Americans`,
-          link: "/path/to/full/article",
-          thumbnail: "https://lonelyplanetwp.imgix.net/2016/08/Hubud-657aa84af2b1.jpg?w=110&h=110&fit=crop&q=50&auto=enhance&crop=entropy",
-        }, {
-          title: `Watch this adorable Kangaroo invade a family's campervan and
-            then return with her friends`,
-          category: "Asia & the pacific",
-          categoryLink: "/path/to/category",
-          description: `Life has a languid quality in the stunning landscapes of
-            the Upper Peninsula (called the UP by visitors, and its residents are
-            known as Yoopers). Americans`,
-          link: "/path/to/full/article",
-          thumbnail: "https://lonelyplanetwp.imgix.net/2016/08/Hubud-657aa84af2b1.jpg?w=110&h=110&fit=crop&q=50&auto=enhance&crop=entropy",
-        }]}
-      />
-    </StyleRoot>
   ))
-  .add("Small list items", () => (
-    <StyleRoot>
-      <NewsList
-        newsItems={[{
-          title: "Whales migration patterns passed down from mother to child",
-          category: "The World",
-          categoryLink: "/path/to/category",
-          description: `Life has a languid quality in the stunning landscapes of
-            the Upper Peninsula (called the UP by visitors, and its residents are
-            known as Yoopers). Americans`,
-          link: "/path/to/full/article",
-          thumbnail: "https://lonelyplanetwp.imgix.net/2016/08/Hubud-657aa84af2b1.jpg?w=110&h=110&fit=crop&q=50&auto=enhance&crop=entropy",
-          size: "small",
-        }, {
-          title: `Watch this adorable Kangaroo invade a family's campervan and
-            then return with her friends`,
-          category: "Asia & the pacific",
-          categoryLink: "/path/to/category",
-          description: `Life has a languid quality in the stunning landscapes of
-            the Upper Peninsula (called the UP by visitors, and its residents are
-            known as Yoopers). Americans`,
-          link: "/path/to/full/article",
-          thumbnail: "https://lonelyplanetwp.imgix.net/2016/08/Hubud-657aa84af2b1.jpg?w=110&h=110&fit=crop&q=50&auto=enhance&crop=entropy",
-          size: "small",
-        }]}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Newsletter", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
+  .add("Newsletter", () => (
     <StyleRoot>
       <Newsletter
         title={text("Title", "Sign up for our weekly newsletter")}
@@ -1733,60 +2820,8 @@ storiesOf("Newsletter", module)
         captchaSiteKey={text("Captcha API Key", "")}
       />
     </StyleRoot>
-  ));
-
-storiesOf("No results", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <NoResults onReset={action(event)} />
-  ));
-
-storiesOf("Number list", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <NumberList list={data.numberList} />
-  ));
-
-storiesOf("Number marker", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <NumberMarker number={number("Number", 4)} />
-  ));
-
-storiesOf("Page header", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <PageHeader
-        heading={text("Title", "Ryman Auditorium")}
-        title={text("Category", "Nashville sights")}
-        titleHref={text("Category URL", "/")}
-        type={text("Type", "Historic building")}
-        place={text("Place", "Nashville")}
-        alignment={select("Alignment", ["", "center"], "center")}
-        topChoice={boolean("Top choice", false)}
-        contained={boolean("Contained", false)}
-        stars={number("Stars", 0)}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Paginator button", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <PaginatorButton
-      direction={select("Arrow direction", ["up", "down", "left", "right"], "up")}
-      arrow={select("Arrow style", ["chevron", "triangle"], "chevron")}
-      size={select("Size", ["medium", "small"], "medium")}
-      shadow={select("Shadow", ["loose", "tight"], "loose")}
-      color={select("Color", ["", "blue"], "")}
-      onClick={action("PaginatorButton clicked")}
-    />
-  ));
-
-storiesOf("Photo gallery", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
+  ))
+  .add("Photo gallery", () => (
     <PhotoGallery
       photos={[
         {
@@ -1826,113 +2861,80 @@ storiesOf("Photo gallery", module)
     />
   ));
 
-storiesOf("Placeholder", module)
+storiesOf("App-specific", module)
   .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Placeholder title={text("Title", "The best place in the world")} />
-  ));
-
-storiesOf("POI Paginator", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <PoiPaginator
-      title={text("Title", "Bademiya")}
-      type={text("Type", "Fusion restaurant")}
-      neighborhood={text("Neighborhood", "Hofburg")}
-      place={text("Place", "Vienna")}
-      topChoice={boolean("Top choice", false)}
+  .add("Amenities - 2-column, single list", () => (
+    <Amenities
+      columns={number("Columns", 2)}
+      listType="single"
+      items={data.amenities.singleList}
     />
-  ));
-
-storiesOf("Price range", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
+  ))
+  .add("Amenities - 3-column, grouped list", () => (
+    <Amenities
+      columns={number("Columns", 3)}
+      listType="grouped"
+      items={data.amenities.groupedList}
+    />
+  ))
+  .add("Article pagination item", () => (
+    <StyleRoot>
+      <ArticlePaginationItem
+        title={text("Title", "Ireland is set to have the world’s largest redwood forest outside of California")}
+        image={text("Image URL", "https://s3.amazonaws.com/static-asset/backpack-ui/article-image.jpg")}
+        imageAlt={text("Image alternate text", "Redwood forest in Ireland")}
+        href={text("URL", "/")}
+        category={text("Category name", "Wildlife and nature")}
+        page={select("Page", {
+          previous: "Previous",
+          next: "Next",
+        }, "previous")}
+        style={{ maxWidth: "50%" }}
+      />
+    </StyleRoot>
+  ))
+  .add("Article pagination nav", () => (
+    <StyleRoot>
+      <ArticlePaginationNav
+        previousArticle={object("Previous article", {
+          title: "Ireland is set to have the world’s largest redwood forest outside of California",
+          image: "https://s3.amazonaws.com/static-asset/backpack-ui/article-image.jpg",
+          imageAlt: "Redwood forest in Ireland",
+          href: "/",
+          category: "Wildlife and nature",
+        })}
+        nextArticle={object("Next article", {
+          title: "See the gorgeous street art along Glasgow’s city centre mural center",
+          image: "https://s3.amazonaws.com/static-asset/backpack-ui/article-image-alt.jpg",
+          imageAlt: "Street art on the side of a building",
+          href: "/",
+          category: "Art and culture",
+        })}
+      />
+    </StyleRoot>
+  ))
+  .add("Multi-step login", () => (
+    <MultiStepWrapper totalSteps={4}>
+      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => (
+        <MultiStepLogin
+          currentStep={currentStep}
+          setStep={setCurrentStep}
+          authActions={{}}
+          showLogo
+          doneAction={() => {}}
+        />
+      )}}
+    </MultiStepWrapper>
+  ))
+  .add("No results", () => (
+    <NoResults onReset={action(event)} />
+  ))
+  .add("Price range", () => (
     <PriceRangeLabel
       value={select("Range", ["$", "$$", "$$$"], "$$")}
     />
-  ));
-
-storiesOf("Profile header", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <ProfileHeader
-      avatarSrc={text("Avatar URL", "https://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
-      name={text("Name", "Rizzo the Rat")}
-      location={text("Location", "Ottawa, Ontario")}
-      website={text("Website URL", "https://www.lonelyplanet.com")}
-      intro={text("Introduction", `The very basic core of a woman’s living spirit is
-        her passion for adventure. The joy of life comes from our encounters with new
-        experiences, and hence there is no greater joy than to have an endlessly changing
-        horizon.`)}
-      interests={array("Interests", [
-        "Family",
-        "Shopping",
-        "Adventure",
-        "Art and architecture",
-        "Food",
-      ])}
-      alignment={select("Alignment", {
-        left: "Left",
-        center: "Center",
-      }, "center")}
-    />
   ))
-  .add("With Markdown", () => (
-    <ProfileHeader
-      avatarSrc={text("Avatar URL", "https://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
-      name={text("Name", "Rizzo the Rat")}
-      location={text("Location", "Ottawa, Ontario")}
-      website={text("Website URL", "https://www.lonelyplanet.com")}
-      intro={text("Introduction", "# Heading \n* List item 1 \n* List item 2 \n* List item 3 \nThe very basic core of a woman’s living spirit is her passion for adventure. \n### Heading \nThe joy of life comes from our encounters with new experiences, and hence there is no greater joy than to have an endlessly changing horizon.")}
-      interests={array("Interests", [
-        "Family",
-        "Shopping",
-        "Adventure",
-        "Art and architecture",
-        "Food",
-      ])}
-      alignment={select("Alignment", {
-        left: "Left",
-        center: "Center",
-      }, "center")}
-    />
-  ));
-
-storiesOf("Promoted guidebook", module)
-  .addDecorator(withKnobs)
-  .add("default", () => (
-    <StyleRoot>
-      <PromotedGuidebook
-        title={text("Title", "Egypt travel guide")}
-        url={text("URL", "https://shop.lonelyplanet.com/egypt/egypt-travel-guide-12/")}
-        imageUrl={text("Image URL", "https://media.lonelyplanet.com/shop/images/9919-Egypt_travel_guide_-_12th_edition_Large.jpg")}
-        price={object("Price", {
-          usd: "27.99",
-        })}
-        description={text("Description", `In spite of political, financial and social
-          turmoil, Egyptians remain  proud and defiant and are as
-          welcoming as ever to visitors to their land.`)}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Provider logo", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <ProviderLogo
-      provider={select("Provider", {
-        bdc: "booking.com",
-        hostelworld: "Hostelworld",
-        opentable: "OpenTable",
-        gadventures: "G Adventures",
-        viator: "Viator",
-      }, "bdc")}
-    />
-  ));
-
-storiesOf("Rating", module)
-  .addDecorator(withKnobs)
-  .add("Icon", () => (
+  .add("Rating - icon", () => (
     <Rating
       amount={select("Amount", [
         0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5,
@@ -1941,7 +2943,7 @@ storiesOf("Rating", module)
       icon
     />
   ))
-  .add("Text", () => (
+  .add("Rating - text", () => (
     <Rating
       provider={select("Provider", {
         bdc: "booking.com",
@@ -1954,11 +2956,8 @@ storiesOf("Rating", module)
       max={number("Maximum amount", 10)}
       description={text("Description", "Great")}
     />
-  ));
-
-storiesOf("Recommended articles", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
+  ))
+  .add("Recommended articles", () => (
     <StyleRoot>
       <RecommendedArticles
         heading={text("heading", "Recommended articles")}
@@ -1988,89 +2987,13 @@ storiesOf("Recommended articles", module)
         ])}
       />
     </StyleRoot>
-  ));
-
-storiesOf("Related tour", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <RelatedTour
-        title="Vienna City by Bike and Boat"
-        slug="/#"
-        image="http://dummyimage.com/630x284/4d494d/686a82.gif"
-        price={{
-          currency: "USD",
-          amount: 2595,
-        }}
-        tripLength="14 days"
-        destination="Kochi to Kolkata"
-        reviews={8}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Reviewed badge", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <ReviewedBadge />
-  ));
-
-storiesOf("Scroll Indicator", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
+  ))
+  .add("Scroll Indicator", () => (
     <ScrollIndicator
       color={color("Color", "#000")}
     />
-  ));
-
-storiesOf("Sectional nav", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <SectionalNav
-        items={[
-          "Experiences",
-          "Articles",
-          "Products",
-          "Destinations",
-          "Tours",
-          "Inspiration",
-          "Books",
-          "Adventures",
-          "Interests",
-        ]}
-        active="Articles"
-        linkToOffset={0}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Section Header", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Center grow>
-      <SectionHeader theme={select("Theme", ["default", "light"], "default")}>
-        {text("title", "Top experiences in Vietnam")}
-      </SectionHeader>
-    </Center>
   ))
-  .add("Light", () => (
-    <Center backgroundColor={colorTokens.textPrimary} grow>
-      <SectionHeader theme={select("Theme", ["default", "light"], "light")}>
-        {text("title", "Top experiences in Vietnam")}
-      </SectionHeader>
-    </Center>
-  ));
-
-storiesOf("Select", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Select options={array("Options", ["USA", "France", "Spain"])} />
-  ));
-
-storiesOf("Setting Block", module)
-  .addDecorator(withKnobs)
-  .add("Text Input Setting", () => (
+  .add("Setting block - text input", () => (
     <div
       style={{
         padding: "16px 24px",
@@ -2086,7 +3009,7 @@ storiesOf("Setting Block", module)
       />
     </div>
   ))
-  .add("Textarea Setting", () => (
+  .add("Setting block - textarea", () => (
     <div
       style={{
         padding: "16px 24px",
@@ -2102,7 +3025,7 @@ storiesOf("Setting Block", module)
       />
     </div>
   ))
-  .add("Checkbox Button Setting", () => (
+  .add("Setting block - checkbox button", () => (
     <div
       style={{
         padding: "16px 24px",
@@ -2123,7 +3046,7 @@ storiesOf("Setting Block", module)
       </ToggleController>
     </div>
   ))
-  .add("Action Button Setting", () => (
+  .add("Setting block - action button", () => (
     <div
       style={{
         padding: "16px 24px",
@@ -2139,7 +3062,7 @@ storiesOf("Setting Block", module)
       />
     </div>
   ))
-  .add("Accordion Setting", () => (
+  .add("Setting block - accordion", () => (
     <div
       style={{
         padding: "16px 24px",
@@ -2175,7 +3098,7 @@ storiesOf("Setting Block", module)
       </ToggleController>
     </div>
   ))
-  .add("Setting List", () => (
+  .add("Setting block - setting list", () => (
     <div
       style={{
         paddingTop: "16px",
@@ -2302,1355 +3225,144 @@ storiesOf("Setting Block", module)
         </SettingBlockListItemWrapper>
       </SettingBlockSection>
     </div>
-  ));
-
-storiesOf("Sights List Item", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <SightsListItem
-      slug="/path/to/item"
-      title="Zimbabwe"
-      subtitle="Southern Africa"
-      markerNumber={1}
-    />
-  )).add("With Image", () => (
-    <SightsListItem
-      slug="/path/to/item"
-      title="Zimbabwe"
-      subtitle="Southern Africa"
-      imgPath="https://s3.amazonaws.com/static-asset/backpack-ui/south-pole.80x60.jpg"
-      markerNumber={1}
-    />
-  ));
-
-storiesOf("Share menu", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <div style={{ padding: "100px 300px" }}>
-      <SocialShareContainer
-        text={text("Text", "Animal islands: seven places where creatures rule")}
-        url={text("URL", "https://www.lonelyplanet.com/asia/travel-tips-and-articles/animal-islands-seven-places-where-creatures-rule")}
-        menuPosition={select("Menu position", ["bottom", "left"], "bottom")}
-        hide={["facebookMessenger", "reddit"]}
-      >
-        {ShareMenu}
-      </SocialShareContainer>
-    </div>
-  ));
-
-storiesOf("Social icon button", module)
-  .addDecorator(withKnobs)
-  .add("Email", () => (
-    <SocialIconButton
-      href="mailto:?subject=&body="
-      onClick={action("Email clicked")}
-      network="email"
-    />
   ))
-  .add("Facebook", () => (
-    <SocialIconButton
-      href="https://www.facebook.com/sharer/sharer.php?u="
-      onClick={action("Facebook clicked")}
-      network="facebook"
-    />
-  ))
-  .add("Facebook Messenger", () => (
-    <SocialIconButton
-      href="fb-messenger://share/?link="
-      onClick={action("Facebook Messenger clicked")}
-      network="facebookMessenger"
-    />
-  ))
-  .add("Reddit", () => (
-    <SocialIconButton
-      href="http://www.reddit.com/submit/?url="
-      onClick={action("Reddit clicked")}
-      network="reddit"
-    />
-  ))
-  .add("Twitter", () => (
-    <SocialIconButton
-      href="https://twitter.com/intent/tweet?text=&url=&via="
-      onClick={action("Twitter clicked")}
-      network="twitter"
-    />
-  ));
-
-storiesOf("Social Login Button", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <SocialLoginButton
-      iconName={select("Icon Name", [
-        "FacebookBlockColor",
-        "GoogleColor",
-        "TwitterColor",
-      ], "FacebookBlockColor")}
-      onClick={action("Handle Log In")}
-    >{text("Text", "Continue with Facebook")}</SocialLoginButton>
-  ));
-
-storiesOf("Social share", module)
-  .addDecorator(withKnobs)
-  .add("Using SocialShareContainer", () => (
-    <SocialShareContainer
-      text={text("Text", "Animal islands: seven places where creatures rule")}
-      url={text("URL", "https://www.lonelyplanet.com/asia/travel-tips-and-articles/animal-islands-seven-places-where-creatures-rule")}
-      headingText={text("Heading text", "Share this article:")}
-    >
-      {SocialShare}
-    </SocialShareContainer>
-  ))
-  .add("Using ShareSettings", () => (
-    <Center backgroundColor="white">
-      <ShareSettings
-        shareContent={{
-          text: "Animal islands: seven places where creatures rule",
-          url: "https://www.lonelyplanet.com/asia/travel-tips-and-articles/animal-islands-seven-places-where-creatures-rule",
-          description: "Wildlife watching is a tricky business. Days can be spent fruitlessly scanning the savannah for lions or holed up in a hide hoping to catch a glimpse of a rare bird. But for travellers with limited time (or patience), there are places where animals are not just easy to spot, they are impossible to miss.",
-          twitterContent: "Wildlife watching is a tricky business @lonelyplanet http://lptravel.to",
-          image: "https://www.lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/01/GettyImages-467445351_medium-1.jpg",
-          via: "lonelyplanet",
-        }}
-      >
-        {(socialActions, socialUrls, ClipboardWrapper) => (
-          <div>
-            <SocialIconButton
-              network="twitter"
-              href={socialUrls.twitter}
-              onClick={(event) => {
-                socialActions.twitter();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
-
-            <SocialIconButton
-              network="facebook"
-              href={socialUrls.facebook}
-              onClick={(event) => {
-                socialActions.facebook();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
-
-            <SocialIconButton
-              network="pinterest"
-              href={socialUrls.pinterest}
-              onClick={(event) => {
-                socialActions.pinterest();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
-
-            <SocialIconButton
-              network="reddit"
-              href={socialUrls.reddit}
-              onClick={(event) => {
-                socialActions.reddit();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
-
-            <SocialIconButton
-              network="email"
-              href={socialUrls.email}
-              onClick={(event) => {
-                socialActions.email();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
-
-            <SocialIconButton
-              network="facebookMessenger"
-              href={socialUrls.facebookMessenger}
-              onClick={(event) => {
-                socialActions.facebookMessenger();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
-
-            <SocialIconButton
-              network="whatsapp"
-              href={socialUrls.whatsapp}
-              onClick={(event) => {
-                socialActions.whatsapp();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
-          </div>
-        )}
-      </ShareSettings>
-    </Center>
-  ));
-
-storiesOf("Sponsor label", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <SponsorLabel>
-      {text("Text", "Sponsored")}
-    </SponsorLabel>
-  ));
-
-storiesOf("Spotlight zone", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <SpotlightZone
-        zone={text("Zone", "Series spotlight")}
-        title={text("Title", "Gaudi, Part 1")}
-        paragraph={text("Paragraph", "Explore the architecture capital of Varcelona with Christa Larwood and witness Antoni Gaudi's beautiful work.")}
-        backgroundImageUrl={text("Background Image URL", "https://s3.amazonaws.com/op-video-sync-dev/poster-5299039063001-a-gorgeous-day-in-the-life-of-cuba-20170130-182935.jpg")}
-        videoEmbed={{
-          videoId: "5615400588001",
-        }}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Static map", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StaticMap
-      location="-86.8595257,35.93225029999999"
-      size="278x90"
-    />
-  ));
-
-storiesOf("Strapline", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Strapline>
-      {text("Text", "Strapline text")}
-    </Strapline>
-  ));
-
-storiesOf("Switch", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Center backgroundColor="white">
-      <Switch
-        id={text("ID", "privacy-control")}
-        name={text("Name", "privacy_control")}
-        className={text("Classname", null)}
-        value={text("Value", "private")}
-        checked={boolean("Checked", false)}
-        onClick={action("Switch toggled")}
-      />
-    </Center>
-  ));
-
-storiesOf("Tabbed nav", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <TabbedNav
-        items={[
-          "Latest",
-          "Europe",
-          "Asia",
-          "Australia & the Pacific",
-          "North America",
-          "Central & South America",
-          "Middle East & Africa",
-          "World",
-        ]}
-        active="Latest"
-        onClick={action("Tab clicked")}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Tabs", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Tabs
-      id="tabbedNavigation"
-      navigationHeight={number("Navigation height", 80)}
-      navigationSticky={boolean("Sticky navigation", false)}
-    >
-      <Tab label="Experiences" active>Experiences tab content</Tab>
-      <Tab label="Map">Map tab content</Tab>
-      <Tab label="Articles">Articles tab content</Tab>
-      <Tab label="Interests">Interests tab content</Tab>
-      <Tab label="Books">Books tab content</Tab>
-      <Tab label="Adventures">Adventures tab content</Tab>
-    </Tabs>
-  ));
-
-storiesOf("Tag", module)
-  .addDecorator(withKnobs)
-  .add("Anchor", () => (
-    <Tag
-      href={text("URL", "#")}
-      selected={boolean("Selected", false)}
-    >
-      {text("Text", "The Americas")}
-    </Tag>
-  ))
-  .add("Button", () => (
-    <Tag
-      onClick={action("Tag clicked")}
-      selected={boolean("Selected", false)}
-    >
-      {text("Text", "The Americas")}
-    </Tag>
-  ))
-  .add("No click", () => (
-    <Tag selected={boolean("Selected", false)}>
-      {text("Text", "The Americas")}
-    </Tag>
-  ));
-
-storiesOf("Tag list", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <TagList
-      limit={number("Limit", 3)}
-    >
-      <Tag href="#" selected>All</Tag>
-      <Tag href="#">The Americas</Tag>
-      <Tag href="#">World</Tag>
-      <Tag href="#">Asia & the Pacific</Tag>
-      <Tag href="#">Europe</Tag>
-      <Tag href="#">Middle East & Africa</Tag>
-    </TagList>
-  ));
-
-storiesOf("Tall Carousel", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <TallCarousel
-      slides={[{
-        type: "Backpacking",
-        link: "/link/to/interests",
-        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/94232973a6a367b54ea29dbb3a708cff-europe.jpg?h=768&sharp=10&vib=20",
-      }, {
-        type: "Nature & wildlife",
-        link: "/link/to/interest",
-        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/a795bb0b47f601ea3538da736067452c-africa.jpg?h=768&sharp=10&vib=20",
-      }, {
-        type: "Romance",
-        link: "/link/to/interest",
-        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/35147e2699667519619575ba272f60e1-europe.jpg?h=768&sharp=10&vib=20",
-      }, {
-        type: "Adventure",
-        link: "/link/to/interest",
-        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/57c5143d7297c21181c522eee9e3b05e-europe.jpg?h=768&sharp=10&vib=20",
-      }]}
-    />
-  ));
-
-storiesOf("Text", module)
-  .addDecorator(withKnobs)
-  .add("Accent", () => (
-    <TextAccent>
-      {text("Text", "Lorem ipsum dolor sit amet")}
-    </TextAccent>
-  ))
-  .add("Body article", () => (
-    <TextBodyArticle>
-      {text("Text", `Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit. Aenean sed
-        mauris sit amet massa interdum bibendum.
-        Ut ac ex leo. Cras blandit enim ut metus
-        feugiat, vitae pharetra massa aliquet.`)}
-    </TextBodyArticle>
-  ))
-  .add("Body small", () => (
-    <TextBodySmall>
-      {text("Text", `Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit. Aenean sed
-        mauris sit amet massa interdum bibendum.
-        Ut ac ex leo. Cras blandit enim ut metus
-        feugiat, vitae pharetra massa aliquet.`)}
-    </TextBodySmall>
-  ))
-  .add("Heading", () => (
-    <TextHeading
-      level={select("Level", [1, 2, 3, 4, 5, 6], 2)}
-      size={select("Size", [1, 2, 3, 4, 5, 6, 7, 8], 2)}
-      weight={select("Weight", {
-        light: "Light",
-        regular: "Regular",
-        medium: "Medium",
-      }, "regular")}
-    >
-      {text("Text", "Lorem ipsum")}
-    </TextHeading>
-  ))
-  .add("Super", () => (
-    <TextSuper>
-      {text("Text", "Lorem ipsum")}
-    </TextSuper>
-  ))
-  .add("Uppercase", () => (
-    <TextUppercase>
-      {text("Text", "Lorem ipsum")}
-    </TextUppercase>
-  ));
-
-storiesOf("Text bubble", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <TextBubble>{text("Text", "44 mins")}</TextBubble>
-  ));
-
-storiesOf("Textarea", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Center backgroundColor="white">
-      <Textarea />
-    </Center>
-  ))
-  .add("Autogrow", () => (
-    <Center backgroundColor="white">
-      <Textarea
-        maxLines={number("Maximum lines", 3)}
-        disableEnter={boolean("Disable enter", false)}
-        autogrow
-      />
-    </Center>
-  ));
-
-storiesOf("Thumbnail list", module)
-  .addDecorator(withKnobs)
-  .add("Light", () => (
-    <StyleRoot>
-      <ThumbnailList
-        heading={text("Title", "Featured videos")}
-        theme="light"
-      >
-        <ThumbnailListItem
-          title="List item 1"
-          theme="light"
-          imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
-        />
-        <ThumbnailListItem
-          title="List item 2"
-          theme="light"
-          imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
-        />
-        <ThumbnailListItem
-          title="List item 3"
-          theme="light"
-          imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
-        />
-      </ThumbnailList>
-    </StyleRoot>
-  ))
-  .add("Dark", () => (
-    <StyleRoot>
-      <div style={{ backgroundColor: "#1f1f1f" }}>
-        <ThumbnailList
-          heading={text("Title", "Featured videos")}
-          theme="dark"
-        >
-          <ThumbnailListItem
-            title="List item 1"
-            theme="dark"
-            imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
-          />
-          <ThumbnailListItem
-            title="List item 2"
-            theme="dark"
-            imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
-          />
-          <ThumbnailListItem
-            title="List item 3"
-            theme="dark"
-            imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
-          />
-        </ThumbnailList>
-      </div>
-    </StyleRoot>
-  ));
-
-storiesOf("Thumbnail list item", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <ThumbnailListItem
-        title={text("Title", "The shop")}
-        subtitle={array("Subtitle", ["Item 3", "Item 4"])}
-        runtime={number("Video runtime", 129365)}
-        imagePath={text("Image path", "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FYXJ0YW5kY3VsdHVyZS5qcGdTYXQgRGVjIDE3IDIwMTYgMjE6MDA6MDUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=60&sharp=10&fit=crop&w=180")}
-        status={text("Status", "Status")}
-        description={array("Description", ["Item 1", "Item 2"])}
-        descriptionIcon={text("Description icon", "Clock")}
-        descriptionIconLabel={text("Description icon label", "Watch later")}
-        onDescriptionIconClick={action("Action for icon")}
-        imageIcon={text("Image icon", "Play")}
-        imageIconLabel={text("Image icon label", "Play")}
-        theme={select("Theme", ["light", "dark"], "light")}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Tiles", module)
-  .addDecorator(withKnobs)
-  .add("Video tile", () => (
-    <StyleRoot>
-      <div style={{ padding: "32px", width: "400px" }}>
-        <TileVideo
-          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-          bullets={array("Bullets", ["On The Road", "E.01"])}
-          runtime={number("Video runtime", 129365)}
-          onClick={action("Watch this video later")}
-          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-          href={text("URL", "#")}
-        />
-      </div>
-    </StyleRoot>
-  ))
-  .add("Video poster tile", () => (
-    <StyleRoot>
-      <div style={{ padding: "32px" }}>
-        <TileVideoPoster
-          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-          href={text("URL", "#")}
-          description={text("Year", "2016")}
-        />
-      </div>
-    </StyleRoot>
-  ));
-
-storiesOf("Video tile grid", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <TileGrid>
-        <TileVideo
-          className="Tile"
-          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-          bullets={array("Bullets", ["On The Road", "E.01"])}
-          runtime={number("Video runtime", 129365)}
-          onClick={action("Watch this video later")}
-          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-          href={text("URL", "#")}
-        />
-
-        <TileVideo
-          className="Tile"
-          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-          bullets={array("Bullets", ["On The Road", "E.01"])}
-          runtime={number("Video runtime", 129365)}
-          onClick={action("Watch this video later")}
-          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-          href={text("URL", "#")}
-        />
-
-        <TileVideo
-          className="Tile"
-          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-          bullets={array("Bullets", ["On The Road", "E.01"])}
-          runtime={number("Video runtime", 129365)}
-          onClick={action("Watch this video later")}
-          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-          href={text("URL", "#")}
-        />
-
-        <TileVideo
-          className="Tile"
-          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-          bullets={array("Bullets", ["On The Road", "E.01"])}
-          runtime={number("Video runtime", 129365)}
-          onClick={action("Watch this video later")}
-          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-          href={text("URL", "#")}
-        />
-
-        <TileVideo
-          className="Tile"
-          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-          bullets={array("Bullets", ["On The Road", "E.01"])}
-          runtime={number("Video runtime", 129365)}
-          onClick={action("Watch this video later")}
-          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-          href={text("URL", "#")}
-        />
-
-        <TileVideo
-          className="Tile"
-          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-          bullets={array("Bullets", ["On The Road", "E.01"])}
-          runtime={number("Video runtime", 129365)}
-          onClick={action("Watch this video later")}
-          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-          href={text("URL", "#")}
-        />
-      </TileGrid>
-    </StyleRoot>
-  ))
-  .add("Swiper", () => (
-    <StyleRoot>
-      <div style={{ padding: "32px" }}>
-        <CardShelfVideoSwiper heading="Food and drink" href="/" slidesVisible={4}>
-          <TileVideoPoster
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-            href={text("URL", "#")}
-            description={text("Year", "2016")}
-          />
-
-          <TileVideoPoster
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-            href={text("URL", "#")}
-            description={text("Year", "2016")}
-          />
-
-          <TileVideoPoster
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-            href={text("URL", "#")}
-            description={text("Year", "2016")}
-          />
-
-          <TileVideoPoster
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-            href={text("URL", "#")}
-            description={text("Year", "2016")}
-          />
-
-          <TileVideoPoster
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-            href={text("URL", "#")}
-            description={text("Year", "2016")}
-          />
-
-          <TileVideoPoster
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-            href={text("URL", "#")}
-            description={text("Year", "2016")}
-          />
-
-          <TileVideoPoster
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-            href={text("URL", "#")}
-            description={text("Year", "2016")}
-          />
-
-          <TileVideoPoster
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-            href={text("URL", "#")}
-            description={text("Year", "2016")}
-          />
-        </CardShelfVideoSwiper>
-      </div>
-    </StyleRoot>
-  ));
-
-storiesOf("Timestamp", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Timestamp
-      dateTime={text("Absolute time", "2017-01-17")}
-    >
-      {text("Relative time", "3 days ago")}
-    </Timestamp>
-  ));
-
-storiesOf("Toast", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Center grow>
-      <Toast
-        type={select("Type", {
-          error: "Error",
-          info: "Info",
-          success: "Success",
-          warning: "Warning",
-        }, "success")}
-        direction={select("Animate from", {
-          bottom: "Bottom",
-          top: "Top",
-        }, "bottom")}
-        title={text("Title", "")}
-        visible={boolean("Visible", true)}
-        affixed={boolean("Affixed", false)}
-        onClose={action("Function to dismiss toast")}
-      >
-        {text("Message", "Toast message displayed here. It can span multiple lines.")}
-      </Toast>
-    </Center>
-  ))
-  .add("With onClick action", () => (
-    <Center grow>
-      <Toast
-        type={select("Type", {
-          error: "Error",
-          info: "Info",
-          success: "Success",
-          warning: "Warning",
-        }, "success")}
-        direction={select("Animate from", {
-          bottom: "Bottom",
-          top: "Top",
-        }, "bottom")}
-        title={text("Title", "")}
-        visible={boolean("Visible", true)}
-        affixed={boolean("Affixed", false)}
-        onClick={action("Some action")}
-        buttonLabel="Action"
-      >
-        {text("Message", "Toast message displayed here. It can span multiple lines.")}
-      </Toast>
-    </Center>
-  ))
-  .add("With url link action", () => (
-    <Center grow>
-      <Toast
-        type={select("Type", {
-          error: "Error",
-          info: "Info",
-          success: "Success",
-          warning: "Warning",
-        }, "success")}
-        direction={select("Animate from", {
-          bottom: "Bottom",
-          top: "Top",
-        }, "bottom")}
-        title={text("Title", "")}
-        visible={boolean("Visible", true)}
-        affixed={boolean("Affixed", false)}
-        url={text("Link URL", "https://www.lonelyplanet.com")}
-        buttonLabel="Link Out"
-      >
-        {text("Message", "Toast message displayed here. It can span multiple lines.")}
-      </Toast>
-    </Center>
-  ));
-
-storiesOf("Tooltip", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Tooltip
-      label="Mouseover me"
-      flyout={{
-        arrow: "down",
-        size: "medium",
-        removePadding: false,
-        shadow: "large",
-        style: {
-          bottom: "40px",
-          left: 0,
-          position: "absolute",
-        },
-      }}
-    >
-      Tooltip content
-    </Tooltip>
-  ));
-
-storiesOf("Tour itinerary", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
+  .add("Tour itinerary", () => (
     <TourItinerary
       itinerary={data.tour.itinerary}
       link="/"
     />
   ));
 
-storiesOf("Travel alert", module)
+storiesOf("Deprecated", module)
   .addDecorator(withKnobs)
-  .add("Default", () => (
-    <TravelAlert>
-      {text("Text", "The US Center for Disease Control <a href=\"http://www.cdc.gov/zika/geo/active-countries.html\">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.")}
-    </TravelAlert>
-  ));
-
-storiesOf("Typeahead", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <Typeahead
-      options={data.typeaheadPlaces}
-      placeholder="Select a place to go"
+  .add("Form input - deprecated", () => (
+    <FormInput
+      placeholder={text("Placeholder", "johndoe@gmail.com")}
+      error={boolean("Has Error", false)}
+      theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
     />
   ))
-  .add("Tokenizer", () => (
-    <TypeaheadTokenizer
-      options={data.travelInterests}
-      placeholder="Select your travel interests"
+  .add("Form textarea - deprecated", () => (
+    <FormTextArea
+      placeholder={text("Placeholder", "johndoe@gmail.com")}
+      error={boolean("Has Error", false)}
+      theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
+      autogrow={boolean("Autogrow", false)}
     />
-  ));
-
-storiesOf("Type selector", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
+  ))
+  .add("Grid - deprecated", () => (
     <StyleRoot>
-      <TypeSelector
-        title="Activities"
-        menuItems={[
-          { item: "Hotels", slug: "#" },
-          { item: "Restaurants", slug: "#" },
-          { item: "Sights", slug: "#" },
-          { item: "Entertainment", slug: "#" },
-          { item: "Activities", slug: "#" },
-          { item: "Tours", slug: "#" },
-          { item: "Articles", slug: "#" },
-          { item: "News", slug: "#" },
-        ]}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Video card shelf", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <div style={{ padding: "32px" }}>
-        <CardShelfVideo heading="Food and drink" href="/">
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-            href={text("URL", "#")}
-            layout={select("Layout", ["card", "tile"], "card")}
-            style={{width: "400px"}}
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout={select("Layout", ["card", "tile"], "card")}
-            style={{width: "400px"}}
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout={select("Layout", ["card", "tile"], "card")}
-            style={{width: "400px"}}
-          />
-        </CardShelfVideo>
-      </div>
-    </StyleRoot>
-  )).add("Swiper", () => (
-    <StyleRoot>
-      <div style={{ padding: "32px" }}>
-        <CardShelfVideoSwiper heading="Food and drink" href="/">
-          <CardVideo
-            heading={text("Heading", "High Sierra ")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-            href={text("URL", "#")}
-            layout="card"
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="card"
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="card"
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="card"
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="card"
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="card"
-          />
-        </CardShelfVideoSwiper>
-      </div>
-    </StyleRoot>
-  )).add("Slider", () => (
-    <StyleRoot>
-      <div style={{ padding: "32px" }}>
-        <CardShelfVideoSlider
-          heading="Food and drink"
-          href="/"
-          theme={select("Theme", ["light", "dark"], "light")}
-          spacing={select("Spacing", ["normal", "compact"], "compact")}
-        >
-          <CardVideo
-            heading={text("Heading", "High Sierra ")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-            href={text("URL", "#")}
-            layout="tile"
-            theme={select("Theme", ["light", "dark"], "light")}
-            spacing={select("Spacing", ["normal", "compact"], "compact")}
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="tile"
-            theme={select("Theme", ["light", "dark"], "light")}
-            spacing={select("Spacing", ["normal", "compact"], "compact")}
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="tile"
-            theme={select("Theme", ["light", "dark"], "light")}
-            spacing={select("Spacing", ["normal", "compact"], "compact")}
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="tile"
-            theme={select("Theme", ["light", "dark"], "light")}
-            spacing={select("Spacing", ["normal", "compact"], "compact")}
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="tile"
-            theme={select("Theme", ["light", "dark"], "light")}
-            spacing={select("Spacing", ["normal", "compact"], "compact")}
-          />
-
-          <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-            bullets={array("Bullets", ["On The Road", "E.01"])}
-            runtime={number("Video runtime", 129365)}
-            onClick={action("Watch this video later")}
-            imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-            href={text("URL", "#")}
-            layout="tile"
-            theme={select("Theme", ["light", "dark"], "light")}
-            spacing={select("Spacing", ["normal", "compact"], "compact")}
-          />
-        </CardShelfVideoSlider>
-      </div>
-    </StyleRoot>
-  ));
-
-storiesOf("Video embed", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <div style={{ maxHeight: "100%", height: "400px" }}>
-        <VideoEmbed
-          videoId={select("Video ID", [
-            "5363317250001",
-            "5184494924001",
-            "5615400588001"],
-            "5363317250001")
-          }
-          playerName={select("Player name", [
-            "default",
-            "background",
-            "bestintravel",
-            "destination"],
-            "default")
-          }
-          autoplay={boolean("Autoplay", false)}
-          cover={boolean("Cover", false)}
-          controls={boolean("Controls", true)}
-          muted={boolean("Muted", false)}
-          loop={boolean("Loop", false)}
-          visible={boolean("Visible", true)}
-          visibleWhileNotPlaying={boolean("Visible while not playing", true)}
-          previewMode={boolean("Preview mode", false)}
-          previewStartTime={number("Preview start time", 0)}
-          previewEndTime={number("Preview end time", 5)}
-        />
-      </div>
+      <Container>
+        <GridRow>
+          <GridColumn sm={1} style={{ backgroundColor: "#eee" }}>sm=1</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={2} style={{ backgroundColor: "#eee" }}>sm=2</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={3} style={{ backgroundColor: "#eee" }}>sm=3</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={4} style={{ backgroundColor: "#eee" }}>sm=4</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={5} style={{ backgroundColor: "#eee" }}>sm=5</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={6} style={{ backgroundColor: "#eee" }}>sm=6</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={7} style={{ backgroundColor: "#eee" }}>sm=7</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={8} style={{ backgroundColor: "#eee" }}>sm=8</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={9} style={{ backgroundColor: "#eee" }}>sm=9</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={10} style={{ backgroundColor: "#eee" }}>sm=10</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={11} style={{ backgroundColor: "#eee" }}>sm=11</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={12} style={{ backgroundColor: "#eee" }}>sm=12</GridColumn>
+        </GridRow>
+      </Container>
+      <br /><br />
+      <Container style={{ textAlign: "right" }}>
+        <GridRow>
+          <GridColumn sm={1} smShift={11} style={{ backgroundColor: "#eee" }}>sm=1, smShift=11</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={2} smShift={10} style={{ backgroundColor: "#eee" }}>sm=2, smShift=10</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={3} smShift={9} style={{ backgroundColor: "#eee" }}>sm=3, smShift=9</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={4} smShift={8} style={{ backgroundColor: "#eee" }}>sm=4, smShift=8</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={5} smShift={7} style={{ backgroundColor: "#eee" }}>sm=5, smShift=7</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={6} smShift={6} style={{ backgroundColor: "#eee" }}>sm=6, smShift=6</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={7} smShift={5} style={{ backgroundColor: "#eee" }}>sm=7, smShift=5</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={8} smShift={4} style={{ backgroundColor: "#eee" }}>sm=8, smShift=4</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={9} smShift={3} style={{ backgroundColor: "#eee" }}>sm=9, smShift=3</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={10} smShift={2} style={{ backgroundColor: "#eee" }}>sm=10, smShift=2</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={11} smShift={1} style={{ backgroundColor: "#eee" }}>sm=11, smShift=1</GridColumn>
+        </GridRow>
+        <GridRow>
+          <GridColumn sm={12} style={{ backgroundColor: "#eee" }}>sm=12</GridColumn>
+        </GridRow>
+      </Container>
     </StyleRoot>
   ))
-  .add("Play when in view", () => (
+  .add("Heading - deprecated", () => (
+    <Heading
+      level={select("Level", [1, 2, 3, 4, 5, 6], 2)}
+      size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
+      weight={select("Weight", ["thin", "normal", "thick"], "normal")}
+      importance={select("Importance", ["low", "normal", "high", "alert"], "normal")}
+      tracking={select("Tracking", ["loose", "normal", "tight"], "normal")}
+      caps={boolean("Capitalized", false)}
+    >
+      {text("Text", "Heading text")}
+    </Heading>
+  ))
+  .add("Narrative - deprecated", () => (
     <StyleRoot>
-      <div style={{height: "2000px"}}>
-        <i style={{position: "fixed", fontSize: "12px"}}>
-          scroll down to see state changes
-        </i>
-        <VideoEmbed
-          style={{position: "relative", top: "800px", height: "300px"}}
-          videoId="5363317250001"
-          playWhenInView
-        />
-      </div>
-    </StyleRoot>
-  ));
-
-storiesOf("Video info", module)
-  .addDecorator(withKnobs)
-  .add("Light", () => (
-    <StyleRoot>
-      <VideoInfo
-        fadeIn={boolean("Fade in", true)}
-        theme="light"
-        mobile={boolean("Mobile", false)}
-        headingLevel={number("Heading level", 2)}
-        video={{
-          name: "Ask Lonely Planet: how to escape the Middle East?",
-          description: "Want to see the Syria wilderness?<br /><i>Ready to go? Check out <a href=\"http://shop.lonelyplanet.com/iceland/icelands-ring-road-trips-1/\">Ring Road road trips</a>.</i>",
-          url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
-          host: "Tom Hall and Oliver Smith",
-          director: "Macca Sheriffi",
-          year: "2017",
-          relatedChannels: [
-            {
-              name: "Adventure Travel",
-              url: "https://www.lonelyplanet.com/video/adventure/v/cha/1",
-            },
-            {
-              name: "Best in Travel 2018",
-              url: "https://www.lonelyplanet.com/video/best-in-travel-2018/v/cha/10",
-            },
-          ]
-        }}
+      <Narrative
+        heading={text("Heading", "Walking into the Sacher is like turning back the clocks 100 years.")}
+        htmlContent={text("HTML content", `<p>The reception, with its dark-wood panelling, deep red shades
+          and heavy gold chandelier, is reminiscent of an expensive fin de siècle
+          bordello. The smallest rooms are surprisingly large and suites are truly
+          palatial. Junior suites/doubles cost from €480 to €1350.</p>
+          <p>As well as extras like original oil paintings throughout and a tiny
+          cube of the hotel’s famous Sacher Torte on arrival, there's a hi-tech
+          spa complex, with herbal sauna, ice fountain and fitness room.</p>`)}
+        author={object("Author", {
+          name: "Tim Plaum",
+          title: "Lonely Planet Editor",
+          avatarSrc: "",
+          href: "",
+        })}
       />
     </StyleRoot>
   ))
-  .add("Dark", () => (
-    <StyleRoot>
-      <div style={{ backgroundColor: "#1f1f1f" }}>
-        <VideoInfo
-          fadeIn={boolean("Fade in", true)}
-          theme="dark"
-          mobile={boolean("Mobile", false)}
-          headingLevel={number("Heading level", 2)}
-          video={{
-            name: "Ask Lonely Planet: how to escape the Middle East?",
-            description: "Want to see the Syria wilderness?<br /><i>Ready to go? Check out <a href=\"http://shop.lonelyplanet.com/iceland/icelands-ring-road-trips-1/\">Ring Road road trips</a>.</i>",
-            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
-            host: "Tom Hall and Oliver Smith",
-            director: "Macca Sheriffi",
-            year: "2017",
-            relatedChannels: [
-              {
-                name: "Adventure Travel",
-                url: "https://www.lonelyplanet.com/video/adventure/v/cha/1",
-              },
-              {
-                name: "Best in Travel 2018",
-                url: "https://www.lonelyplanet.com/video/best-in-travel-2018/v/cha/10",
-              },
-            ]
-          }}
-        />
-      </div>
-    </StyleRoot>
-  ));
-
-storiesOf("Video playlist", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <VideoPlaylist
-        heading={text("Heading", "Featured videos")}
-        autoplay={boolean("Autoplay", false)}
-        mobile={boolean("Mobile", false)}
-        videos={[
-          {
-            id: "5615400608001",
-            name: "Video name 1",
-            description: "Video description 1",
-            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
-            duration: 10000,
-          },
-          {
-            id: "5615400604001",
-            name: "Video name 2",
-            description: "Video description 2",
-            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
-            duration: 20000,
-          },
-          {
-            id: "5615377178001",
-            name: "Video name 3",
-            description: "Video description 3",
-            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
-            duration: 30000,
-          },
-          {
-            id: "5615348695001",
-            name: "Video name 4",
-            description: "Video description 4",
-            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
-            duration: 40000,
-          },
-          {
-            id: "5615400596001",
-            name: "Video name 5",
-            description: "Video description 5",
-            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
-            duration: 50000,
-          },
-          {
-            id: "5615409475001",
-            name: "Video name 6",
-            description: "Video description 6",
-            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
-            duration: 60000,
-          },
-        ]}
-      />
-    </StyleRoot>
-  ))
-  .add("With Slider", () => (
-    <StyleRoot>
-      <VideoPlaylistWithSlider
-        heading={text("Heading", "Featured videos")}
-        sliderHeading={text("Slider heading", "Featured")}
-        visibleVideosDesktop={number("Visible videos (desktop)", 6)}
-        visibleVideosMobile={number("Visible videos (mobile)", 4)}
-        autoplay={boolean("Autoplay", false)}
-        showVideoInfo={boolean("Show video info", true)}
-        mobile={boolean("Mobile", false)}
-        videos={[
-          {
-            id: "5615400608001",
-            name: "Video name 1",
-            description: "Video description 1",
-            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
-            duration: 10000,
-            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
-            host: "Tom Hall and Oliver Smith 1",
-            director: "Macca Sheriffi 1",
-            year: "2017",
-            cardActionIcon: "ClockOutline",
-          },
-          {
-            id: "5615400604001",
-            name: "Video name 2",
-            description: "Video description 2",
-            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
-            duration: 20000,
-            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
-            host: "Tom Hall and Oliver Smith 2",
-            director: "Macca Sheriffi 2",
-            year: "2017",
-            cardActionIcon: "ClockOutline",
-          },
-          {
-            id: "5615377178001",
-            name: "Video name 3",
-            description: "Video description 3",
-            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
-            duration: 30000,
-            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
-            host: "Tom Hall and Oliver Smith 3",
-            director: "Macca Sheriffi 3",
-            year: "2017",
-            cardActionIcon: "ClockOutline",
-          },
-          {
-            id: "5615348695001",
-            name: "Video name 4",
-            description: "Video description 4",
-            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
-            duration: 40000,
-            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
-            host: "Tom Hall and Oliver Smith 4",
-            director: "Macca Sheriffi 4",
-            year: "2017",
-            cardActionIcon: "ClockOutline",
-          },
-          {
-            id: "5615400596001",
-            name: "Video name 5",
-            description: "Video description 5",
-            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
-            duration: 50000,
-            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
-            host: "Tom Hall and Oliver Smith 5",
-            director: "Macca Sheriffi 5",
-            year: "2017",
-            cardActionIcon: "ClockOutline",
-          },
-          {
-            id: "5615409475001",
-            name: "Video name 6",
-            description: "Video description 6",
-            image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
-            thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
-            duration: 60000,
-            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
-            host: "Tom Hall and Oliver Smith 6",
-            director: "Macca Sheriffi 6",
-            year: "2017",
-            cardActionIcon: "ClockOutline",
-          },
-        ]}
-      />
-    </StyleRoot>
-  ));
-
-  storiesOf("Video Slider", module)
-    .addDecorator(withKnobs)
-    .add("Default", () => {
-      const styles = {
-        container: {
-          padding: "20px",
-        },
-        arrow: {
-          default: {
-            backgroundColor: "#1e7bcc",
-            color: "white",
-            paddingLeft: "6px",
-            position: "relative",
-            width: "20px",
-          },
-          next: {
-            right: "20px",
-          },
-        },
-        slide: {
-          backgroundColor: "black",
-          color: "white",
-        },
-      };
-      return (
-        <StyleRoot>
-          <div style={styles.container}>
-            <VideoSlider
-              slidesToShow={number("Slides to show", 4, {
-                 range: true,
-                 min: 1,
-                 max: 4,
-                 step: 1,
-              })}
-              infinite={boolean("Infinite", false)}
-              autoplay={boolean("Autoplay", false)}
-              autoplaySpeed={number("Autoplay speed", 5000)}
-              pauseOnHover={boolean("Pause on hover", true)}
-              arrows={boolean("Arrows", true)}
-            >
-              <div key="1" style={styles.slide}>Slide 1</div>
-              <div key="2" style={styles.slide}>Slide 2</div>
-              <div key="3" style={styles.slide}>Slide 3</div>
-              <div key="4" style={styles.slide}>Slide 4</div>
-              <div key="5" style={styles.slide}>Slide 5</div>
-              <div key="6" style={styles.slide}>Slide 6</div>
-            </VideoSlider>
-          </div>
-        </StyleRoot>
-      );
-    });
-
-storiesOf("Video popout", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <div style={{height: "2000px"}}>
-        <i style={{position: "fixed", fontSize: "12px"}}>
-          scroll down to see state changes
-        </i>
-        <VideoPopout
-          style={{position: "relative", top: "800px", height: "300px"}}
-          mobile={boolean("Mobile", false)}
-          videoEmbed={{
-            videoId: "5615445675001",
-            autoplay: true,
-            muted: true,
-            loop: true,
-          }}
-        />
-      </div>
-    </StyleRoot>
-  ));
-
-storiesOf("Video up next", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <VideoUpNext
-        title={text("Title", "Lonely Planet's best destinations to visit in 2018")}
-        image="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=430&h=250&fit=crop"
-        href="https://www.lonelyplanet.com/video/lonely-planets-best-destinations-to-visit-in-2018/v/vid/542"
-        visible={boolean("Visible", true)}
-      />
-    </StyleRoot>
+  .add("Reviewed badge - deprecated", () => (
+    <ReviewedBadge />
   ));
