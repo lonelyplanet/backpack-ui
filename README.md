@@ -1,4 +1,5 @@
 ![](https://travis-ci.org/lonelyplanet/backpack-ui.svg?branch=master)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 # backpack-ui
 Every adventurer needs a set of tools to take along the way! Backpack is the Lonely Planet toolset that we use to build front end
