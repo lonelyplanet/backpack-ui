@@ -2,11 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import propTypes from "../../utils/propTypes";
+import zIndex from "../../styles/zIndex";
 
 const styles = {
   container: {
     flexBasis: "60%",
     paddingBottom: "16px",
+    zIndex: zIndex.below,
   },
 };
 

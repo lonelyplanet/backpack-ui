@@ -317,7 +317,7 @@ storiesOf("Buttons", module)
   // Button
   .add("Button - primary", () => (
     <Button
-      color={select("Color", ["blue", "white", "gray", "transparent"], "blue")}
+      color={select("Color", ["blue", "white", "gray", "red", "transparent"], "blue")}
       size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
       border={boolean("Border", true)}
       disabled={boolean("Disabled", false)}

@@ -24,6 +24,11 @@ const hoverStyles = {
     color: lighten(colors.linkPrimary, 14),
   },
 
+  red: {
+    backgroundColor: lighten(colors.accentRed, 7),
+    color: colors.bgPrimary,
+  },
+
   gray: {
     backgroundColor: colors.bgPrimary,
     color: lighten(colors.textPrimary, 100),
@@ -92,6 +97,16 @@ const styles = {
       ":hover": hoverStyles.white,
       ":focus": hoverStyles.white,
       ":active": hoverStyles.white,
+    },
+
+    red: {
+      backgroundColor: colors.accentRed,
+      color: colors.textOverlay,
+      boxShadow: `0 0 0 1px ${colors.accentRed} inset`,
+
+      ":hover": hoverStyles.red,
+      ":focus": hoverStyles.red,
+      ":active": hoverStyles.red,
     },
 
     transparent: {
@@ -250,6 +265,7 @@ Button.propTypes = {
     "blue",
     "white",
     "gray",
+    "red",
     "transparent",
   ]),
 
