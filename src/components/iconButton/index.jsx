@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import upperFirst from "lodash/upperFirst";
-import uniqueId from "lodash/uniqueId";
-import cn from "classnames";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import { lineHeightReset } from "../../styles/typography";
@@ -13,7 +11,7 @@ import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 
-const _ = { upperFirst, uniqueId };
+const _ = { upperFirst };
 
 const styles = {
   container: {
@@ -68,132 +66,131 @@ const fontSize = {
   56: 24,
 };
 
-class IconButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.id = _.uniqueId("IconButton");
+function IconButton({
+  iconName,
+  label,
+  id,
+  className,
+  href,
+  onClick,
+  size,
+  owns,
+  backgroundColor,
+  color,
+  hoverBackgroundColor,
+  hoverBackgroundScale,
+  hoverColor,
+  border,
+  shadow,
+  transitionDuration,
+  style,
+}) {
+  const Element = href ? "a" : "button";
+  const role = Element === "a" ? "button" : null;
+  const dimensions = {
+    height: `${size}px`,
+    width: `${size}px`,
+  };
+
+  let hoverBackgroundColorClassName = "";
+  if (hoverBackgroundColor) {
+    hoverBackgroundColorClassName = `IconButton-hoverBackgroundColor-${hoverBackgroundColor.replace(/\W+/g, "")}`;
   }
 
-  render() {
-    const {
-      iconName,
-      label,
-      id,
-      className,
-      href,
-      onClick,
-      size,
-      owns,
-      backgroundColor,
-      color,
-      hoverBackgroundColor,
-      hoverBackgroundScale,
-      hoverColor,
-      border,
-      shadow,
-      transitionDuration,
-      style,
-    } = this.props;
+  let hoverBackgroundScaleClassName = "";
+  if (hoverBackgroundScale) {
+    hoverBackgroundScaleClassName = `IconButton-hoverBackgroundScale-${String(hoverBackgroundScale).replace(".", "_")}`;
+  }
 
-    const Element = href ? "a" : "button";
-    const role = Element === "a" ? "button" : null;
-    const elementId = id || this.id;
-    const dimensions = {
-      fontSize: fontSize[size],
-      height: `${size}px`,
-      width: `${size}px`,
-    };
+  const shadowClassName = shadow ? "IconButton-shadow" : "";
 
-    return (
-      <Element
-        id={elementId}
-        className={cn("IconButton", className)}
-        style={[
-          styles.container,
-          { transition: `color ${transitionDuration}` },
-          dimensions,
-          color && { color },
-          hoverColor && { ":hover": { color: hoverColor } },
-          style,
-        ]}
-        href={href}
-        onClick={onClick}
-        role={role}
-        title={label}
-        aria-label={label}
-        aria-owns={owns}
-      >
+  const classNames = [
+    "IconButton",
+    className || "",
+    hoverBackgroundColorClassName,
+    hoverBackgroundScaleClassName,
+    shadowClassName,
+  ];
 
-        {hoverBackgroundColor &&
-          <Style
-            scopeSelector={`#${elementId}:hover`}
-            rules={{
-              [`.${cn("IconButton", className)}-background`]: {
-                backgroundColor: `${hoverBackgroundColor} !important`,
-              },
-            }}
-          />
-        }
+  return (
+    <Element
+      id={id}
+      className={classNames.join(" ")}
+      style={[
+        styles.container,
+        { transition: `color ${transitionDuration}` },
+        dimensions,
+        fontSize[size] && { fontSize: fontSize[size] },
+        color && { color },
+        hoverColor && { ":hover": { color: hoverColor } },
+        style,
+      ]}
+      href={href}
+      onClick={onClick}
+      role={role}
+      title={label}
+      aria-label={label}
+      aria-owns={owns}
+    >
 
-        {hoverBackgroundScale &&
-          <Style
-            scopeSelector={`#${elementId}:hover`}
-            rules={{
-              [`.${cn("IconButton", className)}-background`]: {
-                transform: `scale(${hoverBackgroundScale})`,
-              },
-            }}
-          />
-        }
-
-        {shadow &&
-          <Style
-            scopeSelector={`#${elementId}:active`}
-            rules={{
-              [`.${cn("IconButton", className)}-background`]: {
-                boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${(4 / fontSize[size]) / 3}em ${(16 / fontSize[size]) / 2}em !important`,
-              },
-            }}
-          />
-        }
-
-        <div
-          key={1}
-          className={cn("IconButton-background", className)}
-          style={[
-            styles.background,
-            backgroundColor && { backgroundColor },
-            { transition: `background-color ${transitionDuration}, transform ${transitionDuration}, box-shadow ${transitionDuration} ease-in-out` },
-            border && { border: "1px solid currentColor" },
-            shadow && { boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${4 / fontSize[size]}em ${16 / fontSize[size]}em` },
-          ]}
+      {hoverBackgroundColor &&
+        <Style
+          scopeSelector={`.${hoverBackgroundColorClassName}:hover`}
+          rules={{
+            ".IconButton-background": {
+              backgroundColor: `${hoverBackgroundColor} !important`,
+            },
+          }}
         />
+      }
 
-        {iconFromString(_.upperFirst(iconName), { label, style: styles.icon })}
-      </Element>
-    );
-  }
+      {hoverBackgroundScale &&
+        <Style
+          scopeSelector={`.${hoverBackgroundScaleClassName}:hover`}
+          rules={{
+            ".IconButton-background": {
+              transform: `scale(${hoverBackgroundScale})`,
+            },
+          }}
+        />
+      }
+
+      {shadow &&
+        <Style
+          scopeSelector={`.${shadowClassName}:active`}
+          rules={{
+            ".IconButton-background": {
+              boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${(4 / fontSize[size]) / 3}em ${(16 / fontSize[size]) / 2}em !important`,
+            },
+          }}
+        />
+      }
+
+      <div
+        key={1}
+        className="IconButton-background"
+        style={[
+          styles.background,
+          backgroundColor && { backgroundColor },
+          { transition: `background-color ${transitionDuration}, transform ${transitionDuration}, box-shadow ${transitionDuration} ease-in-out` },
+          border && { border: "1px solid currentColor" },
+          shadow && { boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${4 / fontSize[size]}em ${16 / fontSize[size]}em` },
+        ]}
+      />
+
+      {iconFromString(_.upperFirst(iconName), { label, style: styles.icon })}
+    </Element>
+  );
 }
 
 IconButton.propTypes = {
-  iconName: PropTypes.oneOf([
-    "Bookmark",
-    "BookmarkActive",
-    "BookmarkAlt",
-    "BookmarkAltActive",
-    "ChevronLeft",
-    "ChevronRight",
-    "ClockOutline",
-    "Ellipsis",
-    "Play",
-    "Share",
-  ]).isRequired,
+  iconName: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   id: PropTypes.string,
   className: PropTypes.string,
   href: PropTypes.string,
   onClick: PropTypes.func,
-  size: PropTypes.oneOf([32, 40, 56]),
+  size: PropTypes.number,
   owns: PropTypes.string,
   backgroundColor: PropTypes.string,
   color: PropTypes.string,
