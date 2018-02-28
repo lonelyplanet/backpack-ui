@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import radium from "radium";
+import radium, { Style } from "radium";
 import IconButton from "../iconButton";
 import mq from "../../styles/mq";
 import timing from "../../styles/timing";
@@ -13,17 +13,38 @@ const styles = {
   },
 
   slider: {
-    overflow: "hidden",
+    default: {
+      overflow: "hidden",
+      overflowX: "hidden",
+      overflowY: "hidden",
+    },
+    draggable: {
+      overflow: "initial",
+      overflowX: "visible",
+      overflowY: "hidden",
+    },
   },
 
   children: {
-    marginRight: "-20px",
-    overflow: "hidden",
-    position: "relative",
-    whiteSpace: "nowrap",
+    default: {
+      overflow: "hidden",
+      overflowX: "hidden",
+      overflowY: "hidden",
+      position: "relative",
+      whiteSpace: "nowrap",
+    },
+    defaultCellSpacing: {
+      marginRight: "-20px",
 
-    [`@media (max-width: ${mq.max["480"]})`]: {
-      marginRight: "-12px",
+      [`@media (max-width: ${mq.max["480"]})`]: {
+        marginRight: "-12px",
+      },
+    },
+    draggable: {
+      overflow: "initial",
+      overflowX: "scroll",
+      overflowY: "hidden",
+      WebkitOverflowScrolling: "touch",
     },
   },
 
@@ -31,13 +52,16 @@ const styles = {
     default: {
       display: "inline-block",
       left: 0,
-      paddingRight: "20px",
       position: "relative",
       top: 0,
       transition: `transform ${timing.default} ease-out`,
       verticalAlign: "top",
       whiteSpace: "normal",
       width: "25%",
+    },
+
+    defaultCellSpacing: {
+      paddingRight: "20px",
 
       [`@media (max-width: ${mq.max["480"]})`]: {
         paddingRight: "12px",
@@ -120,6 +144,8 @@ class VideoSlider extends React.Component {
   constructor(props) {
     super(props);
 
+    this.scroller = null;
+
     this.state = {
       index: 0,
     };
@@ -130,10 +156,38 @@ class VideoSlider extends React.Component {
 
   componentDidMount() {
     this.setAutoplayInterval();
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", this.onWindowResize);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.draggable !== this.props.draggable) {
+      // Issue: Setting scrollLeft doesn't always bring the slider back
+      // to where we'd like (there is like a 20 pixel offset sometimes),
+      // but this is simply here for convenience anyway, so leaving for now.
+      this.scroller.scrollLeft = 0;
+
+      this.setState({ index: 0 });
+    }
+
+    if (this.props.slidesToShow !== nextProps.slidesToShow) {
+      // We rewind in this case to avoid situations where the new "current frame"
+      // wouldn't have any children in it (specifically, if slidesToShow went
+      // from a low number to a high number and the user was on the last frame
+      // in the slider at the time)
+      this.setState({ index: 0 });
+    }
+
+    if (nextProps.draggable) {
+      clearInterval(this.autoplayIntervalId);
+    }
   }
 
   componentDidUpdate(prevProps) {
-    const shouldSetAutoplayInterval = (this.props.autoplay !== prevProps.autoplay) ||
+    const shouldSetAutoplayInterval = (prevProps.draggable && !this.props.draggable) ||
+      (this.props.autoplay !== prevProps.autoplay) ||
       (this.props.autoplaySpeed !== prevProps.autoplaySpeed);
 
     if (shouldSetAutoplayInterval) {
@@ -143,6 +197,17 @@ class VideoSlider extends React.Component {
 
   componentWillUnmount() {
     clearInterval(this.autoplayIntervalId);
+
+    if (typeof window !== "undefined") {
+      window.removeEventListener("resize", this.onWindowResize);
+    }
+  }
+
+  onWindowResize = () => {
+    // We rewind to avoid visual glitch where cards aren't evenly spaced
+    if (this.state.index !== 0) {
+      this.setState({ index: 0 });
+    }
   }
 
   onMouseEnter = () => {
@@ -173,27 +238,32 @@ class VideoSlider extends React.Component {
   }
 
   getResponsiveSlidesToShow = () => {
-    const { slidesToShow } = this.props;
+    const { mqSlidesToShow, slidesToShow } = this.props;
+
+    if (slidesToShow) {
+      return slidesToShow;
+    }
+
     const width = typeof window === "undefined" ? null : window.innerWidth;
 
     // TODO: Use window.matchMedia
     if (width === null || width > 960) {
-      return slidesToShow;
+      return mqSlidesToShow;
     } else if (width > 720) {
-      return slidesToShow < 3 ? slidesToShow : 3;
+      return mqSlidesToShow < 3 ? mqSlidesToShow : 3;
     } else if (width > 360) {
-      return slidesToShow < 2 ? slidesToShow : 2;
+      return mqSlidesToShow < 2 ? mqSlidesToShow : 2;
     }
 
     return 1;
   }
 
   setAutoplayInterval = () => {
-    const { autoplay, autoplaySpeed } = this.props;
+    const { autoplay, autoplaySpeed, draggable } = this.props;
 
     clearInterval(this.autoplayIntervalId);
 
-    if (autoplay) {
+    if (autoplay && !draggable) {
       this.autoplayIntervalId = setInterval(this.onAutoplayInterval.bind(this), autoplaySpeed);
     }
   }
@@ -225,10 +295,14 @@ class VideoSlider extends React.Component {
   render() {
     const {
       children,
+      mqSlidesToShow,
       slidesToShow,
+      cellSpacing,
       infinite,
+      draggable,
       arrows,
       arrowProps,
+      childStyle,
       style,
     } = this.props;
 
@@ -242,7 +316,7 @@ class VideoSlider extends React.Component {
 
     return (
       <div
-        className="VideoSlider"
+        className={`VideoSlider${draggable ? " VideoSlider-draggable" : ""}`}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
         style={[
@@ -250,7 +324,19 @@ class VideoSlider extends React.Component {
           style,
         ]}
       >
-        {arrows &&
+
+        {draggable && (
+          <Style
+            scopeSelector=".VideoSlider-draggable"
+            rules={{
+              "::-webkit-scrollbar": {
+                display: "none",
+              },
+            }}
+          />
+        )}
+
+        {arrows && !draggable &&
           <div
             style={[
               styles.arrowContainer,
@@ -274,7 +360,7 @@ class VideoSlider extends React.Component {
           </div>
         }
 
-        {arrows &&
+        {arrows && !draggable &&
           <div
             style={[
               styles.arrowContainer,
@@ -298,14 +384,31 @@ class VideoSlider extends React.Component {
           </div>
         }
 
-        <div style={styles.slider}>
-          <div style={styles.children}>
+        <div
+          style={[
+            styles.slider.default,
+            draggable && styles.slider.draggable,
+          ]}
+        >
+          <div
+            ref={(ref) => { this.scroller = ref; }}
+            style={[
+              styles.children.default,
+              draggable && styles.children.draggable,
+              typeof cellSpacing === "number" && { marginRight: `-${cellSpacing}px` },
+              typeof cellSpacing !== "number" && styles.children.defaultCellSpacing,
+            ]}
+          >
             {React.Children.map(children, (child, i) => (
               <div
                 key={i}
                 style={[
                   styles.child.default,
-                  styles.child[slidesToShow],
+                  typeof slidesToShow === "number" && { width: `${100 / slidesToShow}%` },
+                  typeof slidesToShow !== "number" && styles.child[mqSlidesToShow],
+                  typeof cellSpacing === "number" && { paddingRight: `${cellSpacing}px` },
+                  typeof cellSpacing !== "number" && styles.child.defaultCellSpacing,
+                  childStyle,
                   { transform: `translateX(${translateXAmount})` },
                 ]}
               >
@@ -322,7 +425,9 @@ class VideoSlider extends React.Component {
 
 VideoSlider.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  slidesToShow: PropTypes.oneOf([1, 2, 3, 4]),
+  mqSlidesToShow: PropTypes.oneOf([1, 2, 3, 4]).isRequired,
+  slidesToShow: PropTypes.number,
+  cellSpacing: PropTypes.number,
   arrows: PropTypes.bool,
   arrowProps: PropTypes.shape({
     ...IconButton.propTypes,
@@ -330,14 +435,16 @@ VideoSlider.propTypes = {
     label: PropTypes.string,
   }),
   infinite: PropTypes.bool,
+  draggable: PropTypes.bool,
   autoplay: PropTypes.bool,
   autoplaySpeed: PropTypes.number,
   pauseOnHover: PropTypes.bool,
+  childStyle: propTypes.style,
   style: propTypes.style,
 };
 
 VideoSlider.defaultProps = {
-  slidesToShow: 4,
+  mqSlidesToShow: 4,
   autoplaySpeed: 5000,
   pauseOnHover: true,
   arrows: true,

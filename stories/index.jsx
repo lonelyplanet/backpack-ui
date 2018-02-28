@@ -2617,13 +2617,16 @@ storiesOf("Video components", module)
       <StyleRoot>
         <div style={styles.container}>
           <VideoSlider
-            slidesToShow={number("Slides to show", 4, {
+            mqSlidesToShow={number("Slides to show (using media queries)", 4, {
               range: true,
               min: 1,
               max: 4,
               step: 1,
             })}
+            slidesToShow={number("Slides to show")}
+            cellSpacing={number("Cell spacing")}
             infinite={boolean("Infinite", false)}
+            draggable={boolean("Draggable", false)}
             autoplay={boolean("Autoplay", false)}
             autoplaySpeed={number("Autoplay speed", 5000)}
             pauseOnHover={boolean("Pause on hover", true)}

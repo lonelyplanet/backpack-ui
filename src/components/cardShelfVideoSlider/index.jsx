@@ -210,7 +210,6 @@ class CardShelfVideoSlider extends React.Component {
 
         <div style={styles.slider}>
           <VideoSlider
-            slidesToShow={4}
             infinite={false}
             arrows={!mobile}
             arrowProps={{
@@ -222,7 +221,7 @@ class CardShelfVideoSlider extends React.Component {
               ],
             }}
           >
-            {React.Children.map(children.slice(0, mobile ? 4 : children.length), (child, i) => (
+            {React.Children.map(children, (child, i) => (
               <div key={i}>
                 {child}
               </div>
