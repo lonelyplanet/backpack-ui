@@ -190,7 +190,7 @@ IconButton.propTypes = {
   className: PropTypes.string,
   href: PropTypes.string,
   onClick: PropTypes.func,
-  size: PropTypes.number,
+  size: PropTypes.oneOf([32, 40, 56]),
   owns: PropTypes.string,
   backgroundColor: PropTypes.string,
   color: PropTypes.string,
