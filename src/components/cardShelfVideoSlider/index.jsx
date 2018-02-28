@@ -221,7 +221,7 @@ class CardShelfVideoSlider extends React.Component {
               ],
             }}
           >
-            {React.Children.map(children, (child, i) => (
+            {React.Children.map(children.slice(0, mobile ? 4 : children.length), (child, i) => (
               <div key={i}>
                 {child}
               </div>
