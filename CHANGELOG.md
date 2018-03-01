@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.62.0"></a>
+# [4.62.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.61.1...v4.62.0) (2018-02-28)
+
+
+### Features
+
+* Updated IconButton use of radiums Style component to use classes instead of element ids ([#624](https://github.com/lonelyplanet/backpack-ui/issues/624)) ([5f56a66](https://github.com/lonelyplanet/backpack-ui/commit/5f56a66))
+* VideoSlider draggable ([#626](https://github.com/lonelyplanet/backpack-ui/issues/626)) ([90c6662](https://github.com/lonelyplanet/backpack-ui/commit/90c6662))
+
+
+
 <a name="4.61.1"></a>
 ## [4.61.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.61.0...v4.61.1) (2018-02-27)
 
