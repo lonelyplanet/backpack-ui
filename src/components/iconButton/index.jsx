@@ -98,7 +98,7 @@ function IconButton({
   }
 
   let hoverBackgroundScaleClassName = "";
-  if (hoverBackgroundScale) {
+  if (typeof hoverBackgroundScale === "number") {
     hoverBackgroundScaleClassName = `IconButton-hoverBackgroundScale-${String(hoverBackgroundScale).replace(".", "_")}`;
   }
 
@@ -144,7 +144,7 @@ function IconButton({
         />
       }
 
-      {hoverBackgroundScale &&
+      {typeof hoverBackgroundScale === "number" &&
         <Style
           scopeSelector={`.${hoverBackgroundScaleClassName}:hover`}
           rules={{
@@ -212,7 +212,6 @@ IconButton.defaultProps = {
   owns: null,
   color: "",
   hoverColor: "",
-  hoverBackgroundScale: null,
   border: false,
   shadow: false,
   transitionDuration: timing.default,
