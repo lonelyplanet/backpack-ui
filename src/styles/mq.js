@@ -37,4 +37,14 @@ export default {
     360: "22.4375em",
     320: "19.9375em",
   },
+
+  layout: {
+    phoneStart: `${(320 / 16)}em`,
+    phoneEnd: `${(767 / 16)}em`,
+    tabletStart: `${(768 / 16)}em`,
+    tabletEnd: `${(1023 / 16)}em`,
+    laptopStart: `${(1024 / 16)}em`,
+    laptopEnd: `${(1353 / 16)}em`,
+    desktopStart: `${(1354 / 16)}em`,
+  },
 };
