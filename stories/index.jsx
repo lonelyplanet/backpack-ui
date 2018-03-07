@@ -2598,6 +2598,8 @@ storiesOf("Video components", module)
         </i>
         <VideoPopout
           style={{ position: "relative", top: "800px", height: "300px" }}
+          whenAboveViewport={boolean("When above viewport", true)}
+          whenBelowViewport={boolean("When below viewport", true)}
           mobile={boolean("Mobile", false)}
           videoEmbed={{
             videoId: "5615445675001",
