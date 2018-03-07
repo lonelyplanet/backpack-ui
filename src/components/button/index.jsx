@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
-
+import cn from "classnames";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import { lighten } from "../../utils/color";
@@ -209,6 +209,7 @@ function Button({
   border,
   disabled,
   customStyles,
+  className,
 }) {
   const Element = href ? "a" : "button";
   const role = Element === "a" ? "button" : null;
@@ -230,7 +231,7 @@ function Button({
 
   return (
     <Element
-      className="Button"
+      className={cn("Button", className)}
       style={style}
       href={href}
       onClick={onClick}
@@ -309,6 +310,11 @@ Button.propTypes = {
    * Disable button
    */
   disabled: PropTypes.bool,
+
+  /**
+   * Add classname to button
+   */
+  className: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -322,6 +328,7 @@ Button.defaultProps = {
   children: "Button",
   disabled: false,
   customStyles: null,
+  className: null,
 };
 
 Button.styles = styles;
