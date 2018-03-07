@@ -204,10 +204,10 @@ class VideoSlider extends React.Component {
   }
 
   onWindowResize = () => {
-    // We rewind to avoid visual glitch where cards aren't evenly spaced
-    if (this.state.index !== 0) {
-      this.setState({ index: 0 });
-    }
+    // We rewind to avoid visual glitch where cards aren't evenly spaced.
+    // This also forces the component to re-evaluate which arrows should be
+    // shown when media-query breakpoints are hit.
+    this.setState({ index: 0 });
   }
 
   onMouseEnter = () => {

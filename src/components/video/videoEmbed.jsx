@@ -21,6 +21,7 @@ const bcPlayerIds = {
   eed: "rJtMIpi7M",
   home: "HJe5vuWSVG",
   interest: "S1gCMqoEG",
+  jnto: "Bkg3o1opuz",
 };
 
 const cueDuration = 15;
@@ -590,7 +591,7 @@ class VideoEmbed extends Component {
     const activeCues = [];
 
     this.getTextTracks().forEach((tt) => {
-      [...Array(tt.activeCues.length).keys()].forEach((j) => {
+      [...Array(tt.activeCues ? tt.activeCues.length : 0).keys()].forEach((j) => {
         activeCues.push(tt.activeCues[j]);
       });
     });

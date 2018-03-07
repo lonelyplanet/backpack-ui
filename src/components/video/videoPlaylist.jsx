@@ -134,7 +134,10 @@ class VideoPlaylist extends Component {
 
   componentDidMount() {
     this.updateChildStyles();
-    this.childContainer.addEventListener("scroll", this.onScroll);
+
+    if (this.childContainer) {
+      this.childContainer.addEventListener("scroll", this.onScroll);
+    }
 
     if (typeof window !== "undefined") {
       window.addEventListener("resize", this.onWindowResize);
@@ -151,6 +154,23 @@ class VideoPlaylist extends Component {
       video: !video && videos && videos.length ? videos[0] : video,
       autoplay: nextProps.autoplay,
     });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.hideList && !this.props.hideList) {
+      this.updateChildStyles();
+      this.childContainer.addEventListener("scroll", this.onScroll);
+    }
+
+    if (
+      this.props.onLoadVideo &&
+      (
+        (!prevState.video && this.state.video) ||
+        (prevState.video && this.state.video && prevState.video.id !== this.state.video.id)
+      )
+    ) {
+      this.props.onLoadVideo(this.state.video);
+    }
   }
 
   componentWillUnmount() {
@@ -202,7 +222,7 @@ class VideoPlaylist extends Component {
 
   getInitialVideo() {
     const { video, videos } = this.props;
-    return !video && videos && videos.length ? videos[0] : video;
+    return video || (videos && videos.length ? videos[0] : null);
   }
 
   getNextVideo() {
@@ -262,10 +282,6 @@ class VideoPlaylist extends Component {
     this.setState({
       video,
       autoplay,
-    }, () => {
-      if (this.props.onLoadVideo) {
-        this.props.onLoadVideo(video);
-      }
     });
   }
 
@@ -275,6 +291,7 @@ class VideoPlaylist extends Component {
       videos,
       visibleVideos,
       videoEmbed,
+      hideList,
       mobile,
       style,
     } = this.props;
@@ -325,59 +342,62 @@ class VideoPlaylist extends Component {
               />
             </div>
 
-            <div style={styles.playlistContainer}>
-              <Style
-                scopeSelector=".VideoPlaylist"
-                rules={{
-                  ".ListItem-thumbnail .Heading": {
-                    fontWeight: "400 !important",
-                  },
-                  "::-webkit-scrollbar-thumb": {
-                    backgroundColor: "rgb(180, 190, 196)",
-                  },
-                  "::-webkit-scrollbar": {
-                    width: "4px",
-                  },
-                }}
-              />
+            {!hideList && (
+              <div style={styles.playlistContainer}>
+                <Style
+                  scopeSelector=".VideoPlaylist"
+                  rules={{
+                    ".ListItem-thumbnail .Heading": {
+                      fontWeight: "400 !important",
+                    },
+                    "::-webkit-scrollbar-thumb": {
+                      backgroundColor: "rgb(180, 190, 196)",
+                    },
+                    "::-webkit-scrollbar": {
+                      width: "4px",
+                    },
+                  }}
+                />
 
-              <div style={styles.playlistInner}>
-                <div style={styles.playlistHeader}>
-                  {heading}
-                </div>
+                <div style={styles.playlistInner}>
+                  <div style={styles.playlistHeader}>
+                    {heading}
+                  </div>
 
-                <div
-                  ref={(childContainer) => { this.childContainer = childContainer; }}
-                  style={styles.playlistItems}
-                >
-                  {videos.slice(0, visibleVideos || videos.length).map((v, i) => (
-                    <div
-                      key={v.id}
-                      ref={(ref) => { this.childRefs[v.id] = ref; }}
-                    >
-                      <ThumbnailListItem
-                        title={v.name}
-                        onClick={() => this.onClickThumbnailVideo(v)}
-                        imagePath={v.thumbnailImage}
-                        subtitle={[duration(v.duration)]}
-                        theme="dark"
-                        imageIcon={(v.id === video.id && "Play") || null}
-                        imageIconLabel="Play"
-                        lineClamp={false}
-                        style={[
-                          styles.thumbnailListItem.default,
-                          v.id === video.id ? styles.thumbnailListItem.active : {},
-                          i === (
-                            (visibleVideos || videos.length) - 1 ? { borderBottomWidth: 0 } : {}
-                          ),
-                          childStyles[v.id],
-                        ]}
-                      />
-                    </div>
-                  ))}
+                  <div
+                    ref={(childContainer) => { this.childContainer = childContainer; }}
+                    style={styles.playlistItems}
+                  >
+                    {videos.slice(0, visibleVideos || videos.length).map((v, i) => (
+                      <div
+                        key={v.id}
+                        ref={(ref) => { this.childRefs[v.id] = ref; }}
+                      >
+                        <ThumbnailListItem
+                          title={v.name}
+                          onClick={() => this.onClickThumbnailVideo(v)}
+                          imagePath={v.thumbnailImage}
+                          subtitle={[duration(v.duration)]}
+                          theme="dark"
+                          imageIcon={(v.id === video.id && "Play") || null}
+                          imageIconLabel="Play"
+                          lineClamp={false}
+                          style={[
+                            styles.thumbnailListItem.default,
+                            v.id === video.id ? styles.thumbnailListItem.active : {},
+                            i === (
+                              (visibleVideos || videos.length) - 1 ? { borderBottomWidth: 0 } : {}
+                            ),
+                            childStyles[v.id],
+                          ]}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
+
           </div>
         }
       </div>
@@ -403,6 +423,7 @@ VideoPlaylist.propTypes = {
     ...VideoEmbed.propTypes,
     videoId: PropTypes.string,
   }),
+  hideList: PropTypes.bool,
   autoplay: PropTypes.bool,
   onLoadVideo: PropTypes.func,
   mobile: PropTypes.bool,
