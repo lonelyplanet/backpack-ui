@@ -367,6 +367,46 @@ storiesOf("Buttons", module)
       />
     </Center>
   ))
+  .add("Bookmark button - custom button", () => (
+    <Center>
+      <BookmarkButton
+        id={text("ID", null)}
+        className={text("Classname", null)}
+        onClick={action("Bookmark clicked")}
+        marked={boolean("Marked", false)}
+        button={
+          <Button
+            color="gray"
+            size="small"
+            border
+            rounded
+            customStyles={{
+              alignItems: "center",
+              display: "inline-flex",
+              padding: "0.7em 1.3em 0.5em",
+              textTransform: "capitalize",
+            }}
+          >
+            {true ?
+              <Icon.BookmarkActive style={{
+                height: "16px",
+                marginBottom: "3px",
+                marginRight: "4px",
+                width: "auto",
+              }}/> :
+              <Icon.Bookmark style={{
+                height: "16px",
+                width: "auto",
+                marginRight: "4px",
+                marginBottom: "3px",
+              }}/>
+            }
+            Save
+          </Button>
+        }
+        />
+    </Center>
+  ))
 
   // Expand button
   .add("Expand button", () => (
@@ -1752,7 +1792,24 @@ storiesOf("Popovers", module)
     <Center>
       <BookmarkListMenu
         button={
-          <Button rounded border color="gray" size="tiny">
+          <Button
+            rounded
+            border
+            color="gray"
+            size="small"
+            customStyles={{
+              alignItems: "center",
+              display: "inline-flex",
+              padding: "0.7em 1.3em 0.5em",
+              textTransform: "capitalize",
+            }}
+          >
+            <Icon.Share style={{
+              height: "16px",
+              marginBottom: "3px",
+              marginRight: "4px",
+              width: "auto",
+            }} />
             Share
           </Button>
         }
