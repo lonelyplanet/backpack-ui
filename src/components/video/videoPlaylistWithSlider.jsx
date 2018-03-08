@@ -4,7 +4,8 @@ import radium from "radium";
 import Container from "../container";
 import ThumbnailList from "../thumbnailList";
 import ThumbnailListItem from "../thumbnailListItem";
-import { VideoEmbed, VideoInfo, VideoPlaylist } from "../video";
+import VideoPopout from "./videoPopout";
+import { VideoEmbed, VideoInfo, VideoPlaylist } from "./";
 import CardShelfVideoSlider from "../cardShelfVideoSlider";
 import CardVideo from "../cardVideo";
 import duration from "../../utils/time";
@@ -96,6 +97,7 @@ class VideoPlaylistWithSlider extends React.Component {
       videos,
       visibleVideosDesktop,
       visibleVideosMobile,
+      videoPopout,
       videoEmbed,
       heading,
       sliderHeading,
@@ -120,6 +122,7 @@ class VideoPlaylistWithSlider extends React.Component {
                 visibleVideos={visibleVideosDesktop}
                 autoplay={autoplay}
                 onLoadVideo={this.onLoadVideo}
+                videoPopout={videoPopout}
                 videoEmbed={videoEmbed}
               />
             </Container>
@@ -207,6 +210,7 @@ VideoPlaylistWithSlider.propTypes = {
   visibleVideosDesktop: PropTypes.number.isRequired,
   visibleVideosMobile: PropTypes.number.isRequired,
   autoplay: PropTypes.bool,
+  videoPopout: PropTypes.shape(VideoPopout.propTypes),
   videoEmbed: PropTypes.shape({
     ...VideoEmbed.propTypes,
     videoId: PropTypes.string,
