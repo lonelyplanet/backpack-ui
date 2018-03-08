@@ -872,17 +872,19 @@ class VideoEmbed extends Component {
       .filter((cuePoint) => cuePoint.type === "CODE")
       .filter((cuePoint) => cuePoint.name !== "preview start" && cuePoint.name !== "preview end");
 
-    const overlays = overlayCuePoints.map((cuePoint) => {
-      const defaultEnd = cuePoint.startTime + cueDuration;
-      const end = defaultEnd < cuePoint.endTime ? defaultEnd : cuePoint.endTime;
+    const overlays = this.player.overlays_.map(overlay => overlay.options_)
+      .concat(overlayCuePoints.map((cuePoint) => {
+        const defaultEnd = cuePoint.startTime + cueDuration;
+        const end = defaultEnd < cuePoint.endTime ? defaultEnd : cuePoint.endTime;
 
-      return {
-        content: `<div id="ad-lowerthird-${this.id}-${cuePoint.id}" class="VideoEmbed-lowerthird-overlay" />`,
-        align: "bottom",
-        start: cuePoint.startTime,
-        end,
-      };
-    });
+        return {
+          content: `<div id="ad-lowerthird-${this.id}-${cuePoint.id}" class="VideoEmbed-lowerthird-overlay" />`,
+          align: "bottom",
+          start: cuePoint.startTime,
+          end,
+        };
+      })
+    );
 
     overlays.push({
       content: `<div id="${this.getAdOverlayId()}" class="VideoEmbed-ad-overlay">Advertisement</div>`,
