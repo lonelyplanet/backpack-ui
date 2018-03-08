@@ -222,14 +222,28 @@ class VideoPopout extends Component {
     this.videoEmbed.play();
   }
 
-  update = () => {
+  isAboveViewport = () => {
     const bounds = this.container.getBoundingClientRect();
-    const halfContainerHeight = this.container.clientHeight / 2;
+    const halfContainerHeight = bounds.height / 2;
+    return bounds.top < -(halfContainerHeight);
+  }
+
+  isBelowViewport = () => {
+    const bounds = this.container.getBoundingClientRect();
+    const halfContainerHeight = bounds.height / 2;
     const windowHeight = window.innerHeight;
+    return bounds.top > (windowHeight - halfContainerHeight);
+  }
+
+  update = () => {
+    const { whenAboveViewport, whenBelowViewport } = this.props;
 
     if (
       this.enabled &&
-      ((bounds.top < -(halfContainerHeight)) || bounds.top > (windowHeight - halfContainerHeight))
+      (
+        (whenAboveViewport && this.isAboveViewport()) ||
+        (whenBelowViewport && this.isBelowViewport())
+      )
     ) {
       this.outOfView = true;
       clearInterval(this.inViewTimeoutId);
@@ -355,6 +369,8 @@ class VideoPopout extends Component {
 }
 
 VideoPopout.propTypes = {
+  whenAboveViewport: PropTypes.bool,
+  whenBelowViewport: PropTypes.bool,
   videoEmbed: PropTypes.shape({
     ...VideoEmbed.propTypes,
     videoId: PropTypes.string,
@@ -364,6 +380,8 @@ VideoPopout.propTypes = {
 };
 
 VideoPopout.defaultProps = {
+  whenAboveViewport: true,
+  whenBelowViewport: true,
   videoEmbed: {},
 };
 

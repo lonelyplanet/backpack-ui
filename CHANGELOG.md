@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.65.0"></a>
+# [4.65.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.64.0...v4.65.0) (2018-03-07)
+
+
+### Features
+
+* Add button prop to bookmark list menu component ([#632](https://github.com/lonelyplanet/backpack-ui/issues/632)) ([3aadbad](https://github.com/lonelyplanet/backpack-ui/commit/3aadbad))
+
+
+
 <a name="4.64.0"></a>
 # [4.64.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.63.0...v4.64.0) (2018-03-07)
 

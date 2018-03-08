@@ -1748,6 +1748,24 @@ storiesOf("Popovers", module)
       </BookmarkListMenu>
     </Center>
   ))
+  .add("Bookmark list menu (custom button)", () => (
+    <Center>
+      <BookmarkListMenu
+        button={
+          <Button rounded border color="gray" size="tiny">
+            Share
+          </Button>
+        }
+      >
+        <BookmarkListMenuOption onClick={action("Edit click")}>Edit list</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Add click")}>Add new places</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Reorder click")}>Reorder places</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Share click")}>Share on Twitter</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Share click")}>Share on Facebook</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Copy click")}>Copy link</BookmarkListMenuOption>
+      </BookmarkListMenu>
+    </Center>
+  ))
   .add("Dialog", () => (
     <StyleRoot>
       <ModalWrapper>
@@ -2582,6 +2600,8 @@ storiesOf("Video components", module)
         </i>
         <VideoPopout
           style={{ position: "relative", top: "800px", height: "300px" }}
+          whenAboveViewport={boolean("When above viewport", true)}
+          whenBelowViewport={boolean("When below viewport", true)}
           mobile={boolean("Mobile", false)}
           videoEmbed={{
             videoId: "5615445675001",

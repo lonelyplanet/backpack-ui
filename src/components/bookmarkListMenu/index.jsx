@@ -97,6 +97,7 @@ class BookmarkListMenu extends React.Component {
       className,
       reveal,
       style,
+      button,
     } = this.props;
 
     const optionsId = "bookmark-list-menu-options";
@@ -108,14 +109,16 @@ class BookmarkListMenu extends React.Component {
         style={[styles.container, style]}
         ref={innerRef}
       >
-        {reveal ?
+        {!button && reveal &&
           <IconRevealButton
             id={`${id}-IconRevealButton`}
             icon={iconFromString(iconName)}
             label={iconLabel}
             onClick={this.toggleOptions}
           />
-          :
+        }
+
+        {!button && !reveal &&
           <IconButton
             onClick={this.toggleOptions}
             iconName={iconName}
@@ -125,6 +128,14 @@ class BookmarkListMenu extends React.Component {
             color={colors.textPrimary}
             backgroundColor={colors.bgPrimary}
           />
+        }
+
+        {button && !reveal &&
+          React.cloneElement(button, {
+            onClick: () => {
+              this.toggleOptions();
+            },
+          })
         }
 
         <div
@@ -166,6 +177,7 @@ BookmarkListMenu.propTypes = {
   className: PropTypes.string,
   reveal: PropTypes.bool,
   style: propTypes.style,
+  button: PropTypes.element,
 };
 
 BookmarkListMenu.defaultProps = {
@@ -173,6 +185,7 @@ BookmarkListMenu.defaultProps = {
   className: null,
   reveal: false,
   style: null,
+  button: null,
 };
 
 export default clickOutside(radium(BookmarkListMenu));

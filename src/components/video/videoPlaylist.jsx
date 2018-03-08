@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import ThumbnailListItem from "../thumbnailListItem";
-import { VideoEmbed, VideoFeatured, VideoPopout } from "../video";
+import VideoPopout from "./videoPopout";
+import { VideoEmbed, VideoFeatured } from "./";
 import colors from "../../styles/colors";
 import media from "../../styles/mq";
 import {
@@ -292,6 +293,7 @@ class VideoPlaylist extends Component {
       visibleVideos,
       videoEmbed,
       hideList,
+      videoPopout,
       mobile,
       style,
     } = this.props;
@@ -331,6 +333,7 @@ class VideoPlaylist extends Component {
 
               <VideoPopout
                 mobile={mobile}
+                {...videoPopout}
                 videoEmbed={{
                   videoId: video.id,
                   ...videoEmbed,
@@ -419,6 +422,7 @@ VideoPlaylist.propTypes = {
   video: PropTypes.shape(videoShape),
   videos: PropTypes.arrayOf(PropTypes.shape(videoShape)),
   visibleVideos: PropTypes.number,
+  videoPopout: PropTypes.shape(VideoPopout.propTypes),
   videoEmbed: PropTypes.shape({
     ...VideoEmbed.propTypes,
     videoId: PropTypes.string,
@@ -432,6 +436,7 @@ VideoPlaylist.propTypes = {
 
 VideoPlaylist.defaultProps = {
   heading: "Featured videos",
+  videoPopout: {},
   videoEmbed: {},
   mobile: false,
 };
