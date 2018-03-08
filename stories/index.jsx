@@ -383,7 +383,10 @@ storiesOf("Buttons", module)
             customStyles={{
               alignItems: "center",
               display: "inline-flex",
-              padding: "0.7em 1.3em 0.5em",
+              paddingBottom:"0.5em",
+              paddingLeft:"1.3em",
+              paddingRight:"1.3em",
+              paddingTop:"0.7em",
               textTransform: "capitalize",
             }}
           >
@@ -1800,7 +1803,10 @@ storiesOf("Popovers", module)
             customStyles={{
               alignItems: "center",
               display: "inline-flex",
-              padding: "0.7em 1.3em 0.5em",
+              paddingBottom:"0.5em",
+              paddingLeft:"1.3em",
+              paddingRight:"1.3em",
+              paddingTop:"0.7em",
               textTransform: "capitalize",
             }}
           >
