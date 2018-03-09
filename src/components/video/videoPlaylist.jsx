@@ -234,11 +234,6 @@ class VideoPlaylist extends Component {
     });
   }
 
-  getInitialVideo() {
-    const { video, videos } = this.props;
-    return video || (videos && videos.length ? videos[0] : null);
-  }
-
   getNextVideo() {
     const { videos } = this.props;
     const { video } = this.state;
