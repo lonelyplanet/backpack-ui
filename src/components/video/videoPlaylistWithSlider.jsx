@@ -69,8 +69,16 @@ class VideoPlaylistWithSlider extends React.Component {
     }
   }
 
-  onLoadVideo = (video) => {
-    this.play(video);
+  onLoadVideo = (video, autoplay) => {
+    if (autoplay) {
+      this.play(video);
+    } else {
+      this.setState({
+        video,
+        autoplay,
+        enableVideoInfo: false,
+      });
+    }
   }
 
   onClickVideo = (video) => {

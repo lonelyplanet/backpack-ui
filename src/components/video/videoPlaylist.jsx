@@ -122,8 +122,11 @@ class VideoPlaylist extends Component {
   constructor(props) {
     super(props);
 
+    const { video, videos } = props;
+    this.initialVideo = video || (videos && videos.length ? videos[0] : null);
+
     this.state = {
-      video: this.getInitialVideo(),
+      video: this.initialVideo,
       autoplay: props.autoplay,
       childStyles: {},
     };
@@ -145,7 +148,7 @@ class VideoPlaylist extends Component {
     }
 
     if (this.state.video && this.props.onLoadVideo) {
-      this.props.onLoadVideo(this.state.video);
+      this.props.onLoadVideo(this.state.video, this.state.autoplay);
     }
   }
 
@@ -170,7 +173,7 @@ class VideoPlaylist extends Component {
         (prevState.video && this.state.video && prevState.video.id !== this.state.video.id)
       )
     ) {
-      this.props.onLoadVideo(this.state.video);
+      this.props.onLoadVideo(this.state.video, this.state.autoplay);
     }
   }
 
@@ -189,16 +192,26 @@ class VideoPlaylist extends Component {
   }
 
   onEnded = () => {
-    const { videoEmbed } = this.props;
+    const { videoEmbed, videos } = this.props;
 
     if (videoEmbed && videoEmbed.onEnded) {
       videoEmbed.onEnded();
     }
 
-    this.loadVideo({
-      video: this.getNextVideo(),
-      autoplay: true,
-    });
+    if (this.isOnLastVideo()) {
+      this.showFeaturedVideo();
+      if (videos && videos.length) {
+        this.loadVideo({
+          video: videos[0],
+          autoplay: false,
+        });
+      }
+    } else {
+      this.loadVideo({
+        video: this.getNextVideo(),
+        autoplay: true,
+      });
+    }
   }
 
   onPlaySuccess = () => {
@@ -208,7 +221,7 @@ class VideoPlaylist extends Component {
   onClickFeaturedVideo = () => {
     this.hideFeaturedVideo();
     this.loadVideo({
-      video: this.props.video,
+      video: this.state.video,
       autoplay: true,
     });
   }
@@ -238,6 +251,12 @@ class VideoPlaylist extends Component {
     }
 
     return nextVideo;
+  }
+
+  isOnLastVideo() {
+    const { videos } = this.props;
+    const { video } = this.state;
+    return video && videos && videos.length && video.id === videos[videos.length - 1].id;
   }
 
   updateChildStyles() {
@@ -279,6 +298,13 @@ class VideoPlaylist extends Component {
     }, 400);
   }
 
+  showFeaturedVideo() {
+    this.featuredVideoContainer.style.display = "block";
+    setTimeout(() => {
+      this.featuredVideoContainer.style.opacity = 1;
+    }, 100);
+  }
+
   loadVideo = ({ video, autoplay }) => {
     this.setState({
       video,
@@ -299,8 +325,7 @@ class VideoPlaylist extends Component {
     } = this.props;
 
     const { autoplay, childStyles } = this.state;
-    const initialVideo = this.getInitialVideo();
-    const video = this.state.video || initialVideo;
+    const video = this.state.video || this.initialVideo;
 
     /* eslint-disable jsx-a11y/no-static-element-interactions */
     return (
@@ -320,12 +345,12 @@ class VideoPlaylist extends Component {
                 style={styles.featuredVideoContainer}
                 onClick={this.onClickFeaturedVideo}
               >
-                {initialVideo &&
+                {this.initialVideo &&
                   <VideoFeatured
-                    title={initialVideo.name}
-                    description={initialVideo.description}
-                    duration={initialVideo.duration}
-                    image={initialVideo.image}
+                    title={this.initialVideo.name}
+                    description={this.initialVideo.description}
+                    duration={this.initialVideo.duration}
+                    image={this.initialVideo.image}
                     mobile={mobile}
                   />
                 }
