@@ -2396,9 +2396,10 @@ storiesOf("Video components", module)
     <StyleRoot>
       <div style={{ maxHeight: "100%", height: "400px" }}>
         <VideoEmbed
+          style={{paddingBottom: 0}}
           videoId={select("Video ID", [
-            "5363317250001",
-            "5184494924001",
+            "5203602613001",
+            "5203602613001",
             "5615400588001"],
             "5363317250001")
           }
@@ -2502,6 +2503,7 @@ storiesOf("Video components", module)
         autoplay={boolean("Autoplay", false)}
         hideList={boolean("Hide list", false)}
         mobile={boolean("Mobile", false)}
+        onLoadVideo={(video, autoplay) => { console.log("onLoadVideo:", video, autoplay); }}
         videos={[
           {
             id: "5615400608001",
@@ -2566,6 +2568,7 @@ storiesOf("Video components", module)
         autoplay={boolean("Autoplay", false)}
         showVideoInfo={boolean("Show video info", true)}
         mobile={boolean("Mobile", false)}
+        onLoadVideo={(video, autoplay) => { console.log("onLoadVideo:", video, autoplay); }}
         videos={[
           {
             id: "5615400608001",

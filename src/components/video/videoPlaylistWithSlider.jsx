@@ -70,6 +70,11 @@ class VideoPlaylistWithSlider extends React.Component {
   }
 
   onLoadVideo = (video, autoplay) => {
+    const { onLoadVideo } = this.props;
+    if (onLoadVideo) {
+      onLoadVideo(video, autoplay);
+    }
+
     if (autoplay) {
       this.play(video);
     } else {
@@ -231,6 +236,7 @@ VideoPlaylistWithSlider.propTypes = {
     ...VideoEmbed.propTypes,
     videoId: PropTypes.string,
   }),
+  onLoadVideo: PropTypes.func,
   mobile: PropTypes.bool,
   showVideoInfo: PropTypes.bool,
   followVideoUrls: PropTypes.bool,
