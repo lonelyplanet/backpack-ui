@@ -2396,7 +2396,6 @@ storiesOf("Video components", module)
     <StyleRoot>
       <div style={{ maxHeight: "100%", height: "400px" }}>
         <VideoEmbed
-          style={{paddingBottom: 0}}
           videoId={select("Video ID", [
             "5203602613001",
             "5203602613001",
