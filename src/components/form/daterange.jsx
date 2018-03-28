@@ -7,7 +7,7 @@ import { END_DATE } from "react-dates/constants";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
-import { darken, rgb } from "../../utils/color";
+import { rgba } from "../../utils/color";
 
 const styles = {
   dateRangeWrapper: {
@@ -17,14 +17,14 @@ const styles = {
   },
 
   startEndDate: {
-    backgroundColor: colors.blue,
-    color: colors.white,
+    backgroundColor: colors.linkPrimary,
+    color: colors.textOverlay,
     position: "relative",
   },
 
   daySpan: {
     backgroundColor: "#eaf2f8",
-    color: colors.titleGray,
+    color: colors.textSecondary,
     position: "relative",
   },
 
@@ -85,7 +85,6 @@ class DateRange extends React.Component {
     const { noBorder, withFullScreenPortal, soldOut } = this.props;
     const { focusedInput } = this.state;
 
-    /* eslint-disable */
     return (
       <div className="DateRangeWrapper" style={styles.dateRangeWrapper}>
         <Style
@@ -101,12 +100,12 @@ class DateRange extends React.Component {
               width: "100%",
               zIndex: zIndex.modal + 1,
             } : {
-                borderColor: soldOut ? colors.red : darken(colors.white, 17),
-                position: "relative",
-                transition: `border-color ${timing.fast} ease-in-out`,
-                width: "100%",
-                zIndex: zIndex.modal + 1,
-              },
+              borderColor: soldOut ? colors.accentRed : colors.borderPrimary,
+              position: "relative",
+              transition: `border-color ${timing.fast} ease-in-out`,
+              width: "100%",
+              zIndex: zIndex.modal + 1,
+            },
 
             ".DateRangePickerInput__arrow svg": {
               height: "20px",
@@ -128,7 +127,7 @@ class DateRange extends React.Component {
             },
 
             ".DateInput": {
-              color: colors.darkGray,
+              color: colors.textPrimary,
               fontSize: "14px",
               padding: "18px 17px 16px",
               textAlign: "center",
@@ -146,12 +145,12 @@ class DateRange extends React.Component {
             },
 
             ".DateInput__display-text--focused": {
-              backgroundColor: colors.white,
-              color: colors.blue,
+              backgroundColor: colors.bgPrimary,
+              color: colors.linkPrimary,
             },
 
             ".DayPickerKeyboardShortcuts__show--bottom-right": {
-              borderRightColor: colors.blue,
+              borderRightColor: colors.linkPrimary,
             },
           }}
         />
@@ -169,9 +168,9 @@ class DateRange extends React.Component {
           rules={{
             fontSize: "14px",
             zIndex: zIndex.modal,
-            backgroundColor: colors.white,
-            boxShadow: `0 ${39 / 14}em ${54 / 14}em rgba(${rgb(colors.black)}, .16),
-              0 0 0 1px rgba(${rgb(colors.black)}, .02)`,
+            backgroundColor: colors.bgPrimary,
+            boxShadow: `0 ${39 / 14}em ${54 / 14}em ${rgba(colors.bgOverlay, 0.16)},
+              0 0 0 1px ${rgba(colors.bgOverlay, 0.02)}`,
 
             ".DayPicker--horizontal": {
               borderRadius: 0,
@@ -183,7 +182,7 @@ class DateRange extends React.Component {
             },
 
             ".DayPicker__week-header": {
-              color: colors.darkGray,
+              color: colors.textPrimary,
               fontWeight: 600,
             },
 
@@ -196,7 +195,7 @@ class DateRange extends React.Component {
             },
 
             ".CalendarMonth__caption strong": {
-              color: colors.darkGray,
+              color: colors.textPrimary,
               fontWeight: 400,
             },
 
@@ -219,7 +218,6 @@ class DateRange extends React.Component {
             ".CalendarDay--hovered-span, .CalendarDay--after-hovered-start": styles.daySpan,
           }}
         />
-        <p>local</p>
 
         <DateRangePicker
           {...this.props}
@@ -233,7 +231,6 @@ class DateRange extends React.Component {
         />
       </div>
     );
-    /* eslint-enable */
   }
 }
 
