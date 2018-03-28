@@ -55,7 +55,7 @@
     "rc-slider": "^8.6.0",
     "react-addons-shallow-compare": "^15.6.2",
     "react-date-range": "^0.9.4",
-    "react-dates": "^10.2.0",
+    "react-dates": "^12.7.1",
     "react-markdown-renderer": "^1.4.0",
     "react-measure": "^2.0.2",
     "react-modal": "^3.2.1",

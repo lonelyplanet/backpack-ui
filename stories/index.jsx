@@ -790,7 +790,20 @@ storiesOf("Controls", module)
     />
   ))
   .add("Date range", () => (
-    <DateRange />
+    <DateRange
+      id="testDateRange"
+      numberOfMonths={number("Number of Months", 1)}
+      startDatePlaceholderText={text("Start Date Placeholder", "Check-in")}
+      endDatePlaceholderText={text("End Date Placeholder", "Check-out")}
+      startDate={text("Start Date", "")}
+      endDate={text("End Date", "")}
+      noBorder={boolean("noBorder", false)}
+      withFullScreenPortal={boolean("withFullScreenPortal", false)}
+      focusedInput={boolean("focusedInput", false)}
+      soldOut={boolean("soldOut", false)}
+      onDatesChange={action(event)}
+      onFocusChange={action(event)}
+    />
   ))
   .add("Dropdown", () => (
     <Dropdown

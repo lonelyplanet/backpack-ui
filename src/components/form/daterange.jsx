@@ -1,11 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 import moment from "moment";
-import assign from "object-assign";
 import radium, { Style } from "radium";
+import PropTypes from "prop-types";
 import DateRangePicker from "react-dates/lib/components/DateRangePicker";
 import { END_DATE } from "react-dates/constants";
-
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
@@ -19,48 +17,21 @@ const styles = {
   },
 
   startEndDate: {
-    backgroundColor: colors.linkPrimary,
-    borderRadius: "100%",
-    color: colors.bgPrimary,
+    backgroundColor: colors.blue,
+    color: colors.white,
     position: "relative",
-  },
-
-  colorFill: {
-    backgroundColor: "#eaf2f8",
-    content: "",
-    display: "block",
-    height: "100%",
-    position: "absolute",
-    top: 0,
-    zIndex: zIndex.below,
   },
 
   daySpan: {
     backgroundColor: "#eaf2f8",
-    color: colors.textPrimary,
+    color: colors.titleGray,
     position: "relative",
-  },
-
-  startEndDateHovered: {
-    backgroundColor: colors.linkPrimary,
-    color: colors.bgPrimary,
   },
 
   firstLastSelectedSpan: {
     position: "relative",
   },
 };
-
-const startDateColorFillStyles = assign({}, styles.colorFill,
-  { left: "-50%", width: "50%" });
-const endDateColorFillStyles = assign({}, styles.colorFill,
-  { left: 0, width: "50%" });
-const firstSelectedSpanColorFillStyles = assign({}, styles.colorFill,
-  { left: "-23px", width: "23px" });
-const lastSelectedSpanColorFillStyles = assign({}, styles.colorFill,
-  { right: "-23px", width: "23px" });
-const lastSelectedStartColorFillStyles = assign({}, styles.colorFill,
-  { left: "50%", width: "calc(100% + 4px)" });
 
 class DateRange extends React.Component {
   static initialVisibleMonth() {
@@ -130,12 +101,12 @@ class DateRange extends React.Component {
               width: "100%",
               zIndex: zIndex.modal + 1,
             } : {
-              borderColor: soldOut ? colors.accentRed : darken(colors.bgPrimary, 17),
-              position: "relative",
-              transition: `border-color ${timing.fast} ease-in-out`,
-              width: "100%",
-              zIndex: zIndex.modal + 1,
-            },
+                borderColor: soldOut ? colors.red : darken(colors.white, 17),
+                position: "relative",
+                transition: `border-color ${timing.fast} ease-in-out`,
+                width: "100%",
+                zIndex: zIndex.modal + 1,
+              },
 
             ".DateRangePickerInput__arrow svg": {
               height: "20px",
@@ -157,7 +128,7 @@ class DateRange extends React.Component {
             },
 
             ".DateInput": {
-              color: colors.textPrimary,
+              color: colors.darkGray,
               fontSize: "14px",
               padding: "18px 17px 16px",
               textAlign: "center",
@@ -175,12 +146,12 @@ class DateRange extends React.Component {
             },
 
             ".DateInput__display-text--focused": {
-              backgroundColor: colors.bgPrimary,
-              color: colors.linkPrimary,
+              backgroundColor: colors.white,
+              color: colors.blue,
             },
 
             ".DayPickerKeyboardShortcuts__show--bottom-right": {
-              borderRightColor: colors.linkPrimary,
+              borderRightColor: colors.blue,
             },
           }}
         />
@@ -198,88 +169,57 @@ class DateRange extends React.Component {
           rules={{
             fontSize: "14px",
             zIndex: zIndex.modal,
-            backgroundColor: colors.bgPrimary,
-            boxShadow: `0 ${39 / 14}em ${54 / 14}em rgba(${rgb(colors.shadowPrimary)}, .16),
-              0 0 0 1px rgba(${rgb(colors.shadowPrimary)}, .02)`,
+            backgroundColor: colors.white,
+            boxShadow: `0 ${39 / 14}em ${54 / 14}em rgba(${rgb(colors.black)}, .16),
+              0 0 0 1px rgba(${rgb(colors.black)}, .02)`,
 
             ".DayPicker--horizontal": {
               borderRadius: 0,
               boxShadow: "none",
             },
 
-            ".DayPicker--horizontal svg": {
-              fill: darken(colors.bgPrimary, 17),
+            ".DateInput--open-down.DateInput--with-caret::before": {
+              borderBottomColor: "transparent",
             },
 
             ".DayPicker__week-header": {
-              color: colors.textPrimary,
+              color: colors.darkGray,
               fontWeight: 600,
             },
 
-            ".DayPicker__nav--prev": {
+            ".DayPicker__nav--prev, .DayPicker__nav--next": {
               border: 0,
             },
 
-            ".DayPicker__nav--next": {
-              border: 0,
+            ".DayPickerNavigation--horizontal .DayPickerNavigation__prev, .DayPickerNavigation--horizontal .DayPickerNavigation__next": {
+              borderRadius: 0,
             },
-
 
             ".CalendarMonth__caption strong": {
-              color: colors.textPrimary,
+              color: colors.darkGray,
               fontWeight: 400,
             },
 
-            ".CalendarMonth__day": {
+            ".CalendarDay, .CalendarDay--blocked, .CalendarDay--blocked-out-of-range": {
               border: 0,
             },
 
-            ".CalendarMonth__day--blocked-past-date": {
-              border: 0,
-            },
+            ".CalendarDay--selected-span": styles.daySpan,
 
-            ".CalendarMonth__day--selected-span": styles.daySpan,
+            ".CalendarDay--selected-start": styles.startEndDate,
+            ".CalendarDay--selected-start.CalendarDay--hovered-span": styles.startEndDate,
 
-            ".CalendarMonth__day--selected-start": styles.startEndDate,
-            ".CalendarMonth__day--selected-start + .CalendarMonth__day--hovered::before": startDateColorFillStyles,
-            ".CalendarMonth__day--selected-start + .CalendarMonth__day--hovered-span::before": startDateColorFillStyles,
-            ".CalendarMonth__day--selected-start + .CalendarMonth__day--selected-span::before": startDateColorFillStyles,
+            ".CalendarDay--selected-end": styles.startEndDate,
 
-            ".CalendarMonth__day--selected-end": styles.startEndDate,
-            ".CalendarMonth__day--selected-end::before": endDateColorFillStyles,
-
-            ".CalendarMonth__day--selected-start + .CalendarMonth__day--selected-end::before": {
-              backgroundColor: colors.linkPrimary,
-              left: "-50%",
-              width: "100%",
-            },
-
-            ".CalendarMonth__day--hovered": {
+            ".CalendarDay--hovered": {
               border: 0,
               position: "relative",
             },
 
-            ".CalendarMonth__day--hovered-span": styles.daySpan,
-
-            ".CalendarMonth__day--selected-start.CalendarMonth__day--hovered": styles.startEndDateHovered,
-            ".CalendarMonth__day--selected-start.CalendarMonth__day--hovered-span": styles.startEndDateHovered,
-
-            ".CalendarMonth__day--selected-end.CalendarMonth__day--hovered": styles.startEndDateHovered,
-            ".CalendarMonth__day--selected-end.CalendarMonth__day--hovered-span": styles.startEndDateHovered,
-
-            "tr > .CalendarMonth__day--selected-span:first-of-type": styles.firstLastSelectedSpan,
-            ".CalendarMonth[data-visible='true'] tr > .CalendarMonth__day--selected-span:first-of-type::after": firstSelectedSpanColorFillStyles,
-
-            "tr > .CalendarMonth__day--selected-span:last-of-type": styles.firstLastSelectedSpan,
-            ".CalendarMonth[data-visible='true'] tr > .CalendarMonth__day--selected-span:last-of-type::after": lastSelectedSpanColorFillStyles,
-            ".CalendarMonth[data-visible='true'] tr > .CalendarMonth__day--selected-start:last-of-type::after": lastSelectedStartColorFillStyles,
-
-            ".CalendarDay__day": {
-              verticalAlign: "top",
-              paddingTop: "10px",
-            },
+            ".CalendarDay--hovered-span, .CalendarDay--after-hovered-start": styles.daySpan,
           }}
         />
+        <p>local</p>
 
         <DateRangePicker
           {...this.props}
@@ -292,7 +232,7 @@ class DateRange extends React.Component {
           showClearDates
         />
       </div>
-      );
+    );
     /* eslint-enable */
   }
 }
@@ -322,9 +262,13 @@ DateRange.propTypes = {
 
 DateRange.defaultProps = {
   noBorder: false,
+
   withFullScreenPortal: false,
+
   focusedInput: null,
+
   onFocusChange: "",
+
   soldOut: false,
 };
 
