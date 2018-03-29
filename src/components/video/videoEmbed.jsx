@@ -246,6 +246,8 @@ class VideoEmbed extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    this.updatePlayerProps();
+
     if (
       ((prevProps.videoId !== this.props.videoId) ||
       (!prevProps.autoplay && this.props.autoplay)) &&
@@ -292,9 +294,7 @@ class VideoEmbed extends Component {
 
     this.player = window.videojs(videoElement);
 
-    this.player.controls(this.props.controls);
-    this.player.muted(this.props.muted);
-    this.player.loop(this.props.loop);
+    this.updatePlayerProps();
 
     this.player.ready(this.onPlayerReady.bind(this));
     this.player.on("loadstart", this.onPlayerLoadStart.bind(this));
@@ -643,6 +643,22 @@ class VideoEmbed extends Component {
     }
   }
 
+  updatePlayerProps() {
+    if (!this.player) {
+      return;
+    }
+
+    const {
+      controls,
+      muted,
+      loop,
+    } = this.props;
+
+    this.player.controls(controls);
+    this.player.muted(muted);
+    this.player.loop(loop);
+  }
+
   loadVideo(videoId) {
     if (!this.isReady()) {
       return;
@@ -675,7 +691,7 @@ class VideoEmbed extends Component {
   }
 
   isAdRunning() {
-    return this.player && this.player.ads.state === "ad-playback";
+    return this.player && this.player.ads && this.player.ads.state === "ad-playback";
   }
 
   play() {
