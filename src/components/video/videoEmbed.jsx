@@ -938,6 +938,7 @@ class VideoEmbed extends Component {
       cover,
       visible,
       visibleWhileNotPlaying,
+      playsInline,
       style,
       nextVideo,
     } = this.props;
@@ -977,6 +978,7 @@ class VideoEmbed extends Component {
           data-player={this.playerId}
           data-embed={this.embedId}
           className={`video-js ${this.getPlayerVideoClassName()}`}
+          playsInline={playsInline}
         />
 
         <div>
@@ -1030,6 +1032,7 @@ VideoEmbed.propTypes = {
   previewStartTime: PropTypes.number,
   previewEndTime: PropTypes.number,
   playWhenInView: PropTypes.bool,
+  playsInline: PropTypes.bool,
   mobile: PropTypes.bool,
   onAdStarted: PropTypes.func,
   onAdPlay: PropTypes.func,
