@@ -926,7 +926,7 @@ class VideoEmbed extends Component {
     const customFields = this.player.mediainfo.customFields;
 
     if (customFields && customFields.pixel) {
-      const pixel = customFields.pixel.replace("[timestamp]", (new Date()).getTime());
+      const pixel = customFields.pixel.replace(/\[timestamp\]/g, (new Date()).getTime());
       const div = document.createElement("div");
       div.innerHTML = pixel;
       this.container.appendChild(div);
