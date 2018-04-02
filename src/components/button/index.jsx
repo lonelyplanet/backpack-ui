@@ -211,6 +211,7 @@ function Button({
   disabled,
   customStyles,
   className,
+  ...rest
 }) {
   const Element = href ? "a" : "button";
   const role = Element === "a" ? "button" : null;
@@ -238,6 +239,7 @@ function Button({
       onClick={onClick}
       role={role}
       disabled={disabled}
+      {...rest}
     >
       {children}
     </Element>
