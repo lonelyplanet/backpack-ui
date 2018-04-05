@@ -149,6 +149,12 @@ exports.Camera = props => (
   </Icon>
 );
 
+exports.Cart = props => (
+  <Icon {...props} viewBox="0 0 24 24">
+    <path d="M5.902 6H24l-4 11H6l-.788-4.335L3.457 4H0V2h4.274a1 1 0 0 1 .98.801L5.902 6zm1.368 6.804L7.67 15H18.6l2.545-7H6.396l.78 4.287.104.514-.01.003zM6.5 22a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm12 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+  </Icon>
+);
+
 exports.Checkmark = props => (
   <Icon {...props}>
     <path d="M32,4L12,32L0,20l4-4l8,8L28,0L32,4z" />
