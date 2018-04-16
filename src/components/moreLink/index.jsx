@@ -67,6 +67,7 @@ function MoreLink({
   style,
   arrowDirection,
   target,
+  ...rest
 }) {
   let Element = "";
 
@@ -103,6 +104,7 @@ function MoreLink({
       href={href}
       target={target}
       onClick={onClick}
+      {...rest}
     >
       {!hideIcon && arrowDirection === "left" &&
         IconElement
