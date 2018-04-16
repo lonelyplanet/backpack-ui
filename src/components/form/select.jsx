@@ -45,14 +45,34 @@ function Select({
       title={label}
       onChange={onChange}
     >
-      {options.map((value, index) => (
-        <option
-          value={value}
-          key={index}
-        >
-          {value}
-        </option>
-      ))}
+      {options.map((option) => {
+        if (typeof option === "object") {
+          const isMissingLabel = Object.keys(option).indexOf("label") === -1;
+          const isMissingValue = Object.keys(option).indexOf("value") === -1;
+
+          if (isMissingLabel || isMissingValue) {
+            return false;
+          }
+
+          return (
+            <option
+              value={option.value}
+              key={option.value}
+            >
+              {option.label}
+            </option>
+          );
+        }
+
+        return (
+          <option
+            value={option}
+            key={option}
+          >
+            {option}
+          </option>
+        );
+      })}
     </select>
   );
 }

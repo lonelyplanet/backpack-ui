@@ -856,11 +856,32 @@ storiesOf("Controls", module)
       />
     </Center>
   ))
-  .add("Select", () => (
+  .add("Select - array of string", () => (
     <Center backgroundColor="white">
       <Select
         id={text("ID", "select-control")}
         options={array("Options", ["USA", "France", "Spain"])}
+        label={text("Label", "Select label")}
+        name={text("Name", "select-control")}
+        defaultValue={text("Value", "")}
+        required={boolean("Required", false)}
+        size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
+        theme={select("Theme", ["base", "light", "dark", "inputGroup"], "base")}
+        noBorder={boolean("No border?", false)}
+        style={{}}
+        onChange={action(event)}
+      />
+    </Center>
+  ))
+  .add("Select - array of object", () => (
+    <Center backgroundColor="white">
+      <Select
+        id={text("ID", "select-control")}
+        options={array("Options", [
+          { label: "USA", value: "usa" },
+          { label: "France", value: "france" },
+          { label: "Spain", value: "spain" },
+        ])}
         label={text("Label", "Select label")}
         name={text("Name", "select-control")}
         defaultValue={text("Value", "")}
