@@ -186,6 +186,7 @@ const SpotlightZone = ({
   zone,
   title,
   paragraph,
+  videoPopout,
   videoEmbed,
   backgroundImageUrl,
   adSlot,
@@ -226,7 +227,14 @@ const SpotlightZone = ({
 
       <div style={styles.rightContent}>
         <VideoPopout
-          videoEmbed={videoEmbed}
+          {...videoPopout}
+          videoEmbed={{
+            ...videoEmbed,
+            vjsLP: {
+              showDetail: false,
+              ...(videoEmbed.vjsLP || {}),
+            },
+          }}
           style={{ height: "auto" }}
         />
       </div>
@@ -246,6 +254,7 @@ SpotlightZone.propTypes = {
   zone: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   paragraph: PropTypes.string.isRequired,
+  videoPopout: PropTypes.shape(VideoPopout.propTypes).isRequired,
   videoEmbed: PropTypes.shape(VideoEmbed.propTypes).isRequired,
   backgroundImageUrl: PropTypes.string.isRequired,
   adSlot: PropTypes.element,
@@ -256,6 +265,8 @@ SpotlightZone.defaultProps = {
   zone: "",
   title: "",
   paragraph: "",
+  videoPopout: {},
+  videoEmbed: {},
   backgroundImageUrl: "",
 };
 

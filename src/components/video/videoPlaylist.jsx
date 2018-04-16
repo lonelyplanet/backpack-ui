@@ -286,6 +286,10 @@ class VideoPlaylist extends Component {
   }
 
   hideFeaturedVideo() {
+    if (!this.featuredVideoContainer) {
+      return;
+    }
+
     this.featuredVideoContainer.style.opacity = 0;
 
     setTimeout(() => {
@@ -294,7 +298,12 @@ class VideoPlaylist extends Component {
   }
 
   showFeaturedVideo() {
+    if (!this.featuredVideoContainer) {
+      return;
+    }
+
     this.featuredVideoContainer.style.display = "block";
+
     setTimeout(() => {
       this.featuredVideoContainer.style.opacity = 1;
     }, 100);
@@ -312,9 +321,10 @@ class VideoPlaylist extends Component {
       heading,
       videos,
       visibleVideos,
+      videoPopout,
       videoEmbed,
       hideList,
-      videoPopout,
+      showFeaturedVideoCover,
       mobile,
       style,
     } = this.props;
@@ -334,22 +344,25 @@ class VideoPlaylist extends Component {
         {video && videos && videos.length > 0 &&
           <div style={styles.playlistVideoContainer}>
             <div style={styles.playlistVideo}>
-              <div
-                role="button"
-                ref={(ref) => { this.featuredVideoContainer = ref; }}
-                style={styles.featuredVideoContainer}
-                onClick={this.onClickFeaturedVideo}
-              >
-                {this.initialVideo &&
-                  <VideoFeatured
-                    title={this.initialVideo.name}
-                    description={this.initialVideo.description}
-                    duration={this.initialVideo.duration}
-                    image={this.initialVideo.image}
-                    mobile={mobile}
-                  />
-                }
-              </div>
+
+              {showFeaturedVideoCover &&
+                <div
+                  role="button"
+                  ref={(ref) => { this.featuredVideoContainer = ref; }}
+                  style={styles.featuredVideoContainer}
+                  onClick={this.onClickFeaturedVideo}
+                >
+                  {this.initialVideo &&
+                    <VideoFeatured
+                      title={this.initialVideo.name}
+                      description={this.initialVideo.description}
+                      duration={this.initialVideo.duration}
+                      image={this.initialVideo.image}
+                      mobile={mobile}
+                    />
+                  }
+                </div>
+              }
 
               <VideoPopout
                 mobile={mobile}
@@ -361,6 +374,10 @@ class VideoPlaylist extends Component {
                   onEnded: this.onEnded,
                   mobile,
                   onPlaySuccess: this.onPlaySuccess,
+                  vjsLP: {
+                    showRelatedVideos: false,
+                    ...(videoEmbed.vjsLP || {}),
+                  },
                 }}
               />
             </div>
@@ -442,11 +459,15 @@ VideoPlaylist.propTypes = {
   video: PropTypes.shape(videoShape),
   videos: PropTypes.arrayOf(PropTypes.shape(videoShape)),
   visibleVideos: PropTypes.number,
-  videoPopout: PropTypes.shape(VideoPopout.propTypes),
+  videoPopout: PropTypes.shape({
+    ...VideoPopout.propTypes,
+    showCloseButton: PropTypes.bool,
+  }).isRequired,
   videoEmbed: PropTypes.shape({
     ...VideoEmbed.propTypes,
     videoId: PropTypes.string,
-  }),
+  }).isRequired,
+  showFeaturedVideoCover: PropTypes.bool.isRequired,
   hideList: PropTypes.bool,
   autoplay: PropTypes.bool,
   onLoadVideo: PropTypes.func,
@@ -456,9 +477,10 @@ VideoPlaylist.propTypes = {
 
 VideoPlaylist.defaultProps = {
   heading: "Featured videos",
+  showFeaturedVideoCover: true,
+  mobile: false,
   videoPopout: {},
   videoEmbed: {},
-  mobile: false,
 };
 
 export default radium(VideoPlaylist);

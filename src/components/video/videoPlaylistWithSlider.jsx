@@ -117,6 +117,7 @@ class VideoPlaylistWithSlider extends React.Component {
       hideList,
       mobile,
       showVideoInfo,
+      showFeaturedVideoCover,
       followVideoUrls,
       style,
     } = this.props;
@@ -134,11 +135,19 @@ class VideoPlaylistWithSlider extends React.Component {
                 video={video}
                 videos={videos}
                 hideList={hideList}
+                showFeaturedVideoCover={showFeaturedVideoCover}
                 visibleVideos={visibleVideosDesktop}
                 autoplay={autoplay}
                 onLoadVideo={this.onLoadVideo}
                 videoPopout={videoPopout}
-                videoEmbed={videoEmbed}
+                videoEmbed={{
+                  ...videoEmbed,
+                  vjsLP: {
+                    showDetail: !(showVideoInfo && enableVideoInfo),
+                    showShareButton: !(showVideoInfo && enableVideoInfo),
+                    ...(videoEmbed.vjsLP || {}),
+                  },
+                }}
               />
             </Container>
 
@@ -231,14 +240,18 @@ VideoPlaylistWithSlider.propTypes = {
   visibleVideosMobile: PropTypes.number.isRequired,
   hideList: PropTypes.bool,
   autoplay: PropTypes.bool,
-  videoPopout: PropTypes.shape(VideoPopout.propTypes),
+  videoPopout: PropTypes.shape({
+    ...VideoPopout.propTypes,
+    showCloseButton: PropTypes.bool,
+  }).isRequired,
   videoEmbed: PropTypes.shape({
     ...VideoEmbed.propTypes,
     videoId: PropTypes.string,
-  }),
+  }).isRequired,
   onLoadVideo: PropTypes.func,
   mobile: PropTypes.bool,
   showVideoInfo: PropTypes.bool,
+  showFeaturedVideoCover: PropTypes.bool.isRequired,
   followVideoUrls: PropTypes.bool,
   style: propTypes.style,
 };
@@ -247,6 +260,9 @@ VideoPlaylistWithSlider.defaultProps = {
   heading: "Featured videos",
   visibleVideosDesktop: 12,
   visibleVideosMobile: 4,
+  showFeaturedVideoCover: true,
+  videoPopout: {},
+  videoEmbed: {},
 };
 
 export default radium(VideoPlaylistWithSlider);

@@ -2428,7 +2428,7 @@ storiesOf("Video components", module)
       <div style={{ maxHeight: "100%", height: "400px" }}>
         <VideoEmbed
           videoId={select("Video ID", [
-            "5203602613001",
+            "5363317250001",
             "5203602613001",
             "5615400588001"],
             "5363317250001")
@@ -2436,8 +2436,7 @@ storiesOf("Video components", module)
           playerName={select("Player name", [
             "default",
             "background",
-            "bestintravel",
-            "destination"],
+            "test"],
             "default")
           }
           autoplay={boolean("Autoplay", false)}
@@ -2532,6 +2531,7 @@ storiesOf("Video components", module)
         heading={text("Heading", "Featured videos")}
         autoplay={boolean("Autoplay", false)}
         hideList={boolean("Hide list", false)}
+        showFeaturedVideoCover={boolean("Show featured video cover", true)}
         mobile={boolean("Mobile", false)}
         onLoadVideo={(video, autoplay) => { console.log("onLoadVideo:", video, autoplay); }}
         videos={[
@@ -2597,6 +2597,7 @@ storiesOf("Video components", module)
         hideList={boolean("Hide list", false)}
         autoplay={boolean("Autoplay", false)}
         showVideoInfo={boolean("Show video info", true)}
+        showFeaturedVideoCover={boolean("Show featured video cover", true)}
         mobile={boolean("Mobile", false)}
         onLoadVideo={(video, autoplay) => { console.log("onLoadVideo:", video, autoplay); }}
         videos={[

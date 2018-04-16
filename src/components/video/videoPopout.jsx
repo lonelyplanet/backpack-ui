@@ -212,6 +212,11 @@ class VideoPopout extends Component {
     });
   }
 
+  onClosePopout = () => {
+    this.enabled = false;
+    this.update();
+  }
+
   onClickCloseButton = () => {
     this.videoEmbed.pause();
     this.enabled = false;
@@ -287,6 +292,7 @@ class VideoPopout extends Component {
 
   render() {
     const {
+      showCloseButton,
       videoEmbed,
       mobile,
       style,
@@ -326,25 +332,27 @@ class VideoPopout extends Component {
             }}
           />
 
-          <div
-            className="VideoPopout-overlay"
-            style={[
-              styles.overlay,
-              (
-              poppedOut &&
-              (hover || mobile) &&
-              !adIsPlaying &&
-              !mutedOverlayVisible ? { opacity: 1, top: 0 } : {}
-              ),
-            ]}
-          >
-            <button
-              style={styles.closeButton}
-              onClick={this.onClickCloseButton}
+          {showCloseButton &&
+            <div
+              className="VideoPopout-overlay"
+              style={[
+                styles.overlay,
+                (
+                poppedOut &&
+                (hover || mobile) &&
+                !adIsPlaying &&
+                !mutedOverlayVisible ? { opacity: 1, top: 0 } : {}
+                ),
+              ]}
             >
-              <Close width={16} height={16} />
-            </button>
-          </div>
+              <button
+                style={styles.closeButton}
+                onClick={this.onClickCloseButton}
+              >
+                <Close width={16} height={16} />
+              </button>
+            </div>
+          }
 
           <VideoEmbed
             ref={(ref) => { this.videoEmbed = ref; }}
@@ -357,6 +365,10 @@ class VideoPopout extends Component {
             onAdPause={this.onVideoEmbedAdPause}
             onMutedOverlayVisible={this.onVideoEmbedMutedOverlayVisible}
             onMutedOverlayHidden={this.onVideoEmbedMutedOverlayHidden}
+            vjsLP={{
+              ...(videoEmbed.vjsLP || {}),
+              popoutHandler: poppedOut ? this.onClosePopout : null,
+            }}
             style={{
               ...(videoEmbed.style || {}),
               ...(poppedOut ? { paddingBottom: `${(9 / 16) * 100}%` } : {}),
@@ -371,6 +383,7 @@ class VideoPopout extends Component {
 VideoPopout.propTypes = {
   whenAboveViewport: PropTypes.bool,
   whenBelowViewport: PropTypes.bool,
+  showCloseButton: PropTypes.bool.isRequired,
   videoEmbed: PropTypes.shape({
     ...VideoEmbed.propTypes,
     videoId: PropTypes.string,
@@ -382,6 +395,7 @@ VideoPopout.propTypes = {
 VideoPopout.defaultProps = {
   whenAboveViewport: true,
   whenBelowViewport: true,
+  showCloseButton: true,
   videoEmbed: {},
 };
 

@@ -22,6 +22,7 @@ const bcPlayerIds = {
   home: "HJe5vuWSVG",
   interest: "S1gCMqoEG",
   jnto: "Bkg3o1opuz",
+  test: "H1SwHfqIM",
 };
 
 const cueDuration = 15;
@@ -312,13 +313,18 @@ class VideoEmbed extends Component {
 
   onPlayerReady() {
     this.originalOverlays = (this.player.overlays_ || []).map(overlay => overlay.options_);
+    this.updatePlayerProps();
     this.loadVideo(this.props.videoId);
   }
 
   onPlayerLoadStart() {
-    this.getTextTracks().forEach((tt) => {
-      tt.oncuechange = this.onPlayerCueChange.bind(this);
-    });
+    if (!this.hasLPUIPlugin()) {
+      // We don't listen to oncuechange events if videojs-lp is registered
+      // as it will take care of any cue-based logic we want.
+      this.getTextTracks().forEach((tt) => {
+        tt.oncuechange = this.onPlayerCueChange.bind(this);
+      });
+    }
 
     this.setPreviewBounds();
     this.renderPixel();
@@ -643,6 +649,10 @@ class VideoEmbed extends Component {
     }
   }
 
+  hasLPUIPlugin = () => (
+    this.player && this.player.lp && this.player.lp() && this.player.lp().props
+  )
+
   updatePlayerProps() {
     if (!this.player) {
       return;
@@ -652,7 +662,12 @@ class VideoEmbed extends Component {
       controls,
       muted,
       loop,
+      vjsLP,
     } = this.props;
+
+    if (this.hasLPUIPlugin()) {
+      this.player.lp().props(vjsLP);
+    }
 
     this.player.controls(controls);
     this.player.muted(muted);
@@ -882,7 +897,11 @@ class VideoEmbed extends Component {
   }
 
   configureOverlays() {
-    if (!this.player || !this.player.overlay) {
+    if (!this.player || !this.player.overlay || this.hasLPUIPlugin()) {
+      // We can't configure the overlays if there is no player or
+      // no overlays plugin is registered.
+      // Also don't configure overlays if the videojs-lp plugin is
+      // registered as it takes care of out custom overlays for us.
       return;
     }
 
@@ -1014,6 +1033,8 @@ VideoEmbed.propTypes = {
     "eed",
     "home",
     "interest",
+    "jnto",
+    "test",
   ]),
   nextVideo: PropTypes.shape({
     title: PropTypes.string,
@@ -1045,6 +1066,22 @@ VideoEmbed.propTypes = {
   onCuePoint: PropTypes.func,
   onMutedOverlayVisible: PropTypes.func,
   onMutedOverlayHidden: PropTypes.func,
+  vjsLP: PropTypes.shape({
+    showDetail: PropTypes.bool,
+    showRelatedVideos: PropTypes.bool,
+    showShareButton: PropTypes.bool,
+    playlistReferenceId: PropTypes.string,
+    nextVideoTitle: PropTypes.string,
+    nextVideoImage: PropTypes.string,
+    nextVideoHandler: PropTypes.func,
+    showNextVideo: PropTypes.bool,
+    popoutHandler: PropTypes.func,
+    mutedOverlayHandler: PropTypes.func,
+    shareUrl: PropTypes.string,
+    shareText: PropTypes.string,
+    shareCurrentPage: PropTypes.bool,
+    centered: PropTypes.bool,
+  }),
   style: propTypes.style,
 };
 
