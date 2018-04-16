@@ -2443,6 +2443,7 @@ storiesOf("Video components", module)
           cover={boolean("Cover", false)}
           controls={boolean("Controls", true)}
           muted={boolean("Muted", false)}
+          playsInline={boolean("Plays inline", false)}
           loop={boolean("Loop", false)}
           visible={boolean("Visible", true)}
           visibleWhileNotPlaying={boolean("Visible while not playing", true)}

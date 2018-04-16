@@ -661,6 +661,7 @@ class VideoEmbed extends Component {
     const {
       controls,
       muted,
+      playsInline,
       loop,
       vjsLP,
     } = this.props;
@@ -670,6 +671,7 @@ class VideoEmbed extends Component {
     }
 
     this.player.controls(controls);
+    this.player.playsinline(playsInline);
     this.player.muted(muted);
     this.player.loop(loop);
   }
