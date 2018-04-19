@@ -746,7 +746,7 @@ exports.LogoViator = props => (
 
 exports.LogoViatorColor = props => (
   <Icon {...props} viewBox="0 0 49 32">
-    <linearGradient id="gradient" gradientUnits="userSpaceOnUse" x1="267.3838" y1="-590.9585" x2="268.1507" y2="-590.9585" gradientTransform="matrix(0 -16.8604 16.8604 0 10009.2432 4521.1284)">
+    <linearGradient id="gradient-logo-viator" gradientUnits="userSpaceOnUse" x1="267.3838" y1="-590.9585" x2="268.1507" y2="-590.9585" gradientTransform="matrix(0 -16.8604 16.8604 0 10009.2432 4521.1284)">
       <stop offset="0" style={{ stopColor: "#f58025" }} />
       <stop offset="1" style={{ stopColor: "#f8a537" }} />
     </linearGradient>
@@ -756,7 +756,7 @@ exports.LogoViatorColor = props => (
     <path fill="#00769a" d="M26.6 15.6h-1v-1.6h1.2v-2.4h2v2.4h1.8v1.6h-1.8v3.2c0 1.4 1 1.6 1.6 1.6 0.2 0 0.4 0 0.4 0v1.6c0 0-0.2 0-0.6 0-1.2 0-3.4-0.4-3.4-3-0.2 0-0.2-3.4-0.2-3.4z" />
     <path fill="#00769a" d="M35.2 13.8c2.4 0 4.4 1.8 4.4 4.2 0 2.6-2 4.2-4.4 4.2s-4.4-1.8-4.4-4.2c-0.2-2.6 1.8-4.2 4.4-4.2zM35.2 20.4c1.4 0 2.4-1 2.4-2.6 0-1.4-1.2-2.6-2.4-2.6-1.4 0-2.4 1-2.4 2.6s1 2.6 2.4 2.6z" />
     <path fill="#00769a" d="M40.4 16c0-0.2-0.2-0.4-0.4-0.4h-0.6v-1.6h1.8c0.8 0 1 0.2 1 1v0.4c0 0.2 0 0.6 0 0.6v0c0.4-1.2 1.4-2 2.6-2 0.2 0 0.4 0 0.4 0v2c0 0-0.2 0-0.4 0-0.8 0-1.8 0.4-2.2 1.6-0.2 0.4-0.2 0.8-0.2 1.4v3h-2v-6z" />
-    <path fill="url(#gradient)" d="M14.2 9.8c-0.8 0-1.4 0.6-1.4 1.4s0.6 1.4 1.4 1.4h1.4v-1.4c0.2-0.8-0.6-1.4-1.4-1.4z" />
+    <path fill="url(#gradient-logo-viator)" d="M14.2 9.8c-0.8 0-1.4 0.6-1.4 1.4s0.6 1.4 1.4 1.4h1.4v-1.4c0.2-0.8-0.6-1.4-1.4-1.4z" />
   </Icon>
 );
 
