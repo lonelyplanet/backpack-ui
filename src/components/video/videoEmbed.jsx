@@ -17,6 +17,7 @@ const bcPlayerIds = {
   default: "default",
   background: "BJputewob",
   bestintravel: "HkJcclwoZ",
+  copilot: "Hy3iMpP2M",
   destination: "HkPdqeDiZ",
   eed: "rJtMIpi7M",
   home: "HJe5vuWSVG",
