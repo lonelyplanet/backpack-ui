@@ -76,6 +76,7 @@ const styles = {
     position: "relative",
 
     [`@media (min-width: ${mq.min["960"]})`]: {
+      width: "40%",
       paddingRight: "80px",
     },
   },
@@ -85,6 +86,7 @@ const styles = {
     flex: "0 0 auto",
     flexDirection: "column",
     justifyContent: "center",
+    flexGrow: 1,
 
     [`@media (max-width: ${mq.max["480"]})`]: {
       paddingTop: gutter("static", 1, 0.5),
@@ -133,7 +135,7 @@ const styles = {
   zone: {
     display: "inline-block",
     fontSize: "18px",
-    fontWeight: fontWeightMedium,
+    fontWeight: fontWeightLight,
     left: 0,
     lineHeight: lineHeightHeading6,
     position: "relative",
@@ -147,6 +149,7 @@ const styles = {
   title: {
     color: colors.textOverlay,
     fontSize: `${fontSizeHeading3}px`,
+    fontWeight: fontWeightMedium,
     lineHeight: lineHeightHeading3,
 
     [`@media (min-width: ${mq.min["720"]}) and (max-width: ${mq.max["960"]})`]: {
