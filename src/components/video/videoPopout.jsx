@@ -40,7 +40,7 @@ const styles = {
     fixedToWindow: {
       bottom: "24px",
       boxShadow: `0px 1px 8px 0px ${rgba(colors.bgOverlay, 0.4)}`,
-      height: "initial",
+      height: "auto",
       maxWidth: "406px",
       position: "fixed",
       right: "24px",
