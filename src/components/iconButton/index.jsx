@@ -22,6 +22,7 @@ const styles = {
     color: colors.textPrimary,
     cursor: "pointer",
     display: "inline-flex",
+    flexDirection: "column",
     justifyContent: "center",
     lineHeight: lineHeightReset,
     paddingLeft: 0,
