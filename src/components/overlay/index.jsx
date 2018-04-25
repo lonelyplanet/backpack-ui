@@ -20,6 +20,7 @@ const styles = {
   overlay: {
     base: {
       bottom: 0,
+      height: "100vh",
       left: 0,
       position: "fixed",
       right: 0,
