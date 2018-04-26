@@ -5,6 +5,7 @@ import cn from "classnames";
 
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
+import zIndex from "../../styles/zIndex";
 import iconFromString from "../../utils/icon";
 import propTypes from "../../utils/propTypes";
 import Flyout from "../flyout";
@@ -33,6 +34,7 @@ const styles = {
         visibility ${timing.default}`,
       visibility: "hidden",
       width: "160px",
+      zIndex: zIndex.default,
     },
 
     visible: {
