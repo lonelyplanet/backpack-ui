@@ -1677,6 +1677,7 @@ storiesOf("Maps", module)
     <StaticMap
       location="-86.8595257,35.93225029999999"
       size="278x90"
+      zoom="5"
     />
   ));
 
