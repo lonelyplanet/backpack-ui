@@ -15,11 +15,11 @@ function ProviderLogo({ provider, className, style }) {
     },
     hostelworld: {
       name: "Hostelworld",
-      image: "vendorLogo-hostelWorld.png",
+      image: "vendorLogo-hostelworld-transparent.png",
     },
     opentable: {
       name: "OpenTable",
-      image: "vendorLogo-openTable.png",
+      image: "vendorLogo-openTable-transparent.png",
     },
     gadventures: {
       name: "G Adventures",
