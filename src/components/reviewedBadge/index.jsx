@@ -15,8 +15,8 @@ const styles = {
   },
 
   icon: {
-    fontSize: "24px",
-    marginRight: "4px",
+    fontSize: `${24 / 18}em`,
+    marginRight: `${4 / 18}em`,
   },
 };
 
