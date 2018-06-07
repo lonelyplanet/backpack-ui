@@ -234,7 +234,8 @@ const SpotlightZone = ({
           videoEmbed={{
             ...videoEmbed,
             vjsLP: {
-              showDetail: false,
+              showTitle: false,
+              showDescription: false,
               ...(videoEmbed.vjsLP || {}),
             },
           }}

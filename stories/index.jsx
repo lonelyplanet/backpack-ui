@@ -2610,7 +2610,7 @@ storiesOf("Video components", module)
         heading={text("Heading", "Featured videos")}
         autoplay={boolean("Autoplay", false)}
         hideList={boolean("Hide list", false)}
-        showFeaturedVideoCover={boolean("Show featured video cover", true)}
+        showFeaturedVideoCover={boolean("Show featured video cover", false)}
         mobile={boolean("Mobile", false)}
         onLoadVideo={(video, autoplay) => { console.log("onLoadVideo:", video, autoplay); }}
         videos={[
@@ -2676,7 +2676,7 @@ storiesOf("Video components", module)
         hideList={boolean("Hide list", false)}
         autoplay={boolean("Autoplay", false)}
         showVideoInfo={boolean("Show video info", true)}
-        showFeaturedVideoCover={boolean("Show featured video cover", true)}
+        showFeaturedVideoCover={boolean("Show featured video cover", false)}
         mobile={boolean("Mobile", false)}
         onLoadVideo={(video, autoplay) => { console.log("onLoadVideo:", video, autoplay); }}
         videos={[

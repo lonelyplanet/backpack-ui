@@ -1065,7 +1065,9 @@ VideoEmbed.propTypes = {
   onMutedOverlayVisible: PropTypes.func,
   onMutedOverlayHidden: PropTypes.func,
   vjsLP: PropTypes.shape({
-    showDetail: PropTypes.bool,
+    showTitle: PropTypes.bool,
+    showDescription: PropTypes.bool,
+    showRelatedLocations: PropTypes.bool,
     showRelatedVideos: PropTypes.bool,
     showShareButton: PropTypes.bool,
     playlistReferenceId: PropTypes.string,

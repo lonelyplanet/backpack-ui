@@ -143,7 +143,8 @@ class VideoPlaylistWithSlider extends React.Component {
                 videoEmbed={{
                   ...videoEmbed,
                   vjsLP: {
-                    showDetail: !(showVideoInfo && enableVideoInfo),
+                    showTitle: !(showVideoInfo && enableVideoInfo),
+                    showDescription: hideList && !(showVideoInfo && enableVideoInfo),
                     showShareButton: !(showVideoInfo && enableVideoInfo),
                     ...(videoEmbed.vjsLP || {}),
                   },
@@ -260,7 +261,7 @@ VideoPlaylistWithSlider.defaultProps = {
   heading: "Featured videos",
   visibleVideosDesktop: 12,
   visibleVideosMobile: 4,
-  showFeaturedVideoCover: true,
+  showFeaturedVideoCover: false,
   videoPopout: {},
   videoEmbed: {},
 };

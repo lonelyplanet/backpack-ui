@@ -375,6 +375,8 @@ class VideoPlaylist extends Component {
                   mobile,
                   onPlaySuccess: this.onPlaySuccess,
                   vjsLP: {
+                    showDescription: hideList,
+                    showRelatedLocations: hideList,
                     showRelatedVideos: hideList,
                     ...(videoEmbed.vjsLP || {}),
                   },
@@ -477,7 +479,7 @@ VideoPlaylist.propTypes = {
 
 VideoPlaylist.defaultProps = {
   heading: "Featured videos",
-  showFeaturedVideoCover: true,
+  showFeaturedVideoCover: false,
   mobile: false,
   hideList: false,
   videoPopout: {},
