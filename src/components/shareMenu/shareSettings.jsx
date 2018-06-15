@@ -86,7 +86,15 @@ class ShareSettings extends React.Component {
   }
 
   formattedShareContent() {
-    const { url, text, image, description, twitterContent, via } = this.props.shareContent;
+    const {
+      url,
+      text,
+      image,
+      description,
+      twitterContent,
+      via,
+      weChatQr,
+    } = this.props.shareContent;
 
     return {
       text: encodeURIComponent(text),
@@ -95,11 +103,20 @@ class ShareSettings extends React.Component {
       twitterContent: encodeURIComponent(twitterContent),
       url: encodeURIComponent(url),
       via,
+      weChatQr,
     };
   }
 
   shareUrl() {
-    const { url, text, image, description, twitterContent, via } = this.formattedShareContent();
+    const {
+      url,
+      text,
+      image,
+      description,
+      twitterContent,
+      via,
+      weChatQr,
+    } = this.formattedShareContent();
 
     const twitterText = twitterContent || `${description}&url=${url}&via=${via}`;
 
@@ -111,6 +128,7 @@ class ShareSettings extends React.Component {
       pinterest: `https://www.pinterest.com/pin/create/button/?url=${url}&media=${image}&description=${description}`,
       reddit: `https://www.reddit.com/submit/?url=${url}`,
       whatsapp: `whatsapp://send?text=${description}%0A%0A${url}`,
+      weChat: weChatQr,
     };
   }
 
@@ -136,6 +154,7 @@ ShareSettings.propTypes = {
     image: PropTypes.string,
     url: PropTypes.string,
     via: PropTypes.string,
+    weChatQr: PropTypes.string,
   }).isRequired,
 };
 

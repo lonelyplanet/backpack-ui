@@ -88,6 +88,7 @@ function ModalComponent({
   hideHeader,
   className,
   children,
+  contentStyle,
   style,
 }) {
   const rules = {
@@ -217,7 +218,11 @@ function ModalComponent({
 
       <div
         className="Modal-content"
-        style={!disableContentPadding ? styles.contentContainer : {}}
+        style={Object.assign(
+          {},
+          !disableContentPadding ? styles.contentContainer : {},
+          contentStyle,
+        )}
       >
         {children}
       </div>
@@ -247,6 +252,7 @@ ModalComponent.propTypes = {
   hideHeader: PropTypes.bool,
   className: PropTypes.string,
   disableContentPadding: PropTypes.bool,
+  contentStyle: propTypes.style,
   style: propTypes.style,
 };
 

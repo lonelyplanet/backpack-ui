@@ -16,6 +16,7 @@ const backgroundColors = {
   reddit: colors.socialReddit,
   twitter: colors.socialTwitter,
   whatsapp: colors.socialWhatsapp,
+  weChat: colors.socialWeChat,
 };
 
 const iconNames = {
@@ -26,6 +27,7 @@ const iconNames = {
   reddit: "Reddit",
   twitter: "Twitter",
   whatsapp: "Whatsapp",
+  weChat: "WeChat",
 };
 
 const sizeMultiplier = 2.5;
@@ -87,6 +89,7 @@ SocialIconButton.propTypes = {
     "reddit",
     "twitter",
     "whatsapp",
+    "weChat",
   ]).isRequired,
   href: PropTypes.string,
   onClick: PropTypes.func,

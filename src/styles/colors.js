@@ -48,6 +48,7 @@ const socialGoogleRed = "#ea4535";
 const socialReddit = "#fc4220";
 const socialTwitter = "#1da1f2";
 const socialWhatsapp = "#28eb76";
+const socialWeChat = "#7bb32e";
 
 // POI colors
 // These are deprecated and will be removed in the next major release
@@ -116,4 +117,5 @@ export default {
   socialReddit,
   socialTwitter,
   socialWhatsapp,
+  socialWeChat,
 };

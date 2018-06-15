@@ -554,6 +554,12 @@ storiesOf("Buttons", module)
       network="twitter"
     />
   ))
+  .add("Social icon button - WeChat", () => (
+    <SocialIconButton
+      onClick={action("WeChat clicked")}
+      network="weChat"
+    />
+  ))
 
   // Social login button
   .add("Social login button", () => (
@@ -1573,90 +1579,132 @@ storiesOf("Lockups", module)
   ))
   .add("Social share - using ShareSettings", () => (
     <Center backgroundColor="white">
-      <ShareSettings
-        shareContent={{
-          text: "Animal islands: seven places where creatures rule",
-          url: "https://www.lonelyplanet.com/asia/travel-tips-and-articles/animal-islands-seven-places-where-creatures-rule",
-          description: "Wildlife watching is a tricky business. Days can be spent fruitlessly scanning the savannah for lions or holed up in a hide hoping to catch a glimpse of a rare bird. But for travellers with limited time (or patience), there are places where animals are not just easy to spot, they are impossible to miss.",
-          twitterContent: "Wildlife watching is a tricky business @lonelyplanet http://lptravel.to",
-          image: "https://www.lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/01/GettyImages-467445351_medium-1.jpg",
-          via: "lonelyplanet",
-        }}
-      >
-        {(socialActions, socialUrls) => (
-          <div>
-            <SocialIconButton
-              network="twitter"
-              href={socialUrls.twitter}
-              onClick={(event) => {
-                socialActions.twitter();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
+      <StyleRoot>
+        <ShareSettings
+          shareContent={{
+            text: "Animal islands: seven places where creatures rule",
+            url: "https://www.lonelyplanet.com/asia/travel-tips-and-articles/animal-islands-seven-places-where-creatures-rule",
+            description: "Wildlife watching is a tricky business. Days can be spent fruitlessly scanning the savannah for lions or holed up in a hide hoping to catch a glimpse of a rare bird. But for travellers with limited time (or patience), there are places where animals are not just easy to spot, they are impossible to miss.",
+            twitterContent: "Wildlife watching is a tricky business @lonelyplanet http://lptravel.to",
+            image: "https://www.lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/01/GettyImages-467445351_medium-1.jpg",
+            via: "lonelyplanet",
+            weChatQr: text("WeChat QR URL", "https://s3.amazonaws.com/static-asset/marketing/2018/BIA/weChatQrCode.png"),
+          }}
+        >
+          {(socialActions, socialUrls) => (
+            <div>
+              <SocialIconButton
+                network="twitter"
+                href={socialUrls.twitter}
+                onClick={(event) => {
+                  socialActions.twitter();
+                  event.preventDefault();
+                }}
+                style={{ margin: "0 8px" }}
+              />
 
-            <SocialIconButton
-              network="facebook"
-              href={socialUrls.facebook}
-              onClick={(event) => {
-                socialActions.facebook();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
+              <SocialIconButton
+                network="facebook"
+                href={socialUrls.facebook}
+                onClick={(event) => {
+                  socialActions.facebook();
+                  event.preventDefault();
+                }}
+                style={{ margin: "0 8px" }}
+              />
 
-            <SocialIconButton
-              network="pinterest"
-              href={socialUrls.pinterest}
-              onClick={(event) => {
-                socialActions.pinterest();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
+              <SocialIconButton
+                network="pinterest"
+                href={socialUrls.pinterest}
+                onClick={(event) => {
+                  socialActions.pinterest();
+                  event.preventDefault();
+                }}
+                style={{ margin: "0 8px" }}
+              />
 
-            <SocialIconButton
-              network="reddit"
-              href={socialUrls.reddit}
-              onClick={(event) => {
-                socialActions.reddit();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
+              <SocialIconButton
+                network="reddit"
+                href={socialUrls.reddit}
+                onClick={(event) => {
+                  socialActions.reddit();
+                  event.preventDefault();
+                }}
+                style={{ margin: "0 8px" }}
+              />
 
-            <SocialIconButton
-              network="email"
-              href={socialUrls.email}
-              onClick={(event) => {
-                socialActions.email();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
+              <SocialIconButton
+                network="email"
+                href={socialUrls.email}
+                onClick={(event) => {
+                  socialActions.email();
+                  event.preventDefault();
+                }}
+                style={{ margin: "0 8px" }}
+              />
 
-            <SocialIconButton
-              network="facebookMessenger"
-              href={socialUrls.facebookMessenger}
-              onClick={(event) => {
-                socialActions.facebookMessenger();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
+              <SocialIconButton
+                network="facebookMessenger"
+                href={socialUrls.facebookMessenger}
+                onClick={(event) => {
+                  socialActions.facebookMessenger();
+                  event.preventDefault();
+                }}
+                style={{ margin: "0 8px" }}
+              />
 
-            <SocialIconButton
-              network="whatsapp"
-              href={socialUrls.whatsapp}
-              onClick={(event) => {
-                socialActions.whatsapp();
-                event.preventDefault();
-              }}
-              style={{ margin: "0 8px" }}
-            />
-          </div>
-        )}
-      </ShareSettings>
+              <SocialIconButton
+                network="whatsapp"
+                href={socialUrls.whatsapp}
+                onClick={(event) => {
+                  socialActions.whatsapp();
+                  event.preventDefault();
+                }}
+                style={{ margin: "0 8px" }}
+              />
+
+              <ModalWrapper>
+                {(isOpen, toggle) => (
+                  <span>
+                    <SocialIconButton
+                      network="weChat"
+                      onClick={(event) => {
+                        toggle();
+                        event.preventDefault();
+                      }}
+                      style={{ margin: "0 8px" }}
+                    />
+
+                    <Modal
+                      isOpen={!isOpen}
+                      leftAction={toggle}
+                      leftActionContent={<Icon.Close width={24} height={24} />}
+                      closeModal={toggle}
+                      title="WeChat Share"
+                      contentStyle={{
+                        alignItems: "center",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                      style={{
+                        content: {
+                          bottom: "auto",
+                          height: "auto",
+                          width: "248px",
+                        }
+                      }}
+                      showTitle
+                      disableContentPadding
+                    >
+                      <img src={socialUrls.weChat} alt="weChat" />
+                    </Modal>
+                  </span>
+                )}
+              </ModalWrapper>
+            </div>
+          )}
+        </ShareSettings>
+      </StyleRoot>
     </Center>
   ))
   .add("Tag list", () => (
