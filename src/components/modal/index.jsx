@@ -260,7 +260,7 @@ ModalComponent.defaultProps = {
   isOpen: false,
   desktopMaxHeight: "85vh",
   desktopWidth: "85%",
-  closeTimeoutMS: timing.default,
+  closeTimeoutMS: timing.numDefault,
   disableContentPadding: false,
   hideHeader: false,
 };
