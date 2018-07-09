@@ -76,6 +76,7 @@ function StaticMap({ token, location, size, sidebar, hideAttribution, name, url,
             className="StaticMap-image"
             src={mapImageUrl}
             alt=""
+            data-pin-nopin
           />
         </a>
       }
@@ -89,6 +90,7 @@ function StaticMap({ token, location, size, sidebar, hideAttribution, name, url,
           ]}
           src={mapImageUrl}
           alt={name && `Location of ${name} on map`}
+          data-pin-nopin
         />
       }
 
