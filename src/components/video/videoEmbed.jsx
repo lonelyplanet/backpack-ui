@@ -773,11 +773,16 @@ class VideoEmbed extends Component {
       return;
     }
 
-    this.setState({
-      showMutedOverlay: true,
-    });
+    if (this.hasLPUIPlugin()) {
+      this.player.lp().showMutedOverlay();
+      this.showMutedOverlay = false;
+    } else {
+      this.setState({
+        showMutedOverlay: true,
+      });
 
-    this.player.controls(false);
+      this.player.controls(false);
+    }
 
     if (this.props.onMutedOverlayVisible) {
       this.props.onMutedOverlayVisible();
@@ -789,11 +794,15 @@ class VideoEmbed extends Component {
       return;
     }
 
-    this.setState({
-      showMutedOverlay: false,
-    });
+    if (this.hasLPUIPlugin()) {
+      this.player.lp().hideMutedOverlay();
+    } else {
+      this.setState({
+        showMutedOverlay: false,
+      });
 
-    this.player.controls(true);
+      this.player.controls(true);
+    }
 
     if (this.props.onMutedOverlayHidden) {
       this.props.onMutedOverlayHidden();

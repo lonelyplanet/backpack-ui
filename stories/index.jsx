@@ -2829,6 +2829,7 @@ storiesOf("Video components", module)
           whenAboveViewport={boolean("When above viewport", true)}
           whenBelowViewport={boolean("When below viewport", true)}
           mobile={boolean("Mobile", false)}
+          showCloseButton={boolean("Show close button", true)}
           videoEmbed={{
             videoId: "5615445675001",
             autoplay: true,
