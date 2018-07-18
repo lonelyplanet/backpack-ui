@@ -147,7 +147,6 @@ class VideoPlaylistWithSlider extends React.Component {
                   vjsLP: {
                     showTitle: !(showVideoInfo && enableVideoInfo),
                     showDescription: hideList && !(showVideoInfo && enableVideoInfo),
-                    showShareButton: !(showVideoInfo && enableVideoInfo),
                     ...(videoEmbed.vjsLP || {}),
                   },
                 }}

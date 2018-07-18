@@ -205,7 +205,7 @@ class VideoEmbed extends Component {
 
     this.id = _.uniqueId();
     this.accountId = "5104226627001";
-    this.playerId = bcPlayerIds[props.playerName];
+    this.playerId = bcPlayerIds[props.playerName] || props.playerName;
     this.embedId = "default";
 
     this.cueEndTime = null;
@@ -1032,17 +1032,7 @@ class VideoEmbed extends Component {
 
 VideoEmbed.propTypes = {
   videoId: PropTypes.string.isRequired,
-  playerName: PropTypes.oneOf([
-    "default",
-    "background",
-    "bestintravel",
-    "destination",
-    "eed",
-    "home",
-    "interest",
-    "jnto",
-    "test",
-  ]),
+  playerName: PropTypes.string,
   nextVideo: PropTypes.shape({
     title: PropTypes.string,
     image: PropTypes.string,

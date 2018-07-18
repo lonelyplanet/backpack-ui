@@ -132,7 +132,7 @@ export { default as Tooltip } from "./components/tooltip";
 export { default as TourItinerary } from "./components/tourItinerary";
 export { default as TravelAlert } from "./components/travelAlert";
 export { default as TypeSelector } from "./components/typeSelector";
-export { default as VideoEmbed } from "./components/videoEmbed";
+export { default as VideoEmbed } from "./components/video/videoEmbed";
 
 export { default as DatePicker } from "./components/form/datepicker";
 export { default as DateRange } from "./components/form/daterange";
