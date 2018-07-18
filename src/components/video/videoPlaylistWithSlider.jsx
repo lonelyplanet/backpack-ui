@@ -193,9 +193,7 @@ class VideoPlaylistWithSlider extends React.Component {
 
                 <div style={styles.listContainer}>
                   <Container>
-                    <ThumbnailList
-                      heading={sliderHeading || heading}
-                    >
+                    <ThumbnailList heading={sliderHeading || heading}>
                       {videos.slice(0, visibleVideosMobile).map((v) => (
                         <ThumbnailListItem
                           key={v.id}

@@ -47,7 +47,6 @@ const styles = {
       transition: `background-color ${timing.fast} linear, border-color ${timing.fast} linear`,
     },
     active: {
-      borderColor: colors.linkPrimary,
       backgroundColor: colors.linkPrimary,
     },
   },
@@ -98,7 +97,6 @@ const styles = {
     display: "flex",
     flexGrow: 1,
     justifyContent: "space-between",
-    // padding: "8px",
   },
 
   title: {
@@ -111,11 +109,9 @@ const styles = {
       transition: `color ${timing.default} ease`,
       WebkitBoxOrient: "vertical",
     },
-
     lineClamp: {
       WebkitLineClamp: 1,
     },
-
     light: {
       color: colors.textPrimary,
     },

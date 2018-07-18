@@ -2356,7 +2356,7 @@ storiesOf("Video components", module)
         onDescriptionIconClick={action("Action for icon")}
         imageIcon={text("Image icon", "Play")}
         imageIconLabel={text("Image icon label", "Play")}
-        theme={select("Theme", ["light", "dark"], "light")}
+        theme={select("Theme", ["light", "dark", "active"], "light")}
       />
     </StyleRoot>
   ))

@@ -396,9 +396,6 @@ class VideoPlaylist extends Component {
                 <Style
                   scopeSelector=".VideoPlaylist"
                   rules={{
-                    ".ListItem-thumbnail a": {
-                      color: "inherit !important",
-                    },
                     ".ListItem-thumbnail .Heading": {
                       fontWeight: "400 !important",
                     },
