@@ -42,7 +42,14 @@ const hoverStyles = {
 
 const styles = {
   container: {
-    display: "flex",
+    default: {
+      display: "flex",
+      transition: `background-color ${timing.fast} linear, border-color ${timing.fast} linear`,
+    },
+    active: {
+      borderColor: colors.linkPrimary,
+      backgroundColor: colors.linkPrimary,
+    },
   },
 
   image: {
@@ -91,6 +98,7 @@ const styles = {
     display: "flex",
     flexGrow: 1,
     justifyContent: "space-between",
+    // padding: "8px",
   },
 
   title: {
@@ -111,8 +119,10 @@ const styles = {
     light: {
       color: colors.textPrimary,
     },
-
     dark: {
+      color: colors.textOverlay,
+    },
+    active: {
       color: colors.textOverlay,
     },
   },
@@ -190,7 +200,8 @@ const ThumbnailListItem = ({
   <div
     className={cn("ListItem-thumbnail", theme && `ListItem-thumbnail--${theme}`)}
     style={[
-      styles.container,
+      styles.container.default,
+      styles.container[theme],
       style,
     ]}
   >
@@ -303,7 +314,7 @@ ThumbnailListItem.propTypes = {
   onDescriptionIconClick: PropTypes.func,
   status: PropTypes.string,
   lineClamp: PropTypes.bool,
-  theme: PropTypes.oneOf(["light", "dark"]),
+  theme: PropTypes.oneOf(["light", "dark", "active"]),
   style: propTypes.style,
 };
 

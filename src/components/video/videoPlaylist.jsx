@@ -16,6 +16,8 @@ import zIndex from "../../styles/zIndex";
 import duration from "../../utils/time";
 import propTypes from "../../utils/propTypes";
 
+const lightBackgroundColor = colors.bgPrimary;
+const lightBorderColor = colors.borderPrimary;
 const darkBackgroundColor = "#1f1f1f";
 const darkBorderColor = "#2b2b2b";
 
@@ -64,57 +66,61 @@ const styles = {
   },
 
   playlistInner: {
-    backgroundColor: darkBackgroundColor,
-    display: "flex",
-    flexDirection: "column",
-    height: "100%",
-    left: 0,
-    position: "absolute",
-    top: 0,
-    width: "100%",
+    default: {
+      display: "flex",
+      flexDirection: "column",
+      height: "100%",
+      left: 0,
+      position: "absolute",
+      top: 0,
+      width: "100%",
+    },
+    light: {
+      backgroundColor: lightBackgroundColor,
+    },
+    dark: {
+      backgroundColor: darkBackgroundColor,
+    },
   },
 
   playlistHeader: {
-    backgroundColor: darkBackgroundColor,
-    borderColor: darkBorderColor,
-    borderStyle: "solid",
-    borderTopWidth: 0,
-    borderRightWidth: 0,
-    borderBottomWidth: "1px",
-    borderLeftWidth: 0,
-    color: colors.textOverlay,
-    fontSize: `${fontSizeHeading7}px`,
-    fontWeight: fontWeightLight,
-    letterSpacing: "1.5px",
-    lineHeight: lineHeightHeading7,
-    padding: "8px 16px",
-    textAlign: "center",
+    default: {
+      borderStyle: "solid",
+      borderTopWidth: 0,
+      borderRightWidth: 0,
+      borderBottomWidth: "1px",
+      borderLeftWidth: 0,
+      fontSize: `${fontSizeHeading7}px`,
+      fontWeight: fontWeightLight,
+      letterSpacing: "1.5px",
+      lineHeight: lineHeightHeading7,
+      padding: "8px 16px",
+      textAlign: "center",
+    },
+    light: {
+      color: colors.textPrimary,
+      backgroundColor: lightBackgroundColor,
+      borderColor: lightBorderColor,
+    },
+    dark: {
+      color: colors.textOverlay,
+      backgroundColor: darkBackgroundColor,
+      borderColor: darkBorderColor,
+    },
   },
 
   playlistItems: {
     overflowY: "auto",
   },
 
-  thumbnailListItem: {
-    default: {
-      backgroundColor: darkBackgroundColor,
-      borderColor: darkBorderColor,
-      borderStyle: "solid",
-      borderTopWidth: 0,
-      borderRightWidth: 0,
-      borderBottomWidth: "1px",
-      borderLeftWidth: 0,
-      cursor: "pointer",
-      paddingBottom: "8px",
-      paddingLeft: "8px",
-      paddingTop: "8px",
-      transition: `background-color ${timing.fast} linear, border-color ${timing.fast} linear`,
-    },
+  thumbnailListItemContainer: {
+    paddingLeft: "8px",
+    paddingRight: "8px",
+  },
 
-    active: {
-      backgroundColor: colors.linkPrimary,
-      borderColor: colors.linkPrimary,
-    },
+  thumbnailListItem: {
+    padding: "8px",
+    cursor: "pointer",
   },
 };
 
@@ -319,6 +325,7 @@ class VideoPlaylist extends Component {
   render() {
     const {
       heading,
+      theme,
       videos,
       visibleVideos,
       videoPopout,
@@ -389,6 +396,9 @@ class VideoPlaylist extends Component {
                 <Style
                   scopeSelector=".VideoPlaylist"
                   rules={{
+                    ".ListItem-thumbnail a": {
+                      color: "inherit !important",
+                    },
                     ".ListItem-thumbnail .Heading": {
                       fontWeight: "400 !important",
                     },
@@ -401,18 +411,34 @@ class VideoPlaylist extends Component {
                   }}
                 />
 
-                <div style={styles.playlistInner}>
-                  <div style={styles.playlistHeader}>
-                    {heading}
-                  </div>
+                <div
+                  style={[
+                    styles.playlistInner.default,
+                    styles.playlistInner[theme],
+                  ]}
+                >
+                  {heading &&
+                    <div
+                      style={[
+                        styles.playlistHeader.default,
+                        styles.playlistHeader[theme],
+                      ]}
+                    >
+                      {heading}
+                    </div>
+                  }
 
                   <div
                     ref={(childContainer) => { this.childContainer = childContainer; }}
                     style={styles.playlistItems}
                   >
-                    {videos.slice(0, visibleVideos || videos.length).map((v, i) => (
+                    {videos.slice(0, visibleVideos || videos.length).map((v) => (
                       <div
                         key={v.id}
+                        style={[
+                          styles.thumbnailListItemContainer,
+                          heading && { paddingTop: "8px" },
+                        ]}
                         ref={(ref) => { this.childRefs[v.id] = ref; }}
                       >
                         <ThumbnailListItem
@@ -420,16 +446,12 @@ class VideoPlaylist extends Component {
                           onClick={() => this.onClickThumbnailVideo(v)}
                           imagePath={v.thumbnailImage}
                           subtitle={[duration(v.duration)]}
-                          theme="dark"
+                          theme={v.id === video.id ? "active" : theme}
                           imageIcon={(v.id === video.id && "Play") || null}
                           imageIconLabel="Play"
                           lineClamp={false}
                           style={[
-                            styles.thumbnailListItem.default,
-                            v.id === video.id ? styles.thumbnailListItem.active : {},
-                            i === (
-                              (visibleVideos || videos.length) - 1 ? { borderBottomWidth: 0 } : {}
-                            ),
+                            styles.thumbnailListItem,
                             childStyles[v.id],
                           ]}
                         />
@@ -457,7 +479,8 @@ const videoShape = {
 };
 
 VideoPlaylist.propTypes = {
-  heading: PropTypes.string.isRequired,
+  heading: PropTypes.string,
+  theme: PropTypes.oneOf(["light", "dark"]),
   video: PropTypes.shape(videoShape),
   videos: PropTypes.arrayOf(PropTypes.shape(videoShape)),
   visibleVideos: PropTypes.number,
@@ -478,7 +501,7 @@ VideoPlaylist.propTypes = {
 };
 
 VideoPlaylist.defaultProps = {
-  heading: "Featured videos",
+  theme: "light",
   showFeaturedVideoCover: false,
   mobile: false,
   hideList: false,

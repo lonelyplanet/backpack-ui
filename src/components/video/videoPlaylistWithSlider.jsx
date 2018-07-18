@@ -108,6 +108,7 @@ class VideoPlaylistWithSlider extends React.Component {
   render() {
     const {
       videos,
+      theme,
       visibleVideosDesktop,
       visibleVideosMobile,
       videoPopout,
@@ -131,6 +132,7 @@ class VideoPlaylistWithSlider extends React.Component {
             <Container style={styles.playlistContainer}>
               <VideoPlaylist
                 heading={heading}
+                theme={theme}
                 mobile={mobile}
                 video={video}
                 videos={videos}
@@ -191,7 +193,9 @@ class VideoPlaylistWithSlider extends React.Component {
 
                 <div style={styles.listContainer}>
                   <Container>
-                    <ThumbnailList heading={sliderHeading || heading}>
+                    <ThumbnailList
+                      heading={sliderHeading || heading}
+                    >
                       {videos.slice(0, visibleVideosMobile).map((v) => (
                         <ThumbnailListItem
                           key={v.id}
@@ -234,8 +238,9 @@ const videoShape = {
 
 VideoPlaylistWithSlider.propTypes = {
   video: PropTypes.shape(videoShape),
+  theme: PropTypes.oneOf(["light", "dark"]),
   videos: PropTypes.arrayOf(PropTypes.shape(videoShape)).isRequired,
-  heading: PropTypes.string.isRequired,
+  heading: PropTypes.string,
   sliderHeading: PropTypes.string,
   visibleVideosDesktop: PropTypes.number.isRequired,
   visibleVideosMobile: PropTypes.number.isRequired,
@@ -258,7 +263,7 @@ VideoPlaylistWithSlider.propTypes = {
 };
 
 VideoPlaylistWithSlider.defaultProps = {
-  heading: "Featured videos",
+  theme: "light",
   visibleVideosDesktop: 12,
   visibleVideosMobile: 4,
   showFeaturedVideoCover: false,
