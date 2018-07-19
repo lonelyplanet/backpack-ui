@@ -177,8 +177,8 @@ class VideoPlaylistWithSlider extends React.Component {
                           heading={v.name}
                           runtime={v.duration}
                           imageSrc={v.cardImage}
-                          href={followVideoUrls && v.url}
-                          onClick={!followVideoUrls && (() => this.onClickVideo(v))}
+                          href={followVideoUrls ? v.url : null}
+                          onClick={!followVideoUrls ? () => this.onClickVideo(v) : null}
                           layout="tile"
                           spacing="compact"
                           mobile={mobile}
@@ -197,8 +197,8 @@ class VideoPlaylistWithSlider extends React.Component {
                         <ThumbnailListItem
                           key={v.id}
                           title={v.name}
-                          href={followVideoUrls && v.url}
-                          onClick={!followVideoUrls && (() => this.onClickVideo(v))}
+                          href={followVideoUrls ? v.url : null}
+                          onClick={!followVideoUrls ? () => this.onClickVideo(v) : null}
                           imagePath={v.thumbnailImage}
                           subtitle={[duration(v.duration)]}
                           lineClamp={false}
