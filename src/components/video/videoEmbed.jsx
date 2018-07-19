@@ -335,6 +335,10 @@ class VideoEmbed extends Component {
     this.renderPixel();
     this.configureOverlays();
 
+    if (this.props.onLoadStart) {
+      this.props.onLoadStart();
+    }
+
     if (this.props.autoplay) {
       this.play();
     } else if (this.isInView() && this.playWhenInView) {
@@ -399,6 +403,20 @@ class VideoEmbed extends Component {
 
     if (this.props.onPlaying) {
       this.props.onPlaying();
+    }
+
+    /**
+     * In cases where we attempt to progammatically pause a video while
+     * it is still loading (before playback begins), the player may still begin playing.
+     * This is only really a problem in "preview mode" if no "preview bounds" are set.
+     * To be consistent with this.play(), don't play the video in "preview mode" if no
+     * "preview bounds" are specified.
+    */
+    if (
+      this.props.previewMode &&
+      (this.previewStartTime === null || this.previewEndTime === null)
+    ) {
+      this.pause();
     }
   }
 
@@ -659,8 +677,10 @@ class VideoEmbed extends Component {
     const {
       controls,
       muted,
+      autoplay,
       playsInline,
       loop,
+      poster,
       vjsLP,
     } = this.props;
 
@@ -672,6 +692,33 @@ class VideoEmbed extends Component {
     this.player.playsinline(playsInline);
     this.player.muted(muted);
     this.player.loop(loop);
+
+    if (
+      (!poster && this.player.poster().length > 0) ||
+      (poster && poster !== this.player.poster())
+    ) {
+      this.player.poster(poster);
+    }
+
+    if (autoplay !== this.player.autoplay()) {
+      this.player.autoplay(autoplay);
+    }
+
+    if (controls !== this.player.controls()) {
+      this.player.controls(controls);
+    }
+
+    if (playsInline !== this.player.playsinline()) {
+      this.player.playsinline(playsInline);
+    }
+
+    if (muted !== this.player.muted()) {
+      this.player.muted(muted);
+    }
+
+    if (loop !== this.player.loop()) {
+      this.player.loop(loop);
+    }
   }
 
   loadVideo(videoId) {
@@ -964,9 +1011,14 @@ class VideoEmbed extends Component {
   render() {
     const {
       cover,
+      loop,
+      poster,
+      muted,
+      autoplay,
       visible,
       visibleWhileNotPlaying,
       playsInline,
+      controls,
       style,
       nextVideo,
     } = this.props;
@@ -1008,6 +1060,11 @@ class VideoEmbed extends Component {
           data-embed={this.embedId}
           className="video-js VideoEmbed-video"
           playsInline={playsInline}
+          muted={muted}
+          autoPlay={autoplay}
+          controls={controls}
+          loop={loop}
+          poster={poster}
         />
 
         <div>
@@ -1047,6 +1104,7 @@ VideoEmbed.propTypes = {
   controls: PropTypes.bool,
   muted: PropTypes.bool,
   loop: PropTypes.bool,
+  poster: PropTypes.string,
   visible: PropTypes.bool,
   visibleWhileNotPlaying: PropTypes.bool,
   previewMode: PropTypes.bool,
@@ -1058,6 +1116,7 @@ VideoEmbed.propTypes = {
   onAdStarted: PropTypes.func,
   onAdPlay: PropTypes.func,
   onAdPause: PropTypes.func,
+  onLoadStart: PropTypes.func,
   onPlaySuccess: PropTypes.func,
   onPlayError: PropTypes.func,
   onPlaying: PropTypes.func,
@@ -1082,7 +1141,6 @@ VideoEmbed.propTypes = {
     shareUrl: PropTypes.string,
     shareText: PropTypes.string,
     shareCurrentPage: PropTypes.bool,
-    centered: PropTypes.bool,
   }),
   style: propTypes.style,
 };
