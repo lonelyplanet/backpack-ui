@@ -82,11 +82,18 @@ function IconButton({
   hoverBackgroundScale,
   hoverColor,
   border,
+  borderWidth,
+  borderColor,
   shadow,
   transitionDuration,
   style,
 }) {
-  const Element = href ? "a" : "button";
+  let Element = "div";
+  if (href) {
+    Element = "a";
+  } else if (onClick) {
+    Element = "button";
+  }
   const role = Element === "a" ? "button" : null;
   const dimensions = {
     height: `${size}px`,
@@ -174,7 +181,7 @@ function IconButton({
           styles.background,
           backgroundColor && { backgroundColor },
           { transition: `background-color ${transitionDuration}, transform ${transitionDuration}, box-shadow ${transitionDuration} ease-in-out` },
-          border && { border: "1px solid currentColor" },
+          border && { border: `${borderWidth} solid ${borderColor}` },
           shadow && { boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${4 / fontSize[size]}em ${16 / fontSize[size]}em` },
         ]}
       />
@@ -199,6 +206,8 @@ IconButton.propTypes = {
   hoverBackgroundScale: PropTypes.number,
   hoverColor: PropTypes.string,
   border: PropTypes.bool,
+  borderWidth: PropTypes.string,
+  borderColor: PropTypes.string,
   shadow: PropTypes.bool,
   transitionDuration: PropTypes.string,
   style: propTypes.style,
@@ -214,6 +223,8 @@ IconButton.defaultProps = {
   color: "",
   hoverColor: "",
   border: false,
+  borderWidth: "1px",
+  borderColor: "currentColor",
   shadow: false,
   transitionDuration: timing.default,
   style: null,

@@ -467,6 +467,8 @@ storiesOf("Buttons", module)
         color={text("Color", null)}
         hoverColor={text("Hover color", null)}
         border={boolean("Border", false)}
+        borderWidth={text("Border width", "1px")}
+        borderColor={text("Border color", "currentColor")}
         shadow={boolean("Shadow", false)}
         transitionDuration={text("Transition duration", "400ms")}
       />
