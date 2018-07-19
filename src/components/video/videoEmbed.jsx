@@ -688,11 +688,6 @@ class VideoEmbed extends Component {
       this.player.lp().props(vjsLP);
     }
 
-    this.player.controls(controls);
-    this.player.playsinline(playsInline);
-    this.player.muted(muted);
-    this.player.loop(loop);
-
     if (
       (!poster && this.player.poster().length > 0) ||
       (poster && poster !== this.player.poster())
