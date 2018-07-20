@@ -176,7 +176,11 @@ class VideoPlaylist extends Component {
       this.props.onLoadVideo &&
       (
         (!prevState.video && this.state.video) ||
-        (prevState.video && this.state.video && prevState.video.id !== this.state.video.id)
+        (
+          prevState.video &&
+          this.state.video &&
+          prevState.video.id !== this.state.video.id
+        )
       )
     ) {
       this.props.onLoadVideo(this.state.video, this.state.autoplay);
