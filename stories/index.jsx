@@ -1558,18 +1558,22 @@ storiesOf("Lockups", module)
     </StyleRoot>
   ))
   .add("Section header - default", () => (
-    <Center grow>
-      <SectionHeader theme={select("Theme", ["default", "light"], "default")}>
-        {text("title", "Top experiences in Vietnam")}
-      </SectionHeader>
-    </Center>
+    <StyleRoot>
+      <Center grow>
+        <SectionHeader theme={select("Theme", ["default", "light"], "default")}>
+          {text("title", "Top experiences in Vietnam")}
+        </SectionHeader>
+      </Center>
+    </StyleRoot>
   ))
   .add("Section header - light", () => (
-    <Center backgroundColor={colorTokens.textPrimary} grow>
-      <SectionHeader theme={select("Theme", ["default", "light"], "light")}>
-        {text("title", "Top experiences in Vietnam")}
-      </SectionHeader>
-    </Center>
+    <StyleRoot>
+      <Center backgroundColor={colorTokens.textPrimary} grow>
+        <SectionHeader theme={select("Theme", ["default", "light"], "light")}>
+          {text("title", "Top experiences in Vietnam")}
+        </SectionHeader>
+      </Center>
+    </StyleRoot>
   ))
   .add("Social share - using SocialShareContainer", () => (
     <SocialShareContainer

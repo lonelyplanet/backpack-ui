@@ -1,96 +1,77 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import Measure from "react-measure";
-import { Heading } from "../text";
 import colors from "../../styles/colors";
-import { fontSizeHeading2 } from "../../styles/typography";
+import mq from "../../styles/mq";
+import {
+  fontWeightLight,
+  lineHeightHeading2,
+  lineHeightHeading4,
+  fontSizeHeading2,
+  fontSizeHeading4,
+} from "../../styles/typography";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
-  heading: {
-    textAlign: "center",
-  },
-
-  divider: {
-    display: "block",
-    height: "2px",
-    marginLeft: "auto",
-    marginRight: "auto",
-    marginTop: `${16 / fontSizeHeading2}em`,
-    width: `${32 / fontSizeHeading2}em`,
-  },
-
-  theme: {
+  container: {
     default: {
-      divider: {
-        backgroundColor: colors.accentRed,
+      textAlign: "center",
+      fontWeight: fontWeightLight,
+      fontSize: `${fontSizeHeading4}px`,
+      lineHeight: lineHeightHeading4,
+      maxWidth: "100%",
+      marginBottom: "64px",
+
+      [`@media (min-width: ${mq.min["1024"]})`]: {
+        fontSize: `${fontSizeHeading2}px`,
+        lineHeight: lineHeightHeading2,
+        marginBottom: "88px",
       },
     },
-
     light: {
-      divider: {
-        backgroundColor: "currentColor",
-      },
+      color: colors.textOverlay,
+    },
+  },
+  divider: {
+    default: {
+      display: "block",
+      height: "2px",
+      marginLeft: "auto",
+      marginRight: "auto",
+      marginBottom: 0,
+      marginTop: "24px",
+      width: "30px",
+      backgroundColor: colors.accentRed,
 
-      heading: {
-        color: colors.textOverlay,
+      [`@media (min-width: ${mq.min["1024"]})`]: {
+        marginTop: "40px",
       },
+    },
+    light: {
+      backgroundColor: "currentColor",
     },
   },
 };
 
-class SectionHeader extends React.Component {
-  constructor(props) {
-    super(props);
+const SectionHeader = ({ children, theme, style }) => (
+  <h2
+    className="SectionHeader"
+    style={[
+      styles.container.default,
+      styles.container[theme],
+      style,
+    ]}
+  >
+    { children }
 
-    this.state = {
-      dimensions: {
-        width: -1,
-      },
-    };
-  }
-
-  render() {
-    const { width } = this.state.dimensions;
-    const { children, theme, style } = this.props;
-
-    return (
-      <Measure
-        bounds
-        onResize={(contentRect) => {
-          this.setState({
-            dimensions: contentRect.bounds,
-          });
-        }}
-      >
-        {({ measureRef }) => (
-          <Heading
-            className="SectionHeader"
-            innerRef={measureRef}
-            weight="regular"
-            level={2}
-            size={width < 600 ? 4 : 2}
-            style={[
-              styles.heading,
-              styles.theme[theme].heading,
-              style,
-            ]}
-          >
-            {children}
-
-            <span
-              style={[
-                styles.divider,
-                styles.theme[theme].divider,
-              ]}
-            />
-          </Heading>
-        )}
-      </Measure>
-    );
-  }
-}
+    <span
+      style={[
+        styles.divider.default,
+        styles.divider[theme],
+      ]}
+    />
+  </h2>
+);
 
 SectionHeader.propTypes = {
   children: PropTypes.node.isRequired,
