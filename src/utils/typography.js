@@ -37,7 +37,6 @@ const weights = {
   light: fontWeightLight,
   regular: fontWeightRegular,
   medium: fontWeightMedium,
-  book: fontWeightRegular, // Book is deprecated and will be removed in the next major release
 };
 
 export function textSuper() {

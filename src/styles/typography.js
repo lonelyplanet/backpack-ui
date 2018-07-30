@@ -1,8 +1,6 @@
 export const fontWeightLight = 300;
 export const fontWeightRegular = 500;
 export const fontWeightMedium = 600;
-// Book is deprecated and will be removed in the next major release
-export const fontWeightBook = fontWeightRegular;
 
 export const fontSizeSuper = 88;
 export const fontSizeHeading1 = 64;

@@ -20,7 +20,7 @@ const baseStyles = {
 };
 
 describe("Text heading 1", () => {
-  it("should add text heading 1 styles with default weight book", () => {
+  it("should add text heading 1 styles with default weight regular", () => {
     const styles = Object.assign({}, baseStyles, textHeading1());
 
     expect(styles).to.deep.equal({
@@ -58,7 +58,7 @@ describe("Text heading 1", () => {
 });
 
 describe("Text heading 2", () => {
-  it("should add text heading 2 styles with default weight book", () => {
+  it("should add text heading 2 styles with default weight regular", () => {
     const styles = Object.assign({}, baseStyles, textHeading2());
 
     expect(styles).to.deep.equal({
@@ -96,7 +96,7 @@ describe("Text heading 2", () => {
 });
 
 describe("Text heading 3", () => {
-  it("should add text heading 3 styles with default weight book", () => {
+  it("should add text heading 3 styles with default weight regular", () => {
     const styles = Object.assign({}, baseStyles, textHeading3());
 
     expect(styles).to.deep.equal({
@@ -134,7 +134,7 @@ describe("Text heading 3", () => {
 });
 
 describe("Text heading 4", () => {
-  it("should add text heading 4 styles with default weight book", () => {
+  it("should add text heading 4 styles with default weight regular", () => {
     const styles = Object.assign({}, baseStyles, textHeading4());
 
     expect(styles).to.deep.equal({
@@ -172,7 +172,7 @@ describe("Text heading 4", () => {
 });
 
 describe("Text heading 5", () => {
-  it("should add text heading 5 styles with default weight book", () => {
+  it("should add text heading 5 styles with default weight regular", () => {
     const styles = Object.assign({}, baseStyles, textHeading5());
 
     expect(styles).to.deep.equal({
@@ -210,7 +210,7 @@ describe("Text heading 5", () => {
 });
 
 describe("Text heading 6", () => {
-  it("should add text heading 6 styles with default weight book", () => {
+  it("should add text heading 6 styles with default weight regular", () => {
     const styles = Object.assign({}, baseStyles, textHeading6());
 
     expect(styles).to.deep.equal({
@@ -248,7 +248,7 @@ describe("Text heading 6", () => {
 });
 
 describe("Text heading 7", () => {
-  it("should add text heading 7 styles with default weight book", () => {
+  it("should add text heading 7 styles with default weight regular", () => {
     const styles = Object.assign({}, baseStyles, textHeading7());
 
     expect(styles).to.deep.equal({
@@ -286,7 +286,7 @@ describe("Text heading 7", () => {
 });
 
 describe("Text heading 8", () => {
-  it("should add text heading 8 styles with default weight book", () => {
+  it("should add text heading 8 styles with default weight regular", () => {
     const styles = Object.assign({}, baseStyles, textHeading8());
 
     expect(styles).to.deep.equal({

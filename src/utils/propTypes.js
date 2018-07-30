@@ -6,7 +6,6 @@ export default {
     "light",
     "regular",
     "medium",
-    "book", // Book is deprecated and will be removed in the next major release
   ]),
   currency: PropTypes.oneOf([
     "AUD",
