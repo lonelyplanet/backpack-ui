@@ -6,6 +6,7 @@ import { Close } from "../icon";
 import colors from "../../styles/colors";
 import zIndex from "../../styles/zIndex";
 import timing from "../../styles/timing";
+import mq from "../../styles/mq";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 
@@ -40,12 +41,21 @@ const styles = {
     fixedToWindow: {
       bottom: "24px",
       boxShadow: `0px 1px 8px 0px ${rgba(colors.bgOverlay, 0.4)}`,
-      height: "auto",
-      maxWidth: "406px",
       position: "fixed",
       right: "24px",
-      width: "60%",
       zIndex: zIndex.popup,
+      width: "406px",
+      height: `${406 / 1.7778}px`,
+
+      [`@media (max-width: ${mq.max["560"]})`]: {
+        width: "314px",
+        height: `${314 / 1.7778}px`,
+      },
+
+      [`@media (max-width: ${mq.max["360"]})`]: {
+        width: "270px",
+        height: `${270 / 1.7778}px`,
+      },
     },
 
     poppedOut: {
