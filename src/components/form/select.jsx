@@ -16,27 +16,18 @@ function Select({
   style,
   onChange,
 }) {
-  const componentStyles = [styles.base, style];
-
-  componentStyles.push(styles.element.select.base);
-
-  if (size) {
-    componentStyles.push(styles.size[size]);
-    componentStyles.push(styles.element.select.size[size]);
-  }
-
-  if (theme) {
-    componentStyles.push(styles.theme[theme]);
-    componentStyles.push(styles.element.select.theme[theme]);
-  }
-
-  if (noBorder) {
-    componentStyles.push(styles.noBorder);
-  }
-
   return (
     <select
-      style={componentStyles}
+      style={[
+        styles.base,
+        styles.element.select.base,
+        size && styles.size[size],
+        size && styles.element.select.size[size],
+        theme && styles.theme[theme],
+        theme && styles.element.select.theme[theme],
+        noBorder && styles.noBorder,
+        style,
+      ]}
       id={id}
       name={name || id}
       defaultValue={defaultValue}
