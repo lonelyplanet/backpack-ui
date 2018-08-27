@@ -853,7 +853,6 @@ storiesOf("Controls", module)
       lastSelectableDate={object("Last selectable date", moment().add(365, "days"))}
       noBorder={boolean("noBorder", false)}
       withFullScreenPortal={boolean("withFullScreenPortal", false)}
-      focusedInput={boolean("focusedInput", false)}
       soldOut={boolean("soldOut", false)}
       onDatesChange={action(event)}
       onFocusChange={action(event)}
@@ -869,7 +868,6 @@ storiesOf("Controls", module)
       endDate={object("End Date", null)}
       noBorder={boolean("noBorder", false)}
       withFullScreenPortal={boolean("withFullScreenPortal", false)}
-      focusedInput={boolean("focusedInput", false)}
       soldOut={boolean("soldOut", false)}
       onDatesChange={action(event)}
       onFocusChange={action(event)}
@@ -885,7 +883,6 @@ storiesOf("Controls", module)
       endDate={object("End Date", moment().add(36, "days"))}
       noBorder={boolean("noBorder", false)}
       withFullScreenPortal={boolean("withFullScreenPortal", false)}
-      focusedInput={boolean("focusedInput", false)}
       soldOut={boolean("soldOut", false)}
       onDatesChange={action(event)}
       onFocusChange={action(event)}

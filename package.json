@@ -101,6 +101,8 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-1": "^6.13.0",
     "babel-register": "^6.14.0",
+    "enzyme": "^3.4.4",
+    "enzyme-adapter-react-16.2": "^1.0.0",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.15.0",

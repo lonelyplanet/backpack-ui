@@ -8,7 +8,6 @@ import {
   Breadcrumbs,
   Bullet,
   Button,
-  Calendar,
   Callout,
   ContentBlock,
   ContentHeader,

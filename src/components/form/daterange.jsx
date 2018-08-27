@@ -4,7 +4,8 @@ import radium, { Style } from "radium";
 import PropTypes from "prop-types";
 import momentPropTypes from "react-moment-proptypes";
 import DateRangePicker from "react-dates/lib/components/DateRangePicker";
-import { END_DATE } from "react-dates/constants";
+import { START_DATE, END_DATE } from "react-dates/constants";
+import omit from "lodash/omit";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
@@ -78,25 +79,24 @@ class DateRange extends React.Component {
 
   isOutsideRange(date) {
     const { startDate, lastSelectableDate } = this.props;
-    if (
-      this.state.focusedInput === END_DATE &&
-      startDate &&
-      date.diff(startDate, "days") > 30
-    ) {
-      return true;
-    }
-
     const isPastDate = date < moment();
-    if (lastSelectableDate) {
-      return isPastDate || date.isAfter(lastSelectableDate);
-    }
 
-    return isPastDate;
+    return isPastDate || date.isAfter(lastSelectableDate) || (
+      this.state.focusedInput === END_DATE &&
+      date.diff(startDate, "days") > 30
+    );
   }
 
   render() {
     const { noBorder, withFullScreenPortal, soldOut } = this.props;
     const { focusedInput } = this.state;
+    // not all props should be passed to DateRangePicker
+    const pickerProps = omit(this.props, [
+      "id",
+      "lastSelectableDate",
+      "noBorder",
+      "soldOut",
+    ]);
 
     return (
       <div className="DateRangeWrapper" style={styles.dateRangeWrapper}>
@@ -233,7 +233,7 @@ class DateRange extends React.Component {
         />
 
         <DateRangePicker
-          {...this.props}
+          {...pickerProps}
           onFocusChange={this.onFocusChange}
           focusedInput={focusedInput}
           withFullScreenPortal={withFullScreenPortal}
@@ -258,7 +258,7 @@ DateRange.propTypes = {
    */
   withFullScreenPortal: PropTypes.bool,
 
-  focusedInput: PropTypes.string,
+  focusedInput: PropTypes.oneOf([START_DATE, END_DATE]),
 
   onFocusChange: PropTypes.func,
 
@@ -285,11 +285,11 @@ DateRange.defaultProps = {
 
   focusedInput: null,
 
-  onFocusChange: "",
-
   soldOut: false,
 
   lastSelectableDate: null,
+
+  onDatesChange: () => {},
 };
 
 export default radium(DateRange);
