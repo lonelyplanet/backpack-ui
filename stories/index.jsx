@@ -2385,6 +2385,7 @@ storiesOf("Video components", module)
       <ThumbnailListItem
         title={text("Title", "The shop")}
         subtitle={array("Subtitle", ["Item 3", "Item 4"])}
+        lineClamp={number("Line Clamp", 1)}
         runtime={number("Video runtime", 129365)}
         imagePath={text("Image path", "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FYXJ0YW5kY3VsdHVyZS5qcGdTYXQgRGVjIDE3IDIwMTYgMjE6MDA6MDUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=60&sharp=10&fit=crop&w=180")}
         status={text("Status", "Status")}

@@ -1,14 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-
+import {
+  fontSizeHeading8,
+  lineHeightHeading8,
+} from "../../styles/typography";
 import colors from "../../styles/colors";
 import Bullet from "../bullet";
 
 
 const styles = {
   color: colors.accentGray,
-  fontSize: "11px",
+  fontSize: `${fontSizeHeading8}px`,
+  lineHeight: lineHeightHeading8,
   letterSpacing: "0.4px",
   textTransform: "uppercase",
 };

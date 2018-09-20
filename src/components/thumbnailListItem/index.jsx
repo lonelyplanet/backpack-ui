@@ -109,9 +109,6 @@ const styles = {
       transition: `color ${timing.default} ease`,
       WebkitBoxOrient: "vertical",
     },
-    lineClamp: {
-      WebkitLineClamp: 1,
-    },
     light: {
       color: colors.textPrimary,
     },
@@ -271,7 +268,7 @@ const ThumbnailListItem = ({
             override={{
               ...styles.title.default,
               ...styles.title[theme],
-              ...(lineClamp ? styles.title.lineClamp : {}),
+              ...(lineClamp ? { WebkitLineClamp: lineClamp } : {}),
             }}
           >
             {title}
@@ -309,14 +306,14 @@ ThumbnailListItem.propTypes = {
   descriptionIconLabel: PropTypes.string,
   onDescriptionIconClick: PropTypes.func,
   status: PropTypes.string,
-  lineClamp: PropTypes.bool,
+  lineClamp: PropTypes.number,
   theme: PropTypes.oneOf(["light", "dark", "active"]),
   style: propTypes.style,
 };
 
 ThumbnailListItem.defaultProps = {
   theme: "light",
-  lineClamp: true,
+  lineClamp: 1,
 };
 
 export default radium(ThumbnailListItem);

@@ -450,7 +450,7 @@ class VideoPlaylist extends Component {
                           theme={v.id === video.id ? "active" : theme}
                           imageIcon={(v.id === video.id && "Play") || null}
                           imageIconLabel="Play"
-                          lineClamp={false}
+                          lineClamp={2}
                           style={[
                             styles.thumbnailListItem,
                             childStyles[v.id],

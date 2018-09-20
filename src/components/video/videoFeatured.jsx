@@ -145,8 +145,8 @@ const styles = {
   },
 
   playButton: {
-    fontSize: `${fontSizeHeading4}px`,
-    paddingLeft: "8px",
+    fontSize: "28px",
+    paddingLeft: "6px",
   },
 };
 
