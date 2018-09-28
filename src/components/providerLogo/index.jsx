@@ -5,6 +5,7 @@ import assign from "object-assign";
 import ProviderLogoBookingDotcom from "./providerLogoBookingDotcom";
 import ProviderLogoGAdventures from "./providerLogoGAdventures";
 import ProviderLogoViator from "./providerLogoViator";
+import ProviderLogoWorldNomads from "./providerLogoWorldNomads";
 
 function ProviderLogo({ provider, className, style }) {
   const providers = {
@@ -30,6 +31,11 @@ function ProviderLogo({ provider, className, style }) {
       name: "Viator",
       image: "vendorLogo-viator.png",
       icon: <ProviderLogoViator />,
+    },
+    worldNomads: {
+      name: "World Nomads",
+      image: "vendorLogo-worldNomads.png",
+      icon: <ProviderLogoWorldNomads />,
     },
   };
 
@@ -64,6 +70,7 @@ ProviderLogo.propTypes = {
     "opentable",
     "gadventures",
     "viator",
+    "worldNomads",
   ]).isRequired,
   className: PropTypes.string,
   style: PropTypes.objectOf(

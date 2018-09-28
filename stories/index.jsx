@@ -1776,6 +1776,7 @@ storiesOf("Logos", module)
         opentable: "OpenTable",
         gadventures: "G Adventures",
         viator: "Viator",
+        worldNomads: "World Nomads",
       }, "bdc")}
     />
   ));
