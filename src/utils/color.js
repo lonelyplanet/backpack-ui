@@ -6,7 +6,7 @@ import color from "color";
  * @return {String}        RGB values
  */
 function rgb(hex) {
-  return color(hex).rgbArray().join(",");
+  return color(hex).rgb().array().join(",");
 }
 
 /**
@@ -16,7 +16,7 @@ function rgb(hex) {
  * @return {String}         RGBA string
  */
 function rgba(hex, opacity) {
-  return color(hex).alpha(opacity).rgbString();
+  return color(hex).alpha(opacity).rgb().string();
 }
 
 /**
@@ -26,7 +26,7 @@ function rgba(hex, opacity) {
  * @return {String}        New hexidecimal color value
  */
 function darken(hex, amount) {
-  return color(hex).darken((amount / 100)).hexString();
+  return color(hex).darken((amount / 100)).hex();
 }
 
 /**
@@ -36,7 +36,7 @@ function darken(hex, amount) {
  * @return {String}        New hexidecimal color value
  */
 function lighten(hex, amount) {
-  return color(hex).lighten((amount / 100)).hexString();
+  return color(hex).lighten((amount / 100)).hex();
 }
 
 export {

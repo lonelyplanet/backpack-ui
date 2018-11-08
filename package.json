@@ -44,7 +44,7 @@
     "chai": "^3.5.0",
     "classnames": "^2.2.5",
     "clipboard": "^1.7.1",
-    "color": "^0.11.3",
+    "color": "^3.1.0",
     "fuzzy": "^0.1.3",
     "haversine": "^1.0.1",
     "jquery": "^3.1.1",
