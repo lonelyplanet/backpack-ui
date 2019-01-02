@@ -32,6 +32,7 @@ const styles = {
   innerContainer: {
     height: navigationSubHeight,
     overflow: "hidden",
+    backgroundColor: `${colors.bgPrimary}`,
   },
 
   list: {
