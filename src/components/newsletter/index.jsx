@@ -77,6 +77,10 @@ const styles = {
     },
   },
 
+  button: {
+    minWidth: "110px",
+  },
+
   error: {
     color: colors.accentRed,
     fontSize: "14px",
