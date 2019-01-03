@@ -21,8 +21,6 @@ import MoreLink from "../moreLink";
 const styles = {
   wrap: {
     backgroundColor: colors.bgSecondary,
-    display: "flex",
-    justifyContent: "center",
     minHeight: "320px",
     textAlign: "center",
   },
