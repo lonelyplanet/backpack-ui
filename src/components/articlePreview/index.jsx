@@ -89,4 +89,8 @@ ArticlePreview.propTypes = {
   categoryHref: PropTypes.string.isRequired,
 };
 
+ArticlePreview.defaultProps = {
+  imageAlt: "",
+};
+
 export default ArticlePreview;
