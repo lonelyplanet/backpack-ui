@@ -1397,6 +1397,7 @@ storiesOf("Lockups", module)
       title={text("Title", "New York’s most iconic buildings reimagined on deserted streets")}
       paragraph={text("Paragraph", "A new exhibition in New York of the city’s most &ldquo;iconic&rdquo; buildings shows them in a new light, with the bustle of modern life stripped out. Photographer")}
       image={text("Image URL", "http://placehold.it/410x230")}
+      imageAlt={text("Image Alt Text", "A new exhibition in New York of the city’s most iconic buildings.")}
       href={text("URL", "/")}
       category={text("Category name", "Art and culture")}
       categoryHref={text("Category URL", "/")}
