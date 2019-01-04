@@ -135,6 +135,7 @@ function SectionalNav({ items, active, linkToOffset }) {
               >
                 <Link
                   to={item}
+                  spy
                   offset={linkToOffset}
                   smooth
                   duration={500}

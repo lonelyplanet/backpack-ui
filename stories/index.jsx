@@ -1919,23 +1919,57 @@ storiesOf("Navigation", module)
     </Navigation>
   ))
   .add("Sectional nav", () => (
-    <StyleRoot>
-      <SectionalNav
-        items={[
-          "Experiences",
-          "Articles",
-          "Products",
-          "Destinations",
-          "Tours",
-          "Inspiration",
-          "Books",
-          "Adventures",
-          "Interests",
-        ]}
-        active="Articles"
-        linkToOffset={0}
-      />
-    </StyleRoot>
+    <div>
+      <StyleRoot>
+        <Navigation height={80} sticky>
+          <SectionalNav
+            items={[
+              "Experiences",
+              "Articles",
+              "Products",
+              "Destinations",
+              "Tours",
+              "Inspiration",
+              "Books",
+              "Adventures",
+              "Interests",
+            ]}
+            active="Articles"
+            linkToOffset={0}
+          />
+        </Navigation>
+        <div id="Experiences">
+          <ContentHeader
+            title="Experiences"
+          />
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies odio vel quam scelerisque efficitur. Nullam vehicula ligula id eleifend sollicitudin. Pellentesque quis leo justo. Integer pretium metus eu nunc tempus, vel sollicitudin nibh ullamcorper. Integer ornare varius sapien, cursus maximus dui sodales ac. Sed non sapien sit amet metus tempus congue. In hac habitasse platea dictumst. Phasellus quis laoreet tortor, id ultricies mi. Proin ac arcu consequat, tempor purus quis, volutpat est. Vestibulum justo arcu, vestibulum vitae felis a, blandit interdum purus. Donec purus nisl, pellentesque ac mollis et, rhoncus et ante. In imperdiet eu augue ac lobortis. Etiam tortor ipsum, porttitor non ipsum ac, ornare pulvinar ligula. Proin rhoncus sodales gravida. In a posuere lectus.</p><p>In vel nulla a sapien tempus fermentum. Ut tincidunt mauris erat, id sollicitudin ipsum pulvinar eu. Curabitur at dignissim neque. Fusce vel purus nulla. Etiam ultrices interdum rhoncus. Morbi mattis sapien a odio lacinia sollicitudin. Donec pellentesque et mi eget ultricies. Quisque auctor efficitur ullamcorper. Aliquam quis blandit odio. Etiam non eleifend eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin purus quam, mollis at ante luctus, facilisis sagittis felis. Pellentesque vel odio nec dolor lobortis tincidunt nec vitae arcu. Sed pulvinar tristique velit, id aliquam nibh rhoncus vel. Nulla lectus urna, vehicula non enim nec, elementum congue augue.</p><p>In hac habitasse platea dictumst. Praesent maximus, dui a sodales dapibus, massa lorem volutpat nibh, sed placerat urna dolor eu lacus. Sed pellentesque bibendum malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus a varius massa. Proin non eros in quam mollis volutpat. Vestibulum massa libero, fringilla non fermentum non, consequat quis ante. Nullam viverra faucibus vestibulum. Aliquam sit amet orci libero. Vestibulum venenatis quam porttitor vehicula hendrerit. Aenean porttitor lorem ut lobortis venenatis. Sed sit amet ultricies nisi. Quisque ultrices mi tincidunt auctor fermentum. Sed eu velit at leo vehicula dignissim.</p>
+        </div>
+        <div id="Articles">
+          <ContentHeader
+            title="Articles"
+          />
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies odio vel quam scelerisque efficitur. Nullam vehicula ligula id eleifend sollicitudin. Pellentesque quis leo justo. Integer pretium metus eu nunc tempus, vel sollicitudin nibh ullamcorper. Integer ornare varius sapien, cursus maximus dui sodales ac. Sed non sapien sit amet metus tempus congue. In hac habitasse platea dictumst. Phasellus quis laoreet tortor, id ultricies mi. Proin ac arcu consequat, tempor purus quis, volutpat est. Vestibulum justo arcu, vestibulum vitae felis a, blandit interdum purus. Donec purus nisl, pellentesque ac mollis et, rhoncus et ante. In imperdiet eu augue ac lobortis. Etiam tortor ipsum, porttitor non ipsum ac, ornare pulvinar ligula. Proin rhoncus sodales gravida. In a posuere lectus.</p><p>In vel nulla a sapien tempus fermentum. Ut tincidunt mauris erat, id sollicitudin ipsum pulvinar eu. Curabitur at dignissim neque. Fusce vel purus nulla. Etiam ultrices interdum rhoncus. Morbi mattis sapien a odio lacinia sollicitudin. Donec pellentesque et mi eget ultricies. Quisque auctor efficitur ullamcorper. Aliquam quis blandit odio. Etiam non eleifend eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin purus quam, mollis at ante luctus, facilisis sagittis felis. Pellentesque vel odio nec dolor lobortis tincidunt nec vitae arcu. Sed pulvinar tristique velit, id aliquam nibh rhoncus vel. Nulla lectus urna, vehicula non enim nec, elementum congue augue.</p><p>In hac habitasse platea dictumst. Praesent maximus, dui a sodales dapibus, massa lorem volutpat nibh, sed placerat urna dolor eu lacus. Sed pellentesque bibendum malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus a varius massa. Proin non eros in quam mollis volutpat. Vestibulum massa libero, fringilla non fermentum non, consequat quis ante. Nullam viverra faucibus vestibulum. Aliquam sit amet orci libero. Vestibulum venenatis quam porttitor vehicula hendrerit. Aenean porttitor lorem ut lobortis venenatis. Sed sit amet ultricies nisi. Quisque ultrices mi tincidunt auctor fermentum. Sed eu velit at leo vehicula dignissim.</p>
+        </div>
+        <div id="Products">
+          <ContentHeader
+            title="Products"
+          />
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies odio vel quam scelerisque efficitur. Nullam vehicula ligula id eleifend sollicitudin. Pellentesque quis leo justo. Integer pretium metus eu nunc tempus, vel sollicitudin nibh ullamcorper. Integer ornare varius sapien, cursus maximus dui sodales ac. Sed non sapien sit amet metus tempus congue. In hac habitasse platea dictumst. Phasellus quis laoreet tortor, id ultricies mi. Proin ac arcu consequat, tempor purus quis, volutpat est. Vestibulum justo arcu, vestibulum vitae felis a, blandit interdum purus. Donec purus nisl, pellentesque ac mollis et, rhoncus et ante. In imperdiet eu augue ac lobortis. Etiam tortor ipsum, porttitor non ipsum ac, ornare pulvinar ligula. Proin rhoncus sodales gravida. In a posuere lectus.</p><p>In vel nulla a sapien tempus fermentum. Ut tincidunt mauris erat, id sollicitudin ipsum pulvinar eu. Curabitur at dignissim neque. Fusce vel purus nulla. Etiam ultrices interdum rhoncus. Morbi mattis sapien a odio lacinia sollicitudin. Donec pellentesque et mi eget ultricies. Quisque auctor efficitur ullamcorper. Aliquam quis blandit odio. Etiam non eleifend eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin purus quam, mollis at ante luctus, facilisis sagittis felis. Pellentesque vel odio nec dolor lobortis tincidunt nec vitae arcu. Sed pulvinar tristique velit, id aliquam nibh rhoncus vel. Nulla lectus urna, vehicula non enim nec, elementum congue augue.</p><p>In hac habitasse platea dictumst. Praesent maximus, dui a sodales dapibus, massa lorem volutpat nibh, sed placerat urna dolor eu lacus. Sed pellentesque bibendum malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus a varius massa. Proin non eros in quam mollis volutpat. Vestibulum massa libero, fringilla non fermentum non, consequat quis ante. Nullam viverra faucibus vestibulum. Aliquam sit amet orci libero. Vestibulum venenatis quam porttitor vehicula hendrerit. Aenean porttitor lorem ut lobortis venenatis. Sed sit amet ultricies nisi. Quisque ultrices mi tincidunt auctor fermentum. Sed eu velit at leo vehicula dignissim.</p>
+        </div>
+        <div id="Destinations">
+          <ContentHeader
+            title="Destinations"
+          />
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies odio vel quam scelerisque efficitur. Nullam vehicula ligula id eleifend sollicitudin. Pellentesque quis leo justo. Integer pretium metus eu nunc tempus, vel sollicitudin nibh ullamcorper. Integer ornare varius sapien, cursus maximus dui sodales ac. Sed non sapien sit amet metus tempus congue. In hac habitasse platea dictumst. Phasellus quis laoreet tortor, id ultricies mi. Proin ac arcu consequat, tempor purus quis, volutpat est. Vestibulum justo arcu, vestibulum vitae felis a, blandit interdum purus. Donec purus nisl, pellentesque ac mollis et, rhoncus et ante. In imperdiet eu augue ac lobortis. Etiam tortor ipsum, porttitor non ipsum ac, ornare pulvinar ligula. Proin rhoncus sodales gravida. In a posuere lectus.</p><p>In vel nulla a sapien tempus fermentum. Ut tincidunt mauris erat, id sollicitudin ipsum pulvinar eu. Curabitur at dignissim neque. Fusce vel purus nulla. Etiam ultrices interdum rhoncus. Morbi mattis sapien a odio lacinia sollicitudin. Donec pellentesque et mi eget ultricies. Quisque auctor efficitur ullamcorper. Aliquam quis blandit odio. Etiam non eleifend eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin purus quam, mollis at ante luctus, facilisis sagittis felis. Pellentesque vel odio nec dolor lobortis tincidunt nec vitae arcu. Sed pulvinar tristique velit, id aliquam nibh rhoncus vel. Nulla lectus urna, vehicula non enim nec, elementum congue augue.</p><p>In hac habitasse platea dictumst. Praesent maximus, dui a sodales dapibus, massa lorem volutpat nibh, sed placerat urna dolor eu lacus. Sed pellentesque bibendum malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus a varius massa. Proin non eros in quam mollis volutpat. Vestibulum massa libero, fringilla non fermentum non, consequat quis ante. Nullam viverra faucibus vestibulum. Aliquam sit amet orci libero. Vestibulum venenatis quam porttitor vehicula hendrerit. Aenean porttitor lorem ut lobortis venenatis. Sed sit amet ultricies nisi. Quisque ultrices mi tincidunt auctor fermentum. Sed eu velit at leo vehicula dignissim.</p>
+        </div>
+        <div id="Tours">
+          <ContentHeader
+            title="Tours"
+          />
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies odio vel quam scelerisque efficitur. Nullam vehicula ligula id eleifend sollicitudin. Pellentesque quis leo justo. Integer pretium metus eu nunc tempus, vel sollicitudin nibh ullamcorper. Integer ornare varius sapien, cursus maximus dui sodales ac. Sed non sapien sit amet metus tempus congue. In hac habitasse platea dictumst. Phasellus quis laoreet tortor, id ultricies mi. Proin ac arcu consequat, tempor purus quis, volutpat est. Vestibulum justo arcu, vestibulum vitae felis a, blandit interdum purus. Donec purus nisl, pellentesque ac mollis et, rhoncus et ante. In imperdiet eu augue ac lobortis. Etiam tortor ipsum, porttitor non ipsum ac, ornare pulvinar ligula. Proin rhoncus sodales gravida. In a posuere lectus.</p><p>In vel nulla a sapien tempus fermentum. Ut tincidunt mauris erat, id sollicitudin ipsum pulvinar eu. Curabitur at dignissim neque. Fusce vel purus nulla. Etiam ultrices interdum rhoncus. Morbi mattis sapien a odio lacinia sollicitudin. Donec pellentesque et mi eget ultricies. Quisque auctor efficitur ullamcorper. Aliquam quis blandit odio. Etiam non eleifend eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin purus quam, mollis at ante luctus, facilisis sagittis felis. Pellentesque vel odio nec dolor lobortis tincidunt nec vitae arcu. Sed pulvinar tristique velit, id aliquam nibh rhoncus vel. Nulla lectus urna, vehicula non enim nec, elementum congue augue.</p><p>In hac habitasse platea dictumst. Praesent maximus, dui a sodales dapibus, massa lorem volutpat nibh, sed placerat urna dolor eu lacus. Sed pellentesque bibendum malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus a varius massa. Proin non eros in quam mollis volutpat. Vestibulum massa libero, fringilla non fermentum non, consequat quis ante. Nullam viverra faucibus vestibulum. Aliquam sit amet orci libero. Vestibulum venenatis quam porttitor vehicula hendrerit. Aenean porttitor lorem ut lobortis venenatis. Sed sit amet ultricies nisi. Quisque ultrices mi tincidunt auctor fermentum. Sed eu velit at leo vehicula dignissim.</p>
+        </div>
+      </StyleRoot>
+    </div>
   ))
   .add("Tabbed nav", () => (
     <StyleRoot>
