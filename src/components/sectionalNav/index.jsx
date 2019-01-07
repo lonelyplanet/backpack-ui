@@ -85,6 +85,8 @@ const styles = {
       left: 0,
       right: 0,
       width: "100% !important",
+      backgroundColor: colors.bgPrimary,
+      borderBottom: `1px solid ${colors.borderPrimary}`,
     },
     a: {
       color: colors.textPrimary,
