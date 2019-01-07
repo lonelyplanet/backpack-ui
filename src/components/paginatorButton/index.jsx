@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import assign from "object-assign";
 import upperFirst from "lodash/upperFirst";
-
+import cn from "classnames";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import { rgb } from "../../utils/color";
@@ -160,6 +160,7 @@ function PaginatorButton({
   iconLabel,
   owns,
   style,
+  className,
 }) {
   const iconName = `${_.upperFirst(arrow)}${_.upperFirst(direction)}`;
 
@@ -175,7 +176,7 @@ function PaginatorButton({
 
   return (
     <button
-      className="PaginatorButton"
+      className={cn("PaginatorButton", className)}
       style={[
         styles.base,
         size && styles.size[size],
@@ -277,6 +278,8 @@ PaginatorButton.propTypes = {
       PropTypes.object,
     ]),
   ),
+
+  className: PropTypes.string,
 };
 
 PaginatorButton.defaultProps = {
@@ -290,6 +293,7 @@ PaginatorButton.defaultProps = {
   onClick: null,
   iconLabel: "",
   owns: "",
+  className: null,
 };
 
 PaginatorButton.styles = styles;
