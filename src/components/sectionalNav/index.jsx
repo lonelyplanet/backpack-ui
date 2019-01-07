@@ -77,10 +77,6 @@ const styles = {
       height: "100%",
       lineHeight: navigationSubHeight,
     },
-
-    active: {
-      borderBottom: `5px solid ${colors.linkPrimary}`,
-    },
   },
 
   // to be used as rules for style component
@@ -90,9 +86,6 @@ const styles = {
       right: 0,
       width: "100% !important",
     },
-    ".active nav ul": {
-      borderBottom: `1px solid rgba(${rgb(colors.accentGray)}, 0.45)`,
-    },
     a: {
       color: colors.textPrimary,
       display: "block",
@@ -100,8 +93,10 @@ const styles = {
       fontWeight: 600,
       padding: `2px calc(${spacing.gutter}px / 2) 0`,
       textTransform: "uppercase",
-      transition: "300ms color ease-in",
       cursor: "pointer",
+    },
+    "a.active": {
+      borderBottom: `5px solid ${colors.linkPrimary}`,
     },
     mediaQueries: {
       [`(min-width: ${mq.min[768]})`]: {
@@ -114,7 +109,7 @@ const styles = {
   },
 };
 
-function SectionalNav({ items, active, linkToOffset }) {
+function SectionalNav({ items, linkToOffset }) {
   return (
     <nav className="SectionalNav" style={styles.container}>
       <Style
@@ -127,17 +122,15 @@ function SectionalNav({ items, active, linkToOffset }) {
           <ul style={styles.list}>
             {items && items.map((item, index) => (
               <li
-                style={[
-                  styles.listItem,
-                  item === active ? styles.listItem.active : null,
-                ]}
+                style={styles.listItem}
                 key={index}
               >
                 <Link
                   to={item}
                   spy
-                  offset={linkToOffset}
                   smooth
+                  isDynamic
+                  offset={linkToOffset}
                   duration={500}
                 >
                   {item}
@@ -153,7 +146,6 @@ function SectionalNav({ items, active, linkToOffset }) {
 
 SectionalNav.propTypes = {
   items: PropTypes.arrayOf(PropTypes.string).isRequired,
-  active: PropTypes.string,
   linkToOffset: PropTypes.number,
 };
 
