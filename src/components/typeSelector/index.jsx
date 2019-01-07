@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";

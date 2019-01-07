@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import truncate from "truncate";
 import upperFirst from "lodash/upperFirst";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
