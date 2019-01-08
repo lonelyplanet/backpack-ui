@@ -41,7 +41,7 @@ const MultiStepLogin = ({
       {authActions.password && <p>
         <span style={styles.legacyText}>Or sign in with a legacy </span>
         <a
-          href="https://auth.lonelyplanet.com/users/sign_in"
+          href="#"
           onClick={(event) => {
             setStep(3);
             event.preventDefault();
