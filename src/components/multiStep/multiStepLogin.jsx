@@ -27,6 +27,10 @@ const styles = {
     color: colors.textPrimary,
     fontWeight: fontWeightMedium,
   },
+  legacyButton: {
+    color: colors.linkPrimary,
+    fontWeight: fontWeightMedium,
+  },
 };
 
 const MultiStepLogin = ({
@@ -40,15 +44,15 @@ const MultiStepLogin = ({
     <AuthDisclaimer style={styles.disclaimerBelowButton}>
       {authActions.password && <p>
         <span style={styles.legacyText}>Or sign in with a legacy </span>
-        <a
-          href="#"
+        <button
+          style={styles.legacyButton}
           onClick={(event) => {
             setStep(3);
             event.preventDefault();
           }}
         >
           username and password
-        </a>.
+        </button>.
       </p>}
       Lonely Planet uses cookies to improve your
       experience, see our <a href="https://www.lonelyplanet.com/legal/cookies/">Cookie Policy</a>.
