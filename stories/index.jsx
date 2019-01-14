@@ -1921,18 +1921,16 @@ storiesOf("Navigation", module)
   .add("Sectional nav", () => (
     <div>
       <StyleRoot>
-        <Navigation height={80} sticky>
-          <SectionalNav
-            items={[
-              "Experiences",
-              "Articles",
-              "Products",
-              "Destinations",
-              "Tours",
-            ]}
-            linkToOffset={-100}
-          />
-        </Navigation>
+        <SectionalNav
+          items={[
+            "Experiences",
+            "Articles",
+            "Products",
+            "Destinations",
+            "Tours",
+          ]}
+          linkToOffset={-100}
+        />
         <div>
           <ContentHeader
             title="Other content"

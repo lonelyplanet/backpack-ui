@@ -19,6 +19,7 @@ const navigationSubHeightMobile = `${dimensions.headerHeightMobile}px`;
 const styles = {
   container: {
     backgroundColor: colors.bgPrimary,
+    borderBottom: `1px solid rgba(${rgb(colors.accentGray)}, 0.45)`,
     borderTop: `1px solid rgba(${rgb(colors.accentGray)}, 0.45)`,
     fontFamily: font("benton"),
     fontSize: 0,
@@ -81,13 +82,6 @@ const styles = {
 
   // to be used as rules for style component
   scoped: {
-    ".sticky-inner-wrapper": {
-      left: 0,
-      right: 0,
-      width: "100% !important",
-      backgroundColor: colors.bgPrimary,
-      borderBottom: `1px solid ${colors.borderPrimary}`,
-    },
     a: {
       color: colors.textPrimary,
       display: "block",
@@ -113,13 +107,13 @@ const styles = {
 
 function SectionalNav({ items, linkToOffset }) {
   return (
-    <nav className="SectionalNav" style={styles.container}>
-      <Style
-        scopeSelector=".SectionalNav"
-        rules={styles.scoped}
-      />
+    <Sticky innerZ={zIndex.globalHeader} enabled>
+      <nav className="SectionalNav" style={styles.container}>
+        <Style
+          scopeSelector=".SectionalNav"
+          rules={styles.scoped}
+        />
 
-      <Sticky innerZ={zIndex.globalHeader} enabled>
         <div style={styles.innerContainer}>
           <ul style={styles.list}>
             {items && items.map((item, index) => (
@@ -141,8 +135,8 @@ function SectionalNav({ items, linkToOffset }) {
             ))}
           </ul>
         </div>
-      </Sticky>
-    </nav>
+      </nav>
+    </Sticky>
   );
 }
 
