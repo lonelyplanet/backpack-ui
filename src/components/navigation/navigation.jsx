@@ -35,7 +35,7 @@ const Navigation = (props) => {
       className="Navigation"
       style={[
         styles.nav,
-        sticky && { position: "sticky", position: "-webkit-sticky", top: 0 }, // eslint-disable-line no-dupe-keys
+        sticky && { position: "sticky", top: 0 },
         style,
       ]}
       {...properties}
