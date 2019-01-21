@@ -76,7 +76,8 @@ const styles = {
   },
 
   button: {
-    minWidth: "110px",
+    marginTop: "20px",
+    minWidth: "100%",
   },
 
   error: {
@@ -350,16 +351,6 @@ class Newsletter extends Component {
                       style={styles.input}
                       onChange={this.handleInput}
                     />
-
-                    <Button
-                      color="blue"
-                      size="small"
-                      disabled={this.state.disabled}
-                      customStyles={styles.button}
-                    >
-                      {!this.state.waiting && cta}
-                      {this.state.waiting && <Icon.Loading />}
-                    </Button>
                   </div>
 
                   <div className={!hasOptin && "Legal"} style={styles.legalSection}>
@@ -377,6 +368,18 @@ class Newsletter extends Component {
                     ) : (
                       <span style={styles.legalText}>{legalOptInLabel}</span>
                     )}
+                  </div>
+
+                  <div style={styles.inputFieldset}>
+                    <Button
+                      color="blue"
+                      size="small"
+                      disabled={this.state.disabled}
+                      customStyles={styles.button}
+                    >
+                      {!this.state.waiting && cta}
+                      {this.state.waiting && <Icon.Loading />}
+                    </Button>
                   </div>
                 </form>
               </div>
