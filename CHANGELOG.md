@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.90.18"></a>
+## [4.90.18](https://github.com/lonelyplanet/backpack-ui/compare/v4.90.17...v4.90.18) (2019-01-29)
+
+
+
 <a name="4.90.17"></a>
 ## [4.90.17](https://github.com/lonelyplanet/backpack-ui/compare/v4.90.16...v4.90.17) (2019-01-21)
 
