@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+import cn from "classnames";
 import styles from "./styles";
 
 function Select({
   id,
+  className,
   options,
   label,
   name,
@@ -28,6 +30,7 @@ function Select({
         noBorder && styles.noBorder,
         style,
       ]}
+      className={cn("Select", className)}
       id={id}
       name={name || id}
       defaultValue={defaultValue}
@@ -71,7 +74,17 @@ function Select({
 Select.propTypes = {
   id: PropTypes.string.isRequired,
 
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  className: PropTypes.string,
+
+  options: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+      }),
+    ]).isRequired,
+  ),
 
   label: PropTypes.string.isRequired,
 
