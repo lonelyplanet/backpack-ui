@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.90.19"></a>
+## [4.90.19](https://github.com/lonelyplanet/backpack-ui/compare/v4.90.18...v4.90.19) (2019-01-30)
+
+
+### Features
+
+* removed play button from VideoFeatured when a graphic is present ([c2cd6e6](https://github.com/lonelyplanet/backpack-ui/commit/c2cd6e6))
+
+
+
 <a name="4.90.18"></a>
 ## [4.90.18](https://github.com/lonelyplanet/backpack-ui/compare/v4.90.17...v4.90.18) (2019-01-29)
 
