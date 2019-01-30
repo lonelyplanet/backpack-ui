@@ -133,10 +133,6 @@ const styles = {
     textAlign: "center",
   },
 
-  graphicPlayButtonContainer: {
-    marginTop: "16px",
-  },
-
   duration: {
     color: colors.textOverlay,
     float: "right",
@@ -277,10 +273,6 @@ class VideoFeatured extends Component {
                 </ItalicText>
               }
               { adSlot }
-
-              <div style={styles.graphicPlayButtonContainer}>
-                {getPlayButton()}
-              </div>
             </div>
           }
 
