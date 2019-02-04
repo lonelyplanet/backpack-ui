@@ -18,6 +18,7 @@ function ArticlePreview({
   href,
   category,
   categoryHref,
+  trackEventId,
   trackEventName,
   trackEventPosition,
 }) {
@@ -77,6 +78,7 @@ function ArticlePreview({
                     promoClick: {
                       promotions: [
                         {
+                          id: trackEventId,
                           name: trackEventName,
                           creative: "article preview image",
                           position: trackEventPosition,
@@ -103,6 +105,7 @@ function ArticlePreview({
                     promoClick: {
                       promotions: [
                         {
+                          id: trackEventId,
                           name: trackEventName,
                           creative: "article preview text",
                           position: trackEventPosition,
@@ -140,12 +143,14 @@ ArticlePreview.propTypes = {
   href: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   categoryHref: PropTypes.string.isRequired,
+  trackEventId: PropTypes.string,
   trackEventName: PropTypes.string,
   trackEventPosition: PropTypes.string,
 };
 
 ArticlePreview.defaultProps = {
   imageAlt: "",
+  trackEventId: "article preview - 1",
   trackEventName: "article preview click",
   trackEventPosition: "article preview",
 };
