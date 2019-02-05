@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.90.20"></a>
+## [4.90.20](https://github.com/lonelyplanet/backpack-ui/compare/v4.90.19...v4.90.20) (2019-02-05)
+
+
+### Bug Fixes
+
+* add analytics click trackers to article preview component ([#736](https://github.com/lonelyplanet/backpack-ui/issues/736)) ([dc566a1](https://github.com/lonelyplanet/backpack-ui/commit/dc566a1))
+
+
+
 <a name="4.90.19"></a>
 ## [4.90.19](https://github.com/lonelyplanet/backpack-ui/compare/v4.90.18...v4.90.19) (2019-01-30)
 
