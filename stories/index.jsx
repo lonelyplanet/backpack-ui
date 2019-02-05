@@ -1410,6 +1410,9 @@ storiesOf("Lockups", module)
       href={text("URL", "/")}
       category={text("Category name", "Art and culture")}
       categoryHref={text("Category URL", "/")}
+      trackEventId={text("Tracking event id")}
+      trackEventName={text("Tracking event name")}
+      trackEventPosition={text("Tracking event position")}
     />
   ))
   .add("Bookmark list header", () => (
