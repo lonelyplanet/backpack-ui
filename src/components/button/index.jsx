@@ -8,6 +8,7 @@ import timing from "../../styles/timing";
 import { lighten } from "../../utils/color";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const hoverStyles = {
   base: {
@@ -213,6 +214,7 @@ function Button({
   disabled,
   customStyles,
   className,
+  qaHook,
   ...rest
 }) {
   const Element = href ? "a" : "button";
@@ -238,6 +240,7 @@ function Button({
       className={cn("Button", className)}
       style={style}
       href={href}
+      data-qa={createQAHook(qaHook, cn("Button", className), "btn")}
       onClick={onClick}
       role={role}
       disabled={disabled}
@@ -320,6 +323,11 @@ Button.propTypes = {
    * Add classname to button
    */
   className: PropTypes.string,
+
+  /**
+   * Add qa-hook to button
+   */
+  qaHook: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -334,6 +342,7 @@ Button.defaultProps = {
   disabled: false,
   customStyles: null,
   className: null,
+  qaHook: null,
 };
 
 Button.styles = styles;

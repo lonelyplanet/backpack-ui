@@ -5,6 +5,7 @@ import Container from "../container";
 import colors from "../../styles/colors";
 import zIndex from "../../styles/zIndex";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   nav: {
@@ -28,11 +29,12 @@ const styles = {
 };
 
 const Navigation = (props) => {
-  const { children, height, sticky, style, ...properties } = props;
+  const { children, qaHook, height, sticky, style, ...properties } = props;
 
   return (
     <nav
       className="Navigation"
+      data-qa={createQAHook(qaHook, "Navigation", "nav")}
       style={[
         styles.nav,
         sticky && { position: "sticky", top: 0 },
@@ -66,10 +68,12 @@ Navigation.propTypes = {
   height: PropTypes.number,
   sticky: PropTypes.bool,
   style: propTypes.style,
+  qaHook: PropTypes.string,
 };
 
 Navigation.defaultProps = {
   height: 80,
+  qaHook: null,
 };
 
 export default radium(Navigation);

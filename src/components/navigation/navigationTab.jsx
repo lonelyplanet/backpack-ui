@@ -8,6 +8,7 @@ import { fontWeightMedium } from "../../styles/typography";
 import propTypes from "../../utils/propTypes";
 import { outline } from "../../utils/mixins";
 import { textUppercase } from "../../utils/typography";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = Object.assign({}, {
   backgroundColor: colors.bgPrimary,
@@ -39,12 +40,13 @@ const styles = Object.assign({}, {
 }, textUppercase());
 
 const NavigationTab = (props) => {
-  const { children, onClick, active, style, ...properties } = props;
+  const { children, qaHook, onClick, active, style, ...properties } = props;
 
   return (
     <button
       className="NavigationTab"
       onClick={onClick}
+      data-qa={createQAHook(qaHook, "NavigationTab", "btn")}
       style={[
         styles,
         active && { borderBottomColor: colors.linkPrimary },
@@ -62,6 +64,11 @@ NavigationTab.propTypes = {
   onClick: PropTypes.func,
   active: PropTypes.bool,
   style: propTypes.style,
+  qaHook: PropTypes.string,
+};
+
+NavigationTab.defaultProps = {
+  qaHook: null,
 };
 
 export default radium(NavigationTab);
