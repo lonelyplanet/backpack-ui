@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import assign from "object-assign";
 
-import { analytics, EventNames, AnalyticsEvent } from "@lonelyplanet/lp-analytics";
+import { AnalyticsEvent, createPromotionClickEvent } from "@lonelyplanet/lp-analytics";
 import colors from "../../styles/colors";
 import font from "../../utils/font";
 import CategoryLabelLink from "../categoryLabelLink";
@@ -72,21 +72,14 @@ function ArticlePreview({
               href={href}
               style={styles.anchor}
               onClick={() => {
-                track({
-                  [analytics.eventName]: EventNames.promotionClick,
-                  ecommerce: {
-                    promoClick: {
-                      promotions: [
-                        {
-                          id: trackEventId,
-                          name: trackEventName,
-                          creative: "article preview image",
-                          position: trackEventPosition,
-                        },
-                      ],
-                    },
-                  },
-                });
+                track(
+                  createPromotionClickEvent({
+                    id: trackEventId,
+                    name: trackEventName,
+                    creative: "article preview image",
+                    position: trackEventPosition,
+                  }),
+                );
               }}
             >
               <img src={image} alt={imageAlt} style={styles.image} />
@@ -99,21 +92,14 @@ function ArticlePreview({
               href={href}
               style={assign({}, styles.anchor, { marginTop: "12px" })}
               onClick={() => {
-                track({
-                  [analytics.eventName]: EventNames.promotionClick,
-                  ecommerce: {
-                    promoClick: {
-                      promotions: [
-                        {
-                          id: trackEventId,
-                          name: trackEventName,
-                          creative: "article preview text",
-                          position: trackEventPosition,
-                        },
-                      ],
-                    },
-                  },
-                });
+                track(
+                  createPromotionClickEvent({
+                    id: trackEventId,
+                    name: trackEventName,
+                    creative: "article preview text",
+                    position: trackEventPosition,
+                  }),
+                );
               }}
             >
               <Heading
@@ -150,7 +136,7 @@ ArticlePreview.propTypes = {
 
 ArticlePreview.defaultProps = {
   imageAlt: "",
-  trackEventId: "article preview - 1",
+  trackEventId: "article preview",
   trackEventName: "article preview click",
   trackEventPosition: "article preview",
 };
