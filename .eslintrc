@@ -31,7 +31,7 @@
     "no-param-reassign": [0],
     "react/forbid-prop-types": [2],
     "react/no-danger": [0],
-    "react/no-unused-prop-types": [2, { skipShapeProps: true }],
+    "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
     "jsx-a11y/no-static-element-interactions": [1]
   },
   "plugins": [

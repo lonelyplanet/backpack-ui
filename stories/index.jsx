@@ -3303,15 +3303,23 @@ storiesOf("App-specific", module)
   ))
   .add("Multi-step login", () => (
     <MultiStepWrapper totalSteps={4}>
-      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => (
-        <MultiStepLogin
-          currentStep={currentStep}
-          setStep={setCurrentStep}
-          authActions={{}}
-          showLogo
-          doneAction={() => { }}
-        />
-      )}}
+      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => {
+        return (
+          <MultiStepLogin
+            currentStep={currentStep}
+            setStep={setCurrentStep}
+            authActions={{
+              facebook: () => {},
+              twitter: () => {},
+              google: () => {},
+              passwordless: () => {},
+              password: 'some-action',
+            }}
+            showLogo
+            doneAction={() => { }}
+          />
+        )
+      }}
     </MultiStepWrapper>
   ))
   .add("No results", () => (

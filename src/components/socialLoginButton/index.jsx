@@ -10,6 +10,7 @@ import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 import { textHeading7 } from "../../utils/typography";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 const hoverStyles = {
   backgroundColor: rgba(colors.borderPrimary, 0.15),
@@ -66,10 +67,11 @@ const SocialLoginButton = (props) => {
     iconSettings,
     iconProps,
   );
+  const sanitizedProps = validReactAttributes(props);
 
   return (
     <button
-      {...props}
+      {...sanitizedProps}
       style={[
         styles.button,
         style,

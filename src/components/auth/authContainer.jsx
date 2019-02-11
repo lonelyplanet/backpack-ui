@@ -45,7 +45,7 @@ AuthContainer.propTypes = {
   children: PropTypes.node.isRequired,
   hasLogo: PropTypes.bool,
   style: propTypes.style,
-  className: propTypes.string,
+  className: PropTypes.string,
 };
 
 export default radium(AuthContainer);

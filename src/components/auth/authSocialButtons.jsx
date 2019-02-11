@@ -49,7 +49,7 @@ AuthSocialButtons.propTypes = {
     google: PropTypes.func,
   }).isRequired,
   style: propTypes.style,
-  className: propTypes.string,
+  className: PropTypes.string,
 };
 
 export default radium(AuthSocialButtons);

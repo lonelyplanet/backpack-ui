@@ -51,7 +51,7 @@ const DisclaimerText = ({ children, style, className }) => (
 DisclaimerText.propTypes = {
   children: PropTypes.node.isRequired,
   style: propTypes.style,
-  className: propTypes.string,
+  className: PropTypes.string,
 };
 
 export default radium(DisclaimerText);
