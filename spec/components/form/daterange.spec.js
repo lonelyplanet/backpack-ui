@@ -3,7 +3,7 @@ import moment from "moment";
 import { expect } from "chai";
 import { configure, shallow } from "enzyme";
 import { DateRange } from "../../../src";
-import Adapter from "enzyme-adapter-react-16.2";
+import Adapter from "enzyme-adapter-react-16";
 
 configure({ adapter: new Adapter() });
 
