@@ -14,13 +14,13 @@ The commit message should be structured as follows:
 [optional footer]
 ```
 
-When writing commit messages, keep in mind [the seven rules of a great Git commit message](https://chris.beams.io/posts/git-commit/):
+When writing commit messages, we base loosely off of [the seven rules of a great Git commit message](https://chris.beams.io/posts/git-commit/):
 
 - Separate subject from body with a blank line
 - Limit the subject line to 50 characters
-- Capitalize the subject line
+- Use the imperative mood in the subject line, e.g. `fix`, `change`, `update`, `add`, etc.
+- do not capitalize the subject line
 - Do not end the subject line with a period
-- Use the imperative mood in the subject line, e.g. `Fix`, `Change`, `Update`, `Add`, etc.
 - Wrap the body at 72 characters
 - Use the body to explain what and why vs. how
 
@@ -97,17 +97,18 @@ Backpack uses [Airbnb’s JavaScript Style Guide](https://github.com/airbnb/java
 
 If you have questions or problems, you can contact one of the core maintainers:
 
-- [jcreamer898](https://github.com/jcreamer898)
-- [nickfranciosi](https://github.com/nickfranciosi)
 - [thomasthesecond](https://github.com/thomasthesecond)
+- [vacas5](https://github.com/vacas5)
+- [lburdock](https://github.com/lburdock)
 
 ## Release guide
 
 Releases can be made by:
 
-- [egdelwonk](https://github.com/egdelwonk)
-- [jcreamer898](https://github.com/jcreamer898)
-- [nickfranciosi](https://github.com/nickfranciosi)
 - [thomasthesecond](https://github.com/thomasthesecond)
+- [egdelwonk](https://github.com/egdelwonk)
+- [vacas5](https://github.com/vacas5)
+- [lburdock](https://github.com/lburdock)
+- [katelynp43](https://github.com/katelynp43)
 
 Please ping one of them to create a new release.
