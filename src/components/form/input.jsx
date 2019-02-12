@@ -5,22 +5,21 @@ import styles from "./styles";
 import propTypes from "../../utils/propTypes";
 
 function Input(props) {
-  const {
-    name,
-    id,
-    type,
-    error,
-    size,
-    theme,
-    fill,
-    customStyles,
-  } = props;
+  const { name, id, type, error, size, theme, fill, customStyles } = props;
+
+  // remove custom props that throw console errors
+  const sanitizedProps = Object.keys(props).reduce((iter, key) => {
+    if (key !== "fill" && key !== "customStyles") {
+      iter[key] = props[key];
+    }
+    return iter;
+  }, {});
 
   return (
     <input
       name={name || id}
       type={type}
-      {...props}
+      {...sanitizedProps}
       style={[
         styles.base,
         styles.element.input.base,
@@ -54,20 +53,8 @@ Input.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string,
   error: PropTypes.bool,
-  size: PropTypes.oneOf([
-    "tiny",
-    "small",
-    "medium",
-    "large",
-    "huge",
-  ]),
-  theme: PropTypes.oneOf([
-    "base",
-    "light",
-    "dark",
-    "float",
-    "inputGroup",
-  ]),
+  size: PropTypes.oneOf(["tiny", "small", "medium", "large", "huge"]),
+  theme: PropTypes.oneOf(["base", "light", "dark", "float", "inputGroup"]),
   /**
    * Fills the width of the parent
    */

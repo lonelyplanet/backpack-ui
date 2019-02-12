@@ -74,7 +74,7 @@
     "react-slick": "^0.18.0",
     "react-stickynode": "^2.0.1",
     "react-tether": "^0.6.0",
-    "react-validate-form": "^1.0.6",
+    "react-validate-form": "^1.0.7",
     "react-waypoint": "^7.3.4",
     "slick-carousel": "^1.8.1",
     "truncate": "^2.0.0"
