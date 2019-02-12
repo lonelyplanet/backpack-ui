@@ -345,6 +345,7 @@ storiesOf("Buttons", module)
         full={boolean("Full width", false)}
         rounded={boolean("Rounded", false)}
         onClick={action("clicked")}
+        qaHook={text("qaHook", "QA hook")}
       >
         {text("Text", "Hello Button")}
       </Button>
@@ -360,6 +361,7 @@ storiesOf("Buttons", module)
         full={boolean("Full width", false)}
         rounded={boolean("Rounded", false)}
         onClick={action("clicked")}
+        qaHook={text("qaHook", "QA hook")}
       >
         {text("Text", "Hello Button")}
       </Button>
@@ -1920,14 +1922,14 @@ storiesOf("Navigation", module)
   .addDecorator(withKnobs)
   .add("Navigation", () => (
     <Navigation height={number("Height", 80)} sticky={boolean("Sticky", false)}>
-      <NavigationTab active={boolean("Active", true)} onClick={action("Experiences tab clicked")}>
+      <NavigationTab qaHook={text("qaHook", "Experiences")} active={boolean("Active", true)} onClick={action("Experiences tab clicked")}>
         {text("Text", "Experiences")}
       </NavigationTab>
-      <NavigationTab onClick={action("Map tab clicked")}>Map</NavigationTab>
-      <NavigationTab onClick={action("Articles tab clicked")}>Articles</NavigationTab>
-      <NavigationTab onClick={action("Interests tab clicked")}>Interests</NavigationTab>
-      <NavigationTab onClick={action("Books tab clicked")}>Books</NavigationTab>
-      <NavigationTab onClick={action("Adventures tab clicked")}>Adventures</NavigationTab>
+      <NavigationTab qaHook={text("qaHook", "Map")} onClick={action("Map tab clicked")}>Map</NavigationTab>
+      <NavigationTab qaHook={text("qaHook", "Articles")} onClick={action("Articles tab clicked")}>Articles</NavigationTab>
+      <NavigationTab qaHook={text("qaHook", "Interests")} onClick={action("Interests tab clicked")}>Interests</NavigationTab>
+      <NavigationTab qaHook={text("qaHook", "Books")} onClick={action("Books tab clicked")}>Books</NavigationTab>
+      <NavigationTab qaHook={text("qaHook", "Adventures")} onClick={action("Adventures tab clicked")}>Adventures</NavigationTab>
     </Navigation>
   ))
   .add("Sectional nav", () => (
@@ -2048,6 +2050,7 @@ storiesOf("Popovers", module)
             border
             color="gray"
             size="small"
+            qaHook="qa hook"
             customStyles={{
               alignItems: "center",
               display: "inline-flex",
@@ -2097,6 +2100,7 @@ storiesOf("Popovers", module)
               actions={[
                 <Button
                   size="small"
+                  qaHook="qa hook"
                   onClick={action("✌🏼")}
                   rounded
                 >
@@ -2104,6 +2108,7 @@ storiesOf("Popovers", module)
                 </Button>,
                 <Button
                   size="small"
+                  qaHook="qa hook"
                   onClick={toggle}
                   color="gray"
                   rounded
@@ -3159,26 +3164,26 @@ storiesOf("Widgets", module)
         <MultiStep currentStep={currentStep}>
           <div>
             <h1>Step {currentStep}</h1>
-            <Button size="tiny" onClick={goToNextStep}>Next step</Button>
-            <Button size="tiny" onClick={() => { setCurrentStep(4); }}>Jump to step 4</Button>
+            <Button qaHook="qa hook" size="tiny" onClick={goToNextStep}>Next step</Button>
+            <Button qaHook="qa hook" size="tiny" onClick={() => { setCurrentStep(4); }}>Jump to step 4</Button>
           </div>
 
           <div>
             <h1>Step {currentStep}</h1>
-            <Button size="tiny" onClick={goToPreviousStep}>Previous step</Button>
-            <Button size="tiny" onClick={goToNextStep}>Next step</Button>
+            <Button qaHook="qa hook" size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button qaHook="qa hook" size="tiny" onClick={goToNextStep}>Next step</Button>
           </div>
 
           <div>
             <h1>Step {currentStep}</h1>
-            <Button size="tiny" onClick={goToPreviousStep}>Previous step</Button>
-            <Button size="tiny" onClick={goToNextStep}>Next step</Button>
+            <Button qaHook="qa hook" size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button qaHook="qa hook" size="tiny" onClick={goToNextStep}>Next step</Button>
           </div>
 
           <div>
             <h1>Step {currentStep}</h1>
-            <Button size="tiny" onClick={goToPreviousStep}>Previous step</Button>
-            <Button size="tiny" onClick={() => { setCurrentStep(1); }}>Jump to step 1</Button>
+            <Button qaHook="qa hook" size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button qaHook="qa hook" size="tiny" onClick={() => { setCurrentStep(1); }}>Jump to step 1</Button>
           </div>
         </MultiStep>
       )}
