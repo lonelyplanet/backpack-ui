@@ -1,0 +1,8 @@
+// https://github.com/souporserious/react-motion-ui-pack/blob/master/src/special-assign.js
+export default function specialAssign(a, b, reserved) {
+  for (var x in b) {
+    if (!b.hasOwnProperty(x) || reserved[x]) continue;
+    a[x] = b[x]
+  }
+  return a
+}
