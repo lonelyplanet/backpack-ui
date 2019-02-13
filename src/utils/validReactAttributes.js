@@ -151,13 +151,13 @@ const nonStandardAttributes = [
 
 export const validReactAttributes = attrs => {
   const regexAttributes = /((data-|aria-))\w+/g;
-  return Object.keys(attrs).reduce((iterator, key) => {
+  return Object.entries(attrs).reduce((iterator, [key, value]) => {
     if (
       regexAttributes.test(key) ||
       standardAttributes.includes(key) ||
       nonStandardAttributes.includes(key)
     ) {
-      iterator[key] = attrs[key];
+      iterator[key] = value;
     }
     return iterator;
   }, {});

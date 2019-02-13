@@ -8,9 +8,9 @@ function Input(props) {
   const { name, id, type, error, size, theme, fill, customStyles } = props;
 
   // remove custom props that throw console errors
-  const sanitizedProps = Object.keys(props).reduce((iter, key) => {
+  const sanitizedProps = Object.entries(props).reduce((iter, [key, value]) => {
     if (key !== "fill" && key !== "customStyles") {
-      iter[key] = props[key];
+      iter[key] = value;
     }
     return iter;
   }, {});
