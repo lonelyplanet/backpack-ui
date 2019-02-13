@@ -1,4 +1,4 @@
-// https://react-cn.github.io/react/docs/tags-and-attributes.html
+// https://react-legacy.netlify.com/docs/dom-elements.html
 const standardAttributes = [
   "accept",
   "acceptCharset",
@@ -14,21 +14,24 @@ const standardAttributes = [
   "capture",
   "cellPadding",
   "cellSpacing",
-  "charSet",
   "challenge",
+  "charSet",
   "checked",
+  "cite",
   "classID",
   "className",
-  "cols",
   "colSpan",
+  "cols",
   "content",
   "contentEditable",
   "contextMenu",
   "controls",
+  "controlsList",
   "coords",
   "crossOrigin",
   "data",
   "dateTime",
+  "default",
   "defer",
   "dir",
   "disabled",
@@ -53,8 +56,11 @@ const standardAttributes = [
   "icon",
   "id",
   "inputMode",
+  "integrity",
+  "is",
   "keyParams",
   "keyType",
+  "kind",
   "label",
   "lang",
   "list",
@@ -74,19 +80,22 @@ const standardAttributes = [
   "muted",
   "name",
   "noValidate",
+  "nonce",
   "open",
   "optimum",
   "pattern",
   "placeholder",
   "poster",
   "preload",
+  "profile",
   "radioGroup",
   "readOnly",
   "rel",
   "required",
+  "reversed",
   "role",
-  "rows",
   "rowSpan",
+  "rows",
   "sandbox",
   "scope",
   "scoped",
@@ -100,6 +109,7 @@ const standardAttributes = [
   "spellCheck",
   "src",
   "srcDoc",
+  "srcLang",
   "srcSet",
   "start",
   "step",
@@ -117,14 +127,23 @@ const standardAttributes = [
 ];
 
 const nonStandardAttributes = [
+  "about",
+  "datatype",
+  "inlist",
+  "prefix",
+  "property",
+  "resource",
+  "typeof",
+  "vocab",
   "autoCapitalize",
   "autoCorrect",
-  "property",
+  "color",
   "itemProp",
   "itemScope",
   "itemType",
   "itemRef",
   "itemID",
+  "security",
   "unselectable",
   "results",
   "autoSave",
@@ -132,13 +151,13 @@ const nonStandardAttributes = [
 
 export const validReactAttributes = attrs => {
   const regexAttributes = /((data-|aria-))\w+/g;
-  return Object.keys(attrs).reduce((iterator, key) => {
+  return Object.entries(attrs).reduce((iterator, [key, value]) => {
     if (
       regexAttributes.test(key) ||
       standardAttributes.includes(key) ||
       nonStandardAttributes.includes(key)
     ) {
-      iterator[key] = attrs[key];
+      iterator[key] = value;
     }
     return iterator;
   }, {});
