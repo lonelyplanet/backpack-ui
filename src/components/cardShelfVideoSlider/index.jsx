@@ -5,6 +5,7 @@ import CardShelf from "../cardShelf/cardShelf";
 import Heading from "../heading";
 import Link from "../link";
 import MoreLink from "../moreLink";
+import SponsorLabel from "../sponsorLabel";
 import { VideoSlider } from "../video";
 import {
   fontSizeHeading6,
@@ -31,12 +32,17 @@ const styles = {
     alignItems: "flex-end",
     display: "flex",
     flexDirection: "row",
-    marginBottom: "8px",
     position: "relative",
+    marginBottom: "8px",
 
     [`@media (min-width: ${mq.min["360"]})`]: {
       marginBottom: "16px",
     },
+  },
+
+  sponsorLabel: {
+    display: "block",
+    marginBottom: "8px",
   },
 
   heading: {
@@ -145,18 +151,26 @@ const styles = {
 
 class CardShelfVideoSlider extends React.Component {
   getHeadingComponent = () => {
-    const { heading, theme } = this.props;
+    const { heading, sponsorLabel, theme } = this.props;
 
     return (
-      <Heading
-        level={2}
-        override={{
-          ...styles.heading.default,
-          ...styles.heading[theme],
-        }}
-      >
-        {heading}
-      </Heading>
+      <React.Fragment>
+        {sponsorLabel &&
+          <SponsorLabel
+            text={sponsorLabel}
+            style={styles.sponsorLabel}
+          />
+        }
+        <Heading
+          level={2}
+          override={{
+            ...styles.heading.default,
+            ...styles.heading[theme],
+          }}
+        >
+          {heading}
+        </Heading>
+      </React.Fragment>
     );
   }
 
@@ -249,6 +263,7 @@ CardShelfVideoSlider.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
   mobile: PropTypes.bool,
   heading: PropTypes.string,
+  sponsorLabel: PropTypes.string,
   href: PropTypes.string,
   adSlot: PropTypes.element,
   theme: PropTypes.oneOf([

@@ -2568,13 +2568,14 @@ storiesOf("Video components", module)
     <StyleRoot>
       <div style={{ padding: "32px" }}>
         <CardShelfVideoSlider
-          heading="Food and drink"
-          href="/"
+          heading={text("Heading", "Food and drink")}
+          sponsorLabel={text("Sponsor Label", "")}
+          href={text("Href", "/")}
           theme={select("Theme", ["light", "dark"], "light")}
           spacing={select("Spacing", ["normal", "compact"], "compact")}
         >
           <CardVideo
-            heading={text("Heading", "High Sierra ")}
+            heading={text("Card Heading", "High Sierra ")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
@@ -2586,7 +2587,7 @@ storiesOf("Video components", module)
           />
 
           <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            heading={text("Card Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
@@ -2598,7 +2599,7 @@ storiesOf("Video components", module)
           />
 
           <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith High Sierra routes with Ken Walker Smith")}
+            heading={text("Card Heading", "High Sierra routes with Ken Walker Smith High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
@@ -2610,7 +2611,7 @@ storiesOf("Video components", module)
           />
 
           <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            heading={text("Card Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
@@ -2622,7 +2623,7 @@ storiesOf("Video components", module)
           />
 
           <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            heading={text("Card Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
@@ -2634,7 +2635,7 @@ storiesOf("Video components", module)
           />
 
           <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            heading={text("Card Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
