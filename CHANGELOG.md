@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.92.0"></a>
+# [4.92.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.91.0...v4.92.0) (2019-02-26)
+
+
+### Features
+
+* added sponsorLabel prop to CardShelfVideoSlider component ([#742](https://github.com/lonelyplanet/backpack-ui/issues/742)) ([6f600c3](https://github.com/lonelyplanet/backpack-ui/commit/6f600c3))
+
+
+
 <a name="4.91.0"></a>
 # [4.91.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.90.20...v4.91.0) (2019-02-14)
 
