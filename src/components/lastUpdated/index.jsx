@@ -24,7 +24,7 @@ function LastUpdated({ date, editUrl }) {
       style={styles.base}
     >
       <p>
-        Last updated {date}. {editUrl && <a href={editUrl}>Suggest an edit.</a>}
+        Last updated {date}. {editUrl && <a data-qa="suggest-an-edit-last-updated-link" href={editUrl}>Suggest an edit.</a>}
       </p>
     </div>
   );

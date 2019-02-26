@@ -171,6 +171,7 @@ function RelatedTour({
         style={styles.elements.image.base}
         href={slug}
         onClick={clickHandler}
+        data-qa="related-tour-image-link"
       >
         <img
           src={image}

@@ -173,6 +173,7 @@ class SidebarSection extends React.Component {
 
     const collapsibleHeading = (
       <button
+        data-qa="sidebar-section-collapsible-heading-btn"
         style={styles.collapsibleHeading.base}
         onClick={this.onClick}
       >

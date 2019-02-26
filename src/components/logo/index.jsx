@@ -34,6 +34,7 @@ const styles = {
 const Logo = ({ href, color, className, style }) => (
   <a
     className={cn("Logo", className)}
+    data-qa="logo"
     style={[styles.anchor, { color: colours[color] }, style]}
     href={href}
   >

@@ -92,6 +92,7 @@ function ContactBar({ phone, website }) {
           className="ContactBar-phone"
           href={`tel:${telephone}`}
           style={[styles.link.base, styles.link.call]}
+          data-qa="phone-link"
           key="phone"
         >
           <Icon name="mobile" style={styles.icon.base} />
@@ -108,6 +109,7 @@ function ContactBar({ phone, website }) {
           href={website}
           style={[styles.link.base, styles.link.website]}
           key="website"
+          data-qa="website-link"
         >
           <Icon name="globe" style={styles.icon.base} />
 

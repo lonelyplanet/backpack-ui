@@ -10,6 +10,7 @@ import { rgba } from "../../utils/color";
 import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   alignItems: "center",
@@ -63,6 +64,7 @@ const ListButton = ({
     title={label}
     aria-label={label}
     aria-owns={owns}
+    data-qa={createQAHook(label, cn("ListButton", className), "btn")}
   >
     {iconFromString(icon, iconProps)}
   </button>

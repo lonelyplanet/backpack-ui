@@ -5,6 +5,7 @@ import moment from "moment";
 import TetherComponent from "react-tether";
 
 import zIndex from "../../styles/zIndex";
+import createQAHook from "../../utils/createQAHook";
 import Select from "./select";
 import styles from "./styles";
 import Calendar from "../calendar";
@@ -290,6 +291,7 @@ class DateInput extends React.Component {
           {(!range && !time) &&
             <input
               id={id}
+              data-qa={createQAHook(name, id, "input")}
               name={name || id}
               style={[style]}
               value={startDate.format(format)}
@@ -308,6 +310,7 @@ class DateInput extends React.Component {
             <div style={{ overflow: "hidden" }}>
               <input
                 id={`${id}-date`}
+                data-qa={createQAHook(`${name}-date`, `${id}-date`, "input")}
                 name={`${name || id}-date`}
                 style={[style]}
                 value={startDate.format(format)}
@@ -346,6 +349,7 @@ class DateInput extends React.Component {
               <input
                 id={`${id}-start`}
                 name={`${name || id}-start`}
+                data-qa={createQAHook(`${name}-start`, `${id}-start`, "input")}
                 style={[
                   style,
                   noBorder && {
@@ -367,6 +371,7 @@ class DateInput extends React.Component {
               <input
                 id={`${id}-end`}
                 name={`${name || id}-end`}
+                data-qa={createQAHook(`${name}-end`, `${id}-end`, "input")}
                 style={[
                   style, { borderLeft: 0 },
                   noBorder && {

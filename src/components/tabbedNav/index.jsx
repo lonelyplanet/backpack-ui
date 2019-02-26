@@ -10,6 +10,7 @@ import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
+import createQAHook from "../../utils/createQAHook";
 
 const navigationSubHeight = "80px";
 
@@ -93,7 +94,7 @@ const styles = {
 
 function TabbedNav({ items, onClick, active }) {
   return (
-    <nav className="TabbedNav" style={styles.container}>
+    <nav className="TabbedNav" data-qa="tabbed-nav" style={styles.container}>
       <Style
         scopeSelector=".TabbedNav"
         rules={styles.scoped}
@@ -101,7 +102,7 @@ function TabbedNav({ items, onClick, active }) {
 
       <Sticky innerZ={zIndex.globalHeader} enabled>
         <div style={styles.innerContainer}>
-          <ul style={styles.list}>
+          <ul style={styles.list} data-qa="tabbed-nav-ul">
             {items && items.map((item, index) => (
               <li
                 style={[
@@ -109,8 +110,9 @@ function TabbedNav({ items, onClick, active }) {
                   item === active ? styles.listItem.active : null,
                 ]}
                 key={index}
+                data-qa={createQAHook(`${item}`, `tabbed-nav-li-${index}`, "li")}
               >
-                <button onClick={onClick}>
+                <button onClick={onClick} >
                   {item}
                 </button>
               </li>

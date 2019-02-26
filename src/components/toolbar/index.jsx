@@ -62,6 +62,7 @@ function Toolbar({ phone, website, directions }) {
           href="tel:"
           style={styles.link.base}
           key="phone"
+          data-qa="toolbar-tel-link"
         >
           <div
             className="Toolbar-icon"
@@ -78,6 +79,7 @@ function Toolbar({ phone, website, directions }) {
           href={website}
           style={styles.link.base}
           key="website"
+          data-qa="toolbar-website-icon"
         >
           <div
             className="Toolbar-icon"
@@ -94,6 +96,7 @@ function Toolbar({ phone, website, directions }) {
           href={website}
           style={styles.link.base}
           key="directions"
+          data-qa="toolbar-directions-link"
         >
           <div
             className="Toolbar-icon"

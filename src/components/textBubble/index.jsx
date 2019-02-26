@@ -22,7 +22,7 @@ const styles = {
 };
 
 const TextBubble = ({ children, style }) => (
-  <span style={[styles, style]}>
+  <span data-qa="text-bubble-span" style={[styles, style]}>
     {children}
   </span>
 );

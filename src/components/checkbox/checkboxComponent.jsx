@@ -174,6 +174,7 @@ class CheckboxComponent extends Component {
             ]}
             value={value}
             name={_.kebabCase(name)}
+            data-qa={`${_.kebabCase(id)}-input`}
             onClick={onClick}
             required={required && !checked}
           />

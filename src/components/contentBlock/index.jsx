@@ -5,6 +5,7 @@ import radium, { Style } from "radium";
 import colors from "../../styles/colors";
 import font from "../../utils/font";
 import { blueLink, underlinedLink } from "../../utils/mixins";
+import createQAHook from "../../utils/createQAHook";
 import Heading from "../heading";
 
 const baseFontSize = 20;
@@ -111,7 +112,7 @@ function ContentBlock({ heading, headerLink, htmlContent }) {
 
           {headerLink && headerLink.label && headerLink.href &&
             <p style={styles.link.container.base}>
-              <a style={styles.link.anchor.base} href={headerLink.href}>
+              <a style={styles.link.anchor.base} data-qa={createQAHook(headerLink.label, "header", "link")} href={headerLink.href}>
                 {headerLink.label}
               </a>
             </p>

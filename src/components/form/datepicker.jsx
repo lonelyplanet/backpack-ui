@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import styles from "./styles";
+import createQAHook from "../../utils/createQAHook";
 
 function DatePicker({ id, name, required, size, theme }) {
   const style = [styles.base];
@@ -24,6 +25,7 @@ function DatePicker({ id, name, required, size, theme }) {
       type="text"
       id={id}
       name={name || id}
+      data-qa={createQAHook(name, id, "input")}
       required={required}
     />
   );

@@ -16,6 +16,7 @@ import {
 import { rgba } from "../../utils/color";
 import font from "../../utils/font";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   base: {
@@ -132,6 +133,7 @@ function Heading({
   return (
     <Component
       className="Heading"
+      data-qa={createQAHook(children, "heading", `${Component}`)}
       style={[
         styles.base,
         size && styles.size[size],

@@ -25,7 +25,7 @@ function EditLink({ url, display }) {
       className="EditLink"
       style={styles.container.base}
     >
-      <a href={url}>Suggest an edit</a>.
+      <a href={url} data-qa="suggest-an-edit-link">Suggest an edit</a>.
     </Container>
   );
 }

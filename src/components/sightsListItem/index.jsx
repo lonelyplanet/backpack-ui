@@ -82,6 +82,7 @@ function SightsListItem({
       href={slug}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      data-qa="sights-list-link"
     >
       <div style={styles.imageContainer}>
         {imgPath && <div style={[styles.image, { backgroundImage: `url(${imgPath})` }]} />}

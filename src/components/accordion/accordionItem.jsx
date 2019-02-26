@@ -7,6 +7,7 @@ import timing from "../../styles/timing";
 import mq from "../../styles/mq";
 import propTypes from "../../utils/propTypes";
 import { Plus } from "../icon";
+import createQAHook from "../../utils/createQAHook";
 
 const mediaQuery = `@media (min-width: ${mq.min[768]})`;
 
@@ -79,6 +80,7 @@ const AccordionItem = ({ heading, content, id, expanded, onClick, style }) => (
     <button
       className="Accordion-itemHeading"
       id={`${id}-heading`}
+      data-qa={createQAHook(heading, "Accordion-itemHeading", "btn")}
       aria-selected={expanded}
       aria-expanded={expanded}
       aria-controls={`${id}-content`}
@@ -96,6 +98,7 @@ const AccordionItem = ({ heading, content, id, expanded, onClick, style }) => (
     <div
       className="Accordion-itemContent"
       id={`${id}-content`}
+      data-qa={createQAHook(id, "Accordion-itemContent", "content")}
       aria-labelledby={`${id}-heading`}
       aria-hidden={!expanded}
       role="tabpanel"

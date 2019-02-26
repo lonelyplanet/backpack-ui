@@ -252,6 +252,7 @@ function Price({
 
       {rate &&
         <div
+          data-qa="rate-div"
           className="Price-rate"
           style={[
             styles.rate.base,

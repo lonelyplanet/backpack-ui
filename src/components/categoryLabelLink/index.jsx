@@ -14,6 +14,7 @@ const CategoryLabelLink = (props) => (
   <CategoryLabel style={props.style}>
     <a
       style={styles}
+      data-qa="category-label-link"
       href={props.href}
       {...props}
     >

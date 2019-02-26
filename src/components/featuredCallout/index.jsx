@@ -8,6 +8,7 @@ import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
+import createQAHook from "../../utils/createQAHook";
 import CalloutLink from "../calloutLink";
 import CategoryLabel from "../categoryLabel";
 import Heading from "../heading";
@@ -127,7 +128,7 @@ const FeaturedCallout = ({
         { fontWeight: titleWeight },
       ]}
     >
-      <a href={link.href} style={styles.titleLink}>
+      <a href={link.href} data-qa={createQAHook(title, "feature-callout", "link")} style={styles.titleLink}>
         {title}
       </a>
     </Heading>

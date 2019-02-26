@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import styles from "./styles";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 function Input(props) {
   const {
@@ -19,6 +20,7 @@ function Input(props) {
   return (
     <input
       name={name || id}
+      data-qa={createQAHook(name, id, "input")}
       type={type}
       {...props}
       style={[

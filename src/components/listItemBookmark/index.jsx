@@ -20,6 +20,7 @@ import AlbumThumbnailImage from "../albumThumbnailImage";
 import CategoryLabel from "../categoryLabel";
 import CheckboxComponent from "../checkbox";
 import { Heading } from "../text";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   container: {
@@ -134,6 +135,7 @@ function ListItemBookmark({
     <Element
       className="ListItemBookmark"
       name={name}
+      data-qa={createQAHook(name, "bookmark", `${Element}`)}
       onClick={onClick}
       style={[
         styles.container.default,

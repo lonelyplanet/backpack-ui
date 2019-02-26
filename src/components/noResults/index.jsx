@@ -22,7 +22,7 @@ const styles = {
 function NoResults({ onReset, style }) {
   return (
     <div className="NoResults" style={[styles.container.base, style]}>
-      <p style={styles.text.base}>
+      <p style={styles.text.base} data-qa="no-results-p">
         We couldn’t find any matches.
       </p>
 

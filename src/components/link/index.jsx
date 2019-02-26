@@ -8,6 +8,7 @@ const Link = (props) => (
   isExternal(props.to) || (!props.to && props.onClick) ?
     <a
       href={props.to}
+      data-qa="external-link"
       onClick={props.onClick}
       {...props}
     >

@@ -246,6 +246,7 @@ class Takeover extends Component {
                 className="Takeover-close"
                 style={styles.takeover.close.base}
                 onClick={!closeOnHeaderClick && this.onClose}
+                data-qa="takeover-close-btn"
               >
                 <Icon.Cross label="Close" />
               </button>

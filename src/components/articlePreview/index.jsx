@@ -6,6 +6,7 @@ import colors from "../../styles/colors";
 import font from "../../utils/font";
 import CategoryLabelLink from "../categoryLabelLink";
 import Heading from "../heading";
+import createQAHook from "../../utils/createQAHook";
 
 const markup = html => ({ __html: html });
 
@@ -54,14 +55,14 @@ function ArticlePreview({ title, paragraph, image, imageAlt, href, category, cat
   return (
     <article className="ArticlePreview" style={styles.container}>
       <figure className="ArticlePreview-image" style={styles.imageContainer}>
-        <a href={href} style={styles.anchor}>
+        <a data-qa="article-preview-image-link" href={href} style={styles.anchor}>
           <img src={image} alt={imageAlt} style={styles.image} />
         </a>
       </figure>
 
       <div className="ArticlePreview-text" style={styles.textContainer}>
         <CategoryLabelLink href={categoryHref}>{category}</CategoryLabelLink>
-        <a href={href} style={assign({}, styles.anchor, { marginTop: "12px" })}>
+        <a data-qa={createQAHook(title, "category-heading", "link")} href={href} style={assign({}, styles.anchor, { marginTop: "12px" })}>
           <Heading
             weight="thick"
             override={styles.heading}

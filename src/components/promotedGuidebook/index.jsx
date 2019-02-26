@@ -102,6 +102,7 @@ const PromotedGuidebook = ({ title, url, imageUrl, price, description }) => (
     className="PromotedGuidebook"
     href={url}
     style={styles.container}
+    data-qa="promoted-guidebook-link"
   >
     <img
       style={styles.image}

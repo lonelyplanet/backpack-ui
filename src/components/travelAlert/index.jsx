@@ -53,6 +53,7 @@ const TravelAlert = ({ children, style }) => (
     className="TravelAlert"
     style={[styles, style]}
     role="status"
+    data-qa="travel-alert"
   >
     <Style
       scopeSelector=".TravelAlert"

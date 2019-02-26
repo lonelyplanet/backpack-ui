@@ -7,6 +7,7 @@ import { blueLink } from "../../utils/mixins";
 import schema from "../../utils/schema";
 import MoreLink from "../moreLink";
 import StaticMap from "../staticMap";
+import createQAHook from "../../utils/createQAHook";
 
 function Location({ name, street, place, coordinates, mobile }) {
   const styles = {
@@ -55,7 +56,12 @@ function Location({ name, street, place, coordinates, mobile }) {
               {place && place.length > 0 && <div>
                 {place.map((placeItem, i) => (
                   <span key={`${placeItem.title} span`}>
-                    <a key={placeItem.title} style={blueLink()} href={placeItem.href}>
+                    <a
+                      key={placeItem.title}
+                      style={blueLink()}
+                      href={placeItem.href}
+                      data-qa={createQAHook(placeItem.type, "place", "link")}
+                    >
                       <span itemProp={placeItem.type === "city" ? "addressLocality" : "addressCountry"}>
                         {placeItem.title}
                       </span>

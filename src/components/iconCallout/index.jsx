@@ -8,6 +8,7 @@ import { add, span, gutter } from "../../utils/grid";
 import iconFromString from "../../utils/icon";
 import Icon from "../icon";
 import Heading from "../heading";
+import createQAHook from "../../utils/createQAHook";
 
 const containerMaxWidth = add([span(2, "static"), gutter("static")], "static");
 
@@ -52,7 +53,7 @@ const styles = {
 function IconCallout({ iconName, title, copy, url }) {
   return (
     <div className="IconCallout" style={styles.container}>
-      <a href={url} style={styles.anchor}>
+      <a href={url} style={styles.anchor} data-qa={createQAHook(title, "callout", "link")}>
         {iconFromString(iconName, {
           style: styles.icon,
           ariaHidden: true,

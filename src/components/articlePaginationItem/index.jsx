@@ -11,6 +11,7 @@ import font from "../../utils/font";
 import CategoryLabel from "../categoryLabel";
 import Heading from "../heading";
 import { ArrowLeftAlternate, ArrowRightAlternate } from "../icon";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   anchor: {
@@ -104,7 +105,7 @@ function markup(htmlContent) {
 }
 
 const ArticlePaginationItem = ({ title, href, image, imageAlt, category, page, style }) => (
-  <a className="ArticlePaginationItem" href={href} style={[styles.anchor, style]}>
+  <a className="ArticlePaginationItem" href={href} style={[styles.anchor, style]} data-qa={createQAHook(page, "ArticlePaginationItem", "link")}>
     <style dangerouslySetInnerHTML={markup(css)} />
 
     <div style={styles.container}>

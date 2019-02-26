@@ -63,7 +63,7 @@ const WatchLaterEmptyList = ({ style }) => (
       </p>
 
       <Link to={"/video/v"}>
-        <Button rounded>Browse Channels</Button>
+        <Button data-qa="browse-channels-btn" rounded>Browse Channels</Button>
       </Link>
     </div>
   </div>

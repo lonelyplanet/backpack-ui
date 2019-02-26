@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import cn from "classnames";
 import styles from "./styles";
+import createQAHook from "../../utils/createQAHook";
 
 function Select({
   id,
@@ -30,6 +31,7 @@ function Select({
         noBorder && styles.noBorder,
         style,
       ]}
+      data-qa={createQAHook(name, id, "select")}
       className={cn("Select", className)}
       id={id}
       name={name || id}
@@ -39,7 +41,7 @@ function Select({
       title={label}
       onChange={onChange}
     >
-      {options.map((option) => {
+      {options.map((option, index) => {
         if (typeof option === "object") {
           const isMissingLabel = Object.keys(option).indexOf("label") === -1;
           const isMissingValue = Object.keys(option).indexOf("value") === -1;
@@ -52,6 +54,7 @@ function Select({
             <option
               value={option.value}
               key={option.value}
+              data-qa={createQAHook(option.value, `${index}`, "option")}
             >
               {option.label}
             </option>
@@ -62,6 +65,7 @@ function Select({
           <option
             value={option}
             key={option}
+            data-qa={createQAHook(option.value, `${index}`, "option")}
           >
             {option}
           </option>

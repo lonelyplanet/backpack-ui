@@ -58,6 +58,7 @@ function ExpandButton({ label, onClick }) {
       className="ExpandButton"
       style={styles.container.base}
       aria-label="Expand"
+      data-qa="expand-btn"
       onClick={onClick}
     >
       {label &&

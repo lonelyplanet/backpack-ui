@@ -15,6 +15,7 @@ import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 import Icon from "../icon";
+import createQAHook from "../../utils/createQAHook";
 
 const height = 56;
 const padding = 16;
@@ -238,6 +239,7 @@ const Toast = ({
           onClick={onClose}
           style={[styles.button, url ? styles.onClickButton : styles.onCloseButton]}
           title="Close"
+          data-qa={createQAHook("toast", "toast", `${Element === "a" ? "link" : Element}`)}
         >
           {url ? buttonLabel : <Icon.Close title="Close" style={styles.onCloseIcon} />}
         </Element>

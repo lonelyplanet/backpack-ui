@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import styles from "./styles";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 function TextArea(props) {
   const {
@@ -35,6 +36,7 @@ function TextArea(props) {
     <textarea
       name={name || id}
       aria-label={label}
+      qa-hook={createQAHook(name, id, "textarea")}
       title={label}
       {...props}
       style={style}

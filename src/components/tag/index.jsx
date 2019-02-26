@@ -9,6 +9,7 @@ import { rgba } from "../../utils/color";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 import { textBodySmall } from "../../utils/typography";
+import createQAHook from "../../utils/createQAHook";
 
 const fontSize = fontSizeBodySmall;
 
@@ -79,6 +80,7 @@ function Tag({ children, href, onClick, selected, style }) {
       ]}
       href={href}
       onClick={onClick}
+      data-qa={createQAHook(children, "tag", Element === "a" ? "link" : Element)}
     >
       {children}
     </Element>

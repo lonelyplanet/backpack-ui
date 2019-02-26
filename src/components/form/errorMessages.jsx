@@ -14,7 +14,7 @@ const styles = {
 };
 
 const ErrorMessages = ({ messages, style }) => (
-  <div style={[styles.base, style && style]}>
+  <div data-qa="error-msgs" style={[styles.base, style && style]}>
     {messages.map(errorMessage => <p>{errorMessage}</p>)}
   </div>
 );

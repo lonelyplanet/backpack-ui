@@ -89,6 +89,7 @@ const styles = {
 
 const Switch = ({ id, name, value, onClick, checked, className, style }) => (
   <div
+    data-qa="switch-div"
     className={cn("Switch", className)}
     style={[
       styles.container,

@@ -161,6 +161,7 @@ function ModalComponent({
       closeTimeoutMS={closeTimeoutMS}
       contentLabel={contentLabel}
       className={className ? `ModalBase ${className}` : "ModalBase"}
+      data-qa="modal"
     >
       <Style
         scopeSelector=".ReactModalPortal"
@@ -181,6 +182,7 @@ function ModalComponent({
         >
           {leftAction &&
             <button
+              data-qa="left-action-btn"
               style={[styles.actionItem, styles.leftAction]}
               disabled={leftActionDisabled}
               onClick={leftAction}
@@ -206,6 +208,7 @@ function ModalComponent({
 
           {rightAction &&
             <button
+              data-qa="right-action-btn"
               style={[styles.actionItem, styles.rightAction]}
               disabled={rightActionDisabled}
               onClick={rightAction}

@@ -14,7 +14,7 @@ const styles = {
 };
 
 const Timestamp = ({ children, dateTime, style }) => (
-  <time className="Timestamp" dateTime={dateTime} style={[styles, style]}>
+  <time data-qa="timestamp-time" className="Timestamp" dateTime={dateTime} style={[styles, style]}>
     {children}
   </time>
 );

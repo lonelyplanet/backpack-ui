@@ -10,6 +10,7 @@ import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 import { textHeading7 } from "../../utils/typography";
+import createQAHook from "../../utils/createQAHook";
 
 const hoverStyles = {
   backgroundColor: rgba(colors.borderPrimary, 0.15),
@@ -75,6 +76,7 @@ const SocialLoginButton = (props) => {
         style,
       ]}
       onClick={onClick}
+      data-qa={createQAHook(iconName, "social-login", "btn")}
     >
       {iconFromString(iconName, iconParameters)}
       {children}

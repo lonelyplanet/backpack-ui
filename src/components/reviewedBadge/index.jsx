@@ -25,6 +25,7 @@ const ReviewedBadge = ({ className, style }) => (
     className={cn("ReviewedBadge", className)}
     style={[styles.container, style]}
     title="Lonely Planet reviewed"
+    data-qa="reviewed-badge-div"
   >
     <Icon.DiamondLogo
       label="Lonely Planet"

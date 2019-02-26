@@ -20,6 +20,7 @@ import propTypes from "../../utils/propTypes";
 import CategoryLabel from "../categoryLabel";
 import PriceRangeLabel from "../priceRangeLabel";
 import { Heading, TextAccent } from "../text";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   container: {
@@ -171,6 +172,7 @@ const ListItemBookmarkEntry = ({
     {showNoteAction && handleNoteAction &&
       <TextAccent>
         <button
+          data-qa={note ? createQAHook("edit note", "note", "btn") : createQAHook("add note", "note", "btn")}
           onClick={handleNoteAction}
           style={[
             styles.note.default,

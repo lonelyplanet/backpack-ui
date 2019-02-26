@@ -55,6 +55,7 @@ const styles = {
 
 const SectionHeader = ({ children, theme, style }) => (
   <h2
+    data-qa="section-header-h2"
     className="SectionHeader"
     style={[
       styles.container.default,

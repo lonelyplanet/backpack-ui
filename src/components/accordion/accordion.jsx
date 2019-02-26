@@ -6,6 +6,7 @@ import colors from "../../styles/colors";
 import dimensions from "../../styles/dimensions";
 import propTypes from "../../utils/propTypes";
 import AccordionItem from "./accordionItem";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   container: {
@@ -50,13 +51,14 @@ class Accordion extends Component {
   }
 
   render() {
-    const { id, children, style } = this.props;
+    const { id, children, style, qaHook } = this.props;
     const { expandedItemId } = this.state;
 
     return (
       <div
         className="Accordion"
         id={id}
+        data-qa={createQAHook(qaHook, "accordion", "btn")}
         style={[styles.container, style]}
         role="tablist"
       >
@@ -90,6 +92,11 @@ Accordion.propTypes = {
     return error;
   },
   style: propTypes.style,
+  qaHook: PropTypes.string,
+};
+
+Accordion.defaultProps = {
+  qaHook: null,
 };
 
 export default radium(Accordion);

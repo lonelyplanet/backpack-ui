@@ -5,6 +5,7 @@ import radium from "radium";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import NumberMarker from "../numberMarker";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   container: {
@@ -70,12 +71,13 @@ function NumberList({ list }) {
       className="NumberList"
       style={styles.container.base}
     >
-      <ul style={styles.list.base}>
+      <ul style={styles.list.base} data-qa="number-list-ul">
         {list.map(({ title, url }, i) => (
           <li
             className="NumberList-item"
             style={[styles.item.base, i !== 0 && styles.item.notFirst]}
             key={i + 1}
+            data-qa={createQAHook(`number-list-${i + 1}`, title, "li")}
           >
             <div
               className="NumberList-marker"

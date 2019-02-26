@@ -77,6 +77,7 @@ class MagicLinkForm extends Component {
               onClick={this.handleSubmit}
               rounded
               disabled={errorCount !== 0}
+              data-qa="email-me-link-btn"
             >
               Email me a link to sign in
             </Button>

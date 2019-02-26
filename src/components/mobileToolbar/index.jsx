@@ -92,6 +92,7 @@ function MobileToolbar({ children, location, locationUrl, selectedDates, style }
             </span>
           } {location && locationUrl &&
             <a
+              data-qa="location"
               style={styles.anchor.base}
               href={`//lonelyplanet.com${locationUrl}`}
             >

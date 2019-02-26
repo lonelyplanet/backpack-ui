@@ -45,6 +45,7 @@ const WatchLaterList = ({ videos, removeVideo, removeAll, style }) => (
         border={false}
         customStyles={styles.button}
         onClick={removeAll}
+        data-qa="clear-all-videos-btn"
       >
         Clear All
       </Button>

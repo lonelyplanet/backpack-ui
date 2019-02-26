@@ -6,6 +6,7 @@ import colors from "../../styles/colors";
 const CoverPhoto = ({ src, width, height, alt, style }) => (
   <div
     className="CoverPhoto"
+    data-qa="cover-photo-img"
     aria-label={alt}
     style={[
       {

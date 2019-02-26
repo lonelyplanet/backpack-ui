@@ -7,6 +7,7 @@ import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
+import createQAHook from "../../utils/createQAHook";
 
 const backgroundColors = {
   email: colors.textPrimary,
@@ -74,6 +75,7 @@ function SocialIconButton({
       onClick={onClick}
       style={[styles, style]}
       data-network={network}
+      data-qa={createQAHook(network, "social-icon", "link")}
     >
       {iconFromString(iconNames[network])}
     </a>

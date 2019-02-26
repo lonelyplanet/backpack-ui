@@ -7,6 +7,7 @@ import mq from "../../styles/mq";
 import font from "../../utils/font";
 import Heading from "../heading";
 import ListItemThumbnail from "../listItemThumbnail";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   container: {
@@ -95,6 +96,7 @@ const ListItemNews = ({
         {isSponsored ?
           "Sponsored" :
           <a
+            data-qa="sponsored-link"
             style={styles.anchor}
             href={categoryLink}
           >
@@ -110,6 +112,7 @@ const ListItemNews = ({
         override={[styles.heading.default, size && styles.heading.size[size]]}
       >
         <a
+          data-qa={createQAHook(link, "heading", "link")}
           style={[styles.anchor, { color: "inherit" }]}
           href={link}
         >
@@ -119,7 +122,7 @@ const ListItemNews = ({
     </div>
 
     <div style={[styles.imageContainer.default, size && styles.imageContainer.size[size]]}>
-      <a href={link} style={styles.imageAnchor}>
+      <a href={link} data-qa="list-item-thumbnail-link" style={styles.imageAnchor}>
         <ListItemThumbnail
           src={thumbnail}
           alt={title}

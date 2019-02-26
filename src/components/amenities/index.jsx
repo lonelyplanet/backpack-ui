@@ -5,6 +5,7 @@ import radium from "radium";
 import colors from "../../styles/colors";
 import font from "../../utils/font";
 import { span } from "../../utils/grid";
+import createQAHook from "../../utils/createQAHook";
 
 const baseFontSize = 13;
 
@@ -73,6 +74,7 @@ const getListItems = (items, capitalize) => {
   const ListItems = items.map((item, index) => (
     <li
       key={index}
+      data-qa={createQAHook(`list-item-${index}`, `list-item-${index}`, "li")}
       dangerouslySetInnerHTML={markup(item)}
       style={[styles.item.base, capitalize && { textTransform: "capitalize" }]}
     />
@@ -90,11 +92,11 @@ const getGroupedItems = (items) => {
         style={groupedItemStyle}
         key={index}
       >
-        <h5 style={styles.heading.base}>
+        <h5 data-qa={createQAHook(group.title, "group-title", "header")} style={styles.heading.base}>
           {group.title}
         </h5>
 
-        <ul style={styles.list.base}>
+        <ul data-qa="amenities-list" style={styles.list.base}>
           {getListItems(group.items, group.capitalize, "grouped")}
         </ul>
       </div>

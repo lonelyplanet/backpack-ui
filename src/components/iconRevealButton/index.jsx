@@ -12,6 +12,7 @@ import {
 } from "../../styles/typography";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   container: {
@@ -54,6 +55,7 @@ const IconRevealButton = ({
     id={id}
     className={cn("IconRevealButton", className)}
     onClick={onClick}
+    data-qa={createQAHook(label, cn("IconRevealButton", className), "btn")}
     style={[styles.container, style]}
   >
     <Style

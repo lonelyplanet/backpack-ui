@@ -67,6 +67,7 @@ function StaticMap({ token, location, size, sidebar, hideAttribution, name, url,
       {url &&
         <a
           href={url}
+          data-qa="static-map-link"
           style={[
             styles.image.base,
             sidebar && styles.image.sidebar,

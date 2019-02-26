@@ -4,6 +4,7 @@ import radium from "radium";
 import cn from "classnames";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   default: {
@@ -58,6 +59,7 @@ function Avatar({ src, alt, size, href, id, className, style }) {
   const Anchor = (
     <a
       id={id}
+      data-qa={createQAHook(id, cn("Avatar", className), "link")}
       className={cn("Avatar", className)}
       style={[
         styles.default,

@@ -25,9 +25,9 @@ function ContentSectionList({ header, listItems }) {
       }
 
       {listItems &&
-        <ul style={styles.list.base}>
+        <ul data-qa="content-section-list" style={styles.list.base}>
           {!isListItemsString && listItems.map((item, index) => (
-            <li key={index}>{item}</li>
+            <li data-qa={`${item}-list-item`} key={index}>{item}</li>
           ))}
 
           {isListItemsString &&

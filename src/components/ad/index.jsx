@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import cn from "classnames";
-
+import createQAHook from "../../utils/createQAHook";
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
 
@@ -55,6 +55,7 @@ function Ad({ id, framed, className, style, children }) {
     <div
       className={cn("Ad", className)}
       id={id}
+      data-qa={createQAHook(id, cn("Ad", className), "ad")}
       style={[
         styles.ad.default,
         framed && styles.ad.framed,

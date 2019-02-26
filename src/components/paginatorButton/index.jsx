@@ -9,6 +9,7 @@ import timing from "../../styles/timing";
 import { rgb } from "../../utils/color";
 import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
+import createQAHook from "../../utils/createQAHook";
 
 const _ = { upperFirst };
 
@@ -188,6 +189,7 @@ function PaginatorButton({
         (align && offset) && styles.direction[direction].offset[size],
         style,
       ]}
+      data-qa={createQAHook(label, "paginator", "btn")}
       title={label}
       onClick={onClick}
       aria-label={label}
