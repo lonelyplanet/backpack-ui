@@ -146,16 +146,16 @@ const MultiStepLogin = ({
 };
 
 MultiStepLogin.propTypes = {
-  currentStep: PropTypes.func,
+  currentStep: PropTypes.number,
   setStep: PropTypes.func,
   authActions: PropTypes.shape({
     facebook: PropTypes.func,
     twitter: PropTypes.func,
     google: PropTypes.func,
     passwordless: PropTypes.func,
-    password: PropTypes.func,
+    password: PropTypes.string,
   }),
-  showLogo: PropTypes.boolean,
+  showLogo: PropTypes.bool,
   doneAction: PropTypes.func,
 };
 

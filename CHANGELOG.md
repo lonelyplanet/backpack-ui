@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.92.0"></a>
+# [4.92.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.91.0...v4.92.0) (2019-02-26)
+
+
+### Features
+
+* added sponsorLabel prop to CardShelfVideoSlider component ([#742](https://github.com/lonelyplanet/backpack-ui/issues/742)) ([6f600c3](https://github.com/lonelyplanet/backpack-ui/commit/6f600c3))
+
+
+
+<a name="4.91.0"></a>
+# [4.91.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.90.20...v4.91.0) (2019-02-14)
+
+
+### Bug Fixes
+
+* change list of core contributors and capitalization rule ([#727](https://github.com/lonelyplanet/backpack-ui/issues/727)) ([2a67370](https://github.com/lonelyplanet/backpack-ui/commit/2a67370))
+* console errors, updated validate dep ([#739](https://github.com/lonelyplanet/backpack-ui/issues/739)) ([be72db9](https://github.com/lonelyplanet/backpack-ui/commit/be72db9))
+* do not allow invalid React dom elements ([#738](https://github.com/lonelyplanet/backpack-ui/issues/738)) ([d2b77dd](https://github.com/lonelyplanet/backpack-ui/commit/d2b77dd))
+* lineclamp is expecting a number but is given a bool ([#731](https://github.com/lonelyplanet/backpack-ui/issues/731)) ([68b377c](https://github.com/lonelyplanet/backpack-ui/commit/68b377c)), closes [/github.com/lonelyplanet/backpack-ui/blob/8dc8c7e430f3f68e55edc7e3f18c7602547c60fc/src/components/thumbnailListItem/index.jsx#L309](https://github.com//github.com/lonelyplanet/backpack-ui/blob/8dc8c7e430f3f68e55edc7e3f18c7602547c60fc/src/components/thumbnailListItem/index.jsx/issues/L309)
+
+
+### Features
+
+* Add classname prop to listItemBookmark component ([#645](https://github.com/lonelyplanet/backpack-ui/issues/645)) ([d24a2b1](https://github.com/lonelyplanet/backpack-ui/commit/d24a2b1))
+* add custom data attributes for automation purposes ([2bbaa50](https://github.com/lonelyplanet/backpack-ui/commit/2bbaa50))
+
+
+
+<a name="4.90.20"></a>
+## [4.90.20](https://github.com/lonelyplanet/backpack-ui/compare/v4.90.19...v4.90.20) (2019-02-05)
+
+
+### Bug Fixes
+
+* add analytics click trackers to article preview component ([#736](https://github.com/lonelyplanet/backpack-ui/issues/736)) ([dc566a1](https://github.com/lonelyplanet/backpack-ui/commit/dc566a1))
+
+
+
 <a name="4.90.19"></a>
 ## [4.90.19](https://github.com/lonelyplanet/backpack-ui/compare/v4.90.18...v4.90.19) (2019-01-30)
 

@@ -1412,6 +1412,9 @@ storiesOf("Lockups", module)
       href={text("URL", "/")}
       category={text("Category name", "Art and culture")}
       categoryHref={text("Category URL", "/")}
+      trackEventId={text("Tracking event id")}
+      trackEventName={text("Tracking event name")}
+      trackEventPosition={text("Tracking event position")}
     />
   ))
   .add("Bookmark list header", () => (
@@ -2565,13 +2568,14 @@ storiesOf("Video components", module)
     <StyleRoot>
       <div style={{ padding: "32px" }}>
         <CardShelfVideoSlider
-          heading="Food and drink"
-          href="/"
+          heading={text("Heading", "Food and drink")}
+          sponsorLabel={text("Sponsor Label", "")}
+          href={text("Href", "/")}
           theme={select("Theme", ["light", "dark"], "light")}
           spacing={select("Spacing", ["normal", "compact"], "compact")}
         >
           <CardVideo
-            heading={text("Heading", "High Sierra ")}
+            heading={text("Card Heading", "High Sierra ")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
@@ -2583,7 +2587,7 @@ storiesOf("Video components", module)
           />
 
           <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            heading={text("Card Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
@@ -2595,7 +2599,7 @@ storiesOf("Video components", module)
           />
 
           <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith High Sierra routes with Ken Walker Smith")}
+            heading={text("Card Heading", "High Sierra routes with Ken Walker Smith High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
@@ -2607,7 +2611,7 @@ storiesOf("Video components", module)
           />
 
           <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            heading={text("Card Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
@@ -2619,7 +2623,7 @@ storiesOf("Video components", module)
           />
 
           <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            heading={text("Card Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
@@ -2631,7 +2635,7 @@ storiesOf("Video components", module)
           />
 
           <CardVideo
-            heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+            heading={text("Card Heading", "High Sierra routes with Ken Walker Smith")}
             bullets={array("Bullets", ["On The Road", "E.01"])}
             runtime={number("Video runtime", 129365)}
             onClick={action("Watch this video later")}
@@ -3305,15 +3309,23 @@ storiesOf("App-specific", module)
   ))
   .add("Multi-step login", () => (
     <MultiStepWrapper totalSteps={4}>
-      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => (
-        <MultiStepLogin
-          currentStep={currentStep}
-          setStep={setCurrentStep}
-          authActions={{}}
-          showLogo
-          doneAction={() => { }}
-        />
-      )}}
+      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => {
+        return (
+          <MultiStepLogin
+            currentStep={currentStep}
+            setStep={setCurrentStep}
+            authActions={{
+              facebook: () => {},
+              twitter: () => {},
+              google: () => {},
+              passwordless: () => {},
+              password: 'some-action',
+            }}
+            showLogo
+            doneAction={() => { }}
+          />
+        )
+      }}
     </MultiStepWrapper>
   ))
   .add("No results", () => (

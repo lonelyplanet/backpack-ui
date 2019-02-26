@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { spring } from "react-motion";
-import Transition from "react-motion-ui-pack";
+import Transition from "../../../libs/react-motion-ui-pack/Transition";
 import Flyout from "../flyout";
 import motionPresets from "../../utils/motionPresets";
 

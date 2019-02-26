@@ -201,7 +201,7 @@ class VideoPlaylistWithSlider extends React.Component {
                           onClick={!followVideoUrls ? () => this.onClickVideo(v) : null}
                           imagePath={v.thumbnailImage}
                           subtitle={[duration(v.duration)]}
-                          lineClamp={false}
+                          lineClamp={0}
                         />
                       ))}
                     </ThumbnailList>

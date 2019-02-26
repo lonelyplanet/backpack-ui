@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-
+import cn from "classnames";
 import colors from "../../styles/colors";
 import mq from "../../styles/mq";
 import timing from "../../styles/timing";
@@ -120,6 +120,7 @@ function ListItemBookmark({
   large,
   hideDetail,
   style,
+  className,
 }) {
   const Element = onClick ? "button" : "div";
   let icon;
@@ -133,7 +134,7 @@ function ListItemBookmark({
 
   return (
     <Element
-      className="ListItemBookmark"
+      className={cn("ListItemBookmark", className)}
       name={name}
       data-qa={createQAHook(name, "bookmark", `${Element}`)}
       onClick={onClick}
@@ -211,6 +212,7 @@ ListItemBookmark.propTypes = {
   large: PropTypes.bool,
   hideDetail: PropTypes.bool,
   style: propTypes.style,
+  className: PropTypes.string,
 };
 
 ListItemBookmark.defaultProps = {
@@ -223,6 +225,7 @@ ListItemBookmark.defaultProps = {
   large: false,
   hideDetail: false,
   style: null,
+  className: "",
 };
 
 export default radium(ListItemBookmark);
