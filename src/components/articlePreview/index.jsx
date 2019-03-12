@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import assign from "object-assign";
 
-import { AnalyticsEvent, createPromotionClickEvent } from "@lonelyplanet/lp-analytics";
 import colors from "../../styles/colors";
 import font from "../../utils/font";
 import CategoryLabelLink from "../categoryLabelLink";
 import Heading from "../heading";
+import { createPromotionClickEvent, dataLayerPush } from "../../utils/analytics";
 
 const markup = html => ({ __html: html });
 
@@ -64,60 +64,56 @@ function ArticlePreview({
   };
 
   return (
-    <AnalyticsEvent
-      render={({ track }) => (
-        <article className="ArticlePreview" style={styles.container}>
-          <figure className="ArticlePreview-image" style={styles.imageContainer}>
-            <a
-              href={href}
-              style={styles.anchor}
-              onClick={() => {
-                track(
-                  createPromotionClickEvent({
-                    id: trackEventId,
-                    name: trackEventName,
-                    creative: "article preview image",
-                    position: trackEventPosition,
-                  }),
-                );
-              }}
-            >
-              <img src={image} alt={imageAlt} style={styles.image} />
-            </a>
-          </figure>
+    <article className="ArticlePreview" style={styles.container}>
+      <figure className="ArticlePreview-image" style={styles.imageContainer}>
+        <a
+          href={href}
+          style={styles.anchor}
+          onClick={() => {
+            dataLayerPush(
+              createPromotionClickEvent({
+                id: trackEventId,
+                name: trackEventName,
+                creative: "article preview image",
+                position: trackEventPosition,
+              }),
+            );
+          }}
+        >
+          <img src={image} alt={imageAlt} style={styles.image} />
+        </a>
+      </figure>
 
-          <div className="ArticlePreview-text" style={styles.textContainer}>
-            <CategoryLabelLink href={categoryHref}>{category}</CategoryLabelLink>
-            <a
-              href={href}
-              style={assign({}, styles.anchor, { marginTop: "12px" })}
-              onClick={() => {
-                track(
-                  createPromotionClickEvent({
-                    id: trackEventId,
-                    name: trackEventName,
-                    creative: "article preview text",
-                    position: trackEventPosition,
-                  }),
-                );
-              }}
-            >
-              <Heading
-                weight="thick"
-                override={styles.heading}
-              >
-                {title}
-              </Heading>
+      <div className="ArticlePreview-text" style={styles.textContainer}>
+        <CategoryLabelLink href={categoryHref}>{category}</CategoryLabelLink>
+        <a
+          href={href}
+          style={assign({}, styles.anchor, { marginTop: "12px" })}
+          onClick={() => {
+            dataLayerPush(
+              createPromotionClickEvent({
+                id: trackEventId,
+                name: trackEventName,
+                creative: "article preview text",
+                position: trackEventPosition,
+              }),
+            );
+          }}
+        >
+          <Heading
+            weight="thick"
+            override={styles.heading}
+          >
+            {title}
+          </Heading>
 
-              <p
-                style={styles.paragraph}
-                dangerouslySetInnerHTML={markup(paragraph)}
-              />
-            </a>
-          </div>
-        </article>
-      )}
-    />
+          <p
+            style={styles.paragraph}
+            dangerouslySetInnerHTML={markup(paragraph)}
+          />
+        </a>
+      </div>
+    </article>
   );
 }
 
