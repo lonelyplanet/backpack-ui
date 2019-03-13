@@ -1,6 +1,6 @@
 {
   "name": "backpack-ui",
-  "version": "4.92.0",
+  "version": "4.92.1",
   "description": "Lonely Planet's Components",
   "main": "dist/index.js",
   "scripts": {
@@ -38,7 +38,6 @@
     "url": "https://github.com/lonelyplanet/backpack-ui.git"
   },
   "dependencies": {
-    "@lonelyplanet/lp-analytics": "^2.2.3",
     "axios": "^0.15.3",
     "babel-plugin-transform-runtime": "^6.23.0",
     "chai": "^3.5.0",

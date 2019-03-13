@@ -825,23 +825,58 @@ storiesOf("Carousels", module)
   })
   .add("Tall Carousel", () => (
     <TallCarousel
-      slides={[{
-        type: "Backpacking",
-        link: "/link/to/interests",
-        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/94232973a6a367b54ea29dbb3a708cff-europe.jpg?h=768&sharp=10&vib=20",
-      }, {
-        type: "Nature & wildlife",
-        link: "/link/to/interest",
-        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/a795bb0b47f601ea3538da736067452c-africa.jpg?h=768&sharp=10&vib=20",
-      }, {
-        type: "Romance",
-        link: "/link/to/interest",
-        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/35147e2699667519619575ba272f60e1-europe.jpg?h=768&sharp=10&vib=20",
-      }, {
-        type: "Adventure",
-        link: "/link/to/interest",
-        image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/57c5143d7297c21181c522eee9e3b05e-europe.jpg?h=768&sharp=10&vib=20",
-      }]}
+      slides={[
+        {
+          "type": "Busan, South Korea",
+          "image": "https://lonelyplanetstatic.imgix.net/marketing/2018/BIA/places/Busan.jpg?q=40&sharp=10&vib=20&w=540&h=540&fit=crop",
+          "link": "https://www.lonelyplanet.com/south-korea/gyeongsangnam-do/busan/travel-tips-and-articles/bites-of-busan-unique-eats-in-koreas-seaside-city/40625c8c-8a11-5710-a052-1479d2755de9",
+        },
+        {
+          "type": "Uzbekistan",
+          "image": "https://lonelyplanetstatic.imgix.net/marketing/2018/BIA/places/Uzbekistan.jpg?q=40&sharp=10&vib=20&w=540&h=540&fit=crop&crop=left",
+          "link": "https://www.lonelyplanet.com/uzbekistan/travel-tips-and-articles/why-now-is-the-time-to-visit-uzbekistan/40625c8c-8a11-5710-a052-1479d2755c81"
+        },
+        {
+          "type": "Ho Chi Minh City, Vietnam",
+          "image": "https://lonelyplanetstatic.imgix.net/marketing/2018/BIA/places/HoChiMinhCity.jpg?q=40&sharp=10&vib=20&w=540&h=540&fit=crop&crop=left",
+          "link": "https://www.lonelyplanet.com/vietnam/ho-chi-minh-city/travel-tips-and-articles/a-beginners-guide-to-ho-chi-minh-citys-street-food/40625c8c-8a11-5710-a052-1479d2755bd6"
+        },
+        {
+          "type": "Western Ghats, India",
+          "image": "https://lonelyplanetstatic.imgix.net/marketing/2018/BIA/places/WesternGhats.jpg?q=40&sharp=10&vib=20&w=540&h=540&fit=crop",
+          "link": "https://www.lonelyplanet.com/india/south-india/travel-tips-and-articles/tea-trains-relics-from-the-raj-exploring-indias-western-ghats/40625c8c-8a11-5710-a052-1479d2755a47"
+        },
+        {
+          "type": "Nagasaki, Japan",
+          "image": "https://lonelyplanetstatic.imgix.net/marketing/2018/BIA/places/Nagasaki.jpg?q=40&sharp=10&vib=20&w=540&h=540&fit=crop",
+          "link": "https://www.lonelyplanet.com/japan/kyushu/nagasaki/travel-tips-and-articles/48-hours-in-nagasaki-a-diverse-citys-powerful-character/40625c8c-8a11-5710-a052-1479d2755aec"
+        },
+        {
+          "type": "Chiang Mai, Thailand",
+          "image": "https://lonelyplanetstatic.imgix.net/marketing/2018/BIA/places/ChiangMai.jpg?q=40&sharp=10&vib=20&w=540&h=540&fit=crop",
+          "link": "https://www.lonelyplanet.com/thailand/chiang-mai-province/chiang-mai/travel-tips-and-articles/creative-city-celebrating-chiang-mais-past-and-present/40625c8c-8a11-5710-a052-1479d2755a0e"
+        },
+        {
+          "type": "Lumbini, Nepal",
+          "image": "https://lonelyplanetstatic.imgix.net/marketing/2018/BIA/places/Lumbini.jpg?q=40&sharp=10&vib=20&w=540&h=540&fit=crop",
+          "link": "https://www.lonelyplanet.com/nepal/the-terai-and-mahabharat-range/central-terai/travel-tips-and-articles/walking-in-buddhas-footsteps-at-lumbini/40625c8c-8a11-5710-a052-1479d2755e14"
+        },
+        {
+          "type": "Arugam Bay, Sri Lanka",
+          "image": "https://lonelyplanetstatic.imgix.net/marketing/2018/BIA/places/ArugamBay.jpg?q=40&sharp=10&vib=20&w=540&h=540&fit=crop",
+          "link": "https://www.lonelyplanet.com/sri-lanka/the-east/travel-tips-and-articles/the-arugam-effect-taking-it-easy-on-sri-lankas-east-coast/40625c8c-8a11-5710-a052-1479d2755b2d"
+        },
+        {
+          "type": "Sìchuān, China",
+          "image": "https://lonelyplanetstatic.imgix.net/marketing/2018/BIA/places/Sichuan.jpg?q=40&sharp=10&vib=20&w=540&h=540&fit=crop",
+          "link": "https://www.lonelyplanet.com/china/sichuan/travel-tips-and-articles/sizzling-sichuan-exploring-chinas-quintessential-province/40625c8c-8a11-5710-a052-1479d2755e8b"
+        },
+        {
+          "type": "Komodo National Park, Indonesia",
+          "image": "https://lonelyplanetstatic.imgix.net/marketing/2018/BIA/places/Komodo.jpg?q=40&sharp=10&vib=20&w=540&h=540&fit=crop",
+          "link": "https://www.lonelyplanet.com/indonesia/komodo-rinca-islands/travel-tips-and-articles/enter-the-dragon-exploring-komodo-national-parks-wild-attractions/40625c8c-8a11-5710-a052-1479d2755890"
+        },
+      ]}
     />
   ));
 
