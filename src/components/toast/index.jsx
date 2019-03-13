@@ -163,6 +163,7 @@ const Toast = ({
   url,
   visible,
   className,
+  qaHook,
 }) => {
   const Element = url ? "a" : "button";
 
@@ -239,7 +240,7 @@ const Toast = ({
           onClick={onClose}
           style={[styles.button, url ? styles.onClickButton : styles.onCloseButton]}
           title="Close"
-          data-qa={createQAHook("toast", "toast", `${Element === "a" ? "link" : Element}`)}
+          data-qa={qaHook ? createQAHook("toast", "toast", `${Element === "a" ? "link" : Element}`) : null}
         >
           {url ? buttonLabel : <Icon.Close title="Close" style={styles.onCloseIcon} />}
         </Element>
@@ -261,6 +262,7 @@ Toast.propTypes = {
   url: PropTypes.string,
   visible: PropTypes.bool,
   className: PropTypes.string,
+  qaHook: PropTypes.bool,
 };
 
 Toast.defaultProps = {
@@ -274,6 +276,7 @@ Toast.defaultProps = {
   url: null,
   visible: false,
   className: null,
+  qaHook: false,
 };
 
 export default radium(Toast);

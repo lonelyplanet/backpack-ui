@@ -257,6 +257,7 @@ storiesOf("Ads", module)
           id={text("ID", "backpackAdIdentifier")}
           framed={boolean("Framed", false)}
           className={text("Class Name", "")}
+          qaHook={boolean("QA Hook", false)}
         />
       </Center>
     </StyleRoot>
@@ -268,6 +269,7 @@ storiesOf("Ads", module)
           id={text("ID", "backpackAdIdentifier")}
           framed={boolean("Framed", true)}
           className={text("Class Name", "")}
+          qaHook={boolean("QA Hook", false)}
         >
           <div>Add Children to the Ad to use the Ad Component as a Wrapper.</div>
         </Ad>
@@ -299,6 +301,7 @@ storiesOf("Authors", module)
     <BookmarkListAuthor
       href={text("URL", "/")}
       imageSrc={text("Image source", data.avatar.default)}
+      qaHook={boolean("QA Hook", false)}
     >
       {text("Name", "Alex Butler")}
     </BookmarkListAuthor>
@@ -321,6 +324,7 @@ storiesOf("Avatars", module)
       alt={text("Alternate text", "Rizzo")}
       size={select("Size", [24, 40, 48, 80, 104], 80)}
       href={text("URL", "")}
+      qaHook={boolean("QA Hook (if link)", false)}
     />
   ))
   .add("Avatar marker (similar to bookmark list author)", () => (
@@ -345,7 +349,7 @@ storiesOf("Buttons", module)
         full={boolean("Full width", false)}
         rounded={boolean("Rounded", false)}
         onClick={action("clicked")}
-        qaHook={text("qaHook", "QA hook")}
+        qaHook={boolean("QA Hook", false)}
       >
         {text("Text", "Hello Button")}
       </Button>
@@ -361,7 +365,7 @@ storiesOf("Buttons", module)
         full={boolean("Full width", false)}
         rounded={boolean("Rounded", false)}
         onClick={action("clicked")}
-        qaHook={text("qaHook", "QA hook")}
+        qaHook={boolean("QA Hook", false)}
       >
         {text("Text", "Hello Button")}
       </Button>
@@ -376,6 +380,7 @@ storiesOf("Buttons", module)
         className={text("Classname", null)}
         onClick={action("Bookmark clicked")}
         marked={boolean("Marked", false)}
+        qaHook={boolean("QA Hook", false)}
       />
     </Center>
   ))
@@ -386,6 +391,7 @@ storiesOf("Buttons", module)
         className={text("Classname", null)}
         onClick={action("Bookmark clicked")}
         marked={boolean("Marked", false)}
+        qaHook={boolean("QA Hook", false)}
       />
     </Center>
   ))
@@ -411,6 +417,7 @@ storiesOf("Buttons", module)
               paddingTop: "0.7em",
               textTransform: "capitalize",
             }}
+            qaHook={boolean("QA Hook", false)}
           >
             {true ?
               <Icon.BookmarkActive
@@ -439,7 +446,7 @@ storiesOf("Buttons", module)
 
   // Expand button
   .add("Expand button", () => (
-    <ExpandButton label={text("Label", "Open")} />
+    <ExpandButton qaHook={boolean("QA Hook", false)} label={text("Label", "Open")} />
   ))
 
   //  Icon button
@@ -475,6 +482,7 @@ storiesOf("Buttons", module)
         borderColor={text("Border color", "currentColor")}
         shadow={boolean("Shadow", false)}
         transitionDuration={text("Transition duration", "400ms")}
+        qaHook={boolean("QA Hook", false)}
       />
     </Center>
   ))
@@ -489,6 +497,7 @@ storiesOf("Buttons", module)
           label={text("Label", "Label")}
           className={text("Classname", null)}
           onClick={action("Bookmark clicked")}
+          qaHook={boolean("QA Hook", false)}
         />
       </Center>
     </StyleRoot>
@@ -509,6 +518,7 @@ storiesOf("Buttons", module)
           "Ellipsis",
           "Map",
         ], "Ellipsis")}
+        qaHook={boolean("QA Hook", false)}
       />
     </Center>
   ))
@@ -522,6 +532,7 @@ storiesOf("Buttons", module)
       shadow={select("Shadow", ["loose", "tight"], "loose")}
       color={select("Color", ["", "blue"], "")}
       onClick={action("PaginatorButton clicked")}
+      qaHook={boolean("QA Hook", false)}
     />
   ))
 
@@ -531,6 +542,7 @@ storiesOf("Buttons", module)
       href="mailto:?subject=&body="
       onClick={action("Email clicked")}
       network="email"
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Social icon button - Facebook", () => (
@@ -538,6 +550,7 @@ storiesOf("Buttons", module)
       href="https://www.facebook.com/sharer/sharer.php?u="
       onClick={action("Facebook clicked")}
       network="facebook"
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Social icon button - Facebook Messenger", () => (
@@ -545,6 +558,7 @@ storiesOf("Buttons", module)
       href="fb-messenger://share/?link="
       onClick={action("Facebook Messenger clicked")}
       network="facebookMessenger"
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Social icon button - Reddit", () => (
@@ -552,6 +566,7 @@ storiesOf("Buttons", module)
       href="http://www.reddit.com/submit/?url="
       onClick={action("Reddit clicked")}
       network="reddit"
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Social icon button - Twitter", () => (
@@ -559,12 +574,14 @@ storiesOf("Buttons", module)
       href="https://twitter.com/intent/tweet?text=&url=&via="
       onClick={action("Twitter clicked")}
       network="twitter"
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Social icon button - WeChat", () => (
     <SocialIconButton
       onClick={action("WeChat clicked")}
       network="weChat"
+      qaHook={boolean("QA Hook", false)}
     />
   ))
 
@@ -577,6 +594,7 @@ storiesOf("Buttons", module)
         "TwitterColor",
       ], "FacebookBlockColor")}
       onClick={action("Handle Log In")}
+      qaHook={boolean("QA Hook", false)}
     >
       {text("Text", "Continue with Facebook")}
     </SocialLoginButton>
@@ -587,6 +605,7 @@ storiesOf("Buttons", module)
     <Tag
       href={text("URL", "#")}
       selected={boolean("Selected", false)}
+      qaHook={boolean("QA Hook", false)}
     >
       {text("Text", "The Americas")}
     </Tag>
@@ -595,12 +614,13 @@ storiesOf("Buttons", module)
     <Tag
       onClick={action("Tag clicked")}
       selected={boolean("Selected", false)}
+      qaHook={boolean("QA Hook", false)}
     >
       {text("Text", "The Americas")}
     </Tag>
   ))
   .add("Tag - no click", () => (
-    <Tag selected={boolean("Selected", false)}>
+    <Tag qaHook={boolean("QA Hook", false)} selected={boolean("Selected", false)}>
       {text("Text", "The Americas")}
     </Tag>
   ));
@@ -610,6 +630,7 @@ storiesOf("Callouts", module)
   .add("Callout - book", () => (
     <StyleRoot>
       <Callout
+        qaHook={boolean("QA Hook", false)}
         type="book"
         align="center"
         heading="Lonely Planet’s Best in Travel 2016"
@@ -628,6 +649,7 @@ storiesOf("Callouts", module)
   .add("Callout - activity", () => (
     <StyleRoot>
       <Callout
+        qaHook={boolean("QA Hook", false)}
         type="activity"
         heading="Cycle Linz to Vienna"
         slug="/"
@@ -663,6 +685,8 @@ storiesOf("Callouts", module)
       }, "SurvivalMoney")}
       title={text("Title", "Money and costs")}
       copy={text("Copy", "Budgets, currency rates and on-the-ground costs")}
+      url={text("URL", "https://www.lonelyplanet.com")}
+      qaHook={boolean("QA Hook", false)}
     />
   ));
 
@@ -859,6 +883,7 @@ storiesOf("Controls", module)
         soldOut={boolean("soldOut", false)}
         onDatesChange={action(event)}
         onFocusChange={action(event)}
+        qaHook={boolean("QA Hook", false)}
       />
       <DateRangeDeveloperNote />
     </React.Fragment>
@@ -877,6 +902,7 @@ storiesOf("Controls", module)
         soldOut={boolean("soldOut", false)}
         onDatesChange={action(event)}
         onFocusChange={action(event)}
+        qaHook={boolean("QA Hook", false)}
       />
       <DateRangeDeveloperNote />
     </React.Fragment>
@@ -895,6 +921,7 @@ storiesOf("Controls", module)
         soldOut={boolean("soldOut", false)}
         onDatesChange={action(event)}
         onFocusChange={action(event)}
+        qaHook={boolean("QA Hook", false)}
       />
       <DateRangeDeveloperNote />
     </React.Fragment>
@@ -904,11 +931,12 @@ storiesOf("Controls", module)
       options={array("Options", ["AUD", "EUR", "GBP", "USD"])}
       defaultValue={text("Default value", "USD")}
       onChange={action(event)}
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Input", () => (
     <Center backgroundColor="white">
-      <Input />
+      <Input qaHook={boolean("QA Hook", false)} />
     </Center>
   ))
   .add("Range", () => (
@@ -959,6 +987,7 @@ storiesOf("Controls", module)
         theme={select("Theme", ["base", "light", "dark", "inputGroup"], "base")}
         noBorder={boolean("No border?", false)}
         style={{}}
+        qaHook={boolean("QA Hook", false)}
         onChange={action(event)}
       />
     </Center>
@@ -981,6 +1010,7 @@ storiesOf("Controls", module)
         noBorder={boolean("No border?", false)}
         style={{}}
         onChange={action(event)}
+        qaHook={boolean("QA Hook", false)}
       />
     </Center>
   ))
@@ -1056,19 +1086,19 @@ storiesOf("Images", module)
 storiesOf("Links", module)
   .addDecorator(withKnobs)
   .add("Callout link - default", () => (
-    <CalloutLink href="/">
+    <CalloutLink href="/" qaHook={boolean("QA Hook", false)}>
       {text("Text", "More recommendations")}
     </CalloutLink>
   ))
   .add("Callout link - overlay", () => (
     <div style={{ backgroundColor: "#000", padding: "20px" }}>
-      <CalloutLink href="/" overlay>
+      <CalloutLink href="/" overlay qaHook={boolean("QA Hook", false)}>
         {text("Text", "More recommendations")}
       </CalloutLink>
     </div>
   ))
   .add("Edit link", () => (
-    <EditLink url={text("URL", "/")} />
+    <EditLink url={text("URL", "/")} qaHook={boolean("QA Hook", false)} />
   ))
   .add("More link - anchor", () => (
     <MoreLink
@@ -1077,6 +1107,7 @@ storiesOf("Links", module)
       caps={boolean("Capitalized", false)}
       hideIcon={boolean("Hide icon", false)}
       arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
+      qaHook={boolean("QA Hook", false)}
     >
       {text("Text", "View all tours")}
     </MoreLink>
@@ -1088,6 +1119,7 @@ storiesOf("Links", module)
       caps={boolean("Capitalized", false)}
       hideIcon={boolean("Hide icon", false)}
       arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
+      qaHook={boolean("QA Hook", false)}
     >
       {text("Text", "View all tours")}
     </MoreLink>
@@ -1099,6 +1131,7 @@ storiesOf("Links", module)
       caps={boolean("Capitalized", false)}
       hideIcon={boolean("Hide icon", false)}
       arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
+      qaHook={boolean("QA Hook", false)}
     >
       {text("Text", "View all tours")}
     </MoreLink>
@@ -1115,6 +1148,7 @@ storiesOf("List items", module)
         visibility={select("Visibility", ["Private", "Public"], "Private")}
         large={boolean("Large", false)}
         hideDetail={boolean("Hide details", false)}
+        qaHook={boolean("QA Hook", false)}
       />
     </StyleRoot>
   ))
@@ -1129,6 +1163,7 @@ storiesOf("List items", module)
         visibility={select("Visibility", ["Private", "Public"], "Private")}
         large={boolean("Large", false)}
         hideDetail={boolean("Hide details", false)}
+        qaHook={boolean("QA Hook", false)}
       />
     </StyleRoot>
   ))
@@ -1140,6 +1175,7 @@ storiesOf("List items", module)
         large={boolean("Large", false)}
         hideDetail={boolean("Hide details", true)}
         addItem={boolean("Add item UI", true)}
+        qaHook={boolean("QA Hook", false)}
       />
     </StyleRoot>
   ))
@@ -1153,6 +1189,7 @@ storiesOf("List items", module)
         topChoice={boolean("Top choice", false)}
         note={text("Note", "This is where a nice little note goes.")}
         large={boolean("Large", false)}
+        qaHook={boolean("QA Hook", false)}
       />
     </StyleRoot>
   ))
@@ -1166,6 +1203,7 @@ storiesOf("List items", module)
         thumbnail={text("Image URL", "http://placehold.it/110x110")}
         size={select("Size", ["small", "medium"], "medium")}
         isSponsored={boolean("Sponsored", false)}
+        qaHook={boolean("QA Hook", false)}
       />
     </StyleRoot>
   ))
@@ -1175,6 +1213,7 @@ storiesOf("List items", module)
       title="Zimbabwe"
       subtitle="Southern Africa"
       markerNumber={1}
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Sights list item - with Image", () => (
@@ -1184,6 +1223,7 @@ storiesOf("List items", module)
       subtitle="Southern Africa"
       imgPath="https://s3.amazonaws.com/static-asset/backpack-ui/south-pole.80x60.jpg"
       markerNumber={1}
+      qaHook={boolean("QA Hook", false)}
     />
   ));
 
@@ -1244,7 +1284,7 @@ storiesOf("Lists", module)
     </StyleRoot>
   ))
   .add("Number list", () => (
-    <NumberList list={data.numberList} />
+    <NumberList qaHook={boolean("QA Hook", false)} list={data.numberList} />
   ));
 
 storiesOf("Labels", module)
@@ -1257,7 +1297,7 @@ storiesOf("Labels", module)
     </CategoryLabel>
   ))
   .add("Category label - link", () => (
-    <CategoryLabelLink href={text("URL", "/")}>
+    <CategoryLabelLink href={text("URL", "/")} qaHook={boolean("QA Hook", false)}>
       {text("Text", "Art and culture")}
     </CategoryLabelLink>
   ))
@@ -1316,6 +1356,7 @@ storiesOf("Flights Widget", module)
         currency: "USD",
       }}
       onClick={action("Flight search widget")}
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("No Flight Results", () => (
@@ -1332,8 +1373,12 @@ storiesOf("Lockups", module)
   .addDecorator(withKnobs)
   .add("Accordion", () => (
     <StyleRoot>
-      <Accordion id="storyAccordion">
+      <Accordion 
+        id="storyAccordion"
+        qaHook={text("Accordion QA Hook", "")}
+      >
         <AccordionItem
+          qaHook={boolean("AccordionItem QA Hook", false)}
           heading="Things to do in Asia"
           content={
             <TileGrid>
@@ -1415,6 +1460,7 @@ storiesOf("Lockups", module)
       trackEventId={text("Tracking event id")}
       trackEventName={text("Tracking event name")}
       trackEventPosition={text("Tracking event position")}
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Bookmark list header", () => (
@@ -1432,6 +1478,7 @@ storiesOf("Lockups", module)
   .add("Breadcrumbs", () => (
     <Breadcrumbs
       links={data.breadcrumbs.links}
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Content header", () => (
@@ -1443,6 +1490,7 @@ storiesOf("Lockups", module)
   .add("Featured article - default", () => (
     <StyleRoot>
       <FeaturedArticle
+        qaHook={boolean("QA Hook", false)}
         article={{
           sectionHeading: "Tips and articles",
           category: "Featured story",
@@ -1459,6 +1507,7 @@ storiesOf("Lockups", module)
   .add("Featured article - constrained", () => (
     <StyleRoot>
       <FeaturedArticle
+        qaHook={boolean("QA Hook", false)}
         constrained
         article={{
           category: "Featured story",
@@ -1479,24 +1528,28 @@ storiesOf("Lockups", module)
           iconName="SurvivalVisa"
           title="Visas"
           copy="Dull but essential passport paperwork and entry info"
+          qaHook={boolean("QA Hook", false)}
         />
 
         <IconCallout
           iconName="SurvivalUmbrella"
           title="Best time to go"
           copy="Hit the ground at the right time"
+          qaHook={boolean("QA Hook", false)}
         />
 
         <IconCallout
           iconName="SurvivalMoney"
           title="Money and costs"
           copy="Budgets, currency rates and on-the-ground costs"
+          qaHook={boolean("QA Hook", false)}
         />
 
         <IconCallout
           iconName="SurvivalHealth"
           title="Health"
           copy="Keep safe and well on the open road"
+          qaHook={boolean("QA Hook", false)}
         />
       </IconCalloutGroup>
     </StyleRoot>
@@ -1528,6 +1581,7 @@ storiesOf("Lockups", module)
       neighborhood={text("Neighborhood", "Hofburg")}
       place={text("Place", "Vienna")}
       topChoice={boolean("Top choice", false)}
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Profile header - default", () => (
@@ -1576,6 +1630,7 @@ storiesOf("Lockups", module)
   .add("Promoted guidebook", () => (
     <StyleRoot>
       <PromotedGuidebook
+        qaHook={boolean("QA Hook", false)}
         title={text("Title", "Egypt travel guide")}
         url={text("URL", "https://shop.lonelyplanet.com/egypt/egypt-travel-guide-12/")}
         imageUrl={text("Image URL", "https://media.lonelyplanet.com/shop/images/9919-Egypt_travel_guide_-_12th_edition_Large.jpg")}
@@ -1763,12 +1818,12 @@ storiesOf("Lockups", module)
   ))
   .add("Tag list", () => (
     <TagList limit={number("Limit", 3)}>
-      <Tag href="#" selected>All</Tag>
-      <Tag href="#">The Americas</Tag>
-      <Tag href="#">World</Tag>
-      <Tag href="#">Asia & the Pacific</Tag>
-      <Tag href="#">Europe</Tag>
-      <Tag href="#">Middle East & Africa</Tag>
+      <Tag qaHook={boolean("QA Hook", false)} href="#" selected>All</Tag>
+      <Tag qaHook={boolean("QA Hook", false)} href="#">The Americas</Tag>
+      <Tag qaHook={boolean("QA Hook", false)} href="#">World</Tag>
+      <Tag qaHook={boolean("QA Hook", false)} href="#">Asia & the Pacific</Tag>
+      <Tag qaHook={boolean("QA Hook", false)} href="#">Europe</Tag>
+      <Tag qaHook={boolean("QA Hook", false)} href="#">Middle East & Africa</Tag>
     </TagList>
   ));
 
@@ -1861,6 +1916,7 @@ storiesOf("Messaging", module)
         visible={boolean("Visible", true)}
         affixed={boolean("Affixed", false)}
         onClose={action("Function to dismiss toast")}
+        qaHook={boolean("QA Hook", false)}
       >
         {text("Message", "Toast message displayed here. It can span multiple lines.")}
       </Toast>
@@ -1884,6 +1940,7 @@ storiesOf("Messaging", module)
         affixed={boolean("Affixed", false)}
         onClick={action("Some action")}
         buttonLabel="Action"
+        qaHook={boolean("QA Hook", false)}
       >
         {text("Message", "Toast message displayed here. It can span multiple lines.")}
       </Toast>
@@ -1922,14 +1979,14 @@ storiesOf("Navigation", module)
   .addDecorator(withKnobs)
   .add("Navigation", () => (
     <Navigation height={number("Height", 80)} sticky={boolean("Sticky", false)}>
-      <NavigationTab qaHook={text("qaHook", "Experiences")} active={boolean("Active", true)} onClick={action("Experiences tab clicked")}>
+      <NavigationTab qaHook={boolean("QA Hook", false)} active={boolean("Active", true)} onClick={action("Experiences tab clicked")}>
         {text("Text", "Experiences")}
       </NavigationTab>
-      <NavigationTab qaHook={text("qaHook", "Map")} onClick={action("Map tab clicked")}>Map</NavigationTab>
-      <NavigationTab qaHook={text("qaHook", "Articles")} onClick={action("Articles tab clicked")}>Articles</NavigationTab>
-      <NavigationTab qaHook={text("qaHook", "Interests")} onClick={action("Interests tab clicked")}>Interests</NavigationTab>
-      <NavigationTab qaHook={text("qaHook", "Books")} onClick={action("Books tab clicked")}>Books</NavigationTab>
-      <NavigationTab qaHook={text("qaHook", "Adventures")} onClick={action("Adventures tab clicked")}>Adventures</NavigationTab>
+      <NavigationTab qaHook={boolean("QA Hook", false)} onClick={action("Map tab clicked")}>Map</NavigationTab>
+      <NavigationTab qaHook={boolean("QA Hook", false)} onClick={action("Articles tab clicked")}>Articles</NavigationTab>
+      <NavigationTab qaHook={boolean("QA Hook", false)} onClick={action("Interests tab clicked")}>Interests</NavigationTab>
+      <NavigationTab qaHook={boolean("QA Hook", false)} onClick={action("Books tab clicked")}>Books</NavigationTab>
+      <NavigationTab qaHook={boolean("QA Hook", false)} onClick={action("Adventures tab clicked")}>Adventures</NavigationTab>
     </Navigation>
   ))
   .add("Sectional nav", () => (
@@ -1944,6 +2001,7 @@ storiesOf("Navigation", module)
             "Tours",
           ]}
           linkToOffset={-100}
+          qaHook={boolean("QA Hook", false)}
         />
         <div>
           <ContentHeader
@@ -2005,6 +2063,7 @@ storiesOf("Navigation", module)
         ]}
         active="Latest"
         onClick={action("Tab clicked")}
+        qaHook={boolean("QA Hook", false)}
       />
     </StyleRoot>
   ))
@@ -2060,6 +2119,7 @@ storiesOf("Popovers", module)
               paddingTop: "0.7em",
               textTransform: "capitalize",
             }}
+            qaHook={boolean("QA Hook", false)}
           >
             <Icon.Share
               style={{
@@ -2103,6 +2163,7 @@ storiesOf("Popovers", module)
                   qaHook="qa hook"
                   onClick={action("✌🏼")}
                   rounded
+                  qaHook={boolean("QA Hook", false)}
                 >
                   Yes, delete my account
                 </Button>,
@@ -2113,6 +2174,7 @@ storiesOf("Popovers", module)
                   color="gray"
                   rounded
                   border
+                  qaHook={boolean("QA Hook", false)}
                 >
                   Cancel
                 </Button>,
@@ -2144,6 +2206,7 @@ storiesOf("Popovers", module)
           <div>
             <button onClick={toggle}>Toggle Modal</button>
             <Modal
+              qaHook={boolean("QA Hook", false)}
               isOpen={isOpen}
               rightAction={action("clicked the left")}
               rightActionContent={<p>Test</p>}
@@ -2171,6 +2234,7 @@ storiesOf("Popovers", module)
       <ModalWrapper>
         {(isOpen, toggle) => (
           <ModalLogIn
+            qaHook={boolean("QA Hook", false)}
             isOpen={isOpen}
             onClose={toggle}
           />
@@ -3165,26 +3229,26 @@ storiesOf("Widgets", module)
         <MultiStep currentStep={currentStep}>
           <div>
             <h1>Step {currentStep}</h1>
-            <Button qaHook="qa hook" size="tiny" onClick={goToNextStep}>Next step</Button>
-            <Button qaHook="qa hook" size="tiny" onClick={() => { setCurrentStep(4); }}>Jump to step 4</Button>
+            <Button qaHook={boolean("QA Hook", false)} size="tiny" onClick={goToNextStep}>Next step</Button>
+            <Button qaHook={boolean("QA Hook", false)}size="tiny" onClick={() => { setCurrentStep(4); }}>Jump to step 4</Button>
           </div>
 
           <div>
             <h1>Step {currentStep}</h1>
-            <Button qaHook="qa hook" size="tiny" onClick={goToPreviousStep}>Previous step</Button>
-            <Button qaHook="qa hook" size="tiny" onClick={goToNextStep}>Next step</Button>
+            <Button qaHook={boolean("QA Hook", false)} size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button qaHook={boolean("QA Hook", false)} size="tiny" onClick={goToNextStep}>Next step</Button>
           </div>
 
           <div>
             <h1>Step {currentStep}</h1>
-            <Button qaHook="qa hook" size="tiny" onClick={goToPreviousStep}>Previous step</Button>
-            <Button qaHook="qa hook" size="tiny" onClick={goToNextStep}>Next step</Button>
+            <Button qaHook={boolean("QA Hook", false)} size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button qaHook={boolean("QA Hook", false)} size="tiny" onClick={goToNextStep}>Next step</Button>
           </div>
 
           <div>
             <h1>Step {currentStep}</h1>
-            <Button qaHook="qa hook" size="tiny" onClick={goToPreviousStep}>Previous step</Button>
-            <Button qaHook="qa hook" size="tiny" onClick={() => { setCurrentStep(1); }}>Jump to step 1</Button>
+            <Button qaHook={boolean("QA Hook", false)} size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button qaHook={boolean("QA Hook", false)} size="tiny" onClick={() => { setCurrentStep(1); }}>Jump to step 1</Button>
           </div>
         </MultiStep>
       )}
@@ -3211,7 +3275,8 @@ storiesOf("Widgets", module)
           "http://localhost:8080/newsletter" :
           "https://www.lonelyplanet.com/newsletter"
         }
-        captchaSiteKey={text("Captcha API Key", "")}
+        captchaSiteKey={text("Captcha API Key", "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI")} // test recaptcha: https://developers.google.com/recaptcha/docs/faq
+        qaHook={boolean("QA Hook", false)}
       />
     </StyleRoot>
   ))
@@ -3262,6 +3327,7 @@ storiesOf("App-specific", module)
       columns={number("Columns", 2)}
       listType="single"
       items={data.amenities.singleList}
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Amenities - 3-column, grouped list", () => (
@@ -3269,6 +3335,7 @@ storiesOf("App-specific", module)
       columns={number("Columns", 3)}
       listType="grouped"
       items={data.amenities.groupedList}
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Article pagination item", () => (
@@ -3284,6 +3351,7 @@ storiesOf("App-specific", module)
           next: "Next",
         }, "previous")}
         style={{ maxWidth: "50%" }}
+        qaHook={boolean("QA Hook", false)}
       />
     </StyleRoot>
   ))
@@ -3332,9 +3400,9 @@ storiesOf("App-specific", module)
     <NoResults onReset={action(event)} />
   ))
   .add("Price range", () => (
-    <PriceRangeLabel
-      value={select("Range", ["$", "$$", "$$$"], "$$")}
-    />
+    <StyleRoot>
+      <PriceRangeLabel value={select("Range", ["$", "$$", "$$$"], "$$")} />
+    </StyleRoot>
   ))
   .add("Rating - icon", () => (
     <Rating
@@ -3481,19 +3549,19 @@ storiesOf("App-specific", module)
             description={text("Description", "Manage your tags")}
           >
             <TagList>
-              <Tag href="#" selected>All</Tag>
-              <Tag href="#">The Americas</Tag>
-              <Tag href="#">World</Tag>
-              <Tag href="#">Asia & the Pacific</Tag>
-              <Tag href="#">Europe</Tag>
-              <Tag href="#">Middle East & Africa</Tag>
-              <Tag href="#">Editor’s pick</Tag>
-              <Tag href="#">The Americas</Tag>
-              <Tag href="#">World</Tag>
-              <Tag href="#">Asia & the Pacific</Tag>
-              <Tag href="#">Europe</Tag>
-              <Tag href="#">Middle East & Africa</Tag>
-              <Tag href="#">Editor’s pick</Tag>
+              <Tag qaHook={boolean("QA Hook", false)} href="#" selected>All</Tag>
+              <Tag qaHook={boolean("QA Hook", false)} href="#">The Americas</Tag>
+              <Tag qaHook={boolean("QA Hook", false)} href="#">World</Tag>
+              <Tag qaHook={boolean("QA Hook", false)} href="#">Asia & the Pacific</Tag>
+              <Tag qaHook={boolean("QA Hook", false)} href="#">Europe</Tag>
+              <Tag qaHook={boolean("QA Hook", false)} href="#">Middle East & Africa</Tag>
+              <Tag qaHook={boolean("QA Hook", false)} href="#">Editor’s pick</Tag>
+              <Tag qaHook={boolean("QA Hook", false)} href="#">The Americas</Tag>
+              <Tag qaHook={boolean("QA Hook", false)} href="#">World</Tag>
+              <Tag qaHook={boolean("QA Hook", false)} href="#">Asia & the Pacific</Tag>
+              <Tag qaHook={boolean("QA Hook", false)} href="#">Europe</Tag>
+              <Tag qaHook={boolean("QA Hook", false)} href="#">Middle East & Africa</Tag>
+              <Tag qaHook={boolean("QA Hook", false)} href="#">Editor’s pick</Tag>
             </TagList>
           </SettingBlockAccordion>
         )}
@@ -3540,13 +3608,13 @@ storiesOf("App-specific", module)
                 description={text("Accordion Description", "")}
               >
                 <TagList>
-                  <Tag href="#" selected>All</Tag>
-                  <Tag href="#">The Americas</Tag>
-                  <Tag href="#">World</Tag>
-                  <Tag href="#">Asia & the Pacific</Tag>
-                  <Tag href="#">Europe</Tag>
-                  <Tag href="#">Middle East & Africa</Tag>
-                  <Tag href="#">Editor’s pick</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#" selected>All</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#">The Americas</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#">World</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#">Asia & the Pacific</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#">Europe</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#">Middle East & Africa</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#">Editor’s pick</Tag>
                 </TagList>
               </SettingBlockAccordion>
             )}
@@ -3599,13 +3667,13 @@ storiesOf("App-specific", module)
                 description={text("Accordion Description", "")}
               >
                 <TagList>
-                  <Tag href="#" selected>All</Tag>
-                  <Tag href="#">The Americas</Tag>
-                  <Tag href="#">World</Tag>
-                  <Tag href="#">Asia & the Pacific</Tag>
-                  <Tag href="#">Europe</Tag>
-                  <Tag href="#">Middle East & Africa</Tag>
-                  <Tag href="#">Editor’s pick</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#" selected>All</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#">The Americas</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#">World</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#">Asia & the Pacific</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#">Europe</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#">Middle East & Africa</Tag>
+                  <Tag qaHook={boolean("QA Hook", false)} href="#">Editor’s pick</Tag>
                 </TagList>
               </SettingBlockAccordion>
             )}
@@ -3631,6 +3699,7 @@ storiesOf("App-specific", module)
   .add("Tour itinerary", () => (
     <TourItinerary
       itinerary={data.tour.itinerary}
+      qaHook={boolean("QA Hook", false)}
       link="/"
     />
   ));
@@ -3642,6 +3711,7 @@ storiesOf("Deprecated", module)
       placeholder={text("Placeholder", "johndoe@gmail.com")}
       error={boolean("Has Error", false)}
       theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Form textarea - deprecated", () => (
@@ -3650,6 +3720,7 @@ storiesOf("Deprecated", module)
       error={boolean("Has Error", false)}
       theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
       autogrow={boolean("Autogrow", false)}
+      qaHook={boolean("QA Hook", false)}
     />
   ))
   .add("Grid - deprecated", () => (
@@ -3741,6 +3812,7 @@ storiesOf("Deprecated", module)
       importance={select("Importance", ["low", "normal", "high", "alert"], "normal")}
       tracking={select("Tracking", ["loose", "normal", "tight"], "normal")}
       caps={boolean("Capitalized", false)}
+      qaHook={boolean("QA Hook", false)}
     >
       {text("Text", "Heading text")}
     </Heading>

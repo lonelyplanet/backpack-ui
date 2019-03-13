@@ -55,6 +55,7 @@ const ListButton = ({
   id,
   className,
   style,
+  qaHook,
 }) => (
   <button
     id={id}
@@ -64,7 +65,7 @@ const ListButton = ({
     title={label}
     aria-label={label}
     aria-owns={owns}
-    data-qa={createQAHook(label, cn("ListButton", className), "btn")}
+    data-qa={qaHook ? createQAHook(label, cn("ListButton", className), "btn") : null}
   >
     {iconFromString(icon, iconProps)}
   </button>
@@ -85,6 +86,7 @@ ListButton.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 ListButton.defaultProps = {
@@ -93,6 +95,7 @@ ListButton.defaultProps = {
   id: null,
   className: null,
   style: null,
+  qaHook: false,
 };
 
 export default radium(ListButton);

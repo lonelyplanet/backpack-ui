@@ -60,7 +60,7 @@ const socialNavigate = (path) => {
   window.location = `https://auth.lonelyplanet.com/users/auth/${path}`;
 };
 
-const ModalContentSocialAuth = ({ message, style }) => (
+const ModalContentSocialAuth = ({ message, style, qaHook }) => (
   <div style={[styles.container, style]} className="ModalContentSocialAuth">
     <Logo style={styles.logo} />
 
@@ -73,6 +73,7 @@ const ModalContentSocialAuth = ({ message, style }) => (
         style={styles.button}
         iconName="FacebookBlockColor"
         onClick={() => socialNavigate("facebook")}
+        qaHook={qaHook}
       >
         Continue with Facebook
       </SocialLoginButton>
@@ -81,6 +82,7 @@ const ModalContentSocialAuth = ({ message, style }) => (
         style={styles.button}
         iconName="TwitterColor"
         onClick={() => socialNavigate("twitter")}
+        qaHook={qaHook}
       >
         Continue with Twitter
       </SocialLoginButton>
@@ -89,6 +91,7 @@ const ModalContentSocialAuth = ({ message, style }) => (
         style={styles.button}
         iconName="GoogleColor"
         onClick={() => socialNavigate("google_oauth2")}
+        qaHook={qaHook}
       >
         Continue with Google
       </SocialLoginButton>
@@ -97,6 +100,7 @@ const ModalContentSocialAuth = ({ message, style }) => (
         caps
         size="small"
         style={styles.moreLink}
+        qaHook={qaHook ? "sign-in-link" : null}
         href="https://auth.lonelyplanet.com/users/sign_in"
       >
         Sign in or sign up with email
@@ -112,10 +116,12 @@ const ModalContentSocialAuth = ({ message, style }) => (
 ModalContentSocialAuth.propTypes = {
   message: PropTypes.string.isRequired,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 ModalContentSocialAuth.defaultProps = {
   message: "Sign Up / Sign In",
+  qaHook: false,
 };
 
 export default radium(ModalContentSocialAuth);

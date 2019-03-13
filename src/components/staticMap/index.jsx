@@ -50,7 +50,7 @@ const styles = {
 /**
  * Generate a static map
  */
-function StaticMap({ token, location, size, sidebar, hideAttribution, name, url, zoom }) {
+function StaticMap({ token, location, size, sidebar, hideAttribution, name, url, zoom, qaHook }) {
   const mapBaseUrl = "http://api.tiles.mapbox.com/v4/lonelyplanet.b963d424";
   const customMarkerUrl = "https://assets.staticlp.com/assets/mapPin-primary-small.png";
   const customMarker = `url-${encodeURIComponent(customMarkerUrl)}(${location})`;
@@ -67,7 +67,7 @@ function StaticMap({ token, location, size, sidebar, hideAttribution, name, url,
       {url &&
         <a
           href={url}
-          data-qa="static-map-link"
+          data-qa={qaHook ? "static-map-link" : null}
           style={[
             styles.image.base,
             sidebar && styles.image.sidebar,
@@ -149,6 +149,11 @@ StaticMap.propTypes = {
    * Zoom Level for Map
    */
   zoom: PropTypes.string,
+
+  /**
+   * QA Hook
+   */
+  qaHook: PropTypes.bool,
 };
 
 const token = "pk.eyJ1IjoibG9uZWx5cGxhbmV0IiwiYSI6Imh1ODUtdUEifQ.OLLon0V6rcoTyayXzzUzsg";
@@ -162,6 +167,7 @@ StaticMap.defaultProps = {
   name: "",
   url: "",
   zoom: "10",
+  qaHook: false,
 };
 
 StaticMap.styles = styles;

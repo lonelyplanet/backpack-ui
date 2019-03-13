@@ -22,6 +22,7 @@ function ArticlePreview({
   trackEventId,
   trackEventName,
   trackEventPosition,
+  qaHook,
 }) {
   const styles = {
     container: {
@@ -72,7 +73,7 @@ function ArticlePreview({
             <a
               href={href}
               style={styles.anchor}
-              data-qa="article-preview-image-link"
+              data-qa={qaHook ? "article-preview-image-link" : null}
               onClick={() => {
                 track(
                   createPromotionClickEvent({
@@ -93,7 +94,7 @@ function ArticlePreview({
             <a
               href={href}
               style={assign({}, styles.anchor, { marginTop: "12px" })}
-              data-qa={createQAHook(title, "category-heading", "link")}
+              data-qa={qaHook ? createQAHook(title, "category-heading", "link") : null}
               onClick={() => {
                 track(
                   createPromotionClickEvent({
@@ -135,6 +136,7 @@ ArticlePreview.propTypes = {
   trackEventId: PropTypes.string,
   trackEventName: PropTypes.string,
   trackEventPosition: PropTypes.string,
+  qaHook: PropTypes.bool,
 };
 
 ArticlePreview.defaultProps = {
@@ -142,6 +144,7 @@ ArticlePreview.defaultProps = {
   trackEventId: "article preview",
   trackEventName: "article preview click",
   trackEventPosition: "article preview",
+  qaHook: false,
 };
 
 export default ArticlePreview;

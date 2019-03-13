@@ -103,6 +103,7 @@ class Takeover extends Component {
       mobile,
       contentFill,
       scroll,
+      qaHook,
     } = this.props;
 
     const styles = {
@@ -246,7 +247,7 @@ class Takeover extends Component {
                 className="Takeover-close"
                 style={styles.takeover.close.base}
                 onClick={!closeOnHeaderClick && this.onClose}
-                data-qa="takeover-close-btn"
+                data-qa={qaHook ? "takeover-close-btn" : null}
               >
                 <Icon.Cross label="Close" />
               </button>
@@ -339,6 +340,11 @@ Takeover.propTypes = {
    * Can the content scroll?
    */
   scroll: PropTypes.bool,
+
+  /**
+   * For automation purposes
+   */
+  qaHook: PropTypes.bool,
 };
 
 Takeover.defaultProps = {
@@ -351,6 +357,7 @@ Takeover.defaultProps = {
   mobile: false,
   contentFill: false,
   scroll: false,
+  qaHook: false,
 };
 
 export default radium(Takeover);

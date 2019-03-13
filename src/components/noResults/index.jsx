@@ -19,10 +19,10 @@ const styles = {
   },
 };
 
-function NoResults({ onReset, style }) {
+function NoResults({ onReset, style, qaHook }) {
   return (
     <div className="NoResults" style={[styles.container.base, style]}>
-      <p style={styles.text.base} data-qa="no-results-p">
+      <p style={styles.text.base} data-qa={qaHook ? "no-results-p" : null}>
         We couldn’t find any matches.
       </p>
 
@@ -46,12 +46,19 @@ NoResults.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ),
+
+  /**
+   * QA Hook
+   */
+  qaHook: PropTypes.bool,
 };
 
 NoResults.defaultProps = {
   onReset: null,
 
   style: {},
+
+  qaHook: false,
 };
 
 export default radium(NoResults);

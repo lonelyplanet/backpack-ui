@@ -50,12 +50,12 @@ const styles = {
   },
 };
 
-function Ad({ id, framed, className, style, children }) {
+function Ad({ id, framed, className, style, children, qaHook }) {
   const AdUnit = (
     <div
       className={cn("Ad", className)}
       id={id}
-      data-qa={createQAHook(id, cn("Ad", className), "ad")}
+      data-qa={qaHook ? createQAHook(id, cn("Ad", className), "ad") : null}
       style={[
         styles.ad.default,
         framed && styles.ad.framed,
@@ -100,10 +100,12 @@ Ad.propTypes = {
       PropTypes.object,
     ]),
   ),
+  qaHook: PropTypes.bool,
 };
 
 Ad.defaultProps = {
   framed: false,
+  qaHook: false,
 };
 
 export default radium(Ad);

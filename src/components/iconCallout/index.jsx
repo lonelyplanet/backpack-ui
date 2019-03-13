@@ -50,10 +50,10 @@ const styles = {
   },
 };
 
-function IconCallout({ iconName, title, copy, url }) {
+function IconCallout({ iconName, title, copy, url, qaHook }) {
   return (
     <div className="IconCallout" style={styles.container}>
-      <a href={url} style={styles.anchor} data-qa={createQAHook(title, "callout", "link")}>
+      <a href={url} style={styles.anchor} data-qa={qaHook ? createQAHook(title, "callout", "link") : null}>
         {iconFromString(iconName, {
           style: styles.icon,
           ariaHidden: true,
@@ -61,7 +61,7 @@ function IconCallout({ iconName, title, copy, url }) {
         })}
 
         <Heading
-          level={3}
+          level={3}s
           weight="thick"
           override={styles.heading}
         >
@@ -84,6 +84,11 @@ IconCallout.propTypes = {
   title: PropTypes.string.isRequired,
   copy: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
+  qaHook: PropTypes.bool,
+};
+
+IconCallout.defaultProps = {
+  qaHook: false,
 };
 
 export default IconCallout;

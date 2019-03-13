@@ -6,13 +6,17 @@ export default {
     "light",
     "regular",
     "medium",
-    "book", // Book is deprecated and will be removed in the next major release
+    "book", // TODO: Book is deprecated and will be removed in the next major release
   ]),
   currency: PropTypes.oneOf([
     "AUD",
     "EUR",
     "GBP",
     "USD",
+  ]),
+  origin: PropTypes.oneOf([
+    "vertical",
+    "horizontal",
   ]),
   style: PropTypes.objectOf(
     PropTypes.oneOfType([

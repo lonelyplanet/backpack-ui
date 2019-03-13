@@ -9,6 +9,7 @@ import { rgb } from "../../utils/color";
 import font from "../../utils/font";
 import { blueLink, outline } from "../../utils/mixins";
 import { ChevronRight } from "../icon";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   container: {
@@ -62,13 +63,13 @@ const styles = {
   },
 };
 
-const CalloutLink = ({ children, href, overlay, style }) => (
+const CalloutLink = ({ children, href, overlay, style, qaHook }) => (
   <div className="CalloutLink" style={[styles.container, style]}>
     <Style rules={styles.scoped} />
 
     <div style={styles.border} />
 
-    <a style={[styles.link, overlay && styles.linkWhite]} href={href}>
+    <a style={[styles.link, overlay && styles.linkWhite]} href={href} data-qa={qaHook ? createQAHook(children, "callout", "link") : null}>
       {children} <ChevronRight style={styles.icon} />
     </a>
   </div>
@@ -79,10 +80,12 @@ CalloutLink.propTypes = {
   href: PropTypes.string.isRequired,
   overlay: PropTypes.bool,
   style: PropTypes.objectOf(PropTypes.object),
+  qaHook: PropTypes.bool,
 };
 
 CalloutLink.defaultProps = {
   overlay: false,
+  qaHook: false,
 };
 
 export default radium(CalloutLink);

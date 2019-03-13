@@ -82,7 +82,7 @@ const styles = {
 /**
  * Content block component
  */
-function ContentBlock({ heading, headerLink, htmlContent }) {
+function ContentBlock({ heading, headerLink, htmlContent, qaHook }) {
   function markup() {
     return {
       __html: htmlContent,
@@ -112,7 +112,7 @@ function ContentBlock({ heading, headerLink, htmlContent }) {
 
           {headerLink && headerLink.label && headerLink.href &&
             <p style={styles.link.container.base}>
-              <a style={styles.link.anchor.base} data-qa={createQAHook(headerLink.label, "header", "link")} href={headerLink.href}>
+              <a style={styles.link.anchor.base} data-qa={qaHook ? createQAHook(headerLink.label, "header", "link") : null} href={headerLink.href} >
                 {headerLink.label}
               </a>
             </p>
@@ -147,6 +147,11 @@ ContentBlock.propTypes = {
    * HTML formatted content
    */
   htmlContent: PropTypes.string.isRequired,
+
+  /**
+   * QA Hook
+   */
+  qaHook: PropTypes.bool,
 };
 
 ContentBlock.defaultProps = {
@@ -155,6 +160,8 @@ ContentBlock.defaultProps = {
   headerLink: null,
 
   htmlContent: "",
+
+  qaHook: null,
 };
 
 export default radium(ContentBlock);

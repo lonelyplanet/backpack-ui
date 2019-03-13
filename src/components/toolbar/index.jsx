@@ -51,7 +51,7 @@ const styles = {
 /**
  * Toolbar component
  */
-function Toolbar({ phone, website, directions }) {
+function Toolbar({ phone, website, directions, qaHook }) {
   return (
     <div
       className="Toolbar"
@@ -62,7 +62,7 @@ function Toolbar({ phone, website, directions }) {
           href="tel:"
           style={styles.link.base}
           key="phone"
-          data-qa="toolbar-tel-link"
+          data-qa={qaHook ? "toolbar-tel-link" : null}
         >
           <div
             className="Toolbar-icon"
@@ -79,7 +79,7 @@ function Toolbar({ phone, website, directions }) {
           href={website}
           style={styles.link.base}
           key="website"
-          data-qa="toolbar-website-icon"
+          data-qa={qaHook ? "toolbar-website-icon" : null}
         >
           <div
             className="Toolbar-icon"
@@ -96,7 +96,7 @@ function Toolbar({ phone, website, directions }) {
           href={website}
           style={styles.link.base}
           key="directions"
-          data-qa="toolbar-directions-link"
+          data-qa={qaHook ? "toolbar-directions-link" : null}
         >
           <div
             className="Toolbar-icon"
@@ -129,6 +129,11 @@ Toolbar.propTypes = {
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string, PropTypes.number),
   ]),
+
+  /**
+   * QA Hook
+   */
+  qaHook: PropTypes.bool,
 };
 
 Toolbar.defaultProps = {
@@ -137,6 +142,8 @@ Toolbar.defaultProps = {
   website: "",
 
   directions: "",
+
+  qaHook: false,
 };
 
 Toolbar.styles = styles;

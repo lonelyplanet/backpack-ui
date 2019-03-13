@@ -275,6 +275,7 @@ class Newsletter extends Component {
       captchaSiteKey,
       endpoint,
       style: overrideStyles,
+      qaHook,
     } = this.props;
 
     if (!captchaSiteKey) {
@@ -340,7 +341,7 @@ class Newsletter extends Component {
                   </p>
                 )}
 
-                <form data-qa="newsletter-form" style={styles.form} action={endpoint} onSubmit={this.handleSubmit}>
+                <form data-qa={qaHook ? "newsletter-form" : null} style={styles.form} action={endpoint} onSubmit={this.handleSubmit}>
                   <div style={styles.inputFieldset}>
                     <Input
                       type="email"
@@ -350,7 +351,7 @@ class Newsletter extends Component {
                       name="newsletter[email]"
                       style={styles.input}
                       onChange={this.handleInput}
-                      data-qa="newsletter-email-input"
+                      data-qa={qaHook ? "newsletter-email-input" : null}
                     />
                   </div>
 
@@ -364,7 +365,7 @@ class Newsletter extends Component {
                         onClick={this.handleOptIn}
                         value="legalOptIn"
                         name="legalOptIn"
-                        data-qa="legal-checkbox"
+                        data-qa={qaHook ? "legal-checkbox" : null}
                         required
                       />
                     ) : (
@@ -378,6 +379,7 @@ class Newsletter extends Component {
                       size="small"
                       disabled={this.state.disabled}
                       customStyles={styles.button}
+                      qaHook={qaHook}
                     >
                       {!this.state.waiting && cta}
                       {this.state.waiting && <Icon.Loading />}
@@ -421,6 +423,7 @@ Newsletter.propTypes = {
   hasOptin: PropTypes.bool,
   endpoint: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
+  qaHook: PropTypes.bool,
 };
 
 Newsletter.defaultProps = {
@@ -454,6 +457,7 @@ Newsletter.defaultProps = {
   ],
   captchaSiteKey: null,
   endpoint: "https://www.lonelyplanet.com/newsletter",
+  qaHook: false,
 };
 
 export default radium(Newsletter);

@@ -110,7 +110,6 @@ class Textarea extends React.Component {
     return (
       <textarea
         {...props}
-        data-qa="textarea"
         value={this.state.currentValue}
         ref={node => { this.textarea = node; }}
         onInput={this.onInput}

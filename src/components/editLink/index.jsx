@@ -17,7 +17,7 @@ const styles = {
   },
 };
 
-function EditLink({ url, display }) {
+function EditLink({ url, display, qaHook }) {
   const Container = display === "block" ? "div" : "span";
 
   return (
@@ -25,7 +25,7 @@ function EditLink({ url, display }) {
       className="EditLink"
       style={styles.container.base}
     >
-      <a href={url} data-qa="suggest-an-edit-link">Suggest an edit</a>.
+      <a href={url} data-qa={qaHook ? "suggest-an-edit-link" : null}>Suggest an edit</a>.
     </Container>
   );
 }
@@ -37,12 +37,16 @@ EditLink.propTypes = {
     "inline",
     "block",
   ]),
+
+  qaHook: PropTypes.bool,
 };
 
 EditLink.defaultProps = {
   url: "",
 
   display: "block",
+
+  qaHook: false,
 };
 
 EditLink.styles = styles;

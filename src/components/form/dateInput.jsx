@@ -231,6 +231,7 @@ class DateInput extends React.Component {
       time,
       timeOptions,
       defaultTime,
+      qaHook,
     } = this.props;
 
     const {
@@ -291,7 +292,7 @@ class DateInput extends React.Component {
           {(!range && !time) &&
             <input
               id={id}
-              data-qa={createQAHook(name, id, "input")}
+              data-qa={qaHook ? createQAHook(name, id, "input") : null}
               name={name || id}
               style={[style]}
               value={startDate.format(format)}
@@ -310,7 +311,7 @@ class DateInput extends React.Component {
             <div style={{ overflow: "hidden" }}>
               <input
                 id={`${id}-date`}
-                data-qa={createQAHook(`${name}-date`, `${id}-date`, "input")}
+                data-qa={qaHook ? createQAHook(`${name}-date`, `${id}-date`, "input") : null}
                 name={`${name || id}-date`}
                 style={[style]}
                 value={startDate.format(format)}
@@ -349,7 +350,7 @@ class DateInput extends React.Component {
               <input
                 id={`${id}-start`}
                 name={`${name || id}-start`}
-                data-qa={createQAHook(`${name}-start`, `${id}-start`, "input")}
+                data-qa={qaHook ? createQAHook(`${name}-start`, `${id}-start`, "input") : null}
                 style={[
                   style,
                   noBorder && {
@@ -371,7 +372,7 @@ class DateInput extends React.Component {
               <input
                 id={`${id}-end`}
                 name={`${name || id}-end`}
-                data-qa={createQAHook(`${name}-end`, `${id}-end`, "input")}
+                data-qa={qaHook ? createQAHook(`${name}-end`, `${id}-end`, "input") : null}
                 style={[
                   style, { borderLeft: 0 },
                   noBorder && {
@@ -526,6 +527,11 @@ DateInput.propTypes = {
   defaultTime: PropTypes.string,
 
   onClose: PropTypes.func,
+
+  /**
+   * A boolean value to turn on qa hooks or not
+   */
+  qaHook: PropTypes.bool,
 };
 
 DateInput.defaultProps = {
@@ -560,6 +566,8 @@ DateInput.defaultProps = {
   timeOptions: "default",
 
   defaultTime: "7:00 PM",
+
+  qaHook: false,
 };
 
 DateInput.styles = styles;

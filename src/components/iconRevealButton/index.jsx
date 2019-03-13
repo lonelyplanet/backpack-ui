@@ -50,12 +50,13 @@ const IconRevealButton = ({
   id,
   className,
   style,
+  qaHook,
 }) => (
   <button
     id={id}
     className={cn("IconRevealButton", className)}
     onClick={onClick}
-    data-qa={createQAHook(label, cn("IconRevealButton", className), "btn")}
+    data-qa={qaHook ? createQAHook(label, cn("IconRevealButton", className), "btn") : null}
     style={[styles.container, style]}
   >
     <Style
@@ -110,12 +111,14 @@ IconRevealButton.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 IconRevealButton.defaultProps = {
   id: null,
   className: null,
   style: null,
+  qaHook: false,
 };
 
 export default radium(IconRevealButton);

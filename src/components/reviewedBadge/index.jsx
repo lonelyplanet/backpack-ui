@@ -20,12 +20,12 @@ const styles = {
   },
 };
 
-const ReviewedBadge = ({ className, style }) => (
+const ReviewedBadge = ({ className, style, qaHook }) => (
   <div
     className={cn("ReviewedBadge", className)}
     style={[styles.container, style]}
     title="Lonely Planet reviewed"
-    data-qa="reviewed-badge-div"
+    data-qa={qaHook ? "reviewed-badge-div" : null}
   >
     <Icon.DiamondLogo
       label="Lonely Planet"
@@ -38,6 +38,11 @@ const ReviewedBadge = ({ className, style }) => (
 ReviewedBadge.propTypes = {
   className: PropTypes.string,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
+};
+
+ReviewedBadge.defaultProps = {
+  qaHook: false,
 };
 
 export default radium(ReviewedBadge);

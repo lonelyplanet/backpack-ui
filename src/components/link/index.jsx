@@ -8,7 +8,7 @@ const Link = (props) => (
   isExternal(props.to) || (!props.to && props.onClick) ?
     <a
       href={props.to}
-      data-qa="external-link"
+      data-qa={props.qaHook ? "external-link" : null}
       onClick={props.onClick}
       {...props}
     >
@@ -28,6 +28,11 @@ Link.propTypes = {
     PropTypes.node,
     PropTypes.element,
   ]),
+  qaHook: PropTypes.bool,
+};
+
+Link.defaultProps = {
+  qaHook: false,
 };
 
 export default Link;

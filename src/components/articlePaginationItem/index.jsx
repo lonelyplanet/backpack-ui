@@ -104,8 +104,8 @@ function markup(htmlContent) {
   };
 }
 
-const ArticlePaginationItem = ({ title, href, image, imageAlt, category, page, style }) => (
-  <a className="ArticlePaginationItem" href={href} style={[styles.anchor, style]} data-qa={createQAHook(page, "ArticlePaginationItem", "link")}>
+const ArticlePaginationItem = ({ title, href, image, imageAlt, category, page, style, qaHook }) => (
+  <a className="ArticlePaginationItem" href={href} style={[styles.anchor, style]} data-qa={qaHook ? createQAHook(page, "ArticlePaginationItem", "link") : null}>
     <style dangerouslySetInnerHTML={markup(css)} />
 
     <div style={styles.container}>
@@ -174,6 +174,7 @@ ArticlePaginationItem.propTypes = {
   category: PropTypes.string,
   page: PropTypes.oneOf(["previous", "next"]),
   style: PropTypes.objectOf(PropTypes.object),
+  qaHook: PropTypes.bool,
 };
 
 export default radium(ArticlePaginationItem);

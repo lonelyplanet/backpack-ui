@@ -40,13 +40,13 @@ const styles = Object.assign({}, {
 }, textUppercase());
 
 const NavigationTab = (props) => {
-  const { children, onClick, active, style, label, ...properties } = props;
+  const { children, qaHook, onClick, active, style, label, ...properties } = props;
 
   return (
     <button
       className="NavigationTab"
       onClick={onClick}
-      data-qa={createQAHook(label, "NavigationTab", "btn")}
+      data-qa={qaHook ? createQAHook(label, "NavigationTab", "btn") : null}
       style={[
         styles,
         active && { borderBottomColor: colors.linkPrimary },
@@ -65,6 +65,11 @@ NavigationTab.propTypes = {
   active: PropTypes.bool,
   style: propTypes.style,
   label: PropTypes.string,
+  qaHook: PropTypes.bool,
+};
+
+NavigationTab.defaultProps = {
+  qaHook: false,
 };
 
 export default radium(NavigationTab);

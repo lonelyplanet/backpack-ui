@@ -7,6 +7,7 @@ import timing from "../../styles/timing";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
 import Icon from "../icon";
+import createQAHook from "../../utils/createQAHook";
 
 const baseFontSize = 14;
 
@@ -52,14 +53,14 @@ const styles = {
  * @usage
  * <ExpandButton />
  */
-function ExpandButton({ label, onClick }) {
+function ExpandButton({ label, onClick, qaHook }) {
   return (
     <button
       className="ExpandButton"
       style={styles.container.base}
       aria-label="Expand"
-      data-qa="expand-btn"
       onClick={onClick}
+      data-qa={qaHook ? createQAHook(label, "ExpandButton", "btn") : null}
     >
       {label &&
         <small
@@ -85,11 +86,17 @@ ExpandButton.propTypes = {
    * Perform an action when the button is clicked
    */
   onClick: PropTypes.func,
+
+  /**
+   * QA Hook
+   */
+  qaHook: PropTypes.bool,
 };
 
 ExpandButton.defaultProps = {
   label: "",
   onClick: null,
+  qaHook: false,
 };
 
 ExpandButton.styles = styles;

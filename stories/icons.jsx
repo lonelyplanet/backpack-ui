@@ -7,7 +7,7 @@ function Icons() {
 
   Object.keys(Icon).forEach((iconName) => {
     rows.push(
-      <tr>
+      <tr key={iconName}>
         <td style={{ textAlign: "center" }}>
           <div style={{ fontSize: "128px" }}>
             {React.createElement(Icon[iconName])}
@@ -23,7 +23,9 @@ function Icons() {
       <h1>Iconography</h1>
 
       <table>
-        {rows}
+        <tbody>
+          {rows}
+        </tbody> 
       </table>
     </div>
   );

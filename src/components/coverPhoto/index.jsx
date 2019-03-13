@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import colors from "../../styles/colors";
 
-const CoverPhoto = ({ src, width, height, alt, style }) => (
+const CoverPhoto = ({ src, width, height, alt, style, qaHook }) => (
   <div
     className="CoverPhoto"
-    data-qa="cover-photo-img"
+    data-qa={qaHook ? "cover-photo-img" : null}
     aria-label={alt}
     style={[
       {
@@ -35,6 +35,7 @@ CoverPhoto.propTypes = {
       PropTypes.object,
     ]),
   ),
+  qaHook: PropTypes.bool,
 };
 
 export default radium(CoverPhoto);

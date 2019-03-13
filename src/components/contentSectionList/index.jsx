@@ -15,7 +15,7 @@ const styles = {
   },
 };
 
-function ContentSectionList({ header, listItems }) {
+function ContentSectionList({ header, listItems, qaHook }) {
   const isListItemsString = typeof listItems === "string";
 
   return (
@@ -25,9 +25,9 @@ function ContentSectionList({ header, listItems }) {
       }
 
       {listItems &&
-        <ul data-qa="content-section-list" style={styles.list.base}>
+        <ul data-qa={qaHook ? "content-section-list" : null} style={styles.list.base}>
           {!isListItemsString && listItems.map((item, index) => (
-            <li data-qa={`${item}-list-item`} key={index}>{item}</li>
+            <li data-qa={qaHook ? `${item}-list-item` : null} key={index}>{item}</li>
           ))}
 
           {isListItemsString &&
@@ -60,6 +60,11 @@ ContentSectionList.propTypes = {
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
   ]).isRequired,
+
+  /**
+   * Custom data hook
+   */
+  qaHook: PropTypes.bool,
 };
 
 ContentSectionList.defaultProps = {
@@ -70,6 +75,7 @@ ContentSectionList.defaultProps = {
   },
 
   listItems: "",
+  qaHook: false,
 };
 
 export default ContentSectionList;

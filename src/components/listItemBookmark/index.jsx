@@ -121,6 +121,7 @@ function ListItemBookmark({
   hideDetail,
   style,
   className,
+  qaHook,
 }) {
   const Element = onClick ? "button" : "div";
   let icon;
@@ -136,7 +137,7 @@ function ListItemBookmark({
     <Element
       className={cn("ListItemBookmark", className)}
       name={name}
-      data-qa={createQAHook(name, "bookmark", `${Element}`)}
+      data-qa={qaHook ? createQAHook(name, "bookmark", `${Element}`) : null}
       onClick={onClick}
       style={[
         styles.container.default,
@@ -168,6 +169,7 @@ function ListItemBookmark({
             styles.name.default,
             large && styles.name.large,
           ]}
+          qaHook={qaHook}
         >
           {name}
         </Heading>
@@ -190,6 +192,7 @@ function ListItemBookmark({
           name={name.toLowerCase().replace(" ", "_")}
           value={null}
           key={name}
+          qaHook={qaHook}
           checked={checked}
           size={24}
           style={styles.checkbox}
@@ -213,6 +216,7 @@ ListItemBookmark.propTypes = {
   hideDetail: PropTypes.bool,
   style: propTypes.style,
   className: PropTypes.string,
+  qaHook: PropTypes.bool,
 };
 
 ListItemBookmark.defaultProps = {
@@ -226,6 +230,7 @@ ListItemBookmark.defaultProps = {
   hideDetail: false,
   style: null,
   className: "",
+  qaHook: false,
 };
 
 export default radium(ListItemBookmark);

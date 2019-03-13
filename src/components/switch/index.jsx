@@ -87,9 +87,9 @@ const styles = {
   },
 };
 
-const Switch = ({ id, name, value, onClick, checked, className, style }) => (
+const Switch = ({ id, name, value, onClick, checked, className, style, qaHook }) => (
   <div
-    data-qa="switch-div"
+    data-qa={qaHook ? "switch-div" : null}
     className={cn("Switch", className)}
     style={[
       styles.container,
@@ -129,6 +129,7 @@ Switch.propTypes = {
   checked: PropTypes.bool,
   className: PropTypes.string,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 Switch.defaultProps = {
@@ -136,6 +137,7 @@ Switch.defaultProps = {
   checked: false,
   className: null,
   style: null,
+  qaHook: false,
 };
 
 export default radium(Switch);
