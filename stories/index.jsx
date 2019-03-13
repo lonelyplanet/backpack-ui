@@ -3546,6 +3546,7 @@ storiesOf("App-specific", module)
             onClick={toggle}
             type={select("Type", ["checkbox", "radio"], "checkbox")}
             description={text("Description", "hand-picked selection of family travel articles, fun activity sheets and competitions")}
+            qaHook={boolean("QA Hook", false)}
           />
         )}
       </ToggleController>
@@ -3665,6 +3666,7 @@ storiesOf("App-specific", module)
                 checked={active}
                 onClick={toggle}
                 description={text("Button Description", "hand-picked selection of family travel articles, fun activity sheets and competitions")}
+                qaHook={boolean("QA Hook", false)}
               />
             )}
           </ToggleController>
@@ -3724,6 +3726,7 @@ storiesOf("App-specific", module)
                 checked={active}
                 onClick={toggle}
                 description={text("Button Description", "Find interesting people you follow")}
+                qaHook={boolean("QA Hook", false)}
               />
             )}
           </ToggleController>

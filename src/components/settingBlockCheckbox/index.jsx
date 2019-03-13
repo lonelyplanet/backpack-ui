@@ -20,6 +20,7 @@ const SettingBlockCheckbox = ({
   name,
   type,
   onClick,
+  qaHook,
 }) => (
   <SettingBlockButtonWrapper onClick={onClick}>
     <SettingBlockWrapper
@@ -47,6 +48,7 @@ const SettingBlockCheckbox = ({
         size={24}
         type={type}
         rounded
+        qaHook={qaHook}
       />
     </SettingBlockWrapper>
   </SettingBlockButtonWrapper>
@@ -62,6 +64,7 @@ SettingBlockCheckbox.propTypes = {
   name: PropTypes.string,
   type: PropTypes.oneOf(["checkbox", "radio"]),
   onClick: PropTypes.func,
+  qaHook: PropTypes.bool,
 };
 
 SettingBlockCheckbox.defaultProps = {
@@ -74,6 +77,7 @@ SettingBlockCheckbox.defaultProps = {
   name: null,
   type: "checkbox",
   onClick: null,
+  qaHook: false,
 };
 
 export default radium(SettingBlockCheckbox);

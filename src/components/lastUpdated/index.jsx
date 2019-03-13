@@ -49,7 +49,7 @@ LastUpdated.defaultProps = {
 
   editUrl: "",
 
-  qaHook: "",
+  qaHook: false,
 };
 
 LastUpdated.styles = styles;

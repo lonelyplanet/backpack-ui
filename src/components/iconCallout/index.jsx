@@ -61,7 +61,7 @@ function IconCallout({ iconName, title, copy, url, qaHook }) {
         })}
 
         <Heading
-          level={3}s
+          level={3}
           weight="thick"
           override={styles.heading}
         >
