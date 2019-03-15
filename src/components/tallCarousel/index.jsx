@@ -75,6 +75,12 @@ const styles = {
       },
       ".PaginatorButton": {
         zIndex: zIndex.top,
+        color: colors.bgDark,
+      },
+      ".PaginatorButton svg": {
+        position: "relative",
+        left: "-10px",
+        top: "-5px",
       },
       ".slick-slide:hover": {
         zIndex: zIndex.top - 1,
