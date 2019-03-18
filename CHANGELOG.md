@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.92.2"></a>
+## [4.92.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.1...v4.92.2) (2019-03-18)
+
+
+### Bug Fixes
+
+* update prev/next button on tallCarousel ([#746](https://github.com/lonelyplanet/backpack-ui/issues/746)) ([2b487d9](https://github.com/lonelyplanet/backpack-ui/commit/2b487d9))
+
+
+
 <a name="4.92.1"></a>
 ## [4.92.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.0...v4.92.1) (2019-03-12)
 
