@@ -1,3 +1,4 @@
+/* eslint-disable */
 // https://github.com/souporserious/react-motion-ui-pack/blob/master/src/to-RM-styles.js
 import { spring } from 'react-motion'
 

@@ -1,3 +1,4 @@
+/* eslint-disable */
 // https://github.com/souporserious/get-prefix/blob/1.0.0/lib/index.js
 'use strict';
 

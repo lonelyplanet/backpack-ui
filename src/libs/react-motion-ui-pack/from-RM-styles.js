@@ -1,3 +1,4 @@
+/* eslint-disable */
 // https://github.com/souporserious/react-motion-ui-pack/blob/master/src/from-RM-styles.js
 export default function fromRMStyles(config) {
   const values = {}
