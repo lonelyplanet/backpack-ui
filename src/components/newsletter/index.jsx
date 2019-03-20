@@ -349,7 +349,7 @@ class Newsletter extends Component {
                     />
                   </div>
 
-                  <div className={!hasOptin && "Legal"} style={styles.legalSection}>
+                  <div className={!hasOptin ? "Legal" : ""} style={styles.legalSection}>
                     {hasOptin ? (
                       <Checkbox
                         id="legalOptIn"
@@ -411,7 +411,7 @@ Newsletter.propTypes = {
     vars: PropTypes.string,
     source: PropTypes.string,
   }),
-  legalOptInLabel: PropTypes.string,
+  legalOptInLabel: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.string])),
   hasOptin: PropTypes.bool,
   endpoint: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
@@ -432,9 +432,9 @@ Newsletter.defaultProps = {
     source: "homepage",
   },
   legalOptInLabel: [
-    "I want emails from Lonely Planet with travel and product information, promotions, advertisements, third-party offers, and surveys. I can unsubscribe any time using the unsubscribe link at the end of all emails. Contact Lonely Planet ",
+    "I want emails from Lonely Planet with travel and product information, promotions, advertisements, third-party offers, and surveys. I can unsubscribe any time using the unsubscribe link at the end of all emails. ",
     <a href="https://www.lonelyplanet.com/contact" target="_blank" rel="noopener noreferrer">
-      here
+    Contact Lonely Planet here
     </a>,
     ". Lonely Planet ",
     <a
