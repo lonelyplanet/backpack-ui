@@ -1,3 +1,4 @@
+/* eslint-disable */
 // https://github.com/souporserious/react-motion-ui-pack/blob/master/src/config-to-style.js
 const TRANSFORM = require('./get-prefix')('transform')
 const UNIT_TRANSFORMS = ['translateX', 'translateY', 'translateZ', 'transformPerspective']

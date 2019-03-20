@@ -1,3 +1,4 @@
+/* eslint-disable */
 // https://github.com/souporserious/react-motion-ui-pack/blob/master/src/special-assign.js
 export default function specialAssign(a, b, reserved) {
   for (var x in b) {

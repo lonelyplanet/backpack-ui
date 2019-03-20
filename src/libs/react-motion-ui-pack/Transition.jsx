@@ -1,3 +1,4 @@
+/* eslint-disable */
 // https://github.com/souporserious/react-motion-ui-pack/blob/master/src/Transition.jsx
 import React, { Component, Children, createElement, cloneElement } from 'react'
 import PropTypes from 'prop-types'
