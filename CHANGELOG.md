@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.92.3"></a>
+## [4.92.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.2...v4.92.3) (2019-03-20)
+
+
+### Bug Fixes
+
+* compile motion ui pack library folder ([#747](https://github.com/lonelyplanet/backpack-ui/issues/747)) ([17b2175](https://github.com/lonelyplanet/backpack-ui/commit/17b2175))
+
+
+
 <a name="4.92.2"></a>
 ## [4.92.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.1...v4.92.2) (2019-03-18)
 
