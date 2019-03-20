@@ -187,7 +187,10 @@ CheckboxComponent.propTypes = {
   id: PropTypes.string.isRequired,
   value: PropTypes.string,
   name: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.string])),
+  ]),
   checked: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf([16, 24, 32]),
