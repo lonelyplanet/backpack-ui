@@ -73,17 +73,21 @@ const CardBook = ({
       >
         {title}
       </Heading>
-      <Heading
-        size={8}
-        level={2}
-        style={{ color: colors.textSecondary }}
-      >
-        {subtitle}
-      </Heading>
+      {subtitle &&
+        <Heading
+          size={8}
+          level={2}
+          style={{ color: colors.textSecondary }}
+        >
+          {subtitle}
+        </Heading>
+      }
       {!hideBorder && <hr style={styles.border} />}
-      <CategoryLabelLink href={shopLinkUrl}>
-        {shopLinkText}
-      </CategoryLabelLink>
+      {shopLinkUrl && shopLinkText &&
+        <CategoryLabelLink href={shopLinkUrl}>
+          {shopLinkText}
+        </CategoryLabelLink>
+      }
     </div>
   </div>
 );
