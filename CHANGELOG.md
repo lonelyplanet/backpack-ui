@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.92.5"></a>
+## [4.92.5](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.4...v4.92.5) (2019-03-27)
+
+
+### Bug Fixes
+
+* conditionally render optional props in cardBook ([#749](https://github.com/lonelyplanet/backpack-ui/issues/749)) ([3f8169b](https://github.com/lonelyplanet/backpack-ui/commit/3f8169b))
+
+
+
 <a name="4.92.4"></a>
 ## [4.92.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.3...v4.92.4) (2019-03-20)
 
