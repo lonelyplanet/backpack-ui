@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.92.6"></a>
+## [4.92.6](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.5...v4.92.6) (2019-03-28)
+
+
+### Bug Fixes
+
+* update cardBook to conditionally show menu ([#750](https://github.com/lonelyplanet/backpack-ui/issues/750)) ([a5f7876](https://github.com/lonelyplanet/backpack-ui/commit/a5f7876))
+
+
+
 <a name="4.92.5"></a>
 ## [4.92.5](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.4...v4.92.5) (2019-03-27)
 
