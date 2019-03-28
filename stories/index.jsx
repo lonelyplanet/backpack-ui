@@ -714,6 +714,7 @@ storiesOf("Cards", module)
           shareUrl="https://www.lonelyplanet.com"
           hideShareButton={boolean("Hide share button", false)}
           hideBorder={boolean("Hide border", false)}
+          hideMenu={boolean("Hide menu", false)}
         />
       </div>
     </StyleRoot>

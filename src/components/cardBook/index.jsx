@@ -52,6 +52,7 @@ const CardBook = ({
   shopLinkUrl,
   style,
   hideBorder,
+  hideMenu,
   ...menuProps
 }) => (
   <div style={[{ width: `${imageSizes[aspectRatio].width}` }, style]}>
@@ -62,9 +63,11 @@ const CardBook = ({
           height: `${imageSizes[aspectRatio].height}` },
       ]}
     >
-      <div style={styles.menu}>
-        <Menu {...menuProps} />
-      </div>
+      {!hideMenu &&
+        <div style={styles.menu}>
+          <Menu {...menuProps} />
+        </div>
+      }
     </div>
     <div style={{ textAlign: "center" }}>
       <Heading
@@ -104,6 +107,7 @@ CardBook.propTypes = {
   ]),
   hideShareButton: PropTypes.bool,
   hideBorder: PropTypes.bool,
+  hideMenu: PropTypes.bool,
   style: propTypes.style,
 };
 
@@ -111,6 +115,7 @@ CardBook.defaultProps = {
   aspectRatio: "portrait",
   hideShareButton: false,
   hideBorder: false,
+  hideMenu: false,
 };
 
 export default radium(CardBook);
