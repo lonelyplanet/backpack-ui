@@ -1142,7 +1142,7 @@ storiesOf("Links", module)
       caps={boolean("Capitalized", false)}
       hideIcon={boolean("Hide icon", false)}
       arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
-      qaHook={boolean("QA Hook", false)}
+      qaHook={text("QA Hook", "hook")}
     >
       {text("Text", "View all tours")}
     </MoreLink>
@@ -1154,7 +1154,7 @@ storiesOf("Links", module)
       caps={boolean("Capitalized", false)}
       hideIcon={boolean("Hide icon", false)}
       arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
-      qaHook={boolean("QA Hook", false)}
+      qaHook={text("QA Hook", "hook")}
     >
       {text("Text", "View all tours")}
     </MoreLink>
@@ -1166,7 +1166,7 @@ storiesOf("Links", module)
       caps={boolean("Capitalized", false)}
       hideIcon={boolean("Hide icon", false)}
       arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
-      qaHook={boolean("QA Hook", false)}
+      qaHook={text("QA Hook", "hook")}
     >
       {text("Text", "View all tours")}
     </MoreLink>
