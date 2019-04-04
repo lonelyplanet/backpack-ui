@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.92.7"></a>
+## [4.92.7](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.6...v4.92.7) (2019-04-04)
+
+
+### Bug Fixes
+
+* add qaHook propType to components ([#743](https://github.com/lonelyplanet/backpack-ui/issues/743)) ([72a1308](https://github.com/lonelyplanet/backpack-ui/commit/72a1308))
+
+
+
 <a name="4.92.6"></a>
 ## [4.92.6](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.5...v4.92.6) (2019-03-28)
 
