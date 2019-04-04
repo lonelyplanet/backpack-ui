@@ -8,6 +8,7 @@ import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
+import createQAHook from "../../utils/createQAHook";
 import CalloutLink from "../calloutLink";
 import CategoryLabel from "../categoryLabel";
 import Heading from "../heading";
@@ -105,6 +106,7 @@ const FeaturedCallout = ({
   smallFormat,
   hideLinkBreakpoint,
   style,
+  qaHook,
 }) => (
   <div
     className="FeaturedCallout"
@@ -127,7 +129,7 @@ const FeaturedCallout = ({
         { fontWeight: titleWeight },
       ]}
     >
-      <a href={link.href} style={styles.titleLink}>
+      <a href={link.href} style={styles.titleLink} data-qa={qaHook ? createQAHook(title, "feature-callout", "link") : null}>
         {title}
       </a>
     </Heading>
@@ -157,6 +159,7 @@ FeaturedCallout.propTypes = {
   smallFormat: PropTypes.bool,
   hideLinkBreakpoint: PropTypes.number,
   style: PropTypes.oneOfType([PropTypes.object]),
+  qaHook: PropTypes.bool,
 };
 
 FeaturedCallout.defaultProps = {
@@ -164,6 +167,7 @@ FeaturedCallout.defaultProps = {
   titleWeight: 600,
   smallFormat: false,
   style: null,
+  qaHook: false,
 };
 
 export default radium(FeaturedCallout);

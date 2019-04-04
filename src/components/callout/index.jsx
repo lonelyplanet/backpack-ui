@@ -8,6 +8,7 @@ import { rgb } from "../../utils/color";
 import Heading from "../heading";
 import MoreLink from "../moreLink";
 import Price from "../price";
+import createQAHook from "../../utils/createQAHook";
 
 function calculateContentWidth(imageWidth) {
   return `${((630 - 60 - imageWidth - 30) / (630 - 60)) * 100}%`;
@@ -128,12 +129,13 @@ const styles = {
   },
 };
 
-function Callout({ type, heading, slug, image, price, description, category, align }) {
+function Callout({ type, heading, slug, image, price, description, category, align, qaHook }) {
   return (
     <div
       className="Callout"
       style={styles.container.base}
       data-type={type}
+      data-qa={createQAHook(`${heading}`, "callout overview", "div")}
     >
       <div
         className="Callout-image"
@@ -142,7 +144,7 @@ function Callout({ type, heading, slug, image, price, description, category, ali
           type && styles.image.type[type],
         ]}
       >
-        <a href={slug} style={styles.image.anchor}>
+        <a href={slug} style={styles.image.anchor} data-qa={qaHook ? createQAHook(`${heading}-image`, "callout-image", "link") : null}>
           <img
             style={styles.image.img}
             src={image}
@@ -170,7 +172,7 @@ function Callout({ type, heading, slug, image, price, description, category, ali
           weight="thick"
           override={styles.heading.base}
         >
-          <a href={slug} style={{ color: "inherit" }}>
+          <a href={slug} style={{ color: "inherit" }} data-qa={qaHook ? createQAHook(`${heading}-header`, "callout-header", "link") : null}>
             {heading}
           </a>
         </Heading>
@@ -202,6 +204,7 @@ function Callout({ type, heading, slug, image, price, description, category, ali
             href={slug}
             size="small"
             caps
+            qaHook={qaHook ? `${type}-more` : null}
           >
             Learn more
           </MoreLink>
@@ -233,6 +236,8 @@ Callout.propTypes = {
     "",
     "center",
   ]),
+
+  qaHook: PropTypes.bool,
 };
 
 Callout.defaultProps = {
@@ -244,6 +249,7 @@ Callout.defaultProps = {
   description: "",
   category: "",
   align: "",
+  qaHook: false,
 };
 
 Callout.styles = styles;

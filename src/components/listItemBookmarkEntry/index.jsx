@@ -20,6 +20,7 @@ import propTypes from "../../utils/propTypes";
 import CategoryLabel from "../categoryLabel";
 import PriceRangeLabel from "../priceRangeLabel";
 import { Heading, TextAccent } from "../text";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   container: {
@@ -115,6 +116,7 @@ const ListItemBookmarkEntry = ({
   handleNoteAction,
   showNoteAction,
   style,
+  qaHook,
 }) => (
   <article
     className="ListItemBookmarkEntry"
@@ -132,8 +134,8 @@ const ListItemBookmarkEntry = ({
     }
 
     <Heading
-      level="2"
-      size="5"
+      level={2}
+      size={5}
       weight="medium"
       style={[
         styles.name.default,
@@ -171,6 +173,7 @@ const ListItemBookmarkEntry = ({
     {showNoteAction && handleNoteAction &&
       <TextAccent>
         <button
+          data-qa={qaHook ? createQAHook("add or edit note", "note", "btn") : null}
           onClick={handleNoteAction}
           style={[
             styles.note.default,
@@ -196,6 +199,7 @@ ListItemBookmarkEntry.propTypes = {
   showNoteAction: PropTypes.bool,
   handleNoteAction: PropTypes.func,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 
@@ -207,5 +211,6 @@ ListItemBookmarkEntry.defaultProps = {
   note: null,
   large: false,
   style: null,
+  qaHook: false,
 };
 export default radium(ListItemBookmarkEntry);

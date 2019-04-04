@@ -9,6 +9,7 @@ import { rgba } from "../../utils/color";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 import { textBodySmall } from "../../utils/typography";
+import createQAHook from "../../utils/createQAHook";
 
 const fontSize = fontSizeBodySmall;
 
@@ -62,7 +63,7 @@ const styles = {
   },
 };
 
-function Tag({ children, href, onClick, selected, style }) {
+function Tag({ children, href, onClick, selected, style, qaHook }) {
   let Element = "span";
   if (href) Element = "a";
   if (onClick) Element = "button";
@@ -79,6 +80,7 @@ function Tag({ children, href, onClick, selected, style }) {
       ]}
       href={href}
       onClick={onClick}
+      data-qa={qaHook ? createQAHook(children, "tag", Element === "a" ? "link" : Element) : null}
     >
       {children}
     </Element>
@@ -91,10 +93,12 @@ Tag.propTypes = {
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 Tag.defaultProps = {
   selected: false,
+  qaHook: false,
 };
 
 export default radium(Tag);

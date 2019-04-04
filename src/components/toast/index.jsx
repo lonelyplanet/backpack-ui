@@ -15,6 +15,7 @@ import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 import Icon from "../icon";
+import createQAHook from "../../utils/createQAHook";
 
 const height = 56;
 const padding = 16;
@@ -162,6 +163,7 @@ const Toast = ({
   url,
   visible,
   className,
+  qaHook,
 }) => {
   const Element = url ? "a" : "button";
 
@@ -238,6 +240,7 @@ const Toast = ({
           onClick={onClose}
           style={[styles.button, url ? styles.onClickButton : styles.onCloseButton]}
           title="Close"
+          data-qa={qaHook ? createQAHook("toast", "toast", `${Element === "a" ? "link" : Element}`) : null}
         >
           {url ? buttonLabel : <Icon.Close title="Close" style={styles.onCloseIcon} />}
         </Element>
@@ -259,6 +262,7 @@ Toast.propTypes = {
   url: PropTypes.string,
   visible: PropTypes.bool,
   className: PropTypes.string,
+  qaHook: PropTypes.bool,
 };
 
 Toast.defaultProps = {
@@ -272,6 +276,7 @@ Toast.defaultProps = {
   url: null,
   visible: false,
   className: null,
+  qaHook: false,
 };
 
 export default radium(Toast);

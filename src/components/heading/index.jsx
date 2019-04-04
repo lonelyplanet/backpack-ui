@@ -16,6 +16,7 @@ import {
 import { rgba } from "../../utils/color";
 import font from "../../utils/font";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   base: {
@@ -126,12 +127,14 @@ function Heading({
   truncate,
   caps,
   override,
+  qaHook,
 }) {
   const Component = `h${level}`;
 
   return (
     <Component
       className="Heading"
+      data-qa={qaHook ? createQAHook(children, "heading", `${Component}`) : null}
       style={[
         styles.base,
         size && styles.size[size],
@@ -220,6 +223,11 @@ Heading.propTypes = {
    * Override styles
    */
   override: propTypes.style,
+
+  /**
+   * Boolean value for qa hook
+   */
+  qaHook: PropTypes.bool,
 };
 
 Heading.defaultProps = {
@@ -231,6 +239,7 @@ Heading.defaultProps = {
   truncate: false,
   caps: false,
   override: {},
+  qaHook: false,
 };
 
 Heading.styles = styles;

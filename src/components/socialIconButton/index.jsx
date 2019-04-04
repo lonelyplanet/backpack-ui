@@ -7,6 +7,7 @@ import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
+import createQAHook from "../../utils/createQAHook";
 
 const backgroundColors = {
   email: colors.textPrimary,
@@ -40,6 +41,7 @@ function SocialIconButton({
   id,
   className,
   style,
+  qaHook,
 }) {
   const size = (iconSize * sizeMultiplier);
 
@@ -74,6 +76,7 @@ function SocialIconButton({
       onClick={onClick}
       style={[styles, style]}
       data-network={network}
+      data-qa={qaHook ? createQAHook(network, "social-icon", "link") : null}
     >
       {iconFromString(iconNames[network])}
     </a>
@@ -97,6 +100,7 @@ SocialIconButton.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
+  qaHook: PropTypes.bool,
 };
 
 SocialIconButton.defaultProps = {
@@ -104,6 +108,7 @@ SocialIconButton.defaultProps = {
   href: null,
   onClick: null,
   iconSize: 16,
+  qaHook: false,
 };
 
 export default radium(SocialIconButton);

@@ -6,6 +6,7 @@ import colors from "../../styles/colors";
 import font from "../../utils/font";
 import CategoryLabelLink from "../categoryLabelLink";
 import Heading from "../heading";
+import createQAHook from "../../utils/createQAHook";
 import { createPromotionClickEvent, dataLayerPush } from "../../utils/analytics";
 
 const markup = html => ({ __html: html });
@@ -21,6 +22,7 @@ function ArticlePreview({
   trackEventId,
   trackEventName,
   trackEventPosition,
+  qaHook,
 }) {
   const styles = {
     container: {
@@ -69,6 +71,7 @@ function ArticlePreview({
         <a
           href={href}
           style={styles.anchor}
+          data-qa={qaHook ? "article-preview-image-link" : null}
           onClick={() => {
             dataLayerPush(
               createPromotionClickEvent({
@@ -89,6 +92,7 @@ function ArticlePreview({
         <a
           href={href}
           style={assign({}, styles.anchor, { marginTop: "12px" })}
+          data-qa={qaHook ? createQAHook(title, "article-preview-text", "link") : null}
           onClick={() => {
             dataLayerPush(
               createPromotionClickEvent({
@@ -128,6 +132,7 @@ ArticlePreview.propTypes = {
   trackEventId: PropTypes.string,
   trackEventName: PropTypes.string,
   trackEventPosition: PropTypes.string,
+  qaHook: PropTypes.bool,
 };
 
 ArticlePreview.defaultProps = {
@@ -135,6 +140,7 @@ ArticlePreview.defaultProps = {
   trackEventId: "article preview",
   trackEventName: "article preview click",
   trackEventPosition: "article preview",
+  qaHook: false,
 };
 
 export default ArticlePreview;

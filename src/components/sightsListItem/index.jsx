@@ -6,6 +6,7 @@ import { fontWeightMedium } from "../../styles/typography";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import NumberMarker from "../numberMarker/";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   linkContainer: {
@@ -75,6 +76,7 @@ function SightsListItem({
   markerNumber,
   onMouseEnter,
   onMouseLeave,
+  qaHook,
 }) {
   return (
     <a
@@ -82,6 +84,7 @@ function SightsListItem({
       href={slug}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      data-qa={qaHook ? createQAHook(title, "sight", "link") : null}
     >
       <div style={styles.imageContainer}>
         {imgPath && <div style={[styles.image, { backgroundImage: `url(${imgPath})` }]} />}
@@ -140,6 +143,10 @@ SightsListItem.propTypes = {
    * Function to fire on mouse leave
    */
   onMouseLeave: PropTypes.func,
+  /**
+   * QA Hook
+   */
+  qaHook: PropTypes.bool,
 };
 
 SightsListItem.defaultProps = {
@@ -150,6 +157,8 @@ SightsListItem.defaultProps = {
   imgPath: "https://assets.staticlp.com/destinations-next/images/search-category-image-sights.jpg",
 
   style: null,
+
+  qaHook: false,
 };
 
 SightsListItem.styles = styles;

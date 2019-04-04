@@ -6,6 +6,7 @@ import assign from "object-assign";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import { outline } from "../../utils/mixins";
+import createQAHook from "../../utils/createQAHook";
 
 const icons = {
   chevron: {
@@ -48,15 +49,16 @@ const styles = {
   },
 };
 
-function Dropdown({ options, defaultValue, onChange, size }) {
+function Dropdown({ options, defaultValue, onChange, size, qaHook }) {
   return (
     <select
       style={[styles.container.base, size && styles.container.size[size]]}
       defaultValue={defaultValue}
       onChange={onChange}
+      data-qa={qaHook ? createQAHook(defaultValue, "select", "select") : null}
     >
       {options.map((option, i) => (
-        <option value={option} key={i}>
+        <option value={option} key={i} data-qa={qaHook ? createQAHook(option, `${i}`, "option") : null}>
           {option}
         </option>
       ))}
@@ -87,6 +89,11 @@ Dropdown.propTypes = {
     "",
     "small",
   ]),
+
+  /**
+   * A custom data attribute to adjust for automation testing
+   */
+  qaHook: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {
@@ -94,6 +101,7 @@ Dropdown.defaultProps = {
   defaultValue: "",
   onChange: null,
   size: "",
+  qaHook: false,
 };
 
 Dropdown.styles = styles;

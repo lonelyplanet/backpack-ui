@@ -5,6 +5,7 @@ import radium from "radium";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import NumberMarker from "../numberMarker";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   container: {
@@ -64,18 +65,19 @@ const styles = {
   },
 };
 
-function NumberList({ list }) {
+function NumberList({ list, qaHook }) {
   return (
     <div
       className="NumberList"
       style={styles.container.base}
     >
-      <ul style={styles.list.base}>
+      <ul style={styles.list.base} data-qa={qaHook ? "number-list-ul" : null}>
         {list.map(({ title, url }, i) => (
           <li
             className="NumberList-item"
             style={[styles.item.base, i !== 0 && styles.item.notFirst]}
             key={i + 1}
+            data-qa={qaHook ? createQAHook(`number-list-${i + 1}`, title, "li") : null}
           >
             <div
               className="NumberList-marker"
@@ -111,10 +113,12 @@ NumberList.propTypes = {
    * An array of items to list
    */
   list: PropTypes.arrayOf(PropTypes.string).isRequired,
+  qaHook: PropTypes.bool,
 };
 
 NumberList.defaultProps = {
   list: [],
+  qaHook: false,
 };
 
 NumberList.styles = styles;

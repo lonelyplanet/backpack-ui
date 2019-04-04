@@ -7,8 +7,9 @@ import { blueLink } from "../../utils/mixins";
 import schema from "../../utils/schema";
 import MoreLink from "../moreLink";
 import StaticMap from "../staticMap";
+import createQAHook from "../../utils/createQAHook";
 
-function Location({ name, street, place, coordinates, mobile }) {
+function Location({ name, street, place, coordinates, mobile, qaHook }) {
   const styles = {
     container: {
       base: {
@@ -55,7 +56,12 @@ function Location({ name, street, place, coordinates, mobile }) {
               {place && place.length > 0 && <div>
                 {place.map((placeItem, i) => (
                   <span key={`${placeItem.title} span`}>
-                    <a key={placeItem.title} style={blueLink()} href={placeItem.href}>
+                    <a
+                      key={placeItem.title}
+                      style={blueLink()}
+                      href={placeItem.href}
+                      data-qa={qaHook ? createQAHook(placeItem.type, "place", "link") : null}
+                    >
                       <span itemProp={placeItem.type === "city" ? "addressLocality" : "addressCountry"}>
                         {placeItem.title}
                       </span>
@@ -135,6 +141,11 @@ Location.propTypes = {
    * Should mobile-specific styles and props be used
    */
   mobile: PropTypes.bool.isRequired,
+
+  /**
+   * Should add data-qa if true
+   */
+  qaHook: PropTypes.bool,
 };
 
 Location.defaultProps = {
@@ -143,6 +154,7 @@ Location.defaultProps = {
   place: null,
   coordinates: null,
   mobile: false,
+  qaHook: false,
 };
 
 export default radium(Location);

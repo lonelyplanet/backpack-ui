@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import cn from "classnames";
 import styles from "./styles";
+import createQAHook from "../../utils/createQAHook";
 
 function Select({
   id,
@@ -17,6 +18,7 @@ function Select({
   noBorder,
   style,
   onChange,
+  qaHook,
 }) {
   return (
     <select
@@ -30,6 +32,7 @@ function Select({
         noBorder && styles.noBorder,
         style,
       ]}
+      data-qa={qaHook ? createQAHook(name, id, "select") : null}
       className={cn("Select", className)}
       id={id}
       name={name || id}
@@ -39,7 +42,7 @@ function Select({
       title={label}
       onChange={onChange}
     >
-      {options.map((option) => {
+      {options.map((option, index) => {
         if (typeof option === "object") {
           const isMissingLabel = Object.keys(option).indexOf("label") === -1;
           const isMissingValue = Object.keys(option).indexOf("value") === -1;
@@ -52,6 +55,7 @@ function Select({
             <option
               value={option.value}
               key={option.value}
+              data-qa={qaHook ? createQAHook(option.value, `${index}`, "option") : null}
             >
               {option.label}
             </option>
@@ -62,6 +66,7 @@ function Select({
           <option
             value={option}
             key={option}
+            data-qa={qaHook ? createQAHook(option.value, `${index}`, "option") : null}
           >
             {option}
           </option>
@@ -123,6 +128,11 @@ Select.propTypes = {
    * onChange function for the select element
    */
   onChange: PropTypes.func,
+
+  /**
+   * Boolean value to handle qa hooks being on
+   */
+  qaHook: PropTypes.bool,
 };
 
 Select.defaultProps = {
@@ -145,6 +155,8 @@ Select.defaultProps = {
   noBorder: false,
 
   style: {},
+
+  qaHook: false,
 };
 
 Select.styles = styles;

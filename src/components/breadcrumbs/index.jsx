@@ -10,6 +10,7 @@ import schema from "../../utils/schema";
 import font from "../../utils/font";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const _ = { capitalize };
 
@@ -60,7 +61,7 @@ function linkMicroData(link) {
   });
 }
 
-function Breadcrumbs({ links, style }) {
+function Breadcrumbs({ links, style, qaHook }) {
   const items = links.map((link, index) => (
     <span
       className="Breadcrumbs-item"
@@ -73,6 +74,7 @@ function Breadcrumbs({ links, style }) {
           styles.anchor.base,
           index < links.length - 1 && styles.anchor.padded,
         ]}
+        data-qa={qaHook ? createQAHook(`${link.title}-breadcrumb`, `breadcrumb-${index}`, "link") : null}
         href={`//www.lonelyplanet.com${link.href}`}
         key={link.href}
         {...linkMicroData(link)}
@@ -111,6 +113,11 @@ Breadcrumbs.propTypes = {
     }),
   ).isRequired,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
+};
+
+Breadcrumbs.defaultProps = {
+  qaHook: false,
 };
 
 export default radium(Breadcrumbs);

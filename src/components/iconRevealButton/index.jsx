@@ -12,6 +12,7 @@ import {
 } from "../../styles/typography";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   container: {
@@ -49,11 +50,13 @@ const IconRevealButton = ({
   id,
   className,
   style,
+  qaHook,
 }) => (
   <button
     id={id}
     className={cn("IconRevealButton", className)}
     onClick={onClick}
+    data-qa={qaHook ? createQAHook(label, cn("IconRevealButton", className), "btn") : null}
     style={[styles.container, style]}
   >
     <Style
@@ -108,12 +111,14 @@ IconRevealButton.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 IconRevealButton.defaultProps = {
   id: null,
   className: null,
   style: null,
+  qaHook: false,
 };
 
 export default radium(IconRevealButton);

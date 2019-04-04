@@ -5,7 +5,7 @@ import cn from "classnames";
 import ListButton from "../listButton";
 import propTypes from "../../utils/propTypes";
 
-const BookmarkButtonAlt = ({ onClick, marked, id, className, style }) => (
+const BookmarkButtonAlt = ({ onClick, marked, id, className, style, qaHook }) => (
   <ListButton
     id={id}
     className={cn("BookmarkButtonAlt", className)}
@@ -13,6 +13,7 @@ const BookmarkButtonAlt = ({ onClick, marked, id, className, style }) => (
     label="Save to list"
     icon={marked ? "BookmarkAltActive" : "BookmarkAlt"}
     style={style}
+    qaHook={qaHook}
   />
 );
 
@@ -22,6 +23,7 @@ BookmarkButtonAlt.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 BookmarkButtonAlt.defaultProps = {
@@ -30,6 +32,7 @@ BookmarkButtonAlt.defaultProps = {
   id: null,
   className: null,
   style: null,
+  qaHook: false,
 };
 
 export default radium(BookmarkButtonAlt);

@@ -38,6 +38,7 @@ class SidebarSection extends React.Component {
       contentType,
       noMargin,
       first,
+      qaHook,
     } = this.props;
 
     const styles = {
@@ -157,6 +158,7 @@ class SidebarSection extends React.Component {
         importance="normal"
         size="small"
         caps
+        qaHook={qaHook}
       >
         {icon &&
           <Icon
@@ -164,6 +166,7 @@ class SidebarSection extends React.Component {
             size="small"
             inline="before"
             color={background ? "" : "gray"}
+            qaHook={qaHook}
           />
         }
 
@@ -173,6 +176,7 @@ class SidebarSection extends React.Component {
 
     const collapsibleHeading = (
       <button
+        data-qa={qaHook ? "sidebar-section-collapsible-heading-btn" : null}
         style={styles.collapsibleHeading.base}
         onClick={this.onClick}
       >
@@ -181,6 +185,7 @@ class SidebarSection extends React.Component {
         <Icon
           name={this.state.collapsed ? "triangle-down" : "triangle-up"}
           style={styles.toggleIcon.base}
+          qaHook={qaHook}
           label="Expand"
         />
       </button>
@@ -298,6 +303,11 @@ SidebarSection.propTypes = {
    * border and padding
    */
   first: PropTypes.bool,
+
+  /**
+   * QA Hook
+   */
+  qaHook: PropTypes.bool,
 };
 
 SidebarSection.defaultProps = {
@@ -320,6 +330,8 @@ SidebarSection.defaultProps = {
   noMargin: false,
 
   first: false,
+
+  qaHook: false,
 };
 
 export default radium(SidebarSection);

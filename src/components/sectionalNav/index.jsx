@@ -12,6 +12,7 @@ import timing from "../../styles/timing";
 import zIndex from "../../styles/zIndex";
 import { rgb } from "../../utils/color";
 import font from "../../utils/font";
+import createQAHook from "../../utils/createQAHook";
 
 const navigationSubHeight = "80px";
 const navigationSubHeightMobile = `${dimensions.headerHeightMobile}px`;
@@ -105,10 +106,10 @@ const styles = {
   },
 };
 
-function SectionalNav({ items, linkToOffset }) {
+function SectionalNav({ items, linkToOffset, qaHook }) {
   return (
     <Sticky innerZ={zIndex.globalHeader} enabled>
-      <nav className="SectionalNav" style={styles.container}>
+      <nav data-qa={qaHook ? "sectional-nav" : null} className="SectionalNav" style={styles.container}>
         <Style
           scopeSelector=".SectionalNav"
           rules={styles.scoped}
@@ -120,6 +121,7 @@ function SectionalNav({ items, linkToOffset }) {
               <li
                 style={styles.listItem}
                 key={index}
+                data-qa={qaHook ? `${createQAHook(item, `sectional-nav-item-${index})`, "li")}` : null}
               >
                 <Link
                   to={item}
@@ -143,6 +145,11 @@ function SectionalNav({ items, linkToOffset }) {
 SectionalNav.propTypes = {
   items: PropTypes.arrayOf(PropTypes.string).isRequired,
   linkToOffset: PropTypes.number,
+  qaHook: PropTypes.bool,
+};
+
+SectionalNav.defaultProps = {
+  qaHook: false,
 };
 
 export default radium(SectionalNav);

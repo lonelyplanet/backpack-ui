@@ -28,15 +28,16 @@ const styles = {
   },
 };
 
-function TourItinerary({ itinerary, link }) {
+function TourItinerary({ itinerary, link, qaHook }) {
   return (
-    <div className="TourItinerary">
+    <div className="TourItinerary" data-qa={qaHook ? "tour-itinerary-div" : null}>
       {itinerary.map((day, index) => (
         <div key={index} className="TourItinerary-day" style={styles.day.base}>
           <Heading
             level={3}
             weight="thick"
             override={styles.title.base}
+            qaHook={qaHook}
           >
             {day.title}
           </Heading>
@@ -49,7 +50,7 @@ function TourItinerary({ itinerary, link }) {
 
       {link &&
         <div style={{ marginTop: "8px" }}>
-          <MoreLink href={link} size="small" caps>
+          <MoreLink href={link} size="small" caps qaHook={qaHook ? "Full itinerary" : null}>
             Full itinerary
           </MoreLink>
         </div>
@@ -72,12 +73,19 @@ TourItinerary.propTypes = {
    * Link to full itinerary
    */
   link: PropTypes.string,
+
+  /**
+   * QA Hook
+   */
+  qaHook: PropTypes.bool,
 };
 
 TourItinerary.defaultProps = {
   itinerary: [],
 
   link: "",
+
+  qaHook: false,
 };
 
 export default TourItinerary;

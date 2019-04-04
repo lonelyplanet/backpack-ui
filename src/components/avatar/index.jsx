@@ -4,6 +4,7 @@ import radium from "radium";
 import cn from "classnames";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   default: {
@@ -24,7 +25,7 @@ const styles = {
   },
 };
 
-function Avatar({ src, alt, size, href, id, className, style }) {
+function Avatar({ src, alt, size, href, id, className, style, qaHook }) {
   const dimensions = {
     height: `${size}px`,
     width: `${size}px`,
@@ -58,6 +59,7 @@ function Avatar({ src, alt, size, href, id, className, style }) {
   const Anchor = (
     <a
       id={id}
+      data-qa={qaHook ? createQAHook(id, cn("Avatar", className), "link") : null}
       className={cn("Avatar", className)}
       style={[
         styles.default,
@@ -82,6 +84,7 @@ Avatar.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 Avatar.defaultProps = {
@@ -91,6 +94,7 @@ Avatar.defaultProps = {
   id: null,
   className: null,
   style: null,
+  qaHook: false,
 };
 
 export default radium(Avatar);

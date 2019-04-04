@@ -110,6 +110,7 @@ class Dialog extends Component {
           <div
             className={cn("Dialog", className)}
             id={id}
+            data-qa={`${id}-dialog`}
             role="alertdialog"
             tabIndex={isOpen ? 0 : -1}
             aria-hidden={isOpen ? "false" : "true"}

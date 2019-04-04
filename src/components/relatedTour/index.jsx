@@ -8,6 +8,7 @@ import { span } from "../../utils/grid";
 import Bullet from "../bullet";
 import Heading from "../heading";
 import Price from "../price";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   base: {},
@@ -81,6 +82,7 @@ function RelatedTour({
   destination,
   reviews,
   clickHandler,
+  qaHook,
 }) {
   const Details = tripLength || destination || reviews ? (
     <div
@@ -171,6 +173,7 @@ function RelatedTour({
         style={styles.elements.image.base}
         href={slug}
         onClick={clickHandler}
+        data-qa={qaHook ? "related-tour-image-link" : null}
       >
         <img
           src={image}
@@ -191,7 +194,7 @@ function RelatedTour({
           tracking="tight"
           override={styles.elements.heading}
         >
-          <a href={slug} onClick={clickHandler}>
+          <a href={slug} onClick={clickHandler} data-qa={qaHook ? createQAHook(title, "related-tour", "link") : null}>
             {title}
           </a>
         </Heading>
@@ -251,6 +254,11 @@ RelatedTour.propTypes = {
    * Callback for clicking on the tour
    */
   clickHandler: PropTypes.func,
+
+  /**
+   * QA Hook
+   */
+  qaHook: PropTypes.bool,
 };
 
 RelatedTour.defaultProps = {
@@ -261,6 +269,7 @@ RelatedTour.defaultProps = {
   tripLength: "",
   destination: "",
   reviews: 0,
+  qaHook: false,
 };
 
 RelatedTour.styles = styles;

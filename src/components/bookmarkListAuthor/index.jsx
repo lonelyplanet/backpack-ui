@@ -35,7 +35,7 @@ const styles = {
   },
 };
 
-const BookmarkListAuthor = ({ children, imageSrc, href, style }) => (
+const BookmarkListAuthor = ({ children, imageSrc, href, style, qaHook }) => (
   <a
     className="BookmarkListAuthor"
     href={href}
@@ -45,6 +45,7 @@ const BookmarkListAuthor = ({ children, imageSrc, href, style }) => (
       src={imageSrc}
       size={24}
       alt=""
+      qaHook={qaHook}
     />
 
     <AuthorName style={styles.authorName}>
@@ -58,6 +59,11 @@ BookmarkListAuthor.propTypes = {
   href: PropTypes.string.isRequired,
   imageSrc: PropTypes.string.isRequired,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
+};
+
+BookmarkListAuthor.defaultProps = {
+  qaHook: false,
 };
 
 export default radium(BookmarkListAuthor);

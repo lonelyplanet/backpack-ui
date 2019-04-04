@@ -7,6 +7,7 @@ import timing from "../../styles/timing";
 import mq from "../../styles/mq";
 import propTypes from "../../utils/propTypes";
 import { Plus } from "../icon";
+import createQAHook from "../../utils/createQAHook";
 
 const mediaQuery = `@media (min-width: ${mq.min[768]})`;
 
@@ -70,7 +71,7 @@ const styles = {
   },
 };
 
-const AccordionItem = ({ heading, content, id, expanded, onClick, style }) => (
+const AccordionItem = ({ heading, content, id, expanded, onClick, style, qaHook }) => (
   <div
     className="Accordion-item"
     id={id}
@@ -79,6 +80,7 @@ const AccordionItem = ({ heading, content, id, expanded, onClick, style }) => (
     <button
       className="Accordion-itemHeading"
       id={`${id}-heading`}
+      data-qa={qaHook ? createQAHook(heading, "Accordion-itemHeading", "btn") : null}
       aria-selected={expanded}
       aria-expanded={expanded}
       aria-controls={`${id}-content`}
@@ -96,6 +98,7 @@ const AccordionItem = ({ heading, content, id, expanded, onClick, style }) => (
     <div
       className="Accordion-itemContent"
       id={`${id}-content`}
+      data-qa={qaHook ? createQAHook(id, "Accordion-itemContent", "content") : null}
       aria-labelledby={`${id}-heading`}
       aria-hidden={!expanded}
       role="tabpanel"
@@ -118,11 +121,13 @@ AccordionItem.propTypes = {
   onClick: PropTypes.func,
   expanded: PropTypes.bool,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 AccordionItem.defaultProps = {
   id: "accordionItem",
   expanded: false,
+  qaHook: false,
 };
 
 export default radium(AccordionItem);

@@ -50,6 +50,7 @@ const PriceRangeLabel = ({ value, style }) => (
       <span
         style={index <= (value.length - 1) ? styles.activeSymbol : {}}
         aria-hidden="true"
+        key={index}
       >
         {symbol}
       </span>

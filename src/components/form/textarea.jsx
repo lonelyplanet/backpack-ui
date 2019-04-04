@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import styles from "./styles";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 function TextArea(props) {
   const {
@@ -12,6 +13,7 @@ function TextArea(props) {
     size,
     theme,
     customStyles,
+    qaHook,
   } = props;
   const style = [styles.base];
 
@@ -35,6 +37,7 @@ function TextArea(props) {
     <textarea
       name={name || id}
       aria-label={label}
+      qa-hook={qaHook ? createQAHook(name, id, "textarea") : null}
       title={label}
       {...props}
       style={style}
@@ -67,6 +70,8 @@ TextArea.propTypes = {
 
   customStyles: propTypes.style,
 
+  qaHook: PropTypes.bool,
+
 };
 
 TextArea.defaultProps = {
@@ -89,6 +94,8 @@ TextArea.defaultProps = {
   theme: "base",
 
   onChange: null,
+
+  qaHook: false,
 };
 
 export default radium(TextArea);

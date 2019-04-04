@@ -10,6 +10,7 @@ import { darken, rgba } from "../../utils/color";
 import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const _ = { upperFirst };
 
@@ -87,6 +88,7 @@ function IconButton({
   shadow,
   transitionDuration,
   style,
+  qaHook,
 }) {
   let Element = "div";
   if (href) {
@@ -133,6 +135,7 @@ function IconButton({
         hoverColor && { ":hover": { color: hoverColor } },
         style,
       ]}
+      data-qa={qaHook ? createQAHook(label, "icon", `${Element === "a" ? "link" : Element}`) : null}
       href={href}
       onClick={onClick}
       role={role}
@@ -211,6 +214,7 @@ IconButton.propTypes = {
   shadow: PropTypes.bool,
   transitionDuration: PropTypes.string,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 IconButton.defaultProps = {
@@ -228,6 +232,7 @@ IconButton.defaultProps = {
   shadow: false,
   transitionDuration: timing.default,
   style: null,
+  qaHook: false,
 };
 
 export default radium(IconButton);

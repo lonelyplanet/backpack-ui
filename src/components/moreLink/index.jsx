@@ -6,6 +6,7 @@ import upperFirst from "lodash/upperFirst";
 import { blueLink } from "../../utils/mixins";
 import font from "../../utils/font";
 import iconFromString from "../../utils/icon";
+import createQAHook from "../../utils/createQAHook";
 
 const _ = { upperFirst };
 
@@ -68,6 +69,7 @@ function MoreLink({
   style,
   arrowDirection,
   target,
+  qaHook,
   ...rest
 }) {
   let Element = "";
@@ -103,6 +105,7 @@ function MoreLink({
         style,
       ]}
       href={href}
+      data-qa={qaHook ? createQAHook(qaHook, "morelink", `${Element === "a" ? "link" : Element}`) : null}
       target={target}
       onClick={onClick}
       {...rest}
@@ -186,6 +189,11 @@ MoreLink.propTypes = {
     "_self",
     "_top",
   ]),
+
+  /**
+   * Specifies a qa hook to leverage
+   */
+  qaHook: PropTypes.string,
 };
 
 MoreLink.defaultProps = {
@@ -198,6 +206,7 @@ MoreLink.defaultProps = {
   style: {},
   arrowDirection: "right",
   target: null,
+  qaHook: null,
 };
 
 MoreLink.styles = styles;

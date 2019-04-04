@@ -10,6 +10,7 @@ import { rgba } from "../../utils/color";
 import iconFromString from "../../utils/icon";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   alignItems: "center",
@@ -54,6 +55,7 @@ const ListButton = ({
   id,
   className,
   style,
+  qaHook,
 }) => (
   <button
     id={id}
@@ -63,6 +65,7 @@ const ListButton = ({
     title={label}
     aria-label={label}
     aria-owns={owns}
+    data-qa={qaHook ? createQAHook(label, cn("ListButton", className), "btn") : null}
   >
     {iconFromString(icon, iconProps)}
   </button>
@@ -83,6 +86,7 @@ ListButton.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 ListButton.defaultProps = {
@@ -91,6 +95,7 @@ ListButton.defaultProps = {
   id: null,
   className: null,
   style: null,
+  qaHook: false,
 };
 
 export default radium(ListButton);

@@ -240,7 +240,7 @@ function Button({
       className={cn("Button", className)}
       style={style}
       href={href}
-      data-qa={createQAHook(qaHook, cn("Button", className), "btn")}
+      data-qa={qaHook ? createQAHook(children, cn("Button", className), "btn") : null}
       onClick={onClick}
       role={role}
       disabled={disabled}
@@ -327,7 +327,7 @@ Button.propTypes = {
   /**
    * Add qa-hook to button
    */
-  qaHook: PropTypes.string,
+  qaHook: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -342,7 +342,7 @@ Button.defaultProps = {
   disabled: false,
   customStyles: null,
   className: null,
-  qaHook: null,
+  qaHook: false,
 };
 
 Button.styles = styles;

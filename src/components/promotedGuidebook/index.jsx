@@ -97,11 +97,12 @@ const styles = {
   },
 };
 
-const PromotedGuidebook = ({ title, url, imageUrl, price, description }) => (
+const PromotedGuidebook = ({ title, url, imageUrl, price, description, qaHook }) => (
   <a
     className="PromotedGuidebook"
     href={url}
     style={styles.container}
+    data-qa={qaHook ? "promoted-guidebook-link" : null}
   >
     <img
       style={styles.image}
@@ -127,7 +128,7 @@ const PromotedGuidebook = ({ title, url, imageUrl, price, description }) => (
         {description}
       </p>
 
-      <MoreLink isNested caps style={styles.moreLink}>
+      <MoreLink qaHook={qaHook ? "visit-shop-link" : null} isNested caps style={styles.moreLink}>
         Visit Shop
       </MoreLink>
     </div>
@@ -140,6 +141,7 @@ PromotedGuidebook.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   price: PropTypes.objectOf(PropTypes.string).isRequired,
   description: PropTypes.string.isRequired,
+  qaHook: PropTypes.bool,
 };
 
 PromotedGuidebook.defaultProps = {
@@ -148,6 +150,7 @@ PromotedGuidebook.defaultProps = {
   imageUrl: null,
   price: null,
   description: null,
+  qaHook: false,
 };
 
 export default radium(PromotedGuidebook);

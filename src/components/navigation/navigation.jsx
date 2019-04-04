@@ -34,7 +34,7 @@ const Navigation = (props) => {
   return (
     <nav
       className="Navigation"
-      data-qa={createQAHook(qaHook, "Navigation", "nav")}
+      data-qa={qaHook ? createQAHook(qaHook, "Navigation", "nav") : null}
       style={[
         styles.nav,
         sticky && { position: "sticky", top: 0 },
@@ -68,12 +68,12 @@ Navigation.propTypes = {
   height: PropTypes.number,
   sticky: PropTypes.bool,
   style: propTypes.style,
-  qaHook: PropTypes.string,
+  qaHook: PropTypes.bool,
 };
 
 Navigation.defaultProps = {
   height: 80,
-  qaHook: null,
+  qaHook: false,
 };
 
 export default radium(Navigation);

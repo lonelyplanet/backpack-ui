@@ -10,6 +10,7 @@ import {
   lineHeightHeading7,
 } from "../../styles/typography";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const height = 56;
 
@@ -42,13 +43,14 @@ const styles = {
 };
 
 const Input = (props) => {
-  const { innerRef, style, ...attributes } = props;
+  const { innerRef, style, qaHook, ...attributes } = props;
 
   return (
     <input
       {...attributes}
       ref={innerRef}
       style={[styles, style]}
+      data-qa={qaHook ? createQAHook(innerRef, "default", "input") : null}
     />
   );
 };
@@ -56,12 +58,14 @@ const Input = (props) => {
 Input.propTypes = {
   innerRef: PropTypes.func,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 Input.defaultProps = {
   type: "text",
   innerRef: null,
   style: null,
+  qaHook: false,
 };
 
 Input.styles = styles;
