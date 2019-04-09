@@ -2498,16 +2498,19 @@ storiesOf("Video components", module)
           title="List item 1"
           theme="light"
           imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+          qaHook={false}
         />
         <ThumbnailListItem
           title="List item 2"
           theme="light"
           imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+          qaHook={false}
         />
         <ThumbnailListItem
           title="List item 3"
           theme="light"
           imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+          qaHook={false}
         />
       </ThumbnailList>
     </StyleRoot>
@@ -2523,16 +2526,19 @@ storiesOf("Video components", module)
             title="List item 1"
             theme="dark"
             imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+            qaHook={false}
           />
           <ThumbnailListItem
             title="List item 2"
             theme="dark"
             imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+            qaHook={false}
           />
           <ThumbnailListItem
             title="List item 3"
             theme="dark"
             imagePath="https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90"
+            qaHook={false}
           />
         </ThumbnailList>
       </div>
@@ -2554,6 +2560,7 @@ storiesOf("Video components", module)
         imageIcon={text("Image icon", "Play")}
         imageIconLabel={text("Image icon label", "Play")}
         theme={select("Theme", ["light", "dark", "active"], "light")}
+        qaHook={false}
       />
     </StyleRoot>
   ))
@@ -2929,6 +2936,7 @@ storiesOf("Video components", module)
         showFeaturedVideoCover={boolean("Show featured video cover", false)}
         mobile={boolean("Mobile", false)}
         onLoadVideo={(video, autoplay) => { console.log("onLoadVideo:", video, autoplay); }}
+        qaHook={boolean("QA Hook", false)}
         videos={[
           {
             id: "5615400608001",

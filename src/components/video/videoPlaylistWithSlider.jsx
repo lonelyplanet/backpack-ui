@@ -121,6 +121,7 @@ class VideoPlaylistWithSlider extends React.Component {
       showFeaturedVideoCover,
       followVideoUrls,
       style,
+      qaHook,
     } = this.props;
 
     const { video, autoplay, enableVideoInfo } = this.state;
@@ -150,6 +151,7 @@ class VideoPlaylistWithSlider extends React.Component {
                     ...(videoEmbed.vjsLP || {}),
                   },
                 }}
+                qaHook={qaHook}
               />
             </Container>
 
@@ -202,6 +204,7 @@ class VideoPlaylistWithSlider extends React.Component {
                           imagePath={v.thumbnailImage}
                           subtitle={[duration(v.duration)]}
                           lineClamp={0}
+                          qaHook={qaHook}
                         />
                       ))}
                     </ThumbnailList>
@@ -257,6 +260,7 @@ VideoPlaylistWithSlider.propTypes = {
   showFeaturedVideoCover: PropTypes.bool.isRequired,
   followVideoUrls: PropTypes.bool,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 VideoPlaylistWithSlider.defaultProps = {
@@ -266,6 +270,7 @@ VideoPlaylistWithSlider.defaultProps = {
   showFeaturedVideoCover: false,
   videoPopout: {},
   videoEmbed: {},
+  qaHook: false,
 };
 
 export default radium(VideoPlaylistWithSlider);
