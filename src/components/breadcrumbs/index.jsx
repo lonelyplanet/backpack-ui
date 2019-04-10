@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import capitalize from "lodash/capitalize";
 import colors from "../../styles/colors";
-import { fontSizeBodySmall, fontWeightRegular } from "../../styles/typography";
+import {
+  fontSizeBodySmall,
+  fontWeightRegular,
+  lineHeightBodySmall,
+} from "../../styles/typography";
 import Icon from "../icon";
 import { blueLink } from "../../utils/mixins";
 import schema from "../../utils/schema";
@@ -20,7 +24,7 @@ const styles = {
     fontFamily: font("benton"),
     fontSize: `${fontSizeBodySmall}px`,
     fontWeight: fontWeightRegular,
-    lineHeight: 1,
+    lineHeight: lineHeightBodySmall,
   },
 
   item: {
