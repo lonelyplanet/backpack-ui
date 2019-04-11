@@ -1409,7 +1409,7 @@ storiesOf("Lockups", module)
   .addDecorator(withKnobs)
   .add("Accordion", () => (
     <StyleRoot>
-      <Accordion 
+      <Accordion
         id="storyAccordion"
         qaHook={text("Accordion QA Hook", "")}
       >
@@ -1726,6 +1726,7 @@ storiesOf("Lockups", module)
     <Center backgroundColor="white">
       <StyleRoot>
         <ShareSettings
+          mobile={boolean("Mobile", false)}
           shareContent={{
             text: "Animal islands: seven places where creatures rule",
             url: "https://www.lonelyplanet.com/asia/travel-tips-and-articles/animal-islands-seven-places-where-creatures-rule",
