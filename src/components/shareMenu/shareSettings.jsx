@@ -48,6 +48,7 @@ class ShareSettings extends React.Component {
     const isFacebook = url.indexOf("facebook.com") !== -1;
     const isPinterest = url.indexOf("pinterest.com") !== -1;
     const isReddit = url.indexOf("reddit.com") !== -1;
+    const isWhatsApp = url.indexOf("whatsapp") !== -1;
     const isTwitter = url.indexOf("twitter.com") !== -1;
     const hasTwitterWidgets = typeof window !== "undefined" &&
       typeof window.__twttr !== "undefined" &&
@@ -56,6 +57,7 @@ class ShareSettings extends React.Component {
     const shouldOpenWindow = isFacebook ||
       isPinterest ||
       isReddit ||
+      isWhatsApp ||
       (isTwitter && !hasTwitterWidgets);
 
     if (shouldOpenWindow) {
@@ -108,6 +110,8 @@ class ShareSettings extends React.Component {
   }
 
   shareUrl() {
+    const { mobile } = this.props;
+
     const {
       url,
       text,
@@ -127,7 +131,10 @@ class ShareSettings extends React.Component {
       email: `mailto:?subject=${text}&body=${description}%0A%0A${url}`,
       pinterest: `https://www.pinterest.com/pin/create/button/?url=${url}&media=${image}&description=${description}`,
       reddit: `https://www.reddit.com/submit/?url=${url}`,
-      whatsapp: `whatsapp://send?text=${description}%0A%0A${url}`,
+      whatsapp: (mobile ?
+        `whatsapp://send?text=${description}%0A%0A${url}` :
+        `https://api.whatsapp.com/send?text=${description}%0A%0A${url}`
+      ),
       weChat: weChatQr,
     };
   }
@@ -145,6 +152,7 @@ class ShareSettings extends React.Component {
 
 ShareSettings.propTypes = {
   children: PropTypes.func.isRequired,
+  mobile: PropTypes.bool,
   handleClipboardSuccess: PropTypes.func,
   handleClipboardError: PropTypes.func,
   shareContent: PropTypes.shape({
@@ -159,6 +167,7 @@ ShareSettings.propTypes = {
 };
 
 ShareSettings.defaultProps = {
+  mobile: false,
   handleClipboardSuccess: () => null,
   handleClipboardError: () => null,
 };
