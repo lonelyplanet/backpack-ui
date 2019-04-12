@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.92.9"></a>
+## [4.92.9](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.8...v4.92.9) (2019-04-12)
+
+
+### Bug Fixes
+
+* changed ShareSettings WhatsApp url for desktop ([abcaec2](https://github.com/lonelyplanet/backpack-ui/commit/abcaec2))
+* updated line height on breadcrumbs ([18dfe37](https://github.com/lonelyplanet/backpack-ui/commit/18dfe37))
+
+
+### Features
+
+* updated share urls for all networks under ShareSettings component ([113053a](https://github.com/lonelyplanet/backpack-ui/commit/113053a))
+
+
+
 <a name="4.92.8"></a>
 ## [4.92.8](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.7...v4.92.8) (2019-04-09)
 
