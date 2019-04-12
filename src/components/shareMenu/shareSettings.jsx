@@ -48,7 +48,7 @@ class ShareSettings extends React.Component {
     const isFacebook = url.indexOf("facebook.com") !== -1;
     const isPinterest = url.indexOf("pinterest.com") !== -1;
     const isReddit = url.indexOf("reddit.com") !== -1;
-    const isWhatsApp = url.indexOf("whatsapp") !== -1;
+    const isWhatsApp = url.indexOf("whatsapp.com") !== -1;
     const isTwitter = url.indexOf("twitter.com") !== -1;
     const hasTwitterWidgets = typeof window !== "undefined" &&
       typeof window.__twttr !== "undefined" &&
@@ -110,8 +110,6 @@ class ShareSettings extends React.Component {
   }
 
   shareUrl() {
-    const { mobile } = this.props;
-
     const {
       url,
       text,
@@ -122,19 +120,18 @@ class ShareSettings extends React.Component {
       weChatQr,
     } = this.formattedShareContent();
 
+    const facebookAppId = "111537044496";
+
     const twitterText = twitterContent || `${description}&url=${url}&via=${via}`;
 
     return {
       twitter: `https://twitter.com/intent/tweet?text=${twitterText}`,
-      facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-      facebookMessenger: `fb-messenger://share/?link=${url}`,
+      facebook: `https://www.facebook.com/dialog/share?app_id=${facebookAppId}&display=popup&href=${url}`,
+      facebookMessenger: `fb-messenger://share/?link=${url}&app_id=${facebookAppId}`,
       email: `mailto:?subject=${text}&body=${description}%0A%0A${url}`,
       pinterest: `https://www.pinterest.com/pin/create/button/?url=${url}&media=${image}&description=${description}`,
-      reddit: `https://www.reddit.com/submit/?url=${url}`,
-      whatsapp: (mobile ?
-        `whatsapp://send?text=${description}%0A%0A${url}` :
-        `https://api.whatsapp.com/send?text=${description}%0A%0A${url}`
-      ),
+      reddit: `https://www.reddit.com/submit/?url=${url}&title=${description}`,
+      whatsapp: `https://api.whatsapp.com/send?text=${description}%0A%0A${url}`,
       weChat: weChatQr,
     };
   }
@@ -152,7 +149,6 @@ class ShareSettings extends React.Component {
 
 ShareSettings.propTypes = {
   children: PropTypes.func.isRequired,
-  mobile: PropTypes.bool,
   handleClipboardSuccess: PropTypes.func,
   handleClipboardError: PropTypes.func,
   shareContent: PropTypes.shape({
@@ -167,7 +163,6 @@ ShareSettings.propTypes = {
 };
 
 ShareSettings.defaultProps = {
-  mobile: false,
   handleClipboardSuccess: () => null,
   handleClipboardError: () => null,
 };
