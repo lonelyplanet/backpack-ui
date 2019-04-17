@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.92.10"></a>
+## [4.92.10](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.9...v4.92.10) (2019-04-17)
+
+
+### Bug Fixes
+
+* update react-slick, update link ([#755](https://github.com/lonelyplanet/backpack-ui/issues/755)) ([0fbb083](https://github.com/lonelyplanet/backpack-ui/commit/0fbb083))
+
+
+
 <a name="4.92.9"></a>
 ## [4.92.9](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.8...v4.92.9) (2019-04-12)
 
