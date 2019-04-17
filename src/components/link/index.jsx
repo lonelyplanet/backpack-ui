@@ -5,12 +5,13 @@ import createQAHook from "../../utils/createQAHook";
 
 const isExternal = (url) => /^(http|https):\/\//.test(url || "");
 
-const Link = ({ to, onClick, children, qaHook }) => (
+const Link = ({ to, onClick, children, qaHook, className }) => (
   isExternal(to) || (!to && onClick) ?
     <a
       href={to}
       data-qa={qaHook ? createQAHook(`${qaHook}`, "external-link", "link") : null}
       onClick={onClick}
+      className={className}
     >
       {children}
     </a>
@@ -29,10 +30,12 @@ Link.propTypes = {
     PropTypes.element,
   ]),
   qaHook: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Link.defaultProps = {
   qaHook: null,
+  className: "",
 };
 
 export default Link;
