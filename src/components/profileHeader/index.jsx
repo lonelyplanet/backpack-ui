@@ -217,7 +217,7 @@ class ProfileHeader extends React.Component {
                     <a
                       href={websiteParser.href}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                     >
                       {`${websiteParser.hostname.replace("www.", "")}${websiteParser.pathname}`}
                     </a>
