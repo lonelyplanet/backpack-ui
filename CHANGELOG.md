@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.94.0"></a>
+# [4.94.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.93.0...v4.94.0) (2019-04-19)
+
+
+### Features
+
+* add nofollow ([#757](https://github.com/lonelyplanet/backpack-ui/issues/757)) ([55e2791](https://github.com/lonelyplanet/backpack-ui/commit/55e2791))
+
+
+
 <a name="4.93.0"></a>
 # [4.93.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.92.10...v4.93.0) (2019-04-17)
 
