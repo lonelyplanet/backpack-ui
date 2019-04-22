@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.94.1"></a>
+## [4.94.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.0...v4.94.1) (2019-04-22)
+
+
+### Bug Fixes
+
+* change qahook propType to string to fix mismatch error ([#758](https://github.com/lonelyplanet/backpack-ui/issues/758)) ([8677c70](https://github.com/lonelyplanet/backpack-ui/commit/8677c70))
+
+
+
 <a name="4.94.0"></a>
 # [4.94.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.93.0...v4.94.0) (2019-04-19)
 
