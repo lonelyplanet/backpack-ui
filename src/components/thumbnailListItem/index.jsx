@@ -312,13 +312,13 @@ ThumbnailListItem.propTypes = {
   lineClamp: PropTypes.number,
   theme: PropTypes.oneOf(["light", "dark", "active"]),
   style: propTypes.style,
-  qaHook: PropTypes.bool,
+  qaHook: PropTypes.string,
 };
 
 ThumbnailListItem.defaultProps = {
   theme: "light",
   lineClamp: 1,
-  qaHook: false,
+  qaHook: null,
 };
 
 export default radium(ThumbnailListItem);

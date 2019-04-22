@@ -501,7 +501,7 @@ VideoPlaylist.propTypes = {
   onLoadVideo: PropTypes.func,
   mobile: PropTypes.bool,
   style: propTypes.style,
-  qaHook: PropTypes.bool,
+  qaHook: PropTypes.string,
 };
 
 VideoPlaylist.defaultProps = {
@@ -511,7 +511,7 @@ VideoPlaylist.defaultProps = {
   hideList: false,
   videoPopout: {},
   videoEmbed: {},
-  qaHook: false,
+  qaHook: null,
 };
 
 export default radium(VideoPlaylist);
