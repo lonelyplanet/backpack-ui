@@ -176,7 +176,7 @@ function Price({
   parent,
   poiType,
   style,
-  qaHook,
+  qahook,
 }) {
   return (
     <div
@@ -253,7 +253,7 @@ function Price({
 
       {rate &&
         <div
-          data-qa={qaHook ? "rate-div" : null}
+          data-qa={qahook ? "rate-div" : null}
           className="Price-rate"
           style={[
             styles.rate.base,
@@ -355,7 +355,7 @@ Price.propTypes = {
   /**
    * QA Hook
    */
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 Price.defaultProps = {
@@ -368,7 +368,7 @@ Price.defaultProps = {
   tag: false,
   parent: "",
   poiType: "",
-  qaHook: false,
+  qahook: false,
 };
 
 Price.styles = styles;

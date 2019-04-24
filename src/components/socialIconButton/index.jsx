@@ -41,7 +41,7 @@ function SocialIconButton({
   id,
   className,
   style,
-  qaHook,
+  qahook,
 }) {
   const size = (iconSize * sizeMultiplier);
 
@@ -76,7 +76,7 @@ function SocialIconButton({
       onClick={onClick}
       style={[styles, style]}
       data-network={network}
-      data-qa={qaHook ? createQAHook(network, "social-icon", "link") : null}
+      data-qa={qahook ? createQAHook(network, "social-icon", "link") : null}
     >
       {iconFromString(iconNames[network])}
     </a>
@@ -100,7 +100,7 @@ SocialIconButton.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 SocialIconButton.defaultProps = {
@@ -108,7 +108,7 @@ SocialIconButton.defaultProps = {
   href: null,
   onClick: null,
   iconSize: 16,
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(SocialIconButton);

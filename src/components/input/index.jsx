@@ -43,14 +43,14 @@ const styles = {
 };
 
 const Input = (props) => {
-  const { innerRef, style, qaHook, ...attributes } = props;
+  const { innerRef, style, qahook, ...attributes } = props;
 
   return (
     <input
       {...attributes}
       ref={innerRef}
       style={[styles, style]}
-      data-qa={qaHook ? createQAHook(innerRef, "default", "input") : null}
+      data-qa={qahook ? createQAHook(innerRef, "default", "input") : null}
     />
   );
 };
@@ -58,14 +58,14 @@ const Input = (props) => {
 Input.propTypes = {
   innerRef: PropTypes.func,
   style: propTypes.style,
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 Input.defaultProps = {
   type: "text",
   innerRef: null,
   style: null,
-  qaHook: false,
+  qahook: false,
 };
 
 Input.styles = styles;

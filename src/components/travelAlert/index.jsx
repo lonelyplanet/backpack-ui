@@ -48,12 +48,12 @@ const markup = (htmlContent) => ({
   __html: htmlContent,
 });
 
-const TravelAlert = ({ children, style, qaHook }) => (
+const TravelAlert = ({ children, style, qahook }) => (
   <div
     className="TravelAlert"
     style={[styles, style]}
     role="status"
-    data-qa={qaHook ? "travel-alert" : null}
+    data-qa={qahook ? "travel-alert" : null}
   >
     <Style
       scopeSelector=".TravelAlert"
@@ -69,11 +69,11 @@ const TravelAlert = ({ children, style, qaHook }) => (
 TravelAlert.propTypes = {
   children: PropTypes.node.isRequired,
   style: propTypes.style,
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 TravelAlert.defaultProps = {
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(TravelAlert);

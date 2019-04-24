@@ -18,7 +18,7 @@ function Select({
   noBorder,
   style,
   onChange,
-  qaHook,
+  qahook,
 }) {
   return (
     <select
@@ -32,7 +32,7 @@ function Select({
         noBorder && styles.noBorder,
         style,
       ]}
-      data-qa={qaHook ? createQAHook(name, id, "select") : null}
+      data-qa={qahook ? createQAHook(name, id, "select") : null}
       className={cn("Select", className)}
       id={id}
       name={name || id}
@@ -55,7 +55,7 @@ function Select({
             <option
               value={option.value}
               key={option.value}
-              data-qa={qaHook ? createQAHook(option.value, `${index}`, "option") : null}
+              data-qa={qahook ? createQAHook(option.value, `${index}`, "option") : null}
             >
               {option.label}
             </option>
@@ -66,7 +66,7 @@ function Select({
           <option
             value={option}
             key={option}
-            data-qa={qaHook ? createQAHook(option.value, `${index}`, "option") : null}
+            data-qa={qahook ? createQAHook(option.value, `${index}`, "option") : null}
           >
             {option}
           </option>
@@ -132,7 +132,7 @@ Select.propTypes = {
   /**
    * Boolean value to handle qa hooks being on
    */
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 Select.defaultProps = {
@@ -156,7 +156,7 @@ Select.defaultProps = {
 
   style: {},
 
-  qaHook: false,
+  qahook: false,
 };
 
 Select.styles = styles;

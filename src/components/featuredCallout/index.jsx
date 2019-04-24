@@ -106,7 +106,7 @@ const FeaturedCallout = ({
   smallFormat,
   hideLinkBreakpoint,
   style,
-  qaHook,
+  qahook,
 }) => (
   <div
     className="FeaturedCallout"
@@ -129,7 +129,7 @@ const FeaturedCallout = ({
         { fontWeight: titleWeight },
       ]}
     >
-      <a href={link.href} style={styles.titleLink} data-qa={qaHook ? createQAHook(title, "feature-callout", "link") : null}>
+      <a href={link.href} style={styles.titleLink} data-qa={qahook ? createQAHook(title, "feature-callout", "link") : null}>
         {title}
       </a>
     </Heading>
@@ -159,7 +159,7 @@ FeaturedCallout.propTypes = {
   smallFormat: PropTypes.bool,
   hideLinkBreakpoint: PropTypes.number,
   style: PropTypes.oneOfType([PropTypes.object]),
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 FeaturedCallout.defaultProps = {
@@ -167,7 +167,7 @@ FeaturedCallout.defaultProps = {
   titleWeight: 600,
   smallFormat: false,
   style: null,
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(FeaturedCallout);

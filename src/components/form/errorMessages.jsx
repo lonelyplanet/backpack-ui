@@ -13,8 +13,8 @@ const styles = {
   },
 };
 
-const ErrorMessages = ({ messages, style, qaHook }) => (
-  <div data-qa={qaHook ? "error-msgs" : false} style={[styles.base, style && style]}>
+const ErrorMessages = ({ messages, style, qahook }) => (
+  <div data-qa={qahook ? "error-msgs" : false} style={[styles.base, style && style]}>
     {messages.map((errorMessage, i) => <p key={i}>{errorMessage}</p>)}
   </div>
 );
@@ -28,11 +28,11 @@ ErrorMessages.propTypes = {
       PropTypes.object,
     ]),
   ),
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 ErrorMessages.defaultProps = {
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(ErrorMessages);

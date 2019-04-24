@@ -102,7 +102,7 @@ class CheckboxComponent extends Component {
       removeBorder,
       innerRef,
       style,
-      qaHook,
+      qahook,
     } = this.props;
 
     const textPadding = {
@@ -175,7 +175,7 @@ class CheckboxComponent extends Component {
             ]}
             value={value}
             name={_.kebabCase(name)}
-            data-qa={qaHook ? `${_.kebabCase(id)}-input` : null}
+            data-qa={qahook ? `${_.kebabCase(id)}-input` : null}
             onClick={onClick}
             required={required && !checked}
           />
@@ -202,7 +202,7 @@ CheckboxComponent.propTypes = {
   removeBorder: PropTypes.bool,
   innerRef: PropTypes.func,
   style: propTypes.style,
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 CheckboxComponent.defaultProps = {
@@ -214,7 +214,7 @@ CheckboxComponent.defaultProps = {
   rounded: false,
   removeBorder: false,
   innerRef: null,
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(CheckboxComponent);

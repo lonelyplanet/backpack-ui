@@ -49,16 +49,16 @@ const styles = {
   },
 };
 
-function Dropdown({ options, defaultValue, onChange, size, qaHook }) {
+function Dropdown({ options, defaultValue, onChange, size, qahook }) {
   return (
     <select
       style={[styles.container.base, size && styles.container.size[size]]}
       defaultValue={defaultValue}
       onChange={onChange}
-      data-qa={qaHook ? createQAHook(defaultValue, "select", "select") : null}
+      data-qa={qahook ? createQAHook(defaultValue, "select", "select") : null}
     >
       {options.map((option, i) => (
-        <option value={option} key={i} data-qa={qaHook ? createQAHook(option, `${i}`, "option") : null}>
+        <option value={option} key={i} data-qa={qahook ? createQAHook(option, `${i}`, "option") : null}>
           {option}
         </option>
       ))}
@@ -93,7 +93,7 @@ Dropdown.propTypes = {
   /**
    * A custom data attribute to adjust for automation testing
    */
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {
@@ -101,7 +101,7 @@ Dropdown.defaultProps = {
   defaultValue: "",
   onChange: null,
   size: "",
-  qaHook: false,
+  qahook: false,
 };
 
 Dropdown.styles = styles;

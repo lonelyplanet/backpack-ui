@@ -4,7 +4,7 @@ import radium from "radium";
 import styles from "./styles";
 import createQAHook from "../../utils/createQAHook";
 
-function DatePicker({ id, name, required, size, theme, qaHook }) {
+function DatePicker({ id, name, required, size, theme, qahook }) {
   const style = [styles.base];
 
   style.push(styles.element.input.base);
@@ -25,7 +25,7 @@ function DatePicker({ id, name, required, size, theme, qaHook }) {
       type="text"
       id={id}
       name={name || id}
-      data-qa={qaHook ? createQAHook(name, id, "input") : null}
+      data-qa={qahook ? createQAHook(name, id, "input") : null}
       required={required}
     />
   );
@@ -52,7 +52,7 @@ DatePicker.propTypes = {
     "dark",
   ]),
 
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 DatePicker.defaultProps = {
@@ -66,7 +66,7 @@ DatePicker.defaultProps = {
 
   theme: "base",
 
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(DatePicker);

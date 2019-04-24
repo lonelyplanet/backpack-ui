@@ -43,7 +43,7 @@ class MagicLinkForm extends Component {
   }
 
   render() {
-    const { qaHook } = this.props;
+    const { qahook } = this.props;
 
     return (
       <Validate>
@@ -71,7 +71,7 @@ class MagicLinkForm extends Component {
               {errorMessages.email && errorMessages.email.length > 0 &&
                 <ErrorMessages
                   messages={errorMessages.email}
-                  qaHook={qaHook}
+                  qahook={qahook}
                 />
               }
               {this.props.disclaimer}
@@ -80,7 +80,7 @@ class MagicLinkForm extends Component {
               onClick={this.handleSubmit}
               rounded
               disabled={errorCount !== 0}
-              data-qa={qaHook ? "email-me-link-btn" : null}
+              data-qa={qahook ? "email-me-link-btn" : null}
             >
               Email me a link to sign in
             </Button>
@@ -94,11 +94,11 @@ class MagicLinkForm extends Component {
 MagicLinkForm.propTypes = {
   disclaimer: PropTypes.element.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 MagicLinkForm.defaultProps = {
-  qaHook: false,
+  qahook: false,
 };
 
 export default MagicLinkForm;

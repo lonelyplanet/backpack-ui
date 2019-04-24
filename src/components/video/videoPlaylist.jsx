@@ -338,7 +338,6 @@ class VideoPlaylist extends Component {
       showFeaturedVideoCover,
       mobile,
       style,
-      qaHook,
     } = this.props;
 
     const { autoplay, childStyles } = this.state;
@@ -456,7 +455,6 @@ class VideoPlaylist extends Component {
                             styles.thumbnailListItem,
                             childStyles[v.id],
                           ]}
-                          qaHook={qaHook}
                         />
                       </div>
                     ))}
@@ -501,7 +499,6 @@ VideoPlaylist.propTypes = {
   onLoadVideo: PropTypes.func,
   mobile: PropTypes.bool,
   style: propTypes.style,
-  qaHook: PropTypes.string,
 };
 
 VideoPlaylist.defaultProps = {
@@ -511,7 +508,6 @@ VideoPlaylist.defaultProps = {
   hideList: false,
   videoPopout: {},
   videoEmbed: {},
-  qaHook: null,
 };
 
 export default radium(VideoPlaylist);

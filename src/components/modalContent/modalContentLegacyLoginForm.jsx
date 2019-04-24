@@ -47,14 +47,14 @@ class LegacyForm extends React.Component {
   }
 
   render() {
-    const { qaHook } = this.props;
+    const { qahook } = this.props;
 
     return (
       <div style={styles.container}>
         <Validate>
           {({ validate, errorMessages }) => (
             <form
-              data-qa={qaHook ? "legacy-login-form" : null}
+              data-qa={qahook ? "legacy-login-form" : null}
               action={this.props.authLink}
               ref={(node) => {
                 this.form = node;
@@ -69,7 +69,7 @@ class LegacyForm extends React.Component {
                   type="text"
                   name="user_identifier"
                   required
-                  qaHook={qaHook}
+                  qahook={qahook}
                   customStyles={styles.input}
                   error={errorMessages.user_identifier && errorMessages.user_identifier.length > 0}
                   placeholder="Email or username"
@@ -86,7 +86,7 @@ class LegacyForm extends React.Component {
                   name="password"
                   placeholder="Password"
                   required
-                  qaHook={qaHook}
+                  qahook={qahook}
                   customStyles={styles.input}
                   error={errorMessages.password && errorMessages.password.length > 0}
                   onChange={(e) => {
@@ -98,17 +98,17 @@ class LegacyForm extends React.Component {
                 {
                   errorMessages.user_identifier &&
                   errorMessages.user_identifier.length > 0 &&
-                  <ErrorMessages qaHook={qaHook} messages={["Username/Email is required"]} />
+                  <ErrorMessages qahook={qahook} messages={["Username/Email is required"]} />
                 }
                 {
                   errorMessages.password &&
                   errorMessages.password.length > 0 &&
-                  <ErrorMessages qaHook={qaHook} messages={errorMessages.password} />
+                  <ErrorMessages qahook={qahook} messages={errorMessages.password} />
                 }
               </div>
               <Button
                 rounded
-                qaHook={qaHook}
+                qahook={qahook}
               >
                 Submit
               </Button>
@@ -122,11 +122,11 @@ class LegacyForm extends React.Component {
 
 LegacyForm.propTypes = {
   authLink: PropTypes.string.isRequired,
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 LegacyForm.defaultProps = {
-  qaHook: false,
+  qahook: false,
 };
 
 export default LegacyForm;

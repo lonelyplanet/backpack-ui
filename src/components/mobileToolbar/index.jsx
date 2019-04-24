@@ -81,7 +81,7 @@ const styles = {
   },
 };
 
-function MobileToolbar({ children, location, locationUrl, selectedDates, style, qaHook }) {
+function MobileToolbar({ children, location, locationUrl, selectedDates, style, qahook }) {
   return (
     <div className="MobileToolbar" style={[styles.container.base, style]}>
       {(selectedDates || location) &&
@@ -92,7 +92,7 @@ function MobileToolbar({ children, location, locationUrl, selectedDates, style, 
             </span>
           } {location && locationUrl &&
             <a
-              data-qa={qaHook ? "location" : null}
+              data-qa={qahook ? "location" : null}
               style={styles.anchor.base}
               href={`//lonelyplanet.com${locationUrl}`}
             >
@@ -165,7 +165,7 @@ MobileToolbar.propTypes = {
   /**
    * Ability to use custom data hook for QA purposes
    */
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 MobileToolbar.defaultProps = {
@@ -179,7 +179,7 @@ MobileToolbar.defaultProps = {
 
   style: {},
 
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(MobileToolbar);

@@ -68,7 +68,7 @@ class Checkbox extends Component {
         {...this.props}
         checked={this.state.checked}
         onClick={this.onClick}
-        qaHook={this.props.qaHook}
+        qahook={this.props.qahook}
         innerRef={node => (this.checkbox = node)}
       />
     );
@@ -78,11 +78,11 @@ class Checkbox extends Component {
 Checkbox.propTypes = {
   checked: PropTypes.bool,
   onClick: PropTypes.func,
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 Checkbox.defaultProps = {
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(Checkbox);

@@ -46,7 +46,7 @@ function PoiPaginator({
   neighborhood,
   place,
   onClick,
-  qaHook,
+  qahook,
 }) {
   let TopChoiceText;
   let PlaceText;
@@ -113,7 +113,7 @@ function PoiPaginator({
           size="small"
           arrow="triangle"
           onClick={onClick}
-          qaHook={qaHook}
+          qahook={qahook}
         />
       </div>
     </div>
@@ -154,7 +154,7 @@ PoiPaginator.propTypes = {
   /**
    * Custom QA Hook to handle automated checks
    */
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 PoiPaginator.defaultProps = {
@@ -164,7 +164,7 @@ PoiPaginator.defaultProps = {
   neighborhood: "",
   place: "",
   onClick: null,
-  qaHook: false,
+  qahook: false,
 };
 
 PoiPaginator.styles = styles;

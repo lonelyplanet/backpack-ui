@@ -60,7 +60,7 @@ const socialNavigate = (path) => {
   window.location = `https://auth.lonelyplanet.com/users/auth/${path}`;
 };
 
-const ModalContentSocialAuth = ({ message, style, qaHook }) => (
+const ModalContentSocialAuth = ({ message, style, qahook }) => (
   <div style={[styles.container, style]} className="ModalContentSocialAuth">
     <Logo style={styles.logo} />
 
@@ -73,7 +73,7 @@ const ModalContentSocialAuth = ({ message, style, qaHook }) => (
         style={styles.button}
         iconName="FacebookBlockColor"
         onClick={() => socialNavigate("facebook")}
-        qaHook={qaHook}
+        qahook={qahook}
       >
         Continue with Facebook
       </SocialLoginButton>
@@ -82,7 +82,7 @@ const ModalContentSocialAuth = ({ message, style, qaHook }) => (
         style={styles.button}
         iconName="TwitterColor"
         onClick={() => socialNavigate("twitter")}
-        qaHook={qaHook}
+        qahook={qahook}
       >
         Continue with Twitter
       </SocialLoginButton>
@@ -91,7 +91,7 @@ const ModalContentSocialAuth = ({ message, style, qaHook }) => (
         style={styles.button}
         iconName="GoogleColor"
         onClick={() => socialNavigate("google_oauth2")}
-        qaHook={qaHook}
+        qahook={qahook}
       >
         Continue with Google
       </SocialLoginButton>
@@ -100,7 +100,7 @@ const ModalContentSocialAuth = ({ message, style, qaHook }) => (
         caps
         size="small"
         style={styles.moreLink}
-        qaHook={qaHook ? "sign-in-link" : null}
+        qahook={qahook ? "sign-in-link" : null}
         href="https://auth.lonelyplanet.com/users/sign_in"
       >
         Sign in or sign up with email
@@ -116,12 +116,12 @@ const ModalContentSocialAuth = ({ message, style, qaHook }) => (
 ModalContentSocialAuth.propTypes = {
   message: PropTypes.string.isRequired,
   style: propTypes.style,
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 ModalContentSocialAuth.defaultProps = {
   message: "Sign Up / Sign In",
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(ModalContentSocialAuth);

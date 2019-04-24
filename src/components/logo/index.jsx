@@ -31,10 +31,10 @@ const styles = {
   },
 };
 
-const Logo = ({ href, color, className, style, qaHook }) => (
+const Logo = ({ href, color, className, style, qahook }) => (
   <a
     className={cn("Logo", className)}
-    data-qa={qaHook ? "logo" : null}
+    data-qa={qahook ? "logo" : null}
     style={[styles.anchor, { color: colours[color] }, style]}
     href={href}
   >
@@ -47,13 +47,13 @@ Logo.propTypes = {
   color: PropTypes.oneOf(["blue", "gray", "grey", "white"]),
   className: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 Logo.defaultProps = {
   href: "/",
   color: "blue",
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(Logo);

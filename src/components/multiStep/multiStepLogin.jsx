@@ -40,14 +40,14 @@ const MultiStepLogin = ({
   authActions,
   showLogo,
   doneAction,
-  qaHook,
+  qahook,
 }) => {
   const SocialDisclaimer = (
     <AuthDisclaimer style={styles.disclaimerBelowButton}>
       {authActions.password && <p>
         <span style={styles.legacyText}>Or sign in with a legacy </span>
         <button
-          data-qa={qaHook ? "legacy-username-password-btn" : null}
+          data-qa={qahook ? "legacy-username-password-btn" : null}
           style={styles.legacyButton}
           onClick={(event) => {
             setStep(3);
@@ -58,22 +58,22 @@ const MultiStepLogin = ({
         </button>.
       </p>}
       Lonely Planet uses cookies to improve your
-      experience, see our <a href="https://www.lonelyplanet.com/legal/cookies/" data-qa={qaHook ? "cookie-policy-link" : null}>Cookie Policy</a>.
+      experience, see our <a href="https://www.lonelyplanet.com/legal/cookies/" data-qa={qahook ? "cookie-policy-link" : null}>Cookie Policy</a>.
       Having trouble signing in?
-      See <a href="https://support.lonelyplanet.com/hc/en-us/sections/115003521167-Lonely-Planet-Profiles" data-qa={qaHook ? "account-help-link" : null} target="_blank" rel="noopener noreferrer">Account help</a>.
+      See <a href="https://support.lonelyplanet.com/hc/en-us/sections/115003521167-Lonely-Planet-Profiles" data-qa={qahook ? "account-help-link" : null} target="_blank" rel="noopener noreferrer">Account help</a>.
     </AuthDisclaimer>
   );
 
   const EmailDisclaimer = (
     <AuthDisclaimer style={styles.disclaimerAboveButton}>
-      By clicking next below and creating an account, you agree to our <a href="https://www.lonelyplanet.com/legal/website-terms/" data-qa={qaHook ? "tos-link" : null}>terms of service</a> and
-       that you're happy for Lonely Planet to use your information as set out in our <a href="https://www.lonelyplanet.com/legal/privacy-policy/" data-qa={qaHook ? "privacy-policy-link" : null}>privacy policy</a> (including our <a href="https://www.lonelyplanet.com/legal/cookies/">cookie use</a>).
+      By clicking next below and creating an account, you agree to our <a href="https://www.lonelyplanet.com/legal/website-terms/" data-qa={qahook ? "tos-link" : null}>terms of service</a> and
+       that you're happy for Lonely Planet to use your information as set out in our <a href="https://www.lonelyplanet.com/legal/privacy-policy/" data-qa={qahook ? "privacy-policy-link" : null}>privacy policy</a> (including our <a href="https://www.lonelyplanet.com/legal/cookies/">cookie use</a>).
     </AuthDisclaimer>
   );
 
   const LegacyDisclaimer = (
     <AuthDisclaimer style={styles.disclaimerBelowButton}>
-      <a href="https://auth.lonelyplanet.com/users/password/new/" data-qa={qaHook ? "forgot-password-link" : null}>Forgot your password?</a> Please
+      <a href="https://auth.lonelyplanet.com/users/password/new/" data-qa={qahook ? "forgot-password-link" : null}>Forgot your password?</a> Please
       contact <a href="mailto:community@lonelyplanet.com">community@lonelyplanet.com</a> for additional assistance if you do not receive an email from us soon. Be sure to check your spam or junk folder, just in case.
     </AuthDisclaimer>
   );
@@ -137,7 +137,7 @@ const MultiStepLogin = ({
           size="small"
           onClick={doneAction}
           rounded
-          data-qa={qaHook ? "ok-btn" : null}
+          data-qa={qahook ? "ok-btn" : null}
         >
           Ok
         </Button>
@@ -158,11 +158,11 @@ MultiStepLogin.propTypes = {
   }),
   showLogo: PropTypes.bool,
   doneAction: PropTypes.func,
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 MultiStepLogin.defaultProps = {
-  qaHook: false,
+  qahook: false,
 };
 
 export default MultiStepLogin;

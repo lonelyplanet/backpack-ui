@@ -92,9 +92,9 @@ const styles = {
   },
 };
 
-function TabbedNav({ items, onClick, active, qaHook }) {
+function TabbedNav({ items, onClick, active, qahook }) {
   return (
-    <nav className="TabbedNav" data-qa={qaHook ? "tabbed-nav" : null} style={styles.container}>
+    <nav className="TabbedNav" data-qa={qahook ? "tabbed-nav" : null} style={styles.container}>
       <Style
         scopeSelector=".TabbedNav"
         rules={styles.scoped}
@@ -102,7 +102,7 @@ function TabbedNav({ items, onClick, active, qaHook }) {
 
       <Sticky innerZ={zIndex.globalHeader} enabled>
         <div style={styles.innerContainer}>
-          <ul style={styles.list} data-qa={qaHook ? "tabbed-nav-ul" : null}>
+          <ul style={styles.list} data-qa={qahook ? "tabbed-nav-ul" : null}>
             {items && items.map((item, index) => (
               <li
                 style={[
@@ -110,7 +110,7 @@ function TabbedNav({ items, onClick, active, qaHook }) {
                   item === active ? styles.listItem.active : null,
                 ]}
                 key={index}
-                data-qa={qaHook ? createQAHook(`${item}`, `tabbed-nav-li-${index}`, "li") : null}
+                data-qa={qahook ? createQAHook(`${item}`, `tabbed-nav-li-${index}`, "li") : null}
               >
                 <button onClick={onClick} >
                   {item}
@@ -128,11 +128,11 @@ TabbedNav.propTypes = {
   items: PropTypes.arrayOf(PropTypes.string).isRequired,
   onClick: PropTypes.func,
   active: PropTypes.string,
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 TabbedNav.defaultProps = {
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(TabbedNav);

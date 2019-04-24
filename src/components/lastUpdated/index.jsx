@@ -17,14 +17,14 @@ const styles = {
 /**
  * LastUpdated component
  */
-function LastUpdated({ date, editUrl, qaHook }) {
+function LastUpdated({ date, editUrl, qahook }) {
   return (
     <div
       className="LastUpdated"
       style={styles.base}
     >
       <p>
-        Last updated {date}. {editUrl && <a data-qa={qaHook ? "suggest-an-edit-last-updated-link" : null} href={editUrl}>Suggest an edit.</a>}
+        Last updated {date}. {editUrl && <a data-qa={qahook ? "suggest-an-edit-last-updated-link" : null} href={editUrl}>Suggest an edit.</a>}
       </p>
     </div>
   );
@@ -41,7 +41,7 @@ LastUpdated.propTypes = {
    */
   editUrl: PropTypes.string,
 
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 LastUpdated.defaultProps = {
@@ -49,7 +49,7 @@ LastUpdated.defaultProps = {
 
   editUrl: "",
 
-  qaHook: false,
+  qahook: false,
 };
 
 LastUpdated.styles = styles;

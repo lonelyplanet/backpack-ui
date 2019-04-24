@@ -76,7 +76,7 @@ function SightsListItem({
   markerNumber,
   onMouseEnter,
   onMouseLeave,
-  qaHook,
+  qahook,
 }) {
   return (
     <a
@@ -84,7 +84,7 @@ function SightsListItem({
       href={slug}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      data-qa={qaHook ? createQAHook(title, "sight", "link") : null}
+      data-qa={qahook ? createQAHook(title, "sight", "link") : null}
     >
       <div style={styles.imageContainer}>
         {imgPath && <div style={[styles.image, { backgroundImage: `url(${imgPath})` }]} />}
@@ -146,7 +146,7 @@ SightsListItem.propTypes = {
   /**
    * QA Hook
    */
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 SightsListItem.defaultProps = {
@@ -158,7 +158,7 @@ SightsListItem.defaultProps = {
 
   style: null,
 
-  qaHook: false,
+  qahook: false,
 };
 
 SightsListItem.styles = styles;

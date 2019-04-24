@@ -13,7 +13,7 @@ function TextArea(props) {
     size,
     theme,
     customStyles,
-    qaHook,
+    qahook,
   } = props;
   const style = [styles.base];
 
@@ -37,7 +37,7 @@ function TextArea(props) {
     <textarea
       name={name || id}
       aria-label={label}
-      qa-hook={qaHook ? createQAHook(name, id, "textarea") : null}
+      qa-hook={qahook ? createQAHook(name, id, "textarea") : null}
       title={label}
       {...props}
       style={style}
@@ -70,7 +70,7 @@ TextArea.propTypes = {
 
   customStyles: propTypes.style,
 
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 
 };
 
@@ -95,7 +95,7 @@ TextArea.defaultProps = {
 
   onChange: null,
 
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(TextArea);

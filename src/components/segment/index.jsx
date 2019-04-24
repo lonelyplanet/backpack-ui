@@ -52,12 +52,12 @@ const Segment = ({
   showAbove,
   children,
   style,
-  qaHook,
+  qahook,
 }) => (
   <div
     className="Segmented"
     id={id}
-    data-qa={qaHook}
+    data-qa={qahook}
     style={[
       styles.container.default,
       border && styles.container.hasBorder,
@@ -87,11 +87,11 @@ Segment.propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]),
-  qaHook: PropTypes.string,
+  qahook: PropTypes.string,
 };
 
 Segment.defaultProps = {
-  qaHook: null,
+  qahook: null,
 };
 
 export default radium(Segment);

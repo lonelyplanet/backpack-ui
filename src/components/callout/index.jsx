@@ -129,7 +129,7 @@ const styles = {
   },
 };
 
-function Callout({ type, heading, slug, image, price, description, category, align, qaHook }) {
+function Callout({ type, heading, slug, image, price, description, category, align, qahook }) {
   return (
     <div
       className="Callout"
@@ -144,7 +144,7 @@ function Callout({ type, heading, slug, image, price, description, category, ali
           type && styles.image.type[type],
         ]}
       >
-        <a href={slug} style={styles.image.anchor} data-qa={qaHook ? createQAHook(`${heading}-image`, "callout-image", "link") : null}>
+        <a href={slug} style={styles.image.anchor} data-qa={qahook ? createQAHook(`${heading}-image`, "callout-image", "link") : null}>
           <img
             style={styles.image.img}
             src={image}
@@ -172,7 +172,7 @@ function Callout({ type, heading, slug, image, price, description, category, ali
           weight="thick"
           override={styles.heading.base}
         >
-          <a href={slug} style={{ color: "inherit" }} data-qa={qaHook ? createQAHook(`${heading}-header`, "callout-header", "link") : null}>
+          <a href={slug} style={{ color: "inherit" }} data-qa={qahook ? createQAHook(`${heading}-header`, "callout-header", "link") : null}>
             {heading}
           </a>
         </Heading>
@@ -204,7 +204,7 @@ function Callout({ type, heading, slug, image, price, description, category, ali
             href={slug}
             size="small"
             caps
-            qaHook={qaHook ? `${type}-more` : null}
+            qahook={qahook ? `${type}-more` : null}
           >
             Learn more
           </MoreLink>
@@ -237,7 +237,7 @@ Callout.propTypes = {
     "center",
   ]),
 
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 Callout.defaultProps = {
@@ -249,7 +249,7 @@ Callout.defaultProps = {
   description: "",
   category: "",
   align: "",
-  qaHook: false,
+  qahook: false,
 };
 
 Callout.styles = styles;

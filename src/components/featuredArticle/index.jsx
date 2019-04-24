@@ -85,7 +85,7 @@ const styles = {
   },
 };
 
-const FeaturedArticle = ({ article, constrained, style, qaHook }) => (
+const FeaturedArticle = ({ article, constrained, style, qahook }) => (
   <div
     className="FeaturedArticle"
     style={[
@@ -119,7 +119,7 @@ const FeaturedArticle = ({ article, constrained, style, qaHook }) => (
         >
           <FeaturedCallout
             {...article}
-            qaHook={qaHook}
+            qahook={qahook}
             hideLinkBreakpoint={720}
           />
         </div>
@@ -143,12 +143,12 @@ FeaturedArticle.propTypes = {
   }).isRequired,
   constrained: PropTypes.bool,
   style: propTypes.style,
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 FeaturedArticle.defaultProps = {
   constrained: false,
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(FeaturedArticle);

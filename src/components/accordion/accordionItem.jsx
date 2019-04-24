@@ -71,7 +71,7 @@ const styles = {
   },
 };
 
-const AccordionItem = ({ heading, content, id, expanded, onClick, style, qaHook }) => (
+const AccordionItem = ({ heading, content, id, expanded, onClick, style, qahook }) => (
   <div
     className="Accordion-item"
     id={id}
@@ -80,7 +80,7 @@ const AccordionItem = ({ heading, content, id, expanded, onClick, style, qaHook 
     <button
       className="Accordion-itemHeading"
       id={`${id}-heading`}
-      data-qa={qaHook ? createQAHook(heading, "Accordion-itemHeading", "btn") : null}
+      data-qa={qahook ? createQAHook(heading, "Accordion-itemHeading", "btn") : null}
       aria-selected={expanded}
       aria-expanded={expanded}
       aria-controls={`${id}-content`}
@@ -98,7 +98,7 @@ const AccordionItem = ({ heading, content, id, expanded, onClick, style, qaHook 
     <div
       className="Accordion-itemContent"
       id={`${id}-content`}
-      data-qa={qaHook ? createQAHook(id, "Accordion-itemContent", "content") : null}
+      data-qa={qahook ? createQAHook(id, "Accordion-itemContent", "content") : null}
       aria-labelledby={`${id}-heading`}
       aria-hidden={!expanded}
       role="tabpanel"
@@ -121,13 +121,13 @@ AccordionItem.propTypes = {
   onClick: PropTypes.func,
   expanded: PropTypes.bool,
   style: propTypes.style,
-  qaHook: PropTypes.bool,
+  qahook: PropTypes.bool,
 };
 
 AccordionItem.defaultProps = {
   id: "accordionItem",
   expanded: false,
-  qaHook: false,
+  qahook: false,
 };
 
 export default radium(AccordionItem);
