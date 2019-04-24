@@ -799,7 +799,7 @@ class VideoEmbed extends Component {
 
   tearDownPlayer() {
     if (this.scriptElement) {
-      this.scriptElement.remove();
+      this.scriptElement.parentNode.removeChild(this.scriptElement);
       this.scriptElement = null;
     }
 
