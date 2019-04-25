@@ -5,7 +5,6 @@ import colors from "../../styles/colors";
 import { fontSizeHeading4 } from "../../styles/typography";
 import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
-import { validReactAttributes } from "../../utils/validReactAttributes";
 
 const spinKeyframes = radium.keyframes({
   "0%": {
@@ -23,16 +22,12 @@ const styles = {
   fontSize: `${fontSizeHeading4}px`,
 };
 
-const Loading = (props) => {
-  const sanitizedProps = validReactAttributes(props);
-
-  return (
-    <Icon
-      {...sanitizedProps}
-      style={Object.assign({}, styles, props.style)}
-    />
-  );
-};
+const Loading = (props) => (
+  <Icon
+    {...props}
+    style={Object.assign({}, styles, props.style)}
+  />
+);
 
 Loading.propTypes = {
   style: propTypes.style,
