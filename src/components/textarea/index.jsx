@@ -101,14 +101,7 @@ class Textarea extends React.Component {
   }
 
   render() {
-    const props = Object.assign({}, this.props);
-
-    delete props.autogrow;
-    delete props.autofocus;
-    delete props.maxLines;
-    delete props.disableEnter;
-
-    const sanitizedProps = validReactAttributes(props);
+    const sanitizedProps = validReactAttributes(this.props);
 
     return (
       <textarea
