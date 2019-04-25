@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
 import { NavigationTab } from "../navigation";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 const Tab = (props) => (
-  <NavigationTab {...props}>
+  <NavigationTab {...validReactAttributes(props)}>
     {props.label}
   </NavigationTab>
 );

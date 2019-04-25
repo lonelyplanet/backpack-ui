@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import propTypes from "../../utils/propTypes";
 import Input from "../input";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 const styles = Object.assign({}, Input.styles, {
   resize: "vertical",
@@ -107,9 +108,11 @@ class Textarea extends React.Component {
     delete props.maxLines;
     delete props.disableEnter;
 
+    const sanitizedProps = validReactAttributes(props);
+
     return (
       <textarea
-        {...props}
+        {...sanitizedProps}
         value={this.state.currentValue}
         ref={node => { this.textarea = node; }}
         onInput={this.onInput}

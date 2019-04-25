@@ -4,6 +4,7 @@ import radium from "radium";
 import styles from "./styles";
 import propTypes from "../../utils/propTypes";
 import createQAHook from "../../utils/createQAHook";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 function TextArea(props) {
   const {
@@ -33,13 +34,15 @@ function TextArea(props) {
     style.push(customStyles);
   }
 
+  const sanitizedProps = validReactAttributes(props);
+
   return (
     <textarea
       name={name || id}
       aria-label={label}
       qa-hook={qahook ? createQAHook(name, id, "textarea") : null}
       title={label}
-      {...props}
+      {...sanitizedProps}
       style={style}
     />
   );

@@ -4,10 +4,11 @@ import radium from "radium";
 import Heading from "./textHeading";
 import { textSuper } from "../../utils/typography";
 import propTypes from "../../utils/propTypes";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 const TextSuper = (props) => (
   <Heading
-    {...props}
+    {...validReactAttributes(props)}
     level={1}
     style={[textSuper(), props.style]}
   >

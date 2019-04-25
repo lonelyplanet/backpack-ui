@@ -4,6 +4,7 @@ import radium from "radium";
 import colors from "../../styles/colors";
 import { textBodySmall } from "../../utils/typography";
 import propTypes from "../../utils/propTypes";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 const styles = Object.assign({}, {
   color: colors.textPrimary,
@@ -12,7 +13,7 @@ const styles = Object.assign({}, {
 }, textBodySmall());
 
 const TextBodySmall = (props) => (
-  <p {...props} style={[styles, props.style]}>
+  <p {...validReactAttributes(props)} style={[styles, props.style]}>
     {props.children}
   </p>
 );

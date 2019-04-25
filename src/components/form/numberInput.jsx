@@ -4,6 +4,7 @@ import radium from "radium";
 import styles from "./styles";
 import Icon from "../icon";
 import createQAHook from "../../utils/createQAHook";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 /**
  * Component that replicates the HTML5 number input
@@ -167,13 +168,15 @@ class NumberInput extends React.Component {
     props.min = min || null;
     props.max = max || null;
 
+    const sanitizedProps = validReactAttributes(props);
+
     return (
       <div
         className="NumberInput"
         style={styles.element.numberInput.container.base}
       >
         <input
-          {...props}
+          {...sanitizedProps}
           qa-hook={createQAHook(this.state.value, "number", "input")}
           value={this.state.value}
           onChange={this.handleChange}

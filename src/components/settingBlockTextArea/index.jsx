@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import SettingBlock from "../settingBlock";
 import TextArea from "../form/textarea";
 import HeightExpander from "../form/heightExpander";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 const SettingBlockTextArea = (props) => {
   const { onChange } = props;
@@ -17,7 +18,7 @@ const SettingBlockTextArea = (props) => {
       <HeightExpander idToFind={props.id} baseHeight="0px">
         {(expandHeight, newHeight) => (
           <TextArea
-            {...props}
+            {...validReactAttributes(props)}
             id={props.id}
             onChange={(e) => {
               expandHeight(e);

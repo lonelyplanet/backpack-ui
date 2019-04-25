@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 const styles = {
   container: {
@@ -24,17 +25,21 @@ const scopedStyles = {
   ".SettingBlockButtonWrapper:focus .Checkbox": outline(),
 };
 
-const SettingBlockButtonWrapper = (props) => (
-  <button
-    {...props}
-    className="SettingBlockButtonWrapper"
-    style={[styles.container, styles.buttonResets, props.style]}
-  >
-    <Style rules={scopedStyles} />
+const SettingBlockButtonWrapper = (props) => {
+  const sanitizedProps = validReactAttributes(props);
 
-    {props.children}
-  </button>
-);
+  return (
+    <button
+      {...sanitizedProps}
+      className="SettingBlockButtonWrapper"
+      style={[styles.container, styles.buttonResets, props.style]}
+    >
+      <Style rules={scopedStyles} />
+
+      {props.children}
+    </button>
+  );
+};
 
 SettingBlockButtonWrapper.propTypes = {
   children: PropTypes.element,

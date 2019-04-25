@@ -4,6 +4,7 @@ import radium from "radium";
 import colors from "../../styles/colors";
 import { textUppercase } from "../../utils/typography";
 import propTypes from "../../utils/propTypes";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 const styles = Object.assign({}, {
   backgroundColor: colors.accentGray,
@@ -19,15 +20,19 @@ const styles = Object.assign({}, {
   fontSize: "8px",
 });
 
-const Flag = (props) => (
-  <span
-    className="Flag"
-    style={[styles, props.style]}
-    {...props}
-  >
-    {props.children}
-  </span>
-);
+const Flag = (props) => {
+  const sanitizedProps = validReactAttributes(props);
+
+  return (
+    <span
+      className="Flag"
+      style={[styles, props.style]}
+      {...sanitizedProps}
+    >
+      {props.children}
+    </span>
+  );
+};
 
 Flag.propTypes = {
   children: PropTypes.string.isRequired,
