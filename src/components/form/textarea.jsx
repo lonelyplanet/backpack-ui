@@ -40,7 +40,7 @@ function TextArea(props) {
     <textarea
       name={name || id}
       aria-label={label}
-      qa-hook={qahook ? createQAHook(name, id, "textarea") : null}
+      data-qa={qahook ? createQAHook(name, id, "textarea") : null}
       title={label}
       {...sanitizedProps}
       style={style}
