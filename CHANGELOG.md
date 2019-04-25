@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.94.3"></a>
+## [4.94.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.2...v4.94.3) (2019-04-25)
+
+
+### Bug Fixes
+
+* add validReactAttributes to all spread props to handle invalid DOM elements ([#761](https://github.com/lonelyplanet/backpack-ui/issues/761)) ([692f825](https://github.com/lonelyplanet/backpack-ui/commit/692f825))
+* use parentNode.removeChild() instead of remove() for IE 11 ([9b2ad81](https://github.com/lonelyplanet/backpack-ui/commit/9b2ad81))
+
+
+
 <a name="4.94.2"></a>
 ## [4.94.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.1...v4.94.2) (2019-04-24)
 
