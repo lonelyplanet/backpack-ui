@@ -2,24 +2,30 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link as RouterLink } from "react-router";
 import createQAHook from "../../utils/createQAHook";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 const isExternal = (url) => /^(http|https):\/\//.test(url || "");
 
-const Link = ({ to, onClick, children, qaHook, className }) => (
-  isExternal(to) || (!to && onClick) ?
-    <a
-      href={to}
-      data-qa={qaHook ? createQAHook(`${qaHook}`, "external-link", "link") : null}
-      onClick={onClick}
-      className={className}
-    >
-      {children}
-    </a>
-    :
-    <RouterLink to={to} onClick={onClick} data-qa={qaHook}>
-      {children}
-    </RouterLink>
-);
+const Link = ({ to, onClick, children, qaHook, className, ...rest }) => {
+  const sanitizedProps = validReactAttributes(rest);
+
+  return (
+    isExternal(to) || (!to && onClick) ?
+      <a
+        href={to}
+        data-qa={qaHook ? createQAHook(`${qaHook}`, "external-link", "link") : null}
+        onClick={onClick}
+        className={className}
+        {...sanitizedProps}
+      >
+        {children}
+      </a>
+      :
+      <RouterLink to={to} onClick={onClick}>
+        {children}
+      </RouterLink>
+  );
+};
 
 Link.propTypes = {
   to: PropTypes.string,

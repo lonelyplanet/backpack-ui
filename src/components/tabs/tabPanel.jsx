@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import propTypes from "../../utils/propTypes";
 import Container from "../container";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 const TabPanel = (props) => (
   <div
     className="TabPanel"
     style={props.style}
     role="tabpanel"
-    {...props}
+    {...validReactAttributes(props)}
   >
     <Container>
       {props.children}

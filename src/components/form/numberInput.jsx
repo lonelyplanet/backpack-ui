@@ -4,6 +4,7 @@ import radium from "radium";
 import styles from "./styles";
 import Icon from "../icon";
 import createQAHook from "../../utils/createQAHook";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 /**
  * Component that replicates the HTML5 number input
@@ -167,14 +168,16 @@ class NumberInput extends React.Component {
     props.min = min || null;
     props.max = max || null;
 
+    const sanitizedProps = validReactAttributes(props);
+
     return (
       <div
         className="NumberInput"
         style={styles.element.numberInput.container.base}
       >
         <input
-          {...props}
-          qa-hook={createQAHook(this.state.value, "number", "input")}
+          {...sanitizedProps}
+          data-qa={createQAHook(this.state.value, "number", "input")}
           value={this.state.value}
           onChange={this.handleChange}
           onKeyDown={this.handleKeyDown}
@@ -186,7 +189,7 @@ class NumberInput extends React.Component {
             styles.element.numberInput.button.size[size],
             styles.element.numberInput.button.plus.size[size],
           ]}
-          qa-hook={createQAHook("increment", "plus", "btn")}
+          data-qa={createQAHook("increment", "plus", "btn")}
           onClick={this.increment}
           type="button"
           key="plus"
@@ -200,7 +203,7 @@ class NumberInput extends React.Component {
             styles.element.numberInput.button.size[size],
             styles.element.numberInput.button.minus,
           ]}
-          qa-hook={createQAHook("decrement", "minus", "btn")}
+          data-qa={createQAHook("decrement", "minus", "btn")}
           onClick={this.decrement}
           type="button"
           key="minus"

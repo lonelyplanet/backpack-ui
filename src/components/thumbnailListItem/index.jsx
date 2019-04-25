@@ -25,6 +25,7 @@ import { rgba } from "../../utils/color";
 import duration from "../../utils/time";
 import iconFromString from "../../utils/icon";
 import propTypes from "../../utils/propTypes";
+import createQAHook from "../../utils/createQAHook";
 
 const hoverStyles = {
   default: {
@@ -216,7 +217,7 @@ const ThumbnailListItem = ({
         to={href}
         onClick={onClick}
         style={styles.imageAnchor}
-        qaHook={qaHook}
+        qaHook={qaHook ? createQAHook("cover-image", "external", "link") : null}
       >
         <CoverPhoto
           src={imagePath}
@@ -248,7 +249,7 @@ const ThumbnailListItem = ({
           to={href}
           onClick={onClick}
           style={styles.textAnchor}
-          qaHook={qaHook}
+          qaHook={qaHook ? createQAHook(title, "external", "link") : null}
         >
           {status &&
             <div
@@ -312,13 +313,13 @@ ThumbnailListItem.propTypes = {
   lineClamp: PropTypes.number,
   theme: PropTypes.oneOf(["light", "dark", "active"]),
   style: propTypes.style,
-  qaHook: PropTypes.string,
+  qaHook: PropTypes.bool,
 };
 
 ThumbnailListItem.defaultProps = {
   theme: "light",
   lineClamp: 1,
-  qaHook: null,
+  qaHook: false,
 };
 
 export default radium(ThumbnailListItem);

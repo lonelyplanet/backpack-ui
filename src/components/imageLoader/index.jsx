@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { validReactAttributes } from "../../utils/validReactAttributes";
 
 const Status = {
   PENDING: "pending",
@@ -101,7 +102,9 @@ export default class ImageLoader extends React.Component {
       }
     }
 
-    return <img alt="Loader" {...props} />;
+    const sanitizedProps = validReactAttributes(props);
+
+    return <img alt="Loader" {...sanitizedProps} />;
   }
 
   render() {

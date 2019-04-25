@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import SettingBlock from "../settingBlock";
 import Input from "../form/input";
 
-
 const SettingBlockInput = (props) => (
   <SettingBlock
     error={props.error}
