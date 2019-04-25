@@ -90,7 +90,7 @@ function ModalComponent({
   children,
   contentStyle,
   style,
-  qahook,
+  qaHook,
 }) {
   const rules = {
     ".ReactModal__Content": {
@@ -162,7 +162,7 @@ function ModalComponent({
       closeTimeoutMS={closeTimeoutMS}
       contentLabel={contentLabel}
       className={className ? `ModalBase ${className}` : "ModalBase"}
-      data-qa={qahook ? "modal" : null}
+      data-qa={qaHook ? "modal" : null}
     >
       <Style
         scopeSelector=".ReactModalPortal"
@@ -183,7 +183,7 @@ function ModalComponent({
         >
           {leftAction &&
             <button
-              data-qa={qahook ? "left-action-btn" : null}
+              data-qa={qaHook ? "left-action-btn" : null}
               style={[styles.actionItem, styles.leftAction]}
               disabled={leftActionDisabled}
               onClick={leftAction}
@@ -209,7 +209,7 @@ function ModalComponent({
 
           {rightAction &&
             <button
-              data-qa={qahook ? "right-action-btn" : null}
+              data-qa={qaHook ? "right-action-btn" : null}
               style={[styles.actionItem, styles.rightAction]}
               disabled={rightActionDisabled}
               onClick={rightAction}
@@ -258,7 +258,7 @@ ModalComponent.propTypes = {
   disableContentPadding: PropTypes.bool,
   contentStyle: propTypes.style,
   style: propTypes.style,
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 ModalComponent.defaultProps = {
@@ -268,7 +268,7 @@ ModalComponent.defaultProps = {
   closeTimeoutMS: timing.numDefault,
   disableContentPadding: false,
   hideHeader: false,
-  qahook: false,
+  qaHook: false,
 };
 
 ModalComponent.styles = styles;

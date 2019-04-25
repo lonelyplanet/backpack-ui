@@ -50,14 +50,14 @@ class Accordion extends Component {
   }
 
   render() {
-    const { id, children, style, qahook } = this.props;
+    const { id, children, style, qaHook } = this.props;
     const { expandedItemId } = this.state;
 
     return (
       <div
         className="Accordion"
         id={id}
-        data-qa={qahook ? createQAHook(qahook, "accordion", "btn") : null}
+        data-qa={qaHook ? createQAHook(qaHook, "accordion", "btn") : null}
         style={[styles.container, style]}
         role="tablist"
       >
@@ -91,11 +91,11 @@ Accordion.propTypes = {
     return error;
   },
   style: propTypes.style,
-  qahook: PropTypes.string,
+  qaHook: PropTypes.string,
 };
 
 Accordion.defaultProps = {
-  qahook: null,
+  qaHook: null,
 };
 
 export default radium(Accordion);

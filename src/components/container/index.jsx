@@ -60,11 +60,11 @@ function markup(htmlContent) {
   };
 }
 
-const Container = ({ children, id, className, qahook, style }) => (
+const Container = ({ children, id, className, qaHook, style }) => (
   <div
     id={id}
     className={cn("container", className)}
-    data-qa={qahook}
+    data-qa={qaHook}
     style={style}
   >
     <style dangerouslySetInnerHTML={markup(styles)} />
@@ -77,12 +77,12 @@ Container.propTypes = {
   children: PropTypes.node.isRequired,
   id: PropTypes.string,
   className: PropTypes.string,
-  qahook: PropTypes.string,
+  qaHook: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
 };
 
 Container.defaultProps = {
-  qahook: null,
+  qaHook: null,
 };
 
 export default radium(Container);

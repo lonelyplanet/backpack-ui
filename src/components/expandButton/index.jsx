@@ -53,14 +53,14 @@ const styles = {
  * @usage
  * <ExpandButton />
  */
-function ExpandButton({ label, onClick, qahook }) {
+function ExpandButton({ label, onClick, qaHook }) {
   return (
     <button
       className="ExpandButton"
       style={styles.container.base}
       aria-label="Expand"
       onClick={onClick}
-      data-qa={qahook ? createQAHook(label, "ExpandButton", "btn") : null}
+      data-qa={qaHook ? createQAHook(label, "ExpandButton", "btn") : null}
     >
       {label &&
         <small
@@ -90,13 +90,13 @@ ExpandButton.propTypes = {
   /**
    * QA Hook
    */
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 ExpandButton.defaultProps = {
   label: "",
   onClick: null,
-  qahook: false,
+  qaHook: false,
 };
 
 ExpandButton.styles = styles;

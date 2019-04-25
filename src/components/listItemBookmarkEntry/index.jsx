@@ -116,7 +116,7 @@ const ListItemBookmarkEntry = ({
   handleNoteAction,
   showNoteAction,
   style,
-  qahook,
+  qaHook,
 }) => (
   <article
     className="ListItemBookmarkEntry"
@@ -173,7 +173,7 @@ const ListItemBookmarkEntry = ({
     {showNoteAction && handleNoteAction &&
       <TextAccent>
         <button
-          data-qa={qahook ? createQAHook("add or edit note", "note", "btn") : null}
+          data-qa={qaHook ? createQAHook("add or edit note", "note", "btn") : null}
           onClick={handleNoteAction}
           style={[
             styles.note.default,
@@ -199,7 +199,7 @@ ListItemBookmarkEntry.propTypes = {
   showNoteAction: PropTypes.bool,
   handleNoteAction: PropTypes.func,
   style: propTypes.style,
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 
@@ -211,6 +211,6 @@ ListItemBookmarkEntry.defaultProps = {
   note: null,
   large: false,
   style: null,
-  qahook: false,
+  qaHook: false,
 };
 export default radium(ListItemBookmarkEntry);

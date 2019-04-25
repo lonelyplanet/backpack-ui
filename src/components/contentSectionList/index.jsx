@@ -15,7 +15,7 @@ const styles = {
   },
 };
 
-function ContentSectionList({ header, listItems, qahook }) {
+function ContentSectionList({ header, listItems, qaHook }) {
   const isListItemsString = typeof listItems === "string";
 
   return (
@@ -25,9 +25,9 @@ function ContentSectionList({ header, listItems, qahook }) {
       }
 
       {listItems &&
-        <ul data-qa={qahook ? "content-section-list" : null} style={styles.list.base}>
+        <ul data-qa={qaHook ? "content-section-list" : null} style={styles.list.base}>
           {!isListItemsString && listItems.map((item, index) => (
-            <li data-qa={qahook ? `${item}-list-item` : null} key={index}>{item}</li>
+            <li data-qa={qaHook ? `${item}-list-item` : null} key={index}>{item}</li>
           ))}
 
           {isListItemsString &&
@@ -64,7 +64,7 @@ ContentSectionList.propTypes = {
   /**
    * Custom data hook
    */
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 ContentSectionList.defaultProps = {
@@ -75,7 +75,7 @@ ContentSectionList.defaultProps = {
   },
 
   listItems: "",
-  qahook: false,
+  qaHook: false,
 };
 
 export default ContentSectionList;

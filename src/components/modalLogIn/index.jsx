@@ -7,7 +7,7 @@ import ModalContentSocialAuth from "../modalContent/modalContentSocialAuth";
 import propTypes from "../../utils/propTypes";
 import { span } from "../../utils/grid";
 
-const ModalLogIn = ({ isOpen, onClose, style, qahook }) => (
+const ModalLogIn = ({ isOpen, onClose, style, qaHook }) => (
   <Modal
     isOpen={isOpen}
     leftAction={onClose}
@@ -16,10 +16,10 @@ const ModalLogIn = ({ isOpen, onClose, style, qahook }) => (
     desktopMaxHeight="650px"
     desktopWidth={span(6, "static")}
     style={style}
-    qahook={qahook}
+    qaHook={qaHook}
   >
     <ModalContentSocialAuth
-      qahook={qahook}
+      qaHook={qaHook}
       message="Organize your research and unlock tools like lists."
     />
   </Modal>
@@ -29,11 +29,11 @@ ModalLogIn.propTypes = {
   isOpen: PropTypes.bool,
   onClose: PropTypes.func,
   style: propTypes.style,
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 ModalLogIn.defaultProps = {
-  qahook: false,
+  qaHook: false,
 };
 
 export default radium(ModalLogIn);

@@ -214,7 +214,7 @@ function Button({
   disabled,
   customStyles,
   className,
-  qahook,
+  qaHook,
   ...rest
 }) {
   const Element = href ? "a" : "button";
@@ -240,7 +240,7 @@ function Button({
       className={cn("Button", className)}
       style={style}
       href={href}
-      data-qa={qahook ? createQAHook(children, cn("Button", className), "btn") : null}
+      data-qa={qaHook ? createQAHook(children, cn("Button", className), "btn") : null}
       onClick={onClick}
       role={role}
       disabled={disabled}
@@ -327,7 +327,7 @@ Button.propTypes = {
   /**
    * Add qa-hook to button
    */
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -342,7 +342,7 @@ Button.defaultProps = {
   disabled: false,
   customStyles: null,
   className: null,
-  qahook: false,
+  qaHook: false,
 };
 
 Button.styles = styles;

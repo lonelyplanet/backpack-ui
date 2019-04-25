@@ -86,7 +86,7 @@ const ListItemNews = ({
   thumbnail,
   isSponsored,
   size,
-  qahook,
+  qaHook,
 }) => (
   <div
     className="ListItemNews"
@@ -97,7 +97,7 @@ const ListItemNews = ({
         {isSponsored ?
           "Sponsored" :
           <a
-            data-qa={qahook ? "sponsored-link" : null}
+            data-qa={qaHook ? "sponsored-link" : null}
             style={styles.anchor}
             href={categoryLink}
           >
@@ -113,7 +113,7 @@ const ListItemNews = ({
         override={[styles.heading.default, size && styles.heading.size[size]]}
       >
         <a
-          data-qa={qahook ? createQAHook(title, "heading", "link") : null}
+          data-qa={qaHook ? createQAHook(title, "heading", "link") : null}
           style={[styles.anchor, { color: "inherit" }]}
           href={link}
         >
@@ -123,7 +123,7 @@ const ListItemNews = ({
     </div>
 
     <div style={[styles.imageContainer.default, size && styles.imageContainer.size[size]]}>
-      <a href={link} data-qa={qahook ? "list-item-thumbnail-link" : null} style={styles.imageAnchor}>
+      <a href={link} data-qa={qaHook ? "list-item-thumbnail-link" : null} style={styles.imageAnchor}>
         <ListItemThumbnail
           src={thumbnail}
           alt={title}
@@ -144,7 +144,7 @@ ListItemNews.propTypes = {
     "small",
     "medium",
   ]),
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 ListItemNews.defaultProps = {
@@ -155,7 +155,7 @@ ListItemNews.defaultProps = {
   thumbnail: null,
   isSponsored: false,
   size: "medium",
-  qahook: false,
+  qaHook: false,
 };
 
 export default radium(ListItemNews);

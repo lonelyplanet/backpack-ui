@@ -69,7 +69,7 @@ function MoreLink({
   style,
   arrowDirection,
   target,
-  qahook,
+  qaHook,
   ...rest
 }) {
   let Element = "";
@@ -105,7 +105,7 @@ function MoreLink({
         style,
       ]}
       href={href}
-      data-qa={qahook ? createQAHook(qahook, "morelink", `${Element === "a" ? "link" : Element}`) : null}
+      data-qa={qaHook ? createQAHook(qaHook, "morelink", `${Element === "a" ? "link" : Element}`) : null}
       target={target}
       onClick={onClick}
       {...rest}
@@ -193,7 +193,7 @@ MoreLink.propTypes = {
   /**
    * Specifies a qa hook to leverage
    */
-  qahook: PropTypes.string,
+  qaHook: PropTypes.string,
 };
 
 MoreLink.defaultProps = {
@@ -206,7 +206,7 @@ MoreLink.defaultProps = {
   style: {},
   arrowDirection: "right",
   target: null,
-  qahook: null,
+  qaHook: null,
 };
 
 MoreLink.styles = styles;

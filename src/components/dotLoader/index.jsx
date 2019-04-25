@@ -37,9 +37,9 @@ const styles = {
   },
 };
 
-function DotLoader({ inline, qahook }) {
+function DotLoader({ inline, qaHook }) {
   return (
-    <div data-qa={qahook ? "dot-loader" : null} className="DotLoader" style={[inline && styles.container.inline]}>
+    <div data-qa={qaHook ? "dot-loader" : null} className="DotLoader" style={[inline && styles.container.inline]}>
       <span style={styles.dot.base} />
       <span style={[styles.dot.base, styles.dot.second]} />
       <span style={[styles.dot.base, styles.dot.third]} />
@@ -49,12 +49,12 @@ function DotLoader({ inline, qahook }) {
 
 DotLoader.propTypes = {
   inline: PropTypes.bool,
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 DotLoader.defaultProps = {
   inline: false,
-  qahook: false,
+  qaHook: false,
 };
 
 DotLoader.styles = styles;

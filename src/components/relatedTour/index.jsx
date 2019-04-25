@@ -82,7 +82,7 @@ function RelatedTour({
   destination,
   reviews,
   clickHandler,
-  qahook,
+  qaHook,
 }) {
   const Details = tripLength || destination || reviews ? (
     <div
@@ -173,7 +173,7 @@ function RelatedTour({
         style={styles.elements.image.base}
         href={slug}
         onClick={clickHandler}
-        data-qa={qahook ? "related-tour-image-link" : null}
+        data-qa={qaHook ? "related-tour-image-link" : null}
       >
         <img
           src={image}
@@ -194,7 +194,7 @@ function RelatedTour({
           tracking="tight"
           override={styles.elements.heading}
         >
-          <a href={slug} onClick={clickHandler} data-qa={qahook ? createQAHook(title, "related-tour", "link") : null}>
+          <a href={slug} onClick={clickHandler} data-qa={qaHook ? createQAHook(title, "related-tour", "link") : null}>
             {title}
           </a>
         </Heading>
@@ -258,7 +258,7 @@ RelatedTour.propTypes = {
   /**
    * QA Hook
    */
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 RelatedTour.defaultProps = {
@@ -269,7 +269,7 @@ RelatedTour.defaultProps = {
   tripLength: "",
   destination: "",
   reviews: 0,
-  qahook: false,
+  qaHook: false,
 };
 
 RelatedTour.styles = styles;

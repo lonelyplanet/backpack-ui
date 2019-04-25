@@ -6,7 +6,7 @@ import propTypes from "../../utils/propTypes";
 import createQAHook from "../../utils/createQAHook";
 
 function Input(props) {
-  const { name, id, type, error, size, theme, fill, customStyles, qahook } = props;
+  const { name, id, type, error, size, theme, fill, customStyles, qaHook } = props;
 
   // remove custom props that throw console errors
   const sanitizedProps = Object.entries(props).reduce((iter, [key, value]) => {
@@ -19,7 +19,7 @@ function Input(props) {
   return (
     <input
       name={name || id}
-      data-qa={qahook ? createQAHook(name, id, "input") : null}
+      data-qa={qaHook ? createQAHook(name, id, "input") : null}
       type={type}
       {...sanitizedProps}
       style={[
@@ -62,7 +62,7 @@ Input.propTypes = {
    */
   fill: PropTypes.bool,
   customStyles: propTypes.style,
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -73,7 +73,7 @@ Input.defaultProps = {
   theme: "base",
   fill: false,
   customStyles: null,
-  qahook: false,
+  qaHook: false,
 };
 
 Input.styles = styles;

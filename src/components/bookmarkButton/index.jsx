@@ -14,7 +14,7 @@ const BookmarkButton = ({
   className,
   button,
   style,
-  qahook,
+  qaHook,
 }) => (
   <div>
     {!button &&
@@ -28,7 +28,7 @@ const BookmarkButton = ({
           style,
         ]}
         label="Save"
-        qahook={qahook}
+        qaHook={qaHook}
       />
     }
 
@@ -49,7 +49,7 @@ BookmarkButton.propTypes = {
   className: PropTypes.string,
   button: PropTypes.element,
   style: propTypes.style,
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 BookmarkButton.defaultProps = {
@@ -59,7 +59,7 @@ BookmarkButton.defaultProps = {
   className: null,
   button: null,
   style: null,
-  qahook: false,
+  qaHook: false,
 };
 
 export default radium(BookmarkButton);

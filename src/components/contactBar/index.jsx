@@ -79,7 +79,7 @@ function getTelephone(phone) {
   return phone && typeof phone === "string" ? phone : "";
 }
 
-function ContactBar({ phone, website, qahook }) {
+function ContactBar({ phone, website, qaHook }) {
   const telephone = getTelephone(phone);
 
   return (
@@ -92,7 +92,7 @@ function ContactBar({ phone, website, qahook }) {
           className="ContactBar-phone"
           href={`tel:${telephone}`}
           style={[styles.link.base, styles.link.call]}
-          data-qa={qahook ? "phone-link" : null}
+          data-qa={qaHook ? "phone-link" : null}
           key="phone"
         >
           <Icon name="mobile" style={styles.icon.base} />
@@ -109,7 +109,7 @@ function ContactBar({ phone, website, qahook }) {
           href={website}
           style={[styles.link.base, styles.link.website]}
           key="website"
-          data-qa={qahook ? "website-link" : null}
+          data-qa={qaHook ? "website-link" : null}
         >
           <Icon name="globe" style={styles.icon.base} />
 
@@ -139,13 +139,13 @@ ContactBar.propTypes = {
   /**
    * QA Hook for custom data hook
    */
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 ContactBar.defaultProps = {
   phone: "",
   website: "",
-  qahook: false,
+  qaHook: false,
 };
 
 ContactBar.styles = styles;

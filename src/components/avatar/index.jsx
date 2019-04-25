@@ -25,7 +25,7 @@ const styles = {
   },
 };
 
-function Avatar({ src, alt, size, href, id, className, style, qahook }) {
+function Avatar({ src, alt, size, href, id, className, style, qaHook }) {
   const dimensions = {
     height: `${size}px`,
     width: `${size}px`,
@@ -59,7 +59,7 @@ function Avatar({ src, alt, size, href, id, className, style, qahook }) {
   const Anchor = (
     <a
       id={id}
-      data-qa={qahook ? createQAHook(id, cn("Avatar", className), "link") : null}
+      data-qa={qaHook ? createQAHook(id, cn("Avatar", className), "link") : null}
       className={cn("Avatar", className)}
       style={[
         styles.default,
@@ -84,7 +84,7 @@ Avatar.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   style: propTypes.style,
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 Avatar.defaultProps = {
@@ -94,7 +94,7 @@ Avatar.defaultProps = {
   id: null,
   className: null,
   style: null,
-  qahook: false,
+  qaHook: false,
 };
 
 export default radium(Avatar);

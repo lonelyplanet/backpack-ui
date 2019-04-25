@@ -58,7 +58,7 @@ const SocialLoginButton = (props) => {
     iconProps,
     children,
     style,
-    qahook,
+    qaHook,
   } = props;
 
   const iconSettings = {
@@ -79,7 +79,7 @@ const SocialLoginButton = (props) => {
         style,
       ]}
       onClick={onClick}
-      data-qa={qahook ? createQAHook(iconName, "social-login", "btn") : null}
+      data-qa={qaHook ? createQAHook(iconName, "social-login", "btn") : null}
     >
       {iconFromString(iconName, iconParameters)}
       {children}
@@ -97,11 +97,11 @@ SocialLoginButton.propTypes = {
   onClick: PropTypes.func,
   iconProps: PropTypes.objectOf(PropTypes.object),
   style: propTypes.style,
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 SocialLoginButton.defaultProps = {
-  qahook: false,
+  qaHook: false,
 };
 
 export default radium(SocialLoginButton);

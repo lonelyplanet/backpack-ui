@@ -63,13 +63,13 @@ const styles = {
   },
 };
 
-const CalloutLink = ({ children, href, overlay, style, qahook }) => (
+const CalloutLink = ({ children, href, overlay, style, qaHook }) => (
   <div className="CalloutLink" style={[styles.container, style]}>
     <Style rules={styles.scoped} />
 
     <div style={styles.border} />
 
-    <a style={[styles.link, overlay && styles.linkWhite]} href={href} data-qa={qahook ? createQAHook(children, "callout", "link") : null}>
+    <a style={[styles.link, overlay && styles.linkWhite]} href={href} data-qa={qaHook ? createQAHook(children, "callout", "link") : null}>
       {children} <ChevronRight style={styles.icon} />
     </a>
   </div>
@@ -80,12 +80,12 @@ CalloutLink.propTypes = {
   href: PropTypes.string.isRequired,
   overlay: PropTypes.bool,
   style: PropTypes.objectOf(PropTypes.object),
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 CalloutLink.defaultProps = {
   overlay: false,
-  qahook: false,
+  qaHook: false,
 };
 
 export default radium(CalloutLink);

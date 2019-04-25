@@ -38,7 +38,7 @@ class FlightSearchWidget extends Component {
       arrive,
       depart,
       price,
-      qahook,
+      qaHook,
       ...rest
     } = this.props;
 
@@ -184,7 +184,7 @@ class FlightSearchWidget extends Component {
               customStyles={styles.button}
               onClick={onClick}
               rounded
-              data-qa={qahook ? "see-flights" : null}
+              data-qa={qaHook ? "see-flights" : null}
             >
               See flights
 
@@ -213,13 +213,13 @@ FlightSearchWidget.propTypes = {
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
   style: propTypes.style,
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 FlightSearchWidget.defaultProps = {
   className: null,
   style: null,
-  qahook: false,
+  qaHook: false,
 };
 
 export default radium(FlightSearchWidget);

@@ -88,7 +88,7 @@ function IconButton({
   shadow,
   transitionDuration,
   style,
-  qahook,
+  qaHook,
 }) {
   let Element = "div";
   if (href) {
@@ -135,7 +135,7 @@ function IconButton({
         hoverColor && { ":hover": { color: hoverColor } },
         style,
       ]}
-      data-qa={qahook ? createQAHook(label, "icon", `${Element === "a" ? "link" : Element}`) : null}
+      data-qa={qaHook ? createQAHook(label, "icon", `${Element === "a" ? "link" : Element}`) : null}
       href={href}
       onClick={onClick}
       role={role}
@@ -214,7 +214,7 @@ IconButton.propTypes = {
   shadow: PropTypes.bool,
   transitionDuration: PropTypes.string,
   style: propTypes.style,
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 IconButton.defaultProps = {
@@ -232,7 +232,7 @@ IconButton.defaultProps = {
   shadow: false,
   transitionDuration: timing.default,
   style: null,
-  qahook: false,
+  qaHook: false,
 };
 
 export default radium(IconButton);

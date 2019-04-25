@@ -63,7 +63,7 @@ const styles = {
   },
 };
 
-function Tag({ children, href, onClick, selected, style, qahook }) {
+function Tag({ children, href, onClick, selected, style, qaHook }) {
   let Element = "span";
   if (href) Element = "a";
   if (onClick) Element = "button";
@@ -80,7 +80,7 @@ function Tag({ children, href, onClick, selected, style, qahook }) {
       ]}
       href={href}
       onClick={onClick}
-      data-qa={qahook ? createQAHook(children, "tag", Element === "a" ? "link" : Element) : null}
+      data-qa={qaHook ? createQAHook(children, "tag", Element === "a" ? "link" : Element) : null}
     >
       {children}
     </Element>
@@ -93,12 +93,12 @@ Tag.propTypes = {
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   style: propTypes.style,
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 Tag.defaultProps = {
   selected: false,
-  qahook: false,
+  qaHook: false,
 };
 
 export default radium(Tag);

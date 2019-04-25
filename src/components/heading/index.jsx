@@ -127,14 +127,14 @@ function Heading({
   truncate,
   caps,
   override,
-  qahook,
+  qaHook,
 }) {
   const Component = `h${level}`;
 
   return (
     <Component
       className="Heading"
-      data-qa={qahook ? createQAHook(children, "heading", `${Component}`) : null}
+      data-qa={qaHook ? createQAHook(children, "heading", `${Component}`) : null}
       style={[
         styles.base,
         size && styles.size[size],
@@ -227,7 +227,7 @@ Heading.propTypes = {
   /**
    * Boolean value for qa hook
    */
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 Heading.defaultProps = {
@@ -239,7 +239,7 @@ Heading.defaultProps = {
   truncate: false,
   caps: false,
   override: {},
-  qahook: false,
+  qaHook: false,
 };
 
 Heading.styles = styles;

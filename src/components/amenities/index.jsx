@@ -69,11 +69,11 @@ function markup(htmlContent) {
     __html: htmlContent,
   };
 }
-const getListItems = (items, capitalize, qahook) => {
+const getListItems = (items, capitalize, qaHook) => {
   const ListItems = items.map((item, index) => (
     <li
       key={index}
-      data-qa={qahook ? createQAHook(`list-item-${index}`, `list-item-${index}`, "li") : null}
+      data-qa={qaHook ? createQAHook(`list-item-${index}`, `list-item-${index}`, "li") : null}
       dangerouslySetInnerHTML={markup(item)}
       style={[styles.item.base, capitalize && { textTransform: "capitalize" }]}
     />
@@ -82,7 +82,7 @@ const getListItems = (items, capitalize, qahook) => {
   return ListItems;
 };
 
-const getGroupedItems = (items, qahook) => {
+const getGroupedItems = (items, qaHook) => {
   const GroupedItems = items.map((group, index) => {
     const groupedItemStyle = [styles.item.grouped.base];
 
@@ -91,11 +91,11 @@ const getGroupedItems = (items, qahook) => {
         style={groupedItemStyle}
         key={index}
       >
-        <h5 style={styles.heading.base} data-qa={qahook ? createQAHook(group.title, "group-title", "header") : null}>
+        <h5 style={styles.heading.base} data-qa={qaHook ? createQAHook(group.title, "group-title", "header") : null}>
           {group.title}
         </h5>
 
-        <ul data-qa={qahook ? "amenities-list" : null} style={styles.list.base}>
+        <ul data-qa={qaHook ? "amenities-list" : null} style={styles.list.base}>
           {getListItems(group.items, group.capitalize, "grouped")}
         </ul>
       </div>
@@ -108,7 +108,7 @@ const getGroupedItems = (items, qahook) => {
 /**
  * Amenities list component
  */
-function Amenities({ columns, items = [], listType, qahook }) {
+function Amenities({ columns, items = [], listType, qaHook }) {
   const columnWidth = span(`${(6 / columns)} of 6`, "static");
 
   const style = {
@@ -130,14 +130,14 @@ function Amenities({ columns, items = [], listType, qahook }) {
       className="Amenities-list"
       style={style.list.single}
     >
-      {getListItems(items, false, qahook)}
+      {getListItems(items, false, qaHook)}
     </ul>
   ) : (
     <div
       className="Amenities-list"
       style={style.list.grouped}
     >
-      {getGroupedItems(items, qahook)}
+      {getGroupedItems(items, qaHook)}
     </div>
   );
 
@@ -179,14 +179,14 @@ Amenities.propTypes = {
   /**
    * Type of qa hook
    */
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 Amenities.defaultProps = {
   items: [],
   columns: 1,
   listType: "single",
-  qahook: false,
+  qaHook: false,
 };
 
 Amenities.styles = styles;

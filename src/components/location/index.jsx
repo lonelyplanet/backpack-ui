@@ -9,7 +9,7 @@ import MoreLink from "../moreLink";
 import StaticMap from "../staticMap";
 import createQAHook from "../../utils/createQAHook";
 
-function Location({ name, street, place, coordinates, mobile, qahook }) {
+function Location({ name, street, place, coordinates, mobile, qaHook }) {
   const styles = {
     container: {
       base: {
@@ -60,7 +60,7 @@ function Location({ name, street, place, coordinates, mobile, qahook }) {
                       key={placeItem.title}
                       style={blueLink()}
                       href={placeItem.href}
-                      data-qa={qahook ? createQAHook(placeItem.type, "place", "link") : null}
+                      data-qa={qaHook ? createQAHook(placeItem.type, "place", "link") : null}
                     >
                       <span itemProp={placeItem.type === "city" ? "addressLocality" : "addressCountry"}>
                         {placeItem.title}
@@ -145,7 +145,7 @@ Location.propTypes = {
   /**
    * Should add data-qa if true
    */
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 Location.defaultProps = {
@@ -154,7 +154,7 @@ Location.defaultProps = {
   place: null,
   coordinates: null,
   mobile: false,
-  qahook: false,
+  qaHook: false,
 };
 
 export default radium(Location);

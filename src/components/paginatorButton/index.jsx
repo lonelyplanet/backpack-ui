@@ -162,7 +162,7 @@ function PaginatorButton({
   owns,
   style,
   className,
-  qahook,
+  qaHook,
 }) {
   const iconName = `${_.upperFirst(arrow)}${_.upperFirst(direction)}`;
 
@@ -190,7 +190,7 @@ function PaginatorButton({
         (align && offset) && styles.direction[direction].offset[size],
         style,
       ]}
-      data-qa={qahook ? createQAHook(label, "paginator", "btn") : null}
+      data-qa={qaHook ? createQAHook(label, "paginator", "btn") : null}
       title={label}
       onClick={onClick}
       aria-label={label}
@@ -284,7 +284,7 @@ PaginatorButton.propTypes = {
 
   className: PropTypes.string,
 
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 PaginatorButton.defaultProps = {
@@ -299,7 +299,7 @@ PaginatorButton.defaultProps = {
   iconLabel: "",
   owns: "",
   className: null,
-  qahook: false,
+  qaHook: false,
 };
 
 PaginatorButton.styles = styles;

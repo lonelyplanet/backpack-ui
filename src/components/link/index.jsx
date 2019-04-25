@@ -13,7 +13,7 @@ const Link = (props) => {
     isExternal(props.to) || (!props.to && props.onClick) ?
       <a
         href={props.to}
-        data-qa={props.qahook ? createQAHook(`${props.qahook}`, "external-link", "link") : null}
+        data-qa={props.qaHook ? createQAHook(`${props.qaHook}`, "external-link", "link") : null}
         onClick={props.onClick}
         {...sanitizedProps}
       >
@@ -34,11 +34,11 @@ Link.propTypes = {
     PropTypes.node,
     PropTypes.element,
   ]),
-  qahook: PropTypes.string,
+  qaHook: PropTypes.string,
 };
 
 Link.defaultProps = {
-  qahook: null,
+  qaHook: null,
 };
 
 export default Link;

@@ -65,7 +65,7 @@ function linkMicroData(link) {
   });
 }
 
-function Breadcrumbs({ links, style, qahook }) {
+function Breadcrumbs({ links, style, qaHook }) {
   const items = links.map((link, index) => (
     <span
       className="Breadcrumbs-item"
@@ -78,7 +78,7 @@ function Breadcrumbs({ links, style, qahook }) {
           styles.anchor.base,
           index < links.length - 1 && styles.anchor.padded,
         ]}
-        data-qa={qahook ? createQAHook(`${link.title}-breadcrumb`, `breadcrumb-${index}`, "link") : null}
+        data-qa={qaHook ? createQAHook(`${link.title}-breadcrumb`, `breadcrumb-${index}`, "link") : null}
         href={`//www.lonelyplanet.com${link.href}`}
         key={link.href}
         {...linkMicroData(link)}
@@ -117,11 +117,11 @@ Breadcrumbs.propTypes = {
     }),
   ).isRequired,
   style: propTypes.style,
-  qahook: PropTypes.bool,
+  qaHook: PropTypes.bool,
 };
 
 Breadcrumbs.defaultProps = {
-  qahook: false,
+  qaHook: false,
 };
 
 export default radium(Breadcrumbs);

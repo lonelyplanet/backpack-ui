@@ -189,6 +189,7 @@ const ThumbnailListItem = ({
   lineClamp,
   theme,
   style,
+  qaHook,
 }) => (
   <div
     className={cn("ListItem-thumbnail", theme && `ListItem-thumbnail--${theme}`)}
@@ -215,6 +216,7 @@ const ThumbnailListItem = ({
         to={href}
         onClick={onClick}
         style={styles.imageAnchor}
+        qaHook={qaHook}
       >
         <CoverPhoto
           src={imagePath}
@@ -246,6 +248,7 @@ const ThumbnailListItem = ({
           to={href}
           onClick={onClick}
           style={styles.textAnchor}
+          qaHook={qaHook}
         >
           {status &&
             <div
@@ -309,11 +312,13 @@ ThumbnailListItem.propTypes = {
   lineClamp: PropTypes.number,
   theme: PropTypes.oneOf(["light", "dark", "active"]),
   style: propTypes.style,
+  qaHook: PropTypes.string,
 };
 
 ThumbnailListItem.defaultProps = {
   theme: "light",
   lineClamp: 1,
+  qaHook: null,
 };
 
 export default radium(ThumbnailListItem);
