@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import SettingBlock from "../settingBlock";
 import Input from "../form/input";
-import { validReactAttributes } from "../../utils/validReactAttributes";
-
 
 const SettingBlockInput = (props) => (
   <SettingBlock
@@ -13,7 +11,7 @@ const SettingBlockInput = (props) => (
     htmlFor={props.id}
   >
     <Input
-      {...validReactAttributes(props)}
+      {...props}
       theme="float"
       name={props.name}
       placeholder={props.placeholder}
