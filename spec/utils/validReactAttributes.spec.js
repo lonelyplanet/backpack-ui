@@ -8,6 +8,7 @@ describe("validReactAttributes", () => {
       "data-valid": "a valid data attribute",
       type: "button",
       autoSave: true,
+      qaHook: "not going to error out",
       "aria-valid": "a valid aria attribute",
     };
     const actual = validReactAttributes(unsanitized);
@@ -16,6 +17,7 @@ describe("validReactAttributes", () => {
     expect(actual).to.have.property("type");
     expect(actual).to.have.property("autoSave");
     expect(actual).to.have.property("aria-valid");
+    expect(actual).not.to.have.property("qaHook");
     expect(Object.keys(actual).length).to.equal(4);
   });
 });
