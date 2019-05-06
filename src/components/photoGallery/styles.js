@@ -2,6 +2,10 @@ import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
 
 export default `
+  .pswp {
+    z-index: 2000;
+  }
+
   .pswp__bg {
     background: ${colors.bgPrimary};
   }
@@ -71,6 +75,15 @@ export default `
     background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2221px%22%20height%3D%2236px%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%2021%2036%22%3E%3Cpath%20fill%3D%22%23d3d3d3%22%20d%3D%22M20.6%2C16.9c-0.1-0.1-0.2%2C0-0.2-0.1L2.4%2C0.4c-0.6-0.6-1.5-0.6-2%2C0c-0.6%2C0.6-0.6%2C1.5%2C0%2C2l17%2C15.6l-17%2C15.6c-0.6%2C0.6-0.6%2C1.5%2C0%2C2c0.6%2C0.6%2C1.5%2C0.6%2C2%2C0l17.9-16.4c0.1%2C0%2C0.2%2C0%2C0.2-0.1c0.3-0.3%2C0.4-0.7%2C0.4-1.1C21%2C17.6%2C20.9%2C17.2%2C20.6%2C16.9z%22%20%2F%3E%3C%2Fsvg%3E') !important;
   }
 
+  .pswp__top-bar,
+  .pswp__caption {
+    background-color: transparent !important;
+  }
+
+  .pswp__top-bar {
+    height: 0;
+  }
+
   .pswp__caption small {
     font-size: 12px;
     color: ${colors.accentGray};
@@ -96,14 +109,5 @@ export default `
   .pswp__caption__center a {
     color: ${rgba(colors.textPrimary, 0.8)};
     text-decoration: underline;
-  }
-
-  .pswp__top-bar {
-    height: 0;
-  }
-
-  .pswp__ui--fit .pswp__top-bar,
-  .pswp__ui--fit .pswp__caption {
-    background-color: transparent;
   }
 `;
