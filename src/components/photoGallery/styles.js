@@ -2,6 +2,10 @@ import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
 
 export default `
+  .pswp {
+    z-index: 2000;
+  }
+
   .pswp__bg {
     background: ${colors.bgPrimary};
   }
@@ -12,7 +16,7 @@ export default `
 
   .pswp__button--close {
     background-color: transparent;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" x="0px" y="0px" viewBox="0 0 32 32"><path fill="#d3d3d3" d="M17.6,16L31.7,1.9c0.4-0.4,0.4-1.2,0-1.6c-0.4-0.4-1.1-0.4-1.6,0L16,14.4L1.9,0.3c-0.4-0.4-1.2-0.4-1.6,0c-0.4,0.4-0.4,1.2,0,1.6L14.4,16L0.3,30.1c-0.4,0.4-0.4,1.2,0,1.6c0.4,0.4,1.2,0.4,1.6,0L16,17.6l14.1,14.1c0.4,0.4,1.2,0.4,1.6,0c0.4-0.4,0.4-1.1,0-1.6L17.6,16z" /></svg>') !important;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'32px'%20height%3D'32px'%20x%3D'0px'%20y%3D'0px'%20viewBox%3D'0%200%2032%2032'%3E%3Cpath%20fill%3D'%23d3d3d3'%20d%3D'M17.6%2C16L31.7%2C1.9c0.4-0.4%2C0.4-1.2%2C0-1.6c-0.4-0.4-1.1-0.4-1.6%2C0L16%2C14.4L1.9%2C0.3c-0.4-0.4-1.2-0.4-1.6%2C0c-0.4%2C0.4-0.4%2C1.2%2C0%2C1.6L14.4%2C16L0.3%2C30.1c-0.4%2C0.4-0.4%2C1.2%2C0%2C1.6c0.4%2C0.4%2C1.2%2C0.4%2C1.6%2C0L16%2C17.6l14.1%2C14.1c0.4%2C0.4%2C1.2%2C0.4%2C1.6%2C0c0.4-0.4%2C0.4-1.1%2C0-1.6L17.6%2C16z'%20%2F%3E%3C%2Fsvg%3E") !important;
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: 16px 16px;
@@ -63,12 +67,23 @@ export default `
 
   .pswp__button--arrow--left:before {
     left: 0;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="21px" height="36px" x="0px" y="0px" viewBox="0 0 21 36"><path fill="#d3d3d3" d="M20.6,33.6L3.6,18l17-15.6c0.6-0.6,0.6-1.5,0-2c-0.6-0.6-1.5-0.6-2,0L0.6,16.8c-0.1,0-0.2,0-0.2,0.1C0.1,17.2,0,17.6,0,18c0,0.4,0.1,0.8,0.4,1.1c0.1,0.1,0.2,0,0.2,0.1l17.9,16.4c0.6,0.6,1.5,0.6,2,0C21.1,35,21.1,34.1,20.6,33.6z" /></svg>') !important;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'21px'%20height%3D'36px'%20x%3D'0px'%20y%3D'0px'%20viewBox%3D'0%200%2021%2036'%3E%3Cpath%20fill%3D'%23d3d3d3'%20d%3D'M20.6%2C33.6L3.6%2C18l17-15.6c0.6-0.6%2C0.6-1.5%2C0-2c-0.6-0.6-1.5-0.6-2%2C0L0.6%2C16.8c-0.1%2C0-0.2%2C0-0.2%2C0.1C0.1%2C17.2%2C0%2C17.6%2C0%2C18c0%2C0.4%2C0.1%2C0.8%2C0.4%2C1.1c0.1%2C0.1%2C0.2%2C0%2C0.2%2C0.1l17.9%2C16.4c0.6%2C0.6%2C1.5%2C0.6%2C2%2C0C21.1%2C35%2C21.1%2C34.1%2C20.6%2C33.6z'%20%2F%3E%3C%2Fsvg%3E") !important;
   }
 
   .pswp__button--arrow--right:before {
     right: 0;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="21px" height="36px" x="0px" y="0px" viewBox="0 0 21 36"><path fill="#d3d3d3" d="M20.6,16.9c-0.1-0.1-0.2,0-0.2-0.1L2.4,0.4c-0.6-0.6-1.5-0.6-2,0c-0.6,0.6-0.6,1.5,0,2l17,15.6l-17,15.6c-0.6,0.6-0.6,1.5,0,2c0.6,0.6,1.5,0.6,2,0l17.9-16.4c0.1,0,0.2,0,0.2-0.1c0.3-0.3,0.4-0.7,0.4-1.1C21,17.6,20.9,17.2,20.6,16.9z" /></svg>') !important;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'21px'%20height%3D'36px'%20x%3D'0px'%20y%3D'0px'%20viewBox%3D'0%200%2021%2036'%3E%3Cpath%20fill%3D'%23d3d3d3'%20d%3D'M20.6%2C16.9c-0.1-0.1-0.2%2C0-0.2-0.1L2.4%2C0.4c-0.6-0.6-1.5-0.6-2%2C0c-0.6%2C0.6-0.6%2C1.5%2C0%2C2l17%2C15.6l-17%2C15.6c-0.6%2C0.6-0.6%2C1.5%2C0%2C2c0.6%2C0.6%2C1.5%2C0.6%2C2%2C0l17.9-16.4c0.1%2C0%2C0.2%2C0%2C0.2-0.1c0.3-0.3%2C0.4-0.7%2C0.4-1.1C21%2C17.6%2C20.9%2C17.2%2C20.6%2C16.9z'%20%2F%3E%3C%2Fsvg%3E") !important;
+  }
+
+  .pswp__top-bar,
+  .pswp__caption,
+  .pswp__ui--fit .pswp__top-bar,
+  .pswp__ui--fit .pswp__caption {
+    background-color: transparent;
+  }
+
+  .pswp__top-bar {
+    height: 0;
   }
 
   .pswp__caption small {
@@ -96,14 +111,5 @@ export default `
   .pswp__caption__center a {
     color: ${rgba(colors.textPrimary, 0.8)};
     text-decoration: underline;
-  }
-
-  .pswp__top-bar {
-    height: 0;
-  }
-
-  .pswp__ui--fit .pswp__top-bar,
-  .pswp__ui--fit .pswp__caption {
-    background-color: transparent;
   }
 `;
