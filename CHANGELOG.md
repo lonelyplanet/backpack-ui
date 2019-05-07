@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.94.4"></a>
+## [4.94.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.3...v4.94.4) (2019-05-07)
+
+
+### Bug Fixes
+
+* PhotoGallery caption incorrect background color on mobile ([8fd46ca](https://github.com/lonelyplanet/backpack-ui/commit/8fd46ca))
+* PhotoGallery IE support for icons ([3dbc596](https://github.com/lonelyplanet/backpack-ui/commit/3dbc596))
+* PhotoGallery uri encoded svg paths in css ([f7a1641](https://github.com/lonelyplanet/backpack-ui/commit/f7a1641))
+
+
+### Features
+
+* removed use of !important in PhotoGallery styling ([c767bee](https://github.com/lonelyplanet/backpack-ui/commit/c767bee))
+
+
+
 <a name="4.94.3"></a>
 ## [4.94.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.2...v4.94.3) (2019-04-25)
 
