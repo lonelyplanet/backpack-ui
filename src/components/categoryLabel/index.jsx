@@ -6,6 +6,7 @@ import colors from "../../styles/colors";
 import { fontWeightLight, fontWeightRegular } from "../../styles/typography";
 import propTypes from "../../utils/propTypes";
 import { textUppercase } from "../../utils/typography";
+import createQAHook from "../../utils/createQAHook";
 
 const styles = {
   default: Object.assign({}, {
@@ -22,9 +23,10 @@ const styles = {
   },
 };
 
-const CategoryLabel = ({ children, light, style }) => (
+const CategoryLabel = ({ children, light, style, qaHook }) => (
   <span
     className="CategoryLabel"
+    data-qa={qaHook ? createQAHook("category-label") : null}
     style={[
       styles.default,
       light && styles.light,
@@ -39,11 +41,13 @@ CategoryLabel.propTypes = {
   children: PropTypes.node.isRequired,
   light: PropTypes.bool,
   style: propTypes.style,
+  qaHook: PropTypes.bool,
 };
 
 CategoryLabel.defaultProps = {
   light: false,
   style: null,
+  qaHook: false,
 };
 
 export default radium(CategoryLabel);
