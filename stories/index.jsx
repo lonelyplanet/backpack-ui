@@ -1328,6 +1328,7 @@ storiesOf("Labels", module)
   .add("Category label - default", () => (
     <CategoryLabel
       light={boolean("Light", false)}
+      qaHook={boolean("QA Hook", false)}
     >
       {text("Text", "Art and culture")}
     </CategoryLabel>
