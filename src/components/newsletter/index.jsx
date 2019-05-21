@@ -438,11 +438,17 @@ Newsletter.defaultProps = {
   },
   legalOptInLabel: [
     "I want emails from Lonely Planet with travel and product information, promotions, advertisements, third-party offers, and surveys. I can unsubscribe any time using the unsubscribe link at the end of all emails. ",
-    <a href="https://www.lonelyplanet.com/contact" target="_blank" rel="noopener noreferrer">
-    Contact Lonely Planet here
+    <a
+      key="contact-lp"
+      href="https://www.lonelyplanet.com/contact"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Contact Lonely Planet here
     </a>,
     ". Lonely Planet ",
     <a
+      key="privacy-policy"
       href="https://www.lonelyplanet.com/legal/privacy-policy/"
       target="_blank"
       rel="noopener noreferrer"
