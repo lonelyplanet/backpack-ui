@@ -38,7 +38,7 @@
     "url": "https://github.com/lonelyplanet/backpack-ui.git"
   },
   "dependencies": {
-    "axios": "^0.15.3",
+    "axios": "^0.19.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "chai": "^3.5.0",
     "classnames": "^2.2.5",
