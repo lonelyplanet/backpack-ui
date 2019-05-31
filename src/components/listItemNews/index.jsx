@@ -110,7 +110,10 @@ const ListItemNews = ({
         level={3}
         weight="thin"
         tracking="tight"
-        override={[styles.heading.default, size && styles.heading.size[size]]}
+        override={{
+          ...styles.heading.default,
+          ...size && styles.heading.size[size],
+        }}
       >
         <a
           data-qa={qaHook ? createQAHook(title, "heading", "link") : null}
