@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.94.6"></a>
+## [4.94.6](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.5...v4.94.6) (2019-05-31)
+
+
+### Bug Fixes
+
+* added key prop to <a> tags ([1856a4e](https://github.com/lonelyplanet/backpack-ui/commit/1856a4e))
+* bump axios ([7ccb6ae](https://github.com/lonelyplanet/backpack-ui/commit/7ccb6ae))
+* change passing override prop an object from an array ([6c2d0b5](https://github.com/lonelyplanet/backpack-ui/commit/6c2d0b5))
+
+
+
 <a name="4.94.5"></a>
 ## [4.94.5](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.4...v4.94.5) (2019-05-13)
 
