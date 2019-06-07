@@ -91,6 +91,7 @@
     "@storybook/addon-links": "^3.3.13",
     "@storybook/addon-options": "^3.3.13",
     "@storybook/react": "^5.0.0",
+    "babel-loader": "^7.0.0",
     "@types/react": "^16.0.5",
     "babel-cli": "^6.14.0",
     "babel-eslint": "^6.1.2",
