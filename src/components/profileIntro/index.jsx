@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import MarkdownRenderer from "react-markdown-renderer";
+import MDReactComponent from "markdown-react-js";
 import Measure from "react-measure";
 import cn from "classnames";
 import MoreLink from "../moreLink";
@@ -120,9 +120,9 @@ class ProfileHeaderIntro extends React.Component {
                   className="MarkdownContainer"
                   ref={measureRef}
                 >
-                  <MarkdownRenderer
+                  <MDReactComponent
                     className="MarkdownRender"
-                    markdown={children}
+                    text={children}
                   />
                 </div>
               </article>
