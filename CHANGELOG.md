@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.94.8"></a>
+## [4.94.8](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.7...v4.94.8) (2019-06-10)
+
+
+### Bug Fixes
+
+* add babel-loader ([#768](https://github.com/lonelyplanet/backpack-ui/issues/768)) ([2aeeb7a](https://github.com/lonelyplanet/backpack-ui/commit/2aeeb7a))
+
+
+
 <a name="4.94.7"></a>
 ## [4.94.7](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.6...v4.94.7) (2019-06-06)
 
