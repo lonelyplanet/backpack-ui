@@ -61,7 +61,6 @@ const scopedStyles = {
 };
 
 class AvatarUpload extends Component {
-
   static strToTypedArray(str) {
     let byteString;
     if (str.split(",")[0].indexOf("base64") >= 0) {
