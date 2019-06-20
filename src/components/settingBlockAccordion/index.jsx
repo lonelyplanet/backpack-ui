@@ -47,33 +47,33 @@ const SettingBlockAccordion = ({
   title,
   subtitle,
   onClick,
- }) => (
-   <SettingBlockWrapper error={error}>
-     <SettingBlockButtonWrapper onClick={onClick}>
-       <div style={styles.flexContainer}>
-         <SettingBlockButtonDescription>
-           <SettingBlockHeader subtitle={subtitle}>
-             {title}
-           </SettingBlockHeader>
+}) => (
+  <SettingBlockWrapper error={error}>
+    <SettingBlockButtonWrapper onClick={onClick}>
+      <div style={styles.flexContainer}>
+        <SettingBlockButtonDescription>
+          <SettingBlockHeader subtitle={subtitle}>
+            {title}
+          </SettingBlockHeader>
 
-           {description &&
-             <SettingBlockDescription>
-               {description}
-             </SettingBlockDescription>
-           }
-         </SettingBlockButtonDescription>
+          {description &&
+            <SettingBlockDescription>
+              {description}
+            </SettingBlockDescription>
+          }
+        </SettingBlockButtonDescription>
 
-         {expanded ? iconFromString("ChevronUp", styles.icon) : iconFromString("ChevronDown", styles.icon)}
-       </div>
-     </SettingBlockButtonWrapper>
+        {expanded ? iconFromString("ChevronUp", styles.icon) : iconFromString("ChevronDown", styles.icon)}
+      </div>
+    </SettingBlockButtonWrapper>
 
-     <div
-       className="AccordionContent"
-       style={[styles.accordion, expanded && styles.accordionOpen]}
-     >
-       {children}
-     </div>
-   </SettingBlockWrapper>
+    <div
+      className="AccordionContent"
+      style={[styles.accordion, expanded && styles.accordionOpen]}
+    >
+      {children}
+    </div>
+  </SettingBlockWrapper>
 );
 
 SettingBlockAccordion.propTypes = {

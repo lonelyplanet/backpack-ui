@@ -159,20 +159,20 @@ class Typeahead extends Component {
     if (e.key !== "Enter" && e.key !== "ArrowUp" && e.key !== "ArrowDown") {
       this.searchTimer = setTimeout(() => {
         this.props.dataSource(query)
-        .then((json) => {
-          let results = [];
-          if (this.props.filterResults) {
-            results = this.props.filterResults(json);
-          } else {
-            results = json.places.map(place => place.attributes.name);
-          }
+          .then((json) => {
+            let results = [];
+            if (this.props.filterResults) {
+              results = this.props.filterResults(json);
+            } else {
+              results = json.places.map(place => place.attributes.name);
+            }
 
-          if (this.props.validate) {
-            this.props.validate(query, results);
-          }
-          this.props.onKeyUp(json.places);
-          this.setState({ searchResults: results });
-        });
+            if (this.props.validate) {
+              this.props.validate(query, results);
+            }
+            this.props.onKeyUp(json.places);
+            this.setState({ searchResults: results });
+          });
       }, 200);
     }
   }

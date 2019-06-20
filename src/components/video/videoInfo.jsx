@@ -345,16 +345,18 @@ class VideoInfo extends React.Component {
                   }
 
                   <p style={styles.data}>
-                    {video.host && <span>
-                      <span style={styles.dataLabel}>Host:</span>
+                    {video.host &&
+                      <span>
+                        <span style={styles.dataLabel}>Host:</span>
                         {video.host}
                       </span>
                     }
                     {video.director && video.host &&
                       <span style={styles.dataDivider}>|</span>
                     }
-                    {video.director && <span>
-                      <span style={styles.dataLabel}>Director:</span>
+                    {video.director &&
+                      <span>
+                        <span style={styles.dataLabel}>Director:</span>
                         {video.director}
                       </span>
                     }

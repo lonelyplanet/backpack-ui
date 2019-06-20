@@ -62,7 +62,7 @@ export default class ImageLoader extends React.Component {
   }
 
   createLoader() {
-    this.destroyLoader();  // We can only have one loader at a time.
+    this.destroyLoader(); // We can only have one loader at a time.
 
     this.img = new Image();
     this.img.onload = this.handleLoad.bind(this);
