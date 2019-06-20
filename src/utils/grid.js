@@ -166,8 +166,8 @@ function gutter(
   const gutterWidth = _calculateGutter(multiplier);
   const containerWidth = _updateContext(
     typeof columns === "string" ?
-    parseInt(columns, 10) :
-    columns
+      parseInt(columns, 10) :
+      columns
   );
 
   if (math === "static") {

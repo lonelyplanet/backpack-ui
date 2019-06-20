@@ -348,10 +348,10 @@ class VideoPopout extends Component {
               style={[
                 styles.overlay,
                 (
-                poppedOut &&
-                (hover || mobile) &&
-                !adIsPlaying &&
-                !mutedOverlayVisible ? { opacity: 1, top: 0 } : {}
+                  poppedOut &&
+                  (hover || mobile) &&
+                  !adIsPlaying &&
+                  !mutedOverlayVisible ? { opacity: 1, top: 0 } : {}
                 ),
               ]}
             >
