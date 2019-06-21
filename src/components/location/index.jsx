@@ -60,7 +60,7 @@ function Location({ name, street, place, coordinates, mobile, qaHook }) {
                       key={placeItem.title}
                       style={blueLink()}
                       href={placeItem.href}
-                      data-qa={qaHook ? createQAHook(placeItem.type, "place", "link") : null}
+                      data-testid={qaHook ? createQAHook(placeItem.type, "place", "link") : null}
                     >
                       <span itemProp={placeItem.type === "city" ? "addressLocality" : "addressCountry"}>
                         {placeItem.title}

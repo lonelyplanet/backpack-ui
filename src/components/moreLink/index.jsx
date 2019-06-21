@@ -105,7 +105,7 @@ function MoreLink({
         style,
       ]}
       href={href}
-      data-qa={qaHook ? createQAHook(qaHook, "morelink", `${Element === "a" ? "link" : Element}`) : null}
+      data-testid={qaHook ? createQAHook(qaHook, "morelink", `${Element === "a" ? "link" : Element}`) : null}
       target={target}
       onClick={onClick}
       {...rest}

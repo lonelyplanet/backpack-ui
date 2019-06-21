@@ -19,7 +19,7 @@ const CategoryLabelLink = (props) => {
     <CategoryLabel style={props.style}>
       <a
         style={styles}
-        data-qa={props.qaHook ? createQAHook("category-label", "category-label", "link") : null}
+        data-testid={props.qaHook ? createQAHook("category-label", "category-label", "link") : null}
         href={props.href}
         {...sanitizedProps}
       >

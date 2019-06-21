@@ -25,7 +25,7 @@ const ReviewedBadge = ({ className, style, qaHook }) => (
     className={cn("ReviewedBadge", className)}
     style={[styles.container, style]}
     title="Lonely Planet reviewed"
-    data-qa={qaHook ? "reviewed-badge-div" : null}
+    data-testid={qaHook ? "reviewed-badge-div" : null}
   >
     <Icon.DiamondLogo
       label="Lonely Planet"

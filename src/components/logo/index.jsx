@@ -34,7 +34,7 @@ const styles = {
 const Logo = ({ href, color, className, style, qaHook }) => (
   <a
     className={cn("Logo", className)}
-    data-qa={qaHook ? "logo" : null}
+    data-testid={qaHook ? "logo" : null}
     style={[styles.anchor, { color: colours[color] }, style]}
     href={href}
   >

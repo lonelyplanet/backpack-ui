@@ -92,7 +92,7 @@ function ContactBar({ phone, website, qaHook }) {
           className="ContactBar-phone"
           href={`tel:${telephone}`}
           style={[styles.link.base, styles.link.call]}
-          data-qa={qaHook ? "phone-link" : null}
+          data-testid={qaHook ? "phone-link" : null}
           key="phone"
         >
           <Icon name="mobile" style={styles.icon.base} />
@@ -109,7 +109,7 @@ function ContactBar({ phone, website, qaHook }) {
           href={website}
           style={[styles.link.base, styles.link.website]}
           key="website"
-          data-qa={qaHook ? "website-link" : null}
+          data-testid={qaHook ? "website-link" : null}
         >
           <Icon name="globe" style={styles.icon.base} />
 

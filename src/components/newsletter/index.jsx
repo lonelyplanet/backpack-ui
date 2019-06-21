@@ -337,7 +337,7 @@ class Newsletter extends Component {
                 </p>
               )}
 
-              <form data-qa={qaHook ? "newsletter-form" : null} style={styles.form} action={endpoint} onSubmit={this.handleSubmit}>
+              <form data-testid={qaHook ? "newsletter-form" : null} style={styles.form} action={endpoint} onSubmit={this.handleSubmit}>
                 <div style={styles.inputFieldset}>
                   <Input
                     type="email"
@@ -347,7 +347,7 @@ class Newsletter extends Component {
                     name="newsletter[email]"
                     style={styles.input}
                     onChange={this.handleInput}
-                    data-qa={qaHook ? "newsletter-email-input" : null}
+                    data-testid={qaHook ? "newsletter-email-input" : null}
                   />
                 </div>
 
@@ -361,7 +361,7 @@ class Newsletter extends Component {
                       onClick={this.handleOptIn}
                       value="legalOptIn"
                       name="legalOptIn"
-                      data-qa={qaHook ? "legal-checkbox" : null}
+                      data-testid={qaHook ? "legal-checkbox" : null}
                       required
                     />
                   ) : (

@@ -176,7 +176,7 @@ class SidebarSection extends React.Component {
 
     const collapsibleHeading = (
       <button
-        data-qa={qaHook ? "sidebar-section-collapsible-heading-btn" : null}
+        data-testid={qaHook ? "sidebar-section-collapsible-heading-btn" : null}
         style={styles.collapsibleHeading.base}
         onClick={this.onClick}
       >

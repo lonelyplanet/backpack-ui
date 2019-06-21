@@ -78,7 +78,7 @@ function Breadcrumbs({ links, style, qaHook }) {
           styles.anchor.base,
           index < links.length - 1 && styles.anchor.padded,
         ]}
-        data-qa={qaHook ? createQAHook(`${link.title}-breadcrumb`, `breadcrumb-${index}`, "link") : null}
+        data-testid={qaHook ? createQAHook(`${link.title}-breadcrumb`, `breadcrumb-${index}`, "link") : null}
         href={`//www.lonelyplanet.com${link.href}`}
         key={link.href}
         {...linkMicroData(link)}

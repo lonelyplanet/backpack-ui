@@ -19,7 +19,7 @@ function Input(props) {
   return (
     <input
       name={name || id}
-      data-qa={qaHook ? createQAHook(name, id, "input") : null}
+      data-testid={qaHook ? createQAHook(name, id, "input") : null}
       type={type}
       {...sanitizedProps}
       style={[

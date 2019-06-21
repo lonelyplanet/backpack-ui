@@ -84,7 +84,7 @@ function SightsListItem({
       href={slug}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      data-qa={qaHook ? createQAHook(title, "sight", "link") : null}
+      data-testid={qaHook ? createQAHook(title, "sight", "link") : null}
     >
       <div style={styles.imageContainer}>
         {imgPath && <div style={[styles.image, { backgroundImage: `url(${imgPath})` }]} />}

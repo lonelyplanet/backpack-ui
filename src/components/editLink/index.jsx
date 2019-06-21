@@ -25,7 +25,7 @@ function EditLink({ url, display, qaHook }) {
       className="EditLink"
       style={styles.container.base}
     >
-      <a href={url} data-qa={qaHook ? "suggest-an-edit-link" : null}>Suggest an edit</a>.
+      <a href={url} data-testid={qaHook ? "suggest-an-edit-link" : null}>Suggest an edit</a>.
     </Container>
   );
 }

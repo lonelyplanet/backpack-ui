@@ -25,7 +25,7 @@ function DatePicker({ id, name, required, size, theme, qaHook }) {
       type="text"
       id={id}
       name={name || id}
-      data-qa={qaHook ? createQAHook(name, id, "input") : null}
+      data-testid={qaHook ? createQAHook(name, id, "input") : null}
       required={required}
     />
   );

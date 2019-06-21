@@ -190,7 +190,7 @@ function PaginatorButton({
         (align && offset) && styles.direction[direction].offset[size],
         style,
       ]}
-      data-qa={qaHook ? createQAHook(label, "paginator", "btn") : null}
+      data-testid={qaHook ? createQAHook(label, "paginator", "btn") : null}
       title={label}
       onClick={onClick}
       aria-label={label}
