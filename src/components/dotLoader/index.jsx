@@ -39,7 +39,7 @@ const styles = {
 
 function DotLoader({ inline, qaHook }) {
   return (
-    <div data-qa={qaHook ? "dot-loader" : null} className="DotLoader" style={[inline && styles.container.inline]}>
+    <div data-testid={qaHook ? "dot-loader" : null} className="DotLoader" style={[inline && styles.container.inline]}>
       <span style={styles.dot.base} />
       <span style={[styles.dot.base, styles.dot.second]} />
       <span style={[styles.dot.base, styles.dot.third]} />

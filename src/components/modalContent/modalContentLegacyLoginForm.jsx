@@ -54,7 +54,7 @@ class LegacyForm extends React.Component {
         <Validate>
           {({ validate, errorMessages }) => (
             <form
-              data-qa={qaHook ? "legacy-login-form" : null}
+              data-testid={qaHook ? "legacy-login-form" : null}
               action={this.props.authLink}
               ref={(node) => {
                 this.form = node;

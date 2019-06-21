@@ -64,7 +64,7 @@ const Container = ({ children, id, className, qaHook, style }) => (
   <div
     id={id}
     className={cn("container", className)}
-    data-qa={qaHook}
+    data-testid={qaHook}
     style={style}
   >
     <style dangerouslySetInnerHTML={markup(styles)} />

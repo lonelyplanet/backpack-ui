@@ -71,7 +71,7 @@ function ArticlePreview({
         <a
           href={href}
           style={styles.anchor}
-          data-qa={qaHook ? "article-preview-image-link" : null}
+          data-testid={qaHook ? "article-preview-image-link" : null}
           onClick={() => {
             dataLayerPush(
               createPromotionClickEvent({
@@ -92,7 +92,7 @@ function ArticlePreview({
         <a
           href={href}
           style={assign({}, styles.anchor, { marginTop: "12px" })}
-          data-qa={qaHook ? createQAHook(title, "article-preview-text", "link") : null}
+          data-testid={qaHook ? createQAHook(title, "article-preview-text", "link") : null}
           onClick={() => {
             dataLayerPush(
               createPromotionClickEvent({

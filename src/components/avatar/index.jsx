@@ -59,7 +59,7 @@ function Avatar({ src, alt, size, href, id, className, style, qaHook }) {
   const Anchor = (
     <a
       id={id}
-      data-qa={qaHook ? createQAHook(id, cn("Avatar", className), "link") : null}
+      data-testid={qaHook ? createQAHook(id, cn("Avatar", className), "link") : null}
       className={cn("Avatar", className)}
       style={[
         styles.default,

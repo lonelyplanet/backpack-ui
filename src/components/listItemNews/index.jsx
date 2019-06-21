@@ -97,7 +97,7 @@ const ListItemNews = ({
         {isSponsored ?
           "Sponsored" :
           <a
-            data-qa={qaHook ? "sponsored-link" : null}
+            data-testid={qaHook ? "sponsored-link" : null}
             style={styles.anchor}
             href={categoryLink}
           >
@@ -116,7 +116,7 @@ const ListItemNews = ({
         }}
       >
         <a
-          data-qa={qaHook ? createQAHook(title, "heading", "link") : null}
+          data-testid={qaHook ? createQAHook(title, "heading", "link") : null}
           style={[styles.anchor, { color: "inherit" }]}
           href={link}
         >
@@ -126,7 +126,7 @@ const ListItemNews = ({
     </div>
 
     <div style={[styles.imageContainer.default, size && styles.imageContainer.size[size]]}>
-      <a href={link} data-qa={qaHook ? "list-item-thumbnail-link" : null} style={styles.imageAnchor}>
+      <a href={link} data-testid={qaHook ? "list-item-thumbnail-link" : null} style={styles.imageAnchor}>
         <ListItemThumbnail
           src={thumbnail}
           alt={title}

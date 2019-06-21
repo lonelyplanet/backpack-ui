@@ -184,7 +184,7 @@ class FlightSearchWidget extends Component {
               customStyles={styles.button}
               onClick={onClick}
               rounded
-              data-qa={qaHook ? "see-flights" : null}
+              data-testid={qaHook ? "see-flights" : null}
             >
               See flights
 

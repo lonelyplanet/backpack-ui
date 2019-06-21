@@ -60,7 +60,7 @@ function ExpandButton({ label, onClick, qaHook }) {
       style={styles.container.base}
       aria-label="Expand"
       onClick={onClick}
-      data-qa={qaHook ? createQAHook(label, "ExpandButton", "btn") : null}
+      data-testid={qaHook ? createQAHook(label, "ExpandButton", "btn") : null}
     >
       {label &&
         <small

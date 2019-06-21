@@ -89,7 +89,7 @@ const styles = {
 
 const Switch = ({ id, name, value, onClick, checked, className, style, qaHook }) => (
   <div
-    data-qa={qaHook ? "switch-div" : null}
+    data-testid={qaHook ? "switch-div" : null}
     className={cn("Switch", className)}
     style={[
       styles.container,

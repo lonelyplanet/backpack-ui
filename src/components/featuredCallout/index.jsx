@@ -129,7 +129,7 @@ const FeaturedCallout = ({
         ...{ fontWeight: titleWeight },
       }}
     >
-      <a href={link.href} style={styles.titleLink} data-qa={qaHook ? createQAHook(title, "feature-callout", "link") : null}>
+      <a href={link.href} style={styles.titleLink} data-testid={qaHook ? createQAHook(title, "feature-callout", "link") : null}>
         {title}
       </a>
     </Heading>

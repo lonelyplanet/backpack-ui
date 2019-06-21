@@ -80,7 +80,7 @@ function Tag({ children, href, onClick, selected, style, qaHook }) {
       ]}
       href={href}
       onClick={onClick}
-      data-qa={qaHook ? createQAHook(children, "tag", Element === "a" ? "link" : Element) : null}
+      data-testid={qaHook ? createQAHook(children, "tag", Element === "a" ? "link" : Element) : null}
     >
       {children}
     </Element>

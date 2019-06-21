@@ -135,7 +135,7 @@ function Callout({ type, heading, slug, image, price, description, category, ali
       className="Callout"
       style={styles.container.base}
       data-type={type}
-      data-qa={createQAHook(`${heading}`, "callout overview", "div")}
+      data-testid={createQAHook(`${heading}`, "callout overview", "div")}
     >
       <div
         className="Callout-image"
@@ -144,7 +144,7 @@ function Callout({ type, heading, slug, image, price, description, category, ali
           type && styles.image.type[type],
         ]}
       >
-        <a href={slug} style={styles.image.anchor} data-qa={qaHook ? createQAHook(`${heading}-image`, "callout-image", "link") : null}>
+        <a href={slug} style={styles.image.anchor} data-testid={qaHook ? createQAHook(`${heading}-image`, "callout-image", "link") : null}>
           <img
             style={styles.image.img}
             src={image}
@@ -172,7 +172,7 @@ function Callout({ type, heading, slug, image, price, description, category, ali
           weight="thick"
           override={styles.heading.base}
         >
-          <a href={slug} style={{ color: "inherit" }} data-qa={qaHook ? createQAHook(`${heading}-header`, "callout-header", "link") : null}>
+          <a href={slug} style={{ color: "inherit" }} data-testid={qaHook ? createQAHook(`${heading}-header`, "callout-header", "link") : null}>
             {heading}
           </a>
         </Heading>

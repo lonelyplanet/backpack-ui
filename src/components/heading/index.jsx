@@ -134,7 +134,7 @@ function Heading({
   return (
     <Component
       className="Heading"
-      data-qa={qaHook ? createQAHook(children, "heading", `${Component}`) : null}
+      data-testid={qaHook ? createQAHook(children, "heading", `${Component}`) : null}
       style={[
         styles.base,
         size && styles.size[size],

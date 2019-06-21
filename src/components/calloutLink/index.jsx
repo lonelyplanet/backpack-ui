@@ -69,7 +69,7 @@ const CalloutLink = ({ children, href, overlay, style, qaHook }) => (
 
     <div style={styles.border} />
 
-    <a style={[styles.link, overlay && styles.linkWhite]} href={href} data-qa={qaHook ? createQAHook(children, "callout", "link") : null}>
+    <a style={[styles.link, overlay && styles.linkWhite]} href={href} data-testid={qaHook ? createQAHook(children, "callout", "link") : null}>
       {children} <ChevronRight style={styles.icon} />
     </a>
   </div>
