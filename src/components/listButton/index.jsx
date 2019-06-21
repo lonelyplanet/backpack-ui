@@ -65,7 +65,7 @@ const ListButton = ({
     title={label}
     aria-label={label}
     aria-owns={owns}
-    data-qa={qaHook ? createQAHook(label, cn("ListButton", className), "btn") : null}
+    data-testid={qaHook ? createQAHook(label, cn("ListButton", className), "btn") : null}
   >
     {iconFromString(icon, iconProps)}
   </button>

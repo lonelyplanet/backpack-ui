@@ -50,7 +50,7 @@ const Input = (props) => {
       {...attributes}
       ref={innerRef}
       style={[styles, style]}
-      data-qa={qaHook ? createQAHook(innerRef, "default", "input") : null}
+      data-testid={qaHook ? createQAHook(innerRef, "default", "input") : null}
     />
   );
 };

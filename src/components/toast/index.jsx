@@ -240,7 +240,7 @@ const Toast = ({
           onClick={onClose}
           style={[styles.button, url ? styles.onClickButton : styles.onCloseButton]}
           title="Close"
-          data-qa={qaHook ? createQAHook("toast", "toast", `${Element === "a" ? "link" : Element}`) : null}
+          data-testid={qaHook ? createQAHook("toast", "toast", `${Element === "a" ? "link" : Element}`) : null}
         >
           {url ? buttonLabel : <Icon.Close title="Close" style={styles.onCloseIcon} />}
         </Element>

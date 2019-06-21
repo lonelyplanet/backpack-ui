@@ -135,7 +135,7 @@ function IconButton({
         hoverColor && { ":hover": { color: hoverColor } },
         style,
       ]}
-      data-qa={qaHook ? createQAHook(label, "icon", `${Element === "a" ? "link" : Element}`) : null}
+      data-testid={qaHook ? createQAHook(label, "icon", `${Element === "a" ? "link" : Element}`) : null}
       href={href}
       onClick={onClick}
       role={role}

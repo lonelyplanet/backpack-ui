@@ -26,7 +26,7 @@ const styles = {
 const CategoryLabel = ({ children, light, style, qaHook }) => (
   <span
     className="CategoryLabel"
-    data-qa={qaHook ? createQAHook("category-label") : null}
+    data-testid={qaHook ? createQAHook("category-label") : null}
     style={[
       styles.default,
       light && styles.light,

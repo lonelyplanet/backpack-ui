@@ -13,7 +13,7 @@ const Link = ({ to, onClick, children, qaHook, className, ...rest }) => {
     isExternal(to) || (!to && onClick) ?
       <a
         href={to}
-        data-qa={qaHook ? createQAHook(`${qaHook}`, "external-link", "link") : null}
+        data-testid={qaHook ? createQAHook(`${qaHook}`, "external-link", "link") : null}
         onClick={onClick}
         className={className}
         {...sanitizedProps}

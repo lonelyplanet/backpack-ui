@@ -253,7 +253,7 @@ function Price({
 
       {rate &&
         <div
-          data-qa={qaHook ? "rate-div" : null}
+          data-testid={qaHook ? "rate-div" : null}
           className="Price-rate"
           style={[
             styles.rate.base,

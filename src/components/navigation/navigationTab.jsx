@@ -46,7 +46,7 @@ const NavigationTab = (props) => {
     <button
       className="NavigationTab"
       onClick={onClick}
-      data-qa={qaHook ? createQAHook(label, "NavigationTab", "btn") : null}
+      data-testid={qaHook ? createQAHook(label, "NavigationTab", "btn") : null}
       style={[
         styles,
         active && { borderBottomColor: colors.linkPrimary },

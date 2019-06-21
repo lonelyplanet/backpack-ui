@@ -292,7 +292,7 @@ class DateInput extends React.Component {
           {(!range && !time) &&
             <input
               id={id}
-              data-qa={qaHook ? createQAHook(name, id, "input") : null}
+              data-testid={qaHook ? createQAHook(name, id, "input") : null}
               name={name || id}
               style={[style]}
               value={startDate.format(format)}
@@ -311,7 +311,7 @@ class DateInput extends React.Component {
             <div style={{ overflow: "hidden" }}>
               <input
                 id={`${id}-date`}
-                data-qa={qaHook ? createQAHook(`${name}-date`, `${id}-date`, "input") : null}
+                data-testid={qaHook ? createQAHook(`${name}-date`, `${id}-date`, "input") : null}
                 name={`${name || id}-date`}
                 style={[style]}
                 value={startDate.format(format)}
@@ -350,7 +350,7 @@ class DateInput extends React.Component {
               <input
                 id={`${id}-start`}
                 name={`${name || id}-start`}
-                data-qa={qaHook ? createQAHook(`${name}-start`, `${id}-start`, "input") : null}
+                data-testid={qaHook ? createQAHook(`${name}-start`, `${id}-start`, "input") : null}
                 style={[
                   style,
                   noBorder && {
@@ -372,7 +372,7 @@ class DateInput extends React.Component {
               <input
                 id={`${id}-end`}
                 name={`${name || id}-end`}
-                data-qa={qaHook ? createQAHook(`${name}-end`, `${id}-end`, "input") : null}
+                data-testid={qaHook ? createQAHook(`${name}-end`, `${id}-end`, "input") : null}
                 style={[
                   style, { borderLeft: 0 },
                   noBorder && {

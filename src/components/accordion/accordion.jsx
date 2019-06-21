@@ -57,7 +57,7 @@ class Accordion extends Component {
       <div
         className="Accordion"
         id={id}
-        data-qa={qaHook ? createQAHook(qaHook, "accordion", "btn") : null}
+        data-testid={qaHook ? createQAHook(qaHook, "accordion", "btn") : null}
         style={[styles.container, style]}
         role="tablist"
       >

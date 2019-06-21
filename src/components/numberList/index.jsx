@@ -71,13 +71,13 @@ function NumberList({ list, qaHook }) {
       className="NumberList"
       style={styles.container.base}
     >
-      <ul style={styles.list.base} data-qa={qaHook ? "number-list-ul" : null}>
+      <ul style={styles.list.base} data-testid={qaHook ? "number-list-ul" : null}>
         {list.map(({ title, url }, i) => (
           <li
             className="NumberList-item"
             style={[styles.item.base, i !== 0 && styles.item.notFirst]}
             key={i + 1}
-            data-qa={qaHook ? createQAHook(`number-list-${i + 1}`, title, "li") : null}
+            data-testid={qaHook ? createQAHook(`number-list-${i + 1}`, title, "li") : null}
           >
             <div
               className="NumberList-marker"

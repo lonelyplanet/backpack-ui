@@ -6,7 +6,7 @@ import colors from "../../styles/colors";
 const CoverPhoto = ({ src, width, height, alt, style, qaHook }) => (
   <div
     className="CoverPhoto"
-    data-qa={qaHook ? "cover-photo-img" : null}
+    data-testid={qaHook ? "cover-photo-img" : null}
     aria-label={alt}
     style={[
       {

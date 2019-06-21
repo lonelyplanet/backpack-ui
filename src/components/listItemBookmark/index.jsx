@@ -137,7 +137,7 @@ function ListItemBookmark({
     <Element
       className={cn("ListItemBookmark", className)}
       name={name}
-      data-qa={qaHook ? createQAHook(name, "bookmark", `${Element}`) : null}
+      data-testid={qaHook ? createQAHook(name, "bookmark", `${Element}`) : null}
       onClick={onClick}
       style={[
         styles.container.default,

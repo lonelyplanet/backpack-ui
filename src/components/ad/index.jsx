@@ -55,7 +55,7 @@ function Ad({ id, framed, className, style, children, qaHook }) {
     <div
       className={cn("Ad", className)}
       id={id}
-      data-qa={qaHook ? createQAHook(id, cn("Ad", className), "ad") : null}
+      data-testid={qaHook ? createQAHook(id, cn("Ad", className), "ad") : null}
       style={[
         styles.ad.default,
         framed && styles.ad.framed,

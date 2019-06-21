@@ -56,7 +56,7 @@ const IconRevealButton = ({
     id={id}
     className={cn("IconRevealButton", className)}
     onClick={onClick}
-    data-qa={qaHook ? createQAHook(label, cn("IconRevealButton", className), "btn") : null}
+    data-testid={qaHook ? createQAHook(label, cn("IconRevealButton", className), "btn") : null}
     style={[styles.container, style]}
   >
     <Style

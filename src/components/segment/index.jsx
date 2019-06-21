@@ -57,7 +57,7 @@ const Segment = ({
   <div
     className="Segmented"
     id={id}
-    data-qa={qaHook}
+    data-testid={qaHook}
     style={[
       styles.container.default,
       border && styles.container.hasBorder,

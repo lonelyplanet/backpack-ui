@@ -53,7 +53,7 @@ const styles = {
 function IconCallout({ iconName, title, copy, url, qaHook }) {
   return (
     <div className="IconCallout" style={styles.container}>
-      <a href={url} style={styles.anchor} data-qa={qaHook ? createQAHook(title, "callout", "link") : null}>
+      <a href={url} style={styles.anchor} data-testid={qaHook ? createQAHook(title, "callout", "link") : null}>
         {iconFromString(iconName, {
           style: styles.icon,
           ariaHidden: true,

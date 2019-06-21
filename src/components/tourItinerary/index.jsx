@@ -30,7 +30,7 @@ const styles = {
 
 function TourItinerary({ itinerary, link, qaHook }) {
   return (
-    <div className="TourItinerary" data-qa={qaHook ? "tour-itinerary-div" : null}>
+    <div className="TourItinerary" data-testid={qaHook ? "tour-itinerary-div" : null}>
       {itinerary.map((day, index) => (
         <div key={index} className="TourItinerary-day" style={styles.day.base}>
           <Heading

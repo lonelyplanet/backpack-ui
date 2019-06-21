@@ -76,7 +76,7 @@ function SocialIconButton({
       onClick={onClick}
       style={[styles, style]}
       data-network={network}
-      data-qa={qaHook ? createQAHook(network, "social-icon", "link") : null}
+      data-testid={qaHook ? createQAHook(network, "social-icon", "link") : null}
     >
       {iconFromString(iconNames[network])}
     </a>

@@ -162,7 +162,7 @@ function ModalComponent({
       closeTimeoutMS={closeTimeoutMS}
       contentLabel={contentLabel}
       className={className ? `ModalBase ${className}` : "ModalBase"}
-      data-qa={qaHook ? "modal" : null}
+      data-testid={qaHook ? "modal" : null}
     >
       <Style
         scopeSelector=".ReactModalPortal"
@@ -183,7 +183,7 @@ function ModalComponent({
         >
           {leftAction &&
             <button
-              data-qa={qaHook ? "left-action-btn" : null}
+              data-testid={qaHook ? "left-action-btn" : null}
               style={[styles.actionItem, styles.leftAction]}
               disabled={leftActionDisabled}
               onClick={leftAction}
@@ -209,7 +209,7 @@ function ModalComponent({
 
           {rightAction &&
             <button
-              data-qa={qaHook ? "right-action-btn" : null}
+              data-testid={qaHook ? "right-action-btn" : null}
               style={[styles.actionItem, styles.rightAction]}
               disabled={rightActionDisabled}
               onClick={rightAction}
