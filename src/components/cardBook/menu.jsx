@@ -22,7 +22,6 @@ const styles = {
 };
 
 const Menu = ({
-  previewLink,
   downloadLink,
   shareText,
   shareUrl,
@@ -49,18 +48,8 @@ const Menu = ({
     <div style={styles.buttonContainer}>
       <IconButton
         shadow
-        iconName="Search"
-        label="Preview"
-        style={[styles.button, styles.playButton]}
-        size={32}
-        href={previewLink}
-      />
-    </div>
-    <div style={styles.buttonContainer}>
-      <IconButton
-        shadow
-        iconName="Download"
-        label="Download"
+        iconName="Open"
+        label="Preview and Download"
         style={[styles.button, styles.playButton]}
         size={32}
         href={downloadLink}
@@ -70,7 +59,6 @@ const Menu = ({
 );
 
 Menu.propTypes = {
-  previewLink: PropTypes.string.isRequired,
   downloadLink: PropTypes.string.isRequired,
   shareText: PropTypes.string,
   shareUrl: PropTypes.string,
