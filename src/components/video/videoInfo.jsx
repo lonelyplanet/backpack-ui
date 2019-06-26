@@ -387,33 +387,35 @@ class VideoInfo extends React.Component {
                   </p>
                 </div>
 
-                <div style={styles.socialLinksDesktop}>
-                  <SocialIconButton
-                    network="facebook"
-                    onClick={this.onClickFacebook}
-                    style={styles.socialLinkDesktop}
-                  />
-
-                  {mobile &&
+                {video.url &&
+                  <div style={styles.socialLinksDesktop}>
                     <SocialIconButton
-                      network="facebookMessenger"
-                      onClick={this.onClickFacebookMessenger}
+                      network="facebook"
+                      onClick={this.onClickFacebook}
                       style={styles.socialLinkDesktop}
                     />
-                  }
 
-                  <SocialIconButton
-                    network="twitter"
-                    onClick={this.onClickTwitter}
-                    style={styles.socialLinkDesktop}
-                  />
+                    {mobile &&
+                      <SocialIconButton
+                        network="facebookMessenger"
+                        onClick={this.onClickFacebookMessenger}
+                        style={styles.socialLinkDesktop}
+                      />
+                    }
 
-                  <SocialIconButton
-                    network="whatsapp"
-                    onClick={this.onClickWhatsApp}
-                    style={styles.socialLinkDesktop}
-                  />
-                </div>
+                    <SocialIconButton
+                      network="twitter"
+                      onClick={this.onClickTwitter}
+                      style={styles.socialLinkDesktop}
+                    />
+
+                    <SocialIconButton
+                      network="whatsapp"
+                      onClick={this.onClickWhatsApp}
+                      style={styles.socialLinkDesktop}
+                    />
+                  </div>
+                }
               </article>
 
               <aside
@@ -425,48 +427,50 @@ class VideoInfo extends React.Component {
               />
             </section>
 
-            <div
-              style={[
-                styles.socialLinksMobile.default,
-                styles.socialLinksMobile[theme],
-              ]}
-            >
+            {video.url &&
               <div
                 style={[
-                  styles.socialLinksText.default,
-                  styles.socialLinksText[theme],
+                  styles.socialLinksMobile.default,
+                  styles.socialLinksMobile[theme],
                 ]}
               >
-                Share this video:
-              </div>
-              <div>
-                <SocialIconButton
-                  network="facebook"
-                  onClick={this.onClickFacebook}
-                  style={styles.socialLinkMobile}
-                />
-
-                {mobile &&
+                <div
+                  style={[
+                    styles.socialLinksText.default,
+                    styles.socialLinksText[theme],
+                  ]}
+                >
+                  Share this video:
+                </div>
+                <div>
                   <SocialIconButton
-                    network="facebookMessenger"
-                    onClick={this.onClickFacebookMessenger}
+                    network="facebook"
+                    onClick={this.onClickFacebook}
                     style={styles.socialLinkMobile}
                   />
-                }
 
-                <SocialIconButton
-                  network="twitter"
-                  onClick={this.onClickTwitter}
-                  style={styles.socialLinkMobile}
-                />
+                  {mobile &&
+                    <SocialIconButton
+                      network="facebookMessenger"
+                      onClick={this.onClickFacebookMessenger}
+                      style={styles.socialLinkMobile}
+                    />
+                  }
 
-                <SocialIconButton
-                  network="whatsapp"
-                  onClick={this.onClickWhatsApp}
-                  style={styles.socialLinkMobile}
-                />
+                  <SocialIconButton
+                    network="twitter"
+                    onClick={this.onClickTwitter}
+                    style={styles.socialLinkMobile}
+                  />
+
+                  <SocialIconButton
+                    network="whatsapp"
+                    onClick={this.onClickWhatsApp}
+                    style={styles.socialLinkMobile}
+                  />
+                </div>
               </div>
-            </div>
+            }
           </div>
         }
       </div>
