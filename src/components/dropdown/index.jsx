@@ -55,10 +55,10 @@ function Dropdown({ options, defaultValue, onChange, size, qaHook }) {
       style={[styles.container.base, size && styles.container.size[size]]}
       defaultValue={defaultValue}
       onChange={onChange}
-      data-qa={qaHook ? createQAHook(defaultValue, "select", "select") : null}
+      data-testid={qaHook ? createQAHook(defaultValue, "select", "select") : null}
     >
       {options.map((option, i) => (
-        <option value={option} key={i} data-qa={qaHook ? createQAHook(option, `${i}`, "option") : null}>
+        <option value={option} key={i} data-testid={qaHook ? createQAHook(option, `${i}`, "option") : null}>
           {option}
         </option>
       ))}

@@ -123,13 +123,13 @@ const FeaturedCallout = ({
     <Heading
       level={1}
       weight="thick"
-      override={[
-        styles.title,
-        smallFormat && styles.smallFormat.title,
-        { fontWeight: titleWeight },
-      ]}
+      override={{
+        ...styles.title,
+        ...smallFormat && styles.smallFormat.title,
+        ...{ fontWeight: titleWeight },
+      }}
     >
-      <a href={link.href} style={styles.titleLink} data-qa={qaHook ? createQAHook(title, "feature-callout", "link") : null}>
+      <a href={link.href} style={styles.titleLink} data-testid={qaHook ? createQAHook(title, "feature-callout", "link") : null}>
         {title}
       </a>
     </Heading>

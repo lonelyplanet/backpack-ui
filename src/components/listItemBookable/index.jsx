@@ -395,7 +395,7 @@ function ListItemBookable({
           </header>
 
           {description && !type === "sleeping" &&
-            <div className="ListItem-description" style={styles.description.base} data-qa={qaHook ? "description-div" : null}>
+            <div className="ListItem-description" style={styles.description.base} data-testid={qaHook ? "description-div" : null}>
               <div
                 style={styles.description.clamp}
                 dangerouslySetInnerHTML={{ __html: description }}
@@ -404,7 +404,7 @@ function ListItemBookable({
           }
 
           {features.length > 0 &&
-            <ul className="ListItem-features" style={styles.largeText.base} data-qa={qaHook ? "features-ul" : null}>
+            <ul className="ListItem-features" style={styles.largeText.base} data-testid={qaHook ? "features-ul" : null}>
               {features.map((item, i) => (
                 <li style={styles.largeText.item} key={i}>
                   {_.upperFirst(item)}
@@ -417,7 +417,7 @@ function ListItemBookable({
           }
 
           {activityType === "tours" && showTourDestinations &&
-            <div data-qa={qaHook ? "destinations-bookable-div" : null} className="ListItem-tourDestinations" style={styles.largeText.base}>
+            <div data-testid={qaHook ? "destinations-bookable-div" : null} className="ListItem-tourDestinations" style={styles.largeText.base}>
               {(tourStart && tourEnd) &&
                 <Link to={slug} style={{ color: "inherit" }}>
                   {!mobile &&

@@ -25,9 +25,9 @@ function ContentSectionList({ header, listItems, qaHook }) {
       }
 
       {listItems &&
-        <ul data-qa={qaHook ? "content-section-list" : null} style={styles.list.base}>
+        <ul data-testid={qaHook ? "content-section-list" : null} style={styles.list.base}>
           {!isListItemsString && listItems.map((item, index) => (
-            <li data-qa={qaHook ? `${item}-list-item` : null} key={index}>{item}</li>
+            <li data-testid={qaHook ? `${item}-list-item` : null} key={index}>{item}</li>
           ))}
 
           {isListItemsString &&

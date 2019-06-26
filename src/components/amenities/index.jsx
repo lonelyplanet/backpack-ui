@@ -73,7 +73,7 @@ const getListItems = (items, capitalize, qaHook) => {
   const ListItems = items.map((item, index) => (
     <li
       key={index}
-      data-qa={qaHook ? createQAHook(`list-item-${index}`, `list-item-${index}`, "li") : null}
+      data-testid={qaHook ? createQAHook(`list-item-${index}`, `list-item-${index}`, "li") : null}
       dangerouslySetInnerHTML={markup(item)}
       style={[styles.item.base, capitalize && { textTransform: "capitalize" }]}
     />
@@ -91,11 +91,11 @@ const getGroupedItems = (items, qaHook) => {
         style={groupedItemStyle}
         key={index}
       >
-        <h5 style={styles.heading.base} data-qa={qaHook ? createQAHook(group.title, "group-title", "header") : null}>
+        <h5 style={styles.heading.base} data-testid={qaHook ? createQAHook(group.title, "group-title", "header") : null}>
           {group.title}
         </h5>
 
-        <ul data-qa={qaHook ? "amenities-list" : null} style={styles.list.base}>
+        <ul data-testid={qaHook ? "amenities-list" : null} style={styles.list.base}>
           {getListItems(group.items, group.capitalize, "grouped")}
         </ul>
       </div>

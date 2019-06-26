@@ -177,7 +177,7 @@ class NumberInput extends React.Component {
       >
         <input
           {...sanitizedProps}
-          data-qa={createQAHook(this.state.value, "number", "input")}
+          data-testid={createQAHook(this.state.value, "number", "input")}
           value={this.state.value}
           onChange={this.handleChange}
           onKeyDown={this.handleKeyDown}
@@ -189,7 +189,7 @@ class NumberInput extends React.Component {
             styles.element.numberInput.button.size[size],
             styles.element.numberInput.button.plus.size[size],
           ]}
-          data-qa={createQAHook("increment", "plus", "btn")}
+          data-testid={createQAHook("increment", "plus", "btn")}
           onClick={this.increment}
           type="button"
           key="plus"
@@ -203,7 +203,7 @@ class NumberInput extends React.Component {
             styles.element.numberInput.button.size[size],
             styles.element.numberInput.button.minus,
           ]}
-          data-qa={createQAHook("decrement", "minus", "btn")}
+          data-testid={createQAHook("decrement", "minus", "btn")}
           onClick={this.decrement}
           type="button"
           key="minus"

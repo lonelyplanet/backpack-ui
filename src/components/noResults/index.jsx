@@ -22,7 +22,7 @@ const styles = {
 function NoResults({ onReset, style, qaHook }) {
   return (
     <div className="NoResults" style={[styles.container.base, style]}>
-      <p style={styles.text.base} data-qa={qaHook ? "no-results-p" : null}>
+      <p style={styles.text.base} data-testid={qaHook ? "no-results-p" : null}>
         We couldn’t find any matches.
       </p>
 

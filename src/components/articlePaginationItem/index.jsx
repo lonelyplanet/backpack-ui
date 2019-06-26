@@ -105,7 +105,7 @@ function markup(htmlContent) {
 }
 
 const ArticlePaginationItem = ({ title, href, image, imageAlt, category, page, style, qaHook }) => (
-  <a className="ArticlePaginationItem" href={href} style={[styles.anchor, style]} data-qa={qaHook ? createQAHook(page, "ArticlePaginationItem", "link") : null}>
+  <a className="ArticlePaginationItem" href={href} style={[styles.anchor, style]} data-testid={qaHook ? createQAHook(page, "ArticlePaginationItem", "link") : null}>
     <style dangerouslySetInnerHTML={markup(css)} />
 
     <div style={styles.container}>

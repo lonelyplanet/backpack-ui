@@ -173,7 +173,7 @@ function RelatedTour({
         style={styles.elements.image.base}
         href={slug}
         onClick={clickHandler}
-        data-qa={qaHook ? "related-tour-image-link" : null}
+        data-testid={qaHook ? "related-tour-image-link" : null}
       >
         <img
           src={image}
@@ -194,7 +194,7 @@ function RelatedTour({
           tracking="tight"
           override={styles.elements.heading}
         >
-          <a href={slug} onClick={clickHandler} data-qa={qaHook ? createQAHook(title, "related-tour", "link") : null}>
+          <a href={slug} onClick={clickHandler} data-testid={qaHook ? createQAHook(title, "related-tour", "link") : null}>
             {title}
           </a>
         </Heading>

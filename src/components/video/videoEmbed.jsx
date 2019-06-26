@@ -471,7 +471,7 @@ class VideoEmbed extends Component {
       this.enableCaptions();
     }
 
-   /**
+    /**
     * Ads aren't programmatically unmutable in most cases so don't cover
     * the ad and don't make the user think they can unmute it using our
     * overlay.

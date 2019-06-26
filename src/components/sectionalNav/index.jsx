@@ -109,7 +109,7 @@ const styles = {
 function SectionalNav({ items, linkToOffset, qaHook }) {
   return (
     <Sticky innerZ={zIndex.globalHeader} enabled>
-      <nav data-qa={qaHook ? "sectional-nav" : null} className="SectionalNav" style={styles.container}>
+      <nav data-testid={qaHook ? "sectional-nav" : null} className="SectionalNav" style={styles.container}>
         <Style
           scopeSelector=".SectionalNav"
           rules={styles.scoped}
@@ -121,7 +121,7 @@ function SectionalNav({ items, linkToOffset, qaHook }) {
               <li
                 style={styles.listItem}
                 key={index}
-                data-qa={qaHook ? `${createQAHook(item, `sectional-nav-item-${index})`, "li")}` : null}
+                data-testid={qaHook ? `${createQAHook(item, `sectional-nav-item-${index})`, "li")}` : null}
               >
                 <Link
                   to={item}

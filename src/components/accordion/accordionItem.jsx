@@ -80,7 +80,7 @@ const AccordionItem = ({ heading, content, id, expanded, onClick, style, qaHook 
     <button
       className="Accordion-itemHeading"
       id={`${id}-heading`}
-      data-qa={qaHook ? createQAHook(heading, "Accordion-itemHeading", "btn") : null}
+      data-testid={qaHook ? createQAHook(heading, "Accordion-itemHeading", "btn") : null}
       aria-selected={expanded}
       aria-expanded={expanded}
       aria-controls={`${id}-content`}
@@ -98,7 +98,7 @@ const AccordionItem = ({ heading, content, id, expanded, onClick, style, qaHook 
     <div
       className="Accordion-itemContent"
       id={`${id}-content`}
-      data-qa={qaHook ? createQAHook(id, "Accordion-itemContent", "content") : null}
+      data-testid={qaHook ? createQAHook(id, "Accordion-itemContent", "content") : null}
       aria-labelledby={`${id}-heading`}
       aria-hidden={!expanded}
       role="tabpanel"

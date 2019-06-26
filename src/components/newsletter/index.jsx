@@ -326,64 +326,64 @@ class Newsletter extends Component {
 
           {!this.state.success &&
             !this.state.showCaptcha && (
-              <div>
-                {Object.keys(this.state.error).length > 0 ? (
-                  <p style={styles.error}>{this.getErrorMessage()}</p>
-                ) : (
-                  <p style={styles.copy}>
-                    {!this.state.success && subtitle}
+            <div>
+              {Object.keys(this.state.error).length > 0 ? (
+                <p style={styles.error}>{this.getErrorMessage()}</p>
+              ) : (
+                <p style={styles.copy}>
+                  {!this.state.success && subtitle}
 
-                    {this.state.success && `${confirmation.text} ${this.state.response.email}`}
-                  </p>
-                )}
+                  {this.state.success && `${confirmation.text} ${this.state.response.email}`}
+                </p>
+              )}
 
-                <form data-qa={qaHook ? "newsletter-form" : null} style={styles.form} action={endpoint} onSubmit={this.handleSubmit}>
-                  <div style={styles.inputFieldset}>
-                    <Input
-                      type="email"
-                      placeholder={placeholder}
+              <form data-testid={qaHook ? "newsletter-form" : null} style={styles.form} action={endpoint} onSubmit={this.handleSubmit}>
+                <div style={styles.inputFieldset}>
+                  <Input
+                    type="email"
+                    placeholder={placeholder}
+                    required
+                    id="newsletter-email"
+                    name="newsletter[email]"
+                    style={styles.input}
+                    onChange={this.handleInput}
+                    data-testid={qaHook ? "newsletter-email-input" : null}
+                  />
+                </div>
+
+                <div className={!hasOptin ? "Legal" : ""} style={styles.legalSection}>
+                  {hasOptin ? (
+                    <Checkbox
+                      id="legalOptIn"
+                      label={legalOptInLabel}
+                      style={styles.legalText}
+                      checked={this.state.acceptLegalOptIn}
+                      onClick={this.handleOptIn}
+                      value="legalOptIn"
+                      name="legalOptIn"
+                      data-testid={qaHook ? "legal-checkbox" : null}
                       required
-                      id="newsletter-email"
-                      name="newsletter[email]"
-                      style={styles.input}
-                      onChange={this.handleInput}
-                      data-qa={qaHook ? "newsletter-email-input" : null}
                     />
-                  </div>
+                  ) : (
+                    <span style={styles.legalText}>{legalOptInLabel}</span>
+                  )}
+                </div>
 
-                  <div className={!hasOptin ? "Legal" : ""} style={styles.legalSection}>
-                    {hasOptin ? (
-                      <Checkbox
-                        id="legalOptIn"
-                        label={legalOptInLabel}
-                        style={styles.legalText}
-                        checked={this.state.acceptLegalOptIn}
-                        onClick={this.handleOptIn}
-                        value="legalOptIn"
-                        name="legalOptIn"
-                        data-qa={qaHook ? "legal-checkbox" : null}
-                        required
-                      />
-                    ) : (
-                      <span style={styles.legalText}>{legalOptInLabel}</span>
-                    )}
-                  </div>
-
-                  <div style={styles.inputFieldset}>
-                    <Button
-                      color="blue"
-                      size="small"
-                      disabled={this.state.disabled}
-                      customStyles={styles.button}
-                      qaHook={qaHook}
-                    >
-                      {!this.state.waiting && cta}
-                      {this.state.waiting && <Icon.Loading />}
-                    </Button>
-                  </div>
-                </form>
-              </div>
-            )}
+                <div style={styles.inputFieldset}>
+                  <Button
+                    color="blue"
+                    size="small"
+                    disabled={this.state.disabled}
+                    customStyles={styles.button}
+                    qaHook={qaHook}
+                  >
+                    {!this.state.waiting && cta}
+                    {this.state.waiting && <Icon.Loading />}
+                  </Button>
+                </div>
+              </form>
+            </div>
+          )}
 
           {this.state.showCaptcha && (
             <div style={{ marginTop: "24px" }}>
@@ -438,11 +438,17 @@ Newsletter.defaultProps = {
   },
   legalOptInLabel: [
     "I want emails from Lonely Planet with travel and product information, promotions, advertisements, third-party offers, and surveys. I can unsubscribe any time using the unsubscribe link at the end of all emails. ",
-    <a href="https://www.lonelyplanet.com/contact" target="_blank" rel="noopener noreferrer">
-    Contact Lonely Planet here
+    <a
+      key="contact-lp"
+      href="https://www.lonelyplanet.com/contact"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Contact Lonely Planet here
     </a>,
     ". Lonely Planet ",
     <a
+      key="privacy-policy"
       href="https://www.lonelyplanet.com/legal/privacy-policy/"
       target="_blank"
       rel="noopener noreferrer"

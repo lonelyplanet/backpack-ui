@@ -173,7 +173,7 @@ const ListItemBookmarkEntry = ({
     {showNoteAction && handleNoteAction &&
       <TextAccent>
         <button
-          data-qa={qaHook ? createQAHook("add or edit note", "note", "btn") : null}
+          data-testid={qaHook ? createQAHook("add or edit note", "note", "btn") : null}
           onClick={handleNoteAction}
           style={[
             styles.note.default,

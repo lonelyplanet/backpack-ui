@@ -79,7 +79,7 @@ const SocialLoginButton = (props) => {
         style,
       ]}
       onClick={onClick}
-      data-qa={qaHook ? createQAHook(iconName, "social-login", "btn") : null}
+      data-testid={qaHook ? createQAHook(iconName, "social-login", "btn") : null}
     >
       {iconFromString(iconName, iconParameters)}
       {children}

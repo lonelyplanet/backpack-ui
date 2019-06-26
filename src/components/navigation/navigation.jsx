@@ -34,7 +34,7 @@ const Navigation = (props) => {
   return (
     <nav
       className="Navigation"
-      data-qa={qaHook ? createQAHook(qaHook, "Navigation", "nav") : null}
+      data-testid={qaHook ? createQAHook(qaHook, "Navigation", "nav") : null}
       style={[
         styles.nav,
         sticky && { position: "sticky", top: 0 },

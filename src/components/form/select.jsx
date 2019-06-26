@@ -32,7 +32,7 @@ function Select({
         noBorder && styles.noBorder,
         style,
       ]}
-      data-qa={qaHook ? createQAHook(name, id, "select") : null}
+      data-testid={qaHook ? createQAHook(name, id, "select") : null}
       className={cn("Select", className)}
       id={id}
       name={name || id}
@@ -55,7 +55,7 @@ function Select({
             <option
               value={option.value}
               key={option.value}
-              data-qa={qaHook ? createQAHook(option.value, `${index}`, "option") : null}
+              data-testid={qaHook ? createQAHook(option.value, `${index}`, "option") : null}
             >
               {option.label}
             </option>
@@ -66,7 +66,7 @@ function Select({
           <option
             value={option}
             key={option}
-            data-qa={qaHook ? createQAHook(option.value, `${index}`, "option") : null}
+            data-testid={qaHook ? createQAHook(option.value, `${index}`, "option") : null}
           >
             {option}
           </option>
