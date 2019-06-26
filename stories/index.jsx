@@ -2937,6 +2937,9 @@ storiesOf("Video components", module)
         mobile={boolean("Mobile", false)}
         onLoadVideo={(video, autoplay) => { console.log("onLoadVideo:", video, autoplay); }}
         qaHook={boolean("QA Hook", false)}
+        videoPopout={{
+          showCloseButton: false,
+        }}
         videos={[
           {
             id: "5615400608001",
@@ -2960,7 +2963,6 @@ storiesOf("Video components", module)
             cardImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=40&w=915&h=515",
             thumbnailImage: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/production/p-5615400608001-brightcove-lonely-planets-best-destinations-to-visit-in-2018-20171028-052139.jpg?sharp=10&q=50&w=160&h=90",
             duration: 20000,
-            url: "/video/here-and-now-hong-kong-dragon-boat-festival/v/vid/310",
             host: "Tom Hall and Oliver Smith 2",
             director: "Macca Sheriffi 2",
             year: "2017",
