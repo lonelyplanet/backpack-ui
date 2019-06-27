@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.94.10"></a>
+## [4.94.10](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.9...v4.94.10) (2019-06-27)
+
+
+### Bug Fixes
+
+* combine preview and download into one icon for cardBook ([#771](https://github.com/lonelyplanet/backpack-ui/issues/771)) ([da15060](https://github.com/lonelyplanet/backpack-ui/commit/da15060))
+* videoinfo component conditionally shows social share buttons ([#772](https://github.com/lonelyplanet/backpack-ui/issues/772)) ([#774](https://github.com/lonelyplanet/backpack-ui/issues/774)) ([4cf3bf4](https://github.com/lonelyplanet/backpack-ui/commit/4cf3bf4))
+* VideoInfo conditionally shows social share buttons ([#772](https://github.com/lonelyplanet/backpack-ui/issues/772)) ([a08c9d9](https://github.com/lonelyplanet/backpack-ui/commit/a08c9d9))
+* videoinfo conditionally shows social share buttons ([#772](https://github.com/lonelyplanet/backpack-ui/issues/772)) ([#775](https://github.com/lonelyplanet/backpack-ui/issues/775)) ([e59a4f3](https://github.com/lonelyplanet/backpack-ui/commit/e59a4f3))
+
+
+
 <a name="4.94.9"></a>
 ## [4.94.9](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.8...v4.94.9) (2019-06-21)
 
