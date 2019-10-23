@@ -12,7 +12,7 @@ import propTypes from "../../utils/propTypes";
 const styles = {
   color: colors.textSecondary,
   fontFamily: font("benton"),
-  fontSize: "9px",
+  fontSize: "12px",
   lineHeight: (15 / 9),
   maxWidth: "calc(100vw - 60px)",
   width: "512px",
