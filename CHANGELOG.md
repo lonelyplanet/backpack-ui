@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.95.0"></a>
+# [4.95.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.10...v4.95.0) (2019-10-23)
+
+
+### Features
+
+* increase legacy login disclaimer fontsize ([#780](https://github.com/lonelyplanet/backpack-ui/issues/780)) ([4c4356d](https://github.com/lonelyplanet/backpack-ui/commit/4c4356d))
+
+
+
 <a name="4.94.10"></a>
 ## [4.94.10](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.9...v4.94.10) (2019-06-27)
 
