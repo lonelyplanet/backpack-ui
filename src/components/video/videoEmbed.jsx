@@ -463,6 +463,34 @@ class VideoEmbed extends Component {
   }
 
   onAdStarted() {
+    if (!this.isAdRunning()) {
+      /*
+        If an ads-ad-started event fired, but there is "no ad running",
+        it's an indication that something went wrong with the ad setup,
+        which most likely will put the player into a confused state.
+
+        Most commonly, you'll see `VIDEOJS: WARN: Unexpected startLinearAdMode invocation (Preroll)`
+        in your console just before the `ads-ad-started` event fires.
+
+        We only kill the ad from here if videojs-lp isn't being used because otherwise, videojs-lp
+        will handle it.
+
+        Read about the issue here:
+        https://github.com/googleads/videojs-ima/issues/796
+
+        Read about the ima3 method we use to kill the ad:
+        https://developers.google.com/interactive-media-ads/docs/sdks/android/v3/api/reference/com/google/ads/interactivemedia/v3/api/AdsManager.html#discardAdBreak()
+      */
+      if (!this.hasLPUIPlugin()) {
+        try {
+          this.player.ima3.adsManager.discardAdBreak();
+        } catch (e) {} /* eslint-disable-line no-empty */
+      }
+
+      // Act like onAdStarted never happened.
+      return;
+    }
+
     this.setState({
       playing: true,
     });
