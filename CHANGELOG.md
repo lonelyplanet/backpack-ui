@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.95.1"></a>
+## [4.95.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.95.0...v4.95.1) (2019-11-21)
+
+
+### Bug Fixes
+
+* video recover from faulty ad setup ([#781](https://github.com/lonelyplanet/backpack-ui/issues/781)) ([9cb5e50](https://github.com/lonelyplanet/backpack-ui/commit/9cb5e50))
+
+
+
 <a name="4.95.0"></a>
 # [4.95.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.94.10...v4.95.0) (2019-10-23)
 
