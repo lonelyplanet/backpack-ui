@@ -1884,6 +1884,8 @@ storiesOf("Logos", module)
         gadventures: "G Adventures",
         viator: "Viator",
         worldNomads: "World Nomads",
+        urbanAdventures: "Urban Adventures",
+        intrepid: "Intrepid",
       }, "bdc")}
     />
   ));
