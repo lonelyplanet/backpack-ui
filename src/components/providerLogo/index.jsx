@@ -6,6 +6,8 @@ import ProviderLogoBookingDotcom from "./providerLogoBookingDotcom";
 import ProviderLogoGAdventures from "./providerLogoGAdventures";
 import ProviderLogoViator from "./providerLogoViator";
 import ProviderLogoWorldNomads from "./providerLogoWorldNomads";
+import ProviderLogoUrbanAdventures from "./providerLogoUrbanAdventures";
+import ProviderLogoIntrepid from "./providerLogoIntrepid";
 
 function ProviderLogo({ provider, className, style }) {
   const providers = {
@@ -36,6 +38,16 @@ function ProviderLogo({ provider, className, style }) {
       name: "World Nomads",
       image: "vendorLogo-worldNomads.png",
       icon: <ProviderLogoWorldNomads />,
+    },
+    urban_adventures: {
+      name: "Urban Adventures",
+      image: "vendorLogo-urbanAdventures.png",
+      icon: <ProviderLogoUrbanAdventures />,
+    },
+    intrepid: {
+      name: "Intrepid",
+      image: "vendorLogo-intrepid.png",
+      icon: <ProviderLogoIntrepid />,
     },
   };
 
@@ -71,6 +83,8 @@ ProviderLogo.propTypes = {
     "gadventures",
     "viator",
     "worldNomads",
+    "urban_adventures",
+    "intrepid",
   ]).isRequired,
   className: PropTypes.string,
   style: PropTypes.objectOf(
