@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.96.0"></a>
+# [4.96.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.95.1...v4.96.0) (2020-01-21)
+
+
+### Features
+
+* enable intrepid and ua activities ([#782](https://github.com/lonelyplanet/backpack-ui/issues/782)) ([eaeaf63](https://github.com/lonelyplanet/backpack-ui/commit/eaeaf63))
+
+
+
 <a name="4.95.1"></a>
 ## [4.95.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.95.0...v4.95.1) (2019-11-21)
 
