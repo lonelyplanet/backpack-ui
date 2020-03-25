@@ -5,7 +5,7 @@ import TextArea from "../form/textarea";
 import HeightExpander from "../form/heightExpander";
 
 const SettingBlockTextArea = (props) => {
-  const { onChange } = props;
+  const { onChange, onFocus } = props;
 
   return (
     <SettingBlock
@@ -18,6 +18,7 @@ const SettingBlockTextArea = (props) => {
         {(expandHeight, newHeight) => (
           <TextArea
             {...props}
+            onFocus={onFocus}
             id={props.id}
             onChange={(e) => {
               expandHeight(e);
@@ -48,6 +49,7 @@ SettingBlockTextArea.propTypes = {
   subtitle: PropTypes.string,
   error: PropTypes.bool,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
 };
 
 export default SettingBlockTextArea;

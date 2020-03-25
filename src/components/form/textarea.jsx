@@ -15,6 +15,8 @@ function TextArea(props) {
     theme,
     customStyles,
     qaHook,
+    onChange,
+    onFocus,
   } = props;
   const style = [styles.base];
 
@@ -42,6 +44,8 @@ function TextArea(props) {
       aria-label={label}
       qa-hook={qaHook ? createQAHook(name, id, "textarea") : null}
       title={label}
+      onChange={onChange}
+      onFocus={onFocus}
       {...sanitizedProps}
       style={style}
     />
@@ -75,6 +79,9 @@ TextArea.propTypes = {
 
   qaHook: PropTypes.bool,
 
+  onChange: PropTypes.func,
+
+  onFocus: PropTypes.func,
 };
 
 TextArea.defaultProps = {
@@ -97,6 +104,8 @@ TextArea.defaultProps = {
   theme: "base",
 
   onChange: null,
+
+  onFocus: null,
 
   qaHook: false,
 };
