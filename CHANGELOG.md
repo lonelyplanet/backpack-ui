@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.96.2"></a>
+## [4.96.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.96.1...v4.96.2) (2020-03-30)
+
+
+### Bug Fixes
+
+* pass onClick handler ([#784](https://github.com/lonelyplanet/backpack-ui/issues/784)) ([b84754a](https://github.com/lonelyplanet/backpack-ui/commit/b84754a))
+
+
+
 <a name="4.96.1"></a>
 ## [4.96.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.96.0...v4.96.1) (2020-03-25)
 
