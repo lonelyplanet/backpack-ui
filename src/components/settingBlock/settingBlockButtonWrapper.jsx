@@ -26,11 +26,13 @@ const scopedStyles = {
 };
 
 const SettingBlockButtonWrapper = (props) => {
+  const { onClick } = props;
   const sanitizedProps = validReactAttributes(props);
 
   return (
     <button
       {...sanitizedProps}
+      onClick={onClick}
       className="SettingBlockButtonWrapper"
       style={[styles.container, styles.buttonResets, props.style]}
     >
@@ -44,6 +46,7 @@ const SettingBlockButtonWrapper = (props) => {
 SettingBlockButtonWrapper.propTypes = {
   children: PropTypes.element,
   style: propTypes.style,
+  onClick: PropTypes.func,
 };
 
 export default radium(SettingBlockButtonWrapper);
