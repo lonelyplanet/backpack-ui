@@ -77,7 +77,6 @@ import ErrorMessages from "../src/components/form/errorMessages";
 import ExpandButton from "../src/components/expandButton";
 import FeaturedArticle from "../src/components/featuredArticle";
 import Flag from "../src/components/flag";
-import { FlightSearchWidget, NoFlightResults } from "../src/components/flightSearchWidget";
 import Flyout from "../src/components/flyout";
 import GridColumn from "../src/components/gridColumn";
 import GridRow from "../src/components/gridRow";
@@ -1374,36 +1373,6 @@ storiesOf("Loaders", module)
         <DotLoader inline={boolean("Inline", false)} />
       </Center>
     </StyleRoot>
-  ));
-
-storiesOf("Flights Widget", module)
-  .addDecorator(withKnobs)
-  .add("Flight search widget", () => (
-    <FlightSearchWidget
-      depart={{
-        airportCode: "BNA",
-        city: "Nashville",
-      }}
-      arrive={{
-        airportCode: "LAX",
-        city: "Los Angeles",
-      }}
-      price={{
-        amount: 600,
-        currency: "USD",
-      }}
-      onClick={action("Flight search widget")}
-      qaHook={boolean("QA Hook", false)}
-    />
-  ))
-  .add("No Flight Results", () => (
-    <StyleRoot>
-      <NoFlightResults
-        link={text("Url", "#")}
-        destinationName={text("Destination Name")}
-        children={text("Message", "We couldn't find any matching flights")}
-      />
-    </StyleRoot >
   ));
 
 storiesOf("Lockups", module)
