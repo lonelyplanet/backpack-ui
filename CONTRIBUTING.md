@@ -55,6 +55,7 @@ See also: #456, #789
 ```
 
 💡 **Tip:**
+
 > Configure Git [to use your editor](https://help.github.com/articles/associating-text-editors-with-git/) to write commit messages and set ruler marks in your editor to mark `50`, `72` and `100`. For Atom, you can install [omni-ruler](https://atom.io/packages/omni-ruler). Other editors may have this functionality built in.
 >
 > Atom also has a nice feature that highlights your subject line and body if they're too long.
@@ -97,18 +98,13 @@ Backpack uses [Airbnb’s JavaScript Style Guide](https://github.com/airbnb/java
 
 If you have questions or problems, you can contact one of the core maintainers:
 
-- [thomasthesecond](https://github.com/thomasthesecond)
 - [vacas5](https://github.com/vacas5)
-- [lburdock](https://github.com/lburdock)
 
 ## Release guide
 
 Releases can be made by:
 
-- [thomasthesecond](https://github.com/thomasthesecond)
-- [egdelwonk](https://github.com/egdelwonk)
 - [vacas5](https://github.com/vacas5)
-- [lburdock](https://github.com/lburdock)
 - [katelynp43](https://github.com/katelynp43)
 
 Please ping one of them to create a new release.

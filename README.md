@@ -2,8 +2,13 @@
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 # backpack-ui
+
 Every adventurer needs a set of tools to take along the way! Backpack is the Lonely Planet toolset that we use to build front end
 apps.
+
+## Project status
+
+Backpack-ui is a legacy project, now in maintenance mode. In most cases, you should choose a different library.
 
 ### Installation
 
@@ -29,16 +34,13 @@ Then import your component(s) into stories/index.jsx and render them like so:
 
 ```js
 storiesOf("Some component name", module)
-  .add("Default", () => (
-    <ComponentName />
-  ))
-  .add("Some variation", () => (
-    <ComponentName prop="value" />
-  ));
+  .add("Default", () => <ComponentName />)
+  .add("Some variation", () => <ComponentName prop="value" />);
 ```
 
 ### Notes
-* Don't do `import foo from "lodash";`. Makes the bundles asplode.
+
+- Don't do `import foo from "lodash";`. Makes the bundles asplode.
 
 ### Contributing
 
