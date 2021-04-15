@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.96.3"></a>
+## [4.96.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.96.2...v4.96.3) (2021-04-15)
+
+
+### Bug Fixes
+
+* props not being passed to Link component when using relative url ([#786](https://github.com/lonelyplanet/backpack-ui/issues/786)) ([04cba77](https://github.com/lonelyplanet/backpack-ui/commit/04cba77))
+
+
+### Features
+
+* deprecate FlightSearchWidget ([#785](https://github.com/lonelyplanet/backpack-ui/issues/785)) ([6702d2d](https://github.com/lonelyplanet/backpack-ui/commit/6702d2d))
+
+
+### BREAKING CHANGES
+
+* this completely deprecates the FlightSearchWidget as we
+have changed how our internal API works for this. We have no plans to
+add it back to this library.
+
+
+
 <a name="4.96.2"></a>
 ## [4.96.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.96.1...v4.96.2) (2020-03-30)
 
