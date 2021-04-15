@@ -6,7 +6,7 @@ import { validReactAttributes } from "../../utils/validReactAttributes";
 
 const isExternal = (url) => /^(http|https):\/\//.test(url || "");
 
-const Link = ({ to, onClick, children, qaHook, className, ...rest }) => {
+const Link = ({ to, onClick, children, qaHook, ...rest }) => {
   const sanitizedProps = validReactAttributes(rest);
 
   return (
@@ -15,13 +15,16 @@ const Link = ({ to, onClick, children, qaHook, className, ...rest }) => {
         href={to}
         data-testid={qaHook ? createQAHook(`${qaHook}`, "external-link", "link") : null}
         onClick={onClick}
-        className={className}
         {...sanitizedProps}
       >
         {children}
       </a>
       :
-      <RouterLink to={to} onClick={onClick}>
+      <RouterLink
+        to={to}
+        onClick={onClick}
+        {...sanitizedProps}
+      >
         {children}
       </RouterLink>
   );
